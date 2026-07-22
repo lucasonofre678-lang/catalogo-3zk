@@ -8,27 +8,33 @@
     "cores": [
       {
         "nome": "Vermelho Coral",
-        "hex": "#FF6B5B",
+        "hex": "#AC494A",
         "imagem": "assets/fotos/flashforge-pla/vermelho-coral.webp",
         "estoque": 19,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Laranja Escuro",
-        "hex": "#C75B12",
+        "hex": "#9D2C15",
         "imagem": "assets/fotos/flashforge-pla/laranja-escuro.webp",
         "estoque": 6,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Azul Esverdeado",
-        "hex": "#2E8B8B",
+        "hex": "#57A1B0",
         "imagem": "assets/fotos/flashforge-pla/azul-esverdeado.webp",
         "estoque": 28,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Cool Gray / Cinza Azulado",
@@ -36,7 +42,9 @@
         "imagem": "assets/fotos/flashforge-pla/cool-gray-cinza-azulado.webp",
         "estoque": 22,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Cream Yellow / Amarelo Suave",
@@ -44,15 +52,19 @@
         "imagem": "assets/fotos/flashforge-pla/cream-yellow-amarelo-suave.webp",
         "estoque": 19,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Honeydew / Verde Melão",
         "hex": "#C9E4B5",
-        "imagem": "assets/fotos/flashforge-pla/honey-mel.webp",
+        "imagem": "assets/fotos/flashforge-pla/honeydew-verde-melao.webp",
         "estoque": 19,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "fotoStatus": "ausente",
+        "hexFonte": "sem_foto"
       },
       {
         "nome": "Lavender / Roxo Claro",
@@ -60,7 +72,9 @@
         "imagem": "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
         "estoque": 22,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Light Coral / Rosa-Alaranjado Claro",
@@ -68,7 +82,9 @@
         "imagem": "assets/fotos/flashforge-pla/light-coral-rosa-alaranjado-claro.webp",
         "estoque": 18,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Mint Green / Verde Menta Claro",
@@ -76,7 +92,9 @@
         "imagem": "assets/fotos/flashforge-pla/mint-green-verde-menta-claro.webp",
         "estoque": 18,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Sea Green / Verde Mar Azulado",
@@ -84,7 +102,9 @@
         "imagem": "assets/fotos/flashforge-pla/sea-green-verde-mar-azulado.webp",
         "estoque": 14,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       }
     ],
     "disponivel": true
@@ -98,11 +118,13 @@
     "cores": [
       {
         "nome": "Rosa",
-        "hex": "#E8749A",
+        "hex": "#ED5996",
         "imagem": "assets/fotos/closin-petg/rosa.webp",
         "estoque": 2,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "obs": "Rolo de 1kg",
@@ -117,11 +139,13 @@
     "cores": [
       {
         "nome": "Roxo",
-        "hex": "#6A4C9C",
+        "hex": "#735575",
         "imagem": "assets/fotos/masterprint-petg/roxo.webp",
         "estoque": 1,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Branco",
@@ -129,7 +153,9 @@
         "imagem": "assets/fotos/masterprint-petg/branco.webp",
         "estoque": 23,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       }
     ],
     "disponivel": true
@@ -143,35 +169,43 @@
     "cores": [
       {
         "nome": "Laranja",
-        "hex": "#F07C2E",
+        "hex": "#D8493B",
         "imagem": "assets/fotos/fusionx-petg/laranja.webp",
         "estoque": 5,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Tangerina",
-        "hex": "#F5941F",
+        "hex": "#F33B25",
         "imagem": "assets/fotos/fusionx-petg/tangerina.webp",
         "estoque": 6,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Verde Escuro",
-        "hex": "#1F5B3A",
+        "hex": "#464C56",
         "imagem": "assets/fotos/fusionx-petg/verde-escuro.webp",
         "estoque": 5,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Verde Água",
-        "hex": "#4FBFAE",
+        "hex": "#32A5AA",
         "imagem": "assets/fotos/fusionx-petg/verde-agua.webp",
         "estoque": 6,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Pink Purple Violeta",
@@ -179,15 +213,19 @@
         "imagem": "assets/fotos/fusionx-petg/pink-purple-violeta.webp",
         "estoque": 6,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "candidata_disponivel"
       },
       {
         "nome": "Amarelo Canário",
-        "hex": "#F5D520",
+        "hex": "#D2A361",
         "imagem": "assets/fotos/fusionx-petg/amarelo-canario.webp",
         "estoque": 3,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "disponivel": true
@@ -201,11 +239,13 @@
     "cores": [
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
+        "hex": "#E3E1DD",
         "imagem": "assets/fotos/fusion-high-speed-petg/branco.webp",
         "estoque": 125,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "revisar_linha"
       }
     ],
     "obs": "Rolo com 1,2kg — 200g a mais que o rolo padrão",
@@ -224,7 +264,9 @@
         "imagem": "assets/fotos/masterprint-pla/branco.webp",
         "estoque": 17,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Laranja",
@@ -232,7 +274,9 @@
         "imagem": "assets/fotos/masterprint-pla/laranja.webp",
         "estoque": 28,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Cinza",
@@ -240,7 +284,9 @@
         "imagem": "assets/fotos/masterprint-pla/cinza.webp",
         "estoque": 7,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Transparente",
@@ -249,23 +295,29 @@
         "estoque": 0,
         "disponivel": false,
         "statusEstoque": "sem_estoque",
-        "efeito": "glass"
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Prata",
-        "hex": "#C7CBCF",
+        "hex": "#858B8D",
         "imagem": "assets/fotos/masterprint-pla/prata.webp",
         "estoque": 0,
         "disponivel": false,
-        "statusEstoque": "sem_estoque"
+        "statusEstoque": "sem_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Roxo Claro",
-        "hex": "#B79FD9",
+        "hex": "#B1A3BA",
         "imagem": "assets/fotos/masterprint-pla/roxo-claro.webp",
         "estoque": 3,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Prata Master",
@@ -273,69 +325,85 @@
         "imagem": "assets/fotos/masterprint-pla/prata-master.webp",
         "estoque": 4,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Silk Roxo",
-        "hex": "#7A4FAE",
+        "hex": "#8D4794",
         "imagem": "assets/fotos/masterprint-pla/silk-roxo.webp",
         "estoque": 19,
         "disponivel": true,
         "statusEstoque": "em_estoque",
-        "efeito": "silk"
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Silk Fuchsia",
-        "hex": "#D6368F",
+        "hex": "#C66082",
         "imagem": "assets/fotos/masterprint-pla/silk-fuchsia.webp",
         "estoque": 2,
         "disponivel": true,
         "statusEstoque": "ultimas_unidades",
-        "efeito": "silk"
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Peacock Blue",
-        "hex": "#0F7EA6",
+        "hex": "#466F78",
         "imagem": "assets/fotos/masterprint-pla/peacock-blue.webp",
         "estoque": 0,
         "disponivel": false,
         "statusEstoque": "sem_estoque",
-        "efeito": "silk"
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Silk Vermelho Púrpura",
-        "hex": "#9C2C4C",
+        "hex": "#D05385",
         "imagem": "assets/fotos/masterprint-pla/silk-vermelho-purpura.webp",
         "estoque": 3,
         "disponivel": true,
         "statusEstoque": "ultimas_unidades",
-        "efeito": "silk"
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Fosco Roxo",
-        "hex": "#5B3F7A",
+        "hex": "#796471",
         "imagem": "assets/fotos/masterprint-pla/fosco-roxo.webp",
         "estoque": 5,
         "disponivel": true,
         "statusEstoque": "em_estoque",
-        "efeito": "fosco"
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Fosco Cinza Fóssil",
-        "hex": "#6E6E64",
+        "hex": "#686E72",
         "imagem": "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp",
         "estoque": 19,
         "disponivel": true,
         "statusEstoque": "em_estoque",
-        "efeito": "fosco"
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Cobre Esverdeado",
-        "hex": "#7A8F6E",
+        "hex": "#7C7963",
         "imagem": "assets/fotos/masterprint-pla/cobre-esverdeado.webp",
         "estoque": 7,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "disponivel": true
@@ -354,7 +422,9 @@
         "estoque": 3,
         "disponivel": true,
         "statusEstoque": "ultimas_unidades",
-        "efeito": "silk"
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       }
     ],
     "linha": "Silk Especial",
@@ -374,16 +444,20 @@
         "estoque": 5,
         "disponivel": true,
         "statusEstoque": "em_estoque",
-        "efeito": "glass"
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Dreamy Crystal Preto/Vermelho",
-        "hex": "#1C1418",
+        "hex": "#5F444B",
         "imagem": "assets/fotos/masterprint-pla-especial/dreamy-crystal-preto-vermelho.webp",
         "estoque": 2,
         "disponivel": true,
         "statusEstoque": "ultimas_unidades",
-        "efeito": "glass"
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "linha": "Especial",
@@ -398,12 +472,14 @@
     "cores": [
       {
         "nome": "Fosforescente Natural/Azul",
-        "hex": "#CDEFFA",
+        "hex": "#CECFC1",
         "imagem": "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp",
         "estoque": 28,
         "disponivel": true,
         "statusEstoque": "em_estoque",
-        "efeito": "glow"
+        "efeito": "glow",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "linha": "Fosforescente",
@@ -422,7 +498,9 @@
         "imagem": "assets/fotos/masterprint-abs/rosa.webp",
         "estoque": 1,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Laranja",
@@ -430,7 +508,9 @@
         "imagem": "assets/fotos/masterprint-abs/laranja.webp",
         "estoque": 6,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Amarelo",
@@ -438,7 +518,9 @@
         "imagem": "assets/fotos/masterprint-abs/amarelo.webp",
         "estoque": 1,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Roxo",
@@ -446,7 +528,9 @@
         "imagem": "assets/fotos/masterprint-abs/roxo.webp",
         "estoque": 42,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Prata",
@@ -454,7 +538,9 @@
         "imagem": "assets/fotos/masterprint-abs/prata.webp",
         "estoque": 5,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Marrom",
@@ -462,7 +548,9 @@
         "imagem": "assets/fotos/masterprint-abs/marrom.webp",
         "estoque": 9,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Natural",
@@ -470,7 +558,9 @@
         "imagem": "assets/fotos/masterprint-abs/natural.webp",
         "estoque": 41,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Azul",
@@ -478,7 +568,9 @@
         "imagem": "assets/fotos/masterprint-abs/azul.webp",
         "estoque": 92,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Branco",
@@ -486,7 +578,9 @@
         "imagem": "assets/fotos/masterprint-abs/branco.webp",
         "estoque": 13,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Verde",
@@ -494,7 +588,9 @@
         "imagem": "assets/fotos/masterprint-abs/verde.webp",
         "estoque": 22,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       }
     ],
     "disponivel": true
@@ -508,19 +604,23 @@
     "cores": [
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
+        "hex": "#D4DCDF",
         "imagem": "assets/fotos/masterprint-tpu/branco.webp",
         "estoque": 13,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Cinza",
-        "hex": "#9C9FA3",
+        "hex": "#A0A7AA",
         "imagem": "assets/fotos/masterprint-tpu/cinza.webp",
         "estoque": 22,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Preto",
@@ -528,7 +628,9 @@
         "imagem": "assets/fotos/masterprint-tpu/preto.webp",
         "estoque": 2,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       },
       {
         "nome": "Natural Transparente",
@@ -537,7 +639,9 @@
         "estoque": 10,
         "disponivel": true,
         "statusEstoque": "em_estoque",
-        "efeito": "glass"
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente"
       }
     ],
     "obs": "Rolo de 1kg",
@@ -552,19 +656,23 @@
     "cores": [
       {
         "nome": "Cinza",
-        "hex": "#9C9FA3",
+        "hex": "#7F8388",
         "imagem": "assets/fotos/creality-soleyin-ultra-pla/cinza.webp",
         "estoque": 9,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       },
       {
         "nome": "Rosehip",
-        "hex": "#B23A4A",
+        "hex": "#C34E25",
         "imagem": "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp",
         "estoque": 0,
         "disponivel": false,
-        "statusEstoque": "sem_estoque"
+        "statusEstoque": "sem_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "disponivel": true
@@ -578,11 +686,13 @@
     "cores": [
       {
         "nome": "Orange",
-        "hex": "#F0822E",
+        "hex": "#CB5A35",
         "imagem": "assets/fotos/elegoo-pla/orange.webp",
         "estoque": 3,
         "disponivel": true,
-        "statusEstoque": "ultimas_unidades"
+        "statusEstoque": "ultimas_unidades",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "disponivel": true
@@ -596,11 +706,13 @@
     "cores": [
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
+        "hex": "#C9CBCA",
         "imagem": "assets/fotos/multifila-pla/branco.webp",
         "estoque": 73,
         "disponivel": true,
-        "statusEstoque": "em_estoque"
+        "statusEstoque": "em_estoque",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada"
       }
     ],
     "disponivel": true
