@@ -1,184 +1,8 @@
 /* ============================================================
    DADOS DOS PRODUTOS
-   Para adicionar um novo produto, copie um bloco { ... } inteiro
-   e edite marca, material, preco e a lista de cores.
-   Para adicionar uma nova cor, copie uma linha { nome, hex }
-   dentro do array "cores" do produto desejado.
-   Campo opcional "efeito" pode ser: "silk", "glass", "fosco" ou "glow".
+   Agora os produtos são carregados de dados/produtos.json.
    ============================================================ */
-const produtos = [
-  {
-    marca: "Flashforge",
-    material: "PLA",
-    preco: 90,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",  
-    cores: [
-      { nome: "Vermelho Coral", hex: "#FF6B5B" },
-      { nome: "Laranja Escuro", hex: "#C75B12" },
-      { nome: "Azul Esverdeado", hex: "#2E8B8B" },
-      { nome: "Cool Gray / Cinza Azulado", hex: "#8C97A8" },
-      { nome: "Cream Yellow / Amarelo Suave", hex: "#F5E1A4" },
-      { nome: "Honeydew / Verde Melão", hex: "#C9E4B5" },
-      { nome: "Lavender / Roxo Claro", hex: "#C7B8E8" },
-      { nome: "Light Coral / Rosa-Alaranjado Claro", hex: "#F0958A" },
-      { nome: "Mint Green / Verde Menta Claro", hex: "#A8E0C8" },
-      { nome: "Sea Green / Verde Mar Azulado", hex: "#4F9E8C" }
-    ]
-  },
-  {
-    marca: "Closin",
-    material: "PETG",
-    preco: 70,
-    obs: "Rolo de 1kg",
-    cores: [
-      { nome: "Rosa", hex: "#E8749A" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "PETG",
-    preco: 63,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-petg-masterprint/",
-    cores: [
-      { nome: "Roxo", hex: "#6A4C9C" },
-      { nome: "Branco", hex: "#F2F2F0" }
-    ]
-  },
-  {
-    marca: "FusionX",
-    material: "PETG",
-    preco: 70,
-     linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-petg-fusion-x-1kg-alta-performance/",
-    cores: [
-      { nome: "Laranja", hex: "#F07C2E" },
-      { nome: "Tangerina", hex: "#F5941F" },
-      { nome: "Verde Escuro", hex: "#1F5B3A" },
-      { nome: "Verde Água", hex: "#4FBFAE" },
-      { nome: "Pink Purple Violeta", hex: "#A24C9C" },
-      { nome: "Amarelo Canário", hex: "#F5D520" }
-    ]
-  },
-  {
-    marca: "Fusion High Speed",
-    material: "PETG",
-    preco: 81,
-    obs: "Rolo com 1,2kg — 200g a mais que o rolo padrão",
-    cores: [
-      { nome: "Branco", hex: "#F2F2F0" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "PLA",
-    preco: 84,
-     linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-petg-fusion-x-1kg-alta-performance/",
-    cores: [
-      { nome: "Branco", hex: "#F2F2F0" },
-      { nome: "Laranja", hex: "#F0842E" },
-      { nome: "Cinza", hex: "#9C9FA3" },
-      { nome: "Transparente", hex: "#EDEFEE", efeito: "glass" },
-      { nome: "Prata", hex: "#C7CBCF" },
-      { nome: "Roxo Claro", hex: "#B79FD9" },
-      { nome: "Prata Master", hex: "#B0B6BC" },
-      { nome: "Silk Roxo", hex: "#7A4FAE", efeito: "silk" },
-      { nome: "Silk Fuchsia", hex: "#D6368F", efeito: "silk" },
-      { nome: "Peacock Blue", hex: "#0F7EA6", efeito: "silk" },
-      { nome: "Silk Vermelho Púrpura", hex: "#9C2C4C", efeito: "silk" },
-      { nome: "Fosco Roxo", hex: "#5B3F7A", efeito: "fosco" },
-      { nome: "Fosco Cinza Fóssil", hex: "#6E6E64", efeito: "fosco" },
-      { nome: "Cobre Esverdeado", hex: "#7A8F6E" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "PLA",
-    preco: 90,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
-    linha: "Silk Especial",
-    cores: [
-      { nome: "Silk Roxo com Glitter", hex: "#7A4FAE", efeito: "silk" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "PLA",
-    preco: 94,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
-    linha: "Especial",
-    cores: [
-      { nome: "Transparente Preto/Azul com Glitter", hex: "#171B22", efeito: "glass" },
-      { nome: "Dreamy Crystal Preto/Vermelho", hex: "#1C1418", efeito: "glass" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "PLA",
-    preco: 94,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
-    linha: "Fosforescente",
-    cores: [
-      { nome: "Fosforescente Natural/Azul", hex: "#CDEFFA", efeito: "glow" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "ABS",
-    preco: 70,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
-    cores: [
-      { nome: "Rosa", hex: "#E86FA0" },
-      { nome: "Laranja", hex: "#F0822E" },
-      { nome: "Amarelo", hex: "#F5D01F" },
-      { nome: "Roxo", hex: "#6E4C9C" },
-      { nome: "Prata", hex: "#C7CBCF" },
-      { nome: "Marrom", hex: "#6B4A34" },
-      { nome: "Natural", hex: "#E9E4D8" },
-      { nome: "Azul", hex: "#2E63C7" },
-      { nome: "Branco", hex: "#F2F2F0" },
-      { nome: "Verde", hex: "#2E9E5B" }
-    ]
-  },
-  {
-    marca: "Masterprint",
-    material: "TPU",
-    preco: 110,
-    linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-tpu-masterprint/",
-    obs: "Rolo de 1kg",
-    cores: [
-      { nome: "Branco", hex: "#F2F2F0" },
-      { nome: "Cinza", hex: "#9C9FA3" },
-      { nome: "Preto", hex: "#1B1B1B" },
-      { nome: "Natural Transparente", hex: "#EEF0EF", efeito: "glass" }
-    ]
-  },
-  {
-    marca: "Creality Soleyin Ultra",
-    material: "PLA",
-    preco: 90,
-      linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-creality-soleyin-ultra-pla-1-75mm/",
-    cores: [
-      { nome: "Cinza", hex: "#9C9FA3" },
-      { nome: "Rosehip", hex: "#B23A4A" }
-    ]
-  },
-  {
-    marca: "Elegoo",
-    material: "PLA",
-    preco: 95,
-      linkLoja: "https://3zkfilamentos.com.br/produtos/filamento-elegoo-pla-1-75mm-1kg/",
-    cores: [
-      { nome: "Orange", hex: "#F0822E" }
-    ]
-  },
-  {
-    marca: "Multifila",
-    material: "PLA",
-    preco: 105,
-    cores: [
-      { nome: "Branco", hex: "#F2F2F0" }
-    ]
-  }
-];
+let produtos = [];
 
 /* ============================================================
    CONFIGURAÇÕES QUE VOCÊ PODE ALTERAR
@@ -324,11 +148,38 @@ function obterCaminhoFoto(produto, cor) {
 }
 
 
+function obterQuantidadeEstoque(cor) {
+  const estoque = Number(cor.estoque);
+  return Number.isFinite(estoque) ? Math.max(0, estoque) : 0;
+}
+
+function obterTextoEstoque(cor) {
+  const estoque = obterQuantidadeEstoque(cor);
+
+  if (estoque <= 0) {
+    return "Sem estoque";
+  }
+
+  if (estoque === 1) {
+    return "Última unidade";
+  }
+
+  if (estoque <= 3) {
+    return `Últimas ${estoque} unidades`;
+  }
+
+  return `Em estoque: ${estoque} unidades`;
+}
+
 function criarLinkWhatsApp(produto, cor) {
   const nomeProduto = obterNomeCompletoProduto(produto);
-  const mensagem =
-    `Olá! Tenho interesse no filamento ${nomeProduto}, ` +
-    `na cor ${cor.nome}. Gostaria de confirmar a disponibilidade e o valor.`;
+  const estoque = obterQuantidadeEstoque(cor);
+
+  const mensagem = estoque <= 0
+    ? `Olá! Tenho interesse no filamento ${nomeProduto}, na cor ${cor.nome}, ` +
+      `que está sem estoque. Existe previsão de reposição?`
+    : `Olá! Tenho interesse no filamento ${nomeProduto}, na cor ${cor.nome}. ` +
+      `Gostaria de confirmar a disponibilidade e o valor.`;
 
   return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
 }
@@ -391,17 +242,27 @@ document.addEventListener("keydown", (evento) => {
    BOLINHAS DE COR
    ============================================================ */
 function criarElementoDot(cor, index, aoSelecionar, estaAtivo) {
+  const estoque = obterQuantidadeEstoque(cor);
+  const semEstoque = estoque <= 0;
+
   const dot = document.createElement("button");
   dot.type = "button";
-  dot.className = "dot" + (estaAtivo ? " dot--ativo" : "");
+  dot.className =
+    "dot" +
+    (estaAtivo ? " dot--ativo" : "") +
+    (semEstoque ? " dot--sem-estoque" : "");
+
   dot.style.setProperty("--cor-dot", cor.hex);
   dot.setAttribute("role", "option");
   dot.setAttribute("aria-selected", estaAtivo ? "true" : "false");
-  dot.setAttribute("aria-label", `Selecionar a cor ${cor.nome}`);
+  dot.setAttribute(
+    "aria-label",
+    `Selecionar a cor ${cor.nome}. ${obterTextoEstoque(cor)}`
+  );
 
   const tooltip = document.createElement("span");
   tooltip.className = "dot__tooltip";
-  tooltip.textContent = cor.nome;
+  tooltip.textContent = `${cor.nome} • ${obterTextoEstoque(cor)}`;
 
   dot.appendChild(tooltip);
   dot.addEventListener("click", () => aoSelecionar(index, dot));
@@ -652,11 +513,15 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const contagem = document.createElement("span");
   contagem.className = "produto__cor-contagem";
   contagem.textContent = produto.cores.length === 1
-    ? "1 cor disponível"
-    : `${produto.cores.length} cores disponíveis`;
+    ? "1 cor cadastrada"
+    : `${produto.cores.length} cores cadastradas`;
 
   cabecalhoCor.appendChild(nomeCor);
   cabecalhoCor.appendChild(contagem);
+
+  const estoqueInfo = document.createElement("span");
+  estoqueInfo.className = "produto__estoque";
+  estoqueInfo.setAttribute("aria-live", "polite");
 
   const dotsWrap = document.createElement("div");
   dotsWrap.className = "dots";
@@ -682,14 +547,11 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   const botaoLoja = document.createElement("a");
   botaoLoja.className = "produto__acao produto__acao--loja";
-  botaoLoja.textContent = "Comprar no site";
-  botaoLoja.href = obterLinkLoja(produto);
   botaoLoja.target = "_blank";
   botaoLoja.rel = "noopener";
 
   const botaoWhatsApp = document.createElement("a");
   botaoWhatsApp.className = "produto__acao produto__acao--whatsapp";
-  botaoWhatsApp.textContent = "Pedir no WhatsApp";
   botaoWhatsApp.target = "_blank";
   botaoWhatsApp.rel = "noopener";
 
@@ -705,6 +567,48 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   lado.appendChild(precoWrap);
   lado.appendChild(acoes);
+
+  function atualizarEstadoEstoque(cor) {
+    const estoque = obterQuantidadeEstoque(cor);
+
+    estoqueInfo.classList.remove(
+      "produto__estoque--disponivel",
+      "produto__estoque--baixo",
+      "produto__estoque--esgotado"
+    );
+
+    artigo.classList.toggle("produto--cor-sem-estoque", estoque <= 0);
+
+    if (estoque <= 0) {
+      estoqueInfo.classList.add("produto__estoque--esgotado");
+      estoqueInfo.textContent = "Sem estoque";
+
+      botaoLoja.removeAttribute("href");
+      botaoLoja.setAttribute("aria-disabled", "true");
+      botaoLoja.tabIndex = -1;
+      botaoLoja.textContent = "Sem estoque no site";
+      botaoLoja.classList.add("produto__acao--desativada");
+
+      botaoWhatsApp.textContent = "Consultar reposição";
+    } else {
+      estoqueInfo.classList.add(
+        estoque <= 3
+          ? "produto__estoque--baixo"
+          : "produto__estoque--disponivel"
+      );
+      estoqueInfo.textContent = obterTextoEstoque(cor);
+
+      botaoLoja.href = obterLinkLoja(produto);
+      botaoLoja.removeAttribute("aria-disabled");
+      botaoLoja.tabIndex = 0;
+      botaoLoja.textContent = "Comprar no site";
+      botaoLoja.classList.remove("produto__acao--desativada");
+
+      botaoWhatsApp.textContent = "Pedir no WhatsApp";
+    }
+
+    botaoWhatsApp.href = criarLinkWhatsApp(produto, cor);
+  }
 
   function selecionarCor(index, dotEl) {
     const cor = produto.cores[index];
@@ -730,7 +634,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     }
 
     nomeCor.textContent = cor.nome;
-    botaoWhatsApp.href = criarLinkWhatsApp(produto, cor);
+    atualizarEstadoEstoque(cor);
 
     atualizarFoto({
       produto,
@@ -751,6 +655,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   });
 
   detalhe.appendChild(cabecalhoCor);
+  detalhe.appendChild(estoqueInfo);
   detalhe.appendChild(dotsWrap);
 
   artigo.appendChild(info);
@@ -759,7 +664,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   artigo.appendChild(foto.area);
   artigo.appendChild(lado);
 
-  botaoWhatsApp.href = criarLinkWhatsApp(produto, corInicial);
+  atualizarEstadoEstoque(corInicial);
 
   atualizarFoto({
     produto,
@@ -772,6 +677,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   return artigo;
 }
+
 
 /* ============================================================
    PESQUISA E FILTROS
@@ -835,6 +741,55 @@ function renderizar() {
   estadoVazioEl.hidden = filtrados.length !== 0;
 }
 
+async function carregarProdutos() {
+  listaProdutosEl.innerHTML = `
+    <div class="catalogo__mensagem">
+      Carregando produtos e estoque...
+    </div>
+  `;
+
+  try {
+    const resposta = await fetch("dados/produtos.json", {
+      cache: "no-store"
+    });
+
+    if (!resposta.ok) {
+      throw new Error(
+        `Não foi possível carregar dados/produtos.json (${resposta.status}).`
+      );
+    }
+
+    const dados = await resposta.json();
+
+    if (!Array.isArray(dados)) {
+      throw new Error("O arquivo produtos.json não contém uma lista válida.");
+    }
+
+    produtos = dados.filter(
+      (produto) =>
+        produto &&
+        Array.isArray(produto.cores) &&
+        produto.cores.length > 0
+    );
+
+    renderizar();
+  } catch (erro) {
+    console.error("[3ZK] Erro ao carregar o catálogo:", erro);
+
+    listaProdutosEl.innerHTML = `
+      <div class="catalogo__mensagem catalogo__mensagem--erro">
+        <strong>Não foi possível carregar os produtos.</strong>
+        <span>
+          Abra o projeto pelo Live Server e confirme se existe
+          dados/produtos.json.
+        </span>
+      </div>
+    `;
+
+    estadoVazioEl.hidden = true;
+  }
+}
+
 campoBuscaEl.addEventListener("input", renderizar);
 
 filtrosEl.addEventListener("click", (evento) => {
@@ -851,4 +806,4 @@ filtrosEl.addEventListener("click", (evento) => {
   renderizar();
 });
 
-renderizar();
+carregarProdutos();

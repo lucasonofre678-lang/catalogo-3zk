@@ -1,0 +1,22 @@
+ETAPA 8 — PRODUTOS.JSON DA 3ZK
+
+Este arquivo ainda não altera o site sozinho.
+
+Conteúdo:
+- preços atuais do catálogo;
+- estoque exportado da Olist;
+- nomes e cores;
+- caminhos das fotos;
+- links de compra;
+- indicação de disponibilidade.
+
+Como guardar:
+1. Extraia este ZIP na raiz do projeto.
+2. Será criada a pasta dados/produtos.json.
+3. Não apague o script.js atual.
+4. Na próxima etapa, o script.js será alterado para ler este JSON.
+
+Regra de estoque:
+- 0: sem estoque;
+- 1 a 3: últimas unidades;
+- acima de 3: em estoque.

@@ -712,6 +712,118 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: 0 8px 24px rgba(0, 71, 171, 0.28);
 }
 
+
+/* ============================================================
+   ESTOQUE E CARREGAMENTO DO CATÁLOGO
+   ============================================================ */
+
+.catalogo__mensagem {
+  max-width: 680px;
+  margin: 30px auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  text-align: center;
+  color: var(--cor-texto-suave);
+  background: #ffffff;
+  border: 1px solid var(--cor-borda);
+  border-radius: 18px;
+  box-shadow: var(--sombra-1);
+}
+
+.catalogo__mensagem strong {
+  color: var(--cor-texto);
+}
+
+.catalogo__mensagem--erro {
+  color: #991B1B;
+  background: #FFF7F7;
+  border-color: #FECACA;
+}
+
+.catalogo__mensagem--erro strong {
+  color: #991B1B;
+}
+
+.produto__estoque {
+  display: inline-flex;
+  align-self: flex-start;
+  align-items: center;
+  min-height: 25px;
+  padding: 4px 10px;
+  border-radius: var(--raio-full);
+  font-size: 11.5px;
+  font-weight: 700;
+  line-height: 1;
+  transition:
+    color var(--transicao-suave),
+    background var(--transicao-suave),
+    border-color var(--transicao-suave);
+}
+
+.produto__estoque--disponivel {
+  color: #166534;
+  background: #DCFCE7;
+  border: 1px solid #BBF7D0;
+}
+
+.produto__estoque--baixo {
+  color: #92400E;
+  background: #FEF3C7;
+  border: 1px solid #FDE68A;
+}
+
+.produto__estoque--esgotado {
+  color: #991B1B;
+  background: #FEE2E2;
+  border: 1px solid #FECACA;
+}
+
+.dot--sem-estoque {
+  opacity: 0.42;
+  filter: grayscale(0.2);
+}
+
+.dot--sem-estoque::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 2px;
+  height: 28px;
+  background: rgba(127, 29, 29, 0.82);
+  border-radius: var(--raio-full);
+  transform: translate(-50%, -50%) rotate(45deg);
+  pointer-events: none;
+}
+
+.dot--sem-estoque:hover {
+  opacity: 0.7;
+}
+
+.dot--sem-estoque.dot--ativo {
+  opacity: 0.75;
+  box-shadow:
+    0 0 0 2px #ffffff,
+    0 0 0 4px #B91C1C;
+}
+
+.produto--cor-sem-estoque .spool {
+  opacity: 0.72;
+  filter: saturate(0.55);
+}
+
+.produto__acao--desativada,
+.produto__acao--desativada:hover {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #8B93A1;
+  background: #F1F3F6;
+  border: 1px solid #E2E6EC;
+  transform: none;
+}
+
 /* ============================================================
    RODAPÉ
    ============================================================ */

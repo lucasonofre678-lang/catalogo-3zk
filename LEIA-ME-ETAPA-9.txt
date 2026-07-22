@@ -1,0 +1,22 @@
+ETAPA 9 — CATÁLOGO 3ZK COM ESTOQUE
+
+ARQUIVOS:
+- script.js
+- style.css
+- dados/produtos.json
+
+COMO INSTALAR:
+1. Faça uma cópia de segurança do script.js e style.css atuais.
+2. Extraia este ZIP na raiz de C:\3ZK\catalogo-3zk.
+3. Confirme a substituição de script.js e style.css.
+4. Confirme a mesclagem da pasta dados.
+5. Abra o index.html usando o Live Server.
+6. Não abra o site diretamente como arquivo C:/..., porque o navegador pode bloquear o carregamento do JSON.
+
+FUNCIONAMENTO:
+- Estoque acima de 3: Em estoque: X unidades.
+- Estoque entre 1 e 3: Últimas X unidades.
+- Estoque zero: Sem estoque.
+- Cores esgotadas continuam visíveis.
+- O botão Comprar no site é desativado quando a cor selecionada está esgotada.
+- O WhatsApp muda para Consultar reposição.
