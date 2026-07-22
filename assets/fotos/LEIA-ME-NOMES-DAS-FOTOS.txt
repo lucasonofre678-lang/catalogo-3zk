@@ -1,0 +1,92 @@
+ESTRUTURA DE FOTOS — 3ZK FILAMENTOS
+
+Como usar:
+1. Extraia este ZIP dentro da pasta principal do seu projeto.
+2. Abra assets/fotos/.
+3. Coloque cada foto dentro da pasta correta.
+4. Renomeie a foto exatamente como indicado abaixo.
+5. Use preferencialmente arquivos .webp.
+
+[flashforge-pla]
+- vermelho-coral.webp
+- laranja-escuro.webp
+- azul-esverdeado.webp
+- cool-gray-cinza-azulado.webp
+- cream-yellow-amarelo-suave.webp
+- honeydew-verde-melao.webp
+- lavender-roxo-claro.webp
+- light-coral-rosa-alaranjado-claro.webp
+- mint-green-verde-menta-claro.webp
+- sea-green-verde-mar-azulado.webp
+
+[closin-petg]
+- rosa.webp
+
+[masterprint-petg]
+- roxo.webp
+- branco.webp
+
+[fusionx-petg]
+- laranja.webp
+- tangerina.webp
+- verde-escuro.webp
+- verde-agua.webp
+- pink-purple-violeta.webp
+- amarelo-canario.webp
+
+[fusion-high-speed-petg]
+- branco.webp
+
+[masterprint-pla]
+- branco.webp
+- laranja.webp
+- cinza.webp
+- transparente.webp
+- prata.webp
+- roxo-claro.webp
+- prata-master.webp
+- silk-roxo.webp
+- silk-fuchsia.webp
+- peacock-blue.webp
+- silk-vermelho-purpura.webp
+- fosco-roxo.webp
+- fosco-cinza-fossil.webp
+- cobre-esverdeado.webp
+
+[masterprint-pla-silk-especial]
+- silk-roxo-com-glitter.webp
+
+[masterprint-pla-especial]
+- transparente-preto-azul-com-glitter.webp
+- dreamy-crystal-preto-vermelho.webp
+
+[masterprint-pla-fosforescente]
+- fosforescente-natural-azul.webp
+
+[masterprint-abs]
+- rosa.webp
+- laranja.webp
+- amarelo.webp
+- roxo.webp
+- prata.webp
+- marrom.webp
+- natural.webp
+- azul.webp
+- branco.webp
+- verde.webp
+
+[masterprint-tpu]
+- branco.webp
+- cinza.webp
+- preto.webp
+- natural-transparente.webp
+
+[creality-soleyin-ultra-pla]
+- cinza.webp
+- rosehip.webp
+
+[elegoo-pla]
+- orange.webp
+
+[multifila-pla]
+- branco.webp

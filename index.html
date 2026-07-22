@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>3ZK Filamentos — Catálogo Oficial de Cores</title>
+  <meta
+    name="description"
+    content="Catálogo oficial de filamentos 3D da 3ZK Filamentos. Encontre rapidamente a cor ideal para sua impressão."
+  >
+  <meta name="theme-color" content="#0047AB">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Roboto+Mono:wght@400;500&display=swap"
+    rel="stylesheet"
+  >
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header class="cabecalho">
+    <div class="cabecalho__container">
+
+      <!-- TROQUE A LOGO AQUI, CASO O NOME OU A EXTENSÃO DO ARQUIVO MUDE -->
+      <a href="index.html" class="logo" aria-label="Voltar ao início">
+        <img src="assets/logo-fundo-invisivel.png" alt="3ZK Filamentos">
+      </a>
+
+      <!-- TROQUE O NÚMERO DO WHATSAPP AQUI, SE NECESSÁRIO -->
+      <a
+        class="botao-whatsapp"
+        href="https://wa.me/554184539430"
+        target="_blank"
+        rel="noopener"
+      >
+        <svg
+          class="botao-whatsapp__icone"
+          viewBox="0 0 24 24"
+          fill="currentColor"
+          aria-hidden="true"
+        >
+          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.31-1.93 1.35-.5.05-1.03.24-3.42-.71-2.9-1.16-4.76-4.14-4.9-4.33-.14-.19-1.16-1.55-1.16-2.96s.73-2.1 1-2.39c.24-.27.53-.34.71-.34.18 0 .36 0 .51.01.17.01.39-.06.6.46.24.58.8 2 .87 2.15.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.29.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.45.12.61-.07.18-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.09 1.66.78 1.94.93.28.14.47.21.53.33.07.12.07.71-.17 1.39z"/>
+        </svg>
+        <span>Falar no WhatsApp</span>
+      </a>
+    </div>
+  </header>
+
+  <section class="hero">
+    <div class="hero__container">
+      <span class="hero__selo">CATÁLOGO 3ZK</span>
+
+      <h1 class="hero__titulo">Escolha a cor ideal para sua impressão 3D.</h1>
+
+      <p class="hero__subtitulo">
+        Pesquise por marca, material ou nome da cor e veja a foto real do produto.
+      </p>
+
+      <div class="busca">
+        <svg
+          class="busca__icone"
+          viewBox="0 0 24 24"
+          fill="none"
+          stroke="currentColor"
+          stroke-width="2"
+          aria-hidden="true"
+        >
+          <circle cx="11" cy="11" r="7"></circle>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+        </svg>
+
+        <input
+          type="text"
+          id="campo-busca"
+          class="busca__campo"
+          placeholder="Busque por marca, material ou cor..."
+          autocomplete="off"
+        >
+      </div>
+
+      <div
+        class="filtros"
+        id="filtros-material"
+        role="group"
+        aria-label="Filtrar por material"
+      >
+        <button class="filtro filtro--ativo" data-material="todos">Todos</button>
+        <button class="filtro" data-material="PLA">PLA</button>
+        <button class="filtro" data-material="PETG">PETG</button>
+        <button class="filtro" data-material="ABS">ABS</button>
+        <button class="filtro" data-material="TPU">TPU</button>
+      </div>
+
+      <p class="hero__aviso">
+        As bolinhas são uma referência visual. Clique em uma cor para ver a foto real.
+      </p>
+    </div>
+  </section>
+
+  <main class="catalogo">
+    <div class="catalogo__container" id="lista-produtos"></div>
+
+    <p class="catalogo__vazio" id="estado-vazio" hidden>
+      Nenhuma cor encontrada. Tente buscar por outra marca, material ou nome de cor.
+    </p>
+  </main>
+
+  <footer class="rodape">
+    <div class="rodape__container">
+      <p>Envio rápido para Curitiba e região · Retirada disponível</p>
+
+      <!-- TROQUE O NÚMERO DO WHATSAPP DO RODAPÉ AQUI, SE NECESSÁRIO -->
+      <a
+        class="rodape__link"
+        href="https://wa.me/554184539430"
+        target="_blank"
+        rel="noopener"
+      >
+        Solicitar fotos reais e vídeos das cores
+      </a>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

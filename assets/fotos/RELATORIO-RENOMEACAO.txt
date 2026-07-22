@@ -1,0 +1,108 @@
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg translúcido vermelho(1).jpeg  ->  assets/fotos/masterprint-petg/vermelho-translucido-2.webp
+Filamentos-3ZK/Closin/PETG/Closin petg silver.jpeg  ->  assets/fotos/closin-petg/prata.webp
+Filamentos-3ZK/Closin/PETG/Closin petg white.jpeg  ->  assets/fotos/closin-petg/branco.webp
+Filamentos-3ZK/Masterprint/TPU/Masterprint TPU Branco.jpeg  ->  assets/fotos/masterprint-tpu/branco.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Dourado _ Dorado.jpeg  ->  assets/fotos/masterprint-pla/dourado.webp
+Filamentos-3ZK/Closin/PETG/Closin petg grey.jpeg  ->  assets/fotos/closin-petg/cinza.webp
+Filamentos-3ZK/Closin/PETG/Closin petg Green.jpeg  ->  assets/fotos/closin-petg/verde.webp
+Filamentos-3ZK/Anycubic/Anycubic petg translucent blue.jpeg  ->  assets/fotos/anycubic-petg/azul-translucido.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg green.jpeg  ->  assets/fotos/fusionx-petg/verde.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Dreamy Crystal Black Red Gradiente.jpeg  ->  assets/fotos/masterprint-pla-especial/dreamy-crystal-preto-vermelho.webp
+Filamentos-3ZK/Closin/PETG/Closin Petg Pink.jpeg  ->  assets/fotos/closin-petg/rosa.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Skin.jpeg  ->  assets/fotos/closin-pla/skin.webp
+Filamentos-3ZK/Anycubic/Anycubic petg translucent olive.jpeg  ->  assets/fotos/anycubic-petg/oliva-translucido.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Azul Vermelho.jpeg  ->  assets/fotos/masterprint-pla/silk-azul-vermelho.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg coffee.jpeg  ->  assets/fotos/fusionx-petg/cafe.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Dusty Pink.jpeg  ->  assets/fotos/flashforge-pla/rosa-desbotado.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA white.jpeg  ->  assets/fotos/closin-pla/branco.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA ocean blue.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/azul-oceano.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Gold.jpeg  ->  assets/fotos/closin-pla/dourado.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Cobre.jpeg  ->  assets/fotos/masterprint-pla/cobre.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Matte Fossil Gray.jpeg  ->  assets/fotos/masterprint-pla/fosco-cinza-fossil.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Yellow.jpeg  ->  assets/fotos/closin-pla/amarelo.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg Dark Green.jpeg  ->  assets/fotos/fusionx-petg/verde-escuro.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Blue.jpeg  ->  assets/fotos/closin-pla/azul.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA Light Green.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/verde-claro.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Fosforescente Azul.jpeg  ->  assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Prata.jpeg  ->  assets/fotos/masterprint-pla/prata.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Peacock Blue.jpeg  ->  assets/fotos/masterprint-pla/peacock-blue.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Red.jpeg  ->  assets/fotos/closin-pla/vermelho.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Hot Pink.jpeg  ->  assets/fotos/flashforge-pla/rosa-choque.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA Rosehip.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/rosehip.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Black.jpeg  ->  assets/fotos/flashforge-pla/preto.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Azul Azure.jpeg  ->  assets/fotos/masterprint-pla/azul-azure.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg Translúcido Amarelo.jpeg  ->  assets/fotos/masterprint-petg/amarelo-translucido.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg roxo fluorescente.jpeg  ->  assets/fotos/masterprint-petg/roxo-fluorescente.webp
+Filamentos-3ZK/Closin/PETG/Closin petg black.jpeg  ->  assets/fotos/closin-petg/preto.webp
+Filamentos-3ZK/Closin/PETG/Closin petg fluo blue.jpeg  ->  assets/fotos/closin-petg/azul-fluorescente.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Burnt Orange.jpeg  ->  assets/fotos/flashforge-pla/laranja-escuro.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Medium Turquoise.jpeg  ->  assets/fotos/flashforge-pla/azul-esverdeado.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint Petg Translúcido Vermelho.jpeg  ->  assets/fotos/masterprint-petg/vermelho-translucido.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA Greenery.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/greenery.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Fosforescente Verde Escuro.jpeg  ->  assets/fotos/masterprint-pla-fosforescente/fosforescente-verde-escuro.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg verde translúcido.jpeg  ->  assets/fotos/masterprint-petg/verde-translucido.webp
+Filamentos-3ZK/Anycubic/Anycubic petg translucent pink.jpeg  ->  assets/fotos/anycubic-petg/rosa-translucido.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg verde água.jpeg  ->  assets/fotos/fusionx-petg/verde-agua.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg amarelo.jpeg  ->  assets/fotos/fusionx-petg/amarelo.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA SKY Blue.jpeg  ->  assets/fotos/elegoo-pla/azul-celeste.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg skin.jpeg  ->  assets/fotos/fusionx-petg/skin.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA Pineapple Yellow.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/amarelo-abacaxi.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Vermelho_Dourado.jpeg  ->  assets/fotos/masterprint-pla/silk-vermelho-dourado.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Purplish Red.jpeg  ->  assets/fotos/masterprint-pla/silk-vermelho-purpura.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg pastel purple.jpeg  ->  assets/fotos/fusionx-petg/roxo-pastel.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA Space Grey.jpeg  ->  assets/fotos/elegoo-pla/cinza-espacial.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Cobre Esverdeado.jpeg  ->  assets/fotos/masterprint-pla/cobre-esverdeado.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Matte Soft And Purple.jpeg  ->  assets/fotos/masterprint-pla/fosco-roxo.webp
+Filamentos-3ZK/Creality/PLA/Creality pla strawberry milk.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/strawberry-milk.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA Purple.jpeg  ->  assets/fotos/elegoo-pla/roxo.webp
+Filamentos-3ZK/Closin/PETG/Closin petg skin.jpeg  ->  assets/fotos/closin-petg/skin.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg yellow.jpeg  ->  assets/fotos/fusionx-petg/yellow.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg roxo.jpeg  ->  assets/fotos/masterprint-petg/roxo.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA Red.jpeg  ->  assets/fotos/elegoo-pla/vermelho.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA Orange.jpeg  ->  assets/fotos/elegoo-pla/orange.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Roxo.jpeg  ->  assets/fotos/masterprint-pla/silk-roxo.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA New Dragon Fruit.jpeg  ->  assets/fotos/masterprint-pla/new-dragon-fruit.webp
+Filamentos-3ZK/Masterprint/TPU/Masterprint TPU Cinza.jpeg  ->  assets/fotos/masterprint-tpu/cinza.webp
+Filamentos-3ZK/Closin/PETG/Closin petg rose.jpeg  ->  assets/fotos/closin-petg/rose.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg lavanda.jpeg  ->  assets/fotos/masterprint-petg/lavanda.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Midnight.jpeg  ->  assets/fotos/flashforge-pla/azul-escuro.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA Translucent.jpeg  ->  assets/fotos/elegoo-pla/translucido.webp
+Filamentos-3ZK/Creality/PETG/Creality petg transparente.jpeg  ->  assets/fotos/creality-petg/transparente.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Cobre.jpeg  ->  assets/fotos/masterprint-pla/silk-cobre.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg cyan.jpeg  ->  assets/fotos/fusionx-petg/ciano.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Roxo Claro.jpeg  ->  assets/fotos/masterprint-pla/roxo-claro.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Fuchsia.jpeg  ->  assets/fotos/masterprint-pla/silk-fuchsia.webp
+Filamentos-3ZK/Closin/PETG/Closin petg fluo green.jpeg  ->  assets/fotos/closin-petg/verde-fluorescente.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg orange.jpeg  ->  assets/fotos/fusionx-petg/laranja.webp
+Filamentos-3ZK/Masterprint/PETG/Masterprint petg Bronze.jpeg  ->  assets/fotos/masterprint-petg/bronze.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Cinza Metálico.jpeg  ->  assets/fotos/masterprint-pla/cinza-metalico.webp
+Filamentos-3ZK/Closin/PETG/Closin petg Red.jpeg  ->  assets/fotos/closin-petg/vermelho.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Azul _ Roxo.jpeg  ->  assets/fotos/masterprint-pla/silk-azul-roxo.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA Grey.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/cinza.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Honey.jpeg  ->  assets/fotos/flashforge-pla/honey-mel.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg amarelo canário.jpeg  ->  assets/fotos/fusionx-petg/amarelo-canario.webp
+Filamentos-3ZK/Closin/PETG/Closin petg fluo yellow.jpeg  ->  assets/fotos/closin-petg/fluo-yellow.webp
+Filamentos-3ZK/Closin/PETG/Closin petg orange.jpeg  ->  assets/fotos/closin-petg/laranja.webp
+Filamentos-3ZK/Closin/PETG/Closin Petg Brown.jpeg  ->  assets/fotos/closin-petg/marrom.webp
+Filamentos-3ZK/Fusion/PETG/Fusion Petg Branco.jpeg  ->  assets/fotos/fusion-high-speed-petg/branco.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Roxo Preto.jpeg  ->  assets/fotos/masterprint-pla/roxo-preto.webp
+Filamentos-3ZK/Fusion/PETG/Fusion Petg Azul.jpeg  ->  assets/fotos/fusionx-petg/azul.webp
+Filamentos-3ZK/Fusion/PETG/Fusion petg tangerina.jpeg  ->  assets/fotos/fusionx-petg/tangerina.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Laranja _ Preto.jpeg  ->  assets/fotos/masterprint-pla/silk-laranja-preto.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Forest Green.jpeg  ->  assets/fotos/flashforge-pla/verde-floresta.webp
+Filamentos-3ZK/Closin/PETG/Closin Petg Sky Blue.jpeg  ->  assets/fotos/closin-petg/azul-celeste.webp
+Filamentos-3ZK/Creality/PLA/Creality PLA Almond Purple.jpeg  ->  assets/fotos/creality-soleyin-ultra-pla/roxo-amendoa.webp
+Filamentos-3ZK/Masterprint/PLA/Masterprint PLA Silk Lavanda.jpeg  ->  assets/fotos/masterprint-pla/silk-lavanda.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Green.jpeg  ->  assets/fotos/closin-pla/verde.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Mango Yellow.jpeg  ->  assets/fotos/flashforge-pla/amarelo-manga.webp
+Filamentos-3ZK/Anycubic/Anycubic petg translucent purple.jpeg  ->  assets/fotos/anycubic-petg/roxo-translucido.webp
+Filamentos-3ZK/Anycubic/Anycubic petg orange.jpeg  ->  assets/fotos/anycubic-petg/laranja.webp
+Filamentos-3ZK/Closin/PETG/Closin Petg Gold.jpeg  ->  assets/fotos/closin-petg/dourado.webp
+Filamentos-3ZK/Multifila/Multfila PLA Branco.jpeg  ->  assets/fotos/multifila-pla/branco.webp
+Filamentos-3ZK/FlashForge/Flashforge PLA Coral Red.jpeg  ->  assets/fotos/flashforge-pla/vermelho-coral.webp
+Filamentos-3ZK/Fusion/PETG/Fusion Petg Black.jpeg  ->  assets/fotos/fusionx-petg/preto.webp
+Filamentos-3ZK/Elegoo/PLA/Elegoo PLA Grey.jpeg  ->  assets/fotos/elegoo-pla/cinza.webp
+Filamentos-3ZK/Closin/PLA/Closin PLA Black.jpeg  ->  assets/fotos/closin-pla/preto.webp
+Filamentos-3ZK/Fusion/PLA/High Speed PLA Absolute Black.jpeg  ->  assets/fotos/fusion-high-speed-pla/preto-absoluto.webp
+Filamentos-3ZK/Closin/PETG/Closin petg Yellow.jpeg  ->  assets/fotos/closin-petg/amarelo.webp
+Filamentos-3ZK/Closin/PETG/Closin petg Blue.jpeg  ->  assets/fotos/closin-petg/azul.webp
