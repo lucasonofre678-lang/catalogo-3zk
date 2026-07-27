@@ -557,63 +557,236 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   gap: 8px;
 }
 
-.produto__acao {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  min-height: 38px;
-  padding: 9px 12px;
-  border-radius: 11px;
-  font-size: 11.5px;
-  font-weight: 600;
-  text-align: center;
+/* =====================================================
+   CORREÇÃO FINAL — PREÇO E BOTÕES 3ZK
+   COLE NO FINAL ABSOLUTO DO STYLE.CSS
+   ===================================================== */
+
+/* Impede qualquer conteúdo de ultrapassar o card */
+.produto {
+  box-sizing: border-box !important;
+  padding-right: 34px !important;
+  overflow: hidden !important;
+}
+
+/* Coluna da direita */
+.produto .produto__lado {
+  box-sizing: border-box !important;
+
+  width: 174px !important;
+  min-width: 0 !important;
+  max-width: 174px !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  justify-self: end !important;
+  align-self: center !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+}
+
+/* Preço */
+.produto .produto__preco {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  margin: 0 0 12px !important;
+  padding: 0 !important;
+
+  display: flex !important;
+  justify-content: flex-end !important;
+  align-items: center !important;
+}
+
+.produto .produto__preco-valor {
+  color: #171b27 !important;
+
+  font-size: 18px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+
+  white-space: nowrap !important;
+}
+
+/* Volta os quatro botões para uma coluna */
+.produto .produto__acoes {
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: stretch !important;
+
+  grid-template-columns: none !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  margin: 0 !important;
+  padding: 0 !important;
+
+  gap: 8px !important;
+}
+
+/* Base igual para todos */
+.produto .produto__acao {
+  appearance: none !important;
+  box-sizing: border-box !important;
+
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+
+  grid-column: auto !important;
+
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+
+  height: 40px !important;
+  min-height: 40px !important;
+
+  margin: 0 !important;
+  padding: 0 12px !important;
+
+  border: 1px solid transparent !important;
+  border-radius: 10px !important;
+
+  font-family: inherit !important;
+  font-size: 13px !important;
+  font-weight: 700 !important;
+  line-height: 1.1 !important;
+
+  text-align: center !important;
+  text-decoration: none !important;
+  white-space: nowrap !important;
+
+  cursor: pointer !important;
+
+  box-shadow: none !important;
+
   transition:
-    transform var(--transicao-suave),
-    background var(--transicao-suave),
-    color var(--transicao-suave),
-    border-color var(--transicao-suave);
+    background-color 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    transform 0.18s ease !important;
 }
 
-.produto__acao:hover {
-  transform: translateY(-1px);
+.produto .produto__acao:hover {
+  transform: translateY(-1px) !important;
 }
 
-.produto__acao--loja {
-  color: #ffffff;
-  background: var(--cor-marca);
+.produto .produto__acao:active {
+  transform: translateY(0) !important;
 }
 
-.produto__acao--loja:hover {
-  background: var(--cor-marca-hover);
+/* Comprar — principal */
+.produto .produto__acao--loja {
+  color: #ffffff !important;
+  background: #0757c9 !important;
+  border-color: #0757c9 !important;
 }
 
-.produto__acao--whatsapp {
-  color: #187747;
-  background: #EBF8F1;
-  border: 1px solid #CDEEDD;
+.produto .produto__acao--loja:hover {
+  color: #ffffff !important;
+  background: #0048aa !important;
+  border-color: #0048aa !important;
 }
 
-.produto__acao--whatsapp:hover {
-  background: #DDF5E8;
+/* WhatsApp */
+.produto .produto__acao--whatsapp {
+  color: #187448 !important;
+  background: #eef9f3 !important;
+  border-color: #b9e2c8 !important;
 }
 
-.produto__acao--foto {
-  color: var(--cor-marca);
-  background: #ffffff;
-  border: 1px solid var(--cor-borda);
+.produto .produto__acao--whatsapp:hover {
+  color: #12623b !important;
+  background: #e2f5ea !important;
+  border-color: #9fd7b4 !important;
 }
 
-.produto__acao--foto:hover {
-  background: var(--cor-marca-clara);
-  border-color: rgba(0, 71, 171, 0.25);
+/* Compartilhar */
+.produto .produto__acao--compartilhar {
+  color: #1554b5 !important;
+  background: #f3f7ff !important;
+  border-color: #bfd1ef !important;
 }
 
-.produto__acao:disabled {
-  cursor: default;
-  color: #8B93A1;
-  background: #F1F3F6;
-  border-color: #E2E6EC;
-  transform: none;
+.produto .produto__acao--compartilhar:hover {
+  color: #0d469d !important;
+  background: #e8f0fc !important;
+  border-color: #a7bee7 !important;
+}
+
+/* Foto */
+.produto .produto__acao--foto {
+  color: #1554b5 !important;
+  background: #ffffff !important;
+  border-color: #cfdbed !important;
+}
+
+.produto .produto__acao--foto:hover {
+  color: #0d469d !important;
+  background: #f6f9fe !important;
+  border-color: #b2c6e5 !important;
+}
+
+/* Confirmação de link copiado */
+.produto
+.produto__acao--compartilhar.produto__acao--confirmado {
+  color: #167347 !important;
+  background: #e9f8ef !important;
+  border-color: #a8dcbc !important;
+}
+
+/* Botão sem foto */
+.produto .produto__acao:disabled,
+.produto .produto__acao--desativada {
+  color: #929cad !important;
+  background: #f0f3f7 !important;
+  border-color: #d8dfe8 !important;
+
+  cursor: not-allowed !important;
+  pointer-events: none !important;
+
+  transform: none !important;
+}
+
+/* Foco acessível */
+.produto .produto__acao:focus-visible {
+  outline: 3px solid rgba(7, 87, 201, 0.22) !important;
+  outline-offset: 2px !important;
+}
+
+/* Celular */
+@media (max-width: 768px) {
+  .produto {
+    padding-right: 18px !important;
+    padding-left: 18px !important;
+    overflow: visible !important;
+  }
+
+  .produto .produto__lado {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+
+    margin-top: 12px !important;
+  }
+
+  .produto .produto__preco {
+    justify-content: flex-start !important;
+  }
+
+  .produto .produto__acao {
+    height: 42px !important;
+    min-height: 42px !important;
+  }
 }
 
 /* ============================================================
@@ -1085,5 +1258,49 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   *, *::before, *::after {
     animation-duration: 0.001ms !important;
     transition-duration: 0.001ms !important;
+  }
+}
+/* =====================================================
+   SEPARA FOTO E BOTÕES
+   ===================================================== */
+
+@media (min-width: 769px) {
+  .produto {
+    grid-template-columns:
+      140px
+      110px
+      minmax(280px, 1fr)
+      160px
+      174px !important;
+
+    column-gap: 24px !important;
+    align-items: center !important;
+
+    padding-left: 24px !important;
+    padding-right: 34px !important;
+  }
+
+  /* Área das informações e cores */
+  .produto .produto__detalhe {
+    min-width: 0 !important;
+  }
+
+  /* Foto fica somente dentro da coluna dela */
+  .produto .produto__foto-area {
+    width: 160px !important;
+    max-width: 160px !important;
+
+    margin: 0 !important;
+    justify-self: center !important;
+  }
+
+  /* Botões ficam somente na última coluna */
+  .produto .produto__lado {
+    width: 174px !important;
+    min-width: 174px !important;
+    max-width: 174px !important;
+
+    margin: 0 !important;
+    justify-self: end !important;
   }
 }
