@@ -1,0 +1,119 @@
+name: Atualizar estoque Olist e publicar catálogo
+
+on:
+  workflow_dispatch:
+  schedule:
+    # A cada 30 minutos, fora do começo da hora para reduzir atrasos.
+    - cron: "17,47 * * * *"
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "style.css"
+      - "script.js"
+      - "assets/**"
+      - "dados/produtos-base.json"
+      - "automacao/**"
+      - ".github/workflows/atualizar-estoque.yml"
+      - "CNAME"
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: catalogo-3zk-producao
+  cancel-in-progress: false
+
+jobs:
+  sincronizar-e-montar:
+    name: Sincronizar estoque e montar site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v6
+        with:
+          fetch-depth: 0
+
+      - name: Preparar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Conferir segredo da Olist
+        env:
+          OLIST_API_TOKEN: ${{ secrets.OLIST_API_TOKEN }}
+        run: |
+          if [ -z "$OLIST_API_TOKEN" ]; then
+            echo "::error::O segredo OLIST_API_TOKEN não foi configurado."
+            exit 1
+          fi
+
+      - name: Consultar Olist e gerar catálogo público
+        env:
+          OLIST_API_TOKEN: ${{ secrets.OLIST_API_TOKEN }}
+          # 3,2 s mantém o fluxo abaixo de 20 chamadas por minuto.
+          OLIST_DELAY_SECONDS: "3.2"
+        run: |
+          python automacao/atualizar_estoque.py
+
+      - name: Registrar mudança de disponibilidade
+        id: commit
+        shell: bash
+        run: |
+          if git diff --quiet -- dados/produtos.json; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Nenhum status de estoque mudou."
+            exit 0
+          fi
+
+          git config user.name "3ZK Estoque Automático"
+          git config user.email "actions@users.noreply.github.com"
+
+          git add dados/produtos.json
+          git commit -m "Atualiza disponibilidade do catálogo [automático]"
+          git push
+
+          echo "changed=true" >> "$GITHUB_OUTPUT"
+
+      - name: Montar arquivos públicos
+        shell: bash
+        run: |
+          rm -rf _site
+          mkdir -p _site/dados
+
+          cp index.html style.css script.js _site/
+          cp -R assets _site/assets
+          cp dados/produtos.json _site/dados/produtos.json
+          cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
+
+          if [ -f CNAME ]; then
+            cp CNAME _site/CNAME
+          fi
+
+          touch _site/.nojekyll
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Enviar site para publicação
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "_site"
+
+  publicar:
+    name: Publicar catálogo
+    needs: sincronizar-e-montar
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

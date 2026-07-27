@@ -1,0 +1,692 @@
+[
+  {
+    "marca": "Flashforge",
+    "material": "PLA",
+    "preco": 90,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
+    "cores": [
+      {
+        "nome": "Vermelho Coral",
+        "hex": "#AC494A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/vermelho-coral.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||vermelho-coral"
+      },
+      {
+        "nome": "Laranja Escuro",
+        "hex": "#9D2C15",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/laranja-escuro.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||laranja-escuro"
+      },
+      {
+        "nome": "Azul Esverdeado",
+        "hex": "#57A1B0",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/azul-esverdeado.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||azul-esverdeado"
+      },
+      {
+        "nome": "Cool Gray / Cinza Azulado",
+        "hex": "#8C97A8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/cool-gray-cinza-azulado.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||cool-gray-cinza-azulado"
+      },
+      {
+        "nome": "Cream Yellow / Amarelo Suave",
+        "hex": "#F5E1A4",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/cream-yellow-amarelo-suave.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||cream-yellow-amarelo-suave"
+      },
+      {
+        "nome": "Honeydew / Verde Melão",
+        "hex": "#C9E4B5",
+        "fotoStatus": "ausente",
+        "hexFonte": "sem_foto",
+        "imagens": [
+          "assets/fotos/flashforge-pla/honeydew-verde-melao.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||honeydew-verde-melao"
+      },
+      {
+        "nome": "Lavender / Roxo Claro",
+        "hex": "#C7B8E8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||lavender-roxo-claro"
+      },
+      {
+        "nome": "Light Coral / Rosa-Alaranjado Claro",
+        "hex": "#F0958A",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/light-coral-rosa-alaranjado-claro.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||light-coral-rosa-alaranjado-claro"
+      },
+      {
+        "nome": "Mint Green / Verde Menta Claro",
+        "hex": "#A8E0C8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/mint-green-verde-menta-claro.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||mint-green-verde-menta-claro"
+      },
+      {
+        "nome": "Sea Green / Verde Mar Azulado",
+        "hex": "#4F9E8C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/sea-green-verde-mar-azulado.webp"
+        ],
+        "chaveEstoque": "flashforge|pla||sea-green-verde-mar-azulado"
+      }
+    ]
+  },
+  {
+    "marca": "Closin",
+    "material": "PETG",
+    "preco": 70,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Rosa",
+        "hex": "#ED5996",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/rosa.webp"
+        ],
+        "chaveEstoque": "closin|petg||rosa"
+      }
+    ],
+    "obs": "Rolo de 1kg"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PETG",
+    "preco": 63,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-petg-masterprint/",
+    "cores": [
+      {
+        "nome": "Roxo",
+        "hex": "#735575",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/roxo.webp"
+        ],
+        "chaveEstoque": "masterprint|petg||roxo"
+      },
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|petg||branco"
+      }
+    ]
+  },
+  {
+    "marca": "FusionX",
+    "material": "PETG",
+    "preco": 70,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-petg-fusion-x-1kg-alta-performance/",
+    "cores": [
+      {
+        "nome": "Laranja",
+        "hex": "#D8493B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/laranja.webp"
+        ],
+        "chaveEstoque": "fusionx|petg||laranja"
+      },
+      {
+        "nome": "Tangerina",
+        "hex": "#F33B25",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/tangerina.webp"
+        ],
+        "chaveEstoque": "fusionx|petg||tangerina"
+      },
+      {
+        "nome": "Verde Escuro",
+        "hex": "#464C56",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/verde-escuro.webp"
+        ],
+        "chaveEstoque": "fusionx|petg||verde-escuro"
+      },
+      {
+        "nome": "Verde Água",
+        "hex": "#32A5AA",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/verde-agua.webp"
+        ],
+        "chaveEstoque": "fusionx|petg||verde-agua"
+      },
+      {
+        "nome": "Pink Purple Violeta",
+        "hex": "#A24C9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "candidata_disponivel",
+        "imagens": [
+          "assets/fotos/fusionx-petg/pink-purple-violeta.webp"
+        ],
+        "chaveEstoque": "fusionx|petg||pink-purple-violeta"
+      },
+      {
+        "nome": "Amarelo Canário",
+        "hex": "#D2A361",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/amarelo-canario.webp"
+        ],
+        "chaveEstoque": "fusionx|petg||amarelo-canario"
+      }
+    ]
+  },
+  {
+    "marca": "Fusion High Speed",
+    "material": "PETG",
+    "preco": 81,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#E3E1DD",
+        "hexFonte": "foto",
+        "fotoStatus": "revisar_linha",
+        "imagens": [
+          "assets/fotos/fusion-high-speed-petg/branco.webp"
+        ],
+        "chaveEstoque": "fusion-high-speed|petg||branco"
+      }
+    ],
+    "obs": "Rolo com 1,2kg — 200g a mais que o rolo padrão"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PLA",
+    "preco": 84,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||branco"
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#F0842E",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla/laranja.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||laranja"
+      },
+      {
+        "nome": "Cinza",
+        "hex": "#9C9FA3",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla/cinza.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||cinza"
+      },
+      {
+        "nome": "Transparente",
+        "hex": "#EDEFEE",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla/transparente.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||transparente"
+      },
+      {
+        "nome": "Prata",
+        "hex": "#858B8D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/prata.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||prata"
+      },
+      {
+        "nome": "Roxo Claro",
+        "hex": "#B1A3BA",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/roxo-claro.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||roxo-claro"
+      },
+      {
+        "nome": "Prata Master",
+        "hex": "#B0B6BC",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla/prata-master.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||prata-master"
+      },
+      {
+        "nome": "Silk Roxo",
+        "hex": "#8D4794",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-roxo.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||silk-roxo"
+      },
+      {
+        "nome": "Silk Fuchsia",
+        "hex": "#C66082",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-fuchsia.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||silk-fuchsia"
+      },
+      {
+        "nome": "Peacock Blue",
+        "hex": "#466F78",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/peacock-blue.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||peacock-blue"
+      },
+      {
+        "nome": "Silk Vermelho Púrpura",
+        "hex": "#D05385",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-vermelho-purpura.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||silk-vermelho-purpura"
+      },
+      {
+        "nome": "Fosco Roxo",
+        "hex": "#796471",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/fosco-roxo.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||fosco-roxo"
+      },
+      {
+        "nome": "Fosco Cinza Fóssil",
+        "hex": "#686E72",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||fosco-cinza-fossil"
+      },
+      {
+        "nome": "Cobre Esverdeado",
+        "hex": "#7C7963",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/cobre-esverdeado.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||cobre-esverdeado"
+      }
+    ]
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PLA",
+    "preco": 90,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "cores": [
+      {
+        "nome": "Silk Roxo com Glitter",
+        "hex": "#7A4FAE",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|silk-especial|silk-roxo-com-glitter"
+      }
+    ],
+    "linha": "Silk Especial"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PLA",
+    "preco": 94,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "cores": [
+      {
+        "nome": "Transparente Preto/Azul com Glitter",
+        "hex": "#171B22",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-pla-especial/transparente-preto-azul-com-glitter.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|especial|transparente-preto-azul-com-glitter"
+      },
+      {
+        "nome": "Dreamy Crystal Preto/Vermelho",
+        "hex": "#5F444B",
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla-especial/dreamy-crystal-preto-vermelho.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|especial|dreamy-crystal-preto-vermelho"
+      }
+    ],
+    "linha": "Especial"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PLA",
+    "preco": 94,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "cores": [
+      {
+        "nome": "Fosforescente Natural/Azul",
+        "hex": "#CECFC1",
+        "efeito": "glow",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|fosforescente|fosforescente-natural-azul"
+      }
+    ],
+    "linha": "Fosforescente"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "ABS",
+    "preco": 70,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
+    "cores": [
+      {
+        "nome": "Rosa",
+        "hex": "#E86FA0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/rosa.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||rosa"
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#F0822E",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/laranja.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||laranja"
+      },
+      {
+        "nome": "Amarelo",
+        "hex": "#F5D01F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/amarelo.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||amarelo"
+      },
+      {
+        "nome": "Roxo",
+        "hex": "#6E4C9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/roxo.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||roxo"
+      },
+      {
+        "nome": "Prata",
+        "hex": "#C7CBCF",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/prata.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||prata"
+      },
+      {
+        "nome": "Marrom",
+        "hex": "#6B4A34",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/marrom.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||marrom"
+      },
+      {
+        "nome": "Natural",
+        "hex": "#E9E4D8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/natural.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||natural"
+      },
+      {
+        "nome": "Azul",
+        "hex": "#2E63C7",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/azul.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||azul"
+      },
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||branco"
+      },
+      {
+        "nome": "Verde",
+        "hex": "#2E9E5B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-abs/verde.webp"
+        ],
+        "chaveEstoque": "masterprint|abs||verde"
+      }
+    ]
+  },
+  {
+    "marca": "Masterprint",
+    "material": "TPU",
+    "preco": 110,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-tpu-masterprint/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#D4DCDF",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|tpu||branco"
+      },
+      {
+        "nome": "Cinza",
+        "hex": "#A0A7AA",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/cinza.webp"
+        ],
+        "chaveEstoque": "masterprint|tpu||cinza"
+      },
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/preto.webp"
+        ],
+        "chaveEstoque": "masterprint|tpu||preto"
+      },
+      {
+        "nome": "Natural Transparente",
+        "hex": "#EEF0EF",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/natural-transparente.webp"
+        ],
+        "chaveEstoque": "masterprint|tpu||natural-transparente"
+      }
+    ],
+    "obs": "Rolo de 1kg"
+  },
+  {
+    "marca": "Creality Soleyin Ultra",
+    "material": "PLA",
+    "preco": 90,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-creality-soleyin-ultra-pla-1-75mm/",
+    "cores": [
+      {
+        "nome": "Cinza",
+        "hex": "#7F8388",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/cinza.webp"
+        ],
+        "chaveEstoque": "creality-soleyin-ultra|pla||cinza"
+      },
+      {
+        "nome": "Rosehip",
+        "hex": "#C34E25",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp"
+        ],
+        "chaveEstoque": "creality-soleyin-ultra|pla||rosehip"
+      }
+    ]
+  },
+  {
+    "marca": "Elegoo",
+    "material": "PLA",
+    "preco": 95,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-elegoo-pla-1-75mm-1kg/",
+    "cores": [
+      {
+        "nome": "Orange",
+        "hex": "#CB5A35",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/orange.webp"
+        ],
+        "chaveEstoque": "elegoo|pla||orange"
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "PLA",
+    "preco": 105,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#C9CBCA",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/branco.webp"
+        ],
+        "chaveEstoque": "multifila|pla||branco"
+      }
+    ]
+  }
+]
