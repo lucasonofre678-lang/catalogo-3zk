@@ -146,7 +146,169 @@ function criarLinkWhatsApp(produto, cor) {
 function obterLinkLoja(produto) {
   return produto.linkLoja || LINK_LOJA_PADRAO;
 }
+/* ============================================================
+   LINKS DIRETOS PARA PRODUTOS E CORES
+   Exemplo:
+   ?produto=flashforge-pla&cor=vermelho-coral
+   ============================================================ */
 
+/*
+  Cria o nome usado no link do produto.
+
+  Exemplo:
+  Flashforge PLA
+  vira:
+  flashforge-pla
+*/
+function obterSlugProduto(produto) {
+  return slugificar(obterNomeCompletoProduto(produto));
+}
+
+/*
+  Cria o nome usado no link da cor.
+
+  Exemplo:
+  Vermelho Coral
+  vira:
+  vermelho-coral
+*/
+function obterSlugCor(cor) {
+  return slugificar(cor.nome);
+}
+
+/*
+  Lê os parâmetros existentes no endereço do site.
+
+  Exemplo:
+  ?produto=flashforge-pla&cor=vermelho-coral
+*/
+function lerDestinoDoLink() {
+  const parametros = new URLSearchParams(window.location.search);
+
+  return {
+    produto: parametros.get("produto") || "",
+    cor: parametros.get("cor") || ""
+  };
+}
+/*
+  Cria automaticamente o link direto da cor selecionada.
+
+  Funciona no Live Server, no GitHub Pages
+  e também no futuro domínio próprio.
+*/
+function criarLinkDiretoCor(produto, cor) {
+  const url = new URL(window.location.href);
+
+  url.search = "";
+  url.hash = "";
+
+  url.searchParams.set(
+    "produto",
+    obterSlugProduto(produto)
+  );
+
+  url.searchParams.set(
+    "cor",
+    obterSlugCor(cor)
+  );
+
+  return url.toString();
+}
+
+/*
+  Atualiza a barra de endereço quando o cliente troca de cor,
+  sem recarregar a página.
+*/
+function atualizarEnderecoDaCor(produto, cor) {
+  const link = criarLinkDiretoCor(produto, cor);
+
+  window.history.replaceState(
+    {},
+    "",
+    link
+  );
+}
+
+async function compartilharCor(produto, cor, botao) {
+  const nomeProduto = obterNomeCompletoProduto(produto);
+  const link = criarLinkDiretoCor(produto, cor);
+
+  const mensagem =
+    `${nomeProduto} — ${cor.nome}\n\n` +
+    `Veja a foto real desta cor no catálogo da 3ZK:\n` +
+    link;
+
+  const textoOriginal = botao.textContent;
+
+  function mostrarConfirmacao(texto) {
+    botao.textContent = texto;
+    botao.classList.add("produto__acao--confirmado");
+
+    window.setTimeout(() => {
+      botao.textContent = textoOriginal;
+      botao.classList.remove("produto__acao--confirmado");
+    }, 2200);
+  }
+
+  if (
+    navigator.share &&
+    window.matchMedia("(pointer: coarse)").matches
+  ) {
+    try {
+      await navigator.share({
+        title: `${nomeProduto} — ${cor.nome}`,
+        text: "Veja a foto real desta cor no catálogo da 3ZK:",
+        url: link
+      });
+
+      mostrarConfirmacao("Compartilhado!");
+      return;
+    } catch (erro) {
+      if (erro.name === "AbortError") {
+        return;
+      }
+    }
+  }
+
+  try {
+    if (
+      navigator.clipboard &&
+      window.isSecureContext
+    ) {
+      await navigator.clipboard.writeText(mensagem);
+    } else {
+      const campoTemporario =
+        document.createElement("textarea");
+
+      campoTemporario.value = mensagem;
+      campoTemporario.setAttribute("readonly", "");
+      campoTemporario.style.position = "fixed";
+      campoTemporario.style.left = "-9999px";
+      campoTemporario.style.opacity = "0";
+
+      document.body.appendChild(campoTemporario);
+
+      campoTemporario.focus();
+      campoTemporario.select();
+
+      const conseguiuCopiar =
+        document.execCommand("copy");
+
+      campoTemporario.remove();
+
+      if (!conseguiuCopiar) {
+        throw new Error("O navegador não permitiu copiar.");
+      }
+    }
+
+    mostrarConfirmacao("Link copiado!");
+  } catch (erro) {
+    window.prompt(
+      "Copie a mensagem abaixo:",
+      mensagem
+    );
+  }
+}
 /* ============================================================
    LIGHTBOX DA FOTO
    ============================================================ */
@@ -427,7 +589,13 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const artigo = document.createElement("article");
   artigo.className = "produto";
 
+  const slugProduto = obterSlugProduto(produto);
+
+  artigo.id = `produto-${slugProduto}`;
+  artigo.dataset.produto = slugProduto;
+
   const corInicial = produto.cores[indiceCorInicial] || produto.cores[0];
+  let corSelecionadaAtual = corInicial;
 
   const info = document.createElement("div");
   info.className = "produto__info";
@@ -521,6 +689,20 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   botaoWhatsApp.target = "_blank";
   botaoWhatsApp.rel = "noopener";
 
+  const botaoCompartilhar = document.createElement("button");
+  botaoCompartilhar.type = "button";
+  botaoCompartilhar.className =
+    "produto__acao produto__acao--compartilhar";
+  botaoCompartilhar.textContent = "Compartilhar cor";
+
+  botaoCompartilhar.addEventListener("click", () => {
+    compartilharCor(
+      produto,
+      corSelecionadaAtual,
+      botaoCompartilhar
+    );
+  });
+
   const botaoVerFoto = document.createElement("button");
   botaoVerFoto.type = "button";
   botaoVerFoto.className = "produto__acao produto__acao--foto";
@@ -529,6 +711,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   acoes.appendChild(botaoLoja);
   acoes.appendChild(botaoWhatsApp);
+  acoes.appendChild(botaoCompartilhar);
   acoes.appendChild(botaoVerFoto);
 
   lado.appendChild(precoWrap);
@@ -563,6 +746,8 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   function selecionarCor(index, dotEl) {
     const cor = produto.cores[index];
+    corSelecionadaAtual = cor;
+    atualizarEnderecoDaCor(produto, cor);
 
     dotsWrap.querySelectorAll(".dot").forEach((dot) => {
       dot.classList.remove("dot--ativo");
@@ -677,10 +862,22 @@ function encontrarCorInicial(produto, termo) {
   return indice >= 0 ? indice : 0;
 }
 
+function encontrarIndiceCorPorSlug(produto, slugCor) {
+  if (!slugCor) {
+    return -1;
+  }
+
+  return produto.cores.findIndex(
+    (cor) => obterSlugCor(cor) === slugCor
+  );
+}
+
 let materialAtivo = "todos";
+let destinoDoLinkJaAplicado = false;
 
 function renderizar() {
   const termo = campoBuscaEl.value.trim();
+  const destino = lerDestinoDoLink();
 
   const filtrados = produtos.filter((produto) =>
     produtoCorresponde(produto, termo, materialAtivo)
@@ -689,13 +886,49 @@ function renderizar() {
   listaProdutosEl.innerHTML = "";
 
   filtrados.forEach((produto) => {
-    const indiceCorInicial = encontrarCorInicial(produto, termo);
+    let indiceCorInicial = encontrarCorInicial(produto, termo);
+
+    const produtoCorrespondeAoLink =
+      destino.produto &&
+      obterSlugProduto(produto) === destino.produto;
+
+    if (produtoCorrespondeAoLink && destino.cor) {
+      const indiceCorDoLink = encontrarIndiceCorPorSlug(
+        produto,
+        destino.cor
+      );
+
+      if (indiceCorDoLink >= 0) {
+        indiceCorInicial = indiceCorDoLink;
+      }
+    }
+
     listaProdutosEl.appendChild(
       criarLinhaProduto(produto, indiceCorInicial)
     );
   });
 
   estadoVazioEl.hidden = filtrados.length !== 0;
+
+  if (
+    destino.produto &&
+    !destinoDoLinkJaAplicado
+  ) {
+    const produtoDoLink = document.getElementById(
+      `produto-${destino.produto}`
+    );
+
+    if (produtoDoLink) {
+      destinoDoLinkJaAplicado = true;
+
+      window.requestAnimationFrame(() => {
+        produtoDoLink.scrollIntoView({
+          behavior: "smooth",
+          block: "center"
+        });
+      });
+    }
+  }
 }
 
 async function carregarProdutos() {

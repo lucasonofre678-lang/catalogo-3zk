@@ -79,6 +79,63 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   box-shadow: var(--sombra-2);
 }
 
+/* =====================================================
+   BOTÃO COMPARTILHAR COR
+   ===================================================== */
+
+.produto__acao--compartilhar {
+  appearance: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  min-height: 40px;
+  padding: 0 14px;
+
+  color: #064db5;
+  background: #f3f7ff;
+
+  border: 1px solid #b9ceef;
+  border-radius: 10px;
+
+  font: inherit;
+  font-size: 0.82rem;
+  font-weight: 700;
+  line-height: 1;
+
+  white-space: nowrap;
+  cursor: pointer;
+
+  transition:
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.produto__acao--compartilhar:hover {
+  color: #ffffff;
+  background: #064db5;
+  border-color: #064db5;
+  transform: translateY(-1px);
+}
+
+.produto__acao--compartilhar:active {
+  transform: translateY(0);
+}
+
+.produto__acao--compartilhar:focus-visible {
+  outline: 3px solid rgba(6, 77, 181, 0.22);
+  outline-offset: 2px;
+}
+
+.produto__acao--compartilhar.produto__acao--confirmado {
+  color: #087844;
+  background: #eaf9f1;
+  border-color: #a8dfc2;
+}
+
 .cabecalho__container {
   max-width: 1180px;
   margin: 0 auto;
