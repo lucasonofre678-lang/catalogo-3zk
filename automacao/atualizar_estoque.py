@@ -20,6 +20,7 @@ import time
 import urllib.error
 import urllib.parse
 import urllib.request
+import unicodedata
 from dataclasses import dataclass
 from datetime import datetime
 from decimal import Decimal, InvalidOperation
@@ -33,6 +34,7 @@ DEFAULT_DELAY_SECONDS = 3.2
 DEFAULT_TIMEOUT_SECONDS = 35
 MAX_RETRIES = 4
 LARGE_DROP_FRACTION = Decimal("0.25")
+DEFAULT_INCLUDED_DEPOSITS = ("Geral", "Loja presencial")
 
 
 class SyncError(RuntimeError):
@@ -108,6 +110,88 @@ def decimal_value(value: Any, field_name: str) -> Decimal:
         raise SyncError(
             f"Valor inválido no campo {field_name}: {value!r}"
         ) from exc
+
+
+def normalize_name(value: Any) -> str:
+    """Normaliza nome de depósito para comparação segura."""
+    text = unicodedata.normalize("NFKD", str(value or ""))
+    text = "".join(character for character in text if not unicodedata.combining(character))
+    return " ".join(text.casefold().split())
+
+
+def included_deposit_names() -> list[str]:
+    """
+    Depósitos que podem abastecer pedidos do catálogo.
+
+    Pode ser personalizado no workflow com:
+    OLIST_DEPOSITOS_INCLUIDOS: "Geral,Loja presencial"
+    """
+    raw_value = os.environ.get(
+        "OLIST_DEPOSITOS_INCLUIDOS",
+        ",".join(DEFAULT_INCLUDED_DEPOSITS),
+    )
+
+    names = [name.strip() for name in raw_value.split(",") if name.strip()]
+
+    if not names:
+        raise SyncError(
+            "Nenhum depósito foi configurado em OLIST_DEPOSITOS_INCLUIDOS."
+        )
+
+    return names
+
+
+def combined_deposit_balance(
+    product: dict[str, Any],
+    configured_names: list[str],
+) -> tuple[Decimal | None, list[str]]:
+    """
+    Soma somente os depósitos escolhidos.
+
+    Retorna (None, []) quando a API não envia a lista de depósitos ou quando
+    nenhum nome configurado é encontrado. Nesse caso, o chamador usa o saldo
+    total da Olist como compatibilidade.
+    """
+    raw_deposits = product.get("depositos")
+
+    if not isinstance(raw_deposits, list) or not raw_deposits:
+        return None, []
+
+    wanted = {
+        normalize_name(name): name
+        for name in configured_names
+    }
+
+    total = Decimal("0")
+    matched: list[str] = []
+
+    for wrapper in raw_deposits:
+        if not isinstance(wrapper, dict):
+            continue
+
+        deposit = wrapper.get("deposito", wrapper)
+
+        if not isinstance(deposit, dict):
+            continue
+
+        name = str(deposit.get("nome") or "").strip()
+        normalized = normalize_name(name)
+
+        if normalized not in wanted:
+            continue
+
+        total += decimal_value(
+            deposit.get("saldo"),
+            f"deposito[{name}].saldo",
+        )
+        matched.append(name or wanted[normalized])
+
+    if not matched:
+        return None, []
+
+    # Remove repetições preservando a ordem.
+    matched = list(dict.fromkeys(matched))
+    return total, matched
 
 
 def public_status(quantity: Decimal) -> tuple[str, bool]:
@@ -195,15 +279,32 @@ def request_stock(
                 )
 
             product = retorno.get("produto") or {}
-            balance = decimal_value(product.get("saldo"), "saldo")
+            configured_deposits = included_deposit_names()
+
+            deposit_balance, matched_deposits = combined_deposit_balance(
+                product,
+                configured_deposits,
+            )
+
+            if deposit_balance is None:
+                # Compatibilidade: algumas contas/respostas podem não enviar
+                # o detalhamento por depósito. Nesse caso, usamos o saldo total.
+                balance = decimal_value(product.get("saldo"), "saldo")
+                stock_source = "saldo total informado pela Olist"
+            else:
+                balance = deposit_balance
+                stock_source = " + ".join(matched_deposits)
+
             reserved = decimal_value(
                 product.get("saldoReservado"),
                 "saldoReservado",
             )
 
-            # Quando a extensão de reserva informa saldo reservado, usamos
-            # saldo líquido para não anunciar como disponível algo já reservado.
+            # O saldo reservado é global. Subtraímos uma única vez do total
+            # combinado dos depósitos usados para atender o catálogo.
             available_quantity = max(Decimal("0"), balance - reserved)
+
+            payload["_3zk_stock_source"] = stock_source
             return available_quantity, payload
 
         except urllib.error.HTTPError as exc:
@@ -396,11 +497,15 @@ def main() -> int:
                 )
             quantity = mock_stock[olist_id]
         else:
-            quantity, _ = request_stock(
+            quantity, response_payload = request_stock(
                 token=token,
                 olist_id=olist_id,
                 timeout_seconds=timeout_seconds,
             )
+
+            stock_source = response_payload.get("_3zk_stock_source")
+            if stock_source:
+                print(f"          Origem considerada: {stock_source}")
 
         status, available = public_status(quantity)
         results_by_id[olist_id] = StockResult(
@@ -478,6 +583,7 @@ def main() -> int:
         "fusoHorario": "America/Sao_Paulo",
         "coresDisponiveis": available_colors,
         "coresOcultas": status_counts["sem_estoque"],
+        "depositosConsiderados": included_deposit_names(),
         "exibeQuantidadeExata": False,
     }
     atomic_write_json(metadata_path, metadata)
@@ -487,6 +593,10 @@ def main() -> int:
     print(f"- Em estoque: {status_counts['em_estoque']}")
     print(f"- Últimas unidades: {status_counts['ultimas_unidades']}")
     print(f"- Ocultas por falta de estoque: {status_counts['sem_estoque']}")
+    print(
+        "- Depósitos considerados: "
+        + " + ".join(included_deposit_names())
+    )
     print("- Nenhuma quantidade exata foi gravada no catálogo público.")
 
     return 0
