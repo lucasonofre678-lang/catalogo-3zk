@@ -69,117 +69,76 @@ function obterPastaProduto(produto) {
 }
 
 /*
-  Algumas fotos possuem um nome diferente do nome exibido no catálogo.
-  Aqui fazemos a ligação entre os dois nomes.
+  Cada cor pode ter uma ou várias fotos.
+
+  Exemplo no produtos.json:
+  "imagens": [
+    "assets/fotos/flashforge-pla/vermelho-coral.webp",
+    "assets/fotos/flashforge-pla/vermelho-coral-2.webp"
+  ]
 */
-const ALIASES_FOTOS = {
-  "flashforge-pla|honeydew-verde-melao": "honey-mel"
-};
+function obterFotosCor(produto, cor) {
+  if (Array.isArray(cor.imagens) && cor.imagens.length > 0) {
+    return [...new Set(
+      cor.imagens.filter(
+        (caminho) => typeof caminho === "string" && caminho.trim()
+      )
+    )];
+  }
 
-/*
-  Locais em que o sistema procurará as imagens.
-
-  O caminho "fotos-3zk-prontas-para-o-site/assets/fotos" foi incluído
-  porque o Windows pode criar uma pasta adicional ao extrair o ZIP.
-*/
-const BASES_POSSIVEIS_FOTOS = [
-  "assets/fotos",
-  "./assets/fotos",
-
-  "fotos-3zk-prontas-para-o-site/assets/fotos",
-  "./fotos-3zk-prontas-para-o-site/assets/fotos",
-
-  "assets/assets/fotos",
-  "./assets/assets/fotos",
-
-  "assets/fotos/assets/fotos",
-  "./assets/fotos/assets/fotos"
-];
-
-function obterCaminhosFoto(produto, cor) {
-  /*
-    Quando você cadastrar o caminho manualmente dentro da cor:
-
-    imagem: "assets/fotos/produto/foto.webp"
-
-    esse endereço terá prioridade.
-  */
   if (cor.imagem) {
     return [cor.imagem];
   }
 
-  const pasta = obterPastaProduto(produto);
-  const nomeOriginal = slugificar(cor.nome);
-  const chaveAlias = `${pasta}|${nomeOriginal}`;
+  return [
+    `assets/fotos/${obterPastaProduto(produto)}/${slugificar(cor.nome)}.webp`
+  ];
+}
 
-  const nomesPossiveis = [nomeOriginal];
 
-  if (ALIASES_FOTOS[chaveAlias]) {
-    nomesPossiveis.push(ALIASES_FOTOS[chaveAlias]);
+function obterStatusEstoque(cor) {
+  if (cor.disponivel === false || cor.statusEstoque === "sem_estoque") {
+    return "sem_estoque";
   }
 
-  const extensoesPossiveis = [
-    "webp",
-    "png",
-    "jpg",
-    "jpeg"
-  ];
+  if (cor.statusEstoque === "ultimas_unidades") {
+    return "ultimas_unidades";
+  }
 
-  const caminhos = [];
-
-  BASES_POSSIVEIS_FOTOS.forEach((base) => {
-    nomesPossiveis.forEach((nome) => {
-      extensoesPossiveis.forEach((extensao) => {
-        caminhos.push(
-          `${base}/${pasta}/${nome}.${extensao}`
-        );
-      });
-    });
-  });
+  if (cor.statusEstoque === "em_estoque") {
+    return "em_estoque";
+  }
 
   /*
-    Remove caminhos repetidos.
+    Compatibilidade temporária com arquivos antigos que ainda tenham
+    o número do estoque. O número nunca é mostrado ao cliente.
   */
-  return [...new Set(caminhos)];
-}
-
-function obterCaminhoFoto(produto, cor) {
-  return obterCaminhosFoto(produto, cor)[0];
-}
-
-
-function obterQuantidadeEstoque(cor) {
   const estoque = Number(cor.estoque);
-  return Number.isFinite(estoque) ? Math.max(0, estoque) : 0;
+
+  if (Number.isFinite(estoque)) {
+    if (estoque <= 0) return "sem_estoque";
+    if (estoque <= 3) return "ultimas_unidades";
+  }
+
+  return "em_estoque";
+}
+
+function corEstaDisponivel(cor) {
+  return obterStatusEstoque(cor) !== "sem_estoque";
 }
 
 function obterTextoEstoque(cor) {
-  const estoque = obterQuantidadeEstoque(cor);
-
-  if (estoque <= 0) {
-    return "Sem estoque";
-  }
-
-  if (estoque === 1) {
-    return "Última unidade";
-  }
-
-  if (estoque <= 3) {
-    return `Últimas ${estoque} unidades`;
-  }
-
-  return `Em estoque: ${estoque} unidades`;
+  return obterStatusEstoque(cor) === "ultimas_unidades"
+    ? "Últimas unidades"
+    : "Em estoque";
 }
 
 function criarLinkWhatsApp(produto, cor) {
   const nomeProduto = obterNomeCompletoProduto(produto);
-  const estoque = obterQuantidadeEstoque(cor);
 
-  const mensagem = estoque <= 0
-    ? `Olá! Tenho interesse no filamento ${nomeProduto}, na cor ${cor.nome}, ` +
-      `que está sem estoque. Existe previsão de reposição?`
-    : `Olá! Tenho interesse no filamento ${nomeProduto}, na cor ${cor.nome}. ` +
-      `Gostaria de confirmar a disponibilidade e o valor.`;
+  const mensagem =
+    `Olá! Tenho interesse no filamento ${nomeProduto}, ` +
+    `na cor ${cor.nome}. Gostaria de confirmar a disponibilidade e o valor.`;
 
   return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
 }
@@ -242,16 +201,9 @@ document.addEventListener("keydown", (evento) => {
    BOLINHAS DE COR
    ============================================================ */
 function criarElementoDot(cor, index, aoSelecionar, estaAtivo) {
-  const estoque = obterQuantidadeEstoque(cor);
-  const semEstoque = estoque <= 0;
-
   const dot = document.createElement("button");
   dot.type = "button";
-  dot.className =
-    "dot" +
-    (estaAtivo ? " dot--ativo" : "") +
-    (semEstoque ? " dot--sem-estoque" : "");
-
+  dot.className = "dot" + (estaAtivo ? " dot--ativo" : "");
   dot.style.setProperty("--cor-dot", cor.hex);
   dot.setAttribute("role", "option");
   dot.setAttribute("aria-selected", estaAtivo ? "true" : "false");
@@ -303,155 +255,169 @@ function criarAreaFoto() {
   legenda.className = "produto__foto-legenda";
   legenda.textContent = "Clique para ampliar";
 
+  const anterior = document.createElement("button");
+  anterior.type = "button";
+  anterior.className =
+    "produto__foto-seta produto__foto-seta--anterior";
+  anterior.setAttribute("aria-label", "Ver foto anterior");
+  anterior.textContent = "‹";
+  anterior.hidden = true;
+
+  const proxima = document.createElement("button");
+  proxima.type = "button";
+  proxima.className =
+    "produto__foto-seta produto__foto-seta--proxima";
+  proxima.setAttribute("aria-label", "Ver próxima foto");
+  proxima.textContent = "›";
+  proxima.hidden = true;
+
+  const contador = document.createElement("span");
+  contador.className = "produto__foto-contador";
+  contador.hidden = true;
+
   botao.appendChild(imagem);
   botao.appendChild(placeholder);
   botao.appendChild(legenda);
-  area.appendChild(botao);
 
-  return { area, botao, imagem };
+  area.appendChild(botao);
+  area.appendChild(anterior);
+  area.appendChild(proxima);
+  area.appendChild(contador);
+
+  return {
+    area,
+    botao,
+    imagem,
+    anterior,
+    proxima,
+    contador
+  };
 }
 
-function atualizarFoto({
+function testarImagem(caminho) {
+  return new Promise((resolver) => {
+    const teste = new Image();
+
+    teste.onload = () => resolver(caminho);
+    teste.onerror = () => resolver(null);
+    teste.src = caminho;
+  });
+}
+
+async function atualizarFoto({
   produto,
   cor,
   area,
   botaoImagem,
   imagem,
-  botaoVerFoto
+  botaoVerFoto,
+  anterior,
+  proxima,
+  contador
 }) {
-  const caminhos = obterCaminhosFoto(produto, cor);
-
-  const alt =
-    `${obterNomeCompletoProduto(produto)} na cor ${cor.nome}`;
-
-  /*
-    Este token impede que uma foto antiga apareça quando
-    o cliente troca rapidamente entre as cores.
-  */
-  const tokenCarregamento =
-    `${Date.now()}-${Math.random()}`;
+  const caminhos = obterFotosCor(produto, cor);
+  const tokenCarregamento = `${Date.now()}-${Math.random()}`;
 
   imagem.dataset.tokenCarregamento = tokenCarregamento;
-  imagem.alt = alt;
 
-  area.classList.remove(
-    "produto__foto-area--carregada"
-  );
-
-  area.title =
-    `Primeiro caminho procurado: ${caminhos[0]}`;
+  area.classList.remove("produto__foto-area--carregada");
+  area.classList.remove("produto__foto-area--multipla");
 
   botaoImagem.disabled = true;
   botaoVerFoto.disabled = true;
   botaoVerFoto.textContent = "Carregando foto...";
 
-  let indiceCaminho = 0;
-  let caminhoCarregado = "";
+  anterior.hidden = true;
+  proxima.hidden = true;
+  contador.hidden = true;
 
-  function marcarComoAusente() {
-    if (
-      imagem.dataset.tokenCarregamento !==
-      tokenCarregamento
-    ) {
-      return;
-    }
+  anterior.onclick = null;
+  proxima.onclick = null;
 
-    area.classList.remove(
-      "produto__foto-area--carregada"
-    );
+  const resultados = await Promise.all(
+    caminhos.map((caminho) => testarImagem(caminho))
+  );
 
-    botaoImagem.disabled = true;
-    botaoVerFoto.disabled = true;
+  if (imagem.dataset.tokenCarregamento !== tokenCarregamento) {
+    return;
+  }
+
+  const fotosValidas = resultados.filter(Boolean);
+
+  if (fotosValidas.length === 0) {
     botaoVerFoto.textContent = "Foto em breve";
 
-    /*
-      Isso mostra no console todos os caminhos testados.
-      Abra o console apertando F12 para consultar.
-    */
     console.warn(
-      `[3ZK] Foto não encontrada para ` +
-      `${obterNomeCompletoProduto(produto)} — ${cor.nome}`,
+      `[3ZK] Nenhuma foto encontrada para ` +
+      `${obterNomeCompletoProduto(produto)} — ${cor.nome}.`,
       caminhos
     );
+
+    return;
   }
 
-  function tentarProximoCaminho() {
-    if (
-      imagem.dataset.tokenCarregamento !==
-      tokenCarregamento
-    ) {
-      return;
-    }
+  let indiceAtual = 0;
+  let caminhoAtual = fotosValidas[0];
 
-    /*
-      Todos os caminhos foram testados.
-    */
-    if (indiceCaminho >= caminhos.length) {
-      marcarComoAusente();
-      return;
-    }
+  function mostrarFoto(indice) {
+    indiceAtual =
+      (indice + fotosValidas.length) % fotosValidas.length;
 
-    const caminhoAtual = caminhos[indiceCaminho];
-
-    indiceCaminho += 1;
-
-    imagem.onload = () => {
-      if (
-        imagem.dataset.tokenCarregamento !==
-        tokenCarregamento
-      ) {
-        return;
-      }
-
-      caminhoCarregado = caminhoAtual;
-      imagem.dataset.caminho = caminhoAtual;
-
-      area.classList.add(
-        "produto__foto-area--carregada"
-      );
-
-      area.title =
-        `Imagem carregada de: ${caminhoAtual}`;
-
-      botaoImagem.disabled = false;
-      botaoVerFoto.disabled = false;
-      botaoVerFoto.textContent =
-        "Ver foto ampliada";
-    };
-
-    imagem.onerror = () => {
-      if (
-        imagem.dataset.tokenCarregamento !==
-        tokenCarregamento
-      ) {
-        return;
-      }
-
-      /*
-        Quando um caminho dá erro, testa automaticamente
-        o próximo caminho da lista.
-      */
-      tentarProximoCaminho();
-    };
+    caminhoAtual = fotosValidas[indiceAtual];
 
     imagem.src = caminhoAtual;
+    imagem.alt =
+      `${obterNomeCompletoProduto(produto)} na cor ${cor.nome}. ` +
+      `Foto ${indiceAtual + 1} de ${fotosValidas.length}.`;
+
+    imagem.dataset.caminho = caminhoAtual;
+
+    area.classList.add("produto__foto-area--carregada");
+    area.classList.toggle(
+      "produto__foto-area--multipla",
+      fotosValidas.length > 1
+    );
+
+    botaoImagem.disabled = false;
+    botaoVerFoto.disabled = false;
+    botaoVerFoto.textContent =
+      fotosValidas.length > 1
+        ? `Ver fotos (${fotosValidas.length})`
+        : "Ver foto ampliada";
+
+    const possuiVarias = fotosValidas.length > 1;
+
+    anterior.hidden = !possuiVarias;
+    proxima.hidden = !possuiVarias;
+    contador.hidden = !possuiVarias;
+
+    if (possuiVarias) {
+      contador.textContent =
+        `${indiceAtual + 1} / ${fotosValidas.length}`;
+    }
   }
 
+  anterior.onclick = (evento) => {
+    evento.stopPropagation();
+    mostrarFoto(indiceAtual - 1);
+  };
+
+  proxima.onclick = (evento) => {
+    evento.stopPropagation();
+    mostrarFoto(indiceAtual + 1);
+  };
+
   function abrirFotoAtual() {
-    if (
-      caminhoCarregado &&
-      area.classList.contains(
-        "produto__foto-area--carregada"
-      )
-    ) {
-      abrirLightbox(caminhoCarregado, alt);
-    }
+    abrirLightbox(
+      caminhoAtual,
+      `${obterNomeCompletoProduto(produto)} na cor ${cor.nome}`
+    );
   }
 
   botaoImagem.onclick = abrirFotoAtual;
   botaoVerFoto.onclick = abrirFotoAtual;
 
-  tentarProximoCaminho();
+  mostrarFoto(0);
 }
 
 /* ============================================================
@@ -513,8 +479,8 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const contagem = document.createElement("span");
   contagem.className = "produto__cor-contagem";
   contagem.textContent = produto.cores.length === 1
-    ? "1 cor cadastrada"
-    : `${produto.cores.length} cores cadastradas`;
+    ? "1 cor disponível"
+    : `${produto.cores.length} cores disponíveis`;
 
   cabecalhoCor.appendChild(nomeCor);
   cabecalhoCor.appendChild(contagem);
@@ -569,7 +535,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   lado.appendChild(acoes);
 
   function atualizarEstadoEstoque(cor) {
-    const estoque = obterQuantidadeEstoque(cor);
+    const status = obterStatusEstoque(cor);
 
     estoqueInfo.classList.remove(
       "produto__estoque--disponivel",
@@ -577,36 +543,21 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
       "produto__estoque--esgotado"
     );
 
-    artigo.classList.toggle("produto--cor-sem-estoque", estoque <= 0);
+    estoqueInfo.classList.add(
+      status === "ultimas_unidades"
+        ? "produto__estoque--baixo"
+        : "produto__estoque--disponivel"
+    );
 
-    if (estoque <= 0) {
-      estoqueInfo.classList.add("produto__estoque--esgotado");
-      estoqueInfo.textContent = "Sem estoque";
+    estoqueInfo.textContent = obterTextoEstoque(cor);
 
-      botaoLoja.removeAttribute("href");
-      botaoLoja.setAttribute("aria-disabled", "true");
-      botaoLoja.tabIndex = -1;
-      botaoLoja.textContent = "Sem estoque no site";
-      botaoLoja.classList.add("produto__acao--desativada");
+    botaoLoja.href = obterLinkLoja(produto);
+    botaoLoja.removeAttribute("aria-disabled");
+    botaoLoja.tabIndex = 0;
+    botaoLoja.textContent = "Comprar no site";
+    botaoLoja.classList.remove("produto__acao--desativada");
 
-      botaoWhatsApp.textContent = "Consultar reposição";
-    } else {
-      estoqueInfo.classList.add(
-        estoque <= 3
-          ? "produto__estoque--baixo"
-          : "produto__estoque--disponivel"
-      );
-      estoqueInfo.textContent = obterTextoEstoque(cor);
-
-      botaoLoja.href = obterLinkLoja(produto);
-      botaoLoja.removeAttribute("aria-disabled");
-      botaoLoja.tabIndex = 0;
-      botaoLoja.textContent = "Comprar no site";
-      botaoLoja.classList.remove("produto__acao--desativada");
-
-      botaoWhatsApp.textContent = "Pedir no WhatsApp";
-    }
-
+    botaoWhatsApp.textContent = "Pedir no WhatsApp";
     botaoWhatsApp.href = criarLinkWhatsApp(produto, cor);
   }
 
@@ -642,7 +593,10 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
       area: foto.area,
       botaoImagem: foto.botao,
       imagem: foto.imagem,
-      botaoVerFoto
+      botaoVerFoto,
+      anterior: foto.anterior,
+      proxima: foto.proxima,
+      contador: foto.contador
     });
   }
 
@@ -672,7 +626,10 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     area: foto.area,
     botaoImagem: foto.botao,
     imagem: foto.imagem,
-    botaoVerFoto
+    botaoVerFoto,
+    anterior: foto.anterior,
+    proxima: foto.proxima,
+    contador: foto.contador
   });
 
   return artigo;
@@ -765,12 +722,17 @@ async function carregarProdutos() {
       throw new Error("O arquivo produtos.json não contém uma lista válida.");
     }
 
-    produtos = dados.filter(
-      (produto) =>
-        produto &&
-        Array.isArray(produto.cores) &&
-        produto.cores.length > 0
-    );
+    produtos = dados
+      .filter(
+        (produto) =>
+          produto &&
+          Array.isArray(produto.cores)
+      )
+      .map((produto) => ({
+        ...produto,
+        cores: produto.cores.filter(corEstaDisponivel)
+      }))
+      .filter((produto) => produto.cores.length > 0);
 
     renderizar();
   } catch (erro) {
