@@ -3,8 +3,9 @@ name: Atualizar estoque Olist e publicar catálogo
 on:
   workflow_dispatch:
   schedule:
-    # A cada 30 minutos, fora do começo da hora para reduzir atrasos.
-    - cron: "17,47 * * * *"
+  # Horários aproximados de Brasília:
+  # 00:17, 06:17, 12:17 e 18:17.
+  - cron: "17 3,9,15,21 * * *"
   push:
     branches:
       - main
