@@ -1,29 +1,15 @@
-ETAPA 2 — MASTERPRINT PETG COMPLETO
+ETAPA 3 — CLOSIN PETG COMPLETO
 
-Este pacote mantém o Flashforge já concluído e adiciona todas as 25 variações
-Masterprint PETG encontradas no estoque geral da Olist, inclusive as zeradas.
+Extraia este ZIP diretamente em:
+C:\3ZK\catalogo-3zk
 
-Arquivos:
-- dados/produtos-base.json
-- automacao/mapeamento-olist.json
-- assets/fotos/masterprint-petg/
+Substitua os arquivos quando o Windows perguntar.
 
-Total de mapeamentos após esta etapa: 86
+Este pacote mantém as etapas anteriores e adiciona 16 cores Closin PETG.
+As cores sem estoque permanecem cadastradas, mas ficam ocultas no site.
 
-Fotos reais incluídas:
-- Bronze
-- Fluorescente Roxo
-- Lavanda
-- Roxo
-- Translúcido Amarelo
-- Translúcido Verde
-- Translúcido Vermelho (2 fotos)
+Fotos incluídas: 15
+Foto ainda ausente: Wood
 
-As demais cores ficam com "Foto em breve" até as imagens serem adicionadas.
-
-INSTALAÇÃO:
-1. Extraia diretamente em C:\3ZK\catalogo-3zk
-2. Confirme a substituição dos arquivos.
-3. Faça commit: Cadastra todas as cores Masterprint PETG
-4. Faça Push origin.
-5. Aguarde a Action finalizar em verde.
+Commit sugerido:
+Cadastra todas as cores Closin PETG

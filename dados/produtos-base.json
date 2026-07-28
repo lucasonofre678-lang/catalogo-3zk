@@ -184,6 +184,106 @@
     "linkLoja": "https://3zkfilamentos.com.br/",
     "cores": [
       {
+        "nome": "Amarelo",
+        "hex": "#D6B93D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/amarelo.webp"
+        ],
+        "chaveEstoque": "closin|petg||amarelo"
+      },
+      {
+        "nome": "Azul",
+        "hex": "#356DA4",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/azul.webp"
+        ],
+        "chaveEstoque": "closin|petg||azul"
+      },
+      {
+        "nome": "Branco",
+        "hex": "#D9D9D5",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/branco.webp"
+        ],
+        "chaveEstoque": "closin|petg||branco"
+      },
+      {
+        "nome": "Cinza",
+        "hex": "#85888A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/cinza.webp"
+        ],
+        "chaveEstoque": "closin|petg||cinza"
+      },
+      {
+        "nome": "Fluo Blue",
+        "hex": "#00A8C8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-blue.webp"
+        ],
+        "chaveEstoque": "closin|petg||fluo-blue"
+      },
+      {
+        "nome": "Fluo Green",
+        "hex": "#58C946",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-green.webp"
+        ],
+        "chaveEstoque": "closin|petg||fluo-green"
+      },
+      {
+        "nome": "Fluo Yellow",
+        "hex": "#D6E636",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-yellow.webp"
+        ],
+        "chaveEstoque": "closin|petg||fluo-yellow"
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#D97A39",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/laranja.webp"
+        ],
+        "chaveEstoque": "closin|petg||laranja"
+      },
+      {
+        "nome": "Pink",
+        "hex": "#D95A9B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/pink.webp"
+        ],
+        "chaveEstoque": "closin|petg||pink"
+      },
+      {
+        "nome": "Preto",
+        "hex": "#24272B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/preto.webp"
+        ],
+        "chaveEstoque": "closin|petg||preto"
+      },
+      {
         "nome": "Rosa",
         "hex": "#ED5996",
         "hexFonte": "foto",
@@ -192,6 +292,56 @@
           "assets/fotos/closin-petg/rosa.webp"
         ],
         "chaveEstoque": "closin|petg||rosa"
+      },
+      {
+        "nome": "Silver Prateado",
+        "hex": "#A9ADB0",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/silver-prateado.webp"
+        ],
+        "chaveEstoque": "closin|petg||silver-prateado"
+      },
+      {
+        "nome": "Skin",
+        "hex": "#C79A7D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/skin.webp"
+        ],
+        "chaveEstoque": "closin|petg||skin"
+      },
+      {
+        "nome": "Verde",
+        "hex": "#498B55",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/verde.webp"
+        ],
+        "chaveEstoque": "closin|petg||verde"
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#B84743",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/vermelho.webp"
+        ],
+        "chaveEstoque": "closin|petg||vermelho"
+      },
+      {
+        "nome": "Wood",
+        "hex": "#9B7651",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-petg/wood.webp"
+        ],
+        "chaveEstoque": "closin|petg||wood"
       }
     ],
     "obs": "Rolo de 1kg"

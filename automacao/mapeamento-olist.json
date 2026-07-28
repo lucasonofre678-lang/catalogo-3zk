@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 86,
+  "total": 101,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -189,17 +189,6 @@
       "sku": "6937120327790",
       "gtin": "6937120327790",
       "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - VERDE FLORESTA"
-    },
-    {
-      "chave": "closin|petg||rosa",
-      "marca": "Closin",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Rosa",
-      "olistId": 1048182649,
-      "sku": "PETG - Rosa",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PETG  - PETG - Rosa"
     },
     {
       "chave": "fusionx|petg||laranja",
@@ -948,6 +937,182 @@
       "sku": "PETGVERDE",
       "gtin": "7908229103836",
       "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG VERDE"
+    },
+    {
+      "chave": "closin|petg||amarelo",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Amarelo",
+      "olistId": 1048182631,
+      "sku": "PETG - Amarelo",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Amarelo"
+    },
+    {
+      "chave": "closin|petg||azul",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Azul",
+      "olistId": 1048182627,
+      "sku": "PETG - Azul",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Azul"
+    },
+    {
+      "chave": "closin|petg||branco",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Branco",
+      "olistId": 1048182624,
+      "sku": "PETG - Branco",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Branco"
+    },
+    {
+      "chave": "closin|petg||cinza",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Cinza",
+      "olistId": 1049405250,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - Cinza"
+    },
+    {
+      "chave": "closin|petg||fluo-blue",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fluo Blue",
+      "olistId": 1048791606,
+      "sku": "PETG - Fluo Blue",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Fluo Blue"
+    },
+    {
+      "chave": "closin|petg||fluo-green",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fluo Green",
+      "olistId": 1048791609,
+      "sku": "PETG - Fluo Green",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Fluo Green"
+    },
+    {
+      "chave": "closin|petg||fluo-yellow",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fluo Yellow",
+      "olistId": 1048791612,
+      "sku": "PETG - Fluo Yellow",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Fluo Yellow"
+    },
+    {
+      "chave": "closin|petg||laranja",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Laranja",
+      "olistId": 1048182645,
+      "sku": "PETG - Laranja",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Laranja"
+    },
+    {
+      "chave": "closin|petg||pink",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Pink",
+      "olistId": 1048791615,
+      "sku": "PETG - Pink",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Pink"
+    },
+    {
+      "chave": "closin|petg||preto",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1048791599,
+      "sku": "PETG - Preto",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Preto"
+    },
+    {
+      "chave": "closin|petg||rosa",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Rosa",
+      "olistId": 1048182649,
+      "sku": "PETG - Rosa",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Rosa"
+    },
+    {
+      "chave": "closin|petg||silver-prateado",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Silver Prateado",
+      "olistId": 1048791603,
+      "sku": "PETG - Silver Prateado",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Silver Prateado"
+    },
+    {
+      "chave": "closin|petg||skin",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Skin",
+      "olistId": 1048182642,
+      "sku": "PETG - Skin",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Skin"
+    },
+    {
+      "chave": "closin|petg||verde",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Verde",
+      "olistId": 1048182639,
+      "sku": "PETG - Verde",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Verde"
+    },
+    {
+      "chave": "closin|petg||vermelho",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Vermelho",
+      "olistId": 1048182635,
+      "sku": "PETG - Vermelho",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Vermelho"
+    },
+    {
+      "chave": "closin|petg||wood",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Wood",
+      "olistId": 1048791619,
+      "sku": "PETG - Wood",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PETG  - PETG - Wood"
     }
   ]
 }
