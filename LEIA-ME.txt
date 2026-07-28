@@ -1,15 +1,32 @@
-ETAPA 3 — CLOSIN PETG COMPLETO
+ETAPA 4 — LOTE DE MODELOS MENORES COMPLETO
 
-Extraia este ZIP diretamente em:
-C:\3ZK\catalogo-3zk
+Este pacote mantém as etapas anteriores e completa estes grupos:
+- FusionX PETG: 13 cores
+- Fusion High Speed PETG 1,2 kg: 2 cores
+- Masterprint TPU: 4 cores
+- Creality Soleyin Ultra PLA: 8 cores
+- Elegoo PLA: 13 cores
+- Multifila PLA: 1 cor
 
-Substitua os arquivos quando o Windows perguntar.
+Resultado acumulado:
+- 127 cores cadastradas no produtos-base.json
+- 127 mapeamentos válidos na Olist
+- Produtos com estoque zero permanecem cadastrados e ocultos
+- Quando o estoque voltar, aparecem automaticamente após a sincronização
 
-Este pacote mantém as etapas anteriores e adiciona 16 cores Closin PETG.
-As cores sem estoque permanecem cadastradas, mas ficam ocultas no site.
-
-Fotos incluídas: 15
-Foto ainda ausente: Wood
+INSTALAÇÃO
+1. Extraia diretamente em C:\3ZK\catalogo-3zk
+2. Escolha substituir os arquivos no destino
+3. No GitHub Desktop: commit e Push origin
+4. Aguarde a Action terminar
 
 Commit sugerido:
-Cadastra todas as cores Closin PETG
+Cadastra lote FusionX Creality Elegoo TPU e Multifila
+
+FOTOS AINDA AUSENTES NESTE LOTE
+- FusionX PETG: Champagne
+- Fusion High Speed PETG: Preto
+- Masterprint TPU: Preto e Natural Transparente
+- Elegoo PLA: Dark Blue, Neon Green, Pink, Beige, Sea Green e Yellow
+
+Observação: Pink Purple Violeta usa a foto candidata roxo-pastel já existente no acervo.
