@@ -202,6 +202,116 @@
     "linkLoja": "https://3zkfilamentos.com.br/",
     "cores": [
       {
+        "nome": "Amarelo",
+        "hex": "#D6B93D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/amarelo.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Azul",
+        "hex": "#356DA4",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/azul.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Branco",
+        "hex": "#D9D9D5",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/branco.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Cinza",
+        "hex": "#85888A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/cinza.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Fluo Blue",
+        "hex": "#00A8C8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-blue.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Fluo Green",
+        "hex": "#58C946",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-green.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Fluo Yellow",
+        "hex": "#D6E636",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-yellow.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#D97A39",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/laranja.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Pink",
+        "hex": "#D95A9B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/pink.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Preto",
+        "hex": "#24272B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/preto.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
         "nome": "Rosa",
         "hex": "#ED5996",
         "hexFonte": "foto",
@@ -211,6 +321,61 @@
         ],
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
+      },
+      {
+        "nome": "Silver Prateado",
+        "hex": "#A9ADB0",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/silver-prateado.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Skin",
+        "hex": "#C79A7D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/skin.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Verde",
+        "hex": "#498B55",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/verde.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#B84743",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-petg/vermelho.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Wood",
+        "hex": "#9B7651",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-petg/wood.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "obs": "Rolo de 1kg",
