@@ -1771,8 +1771,8 @@
         "imagens": [
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Natural",
