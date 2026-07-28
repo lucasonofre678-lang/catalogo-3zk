@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 63,
+  "total": 86,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -200,28 +200,6 @@
       "sku": "PETG - Rosa",
       "gtin": null,
       "descricaoOlist": "Filamentos Closin PETG  - PETG - Rosa"
-    },
-    {
-      "chave": "masterprint|petg||roxo",
-      "marca": "Masterprint",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Roxo",
-      "olistId": 1045660289,
-      "sku": "PETGROXO",
-      "gtin": "7908229110810",
-      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG ROXO"
-    },
-    {
-      "chave": "masterprint|petg||branco",
-      "marca": "Masterprint",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Branco",
-      "olistId": 1044898205,
-      "sku": "PETGBRANCO",
-      "gtin": "7908229103737",
-      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG BRANCO"
     },
     {
       "chave": "fusionx|petg||laranja",
@@ -695,6 +673,281 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "Multifila - FILAMENTO PLA - PLA BRANCO"
+    },
+    {
+      "chave": "masterprint|petg||amarelo",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Amarelo",
+      "olistId": 1045660271,
+      "sku": "PETGAMARELO",
+      "gtin": "7908229108152",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG AMARELO"
+    },
+    {
+      "chave": "masterprint|petg||azul",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Azul",
+      "olistId": 1044898242,
+      "sku": "PETGAZUL",
+      "gtin": "7908229103812",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG AZUL"
+    },
+    {
+      "chave": "masterprint|petg||branco",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Branco",
+      "olistId": 1044898205,
+      "sku": "PETGBRANCO",
+      "gtin": "7908229103737",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG BRANCO"
+    },
+    {
+      "chave": "masterprint|petg||branco-pcv-outdoor",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Branco PCV Outdoor",
+      "olistId": 1044898245,
+      "sku": "BRANCOOUTDDOOR",
+      "gtin": "7908229110827",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG BRANCO PCV OUTDOOR"
+    },
+    {
+      "chave": "masterprint|petg||bronze",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Bronze",
+      "olistId": 1045660286,
+      "sku": "PETGBRONZE",
+      "gtin": "7908229109876",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG BRONZE"
+    },
+    {
+      "chave": "masterprint|petg||cinza",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Cinza",
+      "olistId": 1044898220,
+      "sku": "PETGCINZA",
+      "gtin": "7908229108145",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG CINZA"
+    },
+    {
+      "chave": "masterprint|petg||dourado",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Dourado",
+      "olistId": 1046109705,
+      "sku": "PETGDOURADO",
+      "gtin": "7908229110582",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG DOURADO"
+    },
+    {
+      "chave": "masterprint|petg||fluorescente-roxo",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fluorescente Roxo",
+      "olistId": 1045660283,
+      "sku": "PETGFLUORESCENTEROXO",
+      "gtin": "7908229109869",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG FLUORESCENTE ROXO"
+    },
+    {
+      "chave": "masterprint|petg||fosco-branco",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fosco Branco",
+      "olistId": 1045660298,
+      "sku": "PETGFOSCOBRANCO",
+      "gtin": "7908229108664",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG FOSCO BRANCO"
+    },
+    {
+      "chave": "masterprint|petg||laranja",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Laranja",
+      "olistId": 1045660274,
+      "sku": "PETGLARANJA",
+      "gtin": "7908229108176",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG LARANJA"
+    },
+    {
+      "chave": "masterprint|petg||lavanda",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Lavanda",
+      "olistId": 1045660280,
+      "sku": "PETGLAVANDA",
+      "gtin": "7908229109852",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG LAVANDA"
+    },
+    {
+      "chave": "masterprint|petg||madeira",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Madeira",
+      "olistId": 1045660277,
+      "sku": "PETGMADEIRA",
+      "gtin": "7908229108190",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG MADEIRA"
+    },
+    {
+      "chave": "masterprint|petg||marrom",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Marrom",
+      "olistId": 1044898229,
+      "sku": "PETGMARROM",
+      "gtin": "7908229108169",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG MARROM"
+    },
+    {
+      "chave": "masterprint|petg||prata",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Prata",
+      "olistId": 1044898217,
+      "sku": "PETGPRATA",
+      "gtin": "7908229105892",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG PRATA"
+    },
+    {
+      "chave": "masterprint|petg||preto",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1044456283,
+      "sku": "PETGPRETO",
+      "gtin": "7908229103720",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG PRETO"
+    },
+    {
+      "chave": "masterprint|petg||rosa",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Rosa",
+      "olistId": 1044898226,
+      "sku": "PETGROSA",
+      "gtin": "7908229105885",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG ROSA"
+    },
+    {
+      "chave": "masterprint|petg||roxo",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Roxo",
+      "olistId": 1045660289,
+      "sku": "PETGROXO",
+      "gtin": "7908229110810",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG ROXO"
+    },
+    {
+      "chave": "masterprint|petg||skin",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Skin",
+      "olistId": 1045660295,
+      "sku": "PETGSKIN",
+      "gtin": "7908229108183",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG SKIN"
+    },
+    {
+      "chave": "masterprint|petg||translucido-amarelo",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Translúcido Amarelo",
+      "olistId": 1044898223,
+      "sku": "PETG TRANSLUCIDOAMARELO",
+      "gtin": "7908229103843",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG TRANSLUCIDO AMARELO"
+    },
+    {
+      "chave": "masterprint|petg||translucido-azul",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Translúcido Azul",
+      "olistId": 1046109709,
+      "sku": "PETGTRANSLUCIDOAZUL",
+      "gtin": "7908229105861",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG TRANSLUCIDO AZUL"
+    },
+    {
+      "chave": "masterprint|petg||translucido-branco",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Translúcido Branco",
+      "olistId": 1046327244,
+      "sku": "PETGTRANSLUCIDOBRANCO",
+      "gtin": "7908229111626",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG TRANSLUCIDO BRANCO"
+    },
+    {
+      "chave": "masterprint|petg||translucido-verde",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Translúcido Verde",
+      "olistId": 1046327241,
+      "sku": "PETGTRANSLUCIDO VERDE",
+      "gtin": "7908229110803",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG TRANSLUCIDO VERDE"
+    },
+    {
+      "chave": "masterprint|petg||translucido-vermelho",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Translúcido Vermelho",
+      "olistId": 1046109713,
+      "sku": "PETG TRANSLUCDOVERMELHO",
+      "gtin": "7908229105878",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG TRANSLUCIDO VERMELHO"
+    },
+    {
+      "chave": "masterprint|petg||transparente",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Transparente",
+      "olistId": 1045660292,
+      "sku": "PETGTRANSPARENTE",
+      "gtin": "7908229108138",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG TRANSPARENTE"
+    },
+    {
+      "chave": "masterprint|petg||verde",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Verde",
+      "olistId": 1044898214,
+      "sku": "PETGVERDE",
+      "gtin": "7908229103836",
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG VERDE"
     }
   ]
 }

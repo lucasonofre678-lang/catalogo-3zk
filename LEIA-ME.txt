@@ -1,18 +1,29 @@
-ETAPA FLASHFORGE — CATÁLOGO 3ZK
+ETAPA 2 — MASTERPRINT PETG COMPLETO
 
-Este pacote contém:
-- dados/produtos-base.json com 17 cores Flashforge cadastradas;
-- automacao/mapeamento-olist.json com os 17 vínculos da Olist;
-- 10 fotos Flashforge já convertidas e nomeadas em WebP.
+Este pacote mantém o Flashforge já concluído e adiciona todas as 25 variações
+Masterprint PETG encontradas no estoque geral da Olist, inclusive as zeradas.
 
-Instalação:
-1. Faça backup dos dois JSON atuais.
-2. Extraia este ZIP diretamente em C:\3ZK\catalogo-3zk
-3. Confirme a substituição dos dois arquivos JSON.
-4. Faça o teste local e depois commit/push.
+Arquivos:
+- dados/produtos-base.json
+- automacao/mapeamento-olist.json
+- assets/fotos/masterprint-petg/
 
-Cores sem foto ainda:
-- Honey / Mel
-- Mango Yellow / Amarelo Manga
-- Forest Green / Verde Floresta
-- Lavender / Roxo Claro
+Total de mapeamentos após esta etapa: 86
+
+Fotos reais incluídas:
+- Bronze
+- Fluorescente Roxo
+- Lavanda
+- Roxo
+- Translúcido Amarelo
+- Translúcido Verde
+- Translúcido Vermelho (2 fotos)
+
+As demais cores ficam com "Foto em breve" até as imagens serem adicionadas.
+
+INSTALAÇÃO:
+1. Extraia diretamente em C:\3ZK\catalogo-3zk
+2. Confirme a substituição dos arquivos.
+3. Faça commit: Cadastra todas as cores Masterprint PETG
+4. Faça Push origin.
+5. Aguarde a Action finalizar em verde.
