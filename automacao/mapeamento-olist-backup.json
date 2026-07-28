@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 63,
+  "total": 56,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -66,7 +66,7 @@
       "cor": "Honeydew / Verde Melão",
       "olistId": 1050458055,
       "sku": "27837",
-      "gtin": "6937120327837",
+      "gtin": "6937120 327837",
       "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - VERDE MELAO"
     },
     {
@@ -112,83 +112,6 @@
       "sku": "27813",
       "gtin": "6937120327813",
       "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - VERDE MAR AZULADO"
-    },
-    {
-      "chave": "flashforge|pla||honey-mel",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Honey / Mel",
-      "olistId": 1049870677,
-      "sku": "6937120322912",
-      "gtin": "6937120327912",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - HONEY (MEL)"
-    },
-    {
-      "chave": "flashforge|pla||dusty-pink-rosa-desbotado",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Dusty Pink / Rosa Desbotado",
-      "olistId": 1049870689,
-      "sku": "6937120327905",
-      "gtin": "6937120327905",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - ROSA DESBOTADO"
-    },
-    {
-      "chave": "flashforge|pla||mango-yellow-amarelo-manga",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Mango Yellow / Amarelo Manga",
-      "olistId": 1049870693,
-      "sku": "6937120327738",
-      "gtin": "6937120327738",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - AMARELO MANGA"
-    },
-    {
-      "chave": "flashforge|pla||hot-pink-rosa-choque",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Hot Pink / Rosa Choque",
-      "olistId": 1049870697,
-      "sku": "6937120327899",
-      "gtin": "6937120327899",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - ROSA CHOQUE"
-    },
-    {
-      "chave": "flashforge|pla||black-preto",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Black / Preto",
-      "olistId": 1049870701,
-      "sku": "6937120326359",
-      "gtin": "6937120326359",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - PRETO"
-    },
-    {
-      "chave": "flashforge|pla||midnight-azul-escuro",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Midnight / Azul Escuro",
-      "olistId": 1049870705,
-      "sku": "6937120327769",
-      "gtin": "6937120327769",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - AZUL ESCURO"
-    },
-    {
-      "chave": "flashforge|pla||forest-green-verde-floresta",
-      "marca": "Flashforge",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Forest Green / Verde Floresta",
-      "olistId": 1049870709,
-      "sku": "6937120327790",
-      "gtin": "6937120327790",
-      "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - VERDE FLORESTA"
     },
     {
       "chave": "closin|petg||rosa",

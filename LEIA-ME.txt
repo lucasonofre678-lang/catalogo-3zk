@@ -1,0 +1,18 @@
+ETAPA FLASHFORGE — CATÁLOGO 3ZK
+
+Este pacote contém:
+- dados/produtos-base.json com 17 cores Flashforge cadastradas;
+- automacao/mapeamento-olist.json com os 17 vínculos da Olist;
+- 10 fotos Flashforge já convertidas e nomeadas em WebP.
+
+Instalação:
+1. Faça backup dos dois JSON atuais.
+2. Extraia este ZIP diretamente em C:\3ZK\catalogo-3zk
+3. Confirme a substituição dos dois arquivos JSON.
+4. Faça o teste local e depois commit/push.
+
+Cores sem foto ainda:
+- Honey / Mel
+- Mango Yellow / Amarelo Manga
+- Forest Green / Verde Floresta
+- Lavender / Roxo Claro
