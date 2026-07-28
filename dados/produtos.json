@@ -40,9 +40,9 @@
       },
       {
         "nome": "Cool Gray / Cinza Azulado",
-        "hex": "#8C97A8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#8D979B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/flashforge-pla/cool-gray-cinza-azulado.webp"
         ],
@@ -51,9 +51,9 @@
       },
       {
         "nome": "Cream Yellow / Amarelo Suave",
-        "hex": "#F5E1A4",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#DDCF85",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/flashforge-pla/cream-yellow-amarelo-suave.webp"
         ],
@@ -62,9 +62,9 @@
       },
       {
         "nome": "Honeydew / Verde Melão",
-        "hex": "#C9E4B5",
-        "fotoStatus": "ausente",
-        "hexFonte": "sem_foto",
+        "hex": "#A9BDB3",
+        "fotoStatus": "confirmada",
+        "hexFonte": "foto",
         "imagens": [
           "assets/fotos/flashforge-pla/honeydew-verde-melao.webp"
         ],
@@ -84,9 +84,9 @@
       },
       {
         "nome": "Light Coral / Rosa-Alaranjado Claro",
-        "hex": "#F0958A",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#D56F5C",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/flashforge-pla/light-coral-rosa-alaranjado-claro.webp"
         ],
@@ -95,9 +95,9 @@
       },
       {
         "nome": "Mint Green / Verde Menta Claro",
-        "hex": "#A8E0C8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#9EBBA8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/flashforge-pla/mint-green-verde-menta-claro.webp"
         ],
@@ -106,14 +106,91 @@
       },
       {
         "nome": "Sea Green / Verde Mar Azulado",
-        "hex": "#4F9E8C",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#8FA99A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/flashforge-pla/sea-green-verde-mar-azulado.webp"
         ],
         "statusEstoque": "em_estoque",
         "disponivel": true
+      },
+      {
+        "nome": "Honey / Mel",
+        "hex": "#D4A34E",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/honey-mel.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Dusty Pink / Rosa Desbotado",
+        "hex": "#9D858D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Mango Yellow / Amarelo Manga",
+        "hex": "#F1B82F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/mango-yellow-amarelo-manga.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Hot Pink / Rosa Choque",
+        "hex": "#B23F73",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/hot-pink-rosa-choque.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Black / Preto",
+        "hex": "#1B1D22",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/black-preto.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Midnight / Azul Escuro",
+        "hex": "#344253",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/flashforge-pla/midnight-azul-escuro.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Forest Green / Verde Floresta",
+        "hex": "#315B42",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/forest-green-verde-floresta.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "disponivel": true
