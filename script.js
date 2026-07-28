@@ -317,6 +317,7 @@ async function compartilharCor(produto, cor, botao) {
    ============================================================ */
 const CHAVE_CARRINHO_3ZK = "3zk-carrinho-v1";
 const CHAVE_DADOS_PEDIDO_3ZK = "3zk-dados-pedido-v1";
+const CHAVE_CODIGO_PEDIDO_3ZK = "3zk-codigo-pedido-v1";
 const LIMITE_QUANTIDADE_ITEM = 99;
 const DESCONTO_PAGAMENTO_PERCENTUAL = 0.05;
 
@@ -364,6 +365,74 @@ function gravarLocalStorage(chave, valor) {
   } catch (erro) {
     console.warn(`[3ZK] Não foi possível salvar ${chave}.`, erro);
   }
+}
+
+function removerLocalStorage(chave) {
+  try {
+    window.localStorage.removeItem(chave);
+  } catch (erro) {
+    console.warn(`[3ZK] Não foi possível remover ${chave}.`, erro);
+  }
+}
+
+function gerarCaracteresCodigoPedido(quantidade) {
+  // Sem 0, O, 1, I e L para evitar confusão ao copiar.
+  const alfabeto = "23456789ABCDEFGHJKMNPQRSTUVWXYZ";
+  let resultado = "";
+
+  if (window.crypto?.getRandomValues) {
+    const numeros = new Uint32Array(quantidade);
+    window.crypto.getRandomValues(numeros);
+
+    numeros.forEach((numero) => {
+      resultado += alfabeto[numero % alfabeto.length];
+    });
+
+    return resultado;
+  }
+
+  for (let indice = 0; indice < quantidade; indice += 1) {
+    const posicao = Math.floor(Math.random() * alfabeto.length);
+    resultado += alfabeto[posicao];
+  }
+
+  return resultado;
+}
+
+function gerarNovoCodigoPedido() {
+  const caracteres = gerarCaracteresCodigoPedido(8);
+
+  return `3ZK-${caracteres.slice(0, 4)}-${caracteres.slice(4)}`;
+}
+
+function obterCodigoPedido() {
+  const codigoSalvo = lerLocalStorage(
+    CHAVE_CODIGO_PEDIDO_3ZK,
+    ""
+  );
+
+  if (
+    typeof codigoSalvo === "string" &&
+    /^3ZK-[2-9A-HJKMNP-Z]{4}-[2-9A-HJKMNP-Z]{4}$/.test(
+      codigoSalvo
+    )
+  ) {
+    return codigoSalvo;
+  }
+
+  const novoCodigo = gerarNovoCodigoPedido();
+  gravarLocalStorage(CHAVE_CODIGO_PEDIDO_3ZK, novoCodigo);
+
+  return novoCodigo;
+}
+
+function sincronizarCodigoPedidoComCarrinho() {
+  if (carrinho.length === 0) {
+    removerLocalStorage(CHAVE_CODIGO_PEDIDO_3ZK);
+    return;
+  }
+
+  obterCodigoPedido();
 }
 
 function carregarCarrinhoSalvo() {
@@ -568,6 +637,7 @@ function adicionarAoCarrinho(produto, cor, botao) {
   }
 
   salvarCarrinho();
+  sincronizarCodigoPedidoComCarrinho();
   renderizarCarrinho();
   animarCarrinhoCabecalho();
 
@@ -613,12 +683,14 @@ function alterarQuantidadeItem(id, diferenca) {
   }
 
   salvarCarrinho();
+  sincronizarCodigoPedidoComCarrinho();
   renderizarCarrinho();
 }
 
 function removerItemCarrinho(id) {
   carrinho = carrinho.filter((item) => item.id !== id);
   salvarCarrinho();
+  sincronizarCodigoPedidoComCarrinho();
   renderizarCarrinho();
 }
 
@@ -633,6 +705,7 @@ function limparCarrinho() {
 
   carrinho = [];
   salvarCarrinho();
+  sincronizarCodigoPedidoComCarrinho();
   mostrarEtapaCarrinho(1);
   renderizarCarrinho();
 }
@@ -862,18 +935,7 @@ function renderizarRevisaoPedido() {
 }
 
 function criarCodigoPedido() {
-  const agora = new Date();
-  const doisDigitos = (valor) => String(valor).padStart(2, "0");
-
-  return [
-    "3ZK",
-    String(agora.getFullYear()).slice(-2),
-    doisDigitos(agora.getMonth() + 1),
-    doisDigitos(agora.getDate()),
-    "-",
-    doisDigitos(agora.getHours()),
-    doisDigitos(agora.getMinutes())
-  ].join("");
+  return obterCodigoPedido();
 }
 
 function criarMensagemPedidoWhatsApp() {
@@ -2066,4 +2128,5 @@ filtrosEl.addEventListener("click", (evento) => {
   renderizar();
 });
 
+sincronizarCodigoPedidoComCarrinho();
 carregarProdutos();
