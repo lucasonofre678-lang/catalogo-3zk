@@ -223,12 +223,23 @@
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-petg-masterprint/",
     "cores": [
       {
-        "nome": "Roxo",
-        "hex": "#735575",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "nome": "Amarelo",
+        "hex": "#E0B928",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/masterprint-petg/roxo.webp"
+          "assets/fotos/masterprint-petg/amarelo.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Azul",
+        "hex": "#315FA8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/azul.webp"
         ],
         "statusEstoque": "sem_estoque",
         "disponivel": false
@@ -243,6 +254,257 @@
         ],
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
+      },
+      {
+        "nome": "Branco PCV Outdoor",
+        "hex": "#ECEDE8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Bronze",
+        "hex": "#8A5B35",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/bronze.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Cinza",
+        "hex": "#8C9297",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/cinza.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Dourado",
+        "hex": "#B58B3A",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/dourado.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Fluorescente Roxo",
+        "hex": "#A64CD4",
+        "efeito": "neon",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/fluorescente-roxo.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Fosco Branco",
+        "hex": "#E7E5DE",
+        "efeito": "fosco",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/fosco-branco.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#E8752D",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/laranja.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Lavanda",
+        "hex": "#A68EC1",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/lavanda.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Madeira",
+        "hex": "#A9784E",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/madeira.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Marrom",
+        "hex": "#684630",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/marrom.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Prata",
+        "hex": "#B8BDC2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/prata.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/preto.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Rosa",
+        "hex": "#D96F98",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/rosa.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Roxo",
+        "hex": "#735575",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/roxo.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Skin",
+        "hex": "#D9A481",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/skin.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Translúcido Amarelo",
+        "hex": "#D6C366",
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-amarelo.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Translúcido Azul",
+        "hex": "#5E92B8",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-azul.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Translúcido Branco",
+        "hex": "#DDE2E3",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-branco.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Translúcido Verde",
+        "hex": "#6EAE8A",
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-verde.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Translúcido Vermelho",
+        "hex": "#A85A5A",
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-vermelho.webp",
+          "assets/fotos/masterprint-petg/translucido-vermelho-2.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Transparente",
+        "hex": "#E5E8E7",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/transparente.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Verde",
+        "hex": "#3E8B57",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/verde.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "disponivel": true
