@@ -1,32 +1,28 @@
-ETAPA 4 — LOTE DE MODELOS MENORES COMPLETO
+ETAPA 5 — LOTE GRANDE DE FILAMENTOS
 
-Este pacote mantém as etapas anteriores e completa estes grupos:
-- FusionX PETG: 13 cores
-- Fusion High Speed PETG 1,2 kg: 2 cores
-- Masterprint TPU: 4 cores
-- Creality Soleyin Ultra PLA: 8 cores
-- Elegoo PLA: 13 cores
-- Multifila PLA: 1 cor
+Este pacote mantém todas as etapas anteriores e completa:
+- Masterprint PLA: 32 novas variações
+- Masterprint ABS: 3 novas cores (Cinza, Dourado e Preto)
+- Closin PLA: 9 cores
+- Anycubic PETG: 8 cores
 
 Resultado acumulado:
-- 127 cores cadastradas no produtos-base.json
-- 127 mapeamentos válidos na Olist
-- Produtos com estoque zero permanecem cadastrados e ocultos
-- Quando o estoque voltar, aparecem automaticamente após a sincronização
+- 179 variações cadastradas permanentemente
+- 179 mapeamentos válidos da Olist
+- Produtos zerados ficam ocultos
+- Quando o estoque voltar, reaparecem automaticamente
 
 INSTALAÇÃO
 1. Extraia diretamente em C:\3ZK\catalogo-3zk
 2. Escolha substituir os arquivos no destino
-3. No GitHub Desktop: commit e Push origin
-4. Aguarde a Action terminar
+3. No GitHub Desktop, faça commit
+4. Clique em Pull origin se aparecer seta para baixo
+5. Clique em Push origin
+6. Aguarde a Action terminar
 
 Commit sugerido:
-Cadastra lote FusionX Creality Elegoo TPU e Multifila
+Cadastra Masterprint PLA ABS Closin PLA e Anycubic
 
-FOTOS AINDA AUSENTES NESTE LOTE
-- FusionX PETG: Champagne
-- Fusion High Speed PETG: Preto
-- Masterprint TPU: Preto e Natural Transparente
-- Elegoo PLA: Dark Blue, Neon Green, Pink, Beige, Sea Green e Yellow
-
-Observação: Pink Purple Violeta usa a foto candidata roxo-pastel já existente no acervo.
+FOTOS
+- 38 arquivos de foto foram incluídos neste pacote.
+- Cores sem imagem permanecem com “Foto em breve”.
