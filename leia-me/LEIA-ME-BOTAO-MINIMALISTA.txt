@@ -1,0 +1,18 @@
+BOTÃO MINIMALISTA — CARRINHO 3ZK
+==================================
+
+Este pacote troca somente a aparência do botão “Adicionar ao pedido”.
+O carrinho, dados, estoque e automação continuam iguais.
+
+INSTALAÇÃO
+1. Extraia diretamente em C:\3ZK\catalogo-3zk
+2. Escolha “Substituir os arquivos no destino”.
+3. Teste no Live Server.
+4. Commit sugerido: Deixa botão de adicionar ao pedido minimalista
+5. Faça Pull origin se aparecer e depois Push origin.
+
+ARQUIVOS ALTERADOS
+- style.css
+- script.js
+
+O index.html não precisa ser substituído.

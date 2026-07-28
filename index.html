@@ -7,7 +7,7 @@
   <title>3ZK Filamentos — Catálogo Oficial de Cores</title>
   <meta
     name="description"
-    content="Catálogo oficial de filamentos 3D da 3ZK Filamentos. Encontre rapidamente a cor ideal para sua impressão."
+    content="Catálogo oficial de filamentos 3D da 3ZK. Compare cores reais, monte seu pedido e envie tudo organizado pelo WhatsApp."
   >
   <!-- PRÉVIA DO LINK EM WHATSAPP E REDES SOCIAIS -->
 
@@ -50,8 +50,6 @@
   href="assets/favicon/site.webmanifest"
 >
 
-<meta name="theme-color" content="#2D2D2D">
-
 
 <meta property="og:type" content="website">
 
@@ -91,11 +89,7 @@
 <meta property="og:site_name" content="3ZK Filamentos">
 <meta property="og:locale" content="pt_BR">
 
-<link
-  rel="canonical"
-  href="https://lucasonofre678-lang.github.io/catalogo-3zk/"
->
-  <meta name="theme-color" content="#0047AB">
+<meta name="theme-color" content="#0047AB">
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -118,23 +112,61 @@
         <img src="assets/logo-fundo-invisivel.png" alt="3ZK Filamentos">
       </a>
 
-      <!-- TROQUE O NÚMERO DO WHATSAPP AQUI, SE NECESSÁRIO --> 
-      <a
-        class="botao-whatsapp"
-        href="https://wa.me/554184539430"
-        target="_blank"
-        rel="noopener"
-      >
-        <svg
-          class="botao-whatsapp__icone"
-          viewBox="0 0 24 24"
-          fill="currentColor"
-          aria-hidden="true"
+      <div class="cabecalho__acoes">
+        <!-- TROQUE O NÚMERO DO WHATSAPP AQUI, SE NECESSÁRIO -->
+        <a
+          class="botao-whatsapp"
+          href="https://wa.me/554184539430"
+          target="_blank"
+          rel="noopener"
         >
-          <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.31-1.93 1.35-.5.05-1.03.24-3.42-.71-2.9-1.16-4.76-4.14-4.9-4.33-.14-.19-1.16-1.55-1.16-2.96s.73-2.1 1-2.39c.24-.27.53-.34.71-.34.18 0 .36 0 .51.01.17.01.39-.06.6.46.24.58.8 2 .87 2.15.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.29.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.45.12.61-.07.18-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.09 1.66.78 1.94.93.28.14.47.21.53.33.07.12.07.71-.17 1.39z"/>
-        </svg>
-        <span>Falar no WhatsApp</span>
-      </a>
+          <svg
+            class="botao-whatsapp__icone"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            aria-hidden="true"
+          >
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.9 9.9 0 0 0 4.74 1.2h.01c5.46 0 9.91-4.45 9.91-9.91C21.96 6.45 17.5 2 12.04 2zm5.8 14.06c-.24.68-1.4 1.31-1.93 1.35-.5.05-1.03.24-3.42-.71-2.9-1.16-4.76-4.14-4.9-4.33-.14-.19-1.16-1.55-1.16-2.96s.73-2.1 1-2.39c.24-.27.53-.34.71-.34.18 0 .36 0 .51.01.17.01.39-.06.6.46.24.58.8 2 .87 2.15.07.14.11.31.02.5-.09.19-.14.31-.27.47-.14.16-.29.36-.41.48-.14.14-.28.29-.12.57.16.29.71 1.17 1.53 1.9 1.05.94 1.94 1.23 2.22 1.37.28.14.45.12.61-.07.18-.19.72-.84.91-1.13.19-.29.38-.24.63-.14.26.09 1.66.78 1.94.93.28.14.47.21.53.33.07.12.07.71-.17 1.39z"/>
+          </svg>
+          <span>Falar no WhatsApp</span>
+        </a>
+
+        <button
+          class="botao-carrinho"
+          id="abrir-carrinho"
+          type="button"
+          aria-label="Abrir meu pedido. Carrinho vazio."
+          aria-controls="carrinho-painel"
+          aria-expanded="false"
+        >
+          <svg
+            class="botao-carrinho__icone"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.9"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M6.5 7.5h12l-1 8.5H7.5l-1-8.5Z"></path>
+            <path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"></path>
+            <circle cx="9" cy="19" r="1"></circle>
+            <circle cx="16" cy="19" r="1"></circle>
+          </svg>
+
+          <span class="botao-carrinho__texto">
+            <strong>Meu pedido</strong>
+            <small id="carrinho-resumo">Carrinho vazio</small>
+          </span>
+
+          <span
+            class="botao-carrinho__contador"
+            id="carrinho-contador"
+            aria-hidden="true"
+          >0</span>
+        </button>
+      </div>
     </div>
   </header>
 
@@ -147,6 +179,40 @@
       <p class="hero__subtitulo">
         Compare cores, veja fotos reais e encontre o filamento ideal para sua impressão.  
       </p>
+
+      <div class="hero-condicoes" aria-label="Condições especiais de pagamento">
+        <div class="hero-condicao hero-condicao--desconto">
+          <span class="hero-condicao__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 7.5V5.8A1.8 1.8 0 0 1 5.8 4H10l10 10-6 6L4 10V7.5Z"></path>
+              <circle cx="8" cy="8" r="1.15"></circle>
+              <path d="m10 15 4-4"></path>
+              <circle cx="10.5" cy="11.5" r=".75"></circle>
+              <circle cx="13.5" cy="14.5" r=".75"></circle>
+            </svg>
+          </span>
+          <span class="hero-condicao__texto">
+            <strong>5% OFF</strong>
+            <small>no Pix ou dinheiro</small>
+          </span>
+        </div>
+
+        <span class="hero-condicoes__divisor" aria-hidden="true"></span>
+
+        <div class="hero-condicao hero-condicao--parcelamento">
+          <span class="hero-condicao__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="5" width="18" height="14" rx="3"></rect>
+              <path d="M3 9h18"></path>
+              <path d="M7 15h4"></path>
+            </svg>
+          </span>
+          <span class="hero-condicao__texto">
+            <strong>Até 3x sem juros</strong>
+            <small>no cartão</small>
+          </span>
+        </div>
+      </div>
 
       <div class="busca">
         <svg
@@ -196,6 +262,241 @@
       Nenhuma cor encontrada. Tente buscar por outra marca, material ou nome de cor.
     </p>
   </main>
+
+
+  <!-- CARRINHO / MONTADOR DE PEDIDO 3ZK -->
+  <div class="carrinho-overlay" id="carrinho-overlay" hidden></div>
+
+  <aside
+    class="carrinho-painel"
+    id="carrinho-painel"
+    aria-hidden="true"
+    aria-labelledby="carrinho-titulo"
+  >
+    <header class="carrinho-painel__cabecalho">
+      <div>
+        <span class="carrinho-painel__sobrelinha">MONTE SEU PEDIDO</span>
+        <h2 id="carrinho-titulo">Seu pedido 3ZK</h2>
+      </div>
+
+      <button
+        class="carrinho-painel__fechar"
+        id="fechar-carrinho"
+        type="button"
+        aria-label="Fechar carrinho"
+      >×</button>
+    </header>
+
+    <nav class="carrinho-etapas" aria-label="Etapas do pedido">
+      <span class="carrinho-etapa carrinho-etapa--ativa" data-indicador-etapa="1">
+        <b>1</b>
+        <span>Produtos</span>
+      </span>
+      <span class="carrinho-etapa" data-indicador-etapa="2">
+        <b>2</b>
+        <span>Dados</span>
+      </span>
+      <span class="carrinho-etapa" data-indicador-etapa="3">
+        <b>3</b>
+        <span>Revisar</span>
+      </span>
+    </nav>
+
+    <div class="carrinho-painel__conteudo">
+      <section class="carrinho-tela carrinho-tela--ativa" data-tela-etapa="1">
+        <div class="carrinho-tela__topo">
+          <div>
+            <h3>Produtos escolhidos</h3>
+            <p>Adicione cores diferentes e ajuste as quantidades aqui.</p>
+          </div>
+
+          <button
+            class="carrinho-limpar"
+            id="limpar-carrinho"
+            type="button"
+          >Limpar</button>
+        </div>
+
+        <div class="carrinho-lista" id="carrinho-lista"></div>
+
+        <div class="carrinho-vazio" id="carrinho-vazio">
+          <div class="carrinho-vazio__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
+              <path d="M6.5 7.5h12l-1 8.5H7.5l-1-8.5Z"></path>
+              <path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"></path>
+            </svg>
+          </div>
+          <strong>Seu pedido ainda está vazio</strong>
+          <span>Escolha uma cor e toque no + para adicionar ao pedido.</span>
+          <button id="continuar-escolhendo" type="button">Explorar filamentos</button>
+        </div>
+      </section>
+
+      <section class="carrinho-tela" data-tela-etapa="2" hidden>
+        <div class="carrinho-tela__topo">
+          <div>
+            <h3>Como podemos atender você?</h3>
+            <p>Esses dados vão organizados na mensagem do WhatsApp.</p>
+          </div>
+        </div>
+
+        <form class="pedido-formulario" id="pedido-formulario" novalidate>
+          <label class="pedido-campo pedido-campo--inteiro">
+            <span>Nome e sobrenome <b>*</b></span>
+            <input
+              id="pedido-nome"
+              name="nome"
+              type="text"
+              autocomplete="name"
+              maxlength="80"
+              placeholder="Digite seu nome"
+              required
+            >
+            <small>Informe seu nome para identificarmos o pedido.</small>
+          </label>
+
+          <label class="pedido-campo pedido-campo--inteiro">
+            <span>Telefone</span>
+            <input
+              id="pedido-telefone"
+              name="telefone"
+              type="tel"
+              autocomplete="tel"
+              maxlength="24"
+              placeholder="(47) 99999-9999"
+              inputmode="tel"
+            >
+          </label>
+
+          <fieldset class="pedido-opcoes pedido-campo--inteiro">
+            <legend>Forma de entrega</legend>
+
+            <label class="pedido-opcao">
+              <input type="radio" name="entrega" value="retirada" checked>
+              <span class="pedido-opcao__marca"></span>
+              <span>
+                <strong>Retirada</strong>
+                <small>Combinamos o horário pelo WhatsApp</small>
+              </span>
+            </label>
+
+            <label class="pedido-opcao">
+              <input type="radio" name="entrega" value="entrega">
+              <span class="pedido-opcao__marca"></span>
+              <span>
+                <strong>Consultar entrega</strong>
+                <small>Curitiba, região e demais localidades</small>
+              </span>
+            </label>
+          </fieldset>
+
+          <fieldset class="pedido-opcoes pedido-campo--inteiro">
+            <legend>Preferência de pagamento</legend>
+
+            <label class="pedido-opcao pedido-opcao--compacta">
+              <input type="radio" name="pagamento" value="pix" checked>
+              <span class="pedido-opcao__marca"></span>
+              <span><strong>Pix</strong></span>
+            </label>
+
+            <label class="pedido-opcao pedido-opcao--compacta">
+              <input type="radio" name="pagamento" value="dinheiro">
+              <span class="pedido-opcao__marca"></span>
+              <span><strong>Dinheiro</strong></span>
+            </label>
+
+            <label class="pedido-opcao pedido-opcao--compacta">
+              <input type="radio" name="pagamento" value="combinar">
+              <span class="pedido-opcao__marca"></span>
+              <span><strong>Combinar no WhatsApp</strong></span>
+            </label>
+
+            <p class="pedido-condicoes-pagamento">
+              <span><b>5% OFF</b> no Pix ou dinheiro</span>
+              <span><b>Até 3x sem juros</b> no cartão</span>
+            </p>
+          </fieldset>
+
+          <label class="pedido-campo pedido-campo--inteiro">
+            <span>Observação</span>
+            <textarea
+              id="pedido-observacao"
+              name="observacao"
+              maxlength="300"
+              placeholder="Prazo, endereço, dúvidas ou alguma informação importante..."
+            ></textarea>
+            <small class="pedido-campo__contador">
+              <span id="observacao-contador">0</span>/300
+            </small>
+          </label>
+        </form>
+      </section>
+
+      <section class="carrinho-tela" data-tela-etapa="3" hidden>
+        <div class="carrinho-tela__topo">
+          <div>
+            <h3>Revise antes de enviar</h3>
+            <p>O pedido será aberto no WhatsApp da 3ZK para confirmação.</p>
+          </div>
+        </div>
+
+        <div class="pedido-revisao" id="pedido-revisao"></div>
+
+        <div class="pedido-aviso">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"></circle>
+            <path d="M12 10v6"></path>
+            <path d="M12 7h.01"></path>
+          </svg>
+          <span>
+            Estoque, entrega e valor final serão confirmados pela equipe antes do fechamento.
+          </span>
+        </div>
+      </section>
+    </div>
+
+    <footer class="carrinho-painel__rodape">
+      <div class="carrinho-total">
+        <span>
+          <small id="carrinho-total-itens">0 itens</small>
+          <strong>Total dos produtos</strong>
+        </span>
+        <b id="carrinho-total-valor">R$ 0</b>
+      </div>
+
+      <div class="carrinho-navegacao">
+        <button
+          class="carrinho-botao carrinho-botao--secundario"
+          id="carrinho-voltar"
+          type="button"
+          hidden
+        >Voltar</button>
+
+        <button
+          class="carrinho-botao carrinho-botao--principal"
+          id="carrinho-avancar"
+          type="button"
+          disabled
+        >Continuar</button>
+      </div>
+    </footer>
+  </aside>
+
+  <div
+    class="pedido-toast"
+    id="pedido-toast"
+    role="status"
+    aria-live="polite"
+    aria-atomic="true"
+    hidden
+  >
+    <span class="pedido-toast__icone">✓</span>
+    <span>
+      <strong>Adicionado ao pedido</strong>
+      <small id="pedido-toast-texto"></small>
+    </span>
+    <button id="pedido-toast-abrir" type="button">Ver pedido</button>
+  </div>
 
   <footer class="rodape">
     <div class="rodape__container">

@@ -1,0 +1,36 @@
+DESCONTO DE 5% NO PIX E NO DINHEIRO — CARRINHO 3ZK
+=====================================================
+
+O QUE MUDA
+
+- Pix: aplica 5% de desconto automaticamente.
+- Dinheiro: aplica 5% de desconto automaticamente.
+- Combinar no WhatsApp: não aplica desconto.
+- O total muda imediatamente quando a forma de pagamento é alterada.
+- A revisão mostra o desconto e o total correto.
+- A mensagem enviada ao WhatsApp leva o mesmo cálculo.
+- O desconto é aplicado somente ao valor dos produtos.
+
+INSTALAÇÃO
+
+1. Extraia este ZIP diretamente em:
+   C:\3ZK\catalogo-3zk
+
+2. Escolha:
+   Substituir os arquivos no destino
+
+3. O pacote altera somente:
+   script.js
+
+4. Teste:
+   - adicione produtos;
+   - abra o carrinho;
+   - vá para Dados;
+   - selecione Pix;
+   - selecione Dinheiro;
+   - selecione Combinar no WhatsApp;
+   - confirme que Pix e Dinheiro dão 5%, e Combinar remove o desconto.
+
+COMMIT SUGERIDO
+
+Aplica desconto de 5% no Pix e dinheiro

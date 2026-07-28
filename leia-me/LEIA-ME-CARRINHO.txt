@@ -1,0 +1,47 @@
+CARRINHO PREMIUM 3ZK
+====================
+
+INSTALAÇÃO
+
+1. Feche o Live Server, caso esteja aberto.
+2. Extraia este ZIP diretamente em:
+   C:\3ZK\catalogo-3zk
+3. Quando o Windows perguntar, escolha:
+   Substituir os arquivos no destino
+4. No GitHub Desktop, confira estas alterações:
+   - index.html
+   - style.css
+   - script.js
+5. Use o commit:
+   Adiciona carrinho premium e pedidos pelo WhatsApp
+6. Clique em Commit to main.
+7. Caso exista Pull origin, faça o Pull antes do Push.
+8. Clique em Push origin.
+9. Espere a Action terminar e teste o site.
+
+O QUE FOI ADICIONADO
+
+- Botão compacto "Meu pedido" no cabeçalho
+- Botão elegante "Adicionar ao pedido" dentro de cada produto
+- Contador de itens
+- Carrinho salvo automaticamente no navegador
+- Quantidade com menos e mais
+- Remoção individual e limpeza do carrinho
+- Fotos reais quando disponíveis
+- Três etapas: Produtos, Dados e Revisão
+- Nome, telefone, retirada/entrega, pagamento e observação
+- Subtotais e total automático
+- Pedido formatado e enviado ao WhatsApp da 3ZK
+- Layout lateral no computador e tela completa no celular
+- Acessibilidade por teclado, Escape para fechar e foco controlado
+- Confirmações e animações discretas
+
+IMPORTANTE
+
+Este pacote NÃO contém dados/produtos.json.
+O estoque e os produtos continuam sendo controlados normalmente pela
+automação da Olist. Portanto, instalar o carrinho não desfaz nem substitui
+os cadastros dos filamentos.
+
+O site não recebe pagamentos. Ele monta o pedido e abre o WhatsApp para
+a equipe confirmar estoque, entrega e valor final.

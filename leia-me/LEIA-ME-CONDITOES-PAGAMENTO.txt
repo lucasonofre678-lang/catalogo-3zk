@@ -1,0 +1,14 @@
+CONDIÇÕES DE PAGAMENTO NO TOPO — 3ZK
+======================================
+
+Este pacote adiciona uma faixa premium e discreta entre o subtítulo e a busca:
+- 5% OFF no Pix ou dinheiro
+- Até 3x sem juros no cartão
+
+Também repete as condições de forma discreta na etapa de pagamento do carrinho.
+
+INSTALAÇÃO
+1. Extraia diretamente em C:\3ZK\catalogo-3zk
+2. Escolha Substituir os arquivos no destino
+3. O pacote altera somente index.html e style.css
+4. Commit sugerido: Destaca condições de pagamento no catálogo
