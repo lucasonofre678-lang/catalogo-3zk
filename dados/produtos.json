@@ -681,12 +681,100 @@
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-petg-fusion-x-1kg-alta-performance/",
     "cores": [
       {
+        "nome": "Amarelo",
+        "hex": "#A58438",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/amarelo.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Amarelo Canário",
+        "hex": "#D2A361",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/amarelo-canario.webp"
+        ],
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul Marinho",
+        "hex": "#36507E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/azul-marinho.webp"
+        ],
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Café",
+        "hex": "#6C4F44",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/cafe.webp"
+        ],
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Champagne",
+        "hex": "#D5B77B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/fusionx-petg/champagne.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Ciano",
+        "hex": "#468B9F",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/ciano.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
         "nome": "Laranja",
         "hex": "#D8493B",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/fusionx-petg/laranja.webp"
+        ],
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Limão Siciliano",
+        "hex": "#B69F3F",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fusionx-petg/limao-siciliano.webp"
+        ],
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Pink Purple Violeta",
+        "hex": "#A24C9C",
+        "hexFonte": "foto",
+        "fotoStatus": "candidata_disponivel",
+        "imagens": [
+          "assets/fotos/fusionx-petg/pink-purple-violeta.webp"
         ],
         "statusEstoque": "em_estoque",
         "disponivel": true
@@ -703,15 +791,15 @@
         "disponivel": true
       },
       {
-        "nome": "Verde Escuro",
-        "hex": "#464C56",
+        "nome": "Verde",
+        "hex": "#437B51",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/fusionx-petg/verde-escuro.webp"
+          "assets/fotos/fusionx-petg/verde.webp"
         ],
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde Água",
@@ -725,25 +813,14 @@
         "disponivel": true
       },
       {
-        "nome": "Pink Purple Violeta",
-        "hex": "#A24C9C",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "candidata_disponivel",
-        "imagens": [
-          "assets/fotos/fusionx-petg/pink-purple-violeta.webp"
-        ],
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Amarelo Canário",
-        "hex": "#D2A361",
+        "nome": "Verde Escuro",
+        "hex": "#464C56",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/fusionx-petg/amarelo-canario.webp"
+          "assets/fotos/fusionx-petg/verde-escuro.webp"
         ],
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
@@ -762,6 +839,17 @@
         "fotoStatus": "revisar_linha",
         "imagens": [
           "assets/fotos/fusion-high-speed-petg/branco.webp"
+        ],
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/fusion-high-speed-petg/preto.webp"
         ],
         "statusEstoque": "em_estoque",
         "disponivel": true
@@ -1199,6 +1287,28 @@
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-creality-soleyin-ultra-pla-1-75mm/",
     "cores": [
       {
+        "nome": "Almond Purple / Roxo Amêndoa",
+        "hex": "#90749E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/almond-purple-roxo-amendoa.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Ocean Blue / Azul Oceano",
+        "hex": "#639697",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/ocean-blue-azul-oceano.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
         "nome": "Cinza",
         "hex": "#7F8388",
         "hexFonte": "foto",
@@ -1210,12 +1320,56 @@
         "disponivel": true
       },
       {
+        "nome": "Greenery / Esverdeado",
+        "hex": "#7F7C5A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/greenery-esverdeado.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Pineapple Yellow / Amarelo Abacaxi",
+        "hex": "#BDA631",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/pineapple-yellow-amarelo-abacaxi.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
         "nome": "Rosehip",
         "hex": "#C34E25",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Strawberry Milk",
+        "hex": "#B96F7A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/strawberry-milk.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Verde Claro",
+        "hex": "#84B29C",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-soleyin-ultra-pla/verde-claro.webp"
         ],
         "statusEstoque": "sem_estoque",
         "disponivel": false
@@ -1230,6 +1384,39 @@
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-elegoo-pla-1-75mm-1kg/",
     "cores": [
       {
+        "nome": "Dark Blue",
+        "hex": "#253E68",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/elegoo-pla/dark-blue.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Grey",
+        "hex": "#777D83",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/grey.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Neon Green",
+        "hex": "#77D43F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/elegoo-pla/neon-green.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
         "nome": "Orange",
         "hex": "#CB5A35",
         "hexFonte": "foto",
@@ -1239,6 +1426,106 @@
         ],
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
+      },
+      {
+        "nome": "Pink",
+        "hex": "#E46B9B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/elegoo-pla/pink.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Beige",
+        "hex": "#D7C5A3",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/elegoo-pla/beige.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Purple",
+        "hex": "#6A4B85",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/purple.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Red",
+        "hex": "#B24038",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/red.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Sea Green",
+        "hex": "#48A48B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/elegoo-pla/sea-green.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Sky Blue",
+        "hex": "#5AAFCB",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/sky-blue.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Space Grey",
+        "hex": "#565C65",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/space-grey.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Translucent",
+        "hex": "#D9DDD8",
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/elegoo-pla/translucent.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
+      },
+      {
+        "nome": "Yellow",
+        "hex": "#E2C53E",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/elegoo-pla/yellow.webp"
+        ],
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "disponivel": true
