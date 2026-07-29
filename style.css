@@ -3171,3 +3171,164 @@ body.carrinho-aberto {
   }
 }
 
+
+
+/* ============================================================
+   3ZK — BOTÃO PREMIUM "ADICIONAR AO CARRINHO"
+   ============================================================ */
+.produto__compra-rapida {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: space-between !important;
+  gap: 12px !important;
+}
+
+.produto__adicionar {
+  position: relative !important;
+  width: auto !important;
+  min-width: 0 !important;
+  height: 38px !important;
+  min-height: 38px !important;
+  flex: 0 0 auto !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  gap: 8px !important;
+  padding: 5px 13px 5px 6px !important;
+  color: #0752b8 !important;
+  background: linear-gradient(180deg, #ffffff 0%, #f3f7ff 100%) !important;
+  border: 1px solid rgba(0, 71, 171, 0.24) !important;
+  border-radius: 12px !important;
+  box-shadow: 0 5px 14px rgba(0, 71, 171, 0.08) !important;
+  overflow: visible !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  transition: color 180ms ease, background 180ms ease,
+    border-color 180ms ease, box-shadow 180ms ease,
+    transform 180ms ease !important;
+}
+
+.produto__adicionar:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0868e8 0%, #0047ab 100%) !important;
+  border-color: #0757c9 !important;
+  box-shadow: 0 9px 20px rgba(0, 71, 171, 0.22) !important;
+  transform: translateY(-1px) !important;
+}
+
+.produto__adicionar:active {
+  transform: translateY(0) scale(0.98) !important;
+}
+
+.produto__adicionar-icone {
+  width: 27px !important;
+  height: 27px !important;
+  flex: 0 0 27px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0b6cea 0%, #0047ab 100%) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 10px rgba(0, 71, 171, 0.20) !important;
+  transition: color 180ms ease, background 180ms ease,
+    transform 180ms ease !important;
+}
+
+.produto__adicionar-icone svg {
+  width: 16px !important;
+  height: 16px !important;
+}
+
+.produto__adicionar:hover .produto__adicionar-icone {
+  color: #0757c9 !important;
+  background: #ffffff !important;
+  transform: none !important;
+}
+
+.produto__adicionar-texto {
+  position: static !important;
+  width: auto !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1 !important;
+  letter-spacing: -0.01em !important;
+}
+
+.produto__adicionar-quantidade {
+  position: static !important;
+  min-width: 20px !important;
+  height: 20px !important;
+  margin-left: 1px !important;
+  padding: 0 5px !important;
+  color: #ffffff !important;
+  background: #0757c9 !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  font-size: 8px !important;
+  font-weight: 800 !important;
+  box-shadow: none !important;
+}
+
+.produto__adicionar--no-carrinho {
+  color: #0752b8 !important;
+  background: linear-gradient(180deg, #ffffff 0%, #edf5ff 100%) !important;
+  border-color: #8bb4ec !important;
+  box-shadow: 0 6px 15px rgba(0, 71, 171, 0.12) !important;
+}
+
+.produto__adicionar--no-carrinho:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0868e8 0%, #0047ab 100%) !important;
+}
+
+.produto__adicionar--confirmado,
+.produto__adicionar--confirmado:hover {
+  color: #11633e !important;
+  background: #eaf9f1 !important;
+  border-color: #9dd8b7 !important;
+  box-shadow: 0 8px 18px rgba(18, 140, 88, 0.14) !important;
+  transform: none !important;
+}
+
+.produto__adicionar--confirmado .produto__adicionar-icone,
+.produto__adicionar--confirmado:hover .produto__adicionar-icone {
+  color: #ffffff !important;
+  background: #128c58 !important;
+  transform: scale(1.04) !important;
+}
+
+@media (max-width: 540px) {
+  .produto__adicionar {
+    width: auto !important;
+    min-width: 0 !important;
+    height: 38px !important;
+    min-height: 38px !important;
+    flex-basis: auto !important;
+    padding-right: 11px !important;
+  }
+
+  .produto__adicionar-texto {
+    font-size: 10.5px !important;
+  }
+}
+
+@media (max-width: 390px) {
+  .produto__adicionar {
+    padding-right: 9px !important;
+    gap: 6px !important;
+  }
+
+  .produto__adicionar-texto {
+    max-width: 91px !important;
+    white-space: normal !important;
+    text-align: left !important;
+    line-height: 1.08 !important;
+  }
+}

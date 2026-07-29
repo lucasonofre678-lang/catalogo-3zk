@@ -1,28 +1,22 @@
-ETAPA 5 — LOTE GRANDE DE FILAMENTOS
+BOTÃO PREMIUM — ADICIONAR AO CARRINHO 3ZK
 
-Este pacote mantém todas as etapas anteriores e completa:
-- Masterprint PLA: 32 novas variações
-- Masterprint ABS: 3 novas cores (Cinza, Dourado e Preto)
-- Closin PLA: 9 cores
-- Anycubic PETG: 8 cores
+Substitui o botão circular de + por um botão compacto e elegante
+com o texto “Adicionar ao carrinho”.
 
-Resultado acumulado:
-- 179 variações cadastradas permanentemente
-- 179 mapeamentos válidos da Olist
-- Produtos zerados ficam ocultos
-- Quando o estoque voltar, reaparecem automaticamente
+Preserva:
+- carrinho completo;
+- desconto de 5% no Pix e dinheiro;
+- parcelamento em até 3x;
+- código simplificado do pedido;
+- contador de itens;
+- confirmação “Adicionado!”.
 
-INSTALAÇÃO
-1. Extraia diretamente em C:\3ZK\catalogo-3zk
-2. Escolha substituir os arquivos no destino
-3. No GitHub Desktop, faça commit
-4. Clique em Pull origin se aparecer seta para baixo
-5. Clique em Push origin
-6. Aguarde a Action terminar
+INSTALAÇÃO:
+Extraia em C:\3ZK\catalogo-3zk e substitua os arquivos.
+
+Arquivos alterados:
+- script.js
+- style.css
 
 Commit sugerido:
-Cadastra Masterprint PLA ABS Closin PLA e Anycubic
-
-FOTOS
-- 38 arquivos de foto foram incluídos neste pacote.
-- Cores sem imagem permanecem com “Foto em breve”.
+Adiciona botão premium de adicionar ao carrinho

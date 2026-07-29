@@ -646,7 +646,7 @@ function adicionarAoCarrinho(produto, cor, botao) {
 
   if (botao) {
     const textoEl = botao.querySelector(".produto__adicionar-texto");
-    const textoOriginal = "Adicionar ao pedido";
+    const textoOriginal = "Adicionar ao carrinho";
 
     botao.classList.add("produto__adicionar--confirmado");
 
@@ -1754,15 +1754,18 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const botaoAdicionar = document.createElement("button");
   botaoAdicionar.type = "button";
   botaoAdicionar.className = "produto__adicionar";
-  botaoAdicionar.title = "Adicionar ao pedido";
+  botaoAdicionar.title = "Adicionar ao carrinho";
   botaoAdicionar.innerHTML = `
     <span class="produto__adicionar-icone" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-        <path d="M12 5v14"></path>
-        <path d="M5 12h14"></path>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
+        <path d="M3.5 4.5h2.1l1.7 9.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4l1.3-5.2H7"></path>
+        <circle cx="10" cy="19" r="1.2"></circle>
+        <circle cx="17.5" cy="19" r="1.2"></circle>
+        <path d="M15.5 4v4"></path>
+        <path d="M13.5 6h4"></path>
       </svg>
     </span>
-    <span class="produto__adicionar-texto">Adicionar ao pedido</span>
+    <span class="produto__adicionar-texto">Adicionar ao carrinho</span>
     <span class="produto__adicionar-quantidade" hidden>0</span>
   `;
 
