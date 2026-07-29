@@ -3,22 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Painel Local 3ZK — Controle do Catálogo</title>
+  <meta name="color-scheme" content="light">
+  <title>Painel 3ZK 2.0 — Central do Catálogo</title>
   <style>
     :root {
-      --azul: #0047ab;
-      --azul-2: #0868e8;
-      --azul-claro: #eaf2ff;
-      --fundo: #f4f7fb;
-      --cartao: #ffffff;
-      --texto: #111827;
-      --suave: #667085;
-      --borda: #dce4ef;
-      --verde: #087844;
+      --azul-950: #05275f;
+      --azul-900: #073b8d;
+      --azul-800: #0047ab;
+      --azul-700: #075bcf;
+      --azul-600: #0b6ee8;
+      --azul-100: #dceaff;
+      --azul-50: #eef5ff;
+      --fundo: #f2f5fa;
+      --superficie: #ffffff;
+      --superficie-2: #f8fafc;
+      --texto: #101828;
+      --texto-2: #475467;
+      --texto-3: #667085;
+      --borda: #dbe3ee;
+      --borda-forte: #c7d2e1;
+      --verde: #087443;
+      --verde-bg: #eaf8f0;
       --vermelho: #b42318;
-      --amarelo: #b54708;
-      --sombra: 0 18px 50px rgba(20, 43, 79, .10);
-      --raio: 20px;
+      --vermelho-bg: #fff1f0;
+      --amarelo: #a15c07;
+      --amarelo-bg: #fff7e8;
+      --roxo: #6941c6;
+      --roxo-bg: #f4f0ff;
+      --sombra-1: 0 4px 16px rgba(16, 42, 76, .06);
+      --sombra-2: 0 16px 44px rgba(16, 42, 76, .10);
+      --sombra-3: 0 26px 80px rgba(15, 31, 57, .20);
+      --raio-xl: 24px;
+      --raio-lg: 18px;
+      --raio-md: 13px;
+      --raio-sm: 9px;
+      --transicao: 180ms cubic-bezier(.2,.8,.2,1);
     }
 
     * { box-sizing: border-box; }
@@ -29,240 +48,869 @@
       font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
       color: var(--texto);
       background:
-        radial-gradient(900px 460px at 8% -10%, rgba(0, 71, 171, .15), transparent 65%),
+        radial-gradient(900px 440px at 8% -10%, rgba(0, 71, 171, .15), transparent 68%),
+        radial-gradient(760px 380px at 95% 0%, rgba(11, 110, 232, .08), transparent 68%),
         var(--fundo);
+      -webkit-font-smoothing: antialiased;
     }
 
-    button, input { font: inherit; }
+    button, input, select, textarea { font: inherit; }
     button { cursor: pointer; }
+    a { color: inherit; text-decoration: none; }
     [hidden] { display: none !important; }
+    :focus-visible { outline: 3px solid rgba(11,110,232,.22); outline-offset: 2px; }
 
     .topo {
       position: sticky;
       top: 0;
-      z-index: 30;
-      color: white;
-      background: rgba(0, 54, 135, .96);
+      z-index: 80;
+      color: #fff;
+      background: rgba(5, 39, 95, .96);
       backdrop-filter: blur(18px);
-      box-shadow: 0 10px 30px rgba(0, 40, 100, .18);
+      box-shadow: 0 12px 30px rgba(5, 39, 95, .22);
     }
 
     .topo__conteudo {
-      width: min(1220px, calc(100% - 36px));
-      min-height: 76px;
+      width: min(1340px, calc(100% - 34px));
+      min-height: 74px;
       margin: 0 auto;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      gap: 20px;
+      gap: 18px;
     }
 
-    .marca { display: flex; align-items: center; gap: 13px; }
+    .marca { display: flex; align-items: center; gap: 12px; min-width: 0; }
     .marca__icone {
-      width: 42px; height: 42px; border-radius: 13px;
-      display: grid; place-items: center;
-      font-weight: 900; letter-spacing: -.08em;
-      background: white; color: var(--azul);
-      box-shadow: 0 8px 18px rgba(0,0,0,.16);
+      width: 43px;
+      height: 43px;
+      display: grid;
+      place-items: center;
+      flex: 0 0 auto;
+      color: var(--azul-800);
+      background: #fff;
+      border-radius: 13px;
+      font-size: 14px;
+      font-weight: 950;
+      letter-spacing: -.08em;
+      box-shadow: 0 8px 20px rgba(0,0,0,.18);
     }
-    .marca strong { display: block; font-size: 15px; }
-    .marca span { display: block; font-size: 11px; opacity: .76; margin-top: 2px; }
+    .marca__texto { min-width: 0; }
+    .marca__texto strong { display: block; font-size: 14px; }
+    .marca__texto span { display: block; margin-top: 2px; font-size: 10px; opacity: .72; }
 
-    .status-conexao {
-      display: inline-flex; align-items: center; gap: 8px;
-      padding: 8px 12px; border-radius: 999px;
-      font-size: 12px; font-weight: 700;
-      background: rgba(255,255,255,.12);
-      border: 1px solid rgba(255,255,255,.18);
+    .topo__acoes { display: flex; align-items: center; gap: 8px; }
+    .topo__botao, .status-conexao {
+      min-height: 36px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 12px;
+      color: #fff;
+      background: rgba(255,255,255,.09);
+      border: 1px solid rgba(255,255,255,.14);
+      border-radius: 999px;
+      font-size: 10.5px;
+      font-weight: 750;
+      white-space: nowrap;
     }
+    .topo__botao:hover { background: rgba(255,255,255,.16); }
+    .topo__botao svg { width: 14px; }
     .status-conexao::before {
-      content: ""; width: 8px; height: 8px; border-radius: 50%;
-      background: #fdb022; box-shadow: 0 0 0 4px rgba(253,176,34,.14);
+      content: "";
+      width: 7px;
+      height: 7px;
+      flex: 0 0 auto;
+      border-radius: 50%;
+      background: #fdb022;
+      box-shadow: 0 0 0 4px rgba(253,176,34,.13);
     }
-    .status-conexao--ok::before { background: #32d583; box-shadow: 0 0 0 4px rgba(50,213,131,.14); }
+    .status-conexao--ok::before { background: #32d583; box-shadow: 0 0 0 4px rgba(50,213,131,.13); }
+    .status-conexao--erro::before { background: #f97066; box-shadow: 0 0 0 4px rgba(249,112,102,.13); }
 
-    main { width: min(1220px, calc(100% - 36px)); margin: 0 auto; padding: 46px 0 130px; }
+    .layout {
+      width: min(1340px, calc(100% - 34px));
+      margin: 0 auto;
+      padding: 32px 0 130px;
+    }
 
-    .hero {
-      display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(280px, .6fr);
-      gap: 24px; align-items: stretch; margin-bottom: 24px;
+    .boas-vindas {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(340px, .75fr);
+      gap: 18px;
+      margin-bottom: 18px;
     }
-    .hero__texto, .resumo {
-      background: rgba(255,255,255,.88);
-      border: 1px solid rgba(211, 222, 237, .9);
-      border-radius: 26px;
-      box-shadow: var(--sombra);
-    }
-    .hero__texto { padding: 32px; }
-    .hero__selo {
-      display: inline-flex; padding: 6px 10px; border-radius: 999px;
-      color: var(--azul); background: var(--azul-claro);
-      font-size: 10px; font-weight: 850; letter-spacing: .12em;
-    }
-    h1 { margin: 16px 0 10px; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; letter-spacing: -.045em; }
-    .hero p { margin: 0; max-width: 680px; color: var(--suave); font-size: 15px; line-height: 1.65; }
 
-    .resumo { padding: 24px; display: grid; gap: 12px; }
-    .resumo__linha { display: flex; justify-content: space-between; align-items: center; gap: 14px; padding: 13px 0; border-bottom: 1px solid #edf1f6; }
-    .resumo__linha:last-child { border: 0; }
-    .resumo__linha span { color: var(--suave); font-size: 13px; }
-    .resumo__linha strong { font-size: 22px; letter-spacing: -.04em; }
-    .resumo__linha strong.pausado { color: var(--vermelho); }
+    .apresentacao, .status-operacao {
+      background: rgba(255,255,255,.9);
+      border: 1px solid rgba(210,220,233,.92);
+      border-radius: var(--raio-xl);
+      box-shadow: var(--sombra-2);
+    }
+
+    .apresentacao { padding: 28px 30px; }
+    .selo {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 10px;
+      color: var(--azul-800);
+      background: var(--azul-50);
+      border-radius: 999px;
+      font-size: 9.5px;
+      font-weight: 900;
+      letter-spacing: .11em;
+    }
+    .apresentacao h1 {
+      margin: 14px 0 9px;
+      font-size: clamp(27px, 3.6vw, 42px);
+      line-height: 1.05;
+      letter-spacing: -.045em;
+    }
+    .apresentacao p {
+      margin: 0;
+      max-width: 740px;
+      color: var(--texto-3);
+      font-size: 13.5px;
+      line-height: 1.65;
+    }
+    .apresentacao__acoes { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 19px; }
+
+    .status-operacao { padding: 20px; }
+    .status-operacao__topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-bottom: 12px; }
+    .status-operacao__topo strong { font-size: 13px; }
+    .operador {
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      padding: 6px 9px;
+      color: var(--azul-800);
+      background: var(--azul-50);
+      border: 0;
+      border-radius: 999px;
+      font-size: 10px;
+      font-weight: 800;
+    }
+    .operador::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #12b76a; }
+    .status-operacao__lista { display: grid; gap: 8px; }
+    .status-linha {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 12px;
+      align-items: center;
+      min-height: 42px;
+      padding: 8px 10px;
+      background: var(--superficie-2);
+      border: 1px solid #edf1f5;
+      border-radius: 11px;
+    }
+    .status-linha span { color: var(--texto-3); font-size: 10.5px; }
+    .status-linha strong { max-width: 210px; font-size: 10.5px; text-align: right; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .status-linha strong.ok { color: var(--verde); }
+    .status-linha strong.aviso { color: var(--amarelo); }
 
     .conectar {
-      padding: 25px; margin-bottom: 24px;
-      background: #fffaf0; border: 1px solid #fedf89; border-radius: var(--raio);
-      display: flex; align-items: center; justify-content: space-between; gap: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      padding: 20px;
+      margin-bottom: 18px;
+      color: #7a2e0e;
+      background: #fffaf0;
+      border: 1px solid #fedf89;
+      border-radius: var(--raio-lg);
+      box-shadow: var(--sombra-1);
     }
-    .conectar strong { display: block; margin-bottom: 4px; }
-    .conectar span { color: #7a2e0e; font-size: 13px; }
+    .conectar strong { display: block; color: #6b2708; font-size: 13px; }
+    .conectar span { display: block; margin-top: 3px; font-size: 10.5px; }
 
-    .barra {
-      position: sticky; top: 92px; z-index: 20;
-      display: grid; grid-template-columns: minmax(240px, 1fr) auto;
-      gap: 14px; padding: 14px; margin-bottom: 20px;
-      background: rgba(255,255,255,.92); backdrop-filter: blur(16px);
-      border: 1px solid var(--borda); border-radius: 18px;
-      box-shadow: 0 12px 30px rgba(31, 52, 82, .08);
+    .metricas {
+      display: grid;
+      grid-template-columns: repeat(6, minmax(0, 1fr));
+      gap: 10px;
+      margin-bottom: 18px;
     }
-    .busca { position: relative; }
-    .busca svg { position: absolute; left: 15px; top: 50%; width: 18px; transform: translateY(-50%); color: #8492a6; }
-    .busca input {
-      width: 100%; min-height: 44px; padding: 0 16px 0 44px;
-      border: 1px solid var(--borda); border-radius: 13px; outline: 0;
-      background: #f9fbfd; color: var(--texto);
+    .metrica {
+      min-width: 0;
+      padding: 15px;
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-lg);
+      box-shadow: var(--sombra-1);
     }
-    .busca input:focus { border-color: var(--azul); box-shadow: 0 0 0 4px rgba(0,71,171,.10); background: white; }
-    .filtros { display: flex; gap: 7px; align-items: center; }
-    .filtro {
-      min-height: 40px; padding: 0 13px; border: 1px solid var(--borda); border-radius: 11px;
-      background: white; color: var(--suave); font-size: 12px; font-weight: 750;
+    .metrica__topo { display: flex; align-items: center; justify-content: space-between; gap: 8px; }
+    .metrica__icone {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      color: var(--azul-800);
+      background: var(--azul-50);
+      border-radius: 9px;
     }
-    .filtro--ativo { color: white; background: var(--azul); border-color: var(--azul); }
+    .metrica__icone svg { width: 15px; }
+    .metrica small { color: var(--texto-3); font-size: 9px; font-weight: 700; }
+    .metrica strong { display: block; margin-top: 10px; font-size: 24px; letter-spacing: -.045em; }
+    .metrica span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 9px; }
+    .metrica--vermelha .metrica__icone { color: var(--vermelho); background: var(--vermelho-bg); }
+    .metrica--vermelha strong { color: var(--vermelho); }
+    .metrica--verde .metrica__icone { color: var(--verde); background: var(--verde-bg); }
+    .metrica--verde strong { color: var(--verde); }
+    .metrica--amarela .metrica__icone { color: var(--amarelo); background: var(--amarelo-bg); }
+    .metrica--amarela strong { color: var(--amarelo); }
 
-    .lista { display: grid; gap: 14px; }
+    .navegacao {
+      position: sticky;
+      top: 86px;
+      z-index: 55;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 7px;
+      margin-bottom: 14px;
+      background: rgba(255,255,255,.93);
+      border: 1px solid var(--borda);
+      border-radius: 15px;
+      box-shadow: 0 10px 28px rgba(31,52,82,.08);
+      backdrop-filter: blur(14px);
+      overflow-x: auto;
+    }
+    .aba {
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      flex: 0 0 auto;
+      padding: 0 13px;
+      color: var(--texto-3);
+      background: transparent;
+      border: 0;
+      border-radius: 10px;
+      font-size: 10.5px;
+      font-weight: 800;
+    }
+    .aba svg { width: 14px; }
+    .aba--ativa { color: #fff; background: linear-gradient(135deg, var(--azul-600), var(--azul-800)); box-shadow: 0 7px 16px rgba(0,71,171,.22); }
+    .aba__contador { min-width: 19px; height: 19px; display: grid; place-items: center; padding: 0 5px; border-radius: 999px; color: var(--texto-2); background: #edf1f6; font-size: 8px; }
+    .aba--ativa .aba__contador { color: var(--azul-800); background: #fff; }
+
+    .painel { display: none; }
+    .painel--ativo { display: block; animation: entrar .22s ease both; }
+    @keyframes entrar { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: none; } }
+
+    .ferramentas {
+      display: grid;
+      grid-template-columns: minmax(250px, 1fr) repeat(3, minmax(130px, auto));
+      gap: 9px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: rgba(255,255,255,.94);
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-lg);
+      box-shadow: var(--sombra-1);
+    }
+    .campo-busca { position: relative; }
+    .campo-busca svg { position: absolute; left: 13px; top: 50%; width: 16px; color: #8492a6; transform: translateY(-50%); pointer-events: none; }
+    .campo-busca input, .seletor {
+      width: 100%;
+      min-height: 40px;
+      color: var(--texto);
+      background: #f9fbfd;
+      border: 1px solid var(--borda);
+      border-radius: 11px;
+      outline: 0;
+      font-size: 10.5px;
+    }
+    .campo-busca input { padding: 0 13px 0 39px; }
+    .seletor { padding: 0 31px 0 11px; }
+    .campo-busca input:focus, .seletor:focus { border-color: var(--azul-700); box-shadow: 0 0 0 4px rgba(0,71,171,.09); background: #fff; }
+
+    .selecao-lote {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 12px;
+      margin-bottom: 12px;
+      color: #fff;
+      background: linear-gradient(135deg, var(--azul-900), var(--azul-800));
+      border-radius: 14px;
+      box-shadow: 0 10px 24px rgba(0,71,171,.18);
+    }
+    .selecao-lote strong { font-size: 11px; }
+    .selecao-lote span { color: rgba(255,255,255,.72); font-size: 9.5px; }
+    .selecao-lote__acoes { display: flex; gap: 7px; }
+
+    .lista { display: grid; gap: 10px; }
     .produto {
-      overflow: hidden; background: white; border: 1px solid var(--borda); border-radius: var(--raio);
-      box-shadow: 0 6px 20px rgba(30, 54, 88, .055);
-      transition: border-color .2s ease, box-shadow .2s ease, opacity .2s ease;
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-lg);
+      box-shadow: var(--sombra-1);
+      transition: border-color var(--transicao), box-shadow var(--transicao), transform var(--transicao);
     }
-    .produto--pausado { border-color: #f1b2ad; background: #fffdfd; }
-    .produto__principal { display: grid; grid-template-columns: minmax(0,1fr) auto auto; gap: 18px; align-items: center; padding: 20px 22px; }
-    .produto__nome { min-width: 0; }
-    .produto__nome strong { display: block; font-size: 16px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .produto__meta { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 8px; }
-    .tag { padding: 4px 8px; border-radius: 999px; color: var(--azul); background: var(--azul-claro); font-size: 10px; font-weight: 800; }
-    .tag--cinza { color: #475467; background: #f2f4f7; }
-    .produto__situacao { min-width: 85px; text-align: right; }
-    .produto__situacao strong { display: block; font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--verde); }
-    .produto--pausado .produto__situacao strong { color: var(--vermelho); }
-    .produto__situacao span { color: var(--suave); font-size: 10px; }
-
-    .botao-cores {
-      display: inline-flex; align-items: center; gap: 7px; padding: 9px 11px;
-      color: var(--azul); background: #f6f9ff; border: 1px solid #cadbf4; border-radius: 10px;
-      font-size: 11px; font-weight: 800;
+    .produto:hover { border-color: #b9cbea; box-shadow: 0 11px 28px rgba(24,52,92,.09); }
+    .produto--pausado { border-color: #efb0aa; background: #fffdfd; }
+    .produto--selecionado { border-color: var(--azul-600); box-shadow: 0 0 0 3px rgba(11,110,232,.10), var(--sombra-1); }
+    .produto__principal {
+      display: grid;
+      grid-template-columns: auto 52px minmax(0, 1fr) minmax(210px, auto) auto;
+      gap: 13px;
+      align-items: center;
+      padding: 14px;
     }
-    .botao-cores svg { width: 14px; transition: transform .2s ease; }
-    .produto--aberto .botao-cores svg { transform: rotate(180deg); }
+    .check {
+      width: 18px;
+      height: 18px;
+      accent-color: var(--azul-700);
+    }
+    .produto__foto {
+      width: 52px;
+      height: 52px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: linear-gradient(145deg, #f7f9fc, #eef2f7);
+      border: 1px solid #e5eaf1;
+      border-radius: 13px;
+    }
+    .produto__foto img { width: 100%; height: 100%; object-fit: contain; }
+    .produto__foto span { color: var(--texto-3); font-size: 8px; text-align: center; }
+    .produto__info { min-width: 0; }
+    .produto__titulo { display: flex; align-items: center; flex-wrap: wrap; gap: 7px; }
+    .produto__titulo strong { min-width: 0; font-size: 13px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .produto__meta { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 6px; }
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      min-height: 20px;
+      padding: 0 7px;
+      color: var(--azul-800);
+      background: var(--azul-50);
+      border-radius: 999px;
+      font-size: 8.5px;
+      font-weight: 800;
+    }
+    .tag--cinza { color: var(--texto-2); background: #f1f3f6; }
+    .tag--verde { color: var(--verde); background: var(--verde-bg); }
+    .tag--vermelha { color: var(--vermelho); background: var(--vermelho-bg); }
+    .tag--amarela { color: var(--amarelo); background: var(--amarelo-bg); }
+    .tag--roxa { color: var(--roxo); background: var(--roxo-bg); }
 
-    .switch { position: relative; width: 48px; height: 28px; flex: 0 0 auto; }
+    .produto__numeros {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(58px, 1fr));
+      gap: 6px;
+    }
+    .numero {
+      padding: 7px 8px;
+      text-align: center;
+      background: var(--superficie-2);
+      border: 1px solid #edf1f5;
+      border-radius: 10px;
+    }
+    .numero strong { display: block; font-size: 12px; }
+    .numero span { display: block; margin-top: 1px; color: var(--texto-3); font-size: 7.5px; }
+
+    .produto__acoes { display: flex; align-items: center; gap: 7px; }
+    .icone-botao {
+      width: 36px;
+      height: 36px;
+      display: grid;
+      place-items: center;
+      color: var(--azul-800);
+      background: var(--azul-50);
+      border: 1px solid #cbdcf4;
+      border-radius: 10px;
+    }
+    .icone-botao:hover { color: #fff; background: var(--azul-800); border-color: var(--azul-800); }
+    .icone-botao svg { width: 15px; }
+
+    .switch { position: relative; width: 45px; height: 26px; flex: 0 0 auto; }
     .switch input { position: absolute; opacity: 0; pointer-events: none; }
     .switch span {
-      position: absolute; inset: 0; border-radius: 999px; background: #d0d5dd;
-      transition: background .2s ease; box-shadow: inset 0 1px 3px rgba(16,24,40,.12);
+      position: absolute;
+      inset: 0;
+      background: #d0d5dd;
+      border-radius: 999px;
+      box-shadow: inset 0 1px 3px rgba(16,24,40,.13);
+      transition: background var(--transicao);
     }
     .switch span::after {
-      content: ""; position: absolute; width: 22px; height: 22px; left: 3px; top: 3px;
-      border-radius: 50%; background: white; box-shadow: 0 2px 6px rgba(16,24,40,.20); transition: transform .2s ease;
+      content: "";
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      left: 3px;
+      top: 3px;
+      background: #fff;
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(16,24,40,.22);
+      transition: transform var(--transicao);
     }
-    .switch input:checked + span { background: var(--azul); }
-    .switch input:checked + span::after { transform: translateX(20px); }
-    .switch input:focus-visible + span { outline: 3px solid rgba(0,71,171,.22); outline-offset: 2px; }
-
-    .cores { display: none; border-top: 1px solid #edf1f6; padding: 8px 22px 20px; background: #fbfcfe; }
-    .produto--aberto .cores { display: block; }
-    .cores__cabecalho { display: flex; justify-content: space-between; gap: 16px; padding: 13px 0; color: var(--suave); font-size: 11px; }
-    .cores__grid { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 8px; }
-    .cor {
-      display: grid; grid-template-columns: 22px minmax(0,1fr) auto; gap: 10px; align-items: center;
-      min-height: 48px; padding: 9px 11px; background: white; border: 1px solid #e5eaf1; border-radius: 12px;
-    }
-    .cor--pausada { background: #fff7f6; border-color: #f3c4c0; }
-    .cor__amostra { width: 22px; height: 22px; border-radius: 50%; background: var(--cor); border: 1px solid rgba(0,0,0,.12); box-shadow: inset 0 0 0 2px rgba(255,255,255,.25); }
-    .cor__nome { min-width: 0; }
-    .cor__nome strong { display: block; font-size: 12px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-    .cor__nome span { color: var(--suave); font-size: 9px; }
-    .switch--pequeno { width: 39px; height: 23px; }
-    .switch--pequeno span::after { width: 17px; height: 17px; }
+    .switch input:checked + span { background: var(--azul-700); }
+    .switch input:checked + span::after { transform: translateX(19px); }
+    .switch input:focus-visible + span { outline: 3px solid rgba(11,110,232,.22); outline-offset: 2px; }
+    .switch--pequeno { width: 38px; height: 22px; }
+    .switch--pequeno span::after { width: 16px; height: 16px; }
     .switch--pequeno input:checked + span::after { transform: translateX(16px); }
 
-    .vazio { padding: 70px 20px; text-align: center; color: var(--suave); background: white; border: 1px dashed var(--borda); border-radius: var(--raio); }
+    .produto__detalhes { display: none; border-top: 1px solid #edf1f5; background: #fbfcfe; }
+    .produto--aberto .produto__detalhes { display: block; }
+    .detalhes__topo {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 11px 14px;
+      border-bottom: 1px solid #edf1f5;
+    }
+    .detalhes__topo span { color: var(--texto-3); font-size: 9px; }
+    .detalhes__acoes { display: flex; flex-wrap: wrap; gap: 6px; }
+    .cores-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 7px; padding: 12px 14px 15px; }
+    .cor {
+      display: grid;
+      grid-template-columns: 34px minmax(0, 1fr) auto;
+      gap: 9px;
+      align-items: center;
+      min-height: 54px;
+      padding: 7px 8px;
+      background: #fff;
+      border: 1px solid #e5eaf1;
+      border-radius: 11px;
+    }
+    .cor--pausada { background: #fff7f6; border-color: #efc0bb; }
+    .cor__foto {
+      width: 34px;
+      height: 34px;
+      display: grid;
+      place-items: center;
+      overflow: hidden;
+      background: var(--cor, #d9dfe8);
+      border: 1px solid rgba(0,0,0,.10);
+      border-radius: 9px;
+      box-shadow: inset 0 0 0 2px rgba(255,255,255,.22);
+    }
+    .cor__foto img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
+    .cor__info { min-width: 0; }
+    .cor__info strong { display: block; font-size: 10px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+    .cor__info span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 8px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
 
-    .salvar {
-      position: fixed; left: 50%; bottom: 20px; z-index: 50; transform: translateX(-50%);
-      width: min(900px, calc(100% - 32px)); padding: 12px 12px 12px 18px;
-      display: flex; align-items: center; justify-content: space-between; gap: 16px;
-      background: rgba(17,24,39,.95); color: white; backdrop-filter: blur(16px);
-      border: 1px solid rgba(255,255,255,.12); border-radius: 18px;
-      box-shadow: 0 20px 55px rgba(15,23,42,.32);
+    .vazio {
+      padding: 60px 20px;
+      text-align: center;
+      color: var(--texto-3);
+      background: #fff;
+      border: 1px dashed var(--borda-forte);
+      border-radius: var(--raio-lg);
     }
-    .salvar__texto strong { display: block; font-size: 13px; }
-    .salvar__texto span { display: block; margin-top: 2px; color: #b8c2d1; font-size: 10px; }
-    .salvar__acoes { display: flex; gap: 8px; }
+    .vazio strong { display: block; color: var(--texto); font-size: 14px; }
+    .vazio span { display: block; margin-top: 5px; font-size: 10px; }
+
+    .grade-2 { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 12px; }
+    .cartao {
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: var(--raio-lg);
+      box-shadow: var(--sombra-1);
+    }
+    .cartao__cabecalho { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 16px; border-bottom: 1px solid #edf1f5; }
+    .cartao__cabecalho strong { font-size: 12px; }
+    .cartao__cabecalho span { color: var(--texto-3); font-size: 9px; }
+    .cartao__corpo { padding: 15px; }
+
+    .alteracoes-lista, .historico-lista, .diagnosticos-lista { display: grid; gap: 8px; }
+    .alteracao, .historico-item, .diagnostico {
+      display: grid;
+      grid-template-columns: auto minmax(0,1fr) auto;
+      gap: 10px;
+      align-items: center;
+      min-height: 54px;
+      padding: 9px 10px;
+      background: var(--superficie-2);
+      border: 1px solid #e9edf3;
+      border-radius: 11px;
+    }
+    .alteracao__icone, .diagnostico__icone {
+      width: 29px;
+      height: 29px;
+      display: grid;
+      place-items: center;
+      color: var(--azul-800);
+      background: var(--azul-50);
+      border-radius: 9px;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .alteracao--pausar .alteracao__icone { color: var(--vermelho); background: var(--vermelho-bg); }
+    .alteracao--ativar .alteracao__icone { color: var(--verde); background: var(--verde-bg); }
+    .alteracao__texto strong, .historico-item strong, .diagnostico strong { display: block; font-size: 10.5px; }
+    .alteracao__texto span, .historico-item span, .diagnostico span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 8.5px; line-height: 1.35; }
+    .historico-item { grid-template-columns: minmax(0,1fr) auto; }
+    .historico-item time { color: var(--texto-3); font-size: 8px; white-space: nowrap; }
+    .diagnostico--ok .diagnostico__icone { color: var(--verde); background: var(--verde-bg); }
+    .diagnostico--aviso .diagnostico__icone { color: var(--amarelo); background: var(--amarelo-bg); }
+    .diagnostico--erro .diagnostico__icone { color: var(--vermelho); background: var(--vermelho-bg); }
+
+    .publicacao {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0,1fr));
+      gap: 10px;
+    }
+    .workflow {
+      padding: 13px;
+      background: var(--superficie-2);
+      border: 1px solid #e9edf3;
+      border-radius: 12px;
+    }
+    .workflow__topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .workflow__topo strong { font-size: 10.5px; }
+    .workflow__estado { display: inline-flex; align-items: center; gap: 5px; font-size: 8.5px; font-weight: 800; }
+    .workflow__estado::before { content: ""; width: 7px; height: 7px; border-radius: 50%; background: #98a2b3; }
+    .workflow__estado--sucesso { color: var(--verde); }
+    .workflow__estado--sucesso::before { background: #12b76a; }
+    .workflow__estado--falha { color: var(--vermelho); }
+    .workflow__estado--falha::before { background: #f04438; }
+    .workflow__estado--andamento { color: var(--amarelo); }
+    .workflow__estado--andamento::before { background: #f79009; }
+    .workflow p { margin: 8px 0 0; color: var(--texto-3); font-size: 8.5px; line-height: 1.4; }
+
+    .ajuda-grid { display: grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap: 10px; }
+    .ajuda-item { padding: 15px; background: #fff; border: 1px solid var(--borda); border-radius: var(--raio-lg); box-shadow: var(--sombra-1); }
+    .ajuda-item b { width: 29px; height: 29px; display: grid; place-items: center; color: #fff; background: var(--azul-800); border-radius: 9px; font-size: 11px; }
+    .ajuda-item strong { display: block; margin-top: 11px; font-size: 11px; }
+    .ajuda-item p { margin: 5px 0 0; color: var(--texto-3); font-size: 9px; line-height: 1.5; }
+
+    .config-grid { display: grid; gap: 10px; }
+    .config-linha { display: grid; grid-template-columns: minmax(0,1fr) minmax(180px, 330px); gap: 16px; align-items: center; padding: 12px 0; border-bottom: 1px solid #edf1f5; }
+    .config-linha:last-child { border: 0; }
+    .config-linha strong { display: block; font-size: 10.5px; }
+    .config-linha span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 8.5px; }
+    .campo {
+      width: 100%;
+      min-height: 40px;
+      padding: 0 11px;
+      color: var(--texto);
+      background: #f9fbfd;
+      border: 1px solid var(--borda);
+      border-radius: 11px;
+      outline: 0;
+      font-size: 10.5px;
+    }
+    textarea.campo { min-height: 92px; padding-top: 10px; resize: vertical; }
+    .campo:focus { border-color: var(--azul-700); box-shadow: 0 0 0 4px rgba(0,71,171,.09); background: #fff; }
+
     .botao {
-      min-height: 42px; padding: 0 15px; border-radius: 12px; border: 1px solid transparent;
-      font-size: 12px; font-weight: 850;
+      min-height: 38px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      padding: 0 12px;
+      border: 1px solid transparent;
+      border-radius: 10px;
+      font-size: 10px;
+      font-weight: 850;
+      transition: transform var(--transicao), box-shadow var(--transicao), background var(--transicao);
     }
-    .botao--primario { color: white; background: linear-gradient(135deg, var(--azul-2), var(--azul)); box-shadow: 0 8px 18px rgba(0,71,171,.25); }
-    .botao--primario:disabled { opacity: .45; cursor: not-allowed; box-shadow: none; }
-    .botao--secundario { color: #d0d5dd; background: rgba(255,255,255,.07); border-color: rgba(255,255,255,.14); }
-    .botao--claro { color: var(--azul); background: white; border-color: #b9ccec; }
+    .botao:active { transform: scale(.98); }
+    .botao svg { width: 14px; }
+    .botao--primario { color: #fff; background: linear-gradient(135deg, var(--azul-600), var(--azul-800)); box-shadow: 0 7px 16px rgba(0,71,171,.20); }
+    .botao--primario:hover { box-shadow: 0 10px 22px rgba(0,71,171,.27); transform: translateY(-1px); }
+    .botao--primario:disabled { opacity: .42; cursor: not-allowed; box-shadow: none; transform: none; }
+    .botao--claro { color: var(--azul-800); background: #fff; border-color: #bfd0e8; }
+    .botao--claro:hover { background: var(--azul-50); }
+    .botao--cinza { color: var(--texto-2); background: #f5f7fa; border-color: #e2e7ee; }
+    .botao--cinza:hover { background: #eceff4; }
+    .botao--vermelho { color: var(--vermelho); background: var(--vermelho-bg); border-color: #f2c6c1; }
+    .botao--verde { color: var(--verde); background: var(--verde-bg); border-color: #b9e2ca; }
+    .botao--escuro { color: #fff; background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.16); }
+    .botao--escuro:hover { background: rgba(255,255,255,.17); }
+    .botao--pequeno { min-height: 29px; padding: 0 9px; font-size: 8.5px; border-radius: 8px; }
+
+    .barra-salvar {
+      position: fixed;
+      left: 50%;
+      bottom: 17px;
+      z-index: 90;
+      width: min(960px, calc(100% - 28px));
+      transform: translateX(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      padding: 10px 10px 10px 15px;
+      color: #fff;
+      background: rgba(16,24,40,.96);
+      border: 1px solid rgba(255,255,255,.12);
+      border-radius: 16px;
+      box-shadow: var(--sombra-3);
+      backdrop-filter: blur(16px);
+    }
+    .barra-salvar__texto strong { display: block; font-size: 11px; }
+    .barra-salvar__texto span { display: block; margin-top: 2px; color: #b8c2d1; font-size: 8.5px; }
+    .barra-salvar__acoes { display: flex; gap: 7px; }
 
     .toast {
-      position: fixed; right: 24px; top: 94px; z-index: 80; width: min(360px, calc(100% - 40px));
-      padding: 15px 17px; color: white; background: #101828; border-radius: 14px; box-shadow: 0 18px 45px rgba(16,24,40,.28);
-      opacity: 0; transform: translateY(-8px); pointer-events: none; transition: .22s ease;
+      position: fixed;
+      right: 20px;
+      top: 88px;
+      z-index: 150;
+      width: min(360px, calc(100% - 36px));
+      padding: 13px 14px;
+      color: #fff;
+      background: #101828;
+      border: 1px solid rgba(255,255,255,.10);
+      border-radius: 13px;
+      box-shadow: 0 18px 50px rgba(16,24,40,.28);
+      opacity: 0;
+      transform: translateY(-8px);
+      pointer-events: none;
+      transition: .22s ease;
     }
     .toast--visivel { opacity: 1; transform: none; }
-    .toast strong { display: block; font-size: 12px; }
-    .toast span { display: block; margin-top: 3px; color: #d0d5dd; font-size: 10px; }
+    .toast strong { display: block; font-size: 10.5px; }
+    .toast span { display: block; margin-top: 3px; color: #d0d5dd; font-size: 8.5px; line-height: 1.4; }
 
-    .modal { position: fixed; inset: 0; z-index: 100; display: grid; place-items: center; padding: 20px; background: rgba(15,23,42,.56); backdrop-filter: blur(8px); }
-    .modal__caixa { width: min(510px, 100%); padding: 28px; background: white; border-radius: 24px; box-shadow: 0 28px 90px rgba(15,23,42,.28); }
-    .modal__icone { width: 48px; height: 48px; display: grid; place-items: center; color: white; background: var(--verde); border-radius: 15px; font-size: 22px; }
-    .modal h2 { margin: 16px 0 8px; font-size: 24px; letter-spacing: -.04em; }
-    .modal p { margin: 0; color: var(--suave); font-size: 13px; line-height: 1.55; }
-    .passos { margin: 20px 0; display: grid; gap: 9px; }
-    .passo { display: grid; grid-template-columns: 26px 1fr; gap: 10px; align-items: start; padding: 11px; background: #f7f9fc; border-radius: 12px; font-size: 12px; }
-    .passo b { width: 26px; height: 26px; display: grid; place-items: center; color: white; background: var(--azul); border-radius: 8px; }
-    .codigo { display: flex; justify-content: space-between; gap: 10px; align-items: center; padding: 12px; background: #eef4ff; border: 1px solid #c8daf4; border-radius: 12px; font: 700 11px ui-monospace, SFMono-Regular, Consolas, monospace; color: #063f94; }
-    .modal__acoes { display: flex; justify-content: flex-end; gap: 8px; margin-top: 20px; }
+    .modal {
+      position: fixed;
+      inset: 0;
+      z-index: 200;
+      display: grid;
+      place-items: center;
+      padding: 18px;
+      background: rgba(15,23,42,.60);
+      backdrop-filter: blur(9px);
+    }
+    .modal__caixa {
+      width: min(560px, 100%);
+      max-height: min(760px, calc(100vh - 36px));
+      overflow-y: auto;
+      padding: 23px;
+      background: #fff;
+      border-radius: 21px;
+      box-shadow: 0 30px 100px rgba(15,23,42,.32);
+    }
+    .modal__topo { display: flex; align-items: start; justify-content: space-between; gap: 15px; }
+    .modal__icone { width: 43px; height: 43px; display: grid; place-items: center; color: #fff; background: var(--azul-800); border-radius: 13px; font-size: 18px; font-weight: 900; }
+    .modal__fechar { width: 34px; height: 34px; display: grid; place-items: center; color: var(--texto-2); background: #f3f5f8; border: 0; border-radius: 10px; font-size: 18px; }
+    .modal h2 { margin: 14px 0 6px; font-size: 21px; letter-spacing: -.035em; }
+    .modal p { margin: 0; color: var(--texto-3); font-size: 10.5px; line-height: 1.55; }
+    .modal__secao { margin-top: 17px; }
+    .modal__secao > strong { display: block; margin-bottom: 7px; font-size: 10px; }
+    .motivos { display: grid; grid-template-columns: repeat(2, minmax(0,1fr)); gap: 7px; }
+    .motivo {
+      min-height: 42px;
+      padding: 7px 9px;
+      text-align: left;
+      color: var(--texto-2);
+      background: #f8fafc;
+      border: 1px solid #e5eaf1;
+      border-radius: 10px;
+      font-size: 9px;
+      font-weight: 750;
+    }
+    .motivo--ativo { color: var(--azul-800); background: var(--azul-50); border-color: #aac8f0; box-shadow: 0 0 0 3px rgba(11,110,232,.08); }
+    .modal__acoes { display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 7px; margin-top: 18px; }
+    .passos { display: grid; gap: 7px; margin-top: 16px; }
+    .passo { display: grid; grid-template-columns: 24px 1fr; gap: 9px; align-items: start; padding: 9px; background: #f7f9fc; border-radius: 10px; font-size: 9.5px; }
+    .passo b { width: 24px; height: 24px; display: grid; place-items: center; color: #fff; background: var(--azul-800); border-radius: 7px; }
+    .codigo-bloco { margin-top: 11px; padding: 10px; background: #eef4ff; border: 1px solid #c8daf4; border-radius: 11px; }
+    .codigo-bloco__topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; }
+    .codigo-bloco__topo strong { color: #063f94; font-size: 9px; }
+    .codigo-bloco code { display: block; margin-top: 6px; color: #063f94; font: 700 9px ui-monospace, SFMono-Regular, Consolas, monospace; white-space: pre-wrap; }
 
-    @media (max-width: 820px) {
-      .hero { grid-template-columns: 1fr; }
-      .barra { top: 84px; grid-template-columns: 1fr; }
-      .filtros { overflow-x: auto; }
-      .produto__principal { grid-template-columns: minmax(0,1fr) auto; }
-      .produto__situacao { display: none; }
-      .cores__grid { grid-template-columns: 1fr; }
+    .drawer {
+      position: fixed;
+      inset: 0;
+      z-index: 170;
+      background: rgba(15,23,42,.50);
+      backdrop-filter: blur(6px);
+    }
+    .drawer__painel {
+      position: absolute;
+      right: 0;
+      top: 0;
+      width: min(460px, 100%);
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      background: #fff;
+      box-shadow: -20px 0 70px rgba(15,23,42,.22);
+    }
+    .drawer__topo { display: flex; align-items: center; justify-content: space-between; gap: 12px; padding: 17px; border-bottom: 1px solid #edf1f5; }
+    .drawer__topo strong { font-size: 13px; }
+    .drawer__corpo { flex: 1; overflow-y: auto; padding: 14px; }
+    .drawer__rodape { padding: 12px; border-top: 1px solid #edf1f5; }
+
+    @media (max-width: 1120px) {
+      .metricas { grid-template-columns: repeat(3, minmax(0,1fr)); }
+      .cores-grid { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .produto__principal { grid-template-columns: auto 48px minmax(0,1fr) auto; }
+      .produto__numeros { grid-column: 3 / 4; }
+      .produto__acoes { grid-column: 4; grid-row: 1 / 3; }
     }
 
-    @media (max-width: 560px) {
-      .topo__conteudo, main { width: min(100% - 22px, 1220px); }
-      .topo__conteudo { min-height: 68px; }
-      .marca span { display: none; }
-      .status-conexao { max-width: 132px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
-      main { padding-top: 24px; }
-      .hero__texto { padding: 24px; }
+    @media (max-width: 900px) {
+      .boas-vindas { grid-template-columns: 1fr; }
+      .ferramentas { grid-template-columns: 1fr 1fr; }
+      .grade-2 { grid-template-columns: 1fr; }
+      .ajuda-grid { grid-template-columns: 1fr; }
+      .publicacao { grid-template-columns: 1fr; }
+    }
+
+    @media (max-width: 690px) {
+      .topo__conteudo, .layout { width: min(100% - 20px, 1340px); }
+      .topo__acoes .topo__botao { display: none; }
+      .marca__texto span { display: none; }
+      .layout { padding-top: 20px; }
+      .apresentacao { padding: 22px; }
+      .metricas { grid-template-columns: repeat(2, minmax(0,1fr)); }
+      .navegacao { top: 79px; }
+      .ferramentas { grid-template-columns: 1fr; }
+      .produto__principal { grid-template-columns: auto 44px minmax(0,1fr) auto; gap: 9px; padding: 11px; }
+      .produto__foto { width: 44px; height: 44px; }
+      .produto__numeros { grid-column: 2 / -1; grid-row: 2; }
+      .produto__acoes { grid-column: 4; grid-row: 1; }
+      .produto__acoes .icone-botao[data-acao="abrir-site"] { display: none; }
+      .cores-grid { grid-template-columns: 1fr; padding-inline: 10px; }
+      .detalhes__topo { align-items: flex-start; flex-direction: column; }
+      .config-linha { grid-template-columns: 1fr; gap: 8px; }
       .conectar { align-items: flex-start; flex-direction: column; }
-      .produto__principal { padding: 17px; gap: 11px; }
-      .botao-cores { grid-column: 1 / -1; justify-content: center; }
-      .cores { padding: 8px 15px 16px; }
-      .salvar { align-items: stretch; flex-direction: column; padding: 13px; }
-      .salvar__acoes { display: grid; grid-template-columns: 1fr 1.3fr; }
-      .botao { padding-inline: 11px; }
+      .barra-salvar { align-items: stretch; flex-direction: column; }
+      .barra-salvar__acoes { display: grid; grid-template-columns: 1fr 1.35fr; }
+      .motivos { grid-template-columns: 1fr; }
     }
+  
+
+    /* ==========================================================
+       PAINEL 3ZK 3.0 — PREÇOS E FOTOS
+       ========================================================== */
+    .comercial-intro {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 18px;
+      align-items: center;
+      padding: 22px;
+      margin-bottom: 12px;
+      background:
+        radial-gradient(480px 180px at 90% -20%, rgba(36, 116, 255, .18), transparent 70%),
+        linear-gradient(135deg, #0b3e91 0%, #075cc9 100%);
+      color: #fff;
+      border-radius: 22px;
+      box-shadow: 0 18px 40px rgba(7, 65, 155, .18);
+    }
+    .comercial-intro h2 { margin: 5px 0 7px; font-size: 24px; letter-spacing: -.03em; }
+    .comercial-intro p { margin: 0; max-width: 720px; color: rgba(255,255,255,.78); font-size: 13px; }
+    .comercial-intro__selo { font-size: 9px; font-weight: 900; letter-spacing: .14em; color: #a9d0ff; }
+    .comercial-intro__numeros { display: flex; gap: 8px; }
+    .comercial-numero { min-width: 104px; padding: 12px; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); border-radius: 15px; text-align: center; }
+    .comercial-numero strong { display: block; font-size: 19px; }
+    .comercial-numero span { display: block; margin-top: 2px; font-size: 8px; font-weight: 800; letter-spacing: .08em; color: rgba(255,255,255,.72); }
+
+    .comercial-ferramentas {
+      display: grid;
+      grid-template-columns: minmax(240px, 1fr) 210px;
+      gap: 10px;
+      padding: 12px;
+      margin-bottom: 12px;
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 18px;
+      box-shadow: var(--sombra-1);
+    }
+
+    .gestao-lista { display: grid; gap: 12px; }
+    .gestao-produto {
+      overflow: hidden;
+      background: #fff;
+      border: 1px solid var(--borda);
+      border-radius: 20px;
+      box-shadow: var(--sombra-1);
+    }
+    .gestao-produto--alterado { border-color: #86b6f7; box-shadow: 0 12px 30px rgba(0, 82, 190, .1); }
+    .gestao-produto__topo {
+      display: grid;
+      grid-template-columns: minmax(250px, 1fr) minmax(300px, 410px) auto;
+      gap: 16px;
+      align-items: center;
+      padding: 18px;
+    }
+    .gestao-produto__identidade { display: flex; align-items: center; gap: 12px; min-width: 0; }
+    .gestao-produto__foto { width: 54px; height: 54px; flex: 0 0 54px; display: grid; place-items: center; overflow: hidden; background: #f4f7fb; border: 1px solid #e3e9f2; border-radius: 14px; }
+    .gestao-produto__foto img { width: 100%; height: 100%; object-fit: contain; }
+    .gestao-produto__foto span { font-size: 8px; color: var(--texto-3); text-align: center; }
+    .gestao-produto__nome { min-width: 0; }
+    .gestao-produto__nome strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 14px; }
+    .gestao-produto__nome span { display: block; margin-top: 4px; font-size: 10px; color: var(--texto-3); }
+
+    .editor-preco { padding: 12px; background: #f7f9fd; border: 1px solid #e2e9f3; border-radius: 15px; }
+    .editor-preco__rotulo { display: flex; justify-content: space-between; gap: 8px; margin-bottom: 7px; }
+    .editor-preco__rotulo strong { font-size: 10px; }
+    .editor-preco__rotulo span { font-size: 9px; color: var(--texto-3); }
+    .editor-preco__linha { display: grid; grid-template-columns: auto minmax(90px, 1fr) auto; gap: 7px; align-items: center; }
+    .editor-preco__moeda { font-size: 12px; font-weight: 800; color: var(--azul); }
+    .editor-preco input { width: 100%; min-width: 0; padding: 9px 10px; color: var(--texto); background: #fff; border: 1px solid #cfd9e8; border-radius: 10px; font: 800 13px var(--fonte); }
+    .editor-preco input:focus { outline: 3px solid rgba(0, 91, 211, .12); border-color: var(--azul); }
+    .editor-preco__previsao { display: flex; flex-wrap: wrap; gap: 6px 12px; margin-top: 8px; font-size: 8.5px; color: var(--texto-3); }
+    .editor-preco__previsao b { color: #0753b8; }
+
+    .gestao-produto__rodape { display: none; padding: 0 18px 18px; }
+    .gestao-produto--aberto .gestao-produto__rodape { display: block; }
+    .gestao-cores { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 9px; padding-top: 14px; border-top: 1px solid #edf1f6; }
+    .gestao-cor { display: grid; grid-template-columns: 46px minmax(0, 1fr) auto; gap: 10px; align-items: center; padding: 10px; background: #f8fafe; border: 1px solid #e4eaf3; border-radius: 14px; }
+    .gestao-cor__foto { width: 46px; height: 46px; position: relative; display: grid; place-items: center; overflow: hidden; background: var(--cor, #e7eaf0); border: 1px solid #dbe2ec; border-radius: 11px; }
+    .gestao-cor__foto img { width: 100%; height: 100%; object-fit: cover; background: #fff; }
+    .gestao-cor__foto b { position: absolute; right: 3px; bottom: 3px; min-width: 17px; height: 17px; display: grid; place-items: center; padding: 0 4px; color: #fff; background: rgba(4, 31, 74, .82); border-radius: 999px; font-size: 7px; }
+    .gestao-cor__info { min-width: 0; }
+    .gestao-cor__info strong { display: block; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 10.5px; }
+    .gestao-cor__info span { display: block; margin-top: 3px; font-size: 8.5px; color: var(--texto-3); }
+    .gestao-cor__acoes { display: flex; gap: 5px; }
+
+    .foto-lista { display: grid; gap: 9px; max-height: min(52vh, 520px); overflow: auto; padding-right: 3px; }
+    .foto-item { display: grid; grid-template-columns: 72px minmax(0, 1fr) auto; gap: 11px; align-items: center; padding: 10px; background: #f8fafe; border: 1px solid #e2e8f2; border-radius: 14px; }
+    .foto-item--principal { border-color: #8bb7ef; background: #f2f7ff; }
+    .foto-item__preview { width: 72px; height: 60px; overflow: hidden; background: #fff; border: 1px solid #dce4ee; border-radius: 10px; }
+    .foto-item__preview img { width: 100%; height: 100%; object-fit: contain; }
+    .foto-item__info { min-width: 0; }
+    .foto-item__info strong { display: block; font-size: 10px; }
+    .foto-item__info code { display: block; margin-top: 4px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--texto-3); font-size: 8px; }
+    .foto-item__acoes { display: flex; flex-wrap: wrap; justify-content: flex-end; gap: 5px; max-width: 210px; }
+    .foto-vazio { padding: 28px 18px; text-align: center; color: var(--texto-3); background: #f8fafe; border: 1px dashed #cdd9e8; border-radius: 14px; }
+    .foto-vazio strong { display: block; color: var(--texto); font-size: 12px; }
+    .foto-vazio span { display: block; margin-top: 5px; font-size: 9px; }
+    .upload-info { display: grid; grid-template-columns: auto 1fr; gap: 10px; align-items: start; margin-top: 12px; padding: 11px; color: #654500; background: #fff9e7; border: 1px solid #f2d98f; border-radius: 13px; font-size: 9px; }
+    .upload-info b { display: grid; place-items: center; width: 20px; height: 20px; color: #fff; background: #d99900; border-radius: 7px; }
+
+    .modal__caixa--grande { width: min(780px, calc(100vw - 28px)); }
+    .alteracao--preco .alteracao__icone { color: #fff; background: #155fc0; }
+    .alteracao--foto .alteracao__icone { color: #fff; background: #7a46c5; }
+
+    @media (max-width: 900px) {
+      .comercial-intro { grid-template-columns: 1fr; }
+      .comercial-intro__numeros { justify-content: flex-start; }
+      .gestao-produto__topo { grid-template-columns: 1fr; }
+      .gestao-produto__acoes-topo { display: flex; justify-content: flex-end; }
+      .gestao-cores { grid-template-columns: 1fr; }
+    }
+    @media (max-width: 620px) {
+      .comercial-ferramentas { grid-template-columns: 1fr; }
+      .comercial-intro { padding: 18px; }
+      .comercial-intro__numeros { display: grid; grid-template-columns: repeat(2, 1fr); }
+      .comercial-numero { min-width: 0; }
+      .gestao-produto__topo { padding: 14px; }
+      .gestao-produto__rodape { padding: 0 14px 14px; }
+      .gestao-cor { grid-template-columns: 42px minmax(0, 1fr); }
+      .gestao-cor__acoes { grid-column: 1 / -1; justify-content: flex-end; }
+      .foto-item { grid-template-columns: 58px minmax(0, 1fr); }
+      .foto-item__preview { width: 58px; height: 54px; }
+      .foto-item__acoes { grid-column: 1 / -1; max-width: none; justify-content: flex-start; }
+    }
+
   </style>
 </head>
 <body>
@@ -270,94 +918,273 @@
     <div class="topo__conteudo">
       <div class="marca">
         <div class="marca__icone">3ZK</div>
-        <div><strong>Painel do Catálogo</strong><span>Controle local de produtos e cores</span></div>
+        <div class="marca__texto"><strong>Painel do Catálogo 2.0</strong><span>Central local de operação e segurança</span></div>
       </div>
-      <div class="status-conexao" id="status-conexao">Conectando...</div>
+      <div class="topo__acoes">
+        <a class="topo__botao" href="https://3zk.com.br" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7"></path><path d="m10 14 11-11"></path><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path></svg>
+          Abrir site
+        </a>
+        <a class="topo__botao" href="https://github.com/lucasonofre678-lang/catalogo-3zk/actions" target="_blank" rel="noopener">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 1 0 9 9"></path><path d="M12 7v5l3 2"></path><path d="M16 3h5v5"></path><path d="m21 3-5 5"></path></svg>
+          GitHub Actions
+        </a>
+        <div class="status-conexao" id="status-conexao">Aguardando pasta</div>
+      </div>
     </div>
   </header>
 
-  <main>
-    <section class="hero">
-      <div class="hero__texto">
-        <span class="hero__selo">ADMINISTRAÇÃO LOCAL</span>
-        <h1>Pause sem apagar.<br>Reative quando precisar.</h1>
-        <p>A pausa manual tem prioridade sobre o estoque da Olist. Nada é excluído: fotos, preços, vínculo de estoque e cadastro continuam preservados.</p>
-      </div>
-      <aside class="resumo">
-        <div class="resumo__linha"><span>Produtos cadastrados</span><strong id="total-produtos">—</strong></div>
-        <div class="resumo__linha"><span>Produtos pausados</span><strong class="pausado" id="total-produtos-pausados">—</strong></div>
-        <div class="resumo__linha"><span>Cores pausadas</span><strong class="pausado" id="total-cores-pausadas">—</strong></div>
+  <main class="layout">
+    <section class="boas-vindas">
+      <article class="apresentacao">
+        <span class="selo">CENTRAL DE OPERAÇÃO 3ZK</span>
+        <h1>Controle o catálogo<br>sem mexer no código.</h1>
+        <p>Pause produtos e cores, ajuste preços, envie fotos com nome automático, acompanhe alterações, crie backups e valide o catálogo antes de publicar.</p>
+        <div class="apresentacao__acoes">
+          <button class="botao botao--primario" id="acao-conectar" type="button">Selecionar pasta do catálogo</button>
+          <button class="botao botao--claro" id="acao-atualizar" type="button" disabled>Recarregar arquivos</button>
+          <button class="botao botao--claro" id="acao-exportar-relatorio" type="button" disabled>Exportar relatório</button>
+        </div>
+      </article>
+
+      <aside class="status-operacao">
+        <div class="status-operacao__topo">
+          <strong>Situação operacional</strong>
+          <button class="operador" id="botao-operador" type="button">Operador: não definido</button>
+        </div>
+        <div class="status-operacao__lista">
+          <div class="status-linha"><span>Pasta do projeto</span><strong id="status-pasta" class="aviso">Não conectada</strong></div>
+          <div class="status-linha"><span>Última alteração manual</span><strong id="status-atualizado">Nunca</strong></div>
+          <div class="status-linha"><span>Arquivo público de estoque</span><strong id="status-publico">Aguardando</strong></div>
+          <div class="status-linha"><span>Alterações pendentes</span><strong id="status-pendentes">0</strong></div>
+        </div>
       </aside>
     </section>
 
-    <section class="conectar" id="conectar" hidden>
-      <div><strong>Abra a pasta do catálogo</strong><span>Selecione C:\3ZK\catalogo-3zk para o painel ler e salvar o controle.</span></div>
-      <button class="botao botao--claro" id="abrir-pasta" type="button">Selecionar pasta</button>
+    <section class="conectar" id="conectar">
+      <div><strong>Conecte a pasta principal do projeto</strong><span>Escolha a pasta catalogo-3zk. O painel edita preços, conecta fotos e controla pausas sem exigir alteração manual no código.</span></div>
+      <button class="botao botao--primario" id="abrir-pasta" type="button">Selecionar pasta</button>
     </section>
 
-    <section class="barra">
-      <label class="busca">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.6-3.6"></path></svg>
-        <input id="busca" type="search" placeholder="Buscar marca, material, linha ou cor..." autocomplete="off">
-      </label>
-      <div class="filtros" id="filtros">
-        <button class="filtro filtro--ativo" data-filtro="todos" type="button">Todos</button>
-        <button class="filtro" data-filtro="ativos" type="button">Ativos</button>
-        <button class="filtro" data-filtro="pausados" type="button">Pausados</button>
+    <section class="metricas">
+      <article class="metrica"><div class="metrica__topo"><small>PRODUTOS</small><div class="metrica__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m21 8-9-5-9 5 9 5 9-5Z"></path><path d="m3 8 9 5 9-5"></path><path d="m3 13 9 5 9-5"></path></svg></div></div><strong id="metrica-produtos">—</strong><span>cadastrados na base</span></article>
+      <article class="metrica metrica--verde"><div class="metrica__topo"><small>VISÍVEIS</small><div class="metrica__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12Z"></path><circle cx="12" cy="12" r="3"></circle></svg></div></div><strong id="metrica-visiveis">—</strong><span>aparecem no site agora</span></article>
+      <article class="metrica metrica--vermelha"><div class="metrica__topo"><small>PAUSADOS</small><div class="metrica__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="4" width="4" height="16" rx="1"></rect><rect x="14" y="4" width="4" height="16" rx="1"></rect></svg></div></div><strong id="metrica-pausados">—</strong><span>produtos ocultos manualmente</span></article>
+      <article class="metrica metrica--vermelha"><div class="metrica__topo"><small>CORES PAUSADAS</small><div class="metrica__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="13.5" cy="6.5" r=".5" fill="currentColor"></circle><circle cx="17.5" cy="10.5" r=".5" fill="currentColor"></circle><circle cx="8.5" cy="7.5" r=".5" fill="currentColor"></circle><circle cx="6.5" cy="12.5" r=".5" fill="currentColor"></circle><path d="M12 22a10 10 0 1 0 0-20c-2 0-3 1-3 3 0 1.1.9 2 2 2h1c1.1 0 2 .9 2 2s-.9 2-2 2h-1a3 3 0 0 0-3 3c0 2 1 3 3 3h1a2 2 0 0 1 2 2c0 1.1-.9 2-2 2Z"></path></svg></div></div><strong id="metrica-cores-pausadas">—</strong><span>cores ocultas manualmente</span></article>
+      <article class="metrica metrica--amarela"><div class="metrica__topo"><small>ÚLTIMAS UNIDADES</small><div class="metrica__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M12 7v5l3 2"></path></svg></div></div><strong id="metrica-ultimas">—</strong><span>cores com estoque baixo</span></article>
+      <article class="metrica"><div class="metrica__topo"><small>SEM ESTOQUE</small><div class="metrica__icone"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><circle cx="12" cy="12" r="9"></circle></svg></div></div><strong id="metrica-sem-estoque">—</strong><span>já ocultas pela Olist</span></article>
+    </section>
+
+    <nav class="navegacao" aria-label="Seções do painel">
+      <button class="aba aba--ativa" data-aba="catalogo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></svg>Catálogo</button>
+      <button class="aba" data-aba="comercial" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"></path></svg>Preços e fotos <span class="aba__contador" id="contador-comercial">0</span></button>
+      <button class="aba" data-aba="alteracoes" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"></path><path d="m15 6 6 6-6 6"></path></svg>Alterações <span class="aba__contador" id="contador-alteracoes">0</span></button>
+      <button class="aba" data-aba="diagnostico" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3"></path><path d="M18.4 5.6 16.3 7.7"></path><path d="M21 12h-3"></path><path d="m18.4 18.4-2.1-2.1"></path><path d="M12 21v-3"></path><path d="m5.6 18.4 2.1-2.1"></path><path d="M3 12h3"></path><path d="m5.6 5.6 2.1 2.1"></path><circle cx="12" cy="12" r="4"></circle></svg>Diagnóstico <span class="aba__contador" id="contador-alertas">0</span></button>
+      <button class="aba" data-aba="ajuda" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.7 2.7 0 1 1 4.1 2.3c-1 .6-1.6 1.1-1.6 2.2"></path><path d="M12 17h.01"></path></svg>Ajuda e backups</button>
+    </nav>
+
+    <section class="painel painel--ativo" data-painel="catalogo">
+      <div class="ferramentas">
+        <label class="campo-busca"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"></circle><path d="m20 20-3.5-3.5"></path></svg><input id="busca" type="search" placeholder="Buscar produto, marca, material ou cor..." autocomplete="off"></label>
+        <select class="seletor" id="filtro-situacao" aria-label="Filtrar por situação"><option value="todos">Todos os estados</option><option value="visiveis">Visíveis no site</option><option value="pausados">Pausados manualmente</option><option value="sem-estoque">Sem estoque</option><option value="ultimas">Últimas unidades</option><option value="com-cor-pausada">Com cor pausada</option></select>
+        <select class="seletor" id="filtro-material" aria-label="Filtrar por material"><option value="todos">Todos os materiais</option></select>
+        <select class="seletor" id="ordenacao" aria-label="Ordenar produtos"><option value="nome">Ordem alfabética</option><option value="visiveis">Mais cores visíveis</option><option value="pausados">Pausados primeiro</option><option value="sem-estoque">Sem estoque primeiro</option></select>
+      </div>
+
+      <div class="selecao-lote" id="selecao-lote" hidden>
+        <div><strong id="selecao-texto">0 produtos selecionados</strong><span>As ações em lote ainda precisam ser salvas.</span></div>
+        <div class="selecao-lote__acoes"><button class="botao botao--escuro botao--pequeno" id="lote-ativar" type="button">Ativar</button><button class="botao botao--escuro botao--pequeno" id="lote-pausar" type="button">Pausar</button><button class="botao botao--escuro botao--pequeno" id="lote-limpar" type="button">Limpar seleção</button></div>
+      </div>
+
+      <section class="lista" id="lista-produtos"></section>
+      <div class="vazio" id="estado-vazio" hidden><strong>Nenhum produto encontrado</strong><span>Tente retirar algum filtro ou buscar por outro termo.</span></div>
+    </section>
+
+
+    <section class="painel" data-painel="comercial">
+      <article class="comercial-intro">
+        <div>
+          <span class="comercial-intro__selo">GESTÃO COMERCIAL 3ZK</span>
+          <h2>Preços e fotos sem mexer no código.</h2>
+          <p>Altere o preço de venda e adicione imagens às cores. Ao salvar, o painel atualiza a base, o arquivo público e cria a foto em WebP na pasta correta.</p>
+        </div>
+        <div class="comercial-intro__numeros">
+          <div class="comercial-numero"><strong id="comercial-produtos">0</strong><span>PRODUTOS</span></div>
+          <div class="comercial-numero"><strong id="comercial-fotos">0</strong><span>FOTOS CONECTADAS</span></div>
+        </div>
+      </article>
+
+      <div class="comercial-ferramentas">
+        <input class="campo" id="busca-comercial" type="search" placeholder="Buscar produto, material ou cor...">
+        <select class="campo" id="filtro-comercial-material"><option value="todos">Todos os materiais</option></select>
+      </div>
+
+      <div class="gestao-lista" id="lista-comercial"></div>
+      <div class="vazio" id="comercial-vazio" hidden><strong>Nenhum produto encontrado</strong><span>Altere a busca ou o filtro de material.</span></div>
+    </section>
+
+    <section class="painel" data-painel="alteracoes">
+      <div class="grade-2">
+        <article class="cartao">
+          <div class="cartao__cabecalho"><div><strong>Alterações pendentes</strong><span>O que ainda não foi gravado no arquivo</span></div><button class="botao botao--cinza botao--pequeno" id="abrir-resumo" type="button">Ver resumo</button></div>
+          <div class="cartao__corpo"><div class="alteracoes-lista" id="lista-alteracoes"></div><div class="vazio" id="alteracoes-vazio"><strong>Nenhuma alteração pendente</strong><span>O catálogo local está igual ao último arquivo salvo.</span></div></div>
+        </article>
+        <article class="cartao">
+          <div class="cartao__cabecalho"><div><strong>Histórico interno</strong><span>Últimas ações salvas pelo painel</span></div><button class="botao botao--cinza botao--pequeno" id="limpar-historico" type="button">Limpar histórico</button></div>
+          <div class="cartao__corpo"><div class="historico-lista" id="lista-historico"></div><div class="vazio" id="historico-vazio"><strong>Histórico vazio</strong><span>As próximas pausas e reativações ficarão registradas aqui.</span></div></div>
+        </article>
       </div>
     </section>
 
-    <section class="lista" id="lista"></section>
-    <div class="vazio" id="vazio" hidden>Nenhum produto encontrado com esse filtro.</div>
+    <section class="painel" data-painel="diagnostico">
+      <div class="grade-2">
+        <article class="cartao">
+          <div class="cartao__cabecalho"><div><strong>Vistoria do catálogo</strong><span>Verificações automáticas de consistência</span></div><button class="botao botao--primario botao--pequeno" id="rodar-diagnostico" type="button">Executar novamente</button></div>
+          <div class="cartao__corpo"><div class="diagnosticos-lista" id="lista-diagnosticos"></div></div>
+        </article>
+        <article class="cartao">
+          <div class="cartao__cabecalho"><div><strong>GitHub Actions</strong><span>Última publicação e sincronização</span></div><button class="botao botao--claro botao--pequeno" id="atualizar-github" type="button">Atualizar status</button></div>
+          <div class="cartao__corpo"><div class="publicacao"><div class="workflow"><div class="workflow__topo"><strong>Publicar catálogo</strong><span class="workflow__estado" id="workflow-publicar-estado">Não consultado</span></div><p id="workflow-publicar-texto">Clique em Atualizar status para consultar o GitHub.</p></div><div class="workflow"><div class="workflow__topo"><strong>Sincronizar estoque</strong><span class="workflow__estado" id="workflow-estoque-estado">Não consultado</span></div><p id="workflow-estoque-texto">Clique em Atualizar status para consultar o GitHub.</p></div></div></div>
+        </article>
+      </div>
+      <article class="cartao" style="margin-top:12px">
+        <div class="cartao__cabecalho"><div><strong>Verificação de fotos</strong><span>Confere se os arquivos de imagens declarados realmente existem</span></div><button class="botao botao--claro botao--pequeno" id="verificar-fotos" type="button">Verificar fotos agora</button></div>
+        <div class="cartao__corpo"><div id="resultado-fotos" class="vazio"><strong>Ainda não verificado</strong><span>A checagem percorre as fotos cadastradas sem modificar nenhum arquivo.</span></div></div>
+      </article>
+    </section>
+
+    <section class="painel" data-painel="ajuda">
+      <div class="ajuda-grid">
+        <article class="ajuda-item"><b>1</b><strong>Antes de começar</strong><p>Abra o GitHub Desktop, clique em Fetch origin e faça Pull quando aparecer.</p></article>
+        <article class="ajuda-item"><b>2</b><strong>No painel</strong><p>Pause ou reative, confira a aba Alterações e clique em Salvar alterações.</p></article>
+        <article class="ajuda-item"><b>3</b><strong>Para publicar</strong><p>Faça Commit, Push origin e aguarde a Action Publicar catálogo ficar verde.</p></article>
+      </div>
+
+      <div class="grade-2" style="margin-top:12px">
+        <article class="cartao">
+          <div class="cartao__cabecalho"><div><strong>Identificação do operador</strong><span>Fica somente neste navegador e no histórico local</span></div></div>
+          <div class="cartao__corpo config-grid"><div class="config-linha"><div><strong>Nome de quem está usando</strong><span>Ex.: Lucas ou Guilherme</span></div><input class="campo" id="campo-operador" type="text" maxlength="40" placeholder="Digite o nome"></div></div>
+        </article>
+        <article class="cartao">
+          <div class="cartao__cabecalho"><div><strong>Backups e portabilidade</strong><span>Proteção local sem depender de servidor</span></div></div>
+          <div class="cartao__corpo"><div class="config-grid"><button class="botao botao--claro" id="exportar-controle" type="button" disabled>Baixar backup do controle</button><button class="botao botao--claro" id="importar-controle" type="button" disabled>Importar backup</button><button class="botao botao--claro" id="restaurar-backup" type="button" disabled>Restaurar último backup local</button><input id="arquivo-importacao" type="file" accept="application/json,.json" hidden></div></div>
+        </article>
+      </div>
+    </section>
   </main>
 
-  <div class="salvar">
-    <div class="salvar__texto"><strong id="estado-alteracoes">Nenhuma alteração pendente</strong><span>As mudanças só chegam ao site depois do Commit e Push.</span></div>
-    <div class="salvar__acoes">
-      <button class="botao botao--secundario" id="desfazer" type="button" disabled>Desfazer</button>
-      <button class="botao botao--primario" id="salvar" type="button" disabled>Salvar alterações</button>
-    </div>
+  <div class="barra-salvar">
+    <div class="barra-salvar__texto"><strong id="estado-alteracoes">Nenhuma alteração pendente</strong><span id="estado-alteracoes-detalhe">As mudanças só chegam ao site depois do Commit e Push.</span></div>
+    <div class="barra-salvar__acoes"><button class="botao botao--escuro" id="desfazer" type="button" disabled>Desfazer tudo</button><button class="botao botao--primario" id="salvar" type="button" disabled>Salvar alterações</button></div>
   </div>
 
   <div class="toast" id="toast"><strong></strong><span></span></div>
 
-  <div class="modal" id="modal" hidden>
-    <div class="modal__caixa">
-      <div class="modal__icone">✓</div>
-      <h2>Controle salvo</h2>
-      <p>O arquivo local foi atualizado. Agora falta publicar a mudança.</p>
-      <div class="passos">
-        <div class="passo"><b>1</b><span>Abra o <strong>GitHub Desktop</strong>.</span></div>
-        <div class="passo"><b>2</b><span>Confira que <strong>dados/controle-catalogo.json</strong> foi alterado.</span></div>
-        <div class="passo"><b>3</b><span>Faça o Commit e depois clique em <strong>Push origin</strong>.</span></div>
-        <div class="passo"><b>4</b><span>Aguarde a Action <strong>Publicar catálogo</strong> ficar verde.</span></div>
+
+  <div class="modal" id="modal-fotos" hidden>
+    <div class="modal__caixa modal__caixa--grande">
+      <div class="modal__topo"><div class="modal__icone">▧</div><button class="modal__fechar" data-fechar-modal="modal-fotos" type="button">×</button></div>
+      <h2 id="fotos-titulo">Fotos da cor</h2>
+      <p id="fotos-subtitulo">A primeira imagem é a foto principal mostrada no catálogo.</p>
+      <div class="modal__secao">
+        <div class="foto-lista" id="lista-fotos-modal"></div>
       </div>
-      <div class="codigo"><span id="commit-texto">Atualiza produtos pausados do catálogo</span><button class="botao botao--claro" id="copiar-commit" type="button">Copiar</button></div>
-      <div class="modal__acoes"><button class="botao botao--primario" id="fechar-modal" type="button">Entendi</button></div>
+      <div class="upload-info"><b>i</b><span>As novas imagens são convertidas para WebP, recebem o nome correto e são gravadas em <strong>assets/fotos</strong> quando você clicar em <strong>Salvar alterações</strong>. Remover uma foto do catálogo não apaga o arquivo antigo do computador.</span></div>
+      <div class="modal__acoes"><button class="botao botao--cinza" data-fechar-modal="modal-fotos" type="button">Fechar</button><button class="botao botao--primario" id="adicionar-fotos-modal" type="button">Adicionar fotos</button></div>
+    </div>
+  </div>
+  <input id="seletor-fotos" type="file" accept="image/jpeg,image/png,image/webp,image/avif" multiple hidden>
+
+  <div class="modal" id="modal-motivo" hidden>
+    <div class="modal__caixa">
+      <div class="modal__topo"><div class="modal__icone">Ⅱ</div><button class="modal__fechar" data-fechar-modal="modal-motivo" type="button">×</button></div>
+      <h2 id="motivo-titulo">Pausar item</h2>
+      <p id="motivo-subtitulo">Escolha um motivo interno. Ele fica somente neste navegador e não é publicado.</p>
+      <div class="modal__secao"><strong>Motivo da pausa</strong><div class="motivos" id="motivos"><button class="motivo motivo--ativo" data-motivo="Temporariamente indisponível" type="button">Temporariamente indisponível</button><button class="motivo" data-motivo="Aguardando reposição" type="button">Aguardando reposição</button><button class="motivo" data-motivo="Preço em revisão" type="button">Preço em revisão</button><button class="motivo" data-motivo="Foto ou cadastro em revisão" type="button">Foto ou cadastro em revisão</button><button class="motivo" data-motivo="Decisão comercial" type="button">Decisão comercial</button><button class="motivo" data-motivo="Outro motivo" type="button">Outro motivo</button></div></div>
+      <div class="modal__secao"><strong>Observação interna opcional</strong><textarea class="campo" id="motivo-observacao" maxlength="240" placeholder="Ex.: fornecedor pediu para suspender até sexta-feira"></textarea></div>
+      <div class="modal__acoes"><button class="botao botao--cinza" data-fechar-modal="modal-motivo" type="button">Cancelar</button><button class="botao botao--vermelho" id="confirmar-pausa" type="button">Confirmar pausa</button></div>
     </div>
   </div>
 
+  <div class="modal" id="modal-operador" hidden>
+    <div class="modal__caixa">
+      <div class="modal__topo"><div class="modal__icone">3ZK</div><button class="modal__fechar" data-fechar-modal="modal-operador" type="button">×</button></div>
+      <h2>Quem está usando o painel?</h2>
+      <p>O nome fica somente neste navegador e no histórico local. Ele não é enviado ao site nem ao GitHub.</p>
+      <div class="modal__secao"><input class="campo" id="modal-operador-campo" type="text" maxlength="40" placeholder="Ex.: Lucas"></div>
+      <div class="modal__acoes"><button class="botao botao--primario" id="salvar-operador" type="button">Salvar nome</button></div>
+    </div>
+  </div>
+
+  <div class="modal" id="modal-salvo" hidden>
+    <div class="modal__caixa">
+      <div class="modal__topo"><div class="modal__icone">✓</div><button class="modal__fechar" data-fechar-modal="modal-salvo" type="button">×</button></div>
+      <h2>Alterações salvas com segurança</h2>
+      <p>Os arquivos locais foram atualizados. Preços, fotos e pausas continuam aguardando Commit e Push para chegar ao site.</p>
+      <div class="passos"><div class="passo"><b>1</b><span>Abra o <strong>GitHub Desktop</strong>.</span></div><div class="passo"><b>2</b><span>Confira os arquivos alterados em <strong>dados</strong>, <strong>assets/fotos</strong> e <strong>ferramentas-local</strong>.</span></div><div class="passo"><b>3</b><span>Faça o Commit e depois clique em <strong>Push origin</strong>.</span></div><div class="passo"><b>4</b><span>Aguarde <strong>Publicar catálogo</strong> ficar verde.</span></div></div>
+      <div class="codigo-bloco"><div class="codigo-bloco__topo"><strong>SUMMARY SUGERIDO</strong><button class="botao botao--claro botao--pequeno" id="copiar-summary" type="button">Copiar</button></div><code id="summary-sugerido">Atualiza disponibilidade manual do catálogo</code></div>
+      <div class="codigo-bloco"><div class="codigo-bloco__topo"><strong>DESCRIÇÃO OPCIONAL</strong><button class="botao botao--claro botao--pequeno" id="copiar-descricao" type="button">Copiar</button></div><code id="descricao-sugerida">Atualiza produtos e cores pausados pelo Painel 3ZK.</code></div>
+      <div class="modal__acoes"><a class="botao botao--claro" href="https://github.com/lucasonofre678-lang/catalogo-3zk/actions" target="_blank" rel="noopener">Abrir Actions</a><button class="botao botao--primario" data-fechar-modal="modal-salvo" type="button">Entendi</button></div>
+    </div>
+  </div>
+
+  <div class="drawer" id="drawer-resumo" hidden>
+    <aside class="drawer__painel"><div class="drawer__topo"><strong>Resumo antes de salvar</strong><button class="modal__fechar" id="fechar-drawer" type="button">×</button></div><div class="drawer__corpo"><div class="alteracoes-lista" id="drawer-alteracoes"></div></div><div class="drawer__rodape"><button class="botao botao--primario" id="salvar-drawer" type="button" style="width:100%">Salvar alterações</button></div></aside>
+  </div>
+
   <script>
-    const estado = {
-      modo: location.protocol === "file:" ? "arquivo" : "servidor",
-      produtos: [],
-      controleOriginal: null,
-      produtosPausados: new Set(),
-      coresPausadas: new Set(),
-      filtro: "todos",
-      pastaHandle: null,
-      controleHandle: null,
-      produtosAbertos: new Set()
+    "use strict";
+
+    const CONFIG = {
+      repo: "lucasonofre678-lang/catalogo-3zk",
+      site: "https://3zk.com.br",
+      chaveOperador: "3zk-painel-operador-v2",
+      chaveBackups: "3zk-painel-backups-v2",
+      chavePrivado: "3zk-painel-dados-locais-v2",
+      maxHistorico: 80,
+      maxBackups: 10
     };
 
-    const $ = (seletor) => document.querySelector(seletor);
-    const listaEl = $("#lista");
-    const vazioEl = $("#vazio");
-    const buscaEl = $("#busca");
-    const salvarEl = $("#salvar");
-    const desfazerEl = $("#desfazer");
-    const conectarEl = $("#conectar");
-    const statusEl = $("#status-conexao");
+    const estado = {
+      modo: location.protocol === "file:" ? "arquivo" : "preview",
+      pastaHandle: null,
+      controleHandle: null,
+      produtos: [],
+      controleOriginal: null,
+      privadoOriginal: null,
+      produtosPausados: new Set(),
+      coresPausadas: new Set(),
+      detalhesProdutos: {},
+      detalhesCores: {},
+      historico: [],
+      produtosAbertos: new Set(),
+      produtosSelecionados: new Set(),
+      sessoes: new Map(),
+      filtroSituacao: "todos",
+      filtroMaterial: "todos",
+      ordenacao: "nome",
+      modalPausa: null,
+      diagnosticos: [],
+      fotosVerificadas: null,
+      carregado: false
+    };
+
+    const $ = (seletor, raiz = document) => raiz.querySelector(seletor);
+    const $$ = (seletor, raiz = document) => [...raiz.querySelectorAll(seletor)];
+
+    const refs = {
+      statusConexao: $("#status-conexao"),
+      conectar: $("#conectar"),
+      lista: $("#lista-produtos"),
+      vazio: $("#estado-vazio"),
+      busca: $("#busca"),
+      filtroSituacao: $("#filtro-situacao"),
+      filtroMaterial: $("#filtro-material"),
+      ordenacao: $("#ordenacao"),
+      salvar: $("#salvar"),
+      desfazer: $("#desfazer"),
+      selecaoLote: $("#selecao-lote")
+    };
 
     function normalizar(texto = "") {
       return String(texto).toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
@@ -367,86 +1194,544 @@
       return normalizar(texto).replace(/&/g, " e ").replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
     }
 
+    function escapar(texto = "") {
+      return String(texto).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+    }
+
+    function formatarPreco(valor) {
+      return Number(valor || 0).toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+    }
+
+    function formatarData(valor) {
+      if (!valor) return "Nunca";
+      const data = new Date(valor);
+      if (Number.isNaN(data.getTime())) return "Data inválida";
+      return new Intl.DateTimeFormat("pt-BR", { dateStyle: "short", timeStyle: "short" }).format(data);
+    }
+
+    function operadorAtual() {
+      return (localStorage.getItem(CONFIG.chaveOperador) || "").trim();
+    }
+
+    function definirOperador(nome) {
+      const limpo = String(nome || "").trim().slice(0, 40);
+      if (!limpo) return false;
+      localStorage.setItem(CONFIG.chaveOperador, limpo);
+      $("#botao-operador").textContent = `Operador: ${limpo}`;
+      $("#campo-operador").value = limpo;
+      return true;
+    }
+
     function idProdutoFallback(produto) {
       return [slugificar(produto.marca), slugificar(produto.material), slugificar(produto.linha || "")].join("|");
     }
 
-    function prepararProdutos(base) {
-      return base.filter((produto) => produto && Array.isArray(produto.cores)).map((produto) => {
-        const primeiraChave = produto.cores.find((cor) => cor.chaveEstoque)?.chaveEstoque || "";
-        const id = primeiraChave ? primeiraChave.split("|").slice(0, 3).join("|") : idProdutoFallback(produto);
+    function obterIdProduto(produto) {
+      const primeira = produto?.cores?.find((cor) => cor.chaveEstoque)?.chaveEstoque || "";
+      return produto.idCatalogo || (primeira ? primeira.split("|").slice(0, 3).join("|") : idProdutoFallback(produto));
+    }
+
+    function obterIdCor(produtoId, cor) {
+      return cor.idCatalogo || cor.chaveEstoque || `${produtoId}|${slugificar(cor.nome)}`;
+    }
+
+    function statusNormalizado(corPublica) {
+      if (!corPublica) return "sem_estoque";
+      if (corPublica.disponivel === false || corPublica.statusEstoque === "sem_estoque") return "sem_estoque";
+      if (corPublica.statusEstoque === "ultimas_unidades") return "ultimas_unidades";
+      return "em_estoque";
+    }
+
+    function indexarPublico(publico) {
+      const mapa = new Map();
+      (Array.isArray(publico) ? publico : []).forEach((produto) => {
+        const produtoId = obterIdProduto(produto);
+        (produto.cores || []).forEach((cor) => mapa.set(obterIdCor(produtoId, cor), cor));
+      });
+      return mapa;
+    }
+
+    function prepararProdutos(base, publico) {
+      const mapaPublico = indexarPublico(publico);
+      return (Array.isArray(base) ? base : []).filter((produto) => produto && Array.isArray(produto.cores)).map((produto) => {
+        const id = obterIdProduto(produto);
+        const cores = produto.cores.map((cor) => {
+          const corId = obterIdCor(id, cor);
+          const publica = mapaPublico.get(corId);
+          const imagens = Array.isArray(cor.imagens) ? cor.imagens.filter(Boolean) : (cor.imagem ? [cor.imagem] : []);
+          return {
+            id: corId,
+            nome: cor.nome || "Sem nome",
+            hex: cor.hex || "#d9dfe8",
+            imagens,
+            fotoStatus: cor.fotoStatus || (imagens.length ? "declarada" : "ausente"),
+            statusEstoque: statusNormalizado(publica),
+            disponivelPublico: Boolean(publica) && statusNormalizado(publica) !== "sem_estoque"
+          };
+        });
         return {
           id,
           marca: produto.marca || "Sem marca",
           material: produto.material || "",
           linha: produto.linha || "",
           preco: Number(produto.preco) || 0,
-          cores: produto.cores.map((cor) => ({
-            id: cor.chaveEstoque || `${id}|${slugificar(cor.nome)}`,
-            nome: cor.nome || "Sem nome",
-            hex: cor.hex || "#d9dfe8"
-          }))
+          linkLoja: produto.linkLoja || "",
+          cores,
+          nome: [produto.marca, produto.material, produto.linha].filter(Boolean).join(" ")
         };
       });
     }
 
+    function normalizarDetalhes(valor) {
+      return valor && typeof valor === "object" && !Array.isArray(valor) ? { ...valor } : {};
+    }
+
     function normalizarControle(valor = {}) {
+      const controle = valor && typeof valor === "object" ? valor : {};
       return {
         versao: 1,
-        atualizadoEm: valor.atualizadoEm || null,
-        produtosPausados: [...new Set(Array.isArray(valor.produtosPausados) ? valor.produtosPausados.map(String) : [])],
-        coresPausadas: [...new Set(Array.isArray(valor.coresPausadas) ? valor.coresPausadas.map(String) : [])]
+        atualizadoEm: controle.atualizadoEm || null,
+        produtosPausados: [...new Set(Array.isArray(controle.produtosPausados) ? controle.produtosPausados.map(String).filter(Boolean) : [])],
+        coresPausadas: [...new Set(Array.isArray(controle.coresPausadas) ? controle.coresPausadas.map(String).filter(Boolean) : [])]
       };
     }
 
+    function normalizarPrivado(valor = {}) {
+      const privado = valor && typeof valor === "object" ? valor : {};
+      return {
+        detalhesProdutos: normalizarDetalhes(privado.detalhesProdutos),
+        detalhesCores: normalizarDetalhes(privado.detalhesCores),
+        historico: Array.isArray(privado.historico) ? privado.historico.filter((item) => item && typeof item === "object").slice(-CONFIG.maxHistorico) : []
+      };
+    }
+
+    function carregarPrivadoLocal() {
+      try {
+        return normalizarPrivado(JSON.parse(localStorage.getItem(CONFIG.chavePrivado) || "{}"));
+      } catch {
+        return normalizarPrivado();
+      }
+    }
+
+    function salvarPrivadoLocal() {
+      const privado = {
+        detalhesProdutos: estado.detalhesProdutos,
+        detalhesCores: estado.detalhesCores,
+        historico: estado.historico.slice(-CONFIG.maxHistorico)
+      };
+      localStorage.setItem(CONFIG.chavePrivado, JSON.stringify(privado));
+      estado.privadoOriginal = structuredClone(normalizarPrivado(privado));
+    }
+
     function aplicarEstado(produtos, controle) {
+      const normalizado = normalizarControle(controle);
+      const privado = carregarPrivadoLocal();
       estado.produtos = produtos;
-      estado.controleOriginal = normalizarControle(controle);
-      estado.produtosPausados = new Set(estado.controleOriginal.produtosPausados);
-      estado.coresPausadas = new Set(estado.controleOriginal.coresPausadas);
+      estado.controleOriginal = structuredClone(normalizado);
+      estado.privadoOriginal = structuredClone(privado);
+      estado.produtosPausados = new Set(normalizado.produtosPausados);
+      estado.coresPausadas = new Set(normalizado.coresPausadas);
+      estado.detalhesProdutos = structuredClone(privado.detalhesProdutos);
+      estado.detalhesCores = structuredClone(privado.detalhesCores);
+      estado.historico = structuredClone(privado.historico);
+      estado.sessoes.clear();
+      estado.produtosSelecionados.clear();
+      estado.carregado = true;
+      preencherMateriais();
       atualizarTudo();
+      rodarDiagnostico();
     }
 
-    async function carregarServidor() {
-      const resposta = await fetch("/api/estado", { cache: "no-store" });
-      if (!resposta.ok) throw new Error(await resposta.text());
-      const dados = await resposta.json();
-      aplicarEstado(dados.produtos, dados.controle);
-      statusEl.textContent = "Conectado ao projeto";
-      statusEl.classList.add("status-conexao--ok");
+    async function lerJsonHandle(handle, fallback = null) {
+      try {
+        const arquivo = await handle.getFile();
+        const texto = await arquivo.text();
+        return texto.trim() ? JSON.parse(texto) : fallback;
+      } catch (erro) {
+        if (fallback !== null) return fallback;
+        throw erro;
+      }
     }
 
-    async function abrirPastaDireta() {
+    async function abrirPasta() {
       if (!("showDirectoryPicker" in window)) {
-        alert("Abra este painel pelo arquivo ABRIR-PAINEL-3ZK.bat ou use o Google Chrome atualizado.");
+        mostrarToast("Navegador incompatível", "Use Google Chrome ou Microsoft Edge atualizado.");
         return;
       }
-
       try {
         const pasta = await window.showDirectoryPicker({ mode: "readwrite" });
-        const dados = await pasta.getDirectoryHandle("dados");
-        const baseHandle = await dados.getFileHandle("produtos-base.json");
-        let controleHandle;
-        try {
-          controleHandle = await dados.getFileHandle("controle-catalogo.json");
-        } catch {
-          controleHandle = await dados.getFileHandle("controle-catalogo.json", { create: true });
-          const gravador = await controleHandle.createWritable();
-          await gravador.write(JSON.stringify({ versao: 1, atualizadoEm: null, produtosPausados: [], coresPausadas: [] }, null, 2) + "\n");
-          await gravador.close();
-        }
-
-        const base = JSON.parse(await (await baseHandle.getFile()).text());
-        const controle = JSON.parse(await (await controleHandle.getFile()).text() || "{}");
-        estado.pastaHandle = pasta;
-        estado.controleHandle = controleHandle;
-        aplicarEstado(prepararProdutos(base), controle);
-        conectarEl.hidden = true;
-        statusEl.textContent = "Pasta conectada";
-        statusEl.classList.add("status-conexao--ok");
+        await carregarDaPasta(pasta);
       } catch (erro) {
         if (erro.name !== "AbortError") mostrarToast("Não foi possível abrir a pasta", erro.message);
       }
+    }
+
+    async function carregarDaPasta(pasta) {
+      const dados = await pasta.getDirectoryHandle("dados");
+      const baseHandle = await dados.getFileHandle("produtos-base.json");
+      let publicoHandle = null;
+      let controleHandle = null;
+      try { publicoHandle = await dados.getFileHandle("produtos.json"); } catch {}
+      try {
+        controleHandle = await dados.getFileHandle("controle-catalogo.json");
+      } catch {
+        controleHandle = await dados.getFileHandle("controle-catalogo.json", { create: true });
+        const gravador = await controleHandle.createWritable();
+        await gravador.write(JSON.stringify(normalizarControle({}), null, 2) + "\n");
+        await gravador.close();
+      }
+
+      const base = await lerJsonHandle(baseHandle);
+      const publico = publicoHandle ? await lerJsonHandle(publicoHandle, []) : [];
+      const controle = await lerJsonHandle(controleHandle, {});
+      estado.pastaHandle = pasta;
+      estado.controleHandle = controleHandle;
+      aplicarEstado(prepararProdutos(base, publico), controle);
+      refs.conectar.hidden = true;
+      refs.statusConexao.textContent = "Pasta conectada";
+      refs.statusConexao.className = "status-conexao status-conexao--ok";
+      $("#status-pasta").textContent = pasta.name || "catalogo-3zk";
+      $("#status-pasta").className = "ok";
+      $("#status-publico").textContent = publicoHandle ? "Carregado" : "Não encontrado";
+      $("#status-publico").className = publicoHandle ? "ok" : "aviso";
+      habilitarAcoes(true);
+      mostrarToast("Painel conectado", `${estado.produtos.length} produtos carregados com sucesso.`);
+    }
+
+    async function carregarPreview() {
+      try {
+        const [baseResp, publicoResp, controleResp] = await Promise.all([
+          fetch("../dados/produtos-base.json", { cache: "no-store" }),
+          fetch("../dados/produtos.json", { cache: "no-store" }).catch(() => null),
+          fetch("../dados/controle-catalogo.json", { cache: "no-store" }).catch(() => null)
+        ]);
+        if (!baseResp.ok) throw new Error("produtos-base.json não encontrado");
+        const base = await baseResp.json();
+        const publico = publicoResp?.ok ? await publicoResp.json() : [];
+        const controle = controleResp?.ok ? await controleResp.json() : {};
+        aplicarEstado(prepararProdutos(base, publico), controle);
+        refs.conectar.hidden = true;
+        refs.statusConexao.textContent = "Modo de visualização";
+        refs.statusConexao.className = "status-conexao status-conexao--ok";
+        $("#status-pasta").textContent = "Preview local";
+        $("#status-pasta").className = "ok";
+        $("#status-publico").textContent = publicoResp?.ok ? "Carregado" : "Não encontrado";
+        $("#status-publico").className = publicoResp?.ok ? "ok" : "aviso";
+        habilitarAcoes(false);
+      } catch (erro) {
+        refs.conectar.hidden = false;
+        refs.statusConexao.textContent = "Falha no preview";
+        refs.statusConexao.className = "status-conexao status-conexao--erro";
+        mostrarToast("Falha ao carregar preview", erro.message);
+      }
+    }
+
+    function habilitarAcoes(podeSalvar) {
+      $("#acao-atualizar").disabled = !estado.carregado;
+      $("#acao-exportar-relatorio").disabled = !estado.carregado;
+      $("#exportar-controle").disabled = !estado.carregado;
+      $("#importar-controle").disabled = !podeSalvar;
+      $("#restaurar-backup").disabled = !podeSalvar || obterBackups().length === 0;
+      if (!podeSalvar) {
+        refs.salvar.disabled = true;
+        refs.salvar.title = "O modo preview não grava arquivos.";
+      }
+    }
+
+    function produtoPausado(id) { return estado.produtosPausados.has(id); }
+    function corPausada(id) { return estado.coresPausadas.has(id); }
+
+    function corVisivel(produto, cor) {
+      return !produtoPausado(produto.id) && !corPausada(cor.id) && cor.disponivelPublico;
+    }
+
+    function estatisticasProduto(produto) {
+      const visiveis = produto.cores.filter((cor) => corVisivel(produto, cor)).length;
+      const ultimas = produto.cores.filter((cor) => cor.statusEstoque === "ultimas_unidades" && corVisivel(produto, cor)).length;
+      const semEstoque = produto.cores.filter((cor) => cor.statusEstoque === "sem_estoque").length;
+      const pausadas = produto.cores.filter((cor) => corPausada(cor.id)).length;
+      return { visiveis, ultimas, semEstoque, pausadas };
+    }
+
+    function metricasGerais() {
+      const cores = estado.produtos.flatMap((produto) => produto.cores.map((cor) => ({ produto, cor })));
+      return {
+        produtos: estado.produtos.length,
+        visiveis: estado.produtos.filter((produto) => produto.cores.some((cor) => corVisivel(produto, cor))).length,
+        produtosPausados: estado.produtosPausados.size,
+        coresPausadas: estado.coresPausadas.size,
+        ultimas: cores.filter(({ produto, cor }) => cor.statusEstoque === "ultimas_unidades" && corVisivel(produto, cor)).length,
+        semEstoque: cores.filter(({ cor }) => cor.statusEstoque === "sem_estoque").length
+      };
+    }
+
+    function nomePorId(tipo, id) {
+      if (tipo === "produto") return estado.produtos.find((produto) => produto.id === id)?.nome || id;
+      for (const produto of estado.produtos) {
+        const cor = produto.cores.find((item) => item.id === id);
+        if (cor) return `${produto.nome} — ${cor.nome}`;
+      }
+      return id;
+    }
+
+    function sessaoChave(tipo, id) { return `${tipo}:${id}`; }
+
+    function registrarSessao(tipo, id, acao, meta = {}) {
+      estado.sessoes.set(sessaoChave(tipo, id), {
+        tipo,
+        id,
+        nome: nomePorId(tipo, id),
+        acao,
+        motivo: meta.motivo || "",
+        observacao: meta.observacao || "",
+        operador: operadorAtual() || "Não identificado",
+        data: new Date().toISOString()
+      });
+    }
+
+    function limparSessaoSeIgualOriginal(tipo, id) {
+      const originalSet = tipo === "produto" ? new Set(estado.controleOriginal.produtosPausados) : new Set(estado.controleOriginal.coresPausadas);
+      const atualSet = tipo === "produto" ? estado.produtosPausados : estado.coresPausadas;
+      if (originalSet.has(id) === atualSet.has(id)) estado.sessoes.delete(sessaoChave(tipo, id));
+    }
+
+    function diferencas() {
+      if (!estado.controleOriginal) return [];
+      const resultados = [];
+      const grupos = [
+        { tipo: "produto", original: new Set(estado.controleOriginal.produtosPausados), atual: estado.produtosPausados },
+        { tipo: "cor", original: new Set(estado.controleOriginal.coresPausadas), atual: estado.coresPausadas }
+      ];
+      grupos.forEach(({ tipo, original, atual }) => {
+        new Set([...original, ...atual]).forEach((id) => {
+          if (original.has(id) === atual.has(id)) return;
+          const acao = atual.has(id) ? "pausar" : "ativar";
+          const sessao = estado.sessoes.get(sessaoChave(tipo, id));
+          resultados.push({ tipo, id, nome: nomePorId(tipo, id), acao, motivo: sessao?.motivo || "", observacao: sessao?.observacao || "" });
+        });
+      });
+      return resultados.sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+    }
+
+    function temAlteracoes() { return diferencas().length > 0; }
+
+    function preencherMateriais() {
+      const materiais = [...new Set(estado.produtos.map((produto) => produto.material).filter(Boolean))].sort((a,b) => a.localeCompare(b, "pt-BR"));
+      refs.filtroMaterial.innerHTML = '<option value="todos">Todos os materiais</option>' + materiais.map((item) => `<option value="${escapar(normalizar(item))}">${escapar(item)}</option>`).join("");
+    }
+
+    function produtoPassaFiltro(produto, termo) {
+      const stats = estatisticasProduto(produto);
+      const pausado = produtoPausado(produto.id);
+      if (estado.filtroMaterial !== "todos" && normalizar(produto.material) !== estado.filtroMaterial) return false;
+      if (estado.filtroSituacao === "visiveis" && stats.visiveis === 0) return false;
+      if (estado.filtroSituacao === "pausados" && !pausado) return false;
+      if (estado.filtroSituacao === "sem-estoque" && stats.semEstoque !== produto.cores.length) return false;
+      if (estado.filtroSituacao === "ultimas" && stats.ultimas === 0) return false;
+      if (estado.filtroSituacao === "com-cor-pausada" && stats.pausadas === 0) return false;
+      if (!termo) return true;
+      const texto = normalizar([produto.nome, produto.material, ...produto.cores.map((cor) => cor.nome)].join(" "));
+      return texto.includes(termo);
+    }
+
+    function ordenarProdutos(lista) {
+      const copia = [...lista];
+      if (estado.ordenacao === "visiveis") return copia.sort((a,b) => estatisticasProduto(b).visiveis - estatisticasProduto(a).visiveis || a.nome.localeCompare(b.nome, "pt-BR"));
+      if (estado.ordenacao === "pausados") return copia.sort((a,b) => Number(produtoPausado(b.id)) - Number(produtoPausado(a.id)) || a.nome.localeCompare(b.nome, "pt-BR"));
+      if (estado.ordenacao === "sem-estoque") return copia.sort((a,b) => estatisticasProduto(b).semEstoque - estatisticasProduto(a).semEstoque || a.nome.localeCompare(b.nome, "pt-BR"));
+      return copia.sort((a,b) => a.nome.localeCompare(b.nome, "pt-BR"));
+    }
+
+    function imagemLocal(caminho) {
+      if (!caminho) return "";
+      return `../${String(caminho).replace(/^\.\//, "")}`;
+    }
+
+    function textoStatusCor(produto, cor) {
+      if (produtoPausado(produto.id)) return "Produto inteiro pausado";
+      if (corPausada(cor.id)) return "Pausada manualmente";
+      if (cor.statusEstoque === "ultimas_unidades") return "Últimas unidades";
+      if (cor.statusEstoque === "sem_estoque") return "Sem estoque na Olist";
+      return "Visível no site";
+    }
+
+    function classeTagStatus(produto, cor) {
+      if (produtoPausado(produto.id) || corPausada(cor.id)) return "tag--vermelha";
+      if (cor.statusEstoque === "ultimas_unidades") return "tag--amarela";
+      if (cor.statusEstoque === "sem_estoque") return "tag--cinza";
+      return "tag--verde";
+    }
+
+    function renderizarCatalogo() {
+      const termo = normalizar(refs.busca.value.trim());
+      const produtos = ordenarProdutos(estado.produtos.filter((produto) => produtoPassaFiltro(produto, termo)));
+      refs.lista.innerHTML = produtos.map((produto) => {
+        const stats = estatisticasProduto(produto);
+        const pausado = produtoPausado(produto.id);
+        const selecionado = estado.produtosSelecionados.has(produto.id);
+        const aberto = estado.produtosAbertos.has(produto.id);
+        const primeiraImagem = produto.cores.flatMap((cor) => cor.imagens).find(Boolean) || "";
+        const detalhe = estado.detalhesProdutos[produto.id];
+        return `
+          <article class="produto ${pausado ? "produto--pausado" : ""} ${selecionado ? "produto--selecionado" : ""} ${aberto ? "produto--aberto" : ""}" data-produto-id="${escapar(produto.id)}">
+            <div class="produto__principal">
+              <input class="check" type="checkbox" data-acao="selecionar-produto" aria-label="Selecionar ${escapar(produto.nome)}" ${selecionado ? "checked" : ""}>
+              <div class="produto__foto">${primeiraImagem ? `<img src="${escapar(imagemLocal(primeiraImagem))}" alt="" loading="lazy" onerror="this.parentElement.innerHTML='<span>Sem foto</span>'">` : '<span>Sem foto</span>'}</div>
+              <div class="produto__info">
+                <div class="produto__titulo"><strong>${escapar(produto.nome)}</strong>${pausado ? '<span class="tag tag--vermelha">PAUSADO</span>' : stats.visiveis ? '<span class="tag tag--verde">VISÍVEL</span>' : '<span class="tag tag--cinza">SEM ESTOQUE</span>'}</div>
+                <div class="produto__meta"><span class="tag">${escapar(produto.material)}</span><span class="tag tag--cinza">${formatarPreco(produto.preco)}</span><span class="tag tag--cinza">${produto.cores.length} cores</span>${stats.pausadas ? `<span class="tag tag--vermelha">${stats.pausadas} cor${stats.pausadas > 1 ? "es" : ""} pausada${stats.pausadas > 1 ? "s" : ""}</span>` : ""}${detalhe?.motivo ? `<span class="tag tag--roxa">${escapar(detalhe.motivo)}</span>` : ""}</div>
+              </div>
+              <div class="produto__numeros"><div class="numero"><strong>${stats.visiveis}</strong><span>VISÍVEIS</span></div><div class="numero"><strong>${stats.ultimas}</strong><span>ÚLTIMAS</span></div><div class="numero"><strong>${stats.semEstoque}</strong><span>SEM ESTOQUE</span></div></div>
+              <div class="produto__acoes">
+                <button class="icone-botao" data-acao="abrir-site" type="button" title="Abrir produto no site"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 3h7v7"></path><path d="m10 14 11-11"></path><path d="M21 14v5a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5"></path></svg></button>
+                <button class="icone-botao" data-acao="gerenciar-cores" type="button" title="Gerenciar cores"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg></button>
+                <label class="switch" title="Ativar ou pausar produto inteiro"><input type="checkbox" data-acao="produto" data-id="${escapar(produto.id)}" ${pausado ? "" : "checked"}><span></span></label>
+              </div>
+            </div>
+            <div class="produto__detalhes">
+              <div class="detalhes__topo"><span>Desligar uma cor a pausa sem apagar. O estoque da Olist continua sendo consultado normalmente.</span><div class="detalhes__acoes"><button class="botao botao--cinza botao--pequeno" data-acao="ativar-cores" type="button">Ativar todas as cores</button><button class="botao botao--cinza botao--pequeno" data-acao="fechar-cores" type="button">Fechar</button></div></div>
+              <div class="cores-grid">${produto.cores.map((cor) => {
+                const pausada = corPausada(cor.id);
+                const foto = cor.imagens[0] || "";
+                const detalheCor = estado.detalhesCores[cor.id];
+                return `<div class="cor ${pausada ? "cor--pausada" : ""}" data-cor-id="${escapar(cor.id)}"><div class="cor__foto" style="--cor:${escapar(cor.hex)}">${foto ? `<img src="${escapar(imagemLocal(foto))}" alt="" loading="lazy" onerror="this.remove()">` : ""}</div><div class="cor__info"><strong>${escapar(cor.nome)}</strong><span>${escapar(textoStatusCor(produto, cor))}${detalheCor?.motivo ? ` • ${escapar(detalheCor.motivo)}` : ""}</span></div><label class="switch switch--pequeno"><input type="checkbox" data-acao="cor" data-id="${escapar(cor.id)}" ${pausada ? "" : "checked"}><span></span></label></div>`;
+              }).join("")}</div>
+            </div>
+          </article>`;
+      }).join("");
+      refs.vazio.hidden = produtos.length > 0;
+      atualizarSelecaoLote();
+    }
+
+    function renderizarMetricas() {
+      const m = metricasGerais();
+      $("#metrica-produtos").textContent = m.produtos;
+      $("#metrica-visiveis").textContent = m.visiveis;
+      $("#metrica-pausados").textContent = m.produtosPausados;
+      $("#metrica-cores-pausadas").textContent = m.coresPausadas;
+      $("#metrica-ultimas").textContent = m.ultimas;
+      $("#metrica-sem-estoque").textContent = m.semEstoque;
+    }
+
+    function renderizarAlteracoes() {
+      const alteracoes = diferencas();
+      const html = alteracoes.map((item) => `<div class="alteracao alteracao--${item.acao}"><div class="alteracao__icone">${item.acao === "pausar" ? "Ⅱ" : "✓"}</div><div class="alteracao__texto"><strong>${item.acao === "pausar" ? "Pausar" : "Reativar"} ${item.tipo === "produto" ? "produto" : "cor"}: ${escapar(item.nome)}</strong><span>${item.motivo ? escapar(item.motivo) : "Sem motivo informado"}${item.observacao ? ` • ${escapar(item.observacao)}` : ""}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-item="${escapar(sessaoChave(item.tipo, item.id))}" type="button">Desfazer</button></div>`).join("");
+      $("#lista-alteracoes").innerHTML = html;
+      $("#drawer-alteracoes").innerHTML = html || '<div class="vazio"><strong>Nenhuma alteração pendente</strong><span>Feche este resumo e faça uma alteração no catálogo.</span></div>';
+      $("#alteracoes-vazio").hidden = alteracoes.length > 0;
+      $("#contador-alteracoes").textContent = alteracoes.length;
+      $("#status-pendentes").textContent = alteracoes.length;
+      $("#status-pendentes").className = alteracoes.length ? "aviso" : "ok";
+    }
+
+    function renderizarHistorico() {
+      const itens = [...estado.historico].slice(-30).reverse();
+      $("#lista-historico").innerHTML = itens.map((item) => `<div class="historico-item"><div><strong>${escapar(item.resumo || `${item.acao || "Alteração"}: ${item.nome || item.id || "item"}`)}</strong><span>${escapar(item.operador || "Não identificado")}${item.motivo ? ` • ${escapar(item.motivo)}` : ""}</span></div><time>${escapar(formatarData(item.data || item.atualizadoEm))}</time></div>`).join("");
+      $("#historico-vazio").hidden = itens.length > 0;
+    }
+
+    function renderizarDiagnosticos() {
+      $("#lista-diagnosticos").innerHTML = estado.diagnosticos.map((item) => `<div class="diagnostico diagnostico--${item.nivel}"><div class="diagnostico__icone">${item.nivel === "ok" ? "✓" : item.nivel === "erro" ? "!" : "i"}</div><div><strong>${escapar(item.titulo)}</strong><span>${escapar(item.texto)}</span></div><span class="tag ${item.nivel === "erro" ? "tag--vermelha" : item.nivel === "aviso" ? "tag--amarela" : "tag--verde"}">${item.nivel.toUpperCase()}</span></div>`).join("");
+      const alertas = estado.diagnosticos.filter((item) => item.nivel !== "ok").length;
+      $("#contador-alertas").textContent = alertas;
+    }
+
+    function atualizarBarraSalvar() {
+      const alteracoes = diferencas();
+      const mudou = alteracoes.length > 0;
+      refs.salvar.disabled = !mudou || !estado.controleHandle || estado.modo !== "arquivo";
+      refs.desfazer.disabled = !mudou;
+      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
+      $("#estado-alteracoes-detalhe").textContent = mudou ? "Revise a aba Alterações antes de salvar." : "As mudanças só chegam ao site depois do Commit e Push.";
+    }
+
+    function atualizarStatus() {
+      $("#status-atualizado").textContent = formatarData(estado.controleOriginal?.atualizadoEm);
+      $("#botao-operador").textContent = `Operador: ${operadorAtual() || "não definido"}`;
+      $("#campo-operador").value = operadorAtual();
+    }
+
+    function atualizarTudo() {
+      renderizarMetricas();
+      renderizarCatalogo();
+      renderizarAlteracoes();
+      renderizarHistorico();
+      renderizarDiagnosticos();
+      atualizarBarraSalvar();
+      atualizarStatus();
+    }
+
+    function atualizarSelecaoLote() {
+      const total = estado.produtosSelecionados.size;
+      refs.selecaoLote.hidden = total === 0;
+      $("#selecao-texto").textContent = `${total} produto${total === 1 ? "" : "s"} selecionado${total === 1 ? "" : "s"}`;
+    }
+
+    function abrirModalPausa(alvos) {
+      if (!operadorAtual()) {
+        abrirModalOperador(() => abrirModalPausa(alvos));
+        return;
+      }
+      estado.modalPausa = { alvos };
+      $("#motivo-titulo").textContent = alvos.length > 1 ? `Pausar ${alvos.length} produtos` : `Pausar ${alvos[0].tipo === "produto" ? "produto" : "cor"}`;
+      $("#motivo-subtitulo").textContent = alvos.length > 1 ? "O mesmo motivo será aplicado a todos os itens selecionados." : alvos[0].nome;
+      $("#motivo-observacao").value = "";
+      $$(".motivo").forEach((item, index) => item.classList.toggle("motivo--ativo", index === 0));
+      $("#modal-motivo").hidden = false;
+    }
+
+    function confirmarPausa() {
+      const alvos = estado.modalPausa?.alvos || [];
+      if (!alvos.length) return;
+      const motivo = $(".motivo--ativo")?.dataset.motivo || "Temporariamente indisponível";
+      const observacao = $("#motivo-observacao").value.trim();
+      alvos.forEach(({ tipo, id }) => {
+        const set = tipo === "produto" ? estado.produtosPausados : estado.coresPausadas;
+        set.add(id);
+        const detalhes = tipo === "produto" ? estado.detalhesProdutos : estado.detalhesCores;
+        detalhes[id] = { motivo, observacao, pausadoEm: new Date().toISOString(), pausadoPor: operadorAtual() || "Não identificado" };
+        registrarSessao(tipo, id, "pausar", { motivo, observacao });
+        limparSessaoSeIgualOriginal(tipo, id);
+      });
+      estado.modalPausa = null;
+      $("#modal-motivo").hidden = true;
+      atualizarTudo();
+      mostrarToast("Pausa preparada", "Revise as alterações e clique em Salvar alterações.");
+    }
+
+    function ativarItem(tipo, id) {
+      const set = tipo === "produto" ? estado.produtosPausados : estado.coresPausadas;
+      const detalhes = tipo === "produto" ? estado.detalhesProdutos : estado.detalhesCores;
+      set.delete(id);
+      delete detalhes[id];
+      registrarSessao(tipo, id, "ativar", { motivo: "Reativado manualmente" });
+      limparSessaoSeIgualOriginal(tipo, id);
+      atualizarTudo();
+    }
+
+    function desfazerItem(chave) {
+      const [tipo, ...idPartes] = chave.split(":");
+      const id = idPartes.join(":");
+      const originalSet = tipo === "produto" ? new Set(estado.controleOriginal.produtosPausados) : new Set(estado.controleOriginal.coresPausadas);
+      const atualSet = tipo === "produto" ? estado.produtosPausados : estado.coresPausadas;
+      if (originalSet.has(id)) atualSet.add(id); else atualSet.delete(id);
+      const origemDetalhes = tipo === "produto" ? estado.privadoOriginal.detalhesProdutos : estado.privadoOriginal.detalhesCores;
+      const detalhes = tipo === "produto" ? estado.detalhesProdutos : estado.detalhesCores;
+      if (origemDetalhes[id]) detalhes[id] = structuredClone(origemDetalhes[id]); else delete detalhes[id];
+      estado.sessoes.delete(chave);
+      atualizarTudo();
+    }
+
+    function desfazerTudo() {
+      const original = estado.controleOriginal;
+      estado.produtosPausados = new Set(original.produtosPausados);
+      estado.coresPausadas = new Set(original.coresPausadas);
+      estado.detalhesProdutos = structuredClone(estado.privadoOriginal.detalhesProdutos);
+      estado.detalhesCores = structuredClone(estado.privadoOriginal.detalhesCores);
+      estado.historico = structuredClone(estado.privadoOriginal.historico);
+      estado.sessoes.clear();
+      atualizarTudo();
+      mostrarToast("Alterações desfeitas", "O arquivo salvo não foi modificado.");
     }
 
     function controleAtual() {
@@ -458,202 +1743,1065 @@
       };
     }
 
-    function assinatura(controle) {
-      return JSON.stringify({
-        produtosPausados: [...controle.produtosPausados].sort(),
-        coresPausadas: [...controle.coresPausadas].sort()
-      });
+    function criarEventosHistorico(alteracoes) {
+      return alteracoes.map((item) => ({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
+        data: new Date().toISOString(),
+        operador: operadorAtual() || "Não identificado",
+        acao: item.acao,
+        tipo: item.tipo,
+        itemId: item.id,
+        nome: item.nome,
+        motivo: item.motivo,
+        observacao: item.observacao,
+        resumo: `${item.acao === "pausar" ? "Pausou" : "Reativou"} ${item.tipo === "produto" ? "o produto" : "a cor"} ${item.nome}`
+      }));
     }
 
-    function temAlteracoes() {
-      return assinatura(controleAtual()) !== assinatura(estado.controleOriginal || normalizarControle());
-    }
-
-    function produtoPausado(id) { return estado.produtosPausados.has(id); }
-    function corPausada(id) { return estado.coresPausadas.has(id); }
-
-    function produtoVisivelNoFiltro(produto, termo) {
-      const pausado = produtoPausado(produto.id);
-      if (estado.filtro === "ativos" && pausado) return false;
-      if (estado.filtro === "pausados" && !pausado && !produto.cores.some((cor) => corPausada(cor.id))) return false;
-      if (!termo) return true;
-      const texto = normalizar([produto.marca, produto.material, produto.linha, ...produto.cores.map((cor) => cor.nome)].join(" "));
-      return texto.includes(termo);
-    }
-
-    function escapar(texto = "") {
-      return String(texto).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-    }
-
-    function renderizar() {
-      const termo = normalizar(buscaEl.value.trim());
-      const produtos = estado.produtos.filter((produto) => produtoVisivelNoFiltro(produto, termo));
-      listaEl.innerHTML = produtos.map((produto) => {
-        const pausado = produtoPausado(produto.id);
-        const coresPausadas = produto.cores.filter((cor) => corPausada(cor.id)).length;
-        return `
-          <article class="produto ${pausado ? "produto--pausado" : ""} ${estado.produtosAbertos.has(produto.id) ? "produto--aberto" : ""}" data-produto-id="${escapar(produto.id)}">
-            <div class="produto__principal">
-              <div class="produto__nome">
-                <strong>${escapar([produto.marca, produto.material, produto.linha].filter(Boolean).join(" "))}</strong>
-                <div class="produto__meta">
-                  <span class="tag">${escapar(produto.material)}</span>
-                  <span class="tag tag--cinza">${produto.cores.length} cores</span>
-                  ${coresPausadas ? `<span class="tag tag--cinza">${coresPausadas} pausada${coresPausadas > 1 ? "s" : ""}</span>` : ""}
-                </div>
-              </div>
-              <div class="produto__situacao"><strong>${pausado ? "Pausado" : "Ativo"}</strong><span>${pausado ? "oculto no site" : "visível conforme estoque"}</span></div>
-              <label class="switch" title="Ativar ou pausar produto inteiro">
-                <input type="checkbox" data-acao="produto" data-id="${escapar(produto.id)}" ${pausado ? "" : "checked"}>
-                <span></span>
-              </label>
-              <button class="botao-cores" type="button" data-acao="cores">
-                Gerenciar cores
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="m6 9 6 6 6-6"></path></svg>
-              </button>
-            </div>
-            <div class="cores">
-              <div class="cores__cabecalho"><span>Cores individuais</span><span>Desligado = pausado</span></div>
-              <div class="cores__grid">
-                ${produto.cores.map((cor) => {
-                  const corOff = corPausada(cor.id);
-                  return `
-                    <div class="cor ${corOff ? "cor--pausada" : ""}">
-                      <span class="cor__amostra" style="--cor:${escapar(cor.hex)}"></span>
-                      <div class="cor__nome"><strong>${escapar(cor.nome)}</strong><span>${corOff ? "Pausada manualmente" : "Ativa conforme estoque"}</span></div>
-                      <label class="switch switch--pequeno">
-                        <input type="checkbox" data-acao="cor" data-id="${escapar(cor.id)}" ${corOff ? "" : "checked"}>
-                        <span></span>
-                      </label>
-                    </div>`;
-                }).join("")}
-              </div>
-            </div>
-          </article>`;
-      }).join("");
-      vazioEl.hidden = produtos.length > 0;
-    }
-
-    function atualizarResumo() {
-      $("#total-produtos").textContent = estado.produtos.length;
-      $("#total-produtos-pausados").textContent = estado.produtosPausados.size;
-      $("#total-cores-pausadas").textContent = estado.coresPausadas.size;
-      const alterado = temAlteracoes();
-      salvarEl.disabled = !alterado || estado.produtos.length === 0;
-      desfazerEl.disabled = !alterado;
-      $("#estado-alteracoes").textContent = alterado ? "Alterações ainda não salvas" : "Nenhuma alteração pendente";
-    }
-
-    function atualizarTudo() { renderizar(); atualizarResumo(); }
-
-    listaEl.addEventListener("click", (evento) => {
-      const botaoCores = evento.target.closest('[data-acao="cores"]');
-      if (botaoCores) {
-        const artigo = botaoCores.closest(".produto");
-        const id = artigo?.dataset.produtoId;
-
-        if (!id) return;
-
-        if (estado.produtosAbertos.has(id)) {
-          estado.produtosAbertos.delete(id);
-          artigo.classList.remove("produto--aberto");
-        } else {
-          estado.produtosAbertos.add(id);
-          artigo.classList.add("produto--aberto");
-        }
+    function gerarSummary(alteracoes = diferencas()) {
+      if (!alteracoes.length) return "Atualiza controle do catálogo";
+      if (alteracoes.length === 1) {
+        const item = alteracoes[0];
+        const verbo = item.acao === "pausar" ? "Pausa" : "Reativa";
+        const nomeCurto = item.nome.length > 60 ? `${item.nome.slice(0,57)}...` : item.nome;
+        return `${verbo} ${nomeCurto}`;
       }
-    });
+      const pausas = alteracoes.filter((item) => item.acao === "pausar").length;
+      const ativacoes = alteracoes.length - pausas;
+      if (pausas && !ativacoes) return `Pausa ${alteracoes.length} itens do catálogo`;
+      if (ativacoes && !pausas) return `Reativa ${alteracoes.length} itens do catálogo`;
+      return "Atualiza disponibilidade manual do catálogo";
+    }
 
-    listaEl.addEventListener("change", (evento) => {
-      const input = evento.target.closest("input[data-acao]");
-      if (!input) return;
-      const id = input.dataset.id;
-      const set = input.dataset.acao === "produto" ? estado.produtosPausados : estado.coresPausadas;
-      if (input.checked) set.delete(id); else set.add(id);
-      atualizarTudo();
-    });
+    function gerarDescricaoCommit(alteracoes = diferencas()) {
+      if (!alteracoes.length) return "Atualiza informações internas do Painel 3ZK.";
+      return alteracoes.map((item) => `- ${item.acao === "pausar" ? "pausa" : "reativa"} ${item.tipo}: ${item.nome}${item.motivo ? ` (${item.motivo})` : ""}`).join("\n");
+    }
 
-    buscaEl.addEventListener("input", renderizar);
-    $("#filtros").addEventListener("click", (evento) => {
-      const botao = evento.target.closest("[data-filtro]");
-      if (!botao) return;
-      document.querySelectorAll("[data-filtro]").forEach((item) => item.classList.remove("filtro--ativo"));
-      botao.classList.add("filtro--ativo");
-      estado.filtro = botao.dataset.filtro;
-      renderizar();
-    });
+    function obterBackups() {
+      try { return JSON.parse(localStorage.getItem(CONFIG.chaveBackups) || "[]"); } catch { return []; }
+    }
 
-    desfazerEl.addEventListener("click", () => {
-      estado.produtosPausados = new Set(estado.controleOriginal.produtosPausados);
-      estado.coresPausadas = new Set(estado.controleOriginal.coresPausadas);
-      atualizarTudo();
-      mostrarToast("Alterações desfeitas", "O arquivo salvo não foi modificado.");
-    });
+    function guardarBackup(controle) {
+      const backups = obterBackups();
+      backups.push({
+        criadoEm: new Date().toISOString(),
+        controle,
+        privado: {
+          detalhesProdutos: estado.privadoOriginal?.detalhesProdutos || {},
+          detalhesCores: estado.privadoOriginal?.detalhesCores || {},
+          historico: estado.privadoOriginal?.historico || []
+        }
+      });
+      localStorage.setItem(CONFIG.chaveBackups, JSON.stringify(backups.slice(-CONFIG.maxBackups)));
+      $("#restaurar-backup").disabled = backups.length === 0;
+    }
 
     async function salvarControle() {
-      if (!temAlteracoes()) return;
-      salvarEl.disabled = true;
-      salvarEl.textContent = "Salvando...";
-      const controle = controleAtual();
+      if (!estado.controleHandle || estado.modo !== "arquivo") {
+        mostrarToast("Modo somente leitura", "Abra o painel pelo arquivo local e selecione a pasta do projeto.");
+        return;
+      }
+      const alteracoes = diferencas();
+      if (!alteracoes.length) return;
+      if (!operadorAtual()) {
+        abrirModalOperador(salvarControle);
+        return;
+      }
+
+      refs.salvar.disabled = true;
+      refs.salvar.textContent = "Salvando...";
       try {
-        if (estado.modo === "servidor") {
-          const resposta = await fetch("/api/salvar", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify(controle)
-          });
-          if (!resposta.ok) throw new Error(await resposta.text());
-        } else {
-          if (!estado.controleHandle) throw new Error("Selecione a pasta do catálogo primeiro.");
-          const gravador = await estado.controleHandle.createWritable();
-          await gravador.write(JSON.stringify(controle, null, 2) + "\n");
-          await gravador.close();
+        const disco = normalizarControle(await lerJsonHandle(estado.controleHandle, {}));
+        const originalAssinatura = JSON.stringify({
+          atualizadoEm: estado.controleOriginal.atualizadoEm,
+          produtos: [...estado.controleOriginal.produtosPausados].sort(),
+          cores: [...estado.controleOriginal.coresPausadas].sort()
+        });
+        const discoAssinatura = JSON.stringify({
+          atualizadoEm: disco.atualizadoEm,
+          produtos: [...disco.produtosPausados].sort(),
+          cores: [...disco.coresPausadas].sort()
+        });
+        if (originalAssinatura !== discoAssinatura) {
+          throw new Error("O arquivo foi alterado depois que o painel foi aberto. Recarregue os arquivos antes de salvar para evitar conflito.");
         }
-        estado.controleOriginal = normalizarControle(controle);
-        atualizarResumo();
-        $("#modal").hidden = false;
+
+        guardarBackup(estado.controleOriginal);
+        const controle = controleAtual();
+        const gravador = await estado.controleHandle.createWritable();
+        await gravador.write(JSON.stringify(controle, null, 2) + "\n");
+        await gravador.close();
+        estado.controleOriginal = structuredClone(normalizarControle(controle));
+        estado.historico = [...estado.historico, ...criarEventosHistorico(alteracoes)].slice(-CONFIG.maxHistorico);
+        salvarPrivadoLocal();
+        estado.sessoes.clear();
+        $("#summary-sugerido").textContent = gerarSummary(alteracoes);
+        $("#descricao-sugerida").textContent = gerarDescricaoCommit(alteracoes);
+        $("#modal-salvo").hidden = false;
+        atualizarTudo();
       } catch (erro) {
         mostrarToast("Não foi possível salvar", erro.message);
       } finally {
-        salvarEl.textContent = "Salvar alterações";
-        atualizarResumo();
+        refs.salvar.textContent = "Salvar alterações";
+        atualizarBarraSalvar();
       }
     }
 
-    salvarEl.addEventListener("click", salvarControle);
-    $("#abrir-pasta").addEventListener("click", abrirPastaDireta);
-    $("#fechar-modal").addEventListener("click", () => { $("#modal").hidden = true; });
-    $("#copiar-commit").addEventListener("click", async () => {
-      await navigator.clipboard.writeText($("#commit-texto").textContent);
-      mostrarToast("Resumo copiado", "Cole no campo Summary do GitHub Desktop.");
+    function rodarDiagnostico() {
+      const resultados = [];
+      if (!estado.carregado) {
+        estado.diagnosticos = [{ nivel: "aviso", titulo: "Pasta ainda não conectada", texto: "Selecione a pasta catalogo-3zk para executar a vistoria completa." }];
+        renderizarDiagnosticos();
+        return;
+      }
+      const idsProdutos = estado.produtos.map((produto) => produto.id);
+      const idsCores = estado.produtos.flatMap((produto) => produto.cores.map((cor) => cor.id));
+      const duplicadosProdutos = idsProdutos.filter((id, i) => idsProdutos.indexOf(id) !== i);
+      const duplicadosCores = idsCores.filter((id, i) => idsCores.indexOf(id) !== i);
+      const orfaosProdutos = [...estado.produtosPausados].filter((id) => !idsProdutos.includes(id));
+      const orfaosCores = [...estado.coresPausadas].filter((id) => !idsCores.includes(id));
+      const precosInvalidos = estado.produtos.filter((produto) => !(produto.preco > 0));
+      const semCores = estado.produtos.filter((produto) => produto.cores.length === 0);
+      const fotosAusentesDeclaradas = estado.produtos.flatMap((produto) => produto.cores.filter((cor) => !cor.imagens.length || cor.fotoStatus === "ausente").map((cor) => `${produto.nome} — ${cor.nome}`));
+
+      resultados.push({ nivel: "ok", titulo: "Arquivos principais carregados", texto: `${estado.produtos.length} produtos e ${idsCores.length} cores foram interpretados.` });
+      resultados.push(duplicadosProdutos.length ? { nivel: "erro", titulo: "IDs de produtos duplicados", texto: `${new Set(duplicadosProdutos).size} identificador(es) duplicado(s) precisam ser corrigidos.` } : { nivel: "ok", titulo: "IDs de produtos únicos", texto: "Nenhum produto duplicado foi encontrado." });
+      resultados.push(duplicadosCores.length ? { nivel: "erro", titulo: "IDs de cores duplicados", texto: `${new Set(duplicadosCores).size} identificador(es) duplicado(s) precisam ser corrigidos.` } : { nivel: "ok", titulo: "IDs de cores únicos", texto: "Nenhuma cor duplicada foi encontrada." });
+      resultados.push((orfaosProdutos.length || orfaosCores.length) ? { nivel: "aviso", titulo: "Pausas órfãs encontradas", texto: `${orfaosProdutos.length} produto(s) e ${orfaosCores.length} cor(es) pausados não existem mais na base.` } : { nivel: "ok", titulo: "Controle de pausa consistente", texto: "Todos os itens pausados continuam existindo na base." });
+      resultados.push(precosInvalidos.length ? { nivel: "aviso", titulo: "Produtos sem preço válido", texto: `${precosInvalidos.length} produto(s) possuem preço zero ou inválido.` } : { nivel: "ok", titulo: "Preços válidos", texto: "Todos os produtos possuem preço de venda maior que zero." });
+      resultados.push(semCores.length ? { nivel: "erro", titulo: "Produtos sem cores", texto: `${semCores.length} produto(s) não possuem nenhuma cor cadastrada.` } : { nivel: "ok", titulo: "Produtos com variações", texto: "Todos os produtos possuem ao menos uma cor." });
+      resultados.push(fotosAusentesDeclaradas.length ? { nivel: "aviso", titulo: "Fotos ainda não confirmadas", texto: `${fotosAusentesDeclaradas.length} cor(es) estão sem foto confirmada no cadastro.` } : { nivel: "ok", titulo: "Fotos declaradas", texto: "Todas as cores possuem ao menos uma imagem declarada." });
+      estado.diagnosticos = resultados;
+      renderizarDiagnosticos();
+    }
+
+    async function obterArquivoPorCaminho(caminho) {
+      const partes = String(caminho).replace(/\\/g, "/").split("/").filter(Boolean);
+      let diretorio = estado.pastaHandle;
+      for (let i = 0; i < partes.length - 1; i += 1) diretorio = await diretorio.getDirectoryHandle(partes[i]);
+      return diretorio.getFileHandle(partes.at(-1));
+    }
+
+    async function verificarFotos() {
+      if (!estado.pastaHandle) {
+        mostrarToast("Pasta não conectada", "Selecione a pasta principal do projeto primeiro.");
+        return;
+      }
+      const botao = $("#verificar-fotos");
+      botao.disabled = true;
+      botao.textContent = "Verificando...";
+      const caminhos = [...new Set(estado.produtos.flatMap((produto) => produto.cores.flatMap((cor) => cor.imagens)).filter(Boolean))];
+      const faltando = [];
+      for (let i = 0; i < caminhos.length; i += 1) {
+        try { await obterArquivoPorCaminho(caminhos[i]); } catch { faltando.push(caminhos[i]); }
+      }
+      estado.fotosVerificadas = { total: caminhos.length, faltando };
+      $("#resultado-fotos").className = "";
+      $("#resultado-fotos").innerHTML = faltando.length ? `<div class="diagnostico diagnostico--aviso"><div class="diagnostico__icone">!</div><div><strong>${faltando.length} foto${faltando.length === 1 ? "" : "s"} não encontrada${faltando.length === 1 ? "" : "s"}</strong><span>${escapar(faltando.slice(0,8).join(" • "))}${faltando.length > 8 ? ` • e mais ${faltando.length - 8}` : ""}</span></div><span class="tag tag--amarela">ATENÇÃO</span></div>` : `<div class="diagnostico diagnostico--ok"><div class="diagnostico__icone">✓</div><div><strong>${caminhos.length} fotos verificadas</strong><span>Todos os arquivos declarados foram encontrados na pasta do projeto.</span></div><span class="tag tag--verde">OK</span></div>`;
+      botao.disabled = false;
+      botao.textContent = "Verificar fotos agora";
+    }
+
+    async function consultarWorkflow(arquivo, prefixo) {
+      const estadoEl = $(`#workflow-${prefixo}-estado`);
+      const textoEl = $(`#workflow-${prefixo}-texto`);
+      estadoEl.textContent = "Consultando...";
+      estadoEl.className = "workflow__estado workflow__estado--andamento";
+      try {
+        const resposta = await fetch(`https://api.github.com/repos/${CONFIG.repo}/actions/workflows/${arquivo}/runs?per_page=1`, { headers: { Accept: "application/vnd.github+json" } });
+        if (!resposta.ok) throw new Error(`GitHub respondeu ${resposta.status}`);
+        const dados = await resposta.json();
+        const run = dados.workflow_runs?.[0];
+        if (!run) throw new Error("Nenhuma execução encontrada");
+        const sucesso = run.conclusion === "success";
+        const andamento = run.status !== "completed";
+        estadoEl.textContent = andamento ? "Em andamento" : sucesso ? "Sucesso" : "Falhou";
+        estadoEl.className = `workflow__estado ${andamento ? "workflow__estado--andamento" : sucesso ? "workflow__estado--sucesso" : "workflow__estado--falha"}`;
+        textoEl.textContent = `${run.display_title || run.name} • ${formatarData(run.updated_at)} • ${run.event}`;
+      } catch (erro) {
+        estadoEl.textContent = "Indisponível";
+        estadoEl.className = "workflow__estado";
+        textoEl.textContent = `Não foi possível consultar: ${erro.message}`;
+      }
+    }
+
+    async function atualizarGitHub() {
+      await Promise.all([consultarWorkflow("publicar-site.yml", "publicar"), consultarWorkflow("atualizar-estoque.yml", "estoque")]);
+    }
+
+    function baixarArquivo(nome, conteudo, tipo = "application/json") {
+      const blob = new Blob([conteudo], { type: `${tipo};charset=utf-8` });
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement("a");
+      link.href = url;
+      link.download = nome;
+      link.click();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+
+    function exportarControle() {
+      const controle = controleAtual();
+      const data = new Date().toISOString().slice(0,19).replace(/[T:]/g, "-");
+      baixarArquivo(`controle-catalogo-3zk-${data}.json`, JSON.stringify(controle, null, 2) + "\n");
+    }
+
+    function exportarRelatorio() {
+      const linhas = [["Produto","Material","Preço","Produto pausado","Cores totais","Cores visíveis","Cores pausadas","Sem estoque"]];
+      estado.produtos.forEach((produto) => {
+        const stats = estatisticasProduto(produto);
+        linhas.push([produto.nome, produto.material, produto.preco.toFixed(2).replace(".",","), produtoPausado(produto.id) ? "Sim" : "Não", produto.cores.length, stats.visiveis, stats.pausadas, stats.semEstoque]);
+      });
+      const csv = linhas.map((linha) => linha.map((valor) => `"${String(valor).replace(/"/g, '""')}"`).join(";")).join("\r\n");
+      baixarArquivo(`relatorio-catalogo-3zk-${new Date().toISOString().slice(0,10)}.csv`, "\ufeff" + csv, "text/csv");
+    }
+
+    async function importarControleArquivo(arquivo) {
+      try {
+        const importado = normalizarControle(JSON.parse(await arquivo.text()));
+        estado.produtosPausados = new Set(importado.produtosPausados);
+        estado.coresPausadas = new Set(importado.coresPausadas);
+        estado.sessoes.clear();
+        diferencas().forEach((item) => registrarSessao(item.tipo, item.id, item.acao, { motivo: item.motivo || "Importado de backup" }));
+        atualizarTudo();
+        mostrarToast("Backup importado", "Revise as alterações antes de salvar.");
+      } catch (erro) {
+        mostrarToast("Backup inválido", erro.message);
+      }
+    }
+
+    function restaurarUltimoBackup() {
+      const backups = obterBackups();
+      const ultimo = backups.at(-1);
+      if (!ultimo) return;
+      const controle = normalizarControle(ultimo.controle);
+      const privado = normalizarPrivado(ultimo.privado || {});
+      estado.produtosPausados = new Set(controle.produtosPausados);
+      estado.coresPausadas = new Set(controle.coresPausadas);
+      estado.detalhesProdutos = structuredClone(privado.detalhesProdutos);
+      estado.detalhesCores = structuredClone(privado.detalhesCores);
+      estado.historico = structuredClone(privado.historico.length ? privado.historico : estado.historico);
+      estado.sessoes.clear();
+      diferencas().forEach((item) => registrarSessao(item.tipo, item.id, item.acao, { motivo: "Restaurado de backup local" }));
+      atualizarTudo();
+      mostrarToast("Backup restaurado", `Cópia criada em ${formatarData(ultimo.criadoEm)} carregada para revisão.`);
+    }
+
+    function limparHistorico() {
+      if (!estado.historico.length) return;
+      if (!confirm("Limpar o histórico interno? Isso não altera quais produtos estão pausados.")) return;
+      estado.historico = [];
+      salvarPrivadoLocal();
+      atualizarTudo();
+    }
+
+    function abrirModalOperador(callback = null) {
+      $("#modal-operador-campo").value = operadorAtual();
+      $("#modal-operador").dataset.callback = callback ? "sim" : "nao";
+      estado.callbackOperador = callback;
+      $("#modal-operador").hidden = false;
+      setTimeout(() => $("#modal-operador-campo").focus(), 30);
+    }
+
+    function fecharModal(id) { const modal = document.getElementById(id); if (modal) modal.hidden = true; }
+
+    function abrirAba(nome) {
+      $$(".aba").forEach((item) => item.classList.toggle("aba--ativa", item.dataset.aba === nome));
+      $$(".painel").forEach((item) => item.classList.toggle("painel--ativo", item.dataset.painel === nome));
+      window.scrollTo({ top: Math.max(0, $(".navegacao").offsetTop - 92), behavior: "smooth" });
+    }
+
+    function abrirSiteProduto(produto) {
+      const url = new URL(CONFIG.site);
+      url.searchParams.set("produto", slugificar(produto.nome));
+      window.open(url.toString(), "_blank", "noopener");
+    }
+
+    refs.lista.addEventListener("click", (evento) => {
+      const artigo = evento.target.closest(".produto");
+      if (!artigo) return;
+      const produto = estado.produtos.find((item) => item.id === artigo.dataset.produtoId);
+      if (!produto) return;
+      const acao = evento.target.closest("[data-acao]")?.dataset.acao;
+      if (acao === "gerenciar-cores") { estado.produtosAbertos.add(produto.id); renderizarCatalogo(); }
+      if (acao === "fechar-cores") { estado.produtosAbertos.delete(produto.id); renderizarCatalogo(); }
+      if (acao === "abrir-site") abrirSiteProduto(produto);
+      if (acao === "ativar-cores") {
+        produto.cores.filter((cor) => corPausada(cor.id)).forEach((cor) => ativarItem("cor", cor.id));
+      }
     });
 
+    refs.lista.addEventListener("change", (evento) => {
+      const input = evento.target.closest("input[data-acao]");
+      if (!input) return;
+      const artigo = input.closest(".produto");
+      const produto = estado.produtos.find((item) => item.id === artigo?.dataset.produtoId);
+      if (!produto) return;
+      if (input.dataset.acao === "selecionar-produto") {
+        if (input.checked) estado.produtosSelecionados.add(produto.id); else estado.produtosSelecionados.delete(produto.id);
+        renderizarCatalogo();
+        return;
+      }
+      const tipo = input.dataset.acao;
+      const id = input.dataset.id;
+      if (input.checked) ativarItem(tipo, id); else {
+        input.checked = true;
+        abrirModalPausa([{ tipo, id, nome: nomePorId(tipo, id) }]);
+      }
+    });
+
+    document.addEventListener("click", (evento) => {
+      const desfazer = evento.target.closest("[data-desfazer-item]");
+      if (desfazer) desfazerItem(desfazer.dataset.desfazerItem);
+      const fechar = evento.target.closest("[data-fechar-modal]");
+      if (fechar) fecharModal(fechar.dataset.fecharModal);
+    });
+
+    $$(".aba").forEach((aba) => aba.addEventListener("click", () => abrirAba(aba.dataset.aba)));
+    refs.busca.addEventListener("input", renderizarCatalogo);
+    refs.filtroSituacao.addEventListener("change", () => { estado.filtroSituacao = refs.filtroSituacao.value; renderizarCatalogo(); });
+    refs.filtroMaterial.addEventListener("change", () => { estado.filtroMaterial = refs.filtroMaterial.value; renderizarCatalogo(); });
+    refs.ordenacao.addEventListener("change", () => { estado.ordenacao = refs.ordenacao.value; renderizarCatalogo(); });
+    $("#abrir-pasta").addEventListener("click", abrirPasta);
+    $("#acao-conectar").addEventListener("click", abrirPasta);
+    $("#acao-atualizar").addEventListener("click", async () => { if (estado.pastaHandle) await carregarDaPasta(estado.pastaHandle); else if (estado.modo === "preview") await carregarPreview(); });
+    $("#acao-exportar-relatorio").addEventListener("click", exportarRelatorio);
+    $("#confirmar-pausa").addEventListener("click", confirmarPausa);
+    refs.desfazer.addEventListener("click", desfazerTudo);
+    refs.salvar.addEventListener("click", salvarControle);
+    $("#salvar-drawer").addEventListener("click", () => { $("#drawer-resumo").hidden = true; salvarControle(); });
+    $("#abrir-resumo").addEventListener("click", () => { $("#drawer-resumo").hidden = false; });
+    $("#fechar-drawer").addEventListener("click", () => { $("#drawer-resumo").hidden = true; });
+    $("#drawer-resumo").addEventListener("click", (evento) => { if (evento.target.id === "drawer-resumo") $("#drawer-resumo").hidden = true; });
+    $("#lote-limpar").addEventListener("click", () => { estado.produtosSelecionados.clear(); renderizarCatalogo(); });
+    $("#lote-ativar").addEventListener("click", () => { [...estado.produtosSelecionados].forEach((id) => ativarItem("produto", id)); estado.produtosSelecionados.clear(); atualizarTudo(); });
+    $("#lote-pausar").addEventListener("click", () => { const alvos = [...estado.produtosSelecionados].filter((id) => !produtoPausado(id)).map((id) => ({ tipo: "produto", id, nome: nomePorId("produto", id) })); if (alvos.length) abrirModalPausa(alvos); });
+    $("#motivos").addEventListener("click", (evento) => { const botao = evento.target.closest("[data-motivo]"); if (!botao) return; $$(".motivo").forEach((item) => item.classList.remove("motivo--ativo")); botao.classList.add("motivo--ativo"); });
+    $("#botao-operador").addEventListener("click", () => abrirModalOperador());
+    $("#campo-operador").addEventListener("change", (evento) => { if (definirOperador(evento.target.value)) mostrarToast("Operador atualizado", "O próximo histórico usará este nome."); });
+    $("#salvar-operador").addEventListener("click", () => { if (!definirOperador($("#modal-operador-campo").value)) { mostrarToast("Digite um nome", "O nome do operador não pode ficar vazio."); return; } $("#modal-operador").hidden = true; const callback = estado.callbackOperador; estado.callbackOperador = null; if (callback) callback(); });
+    $("#copiar-summary").addEventListener("click", async () => { await navigator.clipboard.writeText($("#summary-sugerido").textContent); mostrarToast("Summary copiado", "Cole no GitHub Desktop."); });
+    $("#copiar-descricao").addEventListener("click", async () => { await navigator.clipboard.writeText($("#descricao-sugerida").textContent); mostrarToast("Descrição copiada", "Cole no campo Description se desejar."); });
+    $("#rodar-diagnostico").addEventListener("click", () => { rodarDiagnostico(); mostrarToast("Diagnóstico atualizado", "As verificações foram executadas novamente."); });
+    $("#verificar-fotos").addEventListener("click", verificarFotos);
+    $("#atualizar-github").addEventListener("click", atualizarGitHub);
+    $("#exportar-controle").addEventListener("click", exportarControle);
+    $("#importar-controle").addEventListener("click", () => $("#arquivo-importacao").click());
+    $("#arquivo-importacao").addEventListener("change", (evento) => { const arquivo = evento.target.files?.[0]; if (arquivo) importarControleArquivo(arquivo); evento.target.value = ""; });
+    $("#restaurar-backup").addEventListener("click", restaurarUltimoBackup);
+    $("#limpar-historico").addEventListener("click", limparHistorico);
+
     let toastTimer;
-    function mostrarToast(titulo, texto) {
+    function mostrarToast(titulo, texto = "") {
       clearTimeout(toastTimer);
       const toast = $("#toast");
       toast.querySelector("strong").textContent = titulo;
-      toast.querySelector("span").textContent = texto || "";
+      toast.querySelector("span").textContent = texto;
       toast.classList.add("toast--visivel");
-      toastTimer = setTimeout(() => toast.classList.remove("toast--visivel"), 3300);
+      toastTimer = setTimeout(() => toast.classList.remove("toast--visivel"), 3600);
     }
 
+    window.addEventListener("beforeunload", (evento) => {
+      if (temAlteracoes()) { evento.preventDefault(); evento.returnValue = ""; }
+    });
+
     async function iniciar() {
-      if (estado.modo === "arquivo") {
-        statusEl.textContent = "Aguardando pasta";
-        conectarEl.hidden = false;
-        return;
-      }
-      try {
-        await carregarServidor();
-      } catch (erro) {
-        statusEl.textContent = "Servidor indisponível";
-        conectarEl.hidden = false;
-        mostrarToast("Falha ao conectar", "Abra novamente pelo arquivo ABRIR-PAINEL-3ZK.bat.");
-      }
+      const operador = operadorAtual();
+      if (operador) definirOperador(operador); else setTimeout(() => abrirModalOperador(), 350);
+      $("#restaurar-backup").disabled = obterBackups().length === 0;
+      rodarDiagnostico();
+      if (estado.modo === "preview") await carregarPreview();
     }
 
     iniciar();
   </script>
+
+  <script>
+  "use strict";
+
+  /* ============================================================
+     EXTENSÃO 3ZK 3.0 — PREÇOS E FOTOS
+     Mantém o painel de pausas e acrescenta edição segura da base.
+     ============================================================ */
+  (() => {
+    const diferencasPausa3ZK = diferencas;
+    const atualizarTudoBase3ZK = atualizarTudo;
+    const abrirModalOperadorBase3ZK = abrirModalOperador;
+
+    Object.assign(estado, {
+      baseHandle: null,
+      publicoHandle: null,
+      baseOriginalRaw: [],
+      publicoOriginalRaw: [],
+      baseAtualRaw: [],
+      publicoAtualRaw: [],
+      arquivosFotosPendentes: new Map(),
+      urlsFotosPendentes: new Map(),
+      produtosComerciaisAbertos: new Set(),
+      fotoAlvo: null,
+      filtroComercialMaterial: "todos"
+    });
+
+    const refsComercial = {
+      lista: $("#lista-comercial"),
+      vazio: $("#comercial-vazio"),
+      busca: $("#busca-comercial"),
+      material: $("#filtro-comercial-material"),
+      modal: $("#modal-fotos"),
+      listaFotos: $("#lista-fotos-modal"),
+      seletorFotos: $("#seletor-fotos")
+    };
+
+    function clonar3ZK(valor) {
+      return structuredClone(valor);
+    }
+
+    function assinatura3ZK(valor) {
+      return JSON.stringify(valor);
+    }
+
+    function produtoRawPorId(lista, produtoId) {
+      return (Array.isArray(lista) ? lista : []).find((produto) => obterIdProduto(produto) === produtoId) || null;
+    }
+
+    function corRawPorId(produtoRaw, corId) {
+      if (!produtoRaw) return null;
+      const produtoId = obterIdProduto(produtoRaw);
+      return (produtoRaw.cores || []).find((cor) => obterIdCor(produtoId, cor) === corId) || null;
+    }
+
+    function imagensRaw(cor) {
+      if (!cor) return [];
+      if (Array.isArray(cor.imagens)) return cor.imagens.filter((item) => typeof item === "string" && item.trim());
+      if (cor.imagem) return [String(cor.imagem)];
+      return [];
+    }
+
+    function definirImagensRaw(produtoId, corId, imagens) {
+      const limpas = [...new Set(imagens.map(String).map((item) => item.trim()).filter(Boolean))];
+      [estado.baseAtualRaw, estado.publicoAtualRaw].forEach((lista) => {
+        const produto = produtoRawPorId(lista, produtoId);
+        const cor = corRawPorId(produto, corId);
+        if (!cor) return;
+        cor.imagens = [...limpas];
+        delete cor.imagem;
+        cor.fotoStatus = limpas.length ? "confirmada" : "ausente";
+        if (limpas.length) cor.hexFonte = cor.hexFonte || "foto";
+      });
+    }
+
+    function definirPrecoRaw(produtoId, preco) {
+      [estado.baseAtualRaw, estado.publicoAtualRaw].forEach((lista) => {
+        const produto = produtoRawPorId(lista, produtoId);
+        if (produto) produto.preco = preco;
+      });
+    }
+
+    function reconstruirProdutos3ZK() {
+      estado.produtos = prepararProdutos(estado.baseAtualRaw, estado.publicoAtualRaw);
+      preencherMateriais();
+      preencherMateriaisComerciais();
+      atualizarTudo();
+    }
+
+    function preencherMateriaisComerciais() {
+      if (!refsComercial.material) return;
+      const atual = refsComercial.material.value || estado.filtroComercialMaterial;
+      const materiais = [...new Set(estado.produtos.map((produto) => produto.material).filter(Boolean))].sort((a,b) => a.localeCompare(b, "pt-BR"));
+      refsComercial.material.innerHTML = '<option value="todos">Todos os materiais</option>' + materiais.map((item) => `<option value="${escapar(normalizar(item))}">${escapar(item)}</option>`).join("");
+      refsComercial.material.value = [...refsComercial.material.options].some((item) => item.value === atual) ? atual : "todos";
+    }
+
+    function totalFotos3ZK() {
+      return estado.produtos.reduce((total, produto) => total + produto.cores.reduce((soma, cor) => soma + cor.imagens.length, 0), 0);
+    }
+
+    function urlFoto3ZK(caminho) {
+      if (!caminho) return "";
+      const blob = estado.arquivosFotosPendentes.get(caminho);
+      if (blob) {
+        if (!estado.urlsFotosPendentes.has(caminho)) estado.urlsFotosPendentes.set(caminho, URL.createObjectURL(blob));
+        return estado.urlsFotosPendentes.get(caminho);
+      }
+      return imagemLocal(caminho);
+    }
+
+    function limparUrlsPendentes3ZK() {
+      estado.urlsFotosPendentes.forEach((url) => URL.revokeObjectURL(url));
+      estado.urlsFotosPendentes.clear();
+    }
+
+    function precoEntrada3ZK(valor) {
+      let texto = String(valor ?? "").trim().replace(/R\$/gi, "").replace(/\s/g, "");
+      if (texto.includes(",")) texto = texto.replace(/\./g, "").replace(",", ".");
+      const numero = Number(texto);
+      if (!Number.isFinite(numero) || numero <= 0 || numero > 999999) return null;
+      return Math.round((numero + Number.EPSILON) * 100) / 100;
+    }
+
+    function precoCampo3ZK(valor) {
+      return Number(valor || 0).toLocaleString("pt-BR", { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+    }
+
+    function produtoTemAlteracaoComercial3ZK(produtoId) {
+      return diferencasComerciais3ZK().some((item) => item.produtoId === produtoId);
+    }
+
+    function renderizarComercial3ZK() {
+      if (!refsComercial.lista) return;
+      const termo = normalizar(refsComercial.busca?.value.trim() || "");
+      const material = refsComercial.material?.value || "todos";
+      const lista = estado.produtos.filter((produto) => {
+        if (material !== "todos" && normalizar(produto.material) !== material) return false;
+        if (!termo) return true;
+        return normalizar([produto.nome, produto.material, ...produto.cores.map((cor) => cor.nome)].join(" ")).includes(termo);
+      }).sort((a,b) => a.nome.localeCompare(b.nome, "pt-BR"));
+
+      $("#comercial-produtos").textContent = estado.produtos.length;
+      $("#comercial-fotos").textContent = totalFotos3ZK();
+      $("#contador-comercial").textContent = diferencasComerciais3ZK().length;
+
+      refsComercial.lista.innerHTML = lista.map((produto) => {
+        const aberto = estado.produtosComerciaisAbertos.has(produto.id);
+        const alterado = produtoTemAlteracaoComercial3ZK(produto.id);
+        const primeiraImagem = produto.cores.flatMap((cor) => cor.imagens).find(Boolean) || "";
+        const desconto = produto.preco * .95;
+        const parcela = produto.preco / 3;
+        return `<article class="gestao-produto ${aberto ? "gestao-produto--aberto" : ""} ${alterado ? "gestao-produto--alterado" : ""}" data-gestao-produto="${escapar(produto.id)}">
+          <div class="gestao-produto__topo">
+            <div class="gestao-produto__identidade">
+              <div class="gestao-produto__foto">${primeiraImagem ? `<img src="${escapar(urlFoto3ZK(primeiraImagem))}" alt="" onerror="this.parentElement.innerHTML='<span>Sem foto</span>'">` : '<span>Sem foto</span>'}</div>
+              <div class="gestao-produto__nome"><strong>${escapar(produto.nome)}</strong><span>${escapar(produto.material)} • ${produto.cores.length} cores • ${produto.cores.reduce((n,cor)=>n+cor.imagens.length,0)} fotos</span></div>
+            </div>
+            <div class="editor-preco">
+              <div class="editor-preco__rotulo"><strong>Preço de venda</strong><span>${alterado ? "alteração pendente" : "valor atual"}</span></div>
+              <div class="editor-preco__linha"><span class="editor-preco__moeda">R$</span><input data-preco-input="${escapar(produto.id)}" value="${escapar(precoCampo3ZK(produto.preco))}" inputmode="decimal" aria-label="Preço de ${escapar(produto.nome)}"><button class="botao botao--primario botao--pequeno" data-acao-comercial="aplicar-preco" type="button">Aplicar</button></div>
+              <div class="editor-preco__previsao"><span>Pix/dinheiro: <b>${formatarPreco(desconto)}</b></span><span>Cartão: <b>3x de ${formatarPreco(parcela)}</b></span></div>
+            </div>
+            <div class="gestao-produto__acoes-topo"><button class="botao botao--claro botao--pequeno" data-acao-comercial="abrir-cores" type="button">${aberto ? "Fechar cores" : "Fotos e cores"}</button></div>
+          </div>
+          <div class="gestao-produto__rodape">
+            <div class="gestao-cores">${produto.cores.map((cor) => {
+              const foto = cor.imagens[0] || "";
+              return `<div class="gestao-cor" data-gestao-cor="${escapar(cor.id)}">
+                <div class="gestao-cor__foto" style="--cor:${escapar(cor.hex)}">${foto ? `<img src="${escapar(urlFoto3ZK(foto))}" alt="" onerror="this.remove()">` : ""}<b>${cor.imagens.length}</b></div>
+                <div class="gestao-cor__info"><strong>${escapar(cor.nome)}</strong><span>${cor.imagens.length ? `${cor.imagens.length} foto${cor.imagens.length === 1 ? "" : "s"} conectada${cor.imagens.length === 1 ? "" : "s"}` : "Sem foto conectada"}</span></div>
+                <div class="gestao-cor__acoes"><button class="botao botao--claro botao--pequeno" data-acao-comercial="adicionar-foto" type="button">+ Foto</button><button class="botao botao--cinza botao--pequeno" data-acao-comercial="gerenciar-fotos" type="button">Gerenciar</button></div>
+              </div>`;
+            }).join("")}</div>
+          </div>
+        </article>`;
+      }).join("");
+      refsComercial.vazio.hidden = lista.length > 0;
+    }
+
+    function diferencasComerciais3ZK() {
+      if (!Array.isArray(estado.baseOriginalRaw) || !Array.isArray(estado.baseAtualRaw)) return [];
+      const resultados = [];
+      estado.baseAtualRaw.forEach((produtoAtual) => {
+        const produtoId = obterIdProduto(produtoAtual);
+        const produtoOriginal = produtoRawPorId(estado.baseOriginalRaw, produtoId);
+        if (!produtoOriginal) return;
+        const precoAntes = Number(produtoOriginal.preco) || 0;
+        const precoDepois = Number(produtoAtual.preco) || 0;
+        const nome = [produtoAtual.marca, produtoAtual.material, produtoAtual.linha].filter(Boolean).join(" ");
+        if (Math.abs(precoAntes - precoDepois) > .001) {
+          resultados.push({ tipo: "preco", acao: "alterar", id: produtoId, produtoId, nome, antes: precoAntes, depois: precoDepois });
+        }
+        (produtoAtual.cores || []).forEach((corAtual) => {
+          const corId = obterIdCor(produtoId, corAtual);
+          const corOriginal = corRawPorId(produtoOriginal, corId);
+          if (!corOriginal) return;
+          const antes = imagensRaw(corOriginal);
+          const depois = imagensRaw(corAtual);
+          if (assinatura3ZK(antes) !== assinatura3ZK(depois)) {
+            resultados.push({ tipo: "foto", acao: "alterar", id: corId, produtoId, nome: `${nome} — ${corAtual.nome}`, antes, depois });
+          }
+        });
+      });
+      return resultados;
+    }
+
+    diferencas = function() {
+      return [...diferencasPausa3ZK(), ...diferencasComerciais3ZK()];
+    };
+
+    temAlteracoes = function() {
+      return diferencas().length > 0;
+    };
+
+    renderizarAlteracoes = function() {
+      const alteracoes = diferencas();
+      const html = alteracoes.map((item) => {
+        if (item.tipo === "preco") {
+          return `<div class="alteracao alteracao--preco"><div class="alteracao__icone">R$</div><div class="alteracao__texto"><strong>Alterar preço: ${escapar(item.nome)}</strong><span>${formatarPreco(item.antes)} → ${formatarPreco(item.depois)}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-comercial="preco:${encodeURIComponent(item.id)}" type="button">Desfazer</button></div>`;
+        }
+        if (item.tipo === "foto") {
+          const adicionadas = item.depois.filter((caminho) => !item.antes.includes(caminho)).length;
+          const removidas = item.antes.filter((caminho) => !item.depois.includes(caminho)).length;
+          return `<div class="alteracao alteracao--foto"><div class="alteracao__icone">▧</div><div class="alteracao__texto"><strong>Atualizar fotos: ${escapar(item.nome)}</strong><span>${adicionadas ? `+${adicionadas} adicionada${adicionadas === 1 ? "" : "s"}` : ""}${adicionadas && removidas ? " • " : ""}${removidas ? `-${removidas} removida${removidas === 1 ? "" : "s"}` : ""}${!adicionadas && !removidas ? "ordem alterada" : ""}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-comercial="foto:${encodeURIComponent(item.id)}" type="button">Desfazer</button></div>`;
+        }
+        return `<div class="alteracao alteracao--${item.acao}"><div class="alteracao__icone">${item.acao === "pausar" ? "Ⅱ" : "✓"}</div><div class="alteracao__texto"><strong>${item.acao === "pausar" ? "Pausar" : "Reativar"} ${item.tipo === "produto" ? "produto" : "cor"}: ${escapar(item.nome)}</strong><span>${item.motivo ? escapar(item.motivo) : "Sem motivo informado"}${item.observacao ? ` • ${escapar(item.observacao)}` : ""}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-item="${escapar(sessaoChave(item.tipo, item.id))}" type="button">Desfazer</button></div>`;
+      }).join("");
+      $("#lista-alteracoes").innerHTML = html;
+      $("#drawer-alteracoes").innerHTML = html || '<div class="vazio"><strong>Nenhuma alteração pendente</strong><span>Feche este resumo e faça uma alteração no catálogo.</span></div>';
+      $("#alteracoes-vazio").hidden = alteracoes.length > 0;
+      $("#contador-alteracoes").textContent = alteracoes.length;
+      $("#contador-comercial").textContent = diferencasComerciais3ZK().length;
+      $("#status-pendentes").textContent = alteracoes.length;
+      $("#status-pendentes").className = alteracoes.length ? "aviso" : "ok";
+    };
+
+    atualizarBarraSalvar = function() {
+      const alteracoes = diferencas();
+      const mudou = alteracoes.length > 0;
+      const comercial = diferencasComerciais3ZK().length > 0;
+      const pausas = diferencasPausa3ZK().length > 0;
+      const possuiHandles = (!comercial || (estado.baseHandle && estado.publicoHandle)) && (!pausas || estado.controleHandle);
+      refs.salvar.disabled = !mudou || estado.modo !== "arquivo" || !possuiHandles;
+      refs.desfazer.disabled = !mudou;
+      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
+      $("#estado-alteracoes-detalhe").textContent = mudou ? "Preços, fotos e pausas só chegam ao site depois de Salvar, Commit e Push." : "As mudanças só chegam ao site depois do Commit e Push.";
+    };
+
+    atualizarTudo = function() {
+      atualizarTudoBase3ZK();
+      renderizarComercial3ZK();
+    };
+
+    carregarDaPasta = async function(pasta) {
+      try {
+        const dados = await pasta.getDirectoryHandle("dados");
+        const baseHandle = await dados.getFileHandle("produtos-base.json");
+        const publicoHandle = await dados.getFileHandle("produtos.json");
+        let controleHandle;
+        try { controleHandle = await dados.getFileHandle("controle-catalogo.json"); }
+        catch {
+          controleHandle = await dados.getFileHandle("controle-catalogo.json", { create: true });
+          const gravador = await controleHandle.createWritable();
+          await gravador.write(JSON.stringify(normalizarControle({}), null, 2) + "\n");
+          await gravador.close();
+        }
+        const base = await lerJsonHandle(baseHandle);
+        const publico = await lerJsonHandle(publicoHandle);
+        const controle = await lerJsonHandle(controleHandle, {});
+        if (!Array.isArray(base) || !Array.isArray(publico)) throw new Error("Os arquivos de produtos precisam conter listas JSON válidas.");
+
+        limparUrlsPendentes3ZK();
+        estado.arquivosFotosPendentes.clear();
+        estado.pastaHandle = pasta;
+        estado.baseHandle = baseHandle;
+        estado.publicoHandle = publicoHandle;
+        estado.controleHandle = controleHandle;
+        estado.baseOriginalRaw = clonar3ZK(base);
+        estado.publicoOriginalRaw = clonar3ZK(publico);
+        estado.baseAtualRaw = clonar3ZK(base);
+        estado.publicoAtualRaw = clonar3ZK(publico);
+        aplicarEstado(prepararProdutos(base, publico), controle);
+        preencherMateriaisComerciais();
+        refs.conectar.hidden = true;
+        refs.statusConexao.textContent = "Pasta conectada";
+        refs.statusConexao.className = "status-conexao status-conexao--ok";
+        $("#status-pasta").textContent = pasta.name || "catalogo-3zk";
+        $("#status-pasta").className = "ok";
+        $("#status-publico").textContent = "Carregado";
+        $("#status-publico").className = "ok";
+        habilitarAcoes(true);
+        mostrarToast("Painel 3ZK conectado", `${estado.produtos.length} produtos prontos para edição.`);
+      } catch (erro) {
+        mostrarToast("Não foi possível abrir o catálogo", erro.message);
+        throw erro;
+      }
+    };
+
+    carregarPreview = async function() {
+      try {
+        const [baseResp, publicoResp, controleResp] = await Promise.all([
+          fetch("../dados/produtos-base.json", { cache: "no-store" }),
+          fetch("../dados/produtos.json", { cache: "no-store" }),
+          fetch("../dados/controle-catalogo.json", { cache: "no-store" }).catch(() => null)
+        ]);
+        if (!baseResp.ok || !publicoResp.ok) throw new Error("Arquivos do catálogo não encontrados");
+        const base = await baseResp.json();
+        const publico = await publicoResp.json();
+        const controle = controleResp?.ok ? await controleResp.json() : {};
+        estado.baseOriginalRaw = clonar3ZK(base);
+        estado.publicoOriginalRaw = clonar3ZK(publico);
+        estado.baseAtualRaw = clonar3ZK(base);
+        estado.publicoAtualRaw = clonar3ZK(publico);
+        aplicarEstado(prepararProdutos(base, publico), controle);
+        preencherMateriaisComerciais();
+        refs.conectar.hidden = true;
+        refs.statusConexao.textContent = "Modo de visualização";
+        refs.statusConexao.className = "status-conexao status-conexao--ok";
+        $("#status-pasta").textContent = "Preview local";
+        $("#status-pasta").className = "ok";
+        $("#status-publico").textContent = "Carregado";
+        $("#status-publico").className = "ok";
+        habilitarAcoes(false);
+      } catch (erro) {
+        refs.conectar.hidden = false;
+        mostrarToast("Falha no preview", erro.message);
+      }
+    };
+
+    function aplicarPreco3ZK(produtoId, entrada) {
+      const preco = precoEntrada3ZK(entrada);
+      if (preco === null) {
+        mostrarToast("Preço inválido", "Digite um valor maior que zero. Exemplo: 90,00");
+        return;
+      }
+      if (!produtoRawPorId(estado.publicoAtualRaw, produtoId)) {
+        mostrarToast("Produto público não encontrado", "Recarregue os arquivos antes de alterar o preço.");
+        return;
+      }
+      definirPrecoRaw(produtoId, preco);
+      reconstruirProdutos3ZK();
+      mostrarToast("Preço preparado", `${nomePorId("produto", produtoId)} ficará por ${formatarPreco(preco)} após Salvar, Commit e Push.`);
+    }
+
+    async function converterImagemWebp3ZK(arquivo) {
+      if (!arquivo || arquivo.size <= 0) throw new Error("Arquivo de imagem vazio.");
+      if (arquivo.size > 25 * 1024 * 1024) throw new Error(`${arquivo.name}: arquivo maior que 25 MB.`);
+      let bitmap;
+      try { bitmap = await createImageBitmap(arquivo, { imageOrientation: "from-image" }); }
+      catch { bitmap = await createImageBitmap(arquivo); }
+      const maximo = 1800;
+      const escala = Math.min(1, maximo / Math.max(bitmap.width, bitmap.height));
+      const largura = Math.max(1, Math.round(bitmap.width * escala));
+      const altura = Math.max(1, Math.round(bitmap.height * escala));
+      const canvas = document.createElement("canvas");
+      canvas.width = largura;
+      canvas.height = altura;
+      const contexto = canvas.getContext("2d", { alpha: true });
+      contexto.drawImage(bitmap, 0, 0, largura, altura);
+      bitmap.close?.();
+      const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/webp", .88));
+      if (!blob) throw new Error(`${arquivo.name}: não foi possível converter para WebP.`);
+      return blob;
+    }
+
+    async function caminhoExiste3ZK(caminho) {
+      if (estado.arquivosFotosPendentes.has(caminho)) return true;
+      try { await obterArquivoPorCaminho(caminho); return true; }
+      catch { return false; }
+    }
+
+    async function proximoCaminhoFoto3ZK(produto, cor) {
+      const pasta = slugificar(produto.nome);
+      const base = slugificar(cor.nome) || "foto";
+      for (let indice = 1; indice <= 999; indice += 1) {
+        const nome = indice === 1 ? `${base}.webp` : `${base}-${indice}.webp`;
+        const caminho = `assets/fotos/${pasta}/${nome}`;
+        if (!(await caminhoExiste3ZK(caminho))) return caminho;
+      }
+      throw new Error("Não foi possível encontrar um nome livre para a foto.");
+    }
+
+    async function adicionarFotos3ZK(produtoId, corId, arquivos) {
+      const produto = estado.produtos.find((item) => item.id === produtoId);
+      const cor = produto?.cores.find((item) => item.id === corId);
+      if (!produto || !cor) return;
+      const selecionados = [...arquivos];
+      if (!selecionados.length) return;
+      mostrarToast("Preparando imagens", `${selecionados.length} arquivo${selecionados.length === 1 ? "" : "s"} em processamento...`);
+      const novas = [];
+      for (const arquivo of selecionados) {
+        try {
+          const blob = await converterImagemWebp3ZK(arquivo);
+          const caminho = await proximoCaminhoFoto3ZK(produto, cor);
+          estado.arquivosFotosPendentes.set(caminho, blob);
+          novas.push(caminho);
+        } catch (erro) {
+          mostrarToast("Uma imagem não foi adicionada", erro.message);
+        }
+      }
+      if (!novas.length) return;
+      const atual = imagensRaw(corRawPorId(produtoRawPorId(estado.baseAtualRaw, produtoId), corId));
+      definirImagensRaw(produtoId, corId, [...atual, ...novas]);
+      reconstruirProdutos3ZK();
+      abrirModalFotos3ZK(produtoId, corId);
+      mostrarToast("Fotos preparadas", "Clique em Salvar alterações para criar os arquivos e conectar ao site.");
+    }
+
+    function abrirModalFotos3ZK(produtoId, corId) {
+      const produto = estado.produtos.find((item) => item.id === produtoId);
+      const cor = produto?.cores.find((item) => item.id === corId);
+      if (!produto || !cor) return;
+      estado.fotoAlvo = { produtoId, corId };
+      $("#fotos-titulo").textContent = `${produto.nome} — ${cor.nome}`;
+      $("#fotos-subtitulo").textContent = "A primeira imagem é a principal. Você pode reorganizar ou desconectar sem apagar o arquivo antigo.";
+      renderizarModalFotos3ZK();
+      refsComercial.modal.hidden = false;
+    }
+
+    function renderizarModalFotos3ZK() {
+      const alvo = estado.fotoAlvo;
+      if (!alvo) return;
+      const produto = estado.produtos.find((item) => item.id === alvo.produtoId);
+      const cor = produto?.cores.find((item) => item.id === alvo.corId);
+      if (!cor) return;
+      refsComercial.listaFotos.innerHTML = cor.imagens.length ? cor.imagens.map((caminho, indice) => `<div class="foto-item ${indice === 0 ? "foto-item--principal" : ""}" data-foto-indice="${indice}">
+        <div class="foto-item__preview"><img src="${escapar(urlFoto3ZK(caminho))}" alt="Foto ${indice + 1}"></div>
+        <div class="foto-item__info"><strong>${indice === 0 ? "Foto principal" : `Foto ${indice + 1}`}${estado.arquivosFotosPendentes.has(caminho) ? " • nova" : ""}</strong><code>${escapar(caminho)}</code></div>
+        <div class="foto-item__acoes">${indice > 0 ? '<button class="botao botao--claro botao--pequeno" data-foto-acao="principal" type="button">Tornar principal</button>' : ''}${indice > 0 ? '<button class="botao botao--cinza botao--pequeno" data-foto-acao="subir" type="button">↑</button>' : ''}${indice < cor.imagens.length - 1 ? '<button class="botao botao--cinza botao--pequeno" data-foto-acao="descer" type="button">↓</button>' : ''}<button class="botao botao--vermelho botao--pequeno" data-foto-acao="remover" type="button">Desconectar</button></div>
+      </div>`).join("") : '<div class="foto-vazio"><strong>Nenhuma foto conectada</strong><span>Clique em Adicionar fotos para selecionar JPG, PNG, WebP ou AVIF.</span></div>';
+    }
+
+    function reorganizarFoto3ZK(acao, indice) {
+      const alvo = estado.fotoAlvo;
+      if (!alvo) return;
+      const produtoRaw = produtoRawPorId(estado.baseAtualRaw, alvo.produtoId);
+      const corRaw = corRawPorId(produtoRaw, alvo.corId);
+      const imagens = imagensRaw(corRaw);
+      if (!imagens[indice]) return;
+      if (acao === "principal") {
+        const [foto] = imagens.splice(indice, 1); imagens.unshift(foto);
+      } else if (acao === "subir" && indice > 0) {
+        [imagens[indice - 1], imagens[indice]] = [imagens[indice], imagens[indice - 1]];
+      } else if (acao === "descer" && indice < imagens.length - 1) {
+        [imagens[indice + 1], imagens[indice]] = [imagens[indice], imagens[indice + 1]];
+      } else if (acao === "remover") {
+        const [removida] = imagens.splice(indice, 1);
+        if (estado.arquivosFotosPendentes.has(removida)) {
+          estado.arquivosFotosPendentes.delete(removida);
+          const url = estado.urlsFotosPendentes.get(removida);
+          if (url) URL.revokeObjectURL(url);
+          estado.urlsFotosPendentes.delete(removida);
+        }
+      }
+      definirImagensRaw(alvo.produtoId, alvo.corId, imagens);
+      reconstruirProdutos3ZK();
+      renderizarModalFotos3ZK();
+    }
+
+    function desfazerComercial3ZK(tipo, id) {
+      if (tipo === "preco") {
+        const original = produtoRawPorId(estado.baseOriginalRaw, id);
+        if (original) definirPrecoRaw(id, Number(original.preco) || 0);
+      } else if (tipo === "foto") {
+        let produtoOriginal = null;
+        let corOriginal = null;
+        for (const produto of estado.baseOriginalRaw) {
+          const encontrado = corRawPorId(produto, id);
+          if (encontrado) { produtoOriginal = produto; corOriginal = encontrado; break; }
+        }
+        if (produtoOriginal && corOriginal) definirImagensRaw(obterIdProduto(produtoOriginal), id, imagensRaw(corOriginal));
+        const referencias = new Set(estado.baseAtualRaw.flatMap((produto) => (produto.cores || []).flatMap((cor) => imagensRaw(cor))));
+        [...estado.arquivosFotosPendentes.keys()].forEach((caminho) => {
+          if (!referencias.has(caminho)) {
+            estado.arquivosFotosPendentes.delete(caminho);
+            const url = estado.urlsFotosPendentes.get(caminho);
+            if (url) URL.revokeObjectURL(url);
+            estado.urlsFotosPendentes.delete(caminho);
+          }
+        });
+      }
+      reconstruirProdutos3ZK();
+    }
+
+    function desfazerTudo3ZK() {
+      const original = estado.controleOriginal;
+      estado.produtosPausados = new Set(original?.produtosPausados || []);
+      estado.coresPausadas = new Set(original?.coresPausadas || []);
+      estado.detalhesProdutos = clonar3ZK(estado.privadoOriginal?.detalhesProdutos || {});
+      estado.detalhesCores = clonar3ZK(estado.privadoOriginal?.detalhesCores || {});
+      estado.historico = clonar3ZK(estado.privadoOriginal?.historico || []);
+      estado.sessoes.clear();
+      estado.baseAtualRaw = clonar3ZK(estado.baseOriginalRaw);
+      estado.publicoAtualRaw = clonar3ZK(estado.publicoOriginalRaw);
+      estado.arquivosFotosPendentes.clear();
+      limparUrlsPendentes3ZK();
+      reconstruirProdutos3ZK();
+      mostrarToast("Alterações desfeitas", "Preços, fotos e pausas voltaram ao último estado salvo.");
+    }
+
+    function gerarSummary3ZK(alteracoes = diferencas()) {
+      const precos = alteracoes.filter((item) => item.tipo === "preco");
+      const fotos = alteracoes.filter((item) => item.tipo === "foto");
+      const pausas = alteracoes.filter((item) => item.tipo === "produto" || item.tipo === "cor");
+      if (alteracoes.length === 1 && precos.length) return `Atualiza preço de ${precos[0].nome}`;
+      if (alteracoes.length === 1 && fotos.length) return `Atualiza fotos de ${fotos[0].nome}`;
+      if (precos.length && fotos.length && !pausas.length) return "Atualiza preços e fotos do catálogo";
+      if (precos.length && !fotos.length && !pausas.length) return `Atualiza preços de ${precos.length} produtos`;
+      if (fotos.length && !precos.length && !pausas.length) return `Atualiza fotos de ${fotos.length} cores`;
+      if (pausas.length && !precos.length && !fotos.length) return gerarSummary(alteracoes);
+      return "Atualiza catálogo: preços, fotos e disponibilidade";
+    }
+
+    function gerarDescricao3ZK(alteracoes = diferencas()) {
+      return alteracoes.map((item) => {
+        if (item.tipo === "preco") return `- altera preço de ${item.nome}: ${formatarPreco(item.antes)} → ${formatarPreco(item.depois)}`;
+        if (item.tipo === "foto") return `- atualiza fotos de ${item.nome}`;
+        return `- ${item.acao === "pausar" ? "pausa" : "reativa"} ${item.tipo}: ${item.nome}`;
+      }).join("\n");
+    }
+
+    async function escreverJson3ZK(handle, valor) {
+      const gravador = await handle.createWritable();
+      await gravador.write(JSON.stringify(valor, null, 2) + "\n");
+      await gravador.close();
+    }
+
+    async function escreverBlob3ZK(caminho, blob) {
+      const partes = caminho.replace(/\\/g, "/").split("/").filter(Boolean);
+      let diretorio = estado.pastaHandle;
+      for (let indice = 0; indice < partes.length - 1; indice += 1) {
+        diretorio = await diretorio.getDirectoryHandle(partes[indice], { create: true });
+      }
+      const arquivo = await diretorio.getFileHandle(partes.at(-1), { create: true });
+      const gravador = await arquivo.createWritable();
+      await gravador.write(blob);
+      await gravador.close();
+    }
+
+    function criarHistorico3ZK(alteracoes) {
+      return alteracoes.map((item) => ({
+        id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
+        data: new Date().toISOString(),
+        operador: operadorAtual() || "Não identificado",
+        acao: item.acao,
+        tipo: item.tipo,
+        itemId: item.id,
+        nome: item.nome,
+        motivo: item.motivo || "",
+        observacao: item.observacao || "",
+        resumo: item.tipo === "preco" ? `Alterou o preço de ${item.nome}` : item.tipo === "foto" ? `Atualizou as fotos de ${item.nome}` : `${item.acao === "pausar" ? "Pausou" : "Reativou"} ${item.nome}`
+      }));
+    }
+
+    async function salvarTudo3ZK() {
+      if (estado.modo !== "arquivo" || !estado.pastaHandle) {
+        mostrarToast("Modo somente leitura", "Selecione a pasta principal do catálogo.");
+        return;
+      }
+      const alteracoes = diferencas();
+      if (!alteracoes.length) return;
+      if (!operadorAtual()) { abrirModalOperadorBase3ZK(salvarTudo3ZK); return; }
+      const comerciais = diferencasComerciais3ZK();
+      const pausas = diferencasPausa3ZK();
+      const invalidos = estado.baseAtualRaw.filter((produto) => !(Number(produto.preco) > 0));
+      if (invalidos.length) {
+        mostrarToast("Existem preços inválidos", `${invalidos.length} produto(s) precisam ter preço maior que zero.`);
+        abrirAba("comercial");
+        return;
+      }
+
+      refs.salvar.disabled = true;
+      refs.salvar.textContent = "Salvando...";
+      try {
+        if (comerciais.length) {
+          const baseDisco = await lerJsonHandle(estado.baseHandle);
+          const publicoDisco = await lerJsonHandle(estado.publicoHandle);
+          if (assinatura3ZK(baseDisco) !== assinatura3ZK(estado.baseOriginalRaw) || assinatura3ZK(publicoDisco) !== assinatura3ZK(estado.publicoOriginalRaw)) {
+            throw new Error("Os arquivos de produtos mudaram depois que o painel foi aberto. Faça Fetch/Pull, recarregue o painel e tente novamente.");
+          }
+        }
+        if (pausas.length) {
+          const controleDisco = normalizarControle(await lerJsonHandle(estado.controleHandle, {}));
+          const assinarControle = (item) => assinatura3ZK({ atualizadoEm: item.atualizadoEm, produtos: [...item.produtosPausados].sort(), cores: [...item.coresPausadas].sort() });
+          if (assinarControle(controleDisco) !== assinarControle(estado.controleOriginal)) {
+            throw new Error("O controle de pausas mudou depois que o painel foi aberto. Recarregue os arquivos para evitar conflito.");
+          }
+        }
+
+        for (const [caminho, blob] of estado.arquivosFotosPendentes.entries()) await escreverBlob3ZK(caminho, blob);
+        if (comerciais.length) {
+          await escreverJson3ZK(estado.baseHandle, estado.baseAtualRaw);
+          await escreverJson3ZK(estado.publicoHandle, estado.publicoAtualRaw);
+        }
+        if (pausas.length) {
+          guardarBackup(estado.controleOriginal);
+          const controle = controleAtual();
+          await escreverJson3ZK(estado.controleHandle, controle);
+          estado.controleOriginal = clonar3ZK(normalizarControle(controle));
+        }
+
+        estado.baseOriginalRaw = clonar3ZK(estado.baseAtualRaw);
+        estado.publicoOriginalRaw = clonar3ZK(estado.publicoAtualRaw);
+        estado.historico = [...estado.historico, ...criarHistorico3ZK(alteracoes)].slice(-CONFIG.maxHistorico);
+        salvarPrivadoLocal();
+        estado.sessoes.clear();
+        estado.arquivosFotosPendentes.clear();
+        limparUrlsPendentes3ZK();
+        $("#summary-sugerido").textContent = gerarSummary3ZK(alteracoes);
+        $("#descricao-sugerida").textContent = gerarDescricao3ZK(alteracoes);
+        $("#modal-salvo").hidden = false;
+        reconstruirProdutos3ZK();
+      } catch (erro) {
+        mostrarToast("Não foi possível salvar", erro.message);
+      } finally {
+        refs.salvar.textContent = "Salvar alterações";
+        atualizarBarraSalvar();
+      }
+    }
+
+    // Eventos da gestão comercial.
+    refsComercial.busca?.addEventListener("input", renderizarComercial3ZK);
+    refsComercial.material?.addEventListener("change", () => { estado.filtroComercialMaterial = refsComercial.material.value; renderizarComercial3ZK(); });
+    $("[data-aba='comercial']")?.addEventListener("click", () => abrirAba("comercial"));
+
+    refsComercial.lista?.addEventListener("click", (evento) => {
+      const botao = evento.target.closest("[data-acao-comercial]");
+      if (!botao) return;
+      const produtoEl = botao.closest("[data-gestao-produto]");
+      const corEl = botao.closest("[data-gestao-cor]");
+      const produtoId = produtoEl?.dataset.gestaoProduto;
+      const corId = corEl?.dataset.gestaoCor;
+      const acao = botao.dataset.acaoComercial;
+      if (acao === "aplicar-preco") {
+        const input = produtoEl.querySelector("[data-preco-input]");
+        aplicarPreco3ZK(produtoId, input.value);
+      } else if (acao === "abrir-cores") {
+        if (estado.produtosComerciaisAbertos.has(produtoId)) estado.produtosComerciaisAbertos.delete(produtoId); else estado.produtosComerciaisAbertos.add(produtoId);
+        renderizarComercial3ZK();
+      } else if (acao === "adicionar-foto") {
+        estado.fotoAlvo = { produtoId, corId };
+        refsComercial.seletorFotos.click();
+      } else if (acao === "gerenciar-fotos") {
+        abrirModalFotos3ZK(produtoId, corId);
+      }
+    });
+
+    refsComercial.lista?.addEventListener("keydown", (evento) => {
+      if (evento.key !== "Enter") return;
+      const input = evento.target.closest("[data-preco-input]");
+      if (!input) return;
+      evento.preventDefault();
+      aplicarPreco3ZK(input.dataset.precoInput, input.value);
+    });
+
+    refsComercial.seletorFotos?.addEventListener("change", async (evento) => {
+      const alvo = estado.fotoAlvo;
+      const arquivos = evento.target.files;
+      evento.target.value = "";
+      if (alvo && arquivos?.length) await adicionarFotos3ZK(alvo.produtoId, alvo.corId, arquivos);
+    });
+
+    $("#adicionar-fotos-modal")?.addEventListener("click", () => refsComercial.seletorFotos.click());
+    refsComercial.listaFotos?.addEventListener("click", (evento) => {
+      const botao = evento.target.closest("[data-foto-acao]");
+      if (!botao) return;
+      const item = botao.closest("[data-foto-indice]");
+      reorganizarFoto3ZK(botao.dataset.fotoAcao, Number(item.dataset.fotoIndice));
+    });
+
+    document.addEventListener("click", (evento) => {
+      const botao = evento.target.closest("[data-desfazer-comercial]");
+      if (!botao) return;
+      const [tipo, codificado] = botao.dataset.desfazerComercial.split(":");
+      desfazerComercial3ZK(tipo, decodeURIComponent(codificado));
+    });
+
+    // Intercepta os botões originais para salvar/desfazer também preços e fotos.
+    refs.salvar.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); salvarTudo3ZK(); }, true);
+    refs.desfazer.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); desfazerTudo3ZK(); }, true);
+    $("#salvar-drawer")?.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); $("#drawer-resumo").hidden = true; salvarTudo3ZK(); }, true);
+
+    preencherMateriaisComerciais();
+    renderizarComercial3ZK();
+  })();
+  </script>
+
 </body>
 </html>

@@ -8,8 +8,9 @@ on:
   push:
     branches:
       - main
+    # Alterações feitas pelo painel já atualizam produtos.json.
+    # A Olist só precisa rodar por agenda, manualmente ou quando a automação/mapeamento mudar.
     paths:
-      - "dados/produtos-base.json"
       - "automacao/**"
       - ".github/workflows/atualizar-estoque.yml"
 

@@ -1,0 +1,54 @@
+PAINEL 3ZK 3.0 — PREÇOS E FOTOS
+=================================
+
+O QUE FOI ADICIONADO
+
+- Edição de preço por produto dentro do painel.
+- Prévia automática do valor com 5% de desconto e parcelamento em 3x.
+- Upload de múltiplas fotos por cor.
+- Conversão automática para WebP.
+- Redimensionamento seguro para até 1800 px.
+- Nome e pasta criados automaticamente.
+- Atualização simultânea de produtos-base.json e produtos.json.
+- Foto principal, reorganização e desconexão de imagens.
+- Proteção contra conflito quando os arquivos mudam após abrir o painel.
+- Summary de commit específico para preços e fotos.
+
+IMPORTANTE
+
+A foto só é criada na pasta e conectada aos JSONs quando você clica em
+"Salvar alterações". Depois ainda é necessário Commit e Push.
+
+A atualização do workflow evita consultar 179 itens da Olist apenas por
+uma mudança de preço ou foto. A sincronização de estoque continua a cada
+30 minutos e também pode ser executada manualmente.
+
+INSTALAÇÃO
+
+1. Extraia este ZIP diretamente em:
+   C:\3ZK\catalogo-3zk
+
+2. Escolha "Substituir os arquivos no destino".
+
+3. Abra:
+   ferramentas-local\ABRIR-PAINEL-SEM-PYTHON.cmd
+
+4. Selecione a pasta principal catalogo-3zk.
+
+5. Teste primeiro alterando um preço e adicionando uma foto.
+
+6. No GitHub Desktop use:
+   Atualiza Painel 3ZK com gestão de preços e fotos
+
+COMO O UPLOAD FUNCIONA
+
+Exemplo:
+Produto: Masterprint PLA
+Cor: Preto
+
+O painel cria automaticamente:
+assets/fotos/masterprint-pla/preto.webp
+assets/fotos/masterprint-pla/preto-2.webp
+
+O painel nunca apaga automaticamente uma foto antiga do computador.
+A opção "Desconectar" apenas deixa de exibi-la no catálogo.
