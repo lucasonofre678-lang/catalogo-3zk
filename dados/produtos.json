@@ -13,6 +13,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/vermelho-coral.webp"
         ],
+        "idCatalogo": "flashforge|pla||vermelho-coral",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -24,6 +25,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/laranja-escuro.webp"
         ],
+        "idCatalogo": "flashforge|pla||laranja-escuro",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -35,6 +37,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/azul-esverdeado.webp"
         ],
+        "idCatalogo": "flashforge|pla||azul-esverdeado",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -46,6 +49,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/cool-gray-cinza-azulado.webp"
         ],
+        "idCatalogo": "flashforge|pla||cool-gray-cinza-azulado",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -57,6 +61,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/cream-yellow-amarelo-suave.webp"
         ],
+        "idCatalogo": "flashforge|pla||cream-yellow-amarelo-suave",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -68,6 +73,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/honeydew-verde-melao.webp"
         ],
+        "idCatalogo": "flashforge|pla||honeydew-verde-melao",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -79,6 +85,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
         ],
+        "idCatalogo": "flashforge|pla||lavender-roxo-claro",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -90,6 +97,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/light-coral-rosa-alaranjado-claro.webp"
         ],
+        "idCatalogo": "flashforge|pla||light-coral-rosa-alaranjado-claro",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -101,6 +109,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/mint-green-verde-menta-claro.webp"
         ],
+        "idCatalogo": "flashforge|pla||mint-green-verde-menta-claro",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -112,6 +121,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/sea-green-verde-mar-azulado.webp"
         ],
+        "idCatalogo": "flashforge|pla||sea-green-verde-mar-azulado",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -123,6 +133,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/honey-mel.webp"
         ],
+        "idCatalogo": "flashforge|pla||honey-mel",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -134,6 +145,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado.webp"
         ],
+        "idCatalogo": "flashforge|pla||dusty-pink-rosa-desbotado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -145,6 +157,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/mango-yellow-amarelo-manga.webp"
         ],
+        "idCatalogo": "flashforge|pla||mango-yellow-amarelo-manga",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -156,6 +169,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/hot-pink-rosa-choque.webp"
         ],
+        "idCatalogo": "flashforge|pla||hot-pink-rosa-choque",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -167,6 +181,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/black-preto.webp"
         ],
+        "idCatalogo": "flashforge|pla||black-preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -178,6 +193,7 @@
         "imagens": [
           "assets/fotos/flashforge-pla/midnight-azul-escuro.webp"
         ],
+        "idCatalogo": "flashforge|pla||midnight-azul-escuro",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -189,10 +205,12 @@
         "imagens": [
           "assets/fotos/flashforge-pla/forest-green-verde-floresta.webp"
         ],
+        "idCatalogo": "flashforge|pla||forest-green-verde-floresta",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "flashforge|pla|",
     "disponivel": true
   },
   {
@@ -209,6 +227,7 @@
         "imagens": [
           "assets/fotos/closin-petg/amarelo.webp"
         ],
+        "idCatalogo": "closin|petg||amarelo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -220,6 +239,7 @@
         "imagens": [
           "assets/fotos/closin-petg/azul.webp"
         ],
+        "idCatalogo": "closin|petg||azul",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -231,6 +251,7 @@
         "imagens": [
           "assets/fotos/closin-petg/branco.webp"
         ],
+        "idCatalogo": "closin|petg||branco",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -242,6 +263,7 @@
         "imagens": [
           "assets/fotos/closin-petg/cinza.webp"
         ],
+        "idCatalogo": "closin|petg||cinza",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -253,6 +275,7 @@
         "imagens": [
           "assets/fotos/closin-petg/fluo-blue.webp"
         ],
+        "idCatalogo": "closin|petg||fluo-blue",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -264,6 +287,7 @@
         "imagens": [
           "assets/fotos/closin-petg/fluo-green.webp"
         ],
+        "idCatalogo": "closin|petg||fluo-green",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -275,6 +299,7 @@
         "imagens": [
           "assets/fotos/closin-petg/fluo-yellow.webp"
         ],
+        "idCatalogo": "closin|petg||fluo-yellow",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -286,6 +311,7 @@
         "imagens": [
           "assets/fotos/closin-petg/laranja.webp"
         ],
+        "idCatalogo": "closin|petg||laranja",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -297,6 +323,7 @@
         "imagens": [
           "assets/fotos/closin-petg/pink.webp"
         ],
+        "idCatalogo": "closin|petg||pink",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -308,6 +335,7 @@
         "imagens": [
           "assets/fotos/closin-petg/preto.webp"
         ],
+        "idCatalogo": "closin|petg||preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -319,6 +347,7 @@
         "imagens": [
           "assets/fotos/closin-petg/rosa.webp"
         ],
+        "idCatalogo": "closin|petg||rosa",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -330,6 +359,7 @@
         "imagens": [
           "assets/fotos/closin-petg/silver-prateado.webp"
         ],
+        "idCatalogo": "closin|petg||silver-prateado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -341,6 +371,7 @@
         "imagens": [
           "assets/fotos/closin-petg/skin.webp"
         ],
+        "idCatalogo": "closin|petg||skin",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -352,6 +383,7 @@
         "imagens": [
           "assets/fotos/closin-petg/verde.webp"
         ],
+        "idCatalogo": "closin|petg||verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -363,6 +395,7 @@
         "imagens": [
           "assets/fotos/closin-petg/vermelho.webp"
         ],
+        "idCatalogo": "closin|petg||vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -374,11 +407,13 @@
         "imagens": [
           "assets/fotos/closin-petg/wood.webp"
         ],
+        "idCatalogo": "closin|petg||wood",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
     "obs": "Rolo de 1kg",
+    "idCatalogo": "closin|petg|",
     "disponivel": true
   },
   {
@@ -396,6 +431,7 @@
         "imagens": [
           "assets/fotos/closin-pla/gold.webp"
         ],
+        "idCatalogo": "closin|pla||gold",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -407,6 +443,7 @@
         "imagens": [
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
+        "idCatalogo": "closin|pla||pink-rosa-bebe",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -418,6 +455,7 @@
         "imagens": [
           "assets/fotos/closin-pla/amarelo.webp"
         ],
+        "idCatalogo": "closin|pla||amarelo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -429,6 +467,7 @@
         "imagens": [
           "assets/fotos/closin-pla/azul.webp"
         ],
+        "idCatalogo": "closin|pla||azul",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -440,6 +479,7 @@
         "imagens": [
           "assets/fotos/closin-pla/branco.webp"
         ],
+        "idCatalogo": "closin|pla||branco",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -451,6 +491,7 @@
         "imagens": [
           "assets/fotos/closin-pla/preto.webp"
         ],
+        "idCatalogo": "closin|pla||preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -462,6 +503,7 @@
         "imagens": [
           "assets/fotos/closin-pla/skin.webp"
         ],
+        "idCatalogo": "closin|pla||skin",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -473,6 +515,7 @@
         "imagens": [
           "assets/fotos/closin-pla/verde.webp"
         ],
+        "idCatalogo": "closin|pla||verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -484,10 +527,12 @@
         "imagens": [
           "assets/fotos/closin-pla/vermelho.webp"
         ],
+        "idCatalogo": "closin|pla||vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "closin|pla|",
     "disponivel": false
   },
   {
@@ -504,6 +549,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/amarelo.webp"
         ],
+        "idCatalogo": "masterprint|petg||amarelo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -515,6 +561,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/azul.webp"
         ],
+        "idCatalogo": "masterprint|petg||azul",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -526,6 +573,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/branco.webp"
         ],
+        "idCatalogo": "masterprint|petg||branco",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -537,6 +585,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
         ],
+        "idCatalogo": "masterprint|petg||branco-pcv-outdoor",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -548,6 +597,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/bronze.webp"
         ],
+        "idCatalogo": "masterprint|petg||bronze",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -559,6 +609,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/cinza.webp"
         ],
+        "idCatalogo": "masterprint|petg||cinza",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -570,6 +621,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/dourado.webp"
         ],
+        "idCatalogo": "masterprint|petg||dourado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -582,6 +634,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/fluorescente-roxo.webp"
         ],
+        "idCatalogo": "masterprint|petg||fluorescente-roxo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -594,6 +647,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
+        "idCatalogo": "masterprint|petg||fosco-branco",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -605,6 +659,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/laranja.webp"
         ],
+        "idCatalogo": "masterprint|petg||laranja",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -616,6 +671,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/lavanda.webp"
         ],
+        "idCatalogo": "masterprint|petg||lavanda",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -627,6 +683,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/madeira.webp"
         ],
+        "idCatalogo": "masterprint|petg||madeira",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -638,6 +695,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/marrom.webp"
         ],
+        "idCatalogo": "masterprint|petg||marrom",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -649,6 +707,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/prata.webp"
         ],
+        "idCatalogo": "masterprint|petg||prata",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -660,6 +719,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/preto.webp"
         ],
+        "idCatalogo": "masterprint|petg||preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -671,6 +731,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/rosa.webp"
         ],
+        "idCatalogo": "masterprint|petg||rosa",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -682,6 +743,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/roxo.webp"
         ],
+        "idCatalogo": "masterprint|petg||roxo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -693,6 +755,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/skin.webp"
         ],
+        "idCatalogo": "masterprint|petg||skin",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -705,6 +768,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-amarelo.webp"
         ],
+        "idCatalogo": "masterprint|petg||translucido-amarelo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -717,6 +781,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-azul.webp"
         ],
+        "idCatalogo": "masterprint|petg||translucido-azul",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -729,6 +794,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-branco.webp"
         ],
+        "idCatalogo": "masterprint|petg||translucido-branco",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -741,6 +807,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-verde.webp"
         ],
+        "idCatalogo": "masterprint|petg||translucido-verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -754,6 +821,7 @@
           "assets/fotos/masterprint-petg/translucido-vermelho.webp",
           "assets/fotos/masterprint-petg/translucido-vermelho-2.webp"
         ],
+        "idCatalogo": "masterprint|petg||translucido-vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -766,6 +834,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/transparente.webp"
         ],
+        "idCatalogo": "masterprint|petg||transparente",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -777,10 +846,12 @@
         "imagens": [
           "assets/fotos/masterprint-petg/verde.webp"
         ],
+        "idCatalogo": "masterprint|petg||verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "masterprint|petg|",
     "disponivel": true
   },
   {
@@ -798,6 +869,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/azul-translucido.webp"
         ],
+        "idCatalogo": "anycubic|petg||azul-translucido",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -809,6 +881,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/creme.webp"
         ],
+        "idCatalogo": "anycubic|petg||creme",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -820,6 +893,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/laranja.webp"
         ],
+        "idCatalogo": "anycubic|petg||laranja",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -832,6 +906,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/rosa-translucido.webp"
         ],
+        "idCatalogo": "anycubic|petg||rosa-translucido",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -844,6 +919,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/roxo-translucido.webp"
         ],
+        "idCatalogo": "anycubic|petg||roxo-translucido",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -855,6 +931,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/verde-floresta.webp"
         ],
+        "idCatalogo": "anycubic|petg||verde-floresta",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -867,6 +944,7 @@
         "imagens": [
           "assets/fotos/anycubic-petg/verde-oliva-translucido.webp"
         ],
+        "idCatalogo": "anycubic|petg||verde-oliva-translucido",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -878,10 +956,12 @@
         "imagens": [
           "assets/fotos/anycubic-petg/vermelho.webp"
         ],
+        "idCatalogo": "anycubic|petg||vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "anycubic|petg|",
     "disponivel": false
   },
   {
@@ -898,6 +978,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/amarelo.webp"
         ],
+        "idCatalogo": "fusionx|petg||amarelo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -909,6 +990,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/amarelo-canario.webp"
         ],
+        "idCatalogo": "fusionx|petg||amarelo-canario",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -920,6 +1002,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/azul-marinho.webp"
         ],
+        "idCatalogo": "fusionx|petg||azul-marinho",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -931,6 +1014,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/cafe.webp"
         ],
+        "idCatalogo": "fusionx|petg||cafe",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -942,6 +1026,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/champagne.webp"
         ],
+        "idCatalogo": "fusionx|petg||champagne",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -953,6 +1038,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/ciano.webp"
         ],
+        "idCatalogo": "fusionx|petg||ciano",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -964,6 +1050,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/laranja.webp"
         ],
+        "idCatalogo": "fusionx|petg||laranja",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -975,6 +1062,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/limao-siciliano.webp"
         ],
+        "idCatalogo": "fusionx|petg||limao-siciliano",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -986,6 +1074,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/pink-purple-violeta.webp"
         ],
+        "idCatalogo": "fusionx|petg||pink-purple-violeta",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -997,6 +1086,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/tangerina.webp"
         ],
+        "idCatalogo": "fusionx|petg||tangerina",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1008,6 +1098,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/verde.webp"
         ],
+        "idCatalogo": "fusionx|petg||verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1019,6 +1110,7 @@
         "imagens": [
           "assets/fotos/fusionx-petg/verde-agua.webp"
         ],
+        "idCatalogo": "fusionx|petg||verde-agua",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1030,10 +1122,12 @@
         "imagens": [
           "assets/fotos/fusionx-petg/verde-escuro.webp"
         ],
+        "idCatalogo": "fusionx|petg||verde-escuro",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
+    "idCatalogo": "fusionx|petg|",
     "disponivel": true
   },
   {
@@ -1050,6 +1144,7 @@
         "imagens": [
           "assets/fotos/fusion-high-speed-petg/branco.webp"
         ],
+        "idCatalogo": "fusion-high-speed|petg||branco",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1061,11 +1156,13 @@
         "imagens": [
           "assets/fotos/fusion-high-speed-petg/preto.webp"
         ],
+        "idCatalogo": "fusion-high-speed|petg||preto",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
     "obs": "Rolo com 1,2kg — 200g a mais que o rolo padrão",
+    "idCatalogo": "fusion-high-speed|petg|",
     "disponivel": true
   },
   {
@@ -1082,6 +1179,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/branco.webp"
         ],
+        "idCatalogo": "masterprint|pla||branco",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1093,6 +1191,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/laranja.webp"
         ],
+        "idCatalogo": "masterprint|pla||laranja",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1104,6 +1203,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/cinza.webp"
         ],
+        "idCatalogo": "masterprint|pla||cinza",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1116,6 +1216,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/transparente.webp"
         ],
+        "idCatalogo": "masterprint|pla||transparente",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1127,6 +1228,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/prata.webp"
         ],
+        "idCatalogo": "masterprint|pla||prata",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1138,6 +1240,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
+        "idCatalogo": "masterprint|pla||roxo-claro",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1149,6 +1252,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/prata-master.webp"
         ],
+        "idCatalogo": "masterprint|pla||prata-master",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1161,6 +1265,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-roxo.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-roxo",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1173,6 +1278,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-fuchsia.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-fuchsia",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1185,6 +1291,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/peacock-blue.webp"
         ],
+        "idCatalogo": "masterprint|pla||peacock-blue",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1197,6 +1304,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-vermelho-purpura.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-vermelho-purpura",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1209,6 +1317,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
+        "idCatalogo": "masterprint|pla||fosco-roxo",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1221,6 +1330,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp"
         ],
+        "idCatalogo": "masterprint|pla||fosco-cinza-fossil",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1232,6 +1342,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/cobre-esverdeado.webp"
         ],
+        "idCatalogo": "masterprint|pla||cobre-esverdeado",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1243,6 +1354,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/azul.webp"
         ],
+        "idCatalogo": "masterprint|pla||azul",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1254,6 +1366,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/cafe.webp"
         ],
+        "idCatalogo": "masterprint|pla||cafe",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1266,6 +1379,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/cinza-metalico.webp"
         ],
+        "idCatalogo": "masterprint|pla||cinza-metalico",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1278,6 +1392,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/cobre.webp"
         ],
+        "idCatalogo": "masterprint|pla||cobre",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1289,6 +1404,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/cor-deserto.webp"
         ],
+        "idCatalogo": "masterprint|pla||cor-deserto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1301,6 +1417,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/dourado.webp"
         ],
+        "idCatalogo": "masterprint|pla||dourado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1313,6 +1430,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/dragon-fruit.webp"
         ],
+        "idCatalogo": "masterprint|pla||dragon-fruit",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1325,6 +1443,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/marmore.webp"
         ],
+        "idCatalogo": "masterprint|pla||marmore",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1336,6 +1455,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/marrom.webp"
         ],
+        "idCatalogo": "masterprint|pla||marrom",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1348,6 +1468,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/new-silk-prata.webp"
         ],
+        "idCatalogo": "masterprint|pla||new-silk-prata",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1360,6 +1481,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/rainbow.webp"
         ],
+        "idCatalogo": "masterprint|pla||rainbow",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1371,6 +1493,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/rosa.webp"
         ],
+        "idCatalogo": "masterprint|pla||rosa",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1382,6 +1505,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/roxo.webp"
         ],
+        "idCatalogo": "masterprint|pla||roxo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1394,6 +1518,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-azul-dourado-roxo.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-azul-dourado-roxo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1406,6 +1531,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-azul-preto-roxo.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-azul-preto-roxo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1418,6 +1544,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-azul-vermelho.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-azul-vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1430,6 +1557,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-branco.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-branco",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1442,6 +1570,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-cobre.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-cobre",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1454,6 +1583,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-laranja-preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1466,6 +1596,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-lavanda.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-lavanda",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1478,6 +1609,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-rainbow.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-rainbow",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1490,6 +1622,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-roxo-preto.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-roxo-preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1502,6 +1635,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-verde.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1513,6 +1647,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/verde.webp"
         ],
+        "idCatalogo": "masterprint|pla||verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1524,6 +1659,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/vermelho.webp"
         ],
+        "idCatalogo": "masterprint|pla||vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1536,6 +1672,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-azul-azure.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-azul-azure",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1548,10 +1685,12 @@
         "imagens": [
           "assets/fotos/masterprint-pla/silk-vermelho-dourado.webp"
         ],
+        "idCatalogo": "masterprint|pla||silk-vermelho-dourado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "masterprint|pla|",
     "disponivel": true
   },
   {
@@ -1569,11 +1708,13 @@
         "imagens": [
           "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
         ],
+        "idCatalogo": "masterprint|pla|silk-especial|silk-roxo-com-glitter",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
     "linha": "Silk Especial",
+    "idCatalogo": "masterprint|pla|silk-especial",
     "disponivel": true
   },
   {
@@ -1592,6 +1733,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla-etiqueta-neutra/silk-azul-roxo.webp"
         ],
+        "idCatalogo": "masterprint|pla|etiqueta-neutra|silk-azul-roxo",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1604,10 +1746,12 @@
         "imagens": [
           "assets/fotos/masterprint-pla-etiqueta-neutra/silk-preto.webp"
         ],
+        "idCatalogo": "masterprint|pla|etiqueta-neutra|silk-preto",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
+    "idCatalogo": "masterprint|pla|etiqueta-neutra",
     "disponivel": true
   },
   {
@@ -1625,8 +1769,9 @@
         "imagens": [
           "assets/fotos/masterprint-pla-especial/transparente-preto-azul-com-glitter.webp"
         ],
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "idCatalogo": "masterprint|pla|especial|transparente-preto-azul-com-glitter",
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Dreamy Crystal Preto/Vermelho",
@@ -1637,6 +1782,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla-especial/dreamy-crystal-preto-vermelho.webp"
         ],
+        "idCatalogo": "masterprint|pla|especial|dreamy-crystal-preto-vermelho",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1649,11 +1795,13 @@
         "imagens": [
           "assets/fotos/masterprint-pla-especial/ice-cream.webp"
         ],
+        "idCatalogo": "masterprint|pla|especial|ice-cream",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
     "linha": "Especial",
+    "idCatalogo": "masterprint|pla|especial",
     "disponivel": true
   },
   {
@@ -1671,6 +1819,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp"
         ],
+        "idCatalogo": "masterprint|pla|fosforescente|fosforescente-natural-azul",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1683,6 +1832,7 @@
         "imagens": [
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-verde.webp"
         ],
+        "idCatalogo": "masterprint|pla|fosforescente|fosforescente-natural-verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1695,11 +1845,13 @@
         "imagens": [
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-rainbow.webp"
         ],
+        "idCatalogo": "masterprint|pla|fosforescente|fosforescente-natural-rainbow",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
     "linha": "Fosforescente",
+    "idCatalogo": "masterprint|pla|fosforescente",
     "disponivel": true
   },
   {
@@ -1716,6 +1868,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/rosa.webp"
         ],
+        "idCatalogo": "masterprint|abs||rosa",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1727,6 +1880,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/laranja.webp"
         ],
+        "idCatalogo": "masterprint|abs||laranja",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1738,6 +1892,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/amarelo.webp"
         ],
+        "idCatalogo": "masterprint|abs||amarelo",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1749,6 +1904,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/roxo.webp"
         ],
+        "idCatalogo": "masterprint|abs||roxo",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1760,6 +1916,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/prata.webp"
         ],
+        "idCatalogo": "masterprint|abs||prata",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1771,6 +1928,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
+        "idCatalogo": "masterprint|abs||marrom",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1782,6 +1940,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/natural.webp"
         ],
+        "idCatalogo": "masterprint|abs||natural",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1793,6 +1952,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/azul.webp"
         ],
+        "idCatalogo": "masterprint|abs||azul",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1804,6 +1964,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/branco.webp"
         ],
+        "idCatalogo": "masterprint|abs||branco",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1815,6 +1976,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/verde.webp"
         ],
+        "idCatalogo": "masterprint|abs||verde",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1826,6 +1988,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/cinza.webp"
         ],
+        "idCatalogo": "masterprint|abs||cinza",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1837,6 +2000,7 @@
         "imagens": [
           "assets/fotos/masterprint-abs/dourado.webp"
         ],
+        "idCatalogo": "masterprint|abs||dourado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1848,10 +2012,12 @@
         "imagens": [
           "assets/fotos/masterprint-abs/preto.webp"
         ],
+        "idCatalogo": "masterprint|abs||preto",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "masterprint|abs|",
     "disponivel": true
   },
   {
@@ -1868,6 +2034,7 @@
         "imagens": [
           "assets/fotos/masterprint-tpu/branco.webp"
         ],
+        "idCatalogo": "masterprint|tpu||branco",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1879,6 +2046,7 @@
         "imagens": [
           "assets/fotos/masterprint-tpu/cinza.webp"
         ],
+        "idCatalogo": "masterprint|tpu||cinza",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1890,6 +2058,7 @@
         "imagens": [
           "assets/fotos/masterprint-tpu/preto.webp"
         ],
+        "idCatalogo": "masterprint|tpu||preto",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -1902,11 +2071,13 @@
         "imagens": [
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
+        "idCatalogo": "masterprint|tpu||natural-transparente",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
     "obs": "Rolo de 1kg",
+    "idCatalogo": "masterprint|tpu|",
     "disponivel": true
   },
   {
@@ -1923,6 +2094,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/almond-purple-roxo-amendoa.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||almond-purple-roxo-amendoa",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1934,6 +2106,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/ocean-blue-azul-oceano.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||ocean-blue-azul-oceano",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1945,6 +2118,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/cinza.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||cinza",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -1956,6 +2130,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/greenery-esverdeado.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||greenery-esverdeado",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1967,6 +2142,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/pineapple-yellow-amarelo-abacaxi.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||pineapple-yellow-amarelo-abacaxi",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1978,6 +2154,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||rosehip",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -1989,6 +2166,7 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/strawberry-milk.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||strawberry-milk",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2000,10 +2178,12 @@
         "imagens": [
           "assets/fotos/creality-soleyin-ultra-pla/verde-claro.webp"
         ],
+        "idCatalogo": "creality-soleyin-ultra|pla||verde-claro",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "creality-soleyin-ultra|pla|",
     "disponivel": true
   },
   {
@@ -2020,6 +2200,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/dark-blue.webp"
         ],
+        "idCatalogo": "elegoo|pla||dark-blue",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2031,6 +2212,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/grey.webp"
         ],
+        "idCatalogo": "elegoo|pla||grey",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2042,6 +2224,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/neon-green.webp"
         ],
+        "idCatalogo": "elegoo|pla||neon-green",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2053,6 +2236,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/orange.webp"
         ],
+        "idCatalogo": "elegoo|pla||orange",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
@@ -2064,6 +2248,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/pink.webp"
         ],
+        "idCatalogo": "elegoo|pla||pink",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2075,6 +2260,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/beige.webp"
         ],
+        "idCatalogo": "elegoo|pla||beige",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2086,6 +2272,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/purple.webp"
         ],
+        "idCatalogo": "elegoo|pla||purple",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2097,6 +2284,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/red.webp"
         ],
+        "idCatalogo": "elegoo|pla||red",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2108,6 +2296,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/sea-green.webp"
         ],
+        "idCatalogo": "elegoo|pla||sea-green",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2119,6 +2308,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/sky-blue.webp"
         ],
+        "idCatalogo": "elegoo|pla||sky-blue",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2130,6 +2320,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/space-grey.webp"
         ],
+        "idCatalogo": "elegoo|pla||space-grey",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2142,6 +2333,7 @@
         "imagens": [
           "assets/fotos/elegoo-pla/translucent.webp"
         ],
+        "idCatalogo": "elegoo|pla||translucent",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       },
@@ -2153,10 +2345,12 @@
         "imagens": [
           "assets/fotos/elegoo-pla/yellow.webp"
         ],
+        "idCatalogo": "elegoo|pla||yellow",
         "statusEstoque": "sem_estoque",
         "disponivel": false
       }
     ],
+    "idCatalogo": "elegoo|pla|",
     "disponivel": true
   },
   {
@@ -2173,10 +2367,12 @@
         "imagens": [
           "assets/fotos/multifila-pla/branco.webp"
         ],
+        "idCatalogo": "multifila|pla||branco",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
+    "idCatalogo": "multifila|pla|",
     "disponivel": true
   }
 ]
