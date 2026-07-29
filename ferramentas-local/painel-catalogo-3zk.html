@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="color-scheme" content="light">
-  <title>Painel 3ZK 2.0 — Central do Catálogo</title>
+  <title>Painel 3ZK 4.0 — Cadastro completo</title>
   <style>
     :root {
       --azul-950: #05275f;
@@ -911,6 +911,136 @@
       .foto-item__acoes { grid-column: 1 / -1; max-width: none; justify-content: flex-start; }
     }
 
+  
+
+    /* ==========================================================
+       PAINEL 3ZK 4.0 — CADASTRO GUIADO DE PRODUTOS
+       ========================================================== */
+    .cadastro-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1fr) auto;
+      gap: 20px;
+      align-items: center;
+      padding: 24px;
+      margin-bottom: 12px;
+      color: #fff;
+      background:
+        radial-gradient(520px 210px at 92% -20%, rgba(83, 177, 255, .32), transparent 70%),
+        linear-gradient(135deg, #072f73 0%, #075bc7 64%, #0872e8 100%);
+      border-radius: 22px;
+      box-shadow: 0 18px 42px rgba(7, 70, 160, .2);
+    }
+    .cadastro-hero__selo { font-size: 9px; font-weight: 900; letter-spacing: .15em; color: #b7dbff; }
+    .cadastro-hero h2 { margin: 6px 0 8px; font-size: clamp(22px, 3vw, 30px); letter-spacing: -.04em; }
+    .cadastro-hero p { max-width: 760px; margin: 0; color: rgba(255,255,255,.78); font-size: 12.5px; }
+    .cadastro-hero__passos { display: flex; gap: 8px; }
+    .cadastro-passo-mini { min-width: 76px; padding: 11px 10px; text-align: center; background: rgba(255,255,255,.1); border: 1px solid rgba(255,255,255,.15); border-radius: 14px; }
+    .cadastro-passo-mini b { display: grid; place-items: center; width: 24px; height: 24px; margin: 0 auto 5px; color: #0754b8; background: #fff; border-radius: 999px; font-size: 10px; }
+    .cadastro-passo-mini span { font-size: 8px; font-weight: 800; letter-spacing: .06em; }
+
+    .cadastro-layout { display: grid; grid-template-columns: minmax(0, 1fr) 330px; gap: 12px; align-items: start; }
+    .cadastro-coluna { display: grid; gap: 12px; }
+    .cadastro-lateral { position: sticky; top: 92px; display: grid; gap: 12px; }
+    .cadastro-card { overflow: hidden; background: #fff; border: 1px solid var(--borda); border-radius: 20px; box-shadow: var(--sombra-1); }
+    .cadastro-card__topo { display: flex; align-items: center; justify-content: space-between; gap: 14px; padding: 17px 18px; border-bottom: 1px solid #edf1f6; }
+    .cadastro-card__titulo { display: flex; align-items: center; gap: 11px; }
+    .cadastro-card__numero { width: 30px; height: 30px; display: grid; place-items: center; color: #fff; background: linear-gradient(135deg, #0870ed, #0047ab); border-radius: 10px; font-size: 11px; font-weight: 900; box-shadow: 0 7px 16px rgba(0,71,171,.2); }
+    .cadastro-card__titulo strong { display: block; font-size: 13px; }
+    .cadastro-card__titulo span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 9px; }
+    .cadastro-card__corpo { padding: 18px; }
+
+    .cadastro-modos { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+    .cadastro-modo { padding: 13px 14px; text-align: left; color: var(--texto-2); background: #f7f9fc; border: 1px solid #dce4ef; border-radius: 14px; transition: .18s ease; }
+    .cadastro-modo:hover { border-color: #91b9ed; transform: translateY(-1px); }
+    .cadastro-modo--ativo { color: #064cae; background: #edf5ff; border-color: #7eade9; box-shadow: 0 8px 20px rgba(0,71,171,.08); }
+    .cadastro-modo strong { display: block; font-size: 11px; }
+    .cadastro-modo span { display: block; margin-top: 3px; font-size: 8.5px; color: var(--texto-3); }
+
+    .cadastro-grade { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 11px; }
+    .cadastro-campo { display: grid; gap: 5px; min-width: 0; }
+    .cadastro-campo--largo { grid-column: 1 / -1; }
+    .cadastro-campo label { font-size: 9px; font-weight: 800; color: var(--texto-2); }
+    .cadastro-campo small { font-size: 8px; color: var(--texto-3); }
+    .cadastro-campo .campo { width: 100%; }
+    .cadastro-campo input[type="color"] { width: 42px; height: 39px; padding: 3px; border: 1px solid #cfd9e8; border-radius: 10px; background: #fff; }
+    .cadastro-cor-linha { display: grid; grid-template-columns: 42px minmax(0,1fr); gap: 7px; }
+    .cadastro-check { display: flex; align-items: flex-start; gap: 9px; padding: 12px; background: #f8fafe; border: 1px solid #e2e9f3; border-radius: 13px; }
+    .cadastro-check input { margin-top: 2px; accent-color: #075bc7; }
+    .cadastro-check strong { display: block; font-size: 9.5px; }
+    .cadastro-check span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 8px; }
+
+    .variantes-toolbar { display: flex; align-items: center; justify-content: space-between; flex-wrap: wrap; gap: 9px; margin-bottom: 12px; }
+    .variantes-toolbar__texto strong { display: block; font-size: 11px; }
+    .variantes-toolbar__texto span { display: block; margin-top: 2px; color: var(--texto-3); font-size: 8.5px; }
+    .variantes-lista { display: grid; gap: 10px; }
+    .variante-card { position: relative; padding: 14px; background: #f8fafe; border: 1px solid #e0e7f1; border-radius: 16px; }
+    .variante-card--erro { border-color: #e8a19a; background: #fff8f7; }
+    .variante-card__topo { display: flex; align-items: center; justify-content: space-between; gap: 10px; margin-bottom: 12px; }
+    .variante-card__identidade { display: flex; align-items: center; gap: 8px; min-width: 0; }
+    .variante-card__amostra { width: 30px; height: 30px; flex: 0 0 30px; background: var(--cor-variante, #d9dfe8); border: 1px solid rgba(0,0,0,.08); border-radius: 10px; box-shadow: inset 0 0 0 1px rgba(255,255,255,.4); }
+    .variante-card__identidade strong { display: block; font-size: 10.5px; }
+    .variante-card__identidade span { display: block; max-width: 520px; margin-top: 2px; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; color: var(--texto-3); font: 7.5px var(--fonte-mono); }
+    .variante-grade { display: grid; grid-template-columns: 1.2fr .8fr .8fr; gap: 9px; }
+    .variante-grade .cadastro-campo--descricao { grid-column: 1 / -1; }
+    .variante-fotos { display: flex; align-items: center; flex-wrap: wrap; gap: 6px; margin-top: 11px; padding-top: 11px; border-top: 1px solid #e5ebf3; }
+    .variante-foto { position: relative; width: 54px; height: 50px; overflow: hidden; background: #fff; border: 1px solid #dbe3ed; border-radius: 10px; }
+    .variante-foto img { width: 100%; height: 100%; object-fit: contain; }
+    .variante-foto button { position: absolute; top: 2px; right: 2px; width: 17px; height: 17px; display: grid; place-items: center; color: #fff; background: rgba(150, 24, 24, .88); border-radius: 999px; font-size: 10px; }
+    .variante-fotos__vazio { color: var(--texto-3); font-size: 8px; }
+
+    .importacao-lote { margin-top: 13px; padding: 13px; background: #f6f9fd; border: 1px dashed #b9cae1; border-radius: 15px; }
+    .importacao-lote summary { cursor: pointer; font-size: 10px; font-weight: 800; color: #0754b8; }
+    .importacao-lote p { margin: 8px 0; color: var(--texto-3); font-size: 8.5px; }
+    .importacao-lote textarea { min-height: 112px; font: 9px/1.5 var(--fonte-mono); }
+    .importacao-lote__acoes { display: flex; justify-content: flex-end; gap: 7px; margin-top: 8px; }
+
+    .cadastro-resumo { padding: 17px; background: #fff; border: 1px solid var(--borda); border-radius: 20px; box-shadow: var(--sombra-1); }
+    .cadastro-resumo h3 { margin: 0 0 4px; font-size: 13px; }
+    .cadastro-resumo > p { margin: 0 0 13px; color: var(--texto-3); font-size: 8.5px; }
+    .cadastro-resumo__produto { padding: 13px; margin-bottom: 10px; background: linear-gradient(180deg, #f7faff, #f2f6fc); border: 1px solid #dfe8f4; border-radius: 14px; }
+    .cadastro-resumo__produto strong { display: block; font-size: 12px; }
+    .cadastro-resumo__produto span { display: block; margin-top: 3px; color: var(--texto-3); font-size: 8.5px; }
+    .cadastro-resumo__linhas { display: grid; gap: 7px; }
+    .cadastro-resumo__linha { display: flex; justify-content: space-between; gap: 10px; padding-bottom: 7px; border-bottom: 1px solid #edf1f6; font-size: 8.5px; }
+    .cadastro-resumo__linha span { color: var(--texto-3); }
+    .cadastro-resumo__linha strong { text-align: right; font-size: 8.5px; }
+    .cadastro-status { display: grid; gap: 6px; margin: 12px 0; }
+    .cadastro-status__item { display: grid; grid-template-columns: 20px minmax(0,1fr); gap: 8px; align-items: start; padding: 8px; border-radius: 10px; font-size: 8.5px; }
+    .cadastro-status__item b { width: 20px; height: 20px; display: grid; place-items: center; border-radius: 7px; font-size: 9px; }
+    .cadastro-status__item--ok { color: #0c603c; background: #edf9f3; }
+    .cadastro-status__item--ok b { color: #fff; background: #168d58; }
+    .cadastro-status__item--erro { color: #87261e; background: #fff0ee; }
+    .cadastro-status__item--erro b { color: #fff; background: #cf3c30; }
+    .cadastro-status__item--aviso { color: #6f4d00; background: #fff8e5; }
+    .cadastro-status__item--aviso b { color: #fff; background: #d89a00; }
+    .cadastro-resumo__acoes { display: grid; gap: 7px; }
+    .cadastro-resumo__acoes .botao { width: 100%; }
+    .cadastro-rascunho { text-align: center; color: var(--texto-3); font-size: 8px; }
+
+    .cadastro-badge { display: inline-flex; align-items: center; gap: 5px; padding: 5px 8px; color: #0752b7; background: #edf5ff; border-radius: 999px; font-size: 8px; font-weight: 800; }
+    .cadastro-badge--novo { color: #6b3db0; background: #f3edff; }
+    .alteracao--cadastro .alteracao__icone { color: #fff; background: linear-gradient(135deg, #7444be, #4f2b91); }
+
+    @media (max-width: 980px) {
+      .cadastro-layout { grid-template-columns: 1fr; }
+      .cadastro-lateral { position: static; }
+      .cadastro-hero { grid-template-columns: 1fr; }
+      .cadastro-hero__passos { justify-content: flex-start; }
+    }
+    @media (max-width: 700px) {
+      .cadastro-grade, .variante-grade { grid-template-columns: 1fr; }
+      .cadastro-campo--largo, .variante-grade .cadastro-campo--descricao { grid-column: auto; }
+      .cadastro-modos { grid-template-columns: 1fr; }
+      .variante-card { padding: 12px; }
+    }
+    @media (max-width: 480px) {
+      .cadastro-hero { padding: 18px; }
+      .cadastro-hero__passos { display: grid; grid-template-columns: repeat(3, 1fr); }
+      .cadastro-passo-mini { min-width: 0; }
+      .cadastro-card__corpo { padding: 14px; }
+      .cadastro-card__topo { padding: 14px; }
+    }
+
   </style>
 </head>
 <body>
@@ -918,7 +1048,7 @@
     <div class="topo__conteudo">
       <div class="marca">
         <div class="marca__icone">3ZK</div>
-        <div class="marca__texto"><strong>Painel do Catálogo 2.0</strong><span>Central local de operação e segurança</span></div>
+        <div class="marca__texto"><strong>Painel do Catálogo 4.0</strong><span>Produtos, preços, fotos e disponibilidade</span></div>
       </div>
       <div class="topo__acoes">
         <a class="topo__botao" href="https://3zk.com.br" target="_blank" rel="noopener">
@@ -939,7 +1069,7 @@
       <article class="apresentacao">
         <span class="selo">CENTRAL DE OPERAÇÃO 3ZK</span>
         <h1>Controle o catálogo<br>sem mexer no código.</h1>
-        <p>Pause produtos e cores, ajuste preços, envie fotos com nome automático, acompanhe alterações, crie backups e valide o catálogo antes de publicar.</p>
+        <p>Cadastre produtos e cores, ajuste preços, envie fotos com nome automático, controle pausas e publique sem editar arquivos de código.</p>
         <div class="apresentacao__acoes">
           <button class="botao botao--primario" id="acao-conectar" type="button">Selecionar pasta do catálogo</button>
           <button class="botao botao--claro" id="acao-atualizar" type="button" disabled>Recarregar arquivos</button>
@@ -962,7 +1092,7 @@
     </section>
 
     <section class="conectar" id="conectar">
-      <div><strong>Conecte a pasta principal do projeto</strong><span>Escolha a pasta catalogo-3zk. O painel edita preços, conecta fotos e controla pausas sem exigir alteração manual no código.</span></div>
+      <div><strong>Conecte a pasta principal do projeto</strong><span>Escolha a pasta catalogo-3zk. O painel cadastra produtos, cria as chaves da Olist, organiza fotos, edita preços e controla pausas.</span></div>
       <button class="botao botao--primario" id="abrir-pasta" type="button">Selecionar pasta</button>
     </section>
 
@@ -978,6 +1108,7 @@
     <nav class="navegacao" aria-label="Seções do painel">
       <button class="aba aba--ativa" data-aba="catalogo" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></svg>Catálogo</button>
       <button class="aba" data-aba="comercial" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20"></path><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7H14a3.5 3.5 0 0 1 0 7H6"></path></svg>Preços e fotos <span class="aba__contador" id="contador-comercial">0</span></button>
+      <button class="aba" data-aba="cadastro" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 5v14"></path><path d="M5 12h14"></path><rect x="3" y="3" width="18" height="18" rx="5"></rect></svg>Cadastrar <span class="aba__contador" id="contador-cadastro">0</span></button>
       <button class="aba" data-aba="alteracoes" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12h18"></path><path d="m15 6 6 6-6 6"></path></svg>Alterações <span class="aba__contador" id="contador-alteracoes">0</span></button>
       <button class="aba" data-aba="diagnostico" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v3"></path><path d="M18.4 5.6 16.3 7.7"></path><path d="M21 12h-3"></path><path d="m18.4 18.4-2.1-2.1"></path><path d="M12 21v-3"></path><path d="m5.6 18.4 2.1-2.1"></path><path d="M3 12h3"></path><path d="m5.6 5.6 2.1 2.1"></path><circle cx="12" cy="12" r="4"></circle></svg>Diagnóstico <span class="aba__contador" id="contador-alertas">0</span></button>
       <button class="aba" data-aba="ajuda" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"></circle><path d="M9.5 9a2.7 2.7 0 1 1 4.1 2.3c-1 .6-1.6 1.1-1.6 2.2"></path><path d="M12 17h.01"></path></svg>Ajuda e backups</button>
@@ -1023,6 +1154,114 @@
       <div class="vazio" id="comercial-vazio" hidden><strong>Nenhum produto encontrado</strong><span>Altere a busca ou o filtro de material.</span></div>
     </section>
 
+
+    <section class="painel" data-painel="cadastro">
+      <article class="cadastro-hero">
+        <div>
+          <span class="cadastro-hero__selo">CADASTRO GUIADO 3ZK</span>
+          <h2>Cadastre produtos sem abrir JSON ou código.</h2>
+          <p>O painel cria o produto, as cores, as chaves de estoque, o mapeamento da Olist e as pastas de fotos. Você revisa tudo antes de salvar.</p>
+        </div>
+        <div class="cadastro-hero__passos">
+          <div class="cadastro-passo-mini"><b>1</b><span>PRODUTO</span></div>
+          <div class="cadastro-passo-mini"><b>2</b><span>CORES</span></div>
+          <div class="cadastro-passo-mini"><b>3</b><span>REVISAR</span></div>
+        </div>
+      </article>
+
+      <div class="cadastro-layout">
+        <div class="cadastro-coluna">
+          <article class="cadastro-card">
+            <div class="cadastro-card__topo">
+              <div class="cadastro-card__titulo"><div class="cadastro-card__numero">1</div><div><strong>Identificação do produto</strong><span>Crie uma linha nova ou acrescente cores a um produto existente</span></div></div>
+              <span class="cadastro-badge cadastro-badge--novo" id="cadastro-modo-badge">Novo produto</span>
+            </div>
+            <div class="cadastro-card__corpo">
+              <div class="cadastro-modos">
+                <button class="cadastro-modo cadastro-modo--ativo" data-cadastro-modo="novo" type="button"><strong>Novo produto ou linha</strong><span>Ex.: Sunlu PLA+, Closin ABS ou Masterprint ASA</span></button>
+                <button class="cadastro-modo" data-cadastro-modo="cores" type="button"><strong>Adicionar cores</strong><span>Inclui novas variações em um produto já cadastrado</span></button>
+              </div>
+
+              <div class="cadastro-campo cadastro-campo--largo" id="cadastro-existente-area" hidden>
+                <label for="cadastro-produto-existente">Produto que receberá as novas cores</label>
+                <select class="campo" id="cadastro-produto-existente"><option value="">Selecione um produto...</option></select>
+                <small>Preço, marca, material, linha e pasta serão herdados automaticamente.</small>
+              </div>
+
+              <div class="cadastro-grade" id="cadastro-dados-novo">
+                <div class="cadastro-campo"><label for="cadastro-marca">Marca *</label><input class="campo" id="cadastro-marca" data-cadastro-campo="marca" maxlength="80" placeholder="Ex.: Sunlu"></div>
+                <div class="cadastro-campo"><label for="cadastro-material">Material *</label><input class="campo" id="cadastro-material" data-cadastro-campo="material" maxlength="30" list="materiais-cadastro" placeholder="Ex.: PLA+"><datalist id="materiais-cadastro"><option value="PLA"><option value="PLA+"><option value="PETG"><option value="ABS"><option value="ASA"><option value="TPU"><option value="TPR"><option value="HIPS"><option value="NYLON"><option value="PC"></datalist></div>
+                <div class="cadastro-campo"><label for="cadastro-linha">Linha ou modelo</label><input class="campo" id="cadastro-linha" data-cadastro-campo="linha" maxlength="80" placeholder="Ex.: High Speed, Silk, Matte"></div>
+                <div class="cadastro-campo"><label for="cadastro-preco">Preço de venda *</label><input class="campo" id="cadastro-preco" data-cadastro-campo="preco" inputmode="decimal" placeholder="Ex.: 89,90"></div>
+                <div class="cadastro-campo cadastro-campo--largo"><label for="cadastro-link">Link da loja</label><input class="campo" id="cadastro-link" data-cadastro-campo="linkLoja" type="url" placeholder="https://3zkfilamentos.com.br/"><small>Pode deixar o link geral da loja e ajustar depois.</small></div>
+                <div class="cadastro-campo cadastro-campo--largo"><label for="cadastro-obs">Observação comercial</label><input class="campo" id="cadastro-obs" data-cadastro-campo="obs" maxlength="120" placeholder="Ex.: Rolo de 1kg • 1,75 mm"></div>
+              </div>
+
+              <div class="cadastro-check" style="margin-top:12px">
+                <input id="cadastro-pausado" data-cadastro-campo="pausado" type="checkbox" checked>
+                <label for="cadastro-pausado"><strong>Cadastrar pausado até a revisão final</strong><span>Recomendado. O produto fica oculto mesmo quando a Olist informar estoque. Depois é só reativar no painel.</span></label>
+              </div>
+            </div>
+          </article>
+
+          <article class="cadastro-card">
+            <div class="cadastro-card__topo">
+              <div class="cadastro-card__titulo"><div class="cadastro-card__numero">2</div><div><strong>Cores e integração com a Olist</strong><span>Cada cor precisa do ID individual usado pelo controle de estoque</span></div></div>
+              <span class="cadastro-badge" id="cadastro-contagem-variantes">1 cor</span>
+            </div>
+            <div class="cadastro-card__corpo">
+              <div class="variantes-toolbar">
+                <div class="variantes-toolbar__texto"><strong>Variações do produto</strong><span>SKU, GTIN e descrição são opcionais; o ID da Olist é obrigatório.</span></div>
+                <button class="botao botao--primario botao--pequeno" id="cadastro-adicionar-variante" type="button">+ Adicionar cor</button>
+              </div>
+              <div class="variantes-lista" id="cadastro-variantes"></div>
+
+              <details class="importacao-lote">
+                <summary>Importar várias cores colando do Excel</summary>
+                <p>Uma linha por cor. Use TAB ou ponto e vírgula nesta ordem: <strong>Cor | ID Olist | SKU | GTIN | Hex | Efeito | Descrição</strong>.</p>
+                <textarea class="campo" id="cadastro-lote" placeholder="Preto&#9;1048182488&#9;PLA-PRETO&#9;7900000000000&#9;#202124&#9;&#9;FILAMENTO PLA PRETO&#10;Branco&#9;1048182489&#9;PLA-BRANCO&#9;7900000000001&#9;#F3F3F1"></textarea>
+                <div class="importacao-lote__acoes"><button class="botao botao--cinza botao--pequeno" id="cadastro-limpar-lote" type="button">Limpar</button><button class="botao botao--claro botao--pequeno" id="cadastro-importar-lote" type="button">Importar linhas</button></div>
+              </details>
+            </div>
+          </article>
+        </div>
+
+        <aside class="cadastro-lateral">
+          <article class="cadastro-resumo">
+            <h3>Revisão automática</h3>
+            <p>O painel bloqueia o cadastro quando encontra duplicidade ou informação obrigatória ausente.</p>
+            <div class="cadastro-resumo__produto"><strong id="cadastro-resumo-nome">Novo produto</strong><span id="cadastro-resumo-pasta">assets/fotos/...</span></div>
+            <div class="cadastro-resumo__linhas">
+              <div class="cadastro-resumo__linha"><span>Preço</span><strong id="cadastro-resumo-preco">—</strong></div>
+              <div class="cadastro-resumo__linha"><span>Cores</span><strong id="cadastro-resumo-cores">1</strong></div>
+              <div class="cadastro-resumo__linha"><span>Fotos selecionadas</span><strong id="cadastro-resumo-fotos">0</strong></div>
+              <div class="cadastro-resumo__linha"><span>Integração Olist</span><strong id="cadastro-resumo-olist">Incompleta</strong></div>
+              <div class="cadastro-resumo__linha"><span>Publicação inicial</span><strong id="cadastro-resumo-pausa">Pausado</strong></div>
+            </div>
+            <div class="cadastro-status" id="cadastro-validacao"></div>
+            <div class="cadastro-resumo__acoes">
+              <button class="botao botao--primario" id="cadastro-preparar" type="button" disabled>Preparar cadastro</button>
+              <button class="botao botao--cinza" id="cadastro-limpar" type="button">Limpar formulário</button>
+            </div>
+            <div class="cadastro-rascunho" id="cadastro-rascunho-status">Rascunho salvo automaticamente neste navegador.</div>
+          </article>
+
+          <article class="cartao">
+            <div class="cartao__cabecalho"><div><strong>O que será criado</strong><span>Sem editar arquivos manualmente</span></div></div>
+            <div class="cartao__corpo">
+              <div class="passos">
+                <div class="passo"><b>1</b><span>Produto em <strong>produtos-base.json</strong>.</span></div>
+                <div class="passo"><b>2</b><span>Pré-cadastro público em <strong>produtos.json</strong>.</span></div>
+                <div class="passo"><b>3</b><span>IDs em <strong>mapeamento-olist.json</strong>.</span></div>
+                <div class="passo"><b>4</b><span>Fotos WebP com pasta e nome corretos.</span></div>
+              </div>
+            </div>
+          </article>
+        </aside>
+      </div>
+      <input id="cadastro-seletor-fotos" type="file" accept="image/jpeg,image/png,image/webp,image/avif" multiple hidden>
+    </section>
+
     <section class="painel" data-painel="alteracoes">
       <div class="grade-2">
         <article class="cartao">
@@ -1056,7 +1295,7 @@
     <section class="painel" data-painel="ajuda">
       <div class="ajuda-grid">
         <article class="ajuda-item"><b>1</b><strong>Antes de começar</strong><p>Abra o GitHub Desktop, clique em Fetch origin e faça Pull quando aparecer.</p></article>
-        <article class="ajuda-item"><b>2</b><strong>No painel</strong><p>Pause ou reative, confira a aba Alterações e clique em Salvar alterações.</p></article>
+        <article class="ajuda-item"><b>2</b><strong>No painel</strong><p>Cadastre, altere preços/fotos ou pause itens; depois confira a aba Alterações e clique em Salvar alterações.</p></article>
         <article class="ajuda-item"><b>3</b><strong>Para publicar</strong><p>Faça Commit, Push origin e aguarde a Action Publicar catálogo ficar verde.</p></article>
       </div>
 
@@ -1121,7 +1360,7 @@
       <div class="modal__topo"><div class="modal__icone">✓</div><button class="modal__fechar" data-fechar-modal="modal-salvo" type="button">×</button></div>
       <h2>Alterações salvas com segurança</h2>
       <p>Os arquivos locais foram atualizados. Preços, fotos e pausas continuam aguardando Commit e Push para chegar ao site.</p>
-      <div class="passos"><div class="passo"><b>1</b><span>Abra o <strong>GitHub Desktop</strong>.</span></div><div class="passo"><b>2</b><span>Confira os arquivos alterados em <strong>dados</strong>, <strong>assets/fotos</strong> e <strong>ferramentas-local</strong>.</span></div><div class="passo"><b>3</b><span>Faça o Commit e depois clique em <strong>Push origin</strong>.</span></div><div class="passo"><b>4</b><span>Aguarde <strong>Publicar catálogo</strong> ficar verde.</span></div></div>
+      <div class="passos"><div class="passo"><b>1</b><span>Abra o <strong>GitHub Desktop</strong>.</span></div><div class="passo"><b>2</b><span>Confira os arquivos alterados em <strong>dados</strong>, <strong>automacao/mapeamento-olist.json</strong> e <strong>assets/fotos</strong>.</span></div><div class="passo"><b>3</b><span>Faça o Commit e depois clique em <strong>Push origin</strong>.</span></div><div class="passo"><b>4</b><span>Cadastros novos também executam <strong>Sincronizar estoque Olist</strong>; aguarde as Actions ficarem verdes.</span></div></div>
       <div class="codigo-bloco"><div class="codigo-bloco__topo"><strong>SUMMARY SUGERIDO</strong><button class="botao botao--claro botao--pequeno" id="copiar-summary" type="button">Copiar</button></div><code id="summary-sugerido">Atualiza disponibilidade manual do catálogo</code></div>
       <div class="codigo-bloco"><div class="codigo-bloco__topo"><strong>DESCRIÇÃO OPCIONAL</strong><button class="botao botao--claro botao--pequeno" id="copiar-descricao" type="button">Copiar</button></div><code id="descricao-sugerida">Atualiza produtos e cores pausados pelo Painel 3ZK.</code></div>
       <div class="modal__acoes"><a class="botao botao--claro" href="https://github.com/lucasonofre678-lang/catalogo-3zk/actions" target="_blank" rel="noopener">Abrir Actions</a><button class="botao botao--primario" data-fechar-modal="modal-salvo" type="button">Entendi</button></div>
@@ -2461,23 +2700,95 @@
     }
 
     async function converterImagemWebp3ZK(arquivo) {
-      if (!arquivo || arquivo.size <= 0) throw new Error("Arquivo de imagem vazio.");
-      if (arquivo.size > 25 * 1024 * 1024) throw new Error(`${arquivo.name}: arquivo maior que 25 MB.`);
-      let bitmap;
-      try { bitmap = await createImageBitmap(arquivo, { imageOrientation: "from-image" }); }
-      catch { bitmap = await createImageBitmap(arquivo); }
+      if (!arquivo || arquivo.size <= 0) {
+        throw new Error("Arquivo de imagem vazio.");
+      }
+
+      if (arquivo.size > 25 * 1024 * 1024) {
+        throw new Error(`${arquivo.name}: arquivo maior que 25 MB.`);
+      }
+
+      const desenharNoCanvas = async () => {
+        if (typeof createImageBitmap === "function") {
+          try {
+            return await createImageBitmap(
+              arquivo,
+              { imageOrientation: "from-image" }
+            );
+          } catch {
+            try {
+              return await createImageBitmap(arquivo);
+            } catch {}
+          }
+        }
+
+        const url = URL.createObjectURL(arquivo);
+
+        try {
+          const imagem = await new Promise((resolve, reject) => {
+            const elemento = new Image();
+            elemento.onload = () => resolve(elemento);
+            elemento.onerror = () => reject(
+              new Error(`${arquivo.name}: formato de imagem não reconhecido.`)
+            );
+            elemento.src = url;
+          });
+
+          return imagem;
+        } finally {
+          URL.revokeObjectURL(url);
+        }
+      };
+
+      const imagem = await desenharNoCanvas();
+      const larguraOriginal =
+        imagem.width || imagem.naturalWidth || 0;
+      const alturaOriginal =
+        imagem.height || imagem.naturalHeight || 0;
+
+      if (!larguraOriginal || !alturaOriginal) {
+        imagem.close?.();
+        throw new Error(`${arquivo.name}: dimensões inválidas.`);
+      }
+
       const maximo = 1800;
-      const escala = Math.min(1, maximo / Math.max(bitmap.width, bitmap.height));
-      const largura = Math.max(1, Math.round(bitmap.width * escala));
-      const altura = Math.max(1, Math.round(bitmap.height * escala));
+      const escala = Math.min(
+        1,
+        maximo / Math.max(larguraOriginal, alturaOriginal)
+      );
+      const largura = Math.max(
+        1,
+        Math.round(larguraOriginal * escala)
+      );
+      const altura = Math.max(
+        1,
+        Math.round(alturaOriginal * escala)
+      );
+
       const canvas = document.createElement("canvas");
       canvas.width = largura;
       canvas.height = altura;
+
       const contexto = canvas.getContext("2d", { alpha: true });
-      contexto.drawImage(bitmap, 0, 0, largura, altura);
-      bitmap.close?.();
-      const blob = await new Promise((resolve) => canvas.toBlob(resolve, "image/webp", .88));
-      if (!blob) throw new Error(`${arquivo.name}: não foi possível converter para WebP.`);
+
+      if (!contexto) {
+        imagem.close?.();
+        throw new Error("O navegador não conseguiu preparar a imagem.");
+      }
+
+      contexto.drawImage(imagem, 0, 0, largura, altura);
+      imagem.close?.();
+
+      const blob = await new Promise((resolve) => {
+        canvas.toBlob(resolve, "image/webp", .88);
+      });
+
+      if (!blob) {
+        throw new Error(
+          `${arquivo.name}: não foi possível converter para WebP.`
+        );
+      }
+
       return blob;
     }
 
@@ -2736,6 +3047,823 @@
       }
     }
 
+
+    /* ============================================================
+       PAINEL 3ZK 4.0 — CADASTRO GUIADO
+       ============================================================ */
+    const CHAVE_RASCUNHO_CADASTRO_3ZK = "3zk-painel-cadastro-v4";
+    const diferencasBase4ZK = diferencas;
+    const atualizarTudoAntesCadastro4ZK = atualizarTudo;
+    const carregarDaPastaAntesCadastro4ZK = carregarDaPasta;
+    const carregarPreviewAntesCadastro4ZK = carregarPreview;
+
+    Object.assign(estado, {
+      mapeamentoHandle: null,
+      mapeamentoOriginalRaw: { versao: 1, descricao: "", total: 0, itens: [] },
+      mapeamentoAtualRaw: { versao: 1, descricao: "", total: 0, itens: [] },
+      cadastro: null,
+      cadastroFotoAlvo: null,
+      cadastroUrls: new Map()
+    });
+
+    const refsCadastro = {
+      painel: $("[data-painel='cadastro']"),
+      existenteArea: $("#cadastro-existente-area"),
+      existente: $("#cadastro-produto-existente"),
+      dadosNovo: $("#cadastro-dados-novo"),
+      variantes: $("#cadastro-variantes"),
+      seletorFotos: $("#cadastro-seletor-fotos"),
+      validar: $("#cadastro-validacao"),
+      preparar: $("#cadastro-preparar")
+    };
+
+    function uuidCadastro3ZK() {
+      if (crypto?.randomUUID) return crypto.randomUUID();
+      return `v-${Date.now()}-${Math.random().toString(36).slice(2, 10)}`;
+    }
+
+    function novaVarianteCadastro3ZK(dados = {}) {
+      return {
+        tempId: dados.tempId || uuidCadastro3ZK(),
+        nome: String(dados.nome || ""),
+        hex: /^#[0-9a-f]{6}$/i.test(String(dados.hex || "")) ? String(dados.hex).toUpperCase() : "#D9DFE8",
+        efeito: ["", "silk", "glass", "fosco", "glow"].includes(dados.efeito) ? dados.efeito : "",
+        olistId: String(dados.olistId || ""),
+        sku: String(dados.sku || ""),
+        gtin: String(dados.gtin || ""),
+        descricaoOlist: String(dados.descricaoOlist || ""),
+        arquivos: []
+      };
+    }
+
+    function cadastroVazio3ZK() {
+      return {
+        modo: "novo",
+        produtoExistenteId: "",
+        marca: "",
+        material: "",
+        linha: "",
+        preco: "",
+        linkLoja: "https://3zkfilamentos.com.br/",
+        obs: "Rolo de 1kg",
+        pausado: true,
+        variantes: [novaVarianteCadastro3ZK()]
+      };
+    }
+
+    function serializarCadastro3ZK() {
+      const cadastro = estado.cadastro || cadastroVazio3ZK();
+      return {
+        ...cadastro,
+        variantes: cadastro.variantes.map(({ arquivos, ...resto }) => resto)
+      };
+    }
+
+    function salvarRascunhoCadastro3ZK() {
+      try {
+        localStorage.setItem(CHAVE_RASCUNHO_CADASTRO_3ZK, JSON.stringify(serializarCadastro3ZK()));
+        const status = $("#cadastro-rascunho-status");
+        if (status) status.textContent = `Rascunho salvo às ${new Date().toLocaleTimeString("pt-BR", { hour: "2-digit", minute: "2-digit" })}. Fotos ficam somente até esta aba ser fechada.`;
+      } catch {}
+    }
+
+    function carregarRascunhoCadastro3ZK() {
+      try {
+        const salvo = JSON.parse(localStorage.getItem(CHAVE_RASCUNHO_CADASTRO_3ZK) || "null");
+        if (!salvo || typeof salvo !== "object") return cadastroVazio3ZK();
+        return {
+          ...cadastroVazio3ZK(),
+          ...salvo,
+          modo: salvo.modo === "cores" ? "cores" : "novo",
+          pausado: salvo.pausado !== false,
+          variantes: Array.isArray(salvo.variantes) && salvo.variantes.length ? salvo.variantes.map(novaVarianteCadastro3ZK) : [novaVarianteCadastro3ZK()]
+        };
+      } catch {
+        return cadastroVazio3ZK();
+      }
+    }
+
+    function limparUrlsCadastro3ZK() {
+      estado.cadastroUrls.forEach((url) => URL.revokeObjectURL(url));
+      estado.cadastroUrls.clear();
+    }
+
+    function urlArquivoCadastro3ZK(arquivo) {
+      if (!arquivo) return "";
+      if (!estado.cadastroUrls.has(arquivo)) estado.cadastroUrls.set(arquivo, URL.createObjectURL(arquivo));
+      return estado.cadastroUrls.get(arquivo);
+    }
+
+    function normalizarMapeamento4ZK(valor = {}) {
+      const itens = Array.isArray(valor?.itens) ? valor.itens.filter((item) => item && typeof item === "object").map((item) => ({ ...item })) : [];
+      return {
+        versao: Number(valor?.versao) || 1,
+        descricao: String(valor?.descricao || "Mapeamento entre as cores do catálogo 3ZK e os produtos da Olist."),
+        total: itens.length,
+        itens
+      };
+    }
+
+    function idProdutoCadastro3ZK(marca, material, linha = "") {
+      return [slugificar(marca), slugificar(material), slugificar(linha)].join("|");
+    }
+
+    function chaveCorCadastro3ZK(produtoId, nomeCor) {
+      return `${produtoId}|${slugificar(nomeCor)}`;
+    }
+
+    function nomeProdutoCadastro3ZK(produto) {
+      return [produto?.marca, produto?.material, produto?.linha].filter(Boolean).join(" ");
+    }
+
+    function pastaProdutoCadastro3ZK(produto) {
+      return `assets/fotos/${slugificar(nomeProdutoCadastro3ZK(produto))}`;
+    }
+
+    function produtoSelecionadoCadastro3ZK() {
+      if (estado.cadastro?.modo !== "cores") return null;
+      return produtoRawPorId(estado.baseAtualRaw, estado.cadastro.produtoExistenteId);
+    }
+
+    function contextoCadastro3ZK() {
+      if (estado.cadastro?.modo === "cores") return produtoSelecionadoCadastro3ZK();
+      const preco = precoEntrada3ZK(estado.cadastro?.preco);
+      return {
+        marca: String(estado.cadastro?.marca || "").trim(),
+        material: String(estado.cadastro?.material || "").trim(),
+        linha: String(estado.cadastro?.linha || "").trim(),
+        preco: preco || 0,
+        linkLoja: String(estado.cadastro?.linkLoja || "").trim(),
+        obs: String(estado.cadastro?.obs || "").trim()
+      };
+    }
+
+    function preencherProdutosExistentesCadastro3ZK() {
+      const atual = estado.cadastro?.produtoExistenteId || "";
+      const produtos = [...estado.produtos].sort((a, b) => a.nome.localeCompare(b.nome, "pt-BR"));
+      refsCadastro.existente.innerHTML = '<option value="">Selecione um produto...</option>' + produtos.map((produto) => `<option value="${escapar(produto.id)}">${escapar(produto.nome)} • ${produto.cores.length} cores</option>`).join("");
+      refsCadastro.existente.value = produtos.some((item) => item.id === atual) ? atual : "";
+      if (atual && !refsCadastro.existente.value) estado.cadastro.produtoExistenteId = "";
+    }
+
+    function renderizarModoCadastro3ZK() {
+      const modo = estado.cadastro?.modo || "novo";
+      $$('[data-cadastro-modo]').forEach((botao) => botao.classList.toggle('cadastro-modo--ativo', botao.dataset.cadastroModo === modo));
+      refsCadastro.existenteArea.hidden = modo !== "cores";
+      refsCadastro.dadosNovo.hidden = modo === "cores";
+      $("#cadastro-modo-badge").textContent = modo === "cores" ? "Novas cores" : "Novo produto";
+      $("#cadastro-modo-badge").classList.toggle("cadastro-badge--novo", modo === "novo");
+      preencherProdutosExistentesCadastro3ZK();
+    }
+
+    function campoEfeitoCadastro3ZK(valor, tempId) {
+      return `<select class="campo" data-variante-campo="efeito" data-variante-id="${escapar(tempId)}"><option value="" ${!valor ? "selected" : ""}>Normal</option><option value="silk" ${valor === "silk" ? "selected" : ""}>Silk / brilhante</option><option value="glass" ${valor === "glass" ? "selected" : ""}>Translúcido / glass</option><option value="fosco" ${valor === "fosco" ? "selected" : ""}>Fosco / matte</option><option value="glow" ${valor === "glow" ? "selected" : ""}>Fosforescente / glow</option></select>`;
+    }
+
+    function renderizarVariantesCadastro3ZK() {
+      const variantes = estado.cadastro?.variantes || [];
+      $("#cadastro-contagem-variantes").textContent = `${variantes.length} ${variantes.length === 1 ? "cor" : "cores"}`;
+      refsCadastro.variantes.innerHTML = variantes.map((variante, indice) => {
+        const chavePreview = chaveCorCadastro3ZK(idProdutoCadastro3ZK(contextoCadastro3ZK()?.marca || "marca", contextoCadastro3ZK()?.material || "material", contextoCadastro3ZK()?.linha || ""), variante.nome || `cor-${indice + 1}`);
+        return `<article class="variante-card" data-variante-card="${escapar(variante.tempId)}" style="--cor-variante:${escapar(variante.hex)}">
+          <div class="variante-card__topo">
+            <div class="variante-card__identidade"><div class="variante-card__amostra"></div><div><strong>Cor ${indice + 1}${variante.nome ? ` — ${escapar(variante.nome)}` : ""}</strong><span>${escapar(chavePreview)}</span></div></div>
+            <button class="botao botao--vermelho botao--pequeno" data-remover-variante="${escapar(variante.tempId)}" type="button" ${variantes.length === 1 ? "disabled" : ""}>Remover</button>
+          </div>
+          <div class="variante-grade">
+            <div class="cadastro-campo"><label>Nome da cor *</label><input class="campo" data-variante-campo="nome" data-variante-id="${escapar(variante.tempId)}" maxlength="100" value="${escapar(variante.nome)}" placeholder="Ex.: Preto Absoluto"></div>
+            <div class="cadastro-campo"><label>Cor visual *</label><div class="cadastro-cor-linha"><input type="color" data-variante-campo="hex-color" data-variante-id="${escapar(variante.tempId)}" value="${escapar(variante.hex)}"><input class="campo" data-variante-campo="hex" data-variante-id="${escapar(variante.tempId)}" maxlength="7" value="${escapar(variante.hex)}"></div></div>
+            <div class="cadastro-campo"><label>Efeito visual</label>${campoEfeitoCadastro3ZK(variante.efeito, variante.tempId)}</div>
+            <div class="cadastro-campo"><label>ID da Olist *</label><input class="campo" data-variante-campo="olistId" data-variante-id="${escapar(variante.tempId)}" inputmode="numeric" value="${escapar(variante.olistId)}" placeholder="Ex.: 1048182488"></div>
+            <div class="cadastro-campo"><label>SKU</label><input class="campo" data-variante-campo="sku" data-variante-id="${escapar(variante.tempId)}" maxlength="100" value="${escapar(variante.sku)}" placeholder="Opcional"></div>
+            <div class="cadastro-campo"><label>GTIN / EAN</label><input class="campo" data-variante-campo="gtin" data-variante-id="${escapar(variante.tempId)}" maxlength="30" value="${escapar(variante.gtin)}" placeholder="Opcional"></div>
+            <div class="cadastro-campo cadastro-campo--descricao"><label>Descrição na Olist</label><input class="campo" data-variante-campo="descricaoOlist" data-variante-id="${escapar(variante.tempId)}" maxlength="220" value="${escapar(variante.descricaoOlist)}" placeholder="Opcional, ajuda a identificar nos relatórios"></div>
+          </div>
+          <div class="variante-fotos">
+            <button class="botao botao--claro botao--pequeno" data-fotos-variante="${escapar(variante.tempId)}" type="button">+ Selecionar fotos</button>
+            ${variante.arquivos.length ? variante.arquivos.map((arquivo, fotoIndice) => `<div class="variante-foto"><img src="${escapar(urlArquivoCadastro3ZK(arquivo))}" alt=""><button data-remover-foto-variante="${escapar(variante.tempId)}:${fotoIndice}" type="button" aria-label="Remover foto">×</button></div>`).join("") : '<span class="variante-fotos__vazio">Sem foto por enquanto. Você poderá adicionar depois na aba Preços e fotos.</span>'}
+          </div>
+        </article>`;
+      }).join("");
+    }
+
+    function validarCadastro3ZK() {
+      const erros = [];
+      const avisos = [];
+      const cadastro = estado.cadastro || cadastroVazio3ZK();
+      const produto = contextoCadastro3ZK();
+      let produtoId = "";
+
+      if (cadastro.modo === "cores") {
+        if (!produto) erros.push("Selecione o produto que receberá as novas cores.");
+        else produtoId = obterIdProduto(produto);
+      } else {
+        if (!produto.marca) erros.push("Informe a marca do produto.");
+        if (!produto.material) erros.push("Informe o material.");
+        if (!(produto.preco > 0)) erros.push("Informe um preço de venda maior que zero.");
+        if (produto.linkLoja && !/^https?:\/\//i.test(produto.linkLoja)) erros.push("O link da loja precisa começar com http:// ou https://.");
+        produtoId = idProdutoCadastro3ZK(produto.marca, produto.material, produto.linha);
+        if (!produtoId.replace(/\|/g, "")) erros.push("Marca, material ou linha não geraram uma identificação válida.");
+        if (produtoRawPorId(estado.baseAtualRaw, produtoId)) erros.push("Já existe um produto com essa marca, material e linha. Use o modo Adicionar cores.");
+      }
+
+      if (!Array.isArray(cadastro.variantes) || !cadastro.variantes.length) erros.push("Adicione pelo menos uma cor.");
+      const chavesNovas = [];
+      const idsNovos = [];
+      const nomesSlugs = [];
+      const mapeamentoItens = estado.mapeamentoAtualRaw?.itens || [];
+      const idsExistentes = new Set(mapeamentoItens.map((item) => Number(item.olistId)).filter(Number.isFinite));
+      const chavesExistentes = new Set(mapeamentoItens.map((item) => String(item.chave || "")));
+      const produtoExistente = produtoId ? produtoRawPorId(estado.baseAtualRaw, produtoId) : null;
+      const coresExistentes = new Set((produtoExistente?.cores || []).map((cor) => slugificar(cor.nome)));
+
+      cadastro.variantes.forEach((variante, indice) => {
+        const numero = indice + 1;
+        const nome = String(variante.nome || "").trim();
+        const slug = slugificar(nome);
+        const olistId = Number(String(variante.olistId || "").trim());
+        if (!nome) erros.push(`Cor ${numero}: informe o nome.`);
+        if (nome && !slug) erros.push(`Cor ${numero}: o nome não gerou uma identificação válida.`);
+        if (!/^#[0-9A-F]{6}$/i.test(variante.hex)) erros.push(`Cor ${numero}: use uma cor hexadecimal no formato #RRGGBB.`);
+        if (!Number.isInteger(olistId) || olistId <= 0) erros.push(`Cor ${numero}: informe um ID válido da Olist.`);
+        const chave = produtoId && slug ? `${produtoId}|${slug}` : "";
+        if (chave && chavesExistentes.has(chave)) erros.push(`Cor ${numero}: a chave ${chave} já está cadastrada.`);
+        if (slug && coresExistentes.has(slug)) erros.push(`Cor ${numero}: ${nome} já existe nesse produto.`);
+        if (slug && nomesSlugs.includes(slug)) erros.push(`Cor ${numero}: existe outra cor com o mesmo nome neste formulário.`);
+        if (Number.isInteger(olistId) && idsExistentes.has(olistId)) erros.push(`Cor ${numero}: o ID Olist ${olistId} já está ligado a outra cor.`);
+        if (Number.isInteger(olistId) && idsNovos.includes(olistId)) erros.push(`Cor ${numero}: o ID Olist ${olistId} foi repetido no formulário.`);
+        if (chave) chavesNovas.push(chave);
+        if (slug) nomesSlugs.push(slug);
+        if (Number.isInteger(olistId)) idsNovos.push(olistId);
+      });
+
+      const skus = cadastro.variantes.map((item) => String(item.sku || "").trim()).filter(Boolean);
+      const gtins = cadastro.variantes.map((item) => String(item.gtin || "").trim()).filter(Boolean);
+      if (new Set(skus).size !== skus.length) avisos.push("Existem SKUs repetidos entre as novas cores.");
+      if (new Set(gtins).size !== gtins.length) avisos.push("Existem GTINs repetidos entre as novas cores.");
+      if (!cadastro.variantes.some((item) => item.arquivos.length)) avisos.push("Nenhuma foto foi selecionada. O produto poderá ser cadastrado, mas aparecerá com a amostra visual até receber fotos.");
+      if (!estado.mapeamentoHandle && estado.modo === "arquivo") erros.push("O arquivo automacao/mapeamento-olist.json não foi conectado.");
+      if (cadastro.pausado) avisos.push("O produto ficará pausado até ser reativado manualmente no painel.");
+
+      return { erros: [...new Set(erros)], avisos: [...new Set(avisos)], produto, produtoId, chavesNovas };
+    }
+
+    function atualizarResumoCadastro3ZK() {
+      const resultado = validarCadastro3ZK();
+      const produto = resultado.produto || {};
+      const cadastro = estado.cadastro || cadastroVazio3ZK();
+      const nome = nomeProdutoCadastro3ZK(produto) || (cadastro.modo === "cores" ? "Selecione um produto" : "Novo produto");
+      const fotos = cadastro.variantes.reduce((total, item) => total + item.arquivos.length, 0);
+      $("#cadastro-resumo-nome").textContent = nome;
+      $("#cadastro-resumo-pasta").textContent = nomeProdutoCadastro3ZK(produto) ? `${pastaProdutoCadastro3ZK(produto)}/` : "assets/fotos/...";
+      $("#cadastro-resumo-preco").textContent = Number(produto.preco) > 0 ? formatarPreco(produto.preco) : "—";
+      $("#cadastro-resumo-cores").textContent = cadastro.variantes.length;
+      $("#cadastro-resumo-fotos").textContent = fotos;
+      $("#cadastro-resumo-olist").textContent = resultado.erros.some((item) => item.includes("Olist")) ? "Incompleta" : `${cadastro.variantes.length}/${cadastro.variantes.length} IDs`;
+      $("#cadastro-resumo-pausa").textContent = cadastro.pausado ? "Pausado" : "Automática após estoque";
+      refsCadastro.validar.innerHTML = [
+        ...resultado.erros.map((texto) => `<div class="cadastro-status__item cadastro-status__item--erro"><b>!</b><span>${escapar(texto)}</span></div>`),
+        ...resultado.avisos.map((texto) => `<div class="cadastro-status__item cadastro-status__item--aviso"><b>i</b><span>${escapar(texto)}</span></div>`),
+        ...(!resultado.erros.length ? [`<div class="cadastro-status__item cadastro-status__item--ok"><b>✓</b><span>Cadastro válido. O painel gerará ${cadastro.variantes.length} chave${cadastro.variantes.length === 1 ? "" : "s"} e atualizará o mapeamento da Olist.</span></div>`] : [])
+      ].join("");
+      refsCadastro.preparar.disabled = resultado.erros.length > 0 || estado.modo !== "arquivo";
+    }
+
+    function renderizarCadastro3ZK() {
+      if (!estado.cadastro) estado.cadastro = carregarRascunhoCadastro3ZK();
+      renderizarModoCadastro3ZK();
+      const cadastro = estado.cadastro;
+      const campos = {
+        marca: cadastro.marca,
+        material: cadastro.material,
+        linha: cadastro.linha,
+        preco: cadastro.preco,
+        linkLoja: cadastro.linkLoja,
+        obs: cadastro.obs
+      };
+      Object.entries(campos).forEach(([chave, valor]) => {
+        const campo = $(`[data-cadastro-campo='${chave}']`);
+        if (campo && campo.value !== String(valor || "")) campo.value = valor || "";
+      });
+      $("#cadastro-pausado").checked = cadastro.pausado !== false;
+      renderizarVariantesCadastro3ZK();
+      atualizarResumoCadastro3ZK();
+      $("#contador-cadastro").textContent = diferencasCadastro4ZK().length;
+    }
+
+    function parsearLoteCadastro3ZK(texto) {
+      const linhas = String(texto || "").split(/\r?\n/).map((linha) => linha.trim()).filter(Boolean);
+      if (!linhas.length) return [];
+      const primeira = normalizar(linhas[0]);
+      const comCabecalho = primeira.includes("olist") && primeira.includes("cor");
+      return linhas.slice(comCabecalho ? 1 : 0).map((linha) => {
+        const separador = linha.includes("\t") ? "\t" : ";";
+        const colunas = linha.split(separador).map((item) => item.trim());
+        return novaVarianteCadastro3ZK({
+          nome: colunas[0] || "",
+          olistId: colunas[1] || "",
+          sku: colunas[2] || "",
+          gtin: colunas[3] || "",
+          hex: colunas[4] || "#D9DFE8",
+          efeito: normalizar(colunas[5] || "").includes("silk") ? "silk" : normalizar(colunas[5] || "").includes("trans") ? "glass" : normalizar(colunas[5] || "").includes("fos") || normalizar(colunas[5] || "").includes("matte") ? "fosco" : normalizar(colunas[5] || "").includes("glow") || normalizar(colunas[5] || "").includes("fosfo") ? "glow" : "",
+          descricaoOlist: colunas.slice(6).join(separador).trim()
+        });
+      });
+    }
+
+    async function caminhoLivreCadastro3ZK(produto, cor, indiceFoto, reservados) {
+      const pasta = slugificar(nomeProdutoCadastro3ZK(produto));
+      const base = slugificar(cor.nome) || "foto";
+      for (let indice = Math.max(1, indiceFoto); indice <= 999; indice += 1) {
+        const nome = indice === 1 ? `${base}.webp` : `${base}-${indice}.webp`;
+        const caminho = `assets/fotos/${pasta}/${nome}`;
+        if (!reservados.has(caminho) && !(await caminhoExiste3ZK(caminho))) return caminho;
+      }
+      throw new Error(`Não foi possível gerar um nome livre para as fotos de ${cor.nome}.`);
+    }
+
+    function corBaseCadastro3ZK(variante, chave, imagens) {
+      const cor = {
+        nome: String(variante.nome).trim(),
+        hex: String(variante.hex).toUpperCase(),
+        hexFonte: imagens.length ? "foto" : "manual",
+        fotoStatus: imagens.length ? "confirmada" : "ausente",
+        imagens: [...imagens],
+        chaveEstoque: chave
+      };
+      if (variante.efeito) cor.efeito = variante.efeito;
+      return cor;
+    }
+
+    function corPublicaCadastro3ZK(corBase) {
+      const publica = clonar3ZK(corBase);
+      const chave = publica.chaveEstoque;
+      delete publica.chaveEstoque;
+      publica.idCatalogo = chave;
+      publica.statusEstoque = "sem_estoque";
+      publica.disponivel = false;
+      return publica;
+    }
+
+    function itemMapeamentoCadastro3ZK(produto, variante, chave) {
+      return {
+        chave,
+        marca: produto.marca,
+        material: produto.material,
+        linha: produto.linha || "",
+        cor: String(variante.nome).trim(),
+        olistId: Number(variante.olistId),
+        sku: String(variante.sku || "").trim() || null,
+        gtin: String(variante.gtin || "").trim() || null,
+        descricaoOlist: String(variante.descricaoOlist || "").trim() || `${nomeProdutoCadastro3ZK(produto)} - ${String(variante.nome).trim()}`
+      };
+    }
+
+    async function prepararCadastro3ZK() {
+      const validacao = validarCadastro3ZK();
+      if (validacao.erros.length) {
+        atualizarResumoCadastro3ZK();
+        mostrarToast("Cadastro incompleto", validacao.erros[0]);
+        return;
+      }
+      if (!operadorAtual()) { abrirModalOperadorBase3ZK(prepararCadastro3ZK); return; }
+      refsCadastro.preparar.disabled = true;
+      refsCadastro.preparar.textContent = "Preparando...";
+      const cadastro = estado.cadastro;
+      const produto = clonar3ZK(validacao.produto);
+      const produtoId = validacao.produtoId;
+      const reservados = new Set();
+      const blobsTemporarios = new Map();
+      const coresBase = [];
+      const coresPublicas = [];
+      const mapeamentos = [];
+
+      try {
+        for (const variante of cadastro.variantes) {
+          const chave = chaveCorCadastro3ZK(produtoId, variante.nome);
+          const imagens = [];
+          let proximoIndice = 1;
+          for (const arquivo of variante.arquivos) {
+            const blob = await converterImagemWebp3ZK(arquivo);
+            const caminho = await caminhoLivreCadastro3ZK(produto, variante, proximoIndice, reservados);
+            reservados.add(caminho);
+            blobsTemporarios.set(caminho, blob);
+            imagens.push(caminho);
+            proximoIndice += 1;
+          }
+          const baseCor = corBaseCadastro3ZK(variante, chave, imagens);
+          coresBase.push(baseCor);
+          coresPublicas.push(corPublicaCadastro3ZK(baseCor));
+          mapeamentos.push(itemMapeamentoCadastro3ZK(produto, variante, chave));
+        }
+
+        blobsTemporarios.forEach((blob, caminho) => estado.arquivosFotosPendentes.set(caminho, blob));
+        if (cadastro.modo === "novo") {
+          const produtoBase = {
+            marca: produto.marca,
+            material: produto.material,
+            preco: produto.preco,
+            linkLoja: produto.linkLoja || "https://3zkfilamentos.com.br/",
+            cores: coresBase
+          };
+          if (produto.linha) produtoBase.linha = produto.linha;
+          if (produto.obs) produtoBase.obs = produto.obs;
+          const produtoPublico = clonar3ZK(produtoBase);
+          produtoPublico.cores = coresPublicas;
+          produtoPublico.idCatalogo = produtoId;
+          produtoPublico.disponivel = false;
+          estado.baseAtualRaw.push(produtoBase);
+          estado.publicoAtualRaw.push(produtoPublico);
+          if (cadastro.pausado) {
+            estado.produtosPausados.add(produtoId);
+            estado.detalhesProdutos[produtoId] = { motivo: "Cadastro novo aguardando revisão", observacao: `Cadastrado por ${operadorAtual()}` };
+          }
+        } else {
+          const baseAlvo = produtoRawPorId(estado.baseAtualRaw, produtoId);
+          const publicoAlvo = produtoRawPorId(estado.publicoAtualRaw, produtoId);
+          if (!baseAlvo || !publicoAlvo) throw new Error("O produto selecionado não foi encontrado nos dois arquivos do catálogo.");
+          baseAlvo.cores.push(...coresBase);
+          publicoAlvo.cores.push(...coresPublicas);
+          if (cadastro.pausado) {
+            coresBase.forEach((cor) => {
+              estado.coresPausadas.add(cor.chaveEstoque);
+              estado.detalhesCores[cor.chaveEstoque] = { motivo: "Cor nova aguardando revisão", observacao: `Cadastrada por ${operadorAtual()}` };
+            });
+          }
+        }
+
+        estado.mapeamentoAtualRaw.itens.push(...mapeamentos);
+        estado.mapeamentoAtualRaw.total = estado.mapeamentoAtualRaw.itens.length;
+        reconstruirProdutos3ZK();
+        limparFormularioCadastro3ZK(false);
+        abrirAba("alteracoes");
+        mostrarToast("Cadastro preparado", `${nomeProdutoCadastro3ZK(produto)} será criado após clicar em Salvar alterações.`);
+      } catch (erro) {
+        blobsTemporarios.forEach((_, caminho) => estado.arquivosFotosPendentes.delete(caminho));
+        mostrarToast("Não foi possível preparar o cadastro", erro.message);
+      } finally {
+        refsCadastro.preparar.textContent = "Preparar cadastro";
+        atualizarResumoCadastro3ZK();
+      }
+    }
+
+    function diferencasCadastro4ZK() {
+      const resultados = [];
+      const originais = new Map(estado.baseOriginalRaw.map((produto) => [obterIdProduto(produto), produto]));
+      estado.baseAtualRaw.forEach((produtoAtual) => {
+        const produtoId = obterIdProduto(produtoAtual);
+        const original = originais.get(produtoId);
+        const nome = nomeProdutoCadastro3ZK(produtoAtual);
+        if (!original) {
+          resultados.push({ tipo: "cadastro-produto", acao: "cadastrar", id: produtoId, produtoId, nome, quantidade: (produtoAtual.cores || []).length, chaves: (produtoAtual.cores || []).map((cor) => cor.chaveEstoque) });
+          return;
+        }
+        const chavesOriginais = new Set((original.cores || []).map((cor) => cor.chaveEstoque));
+        const novas = (produtoAtual.cores || []).filter((cor) => !chavesOriginais.has(cor.chaveEstoque));
+        if (novas.length) resultados.push({ tipo: "cadastro-cores", acao: "cadastrar", id: produtoId, produtoId, nome, quantidade: novas.length, chaves: novas.map((cor) => cor.chaveEstoque) });
+      });
+      return resultados;
+    }
+
+    diferencas = function() {
+      return [...diferencasBase4ZK(), ...diferencasCadastro4ZK()];
+    };
+
+    function validarIntegridadeCadastro4ZK() {
+      const chavesBase = [];
+      const produtosIds = [];
+      estado.baseAtualRaw.forEach((produto) => {
+        const produtoId = obterIdProduto(produto);
+        produtosIds.push(produtoId);
+        if (!Array.isArray(produto.cores) || !produto.cores.length) throw new Error(`${nomeProdutoCadastro3ZK(produto)} ficou sem cores.`);
+        produto.cores.forEach((cor) => {
+          if (!cor.chaveEstoque) throw new Error(`${nomeProdutoCadastro3ZK(produto)} — ${cor.nome} ficou sem chave de estoque.`);
+          chavesBase.push(String(cor.chaveEstoque));
+        });
+      });
+      if (new Set(produtosIds).size !== produtosIds.length) throw new Error("Existem produtos duplicados por marca, material e linha.");
+      if (new Set(chavesBase).size !== chavesBase.length) throw new Error("Existem chaves de estoque duplicadas no catálogo.");
+      const itens = estado.mapeamentoAtualRaw?.itens || [];
+      const chavesMapa = itens.map((item) => String(item.chave || "")).filter(Boolean);
+      if (new Set(chavesMapa).size !== chavesMapa.length) throw new Error("Existem chaves duplicadas no mapeamento da Olist.");
+      const ids = itens.map((item) => Number(item.olistId));
+      if (ids.some((id) => !Number.isInteger(id) || id <= 0)) throw new Error("Existe ID inválido no mapeamento da Olist.");
+      if (new Set(ids).size !== ids.length) throw new Error("O mesmo ID da Olist está ligado a mais de uma cor.");
+      const faltando = chavesBase.filter((chave) => !new Set(chavesMapa).has(chave));
+      const extras = chavesMapa.filter((chave) => !new Set(chavesBase).has(chave));
+      if (faltando.length) throw new Error(`Cores sem mapeamento Olist: ${faltando.slice(0, 3).join(", ")}${faltando.length > 3 ? "..." : ""}`);
+      if (extras.length) throw new Error(`Mapeamentos sem cor correspondente: ${extras.slice(0, 3).join(", ")}${extras.length > 3 ? "..." : ""}`);
+      estado.mapeamentoAtualRaw.total = itens.length;
+    }
+
+    function desfazerCadastro4ZK(produtoId) {
+      const original = produtoRawPorId(estado.baseOriginalRaw, produtoId);
+      const atual = produtoRawPorId(estado.baseAtualRaw, produtoId);
+      if (!atual) return;
+      let chavesRemover = [];
+      if (!original) {
+        chavesRemover = (atual.cores || []).map((cor) => cor.chaveEstoque);
+        estado.baseAtualRaw = estado.baseAtualRaw.filter((produto) => obterIdProduto(produto) !== produtoId);
+        estado.publicoAtualRaw = estado.publicoAtualRaw.filter((produto) => obterIdProduto(produto) !== produtoId);
+        estado.produtosPausados.delete(produtoId);
+        delete estado.detalhesProdutos[produtoId];
+      } else {
+        const chavesOriginais = new Set((original.cores || []).map((cor) => cor.chaveEstoque));
+        chavesRemover = (atual.cores || []).map((cor) => cor.chaveEstoque).filter((chave) => !chavesOriginais.has(chave));
+        atual.cores = atual.cores.filter((cor) => !chavesRemover.includes(cor.chaveEstoque));
+        const publico = produtoRawPorId(estado.publicoAtualRaw, produtoId);
+        if (publico) publico.cores = publico.cores.filter((cor) => !chavesRemover.includes(cor.idCatalogo));
+        chavesRemover.forEach((chave) => { estado.coresPausadas.delete(chave); delete estado.detalhesCores[chave]; });
+      }
+      estado.mapeamentoAtualRaw.itens = estado.mapeamentoAtualRaw.itens.filter((item) => !chavesRemover.includes(item.chave));
+      estado.mapeamentoAtualRaw.total = estado.mapeamentoAtualRaw.itens.length;
+      const caminhosRemover = [];
+      estado.baseAtualRaw.forEach((produto) => (produto.cores || []).forEach((cor) => imagensRaw(cor).forEach((caminho) => caminhosRemover.push(caminho))));
+      const usados = new Set(caminhosRemover);
+      [...estado.arquivosFotosPendentes.keys()].forEach((caminho) => { if (!usados.has(caminho)) estado.arquivosFotosPendentes.delete(caminho); });
+      reconstruirProdutos3ZK();
+      mostrarToast("Cadastro desfeito", "O produto ou as novas cores foram removidos das alterações pendentes.");
+    }
+
+    function limparFormularioCadastro3ZK(confirmar = true) {
+      if (confirmar && !window.confirm("Limpar o formulário de cadastro e o rascunho local?")) return;
+      limparUrlsCadastro3ZK();
+      estado.cadastro = cadastroVazio3ZK();
+      localStorage.removeItem(CHAVE_RASCUNHO_CADASTRO_3ZK);
+      renderizarCadastro3ZK();
+    }
+
+    function desfazerTudo4ZK() {
+      desfazerTudo3ZK();
+      estado.mapeamentoAtualRaw = clonar3ZK(estado.mapeamentoOriginalRaw);
+      limparFormularioCadastro3ZK(false);
+      reconstruirProdutos3ZK();
+    }
+
+    function gerarSummary4ZK(alteracoes = diferencas()) {
+      const cadastros = alteracoes.filter((item) => item.tipo === "cadastro-produto" || item.tipo === "cadastro-cores");
+      if (alteracoes.length === 1 && cadastros[0]?.tipo === "cadastro-produto") return `Cadastra ${cadastros[0].nome}`;
+      if (alteracoes.length === 1 && cadastros[0]?.tipo === "cadastro-cores") return `Adiciona ${cadastros[0].quantidade} cores em ${cadastros[0].nome}`;
+      if (cadastros.length && cadastros.length === alteracoes.length) return `Cadastra produtos e cores no catálogo`;
+      if (cadastros.length) return "Atualiza catálogo e cadastra novos produtos";
+      return gerarSummary3ZK(alteracoes);
+    }
+
+    function gerarDescricao4ZK(alteracoes = diferencas()) {
+      return alteracoes.map((item) => {
+        if (item.tipo === "cadastro-produto") return `- cadastra ${item.nome} com ${item.quantidade} cor${item.quantidade === 1 ? "" : "es"}`;
+        if (item.tipo === "cadastro-cores") return `- adiciona ${item.quantidade} cor${item.quantidade === 1 ? "" : "es"} em ${item.nome}`;
+        if (item.tipo === "preco") return `- altera preço de ${item.nome}: ${formatarPreco(item.antes)} → ${formatarPreco(item.depois)}`;
+        if (item.tipo === "foto") return `- atualiza fotos de ${item.nome}`;
+        return `- ${item.acao === "pausar" ? "pausa" : "reativa"} ${item.tipo}: ${item.nome}`;
+      }).join("\n");
+    }
+
+    renderizarAlteracoes = function() {
+      const alteracoes = diferencas();
+      const htmlAlteracoes = alteracoes.map((item) => {
+        if (item.tipo === "cadastro-produto" || item.tipo === "cadastro-cores") {
+          const texto = item.tipo === "cadastro-produto" ? `Cadastrar produto: ${escapar(item.nome)}` : `Adicionar cores: ${escapar(item.nome)}`;
+          return `<div class="alteracao alteracao--cadastro"><div class="alteracao__icone">+</div><div class="alteracao__texto"><strong>${texto}</strong><span>${item.quantidade} ${item.quantidade === 1 ? "cor" : "cores"} • mapeamento da Olist incluído</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-cadastro="${escapar(item.produtoId)}" type="button">Desfazer</button></div>`;
+        }
+        if (item.tipo === "preco") return `<div class="alteracao alteracao--preco"><div class="alteracao__icone">R$</div><div class="alteracao__texto"><strong>Alterar preço: ${escapar(item.nome)}</strong><span>${formatarPreco(item.antes)} → ${formatarPreco(item.depois)}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-comercial="preco:${encodeURIComponent(item.id)}" type="button">Desfazer</button></div>`;
+        if (item.tipo === "foto") {
+          const adicionadas = item.depois.filter((caminho) => !item.antes.includes(caminho)).length;
+          const removidas = item.antes.filter((caminho) => !item.depois.includes(caminho)).length;
+          return `<div class="alteracao alteracao--foto"><div class="alteracao__icone">▧</div><div class="alteracao__texto"><strong>Atualizar fotos: ${escapar(item.nome)}</strong><span>${adicionadas ? `+${adicionadas} adicionada${adicionadas === 1 ? "" : "s"}` : ""}${adicionadas && removidas ? " • " : ""}${removidas ? `-${removidas} removida${removidas === 1 ? "" : "s"}` : ""}${!adicionadas && !removidas ? "ordem alterada" : ""}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-comercial="foto:${encodeURIComponent(item.id)}" type="button">Desfazer</button></div>`;
+        }
+        return `<div class="alteracao alteracao--${item.acao}"><div class="alteracao__icone">${item.acao === "pausar" ? "Ⅱ" : "✓"}</div><div class="alteracao__texto"><strong>${item.acao === "pausar" ? "Pausar" : "Reativar"} ${item.tipo === "produto" ? "produto" : "cor"}: ${escapar(item.nome)}</strong><span>${item.motivo ? escapar(item.motivo) : "Sem motivo informado"}${item.observacao ? ` • ${escapar(item.observacao)}` : ""}</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-item="${escapar(sessaoChave(item.tipo, item.id))}" type="button">Desfazer</button></div>`;
+      }).join("");
+      $("#lista-alteracoes").innerHTML = htmlAlteracoes;
+      $("#drawer-alteracoes").innerHTML = htmlAlteracoes || '<div class="vazio"><strong>Nenhuma alteração pendente</strong><span>Feche este resumo e faça uma alteração no catálogo.</span></div>';
+      $("#alteracoes-vazio").hidden = alteracoes.length > 0;
+      $("#contador-alteracoes").textContent = alteracoes.length;
+      $("#contador-comercial").textContent = diferencasComerciais3ZK().length;
+      $("#contador-cadastro").textContent = diferencasCadastro4ZK().length;
+      $("#status-pendentes").textContent = alteracoes.length;
+      $("#status-pendentes").className = alteracoes.length ? "aviso" : "ok";
+    };
+
+    atualizarBarraSalvar = function() {
+      const alteracoes = diferencas();
+      const mudou = alteracoes.length > 0;
+      const comercial = diferencasComerciais3ZK().length > 0;
+      const cadastro = diferencasCadastro4ZK().length > 0;
+      const pausas = diferencasPausa3ZK().length > 0;
+      const possuiHandles = (!(comercial || cadastro) || (estado.baseHandle && estado.publicoHandle)) && (!cadastro || estado.mapeamentoHandle) && (!pausas || estado.controleHandle);
+      refs.salvar.disabled = !mudou || estado.modo !== "arquivo" || !possuiHandles;
+      refs.desfazer.disabled = !mudou;
+      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
+      $("#estado-alteracoes-detalhe").textContent = mudou ? "Cadastros, preços, fotos e pausas só chegam ao site depois de Salvar, Commit e Push." : "As mudanças só chegam ao site depois do Commit e Push.";
+    };
+
+    atualizarTudo = function() {
+      atualizarTudoAntesCadastro4ZK();
+      preencherProdutosExistentesCadastro3ZK();
+      atualizarResumoCadastro3ZK();
+      $("#contador-cadastro").textContent = diferencasCadastro4ZK().length;
+    };
+
+    carregarDaPasta = async function(pasta) {
+      await carregarDaPastaAntesCadastro4ZK(pasta);
+      const automacao = await pasta.getDirectoryHandle("automacao");
+      const handle = await automacao.getFileHandle("mapeamento-olist.json");
+      const mapeamento = normalizarMapeamento4ZK(await lerJsonHandle(handle));
+      estado.mapeamentoHandle = handle;
+      estado.mapeamentoOriginalRaw = clonar3ZK(mapeamento);
+      estado.mapeamentoAtualRaw = clonar3ZK(mapeamento);
+      renderizarCadastro3ZK();
+      mostrarToast("Cadastro completo disponível", `${mapeamento.itens.length} vínculos da Olist carregados.`);
+    };
+
+    carregarPreview = async function() {
+      await carregarPreviewAntesCadastro4ZK();
+      try {
+        const resposta = await fetch("../automacao/mapeamento-olist.json", { cache: "no-store" });
+        if (resposta.ok) {
+          const mapeamento = normalizarMapeamento4ZK(await resposta.json());
+          estado.mapeamentoOriginalRaw = clonar3ZK(mapeamento);
+          estado.mapeamentoAtualRaw = clonar3ZK(mapeamento);
+        }
+      } catch {}
+      renderizarCadastro3ZK();
+    };
+
+    async function salvarTudo4ZK() {
+      if (estado.modo !== "arquivo" || !estado.pastaHandle) {
+        mostrarToast("Modo somente leitura", "Selecione a pasta principal do catálogo.");
+        return;
+      }
+      const alteracoes = diferencas();
+      if (!alteracoes.length) return;
+      if (!operadorAtual()) { abrirModalOperadorBase3ZK(salvarTudo4ZK); return; }
+      const comerciais = diferencasComerciais3ZK();
+      const cadastros = diferencasCadastro4ZK();
+      const pausas = diferencasPausa3ZK();
+      const catalogoMudou = comerciais.length || cadastros.length;
+      const invalidos = estado.baseAtualRaw.filter((produto) => !(Number(produto.preco) > 0));
+      if (invalidos.length) {
+        mostrarToast("Existem preços inválidos", `${invalidos.length} produto(s) precisam ter preço maior que zero.`);
+        abrirAba("comercial");
+        return;
+      }
+
+      refs.salvar.disabled = true;
+      refs.salvar.textContent = "Validando...";
+      try {
+        validarIntegridadeCadastro4ZK();
+        if (catalogoMudou) {
+          const baseDisco = await lerJsonHandle(estado.baseHandle);
+          const publicoDisco = await lerJsonHandle(estado.publicoHandle);
+          if (assinatura3ZK(baseDisco) !== assinatura3ZK(estado.baseOriginalRaw) || assinatura3ZK(publicoDisco) !== assinatura3ZK(estado.publicoOriginalRaw)) throw new Error("Os arquivos de produtos mudaram depois que o painel foi aberto. Faça Fetch/Pull, recarregue o painel e tente novamente.");
+        }
+        if (cadastros.length) {
+          const mapaDisco = normalizarMapeamento4ZK(await lerJsonHandle(estado.mapeamentoHandle));
+          if (assinatura3ZK(mapaDisco) !== assinatura3ZK(estado.mapeamentoOriginalRaw)) throw new Error("O mapeamento da Olist mudou depois que o painel foi aberto. Faça Fetch/Pull e recarregue o painel.");
+        }
+        if (pausas.length) {
+          const controleDisco = normalizarControle(await lerJsonHandle(estado.controleHandle, {}));
+          const assinarControle = (item) => assinatura3ZK({ atualizadoEm: item.atualizadoEm, produtos: [...item.produtosPausados].sort(), cores: [...item.coresPausadas].sort() });
+          if (assinarControle(controleDisco) !== assinarControle(estado.controleOriginal)) throw new Error("O controle de pausas mudou depois que o painel foi aberto. Recarregue os arquivos para evitar conflito.");
+        }
+
+        refs.salvar.textContent = "Salvando...";
+        for (const [caminho, blob] of estado.arquivosFotosPendentes.entries()) await escreverBlob3ZK(caminho, blob);
+        if (catalogoMudou) {
+          await escreverJson3ZK(estado.baseHandle, estado.baseAtualRaw);
+          await escreverJson3ZK(estado.publicoHandle, estado.publicoAtualRaw);
+        }
+        if (cadastros.length) await escreverJson3ZK(estado.mapeamentoHandle, normalizarMapeamento4ZK(estado.mapeamentoAtualRaw));
+        if (pausas.length) {
+          guardarBackup(estado.controleOriginal);
+          const controle = controleAtual();
+          await escreverJson3ZK(estado.controleHandle, controle);
+          estado.controleOriginal = clonar3ZK(normalizarControle(controle));
+        }
+
+        estado.baseOriginalRaw = clonar3ZK(estado.baseAtualRaw);
+        estado.publicoOriginalRaw = clonar3ZK(estado.publicoAtualRaw);
+        estado.mapeamentoOriginalRaw = clonar3ZK(normalizarMapeamento4ZK(estado.mapeamentoAtualRaw));
+        estado.historico = [...estado.historico, ...alteracoes.map((item) => ({
+          id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
+          data: new Date().toISOString(), operador: operadorAtual() || "Não identificado", acao: item.acao, tipo: item.tipo, itemId: item.id, nome: item.nome,
+          motivo: item.motivo || "", observacao: item.observacao || "",
+          resumo: item.tipo === "cadastro-produto" ? `Cadastrou ${item.nome}` : item.tipo === "cadastro-cores" ? `Adicionou cores em ${item.nome}` : item.tipo === "preco" ? `Alterou o preço de ${item.nome}` : item.tipo === "foto" ? `Atualizou as fotos de ${item.nome}` : `${item.acao === "pausar" ? "Pausou" : "Reativou"} ${item.nome}`
+        }))].slice(-CONFIG.maxHistorico);
+        salvarPrivadoLocal();
+        estado.sessoes.clear();
+        estado.arquivosFotosPendentes.clear();
+        limparUrlsPendentes3ZK();
+        $("#summary-sugerido").textContent = gerarSummary4ZK(alteracoes);
+        $("#descricao-sugerida").textContent = gerarDescricao4ZK(alteracoes);
+        $("#modal-salvo").hidden = false;
+        localStorage.removeItem(CHAVE_RASCUNHO_CADASTRO_3ZK);
+        reconstruirProdutos3ZK();
+      } catch (erro) {
+        mostrarToast("Não foi possível salvar", erro.message);
+      } finally {
+        refs.salvar.textContent = "Salvar alterações";
+        atualizarBarraSalvar();
+      }
+    }
+
+    // Eventos do cadastro guiado.
+    $(`[data-aba='cadastro']`)?.addEventListener("click", () => abrirAba("cadastro"));
+    $$('[data-cadastro-modo]').forEach((botao) => botao.addEventListener("click", () => {
+      estado.cadastro.modo = botao.dataset.cadastroModo;
+      renderizarModoCadastro3ZK();
+      atualizarResumoCadastro3ZK();
+      salvarRascunhoCadastro3ZK();
+    }));
+    refsCadastro.existente?.addEventListener("change", () => {
+      estado.cadastro.produtoExistenteId = refsCadastro.existente.value;
+      atualizarResumoCadastro3ZK();
+      renderizarVariantesCadastro3ZK();
+      salvarRascunhoCadastro3ZK();
+    });
+    refsCadastro.painel?.addEventListener("input", (evento) => {
+      const campoCadastro = evento.target.closest("[data-cadastro-campo]");
+      if (campoCadastro) {
+        const chave = campoCadastro.dataset.cadastroCampo;
+        estado.cadastro[chave] = campoCadastro.type === "checkbox" ? campoCadastro.checked : campoCadastro.value;
+        atualizarResumoCadastro3ZK();
+        salvarRascunhoCadastro3ZK();
+        return;
+      }
+      const campoVariante = evento.target.closest("[data-variante-campo]");
+      if (campoVariante) {
+        const variante = estado.cadastro.variantes.find((item) => item.tempId === campoVariante.dataset.varianteId);
+        if (!variante) return;
+        const chave = campoVariante.dataset.varianteCampo;
+        if (chave === "hex-color") {
+          variante.hex = campoVariante.value.toUpperCase();
+          const texto = refsCadastro.variantes.querySelector(`[data-variante-campo='hex'][data-variante-id='${CSS.escape(variante.tempId)}']`);
+          if (texto) texto.value = variante.hex;
+        } else {
+          variante[chave] = chave === "hex" ? campoVariante.value.toUpperCase() : campoVariante.value;
+        }
+        const card = campoVariante.closest(".variante-card");
+        if (card && /^#[0-9A-F]{6}$/i.test(variante.hex)) card.style.setProperty("--cor-variante", variante.hex);
+        atualizarResumoCadastro3ZK();
+        salvarRascunhoCadastro3ZK();
+      }
+    });
+    refsCadastro.painel?.addEventListener("change", (evento) => {
+      if (evento.target.matches("[data-variante-campo='efeito']")) {
+        const variante = estado.cadastro.variantes.find((item) => item.tempId === evento.target.dataset.varianteId);
+        if (variante) variante.efeito = evento.target.value;
+        salvarRascunhoCadastro3ZK();
+      }
+    });
+    refsCadastro.painel?.addEventListener("click", (evento) => {
+      const remover = evento.target.closest("[data-remover-variante]");
+      if (remover) {
+        estado.cadastro.variantes = estado.cadastro.variantes.filter((item) => item.tempId !== remover.dataset.removerVariante);
+        renderizarVariantesCadastro3ZK(); atualizarResumoCadastro3ZK(); salvarRascunhoCadastro3ZK(); return;
+      }
+      const fotos = evento.target.closest("[data-fotos-variante]");
+      if (fotos) { estado.cadastroFotoAlvo = fotos.dataset.fotosVariante; refsCadastro.seletorFotos.click(); return; }
+      const removerFoto = evento.target.closest("[data-remover-foto-variante]");
+      if (removerFoto) {
+        const [tempId, indiceTexto] = removerFoto.dataset.removerFotoVariante.split(":");
+        const variante = estado.cadastro.variantes.find((item) => item.tempId === tempId);
+        if (variante) variante.arquivos.splice(Number(indiceTexto), 1);
+        renderizarVariantesCadastro3ZK(); atualizarResumoCadastro3ZK(); return;
+      }
+    });
+    $("#cadastro-adicionar-variante")?.addEventListener("click", () => {
+      estado.cadastro.variantes.push(novaVarianteCadastro3ZK());
+      renderizarVariantesCadastro3ZK(); atualizarResumoCadastro3ZK(); salvarRascunhoCadastro3ZK();
+      refsCadastro.variantes.lastElementChild?.scrollIntoView({ behavior: "smooth", block: "center" });
+    });
+    refsCadastro.seletorFotos?.addEventListener("change", (evento) => {
+      const variante = estado.cadastro.variantes.find((item) => item.tempId === estado.cadastroFotoAlvo);
+      if (variante) variante.arquivos.push(...[...evento.target.files].filter((arquivo) => arquivo.size > 0));
+      evento.target.value = "";
+      renderizarVariantesCadastro3ZK(); atualizarResumoCadastro3ZK();
+    });
+    $("#cadastro-importar-lote")?.addEventListener("click", () => {
+      const novas = parsearLoteCadastro3ZK($("#cadastro-lote").value);
+      if (!novas.length) { mostrarToast("Nenhuma linha importada", "Cole uma linha por cor usando TAB ou ponto e vírgula."); return; }
+      const unicaVazia = estado.cadastro.variantes.length === 1 && !estado.cadastro.variantes[0].nome && !estado.cadastro.variantes[0].olistId;
+      estado.cadastro.variantes = unicaVazia ? novas : [...estado.cadastro.variantes, ...novas];
+      $("#cadastro-lote").value = "";
+      renderizarVariantesCadastro3ZK(); atualizarResumoCadastro3ZK(); salvarRascunhoCadastro3ZK();
+      mostrarToast("Cores importadas", `${novas.length} linha${novas.length === 1 ? "" : "s"} adicionada${novas.length === 1 ? "" : "s"} ao formulário.`);
+    });
+    $("#cadastro-limpar-lote")?.addEventListener("click", () => { $("#cadastro-lote").value = ""; });
+    $("#cadastro-preparar")?.addEventListener("click", prepararCadastro3ZK);
+    $("#cadastro-limpar")?.addEventListener("click", () => limparFormularioCadastro3ZK(true));
+    document.addEventListener("click", (evento) => {
+      const botao = evento.target.closest("[data-desfazer-cadastro]");
+      if (botao) desfazerCadastro4ZK(botao.dataset.desfazerCadastro);
+    });
+
+    estado.cadastro = carregarRascunhoCadastro3ZK();
+    renderizarCadastro3ZK();
+    const abaQuery = new URLSearchParams(location.search).get("aba");
+    if (abaQuery === "cadastro") setTimeout(() => abrirAba("cadastro"), 80);
+
     // Eventos da gestão comercial.
     refsComercial.busca?.addEventListener("input", renderizarComercial3ZK);
     refsComercial.material?.addEventListener("change", () => { estado.filtroComercialMaterial = refsComercial.material.value; renderizarComercial3ZK(); });
@@ -2756,8 +3884,7 @@
         if (estado.produtosComerciaisAbertos.has(produtoId)) estado.produtosComerciaisAbertos.delete(produtoId); else estado.produtosComerciaisAbertos.add(produtoId);
         renderizarComercial3ZK();
       } else if (acao === "adicionar-foto") {
-        estado.fotoAlvo = { produtoId, corId };
-        refsComercial.seletorFotos.click();
+        abrirSeletorFotosExistentes3ZK(produtoId, corId);
       } else if (acao === "gerenciar-fotos") {
         abrirModalFotos3ZK(produtoId, corId);
       }
@@ -2771,14 +3898,70 @@
       aplicarPreco3ZK(input.dataset.precoInput, input.value);
     });
 
+    function abrirSeletorFotosExistentes3ZK(produtoId = null, corId = null) {
+      if (produtoId && corId) {
+        estado.fotoAlvo = { produtoId, corId };
+      }
+
+      if (!estado.fotoAlvo?.produtoId || !estado.fotoAlvo?.corId) {
+        mostrarToast(
+          "Selecione uma cor",
+          "Abra Fotos e cores e escolha em qual cor a imagem será adicionada."
+        );
+        return;
+      }
+
+      // Limpa antes de abrir para permitir selecionar novamente o mesmo arquivo.
+      refsComercial.seletorFotos.value = "";
+      refsComercial.seletorFotos.click();
+    }
+
     refsComercial.seletorFotos?.addEventListener("change", async (evento) => {
-      const alvo = estado.fotoAlvo;
-      const arquivos = evento.target.files;
-      evento.target.value = "";
-      if (alvo && arquivos?.length) await adicionarFotos3ZK(alvo.produtoId, alvo.corId, arquivos);
+      const alvo = estado.fotoAlvo
+        ? { ...estado.fotoAlvo }
+        : null;
+
+      /*
+        FileList é uma lista viva. No código anterior, o campo era limpo
+        antes de copiar os arquivos; em alguns navegadores isso zerava a
+        seleção e nenhuma imagem era processada.
+      */
+      const arquivos = Array.from(
+        evento.currentTarget.files || []
+      );
+
+      evento.currentTarget.value = "";
+
+      if (!alvo?.produtoId || !alvo?.corId) {
+        mostrarToast(
+          "Cor não identificada",
+          "Feche esta janela, abra novamente a cor e tente adicionar a foto."
+        );
+        return;
+      }
+
+      if (!arquivos.length) {
+        return;
+      }
+
+      try {
+        await adicionarFotos3ZK(
+          alvo.produtoId,
+          alvo.corId,
+          arquivos
+        );
+      } catch (erro) {
+        mostrarToast(
+          "Não foi possível adicionar a foto",
+          erro?.message || "Tente usar uma imagem JPG, PNG, WebP ou AVIF."
+        );
+      }
     });
 
-    $("#adicionar-fotos-modal")?.addEventListener("click", () => refsComercial.seletorFotos.click());
+    $("#adicionar-fotos-modal")?.addEventListener(
+      "click",
+      () => abrirSeletorFotosExistentes3ZK()
+    );
     refsComercial.listaFotos?.addEventListener("click", (evento) => {
       const botao = evento.target.closest("[data-foto-acao]");
       if (!botao) return;
@@ -2794,9 +3977,9 @@
     });
 
     // Intercepta os botões originais para salvar/desfazer também preços e fotos.
-    refs.salvar.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); salvarTudo3ZK(); }, true);
-    refs.desfazer.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); desfazerTudo3ZK(); }, true);
-    $("#salvar-drawer")?.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); $("#drawer-resumo").hidden = true; salvarTudo3ZK(); }, true);
+    refs.salvar.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); salvarTudo4ZK(); }, true);
+    refs.desfazer.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); desfazerTudo4ZK(); }, true);
+    $("#salvar-drawer")?.addEventListener("click", (evento) => { evento.preventDefault(); evento.stopImmediatePropagation(); $("#drawer-resumo").hidden = true; salvarTudo4ZK(); }, true);
 
     preencherMateriaisComerciais();
     renderizarComercial3ZK();

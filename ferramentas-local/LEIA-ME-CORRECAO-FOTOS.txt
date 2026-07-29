@@ -1,0 +1,36 @@
+CORREÇÃO — FOTOS EM PRODUTOS EXISTENTES
+========================================
+
+PROBLEMA CORRIGIDO
+
+O painel limpava o campo de seleção antes de copiar os arquivos escolhidos.
+Em alguns navegadores, isso zerava a lista e a foto não era processada.
+
+A correção:
+- copia os arquivos antes de limpar o seletor;
+- permite escolher novamente a mesma foto;
+- mostra mensagens claras quando a cor não foi identificada;
+- adiciona uma segunda forma de carregar a imagem caso o navegador não
+  aceite createImageBitmap;
+- mantém o cadastro de produtos, preços, pausas e demais funções.
+
+INSTALAÇÃO
+
+1. Feche a aba atual do painel.
+2. Extraia o ZIP diretamente em:
+   C:\3ZK\catalogo-3zk
+3. Escolha "Substituir os arquivos no destino".
+4. Abra novamente:
+   ferramentas-local\ABRIR-PAINEL-SEM-PYTHON.cmd
+5. Selecione a pasta catalogo-3zk.
+6. Vá em Preços e fotos.
+7. Abra Fotos e cores.
+8. Clique em + Foto, escolha uma imagem e aguarde "Fotos preparadas".
+9. Clique em Salvar alterações.
+
+O pacote substitui somente:
+ferramentas-local\painel-catalogo-3zk.html
+
+COMMIT SUGERIDO
+
+Corrige envio de fotos em produtos existentes

@@ -143,7 +143,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado.webp"
+          "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado.webp",
+          "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado-2.webp"
         ],
         "idCatalogo": "flashforge|pla||dusty-pink-rosa-desbotado",
         "statusEstoque": "sem_estoque",
@@ -2189,7 +2190,7 @@
   {
     "marca": "Elegoo",
     "material": "PLA",
-    "preco": 95,
+    "preco": 96,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-elegoo-pla-1-75mm-1kg/",
     "cores": [
       {
