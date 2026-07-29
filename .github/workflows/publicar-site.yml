@@ -1,0 +1,77 @@
+name: Publicar catálogo
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+    paths:
+      - "index.html"
+      - "style.css"
+      - "script.js"
+      - "assets/**"
+      - "dados/produtos.json"
+      - "dados/controle-catalogo.json"
+      - "CNAME"
+      - ".github/workflows/publicar-site.yml"
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: catalogo-3zk-publicacao
+  cancel-in-progress: true
+
+jobs:
+  montar:
+    name: Montar site
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v6
+
+      - name: Montar arquivos públicos
+        shell: bash
+        run: |
+          rm -rf _site
+          mkdir -p _site/dados
+
+          cp index.html style.css script.js _site/
+          cp -R assets _site/assets
+          cp dados/produtos.json _site/dados/produtos.json
+          cp dados/controle-catalogo.json _site/dados/controle-catalogo.json
+
+          if [ -f dados/ultima-atualizacao.json ]; then
+            cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
+          fi
+
+          if [ -f CNAME ]; then
+            cp CNAME _site/CNAME
+          fi
+
+          touch _site/.nojekyll
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Enviar site para publicação
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "_site"
+
+  publicar:
+    name: Publicar catálogo
+    needs: montar
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4

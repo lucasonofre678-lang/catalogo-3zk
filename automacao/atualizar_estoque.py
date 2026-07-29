@@ -194,6 +194,18 @@ def combined_deposit_balance(
     return total, matched
 
 
+def product_catalog_id(stock_key: str) -> str:
+    """Obtém o identificador estável do produto a partir da chave da cor."""
+    parts = stock_key.split("|")
+
+    if len(parts) < 4:
+        raise SyncError(
+            f"chaveEstoque inválida para gerar idCatalogo: {stock_key!r}"
+        )
+
+    return "|".join(parts[:3])
+
+
 def public_status(quantity: Decimal) -> tuple[str, bool]:
     if quantity <= 0:
         return "sem_estoque", False
@@ -528,19 +540,30 @@ def main() -> int:
 
     for product in generated:
         available_in_product = 0
+        product_ids: set[str] = set()
 
         for color in product.get("cores", []):
-            key = color.pop("chaveEstoque")
+            key = str(color.pop("chaveEstoque")).strip()
             mapping = mapping_by_key[key]
             result = results_by_id[int(mapping["olistId"])]
 
+            color["idCatalogo"] = key
             color["statusEstoque"] = result.status
             color["disponivel"] = result.available
+            product_ids.add(product_catalog_id(key))
 
             status_counts[result.status] += 1
             if result.available:
                 available_in_product += 1
 
+        if len(product_ids) != 1:
+            raise SyncError(
+                "Produto com chaves de catálogo incompatíveis: "
+                f"{product.get('marca')} {product.get('material')} "
+                f"{product.get('linha') or ''}"
+            )
+
+        product["idCatalogo"] = next(iter(product_ids))
         product["disponivel"] = available_in_product > 0
 
     total_colors = sum(status_counts.values())

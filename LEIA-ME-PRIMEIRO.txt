@@ -1,0 +1,61 @@
+PAINEL DE PAUSA DO CATÁLOGO 3ZK
+================================
+
+ESTRUTURA CRIADA
+
+- dados/controle-catalogo.json
+  Guarda somente produtos e cores pausados.
+
+- ferramentas-local/ABRIR-PAINEL-3ZK.bat
+  Abre o painel administrativo local.
+
+- ferramentas-local/painel-catalogo-3zk.html
+  Interface para pesquisar, pausar, reativar e salvar.
+
+- ferramentas-local/painel_servidor.py
+  Servidor local seguro, sem bibliotecas externas.
+
+- script.js
+  Lê o controle manual e oculta itens pausados.
+
+- automacao/atualizar_estoque.py
+  Mantém identificadores estáveis sem alterar a lógica de estoque.
+
+- .github/workflows/atualizar-estoque.yml
+  Consulta a Olist somente nos horários programados ou quando o cadastro-base muda.
+
+- .github/workflows/publicar-site.yml
+  Publica alterações visuais e pausas sem fazer 179 consultas à Olist.
+
+COMO INSTALAR
+
+1. Extraia este ZIP diretamente em:
+   C:\3ZK\catalogo-3zk
+
+2. Escolha "Substituir os arquivos no destino".
+
+3. Abra:
+   ferramentas-local\ABRIR-PAINEL-3ZK.bat
+
+4. Pause o produto ou a cor desejada e clique em "Salvar alterações".
+
+5. No GitHub Desktop, use o Summary:
+   Adiciona painel de pausa do catálogo
+
+6. Commit to main.
+
+7. Caso apareça Pull origin, faça o Pull antes do Push.
+
+8. Push origin.
+
+9. Em Actions, aguarde "Publicar catálogo" ficar verde.
+
+USO FUTURO
+
+1. Abra o arquivo ABRIR-PAINEL-3ZK.bat.
+2. Mude Ativo/Pausado.
+3. Salve.
+4. Commit e Push no GitHub Desktop.
+
+A pausa não apaga nenhum cadastro. Ao reativar, o estoque atual da Olist volta
+a decidir se o item aparece ou permanece oculto por falta de estoque.

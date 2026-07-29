@@ -3,6 +3,11 @@
    Agora os produtos são carregados de dados/produtos.json.
    ============================================================ */
 let produtos = [];
+let controleCatalogo = {
+  versao: 1,
+  produtosPausados: [],
+  coresPausadas: []
+};
 
 /* ============================================================
    CONFIGURAÇÕES QUE VOCÊ PODE ALTERAR
@@ -52,6 +57,121 @@ function slugificar(texto = "") {
     .replace(/&/g, " e ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+
+/* ============================================================
+   CONTROLE MANUAL DO CATÁLOGO
+   Produtos e cores podem ser pausados sem serem apagados.
+   O arquivo dados/controle-catalogo.json é administrado pelo
+   Painel Local 3ZK e tem prioridade sobre o estoque da Olist.
+   ============================================================ */
+function obterIdCatalogoProduto(produto) {
+  const idSalvo = String(produto?.idCatalogo || "").trim();
+
+  if (idSalvo) {
+    return idSalvo;
+  }
+
+  return [
+    slugificar(produto?.marca || ""),
+    slugificar(produto?.material || ""),
+    slugificar(produto?.linha || "")
+  ].join("|");
+}
+
+function obterIdCatalogoCor(produto, cor) {
+  const idSalvo = String(cor?.idCatalogo || "").trim();
+
+  if (idSalvo) {
+    return idSalvo;
+  }
+
+  return `${obterIdCatalogoProduto(produto)}|${slugificar(cor?.nome || "")}`;
+}
+
+function normalizarListaControle(valor) {
+  if (!Array.isArray(valor)) {
+    return [];
+  }
+
+  return [...new Set(
+    valor
+      .map((item) => String(item || "").trim())
+      .filter(Boolean)
+  )];
+}
+
+function normalizarControleCatalogo(valor) {
+  const controle = valor && typeof valor === "object"
+    ? valor
+    : {};
+
+  return {
+    versao: 1,
+    atualizadoEm: controle.atualizadoEm || null,
+    produtosPausados: normalizarListaControle(
+      controle.produtosPausados
+    ),
+    coresPausadas: normalizarListaControle(
+      controle.coresPausadas
+    )
+  };
+}
+
+async function carregarControleCatalogo() {
+  try {
+    const resposta = await fetch("dados/controle-catalogo.json", {
+      cache: "no-store"
+    });
+
+    if (resposta.status === 404) {
+      return normalizarControleCatalogo({});
+    }
+
+    if (!resposta.ok) {
+      throw new Error(
+        `controle-catalogo.json respondeu ${resposta.status}`
+      );
+    }
+
+    return normalizarControleCatalogo(await resposta.json());
+  } catch (erro) {
+    /*
+      Segurança operacional: uma falha no arquivo de controle não derruba
+      o catálogo. O site continua usando somente o estoque da Olist.
+    */
+    console.warn(
+      "[3ZK] Controle manual indisponível. Catálogo mantido ativo.",
+      erro
+    );
+
+    return normalizarControleCatalogo({});
+  }
+}
+
+function produtoEstaPausado(produto) {
+  return controleCatalogo.produtosPausados.includes(
+    obterIdCatalogoProduto(produto)
+  );
+}
+
+function corEstaPausada(produto, cor) {
+  return controleCatalogo.coresPausadas.includes(
+    obterIdCatalogoCor(produto, cor)
+  );
+}
+
+function aplicarControleCatalogo(lista) {
+  return lista
+    .filter((produto) => !produtoEstaPausado(produto))
+    .map((produto) => ({
+      ...produto,
+      cores: produto.cores.filter(
+        (cor) => !corEstaPausada(produto, cor) && corEstaDisponivel(cor)
+      )
+    }))
+    .filter((produto) => produto.cores.length > 0);
 }
 
 function obterNomeCompletoProduto(produto) {
@@ -2060,6 +2180,27 @@ function renderizar() {
   }
 }
 
+function reconciliarCarrinhoComCatalogo() {
+  const itensPermitidos = new Set(
+    produtos.flatMap((produto) =>
+      produto.cores.map((cor) =>
+        obterIdItemCarrinho(produto, cor)
+      )
+    )
+  );
+
+  const quantidadeAnterior = carrinho.length;
+
+  carrinho = carrinho.filter((item) =>
+    itensPermitidos.has(item.id)
+  );
+
+  if (carrinho.length !== quantidadeAnterior) {
+    salvarCarrinho();
+    sincronizarCodigoPedidoComCarrinho();
+  }
+}
+
 async function carregarProdutos() {
   listaProdutosEl.innerHTML = `
     <div class="catalogo__mensagem">
@@ -2068,9 +2209,12 @@ async function carregarProdutos() {
   `;
 
   try {
-    const resposta = await fetch("dados/produtos.json", {
-      cache: "no-store"
-    });
+    const [resposta, controleRecebido] = await Promise.all([
+      fetch("dados/produtos.json", {
+        cache: "no-store"
+      }),
+      carregarControleCatalogo()
+    ]);
 
     if (!resposta.ok) {
       throw new Error(
@@ -2084,17 +2228,16 @@ async function carregarProdutos() {
       throw new Error("O arquivo produtos.json não contém uma lista válida.");
     }
 
-    produtos = dados
-      .filter(
-        (produto) =>
-          produto &&
-          Array.isArray(produto.cores)
-      )
-      .map((produto) => ({
-        ...produto,
-        cores: produto.cores.filter(corEstaDisponivel)
-      }))
-      .filter((produto) => produto.cores.length > 0);
+    controleCatalogo = controleRecebido;
+
+    const produtosValidos = dados.filter(
+      (produto) =>
+        produto &&
+        Array.isArray(produto.cores)
+    );
+
+    produtos = aplicarControleCatalogo(produtosValidos);
+    reconciliarCarrinhoComCatalogo();
 
     renderizar();
     renderizarCarrinho();

@@ -1,0 +1,16 @@
+PAINEL LOCAL DO CATÁLOGO 3ZK
+=============================
+
+Abra sempre:
+ABRIR-PAINEL-3ZK.bat
+
+O painel modifica somente:
+dados/controle-catalogo.json
+
+Ele não apaga produtos, não altera preços, não mexe no mapeamento da Olist
+e não modifica a quantidade de estoque.
+
+Depois de salvar no painel, publique pelo GitHub Desktop:
+1. Commit
+2. Push origin
+3. Aguarde a Action "Publicar catálogo"
