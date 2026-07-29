@@ -146,8 +146,8 @@
           "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado.webp"
         ],
         "idCatalogo": "flashforge|pla||dusty-pink-rosa-desbotado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Mango Yellow / Amarelo Manga",
@@ -1881,8 +1881,8 @@
           "assets/fotos/masterprint-abs/laranja.webp"
         ],
         "idCatalogo": "masterprint|abs||laranja",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Amarelo",
