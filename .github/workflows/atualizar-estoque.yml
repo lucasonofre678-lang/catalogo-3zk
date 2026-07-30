@@ -1,29 +1,31 @@
-name: Sincronizar estoque Olist
+name: Atualizar estoque Olist e publicar catálogo
 
 on:
   workflow_dispatch:
   schedule:
-    # A cada 30 minutos, fora do começo da hora.
-    - cron: "17,47 * * * *"
+    # Horários de Brasília (UTC-3): 08:00, 15:00 e 18:00.
+    - cron: "0 11,18,21 * * *"
   push:
     branches:
       - main
-    # Alterações feitas pelo painel já atualizam produtos.json.
-    # A Olist só precisa rodar por agenda, manualmente ou quando a automação/mapeamento mudar.
+    # O painel continua publicando pelo workflow separado.
+    # Este fluxo consulta a Olist quando a automação ou o mapeamento mudar.
     paths:
       - "automacao/**"
       - ".github/workflows/atualizar-estoque.yml"
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
   group: catalogo-3zk-estoque
   cancel-in-progress: false
 
 jobs:
-  sincronizar:
-    name: Consultar Olist e atualizar catálogo
+  sincronizar-e-montar:
+    name: Sincronizar estoque e montar site
     runs-on: ubuntu-latest
 
     steps:
@@ -54,6 +56,28 @@ jobs:
         run: |
           python automacao/atualizar_estoque.py
 
+      - name: Validar arquivos gerados
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          obrigatorios = [
+              Path("dados/produtos.json"),
+              Path("dados/controle-catalogo.json"),
+          ]
+
+          for arquivo in obrigatorios:
+              if not arquivo.is_file():
+                  raise SystemExit(f"Arquivo obrigatório ausente: {arquivo}")
+
+              with arquivo.open("r", encoding="utf-8") as entrada:
+                  json.load(entrada)
+
+          print("Arquivos públicos validados.")
+          PY
+
       - name: Registrar mudança de disponibilidade
         shell: bash
         run: |
@@ -66,5 +90,53 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
 
           git add dados/produtos.json
+
+          if [ -f dados/ultima-atualizacao.json ]; then
+            git add -f dados/ultima-atualizacao.json
+          fi
+
           git commit -m "Atualiza disponibilidade do catálogo [automático]"
           git push
+
+      - name: Montar arquivos públicos
+        shell: bash
+        run: |
+          rm -rf _site
+          mkdir -p _site/dados
+
+          cp index.html style.css script.js _site/
+          cp -R assets _site/assets
+          cp dados/produtos.json _site/dados/produtos.json
+          cp dados/controle-catalogo.json _site/dados/controle-catalogo.json
+
+          if [ -f dados/ultima-atualizacao.json ]; then
+            cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
+          fi
+
+          if [ -f CNAME ]; then
+            cp CNAME _site/CNAME
+          fi
+
+          touch _site/.nojekyll
+
+      - name: Configurar GitHub Pages
+        uses: actions/configure-pages@v5
+
+      - name: Enviar site para publicação
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: "_site"
+
+  publicar:
+    name: Publicar catálogo
+    needs: sincronizar-e-montar
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: Publicar no GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
