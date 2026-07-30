@@ -575,8 +575,8 @@
           "assets/fotos/masterprint-petg/branco.webp"
         ],
         "idCatalogo": "masterprint|petg||branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Branco PCV Outdoor",
@@ -853,7 +853,7 @@
       }
     ],
     "idCatalogo": "masterprint|petg|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Anycubic",
@@ -992,8 +992,8 @@
           "assets/fotos/fusionx-petg/amarelo-canario.webp"
         ],
         "idCatalogo": "fusionx|petg||amarelo-canario",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul Marinho",
@@ -1004,8 +1004,8 @@
           "assets/fotos/fusionx-petg/azul-marinho.webp"
         ],
         "idCatalogo": "fusionx|petg||azul-marinho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Café",
@@ -1016,8 +1016,8 @@
           "assets/fotos/fusionx-petg/cafe.webp"
         ],
         "idCatalogo": "fusionx|petg||cafe",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Champagne",
@@ -1052,7 +1052,7 @@
           "assets/fotos/fusionx-petg/laranja.webp"
         ],
         "idCatalogo": "fusionx|petg||laranja",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1064,8 +1064,8 @@
           "assets/fotos/fusionx-petg/limao-siciliano.webp"
         ],
         "idCatalogo": "fusionx|petg||limao-siciliano",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Pink Purple Violeta",
@@ -1088,7 +1088,7 @@
           "assets/fotos/fusionx-petg/tangerina.webp"
         ],
         "idCatalogo": "fusionx|petg||tangerina",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1966,8 +1966,8 @@
           "assets/fotos/masterprint-abs/branco.webp"
         ],
         "idCatalogo": "masterprint|abs||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Verde",
