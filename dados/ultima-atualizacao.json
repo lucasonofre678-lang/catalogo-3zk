@@ -1,8 +1,8 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-07-31T15:06:32-03:00",
+  "ultimaVerificacao": "2026-07-31T16:57:32-03:00",
   "fusoHorario": "America/Sao_Paulo",
-  "coresDisponiveis": 54,
+  "coresDisponiveis": 69,
   "coresOcultas": 125,
   "depositosConsiderados": [
     "Geral",
