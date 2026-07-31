@@ -433,8 +433,8 @@
           "assets/fotos/closin-pla/gold.webp"
         ],
         "idCatalogo": "closin|pla||gold",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Pink Rosa Bebê",
@@ -445,8 +445,8 @@
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
         "idCatalogo": "closin|pla||pink-rosa-bebe",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Amarelo",
@@ -457,8 +457,8 @@
           "assets/fotos/closin-pla/amarelo.webp"
         ],
         "idCatalogo": "closin|pla||amarelo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Azul",
@@ -469,8 +469,8 @@
           "assets/fotos/closin-pla/azul.webp"
         ],
         "idCatalogo": "closin|pla||azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Branco",
@@ -493,8 +493,8 @@
           "assets/fotos/closin-pla/preto.webp"
         ],
         "idCatalogo": "closin|pla||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Skin",
@@ -505,8 +505,8 @@
           "assets/fotos/closin-pla/skin.webp"
         ],
         "idCatalogo": "closin|pla||skin",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Verde",
@@ -517,8 +517,8 @@
           "assets/fotos/closin-pla/verde.webp"
         ],
         "idCatalogo": "closin|pla||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Vermelho",
@@ -529,186 +529,6 @@
           "assets/fotos/closin-pla/vermelho.webp"
         ],
         "idCatalogo": "closin|pla||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
-      },
-      {
-        "nome": "Azul Céu / Sky Blue",
-        "hex": "#78BDE8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
-        ],
-        "idCatalogo": "closin|pla||azul-ceu-sky-blue",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Branco Pérola",
-        "hex": "#EEECE3",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/branco-perola.webp"
-        ],
-        "idCatalogo": "closin|pla||branco-perola",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Ciano",
-        "hex": "#00A9C7",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/ciano.webp"
-        ],
-        "idCatalogo": "closin|pla||ciano",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Blue",
-        "hex": "#00B7EB",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-blue.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-blue",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Green",
-        "hex": "#60E33D",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-green.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-green",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Red",
-        "hex": "#FF3B30",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-red.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-red",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Yellow",
-        "hex": "#E7FF32",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-yellow.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-yellow",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Lemon Green",
-        "hex": "#B7D94C",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/lemon-green.webp"
-        ],
-        "idCatalogo": "closin|pla||lemon-green",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Marrom Escuro / Dark Brown",
-        "hex": "#563725",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/marrom-escuro-dark-brown.webp"
-        ],
-        "idCatalogo": "closin|pla||marrom-escuro-dark-brown",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Marrom Claro",
-        "hex": "#A87955",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/marrom-claro.webp"
-        ],
-        "idCatalogo": "closin|pla||marrom-claro",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Natural",
-        "hex": "#E4D3AE",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/natural.webp"
-        ],
-        "idCatalogo": "closin|pla||natural",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Silver",
-        "hex": "#A9ADB2",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/silver.webp"
-        ],
-        "idCatalogo": "closin|pla||silver",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Transparente",
-        "hex": "#E8EEF1",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/transparente.webp"
-        ],
-        "idCatalogo": "closin|pla||transparente",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Violeta",
-        "hex": "#7147A8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/violeta.webp"
-        ],
-        "idCatalogo": "closin|pla||violeta",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Wood",
-        "hex": "#986B44",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/closin-pla/wood.webp"
-        ],
-        "idCatalogo": "closin|pla||wood",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
@@ -1232,8 +1052,8 @@
           "assets/fotos/fusionx-petg/laranja.webp"
         ],
         "idCatalogo": "fusionx|petg||laranja",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Limão Siciliano",
@@ -1268,8 +1088,8 @@
           "assets/fotos/fusionx-petg/tangerina.webp"
         ],
         "idCatalogo": "fusionx|petg||tangerina",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde",

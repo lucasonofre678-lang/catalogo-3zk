@@ -1,0 +1,16 @@
+ATUALIZAÇÃO SEGURA — CLOSIN PLA
+
+Este pacote NÃO inclui dados/produtos.json.
+
+Motivo:
+dados/produtos.json é gerado automaticamente pela sincronização de estoque da Olist.
+Substituir esse arquivo manualmente pode causar conflito de merge com os commits automáticos.
+
+Arquivos incluídos:
+- dados/produtos-base.json
+- dados/controle-catalogo.json
+- automacao/mapeamento-olist.json
+- leia-me/LEIA-ME-NOVOS-CLOSIN-PLA.txt
+
+Após Commit e Push, a alteração em automacao/mapeamento-olist.json aciona a sincronização,
+que recria dados/produtos.json usando os estoques mais recentes.
