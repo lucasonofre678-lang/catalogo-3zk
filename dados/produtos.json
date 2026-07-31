@@ -433,8 +433,8 @@
           "assets/fotos/closin-pla/gold.webp"
         ],
         "idCatalogo": "closin|pla||gold",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Pink Rosa Bebê",
@@ -445,8 +445,8 @@
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
         "idCatalogo": "closin|pla||pink-rosa-bebe",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Amarelo",
@@ -457,8 +457,8 @@
           "assets/fotos/closin-pla/amarelo.webp"
         ],
         "idCatalogo": "closin|pla||amarelo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Azul",
@@ -469,8 +469,8 @@
           "assets/fotos/closin-pla/azul.webp"
         ],
         "idCatalogo": "closin|pla||azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Branco",
@@ -493,8 +493,8 @@
           "assets/fotos/closin-pla/preto.webp"
         ],
         "idCatalogo": "closin|pla||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Skin",
@@ -505,8 +505,8 @@
           "assets/fotos/closin-pla/skin.webp"
         ],
         "idCatalogo": "closin|pla||skin",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Verde",
@@ -517,8 +517,8 @@
           "assets/fotos/closin-pla/verde.webp"
         ],
         "idCatalogo": "closin|pla||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Vermelho",
@@ -529,12 +529,12 @@
           "assets/fotos/closin-pla/vermelho.webp"
         ],
         "idCatalogo": "closin|pla||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "closin|pla|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Masterprint",
