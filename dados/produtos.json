@@ -147,8 +147,8 @@
           "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado-2.webp"
         ],
         "idCatalogo": "flashforge|pla||dusty-pink-rosa-desbotado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Mango Yellow / Amarelo Manga",
@@ -2037,6 +2037,28 @@
   },
   {
     "marca": "Masterprint",
+    "material": "ASA",
+    "preco": 84,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-asa/branco.webp"
+        ],
+        "idCatalogo": "masterprint|asa||branco",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "masterprint|asa|",
+    "disponivel": true
+  },
+  {
+    "marca": "Masterprint",
     "material": "ABS",
     "preco": 70,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
@@ -2259,6 +2281,89 @@
     ],
     "obs": "Rolo de 1kg",
     "idCatalogo": "masterprint|tpu|",
+    "disponivel": true
+  },
+  {
+    "marca": "Masterprint",
+    "material": "TPR",
+    "preco": 261.51,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Amarelo",
+        "hex": "#F5D01F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/amarelo.webp"
+        ],
+        "idCatalogo": "masterprint|tpr||amarelo",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul",
+        "hex": "#2E63C7",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/azul.webp"
+        ],
+        "idCatalogo": "masterprint|tpr||azul",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/branco.webp"
+        ],
+        "idCatalogo": "masterprint|tpr||branco",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/preto.webp"
+        ],
+        "idCatalogo": "masterprint|tpr||preto",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde",
+        "hex": "#2E9E5B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/verde.webp"
+        ],
+        "idCatalogo": "masterprint|tpr||verde",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C94343",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/vermelho.webp"
+        ],
+        "idCatalogo": "masterprint|tpr||vermelho",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      }
+    ],
+    "obs": "Rolo de 1kg — filamento 2,85 mm",
+    "idCatalogo": "masterprint|tpr|",
     "disponivel": true
   },
   {
