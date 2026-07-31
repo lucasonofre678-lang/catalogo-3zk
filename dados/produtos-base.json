@@ -1703,6 +1703,24 @@
   },
   {
     "marca": "Masterprint",
+    "material": "ASA",
+    "preco": 84,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-asa/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|asa||branco"
+      }
+    ]
+  },
+  {
+    "marca": "Masterprint",
     "material": "ABS",
     "preco": 70,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
@@ -1888,6 +1906,75 @@
       }
     ],
     "obs": "Rolo de 1kg"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "TPR",
+    "preco": 261.51,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Amarelo",
+        "hex": "#F5D01F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/amarelo.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||amarelo"
+      },
+      {
+        "nome": "Azul",
+        "hex": "#2E63C7",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/azul.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||azul"
+      },
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||branco"
+      },
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/preto.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||preto"
+      },
+      {
+        "nome": "Verde",
+        "hex": "#2E9E5B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/verde.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||verde"
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C94343",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/vermelho.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||vermelho"
+      }
+    ],
+    "obs": "Rolo de 1kg — filamento 2,85 mm"
   },
   {
     "marca": "Creality Soleyin Ultra",

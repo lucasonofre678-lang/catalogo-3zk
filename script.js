@@ -2073,10 +2073,25 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 /* ============================================================
    PESQUISA E FILTROS
    ============================================================ */
+const MATERIAIS_PRINCIPAIS = new Set([
+  "PLA",
+  "PETG",
+  "ABS",
+  "ASA",
+  "TPU",
+  "TPR"
+]);
+
 function produtoCorresponde(produto, termo, materialSelecionado) {
-  if (
+  const materialProduto = String(produto.material || "").trim().toUpperCase();
+
+  if (materialSelecionado === "outras") {
+    if (MATERIAIS_PRINCIPAIS.has(materialProduto)) {
+      return false;
+    }
+  } else if (
     materialSelecionado !== "todos" &&
-    produto.material !== materialSelecionado
+    materialProduto !== String(materialSelecionado).trim().toUpperCase()
   ) {
     return false;
   }

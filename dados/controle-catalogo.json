@@ -1,8 +1,10 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-07-31T15:56:00-03:00",
+  "atualizadoEm": "2026-07-31T16:50:00-03:00",
   "produtosPausados": [
-    "multifila|pla|"
+    "multifila|pla|",
+    "masterprint|asa|",
+    "masterprint|tpr|"
   ],
   "coresPausadas": [
     "closin|pla||azul-ceu-sky-blue",

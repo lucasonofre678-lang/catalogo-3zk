@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 194,
+  "total": 201,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -2136,6 +2136,83 @@
       "sku": "CL-Wood",
       "gtin": null,
       "descricaoOlist": "Filamentos Closin PLA  - Wood"
+    },
+    {
+      "chave": "masterprint|asa||branco",
+      "marca": "Masterprint",
+      "material": "ASA",
+      "linha": "",
+      "cor": "Branco",
+      "olistId": 1051030698,
+      "sku": "ASA - BRANCO",
+      "gtin": "7908229108428",
+      "descricaoOlist": "MP-FILAMENTO 3D - ASA  - BRANCO"
+    },
+    {
+      "chave": "masterprint|tpr||amarelo",
+      "marca": "Masterprint",
+      "material": "TPR",
+      "linha": "",
+      "cor": "Amarelo",
+      "olistId": 1051030717,
+      "sku": "TPR - AMARELO",
+      "gtin": "7908229104970",
+      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - AMARELO"
+    },
+    {
+      "chave": "masterprint|tpr||azul",
+      "marca": "Masterprint",
+      "material": "TPR",
+      "linha": "",
+      "cor": "Azul",
+      "olistId": 1051030713,
+      "sku": "TPR - AZUL",
+      "gtin": "7908229104963",
+      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - AZUL"
+    },
+    {
+      "chave": "masterprint|tpr||branco",
+      "marca": "Masterprint",
+      "material": "TPR",
+      "linha": "",
+      "cor": "Branco",
+      "olistId": 1051030709,
+      "sku": "TPR - BRANCO",
+      "gtin": "7908229104956",
+      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - BRANCO"
+    },
+    {
+      "chave": "masterprint|tpr||preto",
+      "marca": "Masterprint",
+      "material": "TPR",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1051030705,
+      "sku": "TPR - PRETO",
+      "gtin": "7908229104949",
+      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - PRETO"
+    },
+    {
+      "chave": "masterprint|tpr||verde",
+      "marca": "Masterprint",
+      "material": "TPR",
+      "linha": "",
+      "cor": "Verde",
+      "olistId": 1051030725,
+      "sku": "TPR - VERDE",
+      "gtin": "7908229104994",
+      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - VERDE"
+    },
+    {
+      "chave": "masterprint|tpr||vermelho",
+      "marca": "Masterprint",
+      "material": "TPR",
+      "linha": "",
+      "cor": "Vermelho",
+      "olistId": 1051030721,
+      "sku": "TPR - VERMELHO",
+      "gtin": "7908229104987",
+      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - VERMELHO"
     }
   ]
 }
