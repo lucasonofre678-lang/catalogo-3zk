@@ -1,8 +1,24 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-07-29T18:09:01.359Z",
+  "atualizadoEm": "2026-07-31T15:56:00-03:00",
   "produtosPausados": [
     "multifila|pla|"
   ],
-  "coresPausadas": []
+  "coresPausadas": [
+    "closin|pla||azul-ceu-sky-blue",
+    "closin|pla||branco-perola",
+    "closin|pla||ciano",
+    "closin|pla||fluo-blue",
+    "closin|pla||fluo-green",
+    "closin|pla||fluo-red",
+    "closin|pla||fluo-yellow",
+    "closin|pla||lemon-green",
+    "closin|pla||marrom-claro",
+    "closin|pla||marrom-escuro-dark-brown",
+    "closin|pla||natural",
+    "closin|pla||silver",
+    "closin|pla||transparente",
+    "closin|pla||violeta",
+    "closin|pla||wood"
+  ]
 }

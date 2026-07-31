@@ -1,0 +1,34 @@
+NOVOS CLOSIN PLA PREPARADOS — 31/07/2026
+
+Esta atualização contém SOMENTE as 15 novas cores Closin PLA.
+Nenhum produto ou cor PETG foi alterado.
+
+As novas cores já estão cadastradas no catálogo-base e no mapeamento da Olist.
+Elas foram deixadas PAUSADAS para não aparecerem no site antes das fotos.
+
+COMO PUBLICAR QUANDO CHEGAREM:
+1. Tire a foto e converta para WebP.
+2. Salve usando exatamente o caminho indicado abaixo.
+3. Abra o Painel Local 3ZK e reative a cor.
+4. Faça commit e push.
+
+FOTOS — CLOSIN PLA:
+- Azul Céu / Sky Blue: assets/fotos/closin-pla/azul-ceu-sky-blue.webp
+- Branco Pérola: assets/fotos/closin-pla/branco-perola.webp
+- Ciano: assets/fotos/closin-pla/ciano.webp
+- Fluo Blue: assets/fotos/closin-pla/fluo-blue.webp
+- Fluo Green: assets/fotos/closin-pla/fluo-green.webp
+- Fluo Red: assets/fotos/closin-pla/fluo-red.webp
+- Fluo Yellow: assets/fotos/closin-pla/fluo-yellow.webp
+- Lemon Green: assets/fotos/closin-pla/lemon-green.webp
+- Marrom Escuro / Dark Brown: assets/fotos/closin-pla/marrom-escuro-dark-brown.webp
+- Marrom Claro: assets/fotos/closin-pla/marrom-claro.webp
+- Natural: assets/fotos/closin-pla/natural.webp
+- Silver: assets/fotos/closin-pla/silver.webp
+- Transparente: assets/fotos/closin-pla/transparente.webp
+- Violeta: assets/fotos/closin-pla/violeta.webp
+- Wood: assets/fotos/closin-pla/wood.webp
+
+PREÇO:
+- O Closin PLA permanece em R$ 85,00.
+- A planilha da Olist mostra várias dessas cores por R$ 88,00, mas o preço do site não foi alterado.

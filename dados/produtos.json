@@ -531,10 +531,190 @@
         "idCatalogo": "closin|pla||vermelho",
         "statusEstoque": "sem_estoque",
         "disponivel": false
+      },
+      {
+        "nome": "Azul Céu / Sky Blue",
+        "hex": "#78BDE8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
+        ],
+        "idCatalogo": "closin|pla||azul-ceu-sky-blue",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Branco Pérola",
+        "hex": "#EEECE3",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/branco-perola.webp"
+        ],
+        "idCatalogo": "closin|pla||branco-perola",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Ciano",
+        "hex": "#00A9C7",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/ciano.webp"
+        ],
+        "idCatalogo": "closin|pla||ciano",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fluo Blue",
+        "hex": "#00B7EB",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-blue.webp"
+        ],
+        "idCatalogo": "closin|pla||fluo-blue",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fluo Green",
+        "hex": "#60E33D",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-green.webp"
+        ],
+        "idCatalogo": "closin|pla||fluo-green",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fluo Red",
+        "hex": "#FF3B30",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-red.webp"
+        ],
+        "idCatalogo": "closin|pla||fluo-red",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fluo Yellow",
+        "hex": "#E7FF32",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-yellow.webp"
+        ],
+        "idCatalogo": "closin|pla||fluo-yellow",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Lemon Green",
+        "hex": "#B7D94C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/lemon-green.webp"
+        ],
+        "idCatalogo": "closin|pla||lemon-green",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marrom Escuro / Dark Brown",
+        "hex": "#563725",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/marrom-escuro-dark-brown.webp"
+        ],
+        "idCatalogo": "closin|pla||marrom-escuro-dark-brown",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marrom Claro",
+        "hex": "#A87955",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/marrom-claro.webp"
+        ],
+        "idCatalogo": "closin|pla||marrom-claro",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Natural",
+        "hex": "#E4D3AE",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/natural.webp"
+        ],
+        "idCatalogo": "closin|pla||natural",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silver",
+        "hex": "#A9ADB2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/silver.webp"
+        ],
+        "idCatalogo": "closin|pla||silver",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Transparente",
+        "hex": "#E8EEF1",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/transparente.webp"
+        ],
+        "idCatalogo": "closin|pla||transparente",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Violeta",
+        "hex": "#7147A8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/violeta.webp"
+        ],
+        "idCatalogo": "closin|pla||violeta",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Wood",
+        "hex": "#986B44",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/wood.webp"
+        ],
+        "idCatalogo": "closin|pla||wood",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "closin|pla|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Masterprint",
@@ -575,8 +755,8 @@
           "assets/fotos/masterprint-petg/branco.webp"
         ],
         "idCatalogo": "masterprint|petg||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Branco PCV Outdoor",
@@ -853,7 +1033,7 @@
       }
     ],
     "idCatalogo": "masterprint|petg|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Anycubic",
@@ -992,8 +1172,8 @@
           "assets/fotos/fusionx-petg/amarelo-canario.webp"
         ],
         "idCatalogo": "fusionx|petg||amarelo-canario",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Azul Marinho",
@@ -1004,8 +1184,8 @@
           "assets/fotos/fusionx-petg/azul-marinho.webp"
         ],
         "idCatalogo": "fusionx|petg||azul-marinho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Café",
@@ -1016,8 +1196,8 @@
           "assets/fotos/fusionx-petg/cafe.webp"
         ],
         "idCatalogo": "fusionx|petg||cafe",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Champagne",
@@ -1052,7 +1232,7 @@
           "assets/fotos/fusionx-petg/laranja.webp"
         ],
         "idCatalogo": "fusionx|petg||laranja",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -1064,8 +1244,8 @@
           "assets/fotos/fusionx-petg/limao-siciliano.webp"
         ],
         "idCatalogo": "fusionx|petg||limao-siciliano",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Pink Purple Violeta",
@@ -1088,7 +1268,7 @@
           "assets/fotos/fusionx-petg/tangerina.webp"
         ],
         "idCatalogo": "fusionx|petg||tangerina",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -1966,8 +2146,8 @@
           "assets/fotos/masterprint-abs/branco.webp"
         ],
         "idCatalogo": "masterprint|abs||branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde",

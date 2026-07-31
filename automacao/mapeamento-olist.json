@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 179,
+  "total": 194,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1971,6 +1971,171 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "Multifila - FILAMENTO PLA - PLA BRANCO"
+    },
+    {
+      "chave": "closin|pla||azul-ceu-sky-blue",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Azul Céu / Sky Blue",
+      "olistId": 1053138850,
+      "sku": "CL-Sky-Blue",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Azul Ceu Sky Blue"
+    },
+    {
+      "chave": "closin|pla||branco-perola",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Branco Pérola",
+      "olistId": 1053138814,
+      "sku": "CL-Branco-Perola",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Branco Perola"
+    },
+    {
+      "chave": "closin|pla||ciano",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Ciano",
+      "olistId": 1053138856,
+      "sku": "CL-Ciano",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Ciano"
+    },
+    {
+      "chave": "closin|pla||fluo-blue",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fluo Blue",
+      "olistId": 1053138866,
+      "sku": "CL- Fluo-Blue",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Fluo Blue"
+    },
+    {
+      "chave": "closin|pla||fluo-green",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fluo Green",
+      "olistId": 1053138861,
+      "sku": "CL-Fluo-Green",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Fluo Green"
+    },
+    {
+      "chave": "closin|pla||fluo-red",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fluo Red",
+      "olistId": 1053138870,
+      "sku": "CL-Fluo-Blue",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Fluo Red"
+    },
+    {
+      "chave": "closin|pla||fluo-yellow",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fluo Yellow",
+      "olistId": 1053138874,
+      "sku": "CL-Fluo-Yellow",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Fluo Yellow"
+    },
+    {
+      "chave": "closin|pla||lemon-green",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Lemon Green",
+      "olistId": 1053138819,
+      "sku": "CL-Lemon-Green",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Lemon Green"
+    },
+    {
+      "chave": "closin|pla||marrom-escuro-dark-brown",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marrom Escuro / Dark Brown",
+      "olistId": 1053138879,
+      "sku": "CL-Dark-Brown",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Marrom - Dark Brown"
+    },
+    {
+      "chave": "closin|pla||marrom-claro",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marrom Claro",
+      "olistId": 1053138806,
+      "sku": "CL-Marrom-claro",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Marrom claro"
+    },
+    {
+      "chave": "closin|pla||natural",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Natural",
+      "olistId": 1053138834,
+      "sku": "CL- Natural",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Natural"
+    },
+    {
+      "chave": "closin|pla||silver",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silver",
+      "olistId": 1053138829,
+      "sku": "CL- Silver",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Silver"
+    },
+    {
+      "chave": "closin|pla||transparente",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Transparente",
+      "olistId": 1053138809,
+      "sku": "CL- Transparente",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Transparente"
+    },
+    {
+      "chave": "closin|pla||violeta",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Violeta",
+      "olistId": 1053138844,
+      "sku": "CL- Violeta",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Violeta"
+    },
+    {
+      "chave": "closin|pla||wood",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Wood",
+      "olistId": 1053138824,
+      "sku": "CL-Wood",
+      "gtin": null,
+      "descricaoOlist": "Filamentos Closin PLA  - Wood"
     }
   ]
 }

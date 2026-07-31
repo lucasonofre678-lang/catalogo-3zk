@@ -443,6 +443,156 @@
           "assets/fotos/closin-pla/vermelho.webp"
         ],
         "chaveEstoque": "closin|pla||vermelho"
+      },
+      {
+        "nome": "Azul Céu / Sky Blue",
+        "hex": "#78BDE8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
+        ],
+        "chaveEstoque": "closin|pla||azul-ceu-sky-blue"
+      },
+      {
+        "nome": "Branco Pérola",
+        "hex": "#EEECE3",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/branco-perola.webp"
+        ],
+        "chaveEstoque": "closin|pla||branco-perola"
+      },
+      {
+        "nome": "Ciano",
+        "hex": "#00A9C7",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/ciano.webp"
+        ],
+        "chaveEstoque": "closin|pla||ciano"
+      },
+      {
+        "nome": "Fluo Blue",
+        "hex": "#00B7EB",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-blue.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-blue"
+      },
+      {
+        "nome": "Fluo Green",
+        "hex": "#60E33D",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-green.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-green"
+      },
+      {
+        "nome": "Fluo Red",
+        "hex": "#FF3B30",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-red.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-red"
+      },
+      {
+        "nome": "Fluo Yellow",
+        "hex": "#E7FF32",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-yellow.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-yellow"
+      },
+      {
+        "nome": "Lemon Green",
+        "hex": "#B7D94C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/lemon-green.webp"
+        ],
+        "chaveEstoque": "closin|pla||lemon-green"
+      },
+      {
+        "nome": "Marrom Escuro / Dark Brown",
+        "hex": "#563725",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/marrom-escuro-dark-brown.webp"
+        ],
+        "chaveEstoque": "closin|pla||marrom-escuro-dark-brown"
+      },
+      {
+        "nome": "Marrom Claro",
+        "hex": "#A87955",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/marrom-claro.webp"
+        ],
+        "chaveEstoque": "closin|pla||marrom-claro"
+      },
+      {
+        "nome": "Natural",
+        "hex": "#E4D3AE",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/natural.webp"
+        ],
+        "chaveEstoque": "closin|pla||natural"
+      },
+      {
+        "nome": "Silver",
+        "hex": "#A9ADB2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/silver.webp"
+        ],
+        "chaveEstoque": "closin|pla||silver"
+      },
+      {
+        "nome": "Transparente",
+        "hex": "#E8EEF1",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/transparente.webp"
+        ],
+        "chaveEstoque": "closin|pla||transparente"
+      },
+      {
+        "nome": "Violeta",
+        "hex": "#7147A8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/violeta.webp"
+        ],
+        "chaveEstoque": "closin|pla||violeta"
+      },
+      {
+        "nome": "Wood",
+        "hex": "#986B44",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla/wood.webp"
+        ],
+        "chaveEstoque": "closin|pla||wood"
       }
     ]
   },
