@@ -1459,8 +1459,8 @@
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Prata Master",
@@ -1536,7 +1536,7 @@
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-roxo",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
