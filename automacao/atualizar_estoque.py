@@ -41,6 +41,10 @@ class SyncError(RuntimeError):
     """Erro seguro de sincronização."""
 
 
+class RateLimitError(SyncError):
+    """A Olist bloqueou temporariamente novas chamadas à API."""
+
+
 @dataclass(frozen=True)
 class StockResult:
     olist_id: int
@@ -125,6 +129,32 @@ def normalize_name(value: Any) -> str:
     text = unicodedata.normalize("NFKD", str(value or ""))
     text = "".join(character for character in text if not unicodedata.combining(character))
     return " ".join(text.casefold().split())
+
+
+def only_olist_ids() -> set[int]:
+    """IDs opcionais para uma sincronização manual rápida e parcial."""
+    raw_value = os.environ.get("OLIST_ONLY_IDS", "").strip()
+
+    if not raw_value:
+        return set()
+
+    values: set[int] = set()
+
+    for raw_item in raw_value.split(","):
+        text = raw_item.strip()
+
+        if not text:
+            continue
+
+        try:
+            values.add(int(text))
+        except ValueError as exc:
+            raise SyncError(
+                "OLIST_ONLY_IDS contém um valor inválido: "
+                f"{text!r}. Use IDs separados por vírgula."
+            ) from exc
+
+    return values
 
 
 def included_deposit_names() -> list[str]:
@@ -274,10 +304,23 @@ def request_stock(
                 message = api_error_message(payload)
                 lower_message = message.lower()
 
+                rate_limited = any(
+                    term in lower_message
+                    for term in (
+                        "excedido o número de acessos",
+                        "excedido o numero de acessos",
+                        "api bloqueada",
+                        "limite de acessos",
+                    )
+                )
+                if rate_limited:
+                    raise RateLimitError(
+                        f"A Olist bloqueou temporariamente a API no ID {olist_id}: {message}"
+                    )
+
                 retryable = any(
                     term in lower_message
                     for term in (
-                        "limite",
                         "tempor",
                         "indispon",
                         "timeout",
@@ -450,6 +493,61 @@ def previous_available_count(output_path: Path) -> int | None:
     )
 
 
+def previous_results_by_id(
+    output_path: Path,
+    mapping_items: list[dict[str, Any]],
+) -> dict[int, StockResult]:
+    """Carrega o último status público conhecido por ID da Olist."""
+    if not output_path.exists():
+        return {}
+
+    try:
+        current = load_json(output_path)
+    except SyncError:
+        return {}
+
+    if not isinstance(current, list):
+        return {}
+
+    previous_by_key: dict[str, StockResult] = {}
+    for product in current:
+        for color in product.get("cores", []):
+            key = str(color.get("idCatalogo") or "").strip()
+            status = str(color.get("statusEstoque") or "sem_estoque")
+            available = color.get("disponivel") is True
+            if key:
+                previous_by_key[key] = StockResult(
+                    olist_id=0,
+                    status=status,
+                    available=available,
+                )
+
+    result: dict[int, StockResult] = {}
+    for item in mapping_items:
+        key = str(item.get("chave") or "").strip()
+        raw_id = item.get("olistId")
+        previous = previous_by_key.get(key)
+        if previous and raw_id:
+            olist_id = int(raw_id)
+            result[olist_id] = StockResult(
+                olist_id=olist_id,
+                status=previous.status,
+                available=previous.available,
+            )
+
+    return result
+
+
+def previous_cursor(metadata_path: Path) -> int:
+    if not metadata_path.exists():
+        return 0
+    try:
+        payload = load_json(metadata_path)
+        return max(0, int(payload.get("proximoIndiceConsulta", 0)))
+    except (SyncError, TypeError, ValueError, AttributeError):
+        return 0
+
+
 def load_mock_stock(path: Path) -> dict[int, Decimal]:
     payload = load_json(path)
     if not isinstance(payload, dict):
@@ -536,13 +634,109 @@ def main() -> int:
         )
     )
 
+    previous_results = previous_results_by_id(output_path, mapping_items)
     results_by_id: dict[int, StockResult] = {}
-    total = len(mapping_items)
 
-    for index, item in enumerate(mapping_items, start=1):
+    active_items: list[dict[str, Any]] = []
+    paused_items: list[dict[str, Any]] = []
+    for item in mapping_items:
+        key = str(item.get("chave") or "").strip()
+        catalog_id = product_catalog_id(key)
+        if key in paused_colors or catalog_id in paused_products:
+            paused_items.append(item)
+        else:
+            active_items.append(item)
+
+    requested_ids = only_olist_ids()
+
+    if requested_ids:
+        mapped_ids = {int(item["olistId"]) for item in active_items}
+        unknown_ids = sorted(requested_ids - mapped_ids)
+
+        if unknown_ids:
+            raise SyncError(
+                "IDs solicitados não encontrados no mapeamento: "
+                + ", ".join(str(value) for value in unknown_ids)
+            )
+
+        skipped_items = [
+            item
+            for item in active_items
+            if int(item["olistId"]) not in requested_ids
+        ]
+        active_items = [
+            item
+            for item in active_items
+            if int(item["olistId"]) in requested_ids
+        ]
+
+        for item in skipped_items:
+            olist_id = int(item["olistId"])
+            results_by_id[olist_id] = previous_results.get(
+                olist_id,
+                StockResult(olist_id, "sem_estoque", False),
+            )
+
+        print(
+            "[MODO RÁPIDO] Consultando somente os IDs: "
+            + ", ".join(str(value) for value in sorted(requested_ids))
+        )
+
+    # Produtos pausados não gastam chamadas da API. Mantêm o último estado
+    # conhecido, pois o controle-catalogo.json já impede a exibição.
+    for item in paused_items:
         olist_id = int(item["olistId"])
+        results_by_id[olist_id] = previous_results.get(
+            olist_id,
+            StockResult(olist_id, "sem_estoque", False),
+        )
+
+    cursor = previous_cursor(metadata_path)
+    if active_items:
+        cursor %= len(active_items)
+        rotated = active_items[cursor:] + active_items[:cursor]
+    else:
+        rotated = []
+
+    # IDs ainda sem histórico são consultados primeiro.
+    query_items = sorted(
+        rotated,
+        key=lambda item: int(item["olistId"]) in previous_results,
+    )
+
+    max_requests = int(os.environ.get("OLIST_MAX_REQUESTS_PER_RUN", "190"))
+    if max_requests <= 0:
+        max_requests = len(query_items)
+
+    total = len(query_items)
+    requests_made = 0
+    reused_due_limit = 0
+    reused_due_error = 0
+    first_deferred_key: str | None = None
+    api_rate_limited = False
+
+    for index, item in enumerate(query_items, start=1):
+        olist_id = int(item["olistId"])
+        key = str(item.get("chave") or "").strip()
 
         if olist_id in results_by_id:
+            continue
+
+        if mock_stock is None and (api_rate_limited or requests_made >= max_requests):
+            previous = previous_results.get(olist_id)
+            if previous is None:
+                raise SyncError(
+                    "O limite seguro de consultas foi atingido antes da "
+                    f"primeira leitura do ID {olist_id}. Execute novamente."
+                )
+            results_by_id[olist_id] = previous
+            reused_due_limit += 1
+            first_deferred_key = first_deferred_key or key
+            print(
+                f"[{index:02d}/{total:02d}] Reutilizando estoque anterior de "
+                f"{item.get('marca')} {item.get('material')} — {item.get('cor')} "
+                "(limite seguro da execução)."
+            )
             continue
 
         print(
@@ -551,34 +745,76 @@ def main() -> int:
             f"{item.get('cor')}..."
         )
 
-        if mock_stock is not None:
-            if olist_id not in mock_stock:
-                raise SyncError(
-                    f"O mock não possui o ID da Olist {olist_id}."
+        try:
+            if mock_stock is not None:
+                if olist_id not in mock_stock:
+                    raise SyncError(
+                        f"O mock não possui o ID da Olist {olist_id}."
+                    )
+                quantity = mock_stock[olist_id]
+                response_payload: dict[str, Any] = {}
+            else:
+                requests_made += 1
+                quantity, response_payload = request_stock(
+                    token=token,
+                    olist_id=olist_id,
+                    timeout_seconds=timeout_seconds,
                 )
-            quantity = mock_stock[olist_id]
-        else:
-            quantity, response_payload = request_stock(
-                token=token,
-                olist_id=olist_id,
-                timeout_seconds=timeout_seconds,
-            )
 
             stock_source = response_payload.get("_3zk_stock_source")
             if stock_source:
                 print(f"          Origem considerada: {stock_source}")
 
-        status, available = public_status(quantity)
-        results_by_id[olist_id] = StockResult(
-            olist_id=olist_id,
-            status=status,
-            available=available,
-        )
+            status, available = public_status(quantity)
+            results_by_id[olist_id] = StockResult(
+                olist_id=olist_id,
+                status=status,
+                available=available,
+            )
+            print(f"          Resultado público: {status}")
 
-        print(f"          Resultado público: {status}")
+        except RateLimitError as exc:
+            previous = previous_results.get(olist_id)
+            if previous is None or mock_stock is not None:
+                raise
+            results_by_id[olist_id] = previous
+            reused_due_error += 1
+            first_deferred_key = first_deferred_key or key
+            api_rate_limited = True
+            print(
+                f"[AVISO] {exc} As demais cores usarão o último status válido "
+                "nesta execução."
+            )
 
-        if mock_stock is None and index < total:
+        except SyncError as exc:
+            previous = previous_results.get(olist_id)
+            if previous is None or mock_stock is not None:
+                raise
+            results_by_id[olist_id] = previous
+            reused_due_error += 1
+            first_deferred_key = first_deferred_key or key
+            print(
+                f"[AVISO] {exc} Mantendo o último status válido do ID "
+                f"{olist_id}."
+            )
+
+        if (
+            mock_stock is None
+            and not api_rate_limited
+            and requests_made < min(max_requests, total)
+        ):
             time.sleep(delay_seconds)
+
+    # A próxima execução começa pelo primeiro item adiado, distribuindo as
+    # consultas e evitando que sempre as mesmas cores fiquem no fim da fila.
+    next_cursor = 0
+    if active_items and first_deferred_key:
+        for position, item in enumerate(active_items):
+            if str(item.get("chave") or "").strip() == first_deferred_key:
+                next_cursor = position
+                break
+    elif active_items:
+        next_cursor = (cursor + requests_made) % len(active_items)
 
     generated = copy.deepcopy(base_products)
     status_counts = {
@@ -664,6 +900,14 @@ def main() -> int:
         "coresOcultas": status_counts["sem_estoque"],
         "depositosConsiderados": included_deposit_names(),
         "exibeQuantidadeExata": False,
+        "consultasRealizadas": requests_made,
+        "estoquesReutilizadosPorLimite": reused_due_limit,
+        "estoquesReutilizadosPorErro": reused_due_error,
+        "produtosPausadosSemConsulta": len(paused_items),
+        "proximoIndiceConsulta": next_cursor,
+        "modoConsulta": "parcial" if requested_ids else "completa",
+        "idsConsultadosParcialmente": sorted(requested_ids),
+        "limiteApiAtingido": api_rate_limited,
     }
     atomic_write_json(metadata_path, metadata)
 
@@ -677,6 +921,11 @@ def main() -> int:
         + " + ".join(included_deposit_names())
     )
     print("- Nenhuma quantidade exata foi gravada no catálogo público.")
+    print(f"- Consultas à Olist nesta execução: {requests_made}")
+    print(f"- Reutilizados pelo limite seguro: {reused_due_limit}")
+    print(f"- Reutilizados após erro individual: {reused_due_error}")
+    print(f"- Itens pausados sem consulta: {len(paused_items)}")
+    print(f"- Limite da API atingido: {'sim' if api_rate_limited else 'não'}")
 
     return 0
 

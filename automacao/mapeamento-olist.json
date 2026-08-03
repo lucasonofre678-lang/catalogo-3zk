@@ -2220,10 +2220,10 @@
       "material": "PETG",
       "linha": "",
       "cor": "Cool Grey",
-      "olistId": 10532493743,
-      "sku": "MP-FILAMENTO 3D - PETG COOL GREY 1KG (1.75MM) DER 4",
+      "olistId": 1053249374,
+      "sku": "MP-PETG-COOL_GREY",
       "gtin": "7908229112166",
-      "descricaoOlist": "MP-FILAMENTO 3D - PETG COOL GREY 1KG (1.75MM) DER 4"
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - COOL GREY"
     },
     {
       "chave": "masterprint|petg||green-olive",
@@ -2231,10 +2231,10 @@
       "material": "PETG",
       "linha": "",
       "cor": "Green Olive",
-      "olistId": 10532493795,
-      "sku": "MP-FILAMENTO 3D - PETG GREEN OLIVE 1KG (1.75MM) DER 4",
+      "olistId": 1053249379,
+      "sku": "MP-PETG-GREEN_OLIVE",
       "gtin": "7908229112173",
-      "descricaoOlist": "MP-FILAMENTO 3D - PETG GREEN OLIVE 1KG (1.75MM) DER 4"
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - GREEN OLIVE"
     },
     {
       "chave": "masterprint|petg||vermelho",
@@ -2242,10 +2242,10 @@
       "material": "PETG",
       "linha": "",
       "cor": "Vermelho",
-      "olistId": 10532493622,
-      "sku": "MP-FILAMENTO 3D - PETG VERMELHO 1KG (1.75MM) DER 4",
+      "olistId": 1053249362,
+      "sku": "MP-PETG-VERMELHO",
       "gtin": "7908229103829",
-      "descricaoOlist": "MP-FILAMENTO 3D - PETG VERMELHO 1KG (1.75MM) DER 4"
+      "descricaoOlist": "Filamento 3D Pteg MasterPrint - VERMELHO"
     }
   ]
 }

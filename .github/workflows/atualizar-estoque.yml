@@ -1,32 +1,35 @@
-name: Atualizar estoque Olist e publicar catálogo
+name: Sincronizar estoque Olist
 
 on:
   workflow_dispatch:
+    inputs:
+      permitir_grande_mudanca:
+        description: "Permitir uma queda grande de disponibilidade nesta execução"
+        required: false
+        type: boolean
+        default: false
+      ids_olist:
+        description: "Opcional: IDs Olist separados por vírgula para consulta rápida"
+        required: false
+        type: string
+        default: ""
   schedule:
     # Horários de Brasília (UTC-3): 08:00, 15:00 e 18:00.
     - cron: "0 11,18,21 * * *"
-  push:
-    branches:
-      - main
-    # O painel continua publicando pelo workflow separado.
-    # Este fluxo consulta a Olist quando a automação ou o mapeamento mudar.
-    paths:
-      - "automacao/**"
-      - ".github/workflows/atualizar-estoque.yml"
 
 permissions:
   contents: write
-  pages: write
-  id-token: write
 
 concurrency:
+  # Nunca permite duas consultas pesadas à Olist ao mesmo tempo.
   group: catalogo-3zk-estoque
   cancel-in-progress: false
 
 jobs:
-  sincronizar-e-montar:
-    name: Sincronizar estoque e montar site
+  sincronizar:
+    name: Consultar estoque e salvar resultado
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Baixar o repositório
@@ -48,96 +51,61 @@ jobs:
             exit 1
           fi
 
-      - name: Consultar Olist e gerar catálogo público
+      - name: Consultar Olist
         env:
           OLIST_API_TOKEN: ${{ secrets.OLIST_API_TOKEN }}
           OLIST_DELAY_SECONDS: "3.2"
           OLIST_DEPOSITOS_INCLUIDOS: "Geral,Loja presencial"
+          # Mantém uma margem abaixo do bloqueio observado próximo de 200 acessos.
+          OLIST_MAX_REQUESTS_PER_RUN: "190"
+          OLIST_ONLY_IDS: ${{ github.event_name == 'workflow_dispatch' && inputs.ids_olist || '' }}
+          ALLOW_LARGE_STOCK_CHANGE: ${{ inputs.permitir_grande_mudanca && 'true' || 'false' }}
         run: |
           python automacao/atualizar_estoque.py
 
-      - name: Validar arquivos gerados
+      - name: Validar resultado
         shell: bash
         run: |
           python - <<'PY'
           import json
           from pathlib import Path
 
-          obrigatorios = [
+          for path in (
               Path("dados/produtos.json"),
-              Path("dados/controle-catalogo.json"),
-          ]
-
-          for arquivo in obrigatorios:
-              if not arquivo.is_file():
-                  raise SystemExit(f"Arquivo obrigatório ausente: {arquivo}")
-
-              with arquivo.open("r", encoding="utf-8") as entrada:
-                  json.load(entrada)
-
-          print("Arquivos públicos validados.")
+              Path("dados/ultima-atualizacao.json"),
+          ):
+              with path.open("r", encoding="utf-8") as file:
+                  json.load(file)
+          print("Estoque validado.")
           PY
 
-      - name: Registrar mudança de disponibilidade
+      - name: Aplicar resultado sobre a versão mais recente
         shell: bash
         run: |
-          if git diff --quiet -- dados/produtos.json; then
-            echo "Nenhum status de estoque mudou."
+          cp dados/produtos.json /tmp/produtos-3zk.json
+          cp dados/ultima-atualizacao.json /tmp/ultima-atualizacao-3zk.json
+
+          # Evita conflito se uma foto ou alteração visual for enviada enquanto
+          # esta consulta longa estiver em andamento.
+          git fetch origin main
+          git reset --hard origin/main
+
+          cp /tmp/produtos-3zk.json dados/produtos.json
+          cp /tmp/ultima-atualizacao-3zk.json dados/ultima-atualizacao.json
+
+      - name: Registrar estoque atualizado
+        shell: bash
+        run: |
+          if git diff --quiet -- dados/produtos.json dados/ultima-atualizacao.json; then
+            echo "Nenhuma alteração para registrar."
             exit 0
           fi
 
           git config user.name "3ZK Estoque Automático"
           git config user.email "actions@users.noreply.github.com"
-
           git add dados/produtos.json
-
-          if [ -f dados/ultima-atualizacao.json ]; then
-            git add -f dados/ultima-atualizacao.json
-          fi
-
+          git add -f dados/ultima-atualizacao.json
           git commit -m "Atualiza disponibilidade do catálogo [automático]"
-          git push
+          git push origin HEAD:main
 
-      - name: Montar arquivos públicos
-        shell: bash
-        run: |
-          rm -rf _site
-          mkdir -p _site/dados
-
-          cp index.html script.js _site/
-          cp ./*.css _site/
-          cp -R assets _site/assets
-          cp dados/produtos.json _site/dados/produtos.json
-          cp dados/controle-catalogo.json _site/dados/controle-catalogo.json
-
-          if [ -f dados/ultima-atualizacao.json ]; then
-            cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
-          fi
-
-          if [ -f CNAME ]; then
-            cp CNAME _site/CNAME
-          fi
-
-          touch _site/.nojekyll
-
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Enviar site para publicação
-        uses: actions/upload-pages-artifact@v4
-        with:
-          path: "_site"
-
-  publicar:
-    name: Publicar catálogo
-    needs: sincronizar-e-montar
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Publicar no GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          echo "O commit do estoque acionará a publicação rápida automaticamente."

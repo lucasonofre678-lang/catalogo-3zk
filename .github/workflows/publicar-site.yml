@@ -1,4 +1,4 @@
-name: Publicar catálogo
+name: Publicar catálogo rápido
 
 on:
   workflow_dispatch:
@@ -7,12 +7,14 @@ on:
       - main
     paths:
       - "index.html"
-      - "style.css"
       - "*.css"
       - "script.js"
       - "assets/**"
+      - "dados/produtos-base.json"
       - "dados/produtos.json"
       - "dados/controle-catalogo.json"
+      - "dados/ultima-atualizacao.json"
+      - "automacao/gerar_catalogo_sem_consultar_olist.py"
       - "CNAME"
       - ".github/workflows/publicar-site.yml"
 
@@ -27,12 +29,18 @@ concurrency:
 
 jobs:
   montar:
-    name: Montar site
+    name: Montar site sem consultar estoque
     runs-on: ubuntu-latest
+    timeout-minutes: 5
 
     steps:
       - name: Baixar o repositório
         uses: actions/checkout@v6
+
+      - name: Preparar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
 
       - name: Montar arquivos públicos
         shell: bash
@@ -43,8 +51,10 @@ jobs:
           cp index.html script.js _site/
           cp ./*.css _site/
           cp -R assets _site/assets
-          cp dados/produtos.json _site/dados/produtos.json
           cp dados/controle-catalogo.json _site/dados/controle-catalogo.json
+
+          python automacao/gerar_catalogo_sem_consultar_olist.py \
+            --output _site/dados/produtos.json
 
           if [ -f dados/ultima-atualizacao.json ]; then
             cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
@@ -55,6 +65,22 @@ jobs:
           fi
 
           touch _site/.nojekyll
+
+      - name: Validar catálogo montado
+        shell: bash
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          for path in (
+              Path("_site/dados/produtos.json"),
+              Path("_site/dados/controle-catalogo.json"),
+          ):
+              with path.open("r", encoding="utf-8") as file:
+                  json.load(file)
+          print("Publicação rápida validada.")
+          PY
 
       - name: Configurar GitHub Pages
         uses: actions/configure-pages@v5
