@@ -1,14 +1,9 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-08-03T15:41:00-03:00",
+  "atualizadoEm": "2026-08-03T16:30:00-03:00",
   "produtosPausados": [
     "multifila|pla|",
-    "masterprint|asa|",
-    "masterprint|tpr|"
+    "masterprint|asa|"
   ],
-  "coresPausadas": [
-    "masterprint|petg||cool-grey",
-    "masterprint|petg||green-olive",
-    "masterprint|petg||vermelho"
-  ]
+  "coresPausadas": []
 }

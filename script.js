@@ -1794,6 +1794,68 @@ async function atualizarFoto({
 }
 
 /* ============================================================
+   DESTAQUES DOS PRODUTOS
+   ============================================================ */
+function obterDestaqueProduto(produto) {
+  const marca = String(produto?.marca || "")
+    .trim()
+    .toLowerCase();
+  const material = String(produto?.material || "")
+    .trim()
+    .toUpperCase();
+
+  if (marca === "masterprint" && material === "PETG") {
+    return {
+      variante: "azul",
+      titulo: "DESTAQUE",
+      subtitulo: "Novo no catálogo"
+    };
+  }
+
+  if (marca === "closin" && material === "PLA") {
+    return {
+      variante: "dourado",
+      titulo: "DESTAQUE",
+      subtitulo: "Novas cores"
+    };
+  }
+
+  return null;
+}
+
+function criarSeloDestaqueProduto(destaque) {
+  const selo = document.createElement("div");
+  selo.className =
+    `produto__destaque produto__destaque--${destaque.variante}`;
+  selo.setAttribute(
+    "aria-label",
+    `${destaque.titulo}: ${destaque.subtitulo}`
+  );
+
+  selo.innerHTML = `
+    <span class="produto__destaque-selo">
+      <svg
+        class="produto__destaque-icone"
+        viewBox="0 0 24 24"
+        fill="none"
+        aria-hidden="true"
+      >
+        <path
+          d="m12 3 2.36 4.78 5.27.77-3.82 3.72.9 5.25L12 15.03 7.29 17.5l.9-5.24-3.82-3.72 5.27-.77L12 3Z"
+          fill="currentColor"
+        ></path>
+      </svg>
+      <span>${destaque.titulo}</span>
+    </span>
+    <span class="produto__destaque-subtitulo">
+      ${destaque.subtitulo}
+    </span>
+  `;
+
+  return selo;
+}
+
+/* ============================================================
    LINHA DE PRODUTO
    ============================================================ */
 function criarLinhaProduto(produto, indiceCorInicial = 0) {
@@ -1804,6 +1866,15 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   artigo.id = `produto-${slugProduto}`;
   artigo.dataset.produto = slugProduto;
+
+  const destaque = obterDestaqueProduto(produto);
+  if (destaque) {
+    artigo.classList.add(
+      "produto--destaque",
+      `produto--destaque-${destaque.variante}`
+    );
+    artigo.appendChild(criarSeloDestaqueProduto(destaque));
+  }
 
   const corInicial = produto.cores[indiceCorInicial] || produto.cores[0];
   let corSelecionadaAtual = corInicial;
@@ -2143,9 +2214,20 @@ function renderizar() {
   const termo = campoBuscaEl.value.trim();
   const destino = lerDestinoDoLink();
 
-  const filtrados = produtos.filter((produto) =>
-    produtoCorresponde(produto, termo, materialAtivo)
-  );
+  const filtrados = produtos
+    .filter((produto) =>
+      produtoCorresponde(produto, termo, materialAtivo)
+    )
+    .map((produto, indiceOriginal) => ({
+      produto,
+      indiceOriginal,
+      prioridade: obterDestaqueProduto(produto) ? 0 : 1
+    }))
+    .sort((a, b) =>
+      a.prioridade - b.prioridade ||
+      a.indiceOriginal - b.indiceOriginal
+    )
+    .map((item) => item.produto);
 
   listaProdutosEl.innerHTML = "";
 

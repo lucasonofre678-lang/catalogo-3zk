@@ -2213,6 +2213,39 @@
       "sku": "TPR - VERMELHO",
       "gtin": "7908229104987",
       "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - VERMELHO"
+    },
+    {
+      "chave": "masterprint|petg||cool-grey",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Cool Grey",
+      "olistId": 10532493743,
+      "sku": "MP-FILAMENTO 3D - PETG COOL GREY 1KG (1.75MM) DER 4",
+      "gtin": "7908229112166",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG COOL GREY 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|petg||green-olive",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Green Olive",
+      "olistId": 10532493795,
+      "sku": "MP-FILAMENTO 3D - PETG GREEN OLIVE 1KG (1.75MM) DER 4",
+      "gtin": "7908229112173",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG GREEN OLIVE 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|petg||vermelho",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Vermelho",
+      "olistId": 10532493622,
+      "sku": "MP-FILAMENTO 3D - PETG VERMELHO 1KG (1.75MM) DER 4",
+      "gtin": "7908229103829",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG VERMELHO 1KG (1.75MM) DER 4"
     }
   ]
 }

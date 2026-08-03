@@ -1,0 +1,12 @@
+CORREÇÃO 3ZK — IDS OLIST, TPR E DESTAQUES
+
+Corrigido:
+- Masterprint PETG Cool Grey: ID 10532493743
+- Masterprint PETG Green Olive: ID 10532493795
+- Masterprint PETG Vermelho: ID 10532493622
+- As três cores foram retiradas da pausa.
+- Masterprint TPR foi retirado da pausa.
+- Produtos com selo DESTAQUE aparecem primeiro no site.
+
+Este pacote NÃO contém dados/produtos.json nem dados/ultima-atualizacao.json.
+Após Commit e Push, a automação da Olist recria o catálogo com os estoques atuais.
