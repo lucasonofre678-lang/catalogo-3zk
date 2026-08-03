@@ -3549,9 +3549,18 @@
       const ids = itens.map((item) => Number(item.olistId));
       if (ids.some((id) => !Number.isInteger(id) || id <= 0)) throw new Error("Existe ID inválido no mapeamento da Olist.");
       if (new Set(ids).size !== ids.length) throw new Error("O mesmo ID da Olist está ligado a mais de uma cor.");
-      const faltando = chavesBase.filter((chave) => !new Set(chavesMapa).has(chave));
+      const mapaChaves = new Set(chavesMapa);
+      const faltando = chavesBase.filter((chave) => !mapaChaves.has(chave));
+      const permitidasSemMapa = new Set(estado.coresPausadas);
+      estado.baseAtualRaw.forEach((produto) => {
+        const produtoId = obterIdProduto(produto);
+        if (estado.produtosPausados.has(produtoId)) {
+          (produto.cores || []).forEach((cor) => permitidasSemMapa.add(String(cor.chaveEstoque || "")));
+        }
+      });
+      const faltandoAtivos = faltando.filter((chave) => !permitidasSemMapa.has(chave));
       const extras = chavesMapa.filter((chave) => !new Set(chavesBase).has(chave));
-      if (faltando.length) throw new Error(`Cores sem mapeamento Olist: ${faltando.slice(0, 3).join(", ")}${faltando.length > 3 ? "..." : ""}`);
+      if (faltandoAtivos.length) throw new Error(`Cores ativas sem mapeamento Olist: ${faltandoAtivos.slice(0, 3).join(", ")}${faltandoAtivos.length > 3 ? "..." : ""}`);
       if (extras.length) throw new Error(`Mapeamentos sem cor correspondente: ${extras.slice(0, 3).join(", ")}${extras.length > 3 ? "..." : ""}`);
       estado.mapeamentoAtualRaw.total = itens.length;
     }

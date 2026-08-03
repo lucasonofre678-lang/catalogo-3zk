@@ -63,6 +63,14 @@ def parse_args() -> argparse.Namespace:
         help="Mapeamento das cores para os IDs da Olist.",
     )
     parser.add_argument(
+        "--control",
+        default="dados/controle-catalogo.json",
+        help=(
+            "Controle de produtos e cores pausados. Cores pausadas podem "
+            "ser pré-cadastradas antes de receber um ID da Olist."
+        ),
+    )
+    parser.add_argument(
         "--output",
         default="dados/produtos.json",
         help="JSON público gerado.",
@@ -355,6 +363,7 @@ def request_stock(
 def validate_mapping(
     base_products: list[dict[str, Any]],
     mapping_items: list[dict[str, Any]],
+    allowed_missing_keys: set[str] | None = None,
 ) -> dict[str, dict[str, Any]]:
     mapping_by_key: dict[str, dict[str, Any]] = {}
 
@@ -394,12 +403,21 @@ def validate_mapping(
     if len(base_keys) != len(set(base_keys)):
         raise SyncError("Existem chaves de estoque duplicadas no catálogo-base.")
 
+    allowed_missing_keys = allowed_missing_keys or set()
     missing = sorted(set(base_keys) - set(mapping_by_key))
+    blocking_missing = sorted(set(missing) - allowed_missing_keys)
     extra = sorted(set(mapping_by_key) - set(base_keys))
 
-    if missing:
+    if blocking_missing:
         raise SyncError(
-            "Cores sem mapeamento na Olist: " + ", ".join(missing)
+            "Cores ativas sem mapeamento na Olist: "
+            + ", ".join(blocking_missing)
+        )
+
+    if missing:
+        print(
+            "[AVISO] Cores pausadas aguardando mapeamento Olist: "
+            + ", ".join(missing)
         )
 
     if extra:
@@ -448,11 +466,13 @@ def main() -> int:
 
     base_path = Path(args.base)
     mapping_path = Path(args.mapping)
+    control_path = Path(args.control)
     output_path = Path(args.output)
     metadata_path = Path(args.metadata)
 
     base_products = load_json(base_path)
     mapping_payload = load_json(mapping_path)
+    control_payload = load_json(control_path)
 
     if not isinstance(base_products, list):
         raise SyncError("produtos-base.json precisa conter uma lista.")
@@ -461,7 +481,36 @@ def main() -> int:
     if not isinstance(mapping_items, list):
         raise SyncError("mapeamento-olist.json não contém a lista 'itens'.")
 
-    mapping_by_key = validate_mapping(base_products, mapping_items)
+    paused_products = {
+        str(item).strip()
+        for item in control_payload.get("produtosPausados", [])
+        if str(item).strip()
+    }
+    paused_colors = {
+        str(item).strip()
+        for item in control_payload.get("coresPausadas", [])
+        if str(item).strip()
+    }
+
+    allowed_missing_keys = set(paused_colors)
+    for product in base_products:
+        color_keys = {
+            str(color.get("chaveEstoque") or "").strip()
+            for color in product.get("cores", [])
+        }
+        product_ids = {
+            product_catalog_id(key)
+            for key in color_keys
+            if key
+        }
+        if len(product_ids) == 1 and next(iter(product_ids)) in paused_products:
+            allowed_missing_keys.update(color_keys)
+
+    mapping_by_key = validate_mapping(
+        base_products,
+        mapping_items,
+        allowed_missing_keys=allowed_missing_keys,
+    )
 
     mock_stock: dict[int, Decimal] | None = None
     token = os.environ.get("OLIST_API_TOKEN", "").strip()
@@ -544,13 +593,20 @@ def main() -> int:
 
         for color in product.get("cores", []):
             key = str(color.pop("chaveEstoque")).strip()
-            mapping = mapping_by_key[key]
+            product_ids.add(product_catalog_id(key))
+            color["idCatalogo"] = key
+
+            mapping = mapping_by_key.get(key)
+            if mapping is None:
+                color["statusEstoque"] = "sem_estoque"
+                color["disponivel"] = False
+                status_counts["sem_estoque"] += 1
+                continue
+
             result = results_by_id[int(mapping["olistId"])]
 
-            color["idCatalogo"] = key
             color["statusEstoque"] = result.status
             color["disponivel"] = result.available
-            product_ids.add(product_catalog_id(key))
 
             status_counts[result.status] += 1
             if result.available:
