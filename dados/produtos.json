@@ -1041,8 +1041,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cool Grey",
@@ -1053,8 +1053,8 @@
           "assets/fotos/masterprint-petg/cool-grey.webp"
         ],
         "idCatalogo": "masterprint|petg||cool-grey",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Green Olive",
@@ -1065,8 +1065,8 @@
           "assets/fotos/masterprint-petg/green-olive.webp"
         ],
         "idCatalogo": "masterprint|petg||green-olive",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|petg|",
