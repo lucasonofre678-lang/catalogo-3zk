@@ -26,7 +26,7 @@
           "assets/fotos/flashforge-pla/laranja-escuro.webp"
         ],
         "idCatalogo": "flashforge|pla||laranja-escuro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1041,8 +1041,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cool Grey",
@@ -1053,8 +1053,8 @@
           "assets/fotos/masterprint-petg/cool-grey.webp"
         ],
         "idCatalogo": "masterprint|petg||cool-grey",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Green Olive",
@@ -1065,8 +1065,8 @@
           "assets/fotos/masterprint-petg/green-olive.webp"
         ],
         "idCatalogo": "masterprint|petg||green-olive",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|petg|",
@@ -1459,8 +1459,8 @@
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Prata Master",
@@ -1536,7 +1536,7 @@
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-roxo",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2560,8 +2560,8 @@
           "assets/fotos/elegoo-pla/orange.webp"
         ],
         "idCatalogo": "elegoo|pla||orange",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Pink",
@@ -2674,7 +2674,7 @@
       }
     ],
     "idCatalogo": "elegoo|pla|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Multifila",
