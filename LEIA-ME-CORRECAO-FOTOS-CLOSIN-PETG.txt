@@ -1,0 +1,13 @@
+Correção de fotos do Closin PETG.
+
+Análise feita:
+- A cor "Rosa" estava exibindo uma foto vermelha, incompatível com a bolinha e com o nome da cor.
+- Foi corrigido o arquivo da foto para usar uma imagem visualmente compatível com rosa/pink.
+- Também foi alinhado o arquivo "rose.webp" para evitar erro futuro em referências alternativas.
+
+Arquivos corrigidos:
+- assets/fotos/closin-petg/rosa.webp
+- assets/fotos/closin-petg/rose.webp
+
+Observação:
+Se o site continuar mostrando a foto antiga, faça um hard refresh no navegador (Ctrl+F5) após substituir os arquivos.
