@@ -26,7 +26,7 @@
           "assets/fotos/flashforge-pla/laranja-escuro.webp"
         ],
         "idCatalogo": "flashforge|pla||laranja-escuro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2560,8 +2560,8 @@
           "assets/fotos/elegoo-pla/orange.webp"
         ],
         "idCatalogo": "elegoo|pla||orange",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Pink",
@@ -2674,7 +2674,7 @@
       }
     ],
     "idCatalogo": "elegoo|pla|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Multifila",
