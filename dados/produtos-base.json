@@ -1946,9 +1946,9 @@
     "cores": [
       {
         "nome": "Amarelo",
-        "hex": "#F5D01F",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#D7AD3E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/amarelo.webp"
         ],
@@ -1956,9 +1956,9 @@
       },
       {
         "nome": "Azul",
-        "hex": "#2E63C7",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#315AA0",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/azul.webp"
         ],
@@ -1966,9 +1966,9 @@
       },
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E7E5DD",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/branco.webp"
         ],
@@ -1976,9 +1976,9 @@
       },
       {
         "nome": "Preto",
-        "hex": "#1B1B1B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#25282B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/preto.webp"
         ],
@@ -1986,9 +1986,9 @@
       },
       {
         "nome": "Verde",
-        "hex": "#2E9E5B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#2F765C",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/verde.webp"
         ],
@@ -1996,9 +1996,9 @@
       },
       {
         "nome": "Vermelho",
-        "hex": "#C94343",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#C84A55",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/vermelho.webp"
         ],

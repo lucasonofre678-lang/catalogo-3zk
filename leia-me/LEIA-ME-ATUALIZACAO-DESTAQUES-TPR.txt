@@ -1,0 +1,29 @@
+ATUALIZAÇÃO FINAL — DESTAQUES E FOTOS MASTERPRINT TPR
+
+ALTERAÇÕES VISUAIS
+- Closin PLA e Masterprint PETG usam o mesmo selo: NOVAS CORES.
+- O selo agora fica dentro das informações do produto.
+- Removidas as faixas dourada/azul fortes e o grande espaço vazio.
+- Adicionada uma borda lateral azul discreta.
+- Os dois produtos continuam aparecendo primeiro no catálogo.
+
+FOTOS MASTERPRINT TPR
+- Amarelo
+- Azul
+- Branco
+- Preto
+- Verde
+- Vermelho
+
+As imagens foram convertidas para WebP e colocadas em:
+assets/fotos/masterprint-tpr/
+
+SEGURANÇA
+Este pacote NÃO inclui:
+- dados/produtos.json
+- dados/ultima-atualizacao.json
+- dados/controle-catalogo.json
+- automacao/mapeamento-olist.json
+- workflows do GitHub
+
+Assim, ele não altera os IDs da Olist, o estoque atual nem o novo fluxo rápido.

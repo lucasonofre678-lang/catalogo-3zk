@@ -1804,52 +1804,42 @@ function obterDestaqueProduto(produto) {
     .trim()
     .toUpperCase();
 
-  if (marca === "masterprint" && material === "PETG") {
-    return {
-      variante: "azul",
-      titulo: "DESTAQUE",
-      subtitulo: "Novo no catálogo"
-    };
+  const possuiNovasCores =
+    (marca === "masterprint" && material === "PETG") ||
+    (marca === "closin" && material === "PLA");
+
+  if (!possuiNovasCores) {
+    return null;
   }
 
-  if (marca === "closin" && material === "PLA") {
-    return {
-      variante: "dourado",
-      titulo: "DESTAQUE",
-      subtitulo: "Novas cores"
-    };
-  }
-
-  return null;
+  return {
+    titulo: "Novas cores"
+  };
 }
 
 function criarSeloDestaqueProduto(destaque) {
-  const selo = document.createElement("div");
-  selo.className =
-    `produto__destaque produto__destaque--${destaque.variante}`;
-  selo.setAttribute(
-    "aria-label",
-    `${destaque.titulo}: ${destaque.subtitulo}`
-  );
+  const selo = document.createElement("span");
+  selo.className = "produto__novidade";
+  selo.setAttribute("aria-label", destaque.titulo);
 
   selo.innerHTML = `
-    <span class="produto__destaque-selo">
-      <svg
-        class="produto__destaque-icone"
-        viewBox="0 0 24 24"
-        fill="none"
-        aria-hidden="true"
-      >
-        <path
-          d="m12 3 2.36 4.78 5.27.77-3.82 3.72.9 5.25L12 15.03 7.29 17.5l.9-5.24-3.82-3.72 5.27-.77L12 3Z"
-          fill="currentColor"
-        ></path>
-      </svg>
-      <span>${destaque.titulo}</span>
-    </span>
-    <span class="produto__destaque-subtitulo">
-      ${destaque.subtitulo}
-    </span>
+    <svg
+      class="produto__novidade-icone"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 2.75 13.8 8.2 19.25 10 13.8 11.8 12 17.25 10.2 11.8 4.75 10 10.2 8.2 12 2.75Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="m18.3 15.2.9 2.6 2.55.9-2.55.85-.9 2.7-.85-2.7-2.7-.85 2.7-.9.85-2.6Z"
+        fill="currentColor"
+        opacity=".72"
+      ></path>
+    </svg>
+    <span>${destaque.titulo}</span>
   `;
 
   return selo;
@@ -1869,11 +1859,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   const destaque = obterDestaqueProduto(produto);
   if (destaque) {
-    artigo.classList.add(
-      "produto--destaque",
-      `produto--destaque-${destaque.variante}`
-    );
-    artigo.appendChild(criarSeloDestaqueProduto(destaque));
+    artigo.classList.add("produto--destaque");
   }
 
   const corInicial = produto.cores[indiceCorInicial] || produto.cores[0];
@@ -1881,6 +1867,10 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   const info = document.createElement("div");
   info.className = "produto__info";
+
+  if (destaque) {
+    artigo.appendChild(criarSeloDestaqueProduto(destaque));
+  }
 
   const marca = document.createElement("span");
   marca.className = "produto__marca";
