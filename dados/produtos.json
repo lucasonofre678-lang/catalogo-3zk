@@ -425,9 +425,9 @@
     "cores": [
       {
         "nome": "Gold",
-        "hex": "#A97858",
+        "hex": "#AE7652",
         "efeito": "silk",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/gold.webp"
@@ -438,8 +438,8 @@
       },
       {
         "nome": "Pink Rosa Bebê",
-        "hex": "#EE748A",
-        "hexFonte": "foto",
+        "hex": "#E97A84",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
@@ -450,8 +450,8 @@
       },
       {
         "nome": "Amarelo",
-        "hex": "#E2C53E",
-        "hexFonte": "foto",
+        "hex": "#DFC142",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/amarelo.webp"
@@ -462,8 +462,8 @@
       },
       {
         "nome": "Azul",
-        "hex": "#2E63C7",
-        "hexFonte": "foto",
+        "hex": "#2766C5",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/azul.webp"
@@ -474,8 +474,8 @@
       },
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "foto",
+        "hex": "#E3E6E5",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/branco.webp"
@@ -486,8 +486,8 @@
       },
       {
         "nome": "Preto",
-        "hex": "#24282B",
-        "hexFonte": "foto",
+        "hex": "#25282C",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/preto.webp"
@@ -498,8 +498,8 @@
       },
       {
         "nome": "Skin",
-        "hex": "#D0AA98",
-        "hexFonte": "foto",
+        "hex": "#D0AB96",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/skin.webp",
@@ -511,8 +511,8 @@
       },
       {
         "nome": "Verde",
-        "hex": "#37A66D",
-        "hexFonte": "foto",
+        "hex": "#3BA66E",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/verde.webp"
@@ -523,8 +523,8 @@
       },
       {
         "nome": "Vermelho",
-        "hex": "#D6323F",
-        "hexFonte": "foto",
+        "hex": "#C73642",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/vermelho.webp"
@@ -535,8 +535,8 @@
       },
       {
         "nome": "Azul Céu / Sky Blue",
-        "hex": "#309DD9",
-        "hexFonte": "foto",
+        "hex": "#2A9AE2",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
@@ -547,8 +547,8 @@
       },
       {
         "nome": "Branco Pérola",
-        "hex": "#E8E7EF",
-        "hexFonte": "foto",
+        "hex": "#DBE1F1",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/branco-perola.webp"
@@ -559,8 +559,8 @@
       },
       {
         "nome": "Ciano",
-        "hex": "#168FD1",
-        "hexFonte": "foto",
+        "hex": "#0B89DC",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/ciano.webp"
@@ -571,8 +571,8 @@
       },
       {
         "nome": "Fluo Blue",
-        "hex": "#2775C8",
-        "hexFonte": "foto",
+        "hex": "#2072D2",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/fluo-blue.webp"
@@ -583,8 +583,8 @@
       },
       {
         "nome": "Fluo Green",
-        "hex": "#62D34B",
-        "hexFonte": "foto",
+        "hex": "#60D946",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/fluo-green.webp"
@@ -595,8 +595,8 @@
       },
       {
         "nome": "Fluo Red",
-        "hex": "#DB3045",
-        "hexFonte": "foto",
+        "hex": "#DB3849",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/fluo-red.webp"
@@ -607,8 +607,8 @@
       },
       {
         "nome": "Fluo Yellow",
-        "hex": "#F2D847",
-        "hexFonte": "foto",
+        "hex": "#EFD14A",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/fluo-yellow.webp"
@@ -619,8 +619,8 @@
       },
       {
         "nome": "Lemon Green",
-        "hex": "#82D98E",
-        "hexFonte": "foto",
+        "hex": "#85D294",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/lemon-green.webp"
@@ -631,8 +631,8 @@
       },
       {
         "nome": "Marrom Escuro / Dark Brown",
-        "hex": "#4B3032",
-        "hexFonte": "foto",
+        "hex": "#3F383B",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/marrom-escuro-dark-brown.webp"
@@ -643,8 +643,8 @@
       },
       {
         "nome": "Marrom Claro",
-        "hex": "#795B5C",
-        "hexFonte": "foto",
+        "hex": "#755C5D",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/marrom-claro.webp"
@@ -655,8 +655,8 @@
       },
       {
         "nome": "Natural",
-        "hex": "#E7E2D5",
-        "hexFonte": "foto",
+        "hex": "#E2E1DB",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/natural.webp"
@@ -667,8 +667,8 @@
       },
       {
         "nome": "Silver",
-        "hex": "#8E9296",
-        "hexFonte": "foto",
+        "hex": "#8D9197",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/silver.webp"
@@ -679,8 +679,8 @@
       },
       {
         "nome": "Transparente",
-        "hex": "#E1E0DB",
-        "hexFonte": "foto",
+        "hex": "#DEDFDE",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/transparente.webp"
@@ -691,8 +691,8 @@
       },
       {
         "nome": "Violeta",
-        "hex": "#7950C7",
-        "hexFonte": "foto",
+        "hex": "#7E5AC7",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/violeta.webp"
@@ -703,8 +703,8 @@
       },
       {
         "nome": "Wood",
-        "hex": "#B5A083",
-        "hexFonte": "foto",
+        "hex": "#AF9D87",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/wood.webp"
@@ -773,8 +773,8 @@
       },
       {
         "nome": "Bronze",
-        "hex": "#8A5B35",
-        "hexFonte": "foto",
+        "hex": "#6B674B",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/bronze.webp"
@@ -785,8 +785,8 @@
       },
       {
         "nome": "Cinza",
-        "hex": "#969590",
-        "hexFonte": "foto",
+        "hex": "#9E948A",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/cinza.webp"
@@ -809,9 +809,9 @@
       },
       {
         "nome": "Fluorescente Roxo",
-        "hex": "#A64CD4",
+        "hex": "#8D849D",
         "efeito": "neon",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/fluorescente-roxo.webp"
@@ -847,8 +847,8 @@
       },
       {
         "nome": "Lavanda",
-        "hex": "#A68EC1",
-        "hexFonte": "foto",
+        "hex": "#A0A0A7",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/lavanda.webp"
@@ -859,8 +859,8 @@
       },
       {
         "nome": "Madeira",
-        "hex": "#8D7658",
-        "hexFonte": "foto",
+        "hex": "#8E7957",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/madeira.webp"
@@ -883,8 +883,8 @@
       },
       {
         "nome": "Prata",
-        "hex": "#6F7372",
-        "hexFonte": "foto",
+        "hex": "#717370",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/prata.webp"
@@ -919,8 +919,8 @@
       },
       {
         "nome": "Roxo",
-        "hex": "#735575",
-        "hexFonte": "foto",
+        "hex": "#764D77",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/roxo.webp"
@@ -931,8 +931,8 @@
       },
       {
         "nome": "Skin",
-        "hex": "#C89A82",
-        "hexFonte": "foto",
+        "hex": "#CF997C",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/skin.webp"
@@ -943,9 +943,9 @@
       },
       {
         "nome": "Translúcido Amarelo",
-        "hex": "#D6C366",
+        "hex": "#C1905E",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-amarelo.webp"
@@ -982,9 +982,9 @@
       },
       {
         "nome": "Translúcido Verde",
-        "hex": "#6EAE8A",
+        "hex": "#729998",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-verde.webp"
@@ -995,9 +995,9 @@
       },
       {
         "nome": "Translúcido Vermelho",
-        "hex": "#A85A5A",
+        "hex": "#AD474F",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-vermelho.webp",
@@ -1009,9 +1009,9 @@
       },
       {
         "nome": "Transparente",
-        "hex": "#D7DEDC",
+        "hex": "#D7D9D7",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/transparente.webp"
@@ -1034,8 +1034,8 @@
       },
       {
         "nome": "Vermelho",
-        "hex": "#B8323B",
-        "hexFonte": "foto",
+        "hex": "#B83035",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/vermelho.webp"
@@ -1046,8 +1046,8 @@
       },
       {
         "nome": "Cool Grey",
-        "hex": "#484B4D",
-        "hexFonte": "foto",
+        "hex": "#4C4C4A",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/cool-grey.webp"
@@ -1058,8 +1058,8 @@
       },
       {
         "nome": "Green Olive",
-        "hex": "#596043",
-        "hexFonte": "foto",
+        "hex": "#5C5D42",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/green-olive.webp"
@@ -2328,9 +2328,9 @@
     "cores": [
       {
         "nome": "Amarelo",
-        "hex": "#F5D01F",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#CDA149",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/amarelo.webp"
         ],
@@ -2340,9 +2340,9 @@
       },
       {
         "nome": "Azul",
-        "hex": "#2E63C7",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#43598B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/azul.webp"
         ],
@@ -2352,9 +2352,9 @@
       },
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E0E3E2",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/branco.webp"
         ],
@@ -2364,9 +2364,9 @@
       },
       {
         "nome": "Preto",
-        "hex": "#1B1B1B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#25282D",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/preto.webp"
         ],
@@ -2376,9 +2376,9 @@
       },
       {
         "nome": "Verde",
-        "hex": "#2E9E5B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#33715B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/verde.webp"
         ],
@@ -2388,9 +2388,9 @@
       },
       {
         "nome": "Vermelho",
-        "hex": "#C94343",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#C04753",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpr/vermelho.webp"
         ],
