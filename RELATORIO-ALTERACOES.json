@@ -1,0 +1,178 @@
+[
+  {
+    "produto": "Masterprint TPU",
+    "variacao": "Branco",
+    "antes": [
+      "assets/fotos/masterprint-tpu/branco.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-tpu/branco.webp",
+      "assets/fotos/masterprint-tpu/branco-2.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-tpu/branco-2.webp",
+    "sha256": "327665b7f4eb83ccf265348e161802767a8bf86c58f25e6a4a779a16853bdc5d",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint PLA",
+    "variacao": "Prata",
+    "antes": [
+      "assets/fotos/masterprint-pla/prata.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-pla/prata.webp",
+      "assets/fotos/masterprint-pla/prata-2.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-pla/prata-2.webp",
+    "sha256": "bf1dcdb8f736e333a5face851d52b3da78d708046ebe6c909add9981b998e248",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint PLA",
+    "variacao": "Laranja",
+    "antes": [
+      "assets/fotos/masterprint-pla/laranja.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-pla/laranja.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-pla/laranja.webp",
+    "sha256": "5d47674833537d55c4111d41fc0dfaaa6ee6d13b4b57c88cf98f5fb87ffd0aa8",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint TPU",
+    "variacao": "Preto",
+    "antes": [
+      "assets/fotos/masterprint-tpu/preto.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-tpu/preto.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-tpu/preto.webp",
+    "sha256": "6fca204c1ca6a4be64b140ea47f0b6090b2d50771dcadc2b6a3933abda98a28c",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint TPU",
+    "variacao": "Natural Transparente",
+    "antes": [
+      "assets/fotos/masterprint-tpu/natural-transparente.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-tpu/natural-transparente.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-tpu/natural-transparente.webp",
+    "sha256": "bca4fa98c0c6d2efa9ddf3b6793790c5e453db61c6f1e4d9071583c516289d89",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint PLA",
+    "variacao": "Branco",
+    "antes": [
+      "assets/fotos/masterprint-pla/branco.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-pla/branco.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-pla/branco.webp",
+    "sha256": "48b92a116ed694633b2e8bf3cdbea18f5ef63be653c514e82637538187366ce9",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint PLA — Silk Especial",
+    "variacao": "Silk Roxo com Glitter",
+    "antes": [
+      "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp",
+    "sha256": "99bcc316423b39f24a29c82325a721d9ae7c31169a738d947f3bcaa983629a39",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Flashforge PLA",
+    "variacao": "Lavender / Roxo Claro",
+    "antes": [
+      "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
+    ],
+    "depois": [
+      "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
+    ],
+    "arquivo": "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
+    "sha256": "fc514683c9e9c5129fd0c79c092d8f635ed08d83128b3f6e47014931568bc9ad",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint PLA",
+    "variacao": "Cinza",
+    "antes": [
+      "assets/fotos/masterprint-pla/cinza.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-pla/cinza.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-pla/cinza.webp",
+    "sha256": "30fbbab5f8cf3ff9dc8930768e8bb0b58213a7cf834122f48acb32b070823a25",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Closin PLA",
+    "variacao": "Azul",
+    "antes": [
+      "assets/fotos/closin-pla/azul.webp"
+    ],
+    "depois": [
+      "assets/fotos/closin-pla/azul.webp",
+      "assets/fotos/closin-pla/azul-2.webp"
+    ],
+    "arquivo": "assets/fotos/closin-pla/azul-2.webp",
+    "sha256": "b341407566ac4a5a4a4425e7bb0aaba515c57898172e2f22281aa39588d9ab23",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Masterprint PLA",
+    "variacao": "Prata Master",
+    "antes": [
+      "assets/fotos/masterprint-pla/prata-master.webp"
+    ],
+    "depois": [
+      "assets/fotos/masterprint-pla/prata-master.webp"
+    ],
+    "arquivo": "assets/fotos/masterprint-pla/prata-master.webp",
+    "sha256": "fb7a8c4b64e0e3738810fca51c322ddc6e7b7df441457112a189047d1dd6c626",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Flashforge PLA",
+    "variacao": "Lavender / Roxo Claro",
+    "antes": [
+      "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
+    ],
+    "depois": [
+      "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
+      "assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp"
+    ],
+    "arquivo": "assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp",
+    "sha256": "7c9f9efba08a02fc517c722f27dec9f681e1f5e07a9e9f5d98ebb8440fb25405",
+    "dimensoes": "900x1600"
+  },
+  {
+    "produto": "Flashforge PLA",
+    "variacao": "Lavender / Roxo Claro",
+    "antes": [
+      "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
+      "assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp"
+    ],
+    "depois": [
+      "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
+      "assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp",
+      "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
+    ],
+    "arquivo": "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp",
+    "sha256": "969591d4993560e281ece1a495873d35082dd77633bc5f2ac7956531e269a407",
+    "dimensoes": "900x1600"
+  }
+]

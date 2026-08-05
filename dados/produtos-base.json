@@ -69,9 +69,11 @@
         "nome": "Lavender / Roxo Claro",
         "hex": "#C7B8E8",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
+          "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
+          "assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp",
+          "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "chaveEstoque": "flashforge|pla||lavender-roxo-claro"
       },
@@ -390,7 +392,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/azul.webp"
+          "assets/fotos/closin-pla/azul.webp",
+          "assets/fotos/closin-pla/azul-2.webp"
         ],
         "chaveEstoque": "closin|pla||azul"
       },
@@ -1163,7 +1166,7 @@
         "nome": "Branco",
         "hex": "#F2F2F0",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/branco.webp"
         ],
@@ -1173,7 +1176,7 @@
         "nome": "Laranja",
         "hex": "#F0842E",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/laranja.webp"
         ],
@@ -1183,7 +1186,7 @@
         "nome": "Cinza",
         "hex": "#9C9FA3",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/cinza.webp"
         ],
@@ -1206,7 +1209,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-pla/prata.webp"
+          "assets/fotos/masterprint-pla/prata.webp",
+          "assets/fotos/masterprint-pla/prata-2.webp"
         ],
         "chaveEstoque": "masterprint|pla||prata"
       },
@@ -1224,7 +1228,7 @@
         "nome": "Prata Master",
         "hex": "#B0B6BC",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/prata-master.webp"
         ],
@@ -1608,7 +1612,7 @@
         "hex": "#7A4FAE",
         "efeito": "silk",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
         ],
@@ -1900,7 +1904,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-tpu/branco.webp"
+          "assets/fotos/masterprint-tpu/branco.webp",
+          "assets/fotos/masterprint-tpu/branco-2.webp"
         ],
         "chaveEstoque": "masterprint|tpu||branco"
       },
@@ -1918,7 +1923,7 @@
         "nome": "Preto",
         "hex": "#1B1B1B",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpu/preto.webp"
         ],
@@ -1929,7 +1934,7 @@
         "hex": "#EEF0EF",
         "efeito": "glass",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
