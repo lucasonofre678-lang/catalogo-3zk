@@ -1,0 +1,18 @@
+CORREÇÃO URGENTE — ROLO DE ETIQUETAS
+
+Causa do erro:
+As variações 200 Etiquetas e 500 Etiquetas foram cadastradas no catálogo-base sem o campo obrigatório "chaveEstoque".
+
+Correção aplicada:
+- 200 Etiquetas: rolo-etiqueta-termica|outras|10x15|200-etiquetas
+- 500 Etiquetas: rolo-etiqueta-termica|outras|10x15|500-etiquetas
+
+O pacote contém SOMENTE:
+- dados/produtos-base.json
+
+Ele NÃO contém dados/produtos.json, evitando novo conflito com o arquivo automático de estoque.
+
+Depois do Push:
+1. O workflow "Publicar catálogo rápido" deve passar.
+2. Rode manualmente "Sincronizar estoque Olist" com:
+   139837164379,139837164380
