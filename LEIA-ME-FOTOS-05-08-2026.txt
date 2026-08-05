@@ -1,0 +1,31 @@
+ATUALIZAÇÃO SEGURA DE FOTOS — SITE 3ZK
+
+Este pacote NÃO contém dados/produtos.json, script.js, estoque, mapeamentos da Olist ou workflows.
+Ele altera somente dados/produtos-base.json e adiciona as fotos listadas abaixo.
+
+Mapeamento aplicado:
+- Masterprint TPU | Branco -> assets/fotos/masterprint-tpu/branco-2.webp (900x1600)
+- Masterprint PLA | Prata -> assets/fotos/masterprint-pla/prata-2.webp (900x1600)
+- Masterprint PLA | Laranja -> assets/fotos/masterprint-pla/laranja.webp (900x1600)
+- Masterprint TPU | Preto -> assets/fotos/masterprint-tpu/preto.webp (900x1600)
+- Masterprint TPU | Natural Transparente -> assets/fotos/masterprint-tpu/natural-transparente.webp (900x1600)
+- Masterprint PLA | Branco -> assets/fotos/masterprint-pla/branco.webp (900x1600)
+- Masterprint PLA — Silk Especial | Silk Roxo com Glitter -> assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp (900x1600)
+- Flashforge PLA | Lavender / Roxo Claro -> assets/fotos/flashforge-pla/lavender-roxo-claro.webp (900x1600)
+- Masterprint PLA | Cinza -> assets/fotos/masterprint-pla/cinza.webp (900x1600)
+- Closin PLA | Azul -> assets/fotos/closin-pla/azul-2.webp (900x1600)
+- Masterprint PLA | Prata Master -> assets/fotos/masterprint-pla/prata-master.webp (900x1600)
+- Flashforge PLA | Lavender / Roxo Claro -> assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp (900x1600)
+- Flashforge PLA | Lavender / Roxo Claro -> assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp (900x1600)
+
+Validações realizadas:
+- 20 grupos de produtos preservados
+- 206 variações preservadas
+- preços, estoque, IDs, SKUs, GTINs, categorias e selos não alterados
+- somente os campos imagens/fotoStatus das variações acima foram modificados
+- dados/produtos.json não foi incluído para evitar conflitos de merge
+
+Observação de identificação:
+- A foto chamada “Cinza Gris” foi vinculada a Masterprint PLA Cinza.
+- A foto chamada “Cinza Plata” foi vinculada a Masterprint PLA Prata Master.
+- As três fotos lavanda foram vinculadas à mesma variação Flashforge PLA Lavender / Roxo Claro.
