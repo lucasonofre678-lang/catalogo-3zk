@@ -1,0 +1,18 @@
+CORREÇÃO — RESTAURAR SELOS "NOVAS CORES"
+
+Este pacote altera somente script.js.
+
+Restaura:
+- selo "Novas cores" no Closin PLA;
+- selo "Novas cores" no Masterprint PETG;
+- classe visual produto--destaque;
+- prioridade desses dois produtos no início do catálogo.
+
+Não altera:
+- produtos;
+- variações;
+- fotos;
+- estoque;
+- IDs da Olist;
+- mapeamentos;
+- workflows.

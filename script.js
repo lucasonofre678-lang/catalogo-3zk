@@ -1818,6 +1818,58 @@ async function atualizarFoto({
 }
 
 /* ============================================================
+   DESTAQUES DOS PRODUTOS
+   ============================================================ */
+function obterDestaqueProduto(produto) {
+  const marca = String(produto?.marca || "")
+    .trim()
+    .toLowerCase();
+  const material = String(produto?.material || "")
+    .trim()
+    .toUpperCase();
+
+  const possuiNovasCores =
+    (marca === "masterprint" && material === "PETG") ||
+    (marca === "closin" && material === "PLA");
+
+  if (!possuiNovasCores) {
+    return null;
+  }
+
+  return {
+    titulo: "Novas cores"
+  };
+}
+
+function criarSeloDestaqueProduto(destaque) {
+  const selo = document.createElement("span");
+  selo.className = "produto__novidade";
+  selo.setAttribute("aria-label", destaque.titulo);
+
+  selo.innerHTML = `
+    <svg
+      class="produto__novidade-icone"
+      viewBox="0 0 24 24"
+      fill="none"
+      aria-hidden="true"
+    >
+      <path
+        d="M12 2.75 13.8 8.2 19.25 10 13.8 11.8 12 17.25 10.2 11.8 4.75 10 10.2 8.2 12 2.75Z"
+        fill="currentColor"
+      ></path>
+      <path
+        d="m18.3 15.2.9 2.6 2.55.9-2.55.85-.9 2.7-.85-2.7-2.7-.85 2.7-.9.85-2.6Z"
+        fill="currentColor"
+        opacity=".72"
+      ></path>
+    </svg>
+    <span>${destaque.titulo}</span>
+  `;
+
+  return selo;
+}
+
+/* ============================================================
    LINHA DE PRODUTO
    ============================================================ */
 function criarLinhaProduto(produto, indiceCorInicial = 0) {
@@ -1828,6 +1880,12 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   artigo.id = `produto-${slugProduto}`;
   artigo.dataset.produto = slugProduto;
+
+  const destaque = obterDestaqueProduto(produto);
+  if (destaque) {
+    artigo.classList.add("produto--destaque");
+    artigo.appendChild(criarSeloDestaqueProduto(destaque));
+  }
 
   const corInicial = produto.cores[indiceCorInicial] || produto.cores[0];
   let corSelecionadaAtual = corInicial;
@@ -2153,9 +2211,20 @@ function renderizar() {
   const termo = campoBuscaEl.value.trim();
   const destino = lerDestinoDoLink();
 
-  const filtrados = produtos.filter((produto) =>
-    produtoCorresponde(produto, termo, materialAtivo)
-  );
+  const filtrados = produtos
+    .filter((produto) =>
+      produtoCorresponde(produto, termo, materialAtivo)
+    )
+    .map((produto, indiceOriginal) => ({
+      produto,
+      indiceOriginal,
+      prioridade: obterDestaqueProduto(produto) ? 0 : 1
+    }))
+    .sort((a, b) =>
+      a.prioridade - b.prioridade ||
+      a.indiceOriginal - b.indiceOriginal
+    )
+    .map((item) => item.produto);
 
   listaProdutosEl.innerHTML = "";
 
