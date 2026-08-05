@@ -1,0 +1,9 @@
+CORREÇÃO DE PREÇOS — ETIQUETAS TÉRMICAS 10x15
+
+200 Etiquetas: R$ 19,99
+500 Etiquetas: R$ 37,00
+
+Este pacote altera somente:
+- dados/produtos-base.json
+
+Não inclui dados/produtos.json, script.js, fotos, estoque, IDs da Olist ou workflows.
