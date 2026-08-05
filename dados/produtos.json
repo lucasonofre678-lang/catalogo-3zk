@@ -1341,7 +1341,7 @@
           "assets/fotos/fusionx-petg/verde-escuro.webp"
         ],
         "idCatalogo": "fusionx|petg||verde-escuro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -1398,7 +1398,7 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1422,7 +1422,7 @@
           "assets/fotos/masterprint-pla/cinza.webp"
         ],
         "idCatalogo": "masterprint|pla||cinza",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2478,8 +2478,8 @@
           "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp"
         ],
         "idCatalogo": "creality-soleyin-ultra|pla||rosehip",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Strawberry Milk",
