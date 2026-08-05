@@ -2099,12 +2099,9 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
    PESQUISA E FILTROS
    ============================================================ */
 function produtoCorresponde(produto, termo, materialSelecionado) {
-  const materialProduto = normalizar(produto.material || "");
-  const materialFiltro = normalizar(materialSelecionado || "");
-
   if (
-    materialFiltro !== "todos" &&
-    materialProduto !== materialFiltro
+    normalizar(materialSelecionado) !== "todos" &&
+    normalizar(produto.material) !== normalizar(materialSelecionado)
   ) {
     return false;
   }

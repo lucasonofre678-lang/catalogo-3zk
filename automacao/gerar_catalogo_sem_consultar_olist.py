@@ -98,10 +98,19 @@ def main() -> int:
                 color["disponivel"] = previous.get("disponivel") is True
                 reused += 1
             else:
-                # Produto novo ainda não consultado: comportamento seguro.
-                color["statusEstoque"] = "sem_estoque"
-                color["disponivel"] = False
-                new_without_stock += 1
+                # Produto novo: usa um estado inicial explícito somente quando
+                # ele foi cadastrado e conferido. Sem isso, continua oculto
+                # até a primeira sincronização real com a Olist.
+                initial_status = str(
+                    color.pop("statusEstoqueInicial", "sem_estoque")
+                ).strip() or "sem_estoque"
+                initial_available = (
+                    color.pop("disponivelInicial", False) is True
+                )
+                color["statusEstoque"] = initial_status
+                color["disponivel"] = initial_available
+                if not initial_available:
+                    new_without_stock += 1
 
             if color["disponivel"]:
                 visible += 1

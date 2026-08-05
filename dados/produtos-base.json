@@ -350,14 +350,14 @@
   {
     "marca": "Closin",
     "material": "PLA",
-    "preco": 85,
+    "preco": 88,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "cores": [
       {
         "nome": "Gold",
-        "hex": "#C99A2E",
+        "hex": "#AE7652",
         "efeito": "silk",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/gold.webp"
@@ -366,9 +366,9 @@
       },
       {
         "nome": "Pink Rosa Bebê",
-        "hex": "#E7A4B8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E97A84",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
@@ -376,8 +376,8 @@
       },
       {
         "nome": "Amarelo",
-        "hex": "#E2C53E",
-        "hexFonte": "foto",
+        "hex": "#DFC142",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/amarelo.webp"
@@ -386,8 +386,8 @@
       },
       {
         "nome": "Azul",
-        "hex": "#2E63C7",
-        "hexFonte": "foto",
+        "hex": "#2766C5",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/azul.webp"
@@ -396,8 +396,8 @@
       },
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "foto",
+        "hex": "#E3E6E5",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/branco.webp"
@@ -406,8 +406,8 @@
       },
       {
         "nome": "Preto",
-        "hex": "#1B1B1B",
-        "hexFonte": "foto",
+        "hex": "#25282C",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/preto.webp"
@@ -416,18 +416,19 @@
       },
       {
         "nome": "Skin",
-        "hex": "#D5A07D",
-        "hexFonte": "foto",
+        "hex": "#D0AB96",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/skin.webp"
+          "assets/fotos/closin-pla/skin.webp",
+          "assets/fotos/closin-pla/skin-2.webp"
         ],
         "chaveEstoque": "closin|pla||skin"
       },
       {
         "nome": "Verde",
-        "hex": "#2E9E5B",
-        "hexFonte": "foto",
+        "hex": "#3BA66E",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/verde.webp"
@@ -436,13 +437,163 @@
       },
       {
         "nome": "Vermelho",
-        "hex": "#C94343",
-        "hexFonte": "foto",
+        "hex": "#C73642",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/vermelho.webp"
         ],
         "chaveEstoque": "closin|pla||vermelho"
+      },
+      {
+        "nome": "Azul Céu / Sky Blue",
+        "hex": "#2A9AE2",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
+        ],
+        "chaveEstoque": "closin|pla||azul-ceu-sky-blue"
+      },
+      {
+        "nome": "Branco Pérola",
+        "hex": "#DBE1F1",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/branco-perola.webp"
+        ],
+        "chaveEstoque": "closin|pla||branco-perola"
+      },
+      {
+        "nome": "Ciano",
+        "hex": "#0B89DC",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/ciano.webp"
+        ],
+        "chaveEstoque": "closin|pla||ciano"
+      },
+      {
+        "nome": "Fluo Blue",
+        "hex": "#2072D2",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-blue.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-blue"
+      },
+      {
+        "nome": "Fluo Green",
+        "hex": "#60D946",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-green.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-green"
+      },
+      {
+        "nome": "Fluo Red",
+        "hex": "#DB3849",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-red.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-red"
+      },
+      {
+        "nome": "Fluo Yellow",
+        "hex": "#EFD14A",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/fluo-yellow.webp"
+        ],
+        "chaveEstoque": "closin|pla||fluo-yellow"
+      },
+      {
+        "nome": "Lemon Green",
+        "hex": "#85D294",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/lemon-green.webp"
+        ],
+        "chaveEstoque": "closin|pla||lemon-green"
+      },
+      {
+        "nome": "Marrom Escuro / Dark Brown",
+        "hex": "#3F383B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/marrom-escuro-dark-brown.webp"
+        ],
+        "chaveEstoque": "closin|pla||marrom-escuro-dark-brown"
+      },
+      {
+        "nome": "Marrom Claro",
+        "hex": "#755C5D",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/marrom-claro.webp"
+        ],
+        "chaveEstoque": "closin|pla||marrom-claro"
+      },
+      {
+        "nome": "Natural",
+        "hex": "#E2E1DB",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/natural.webp"
+        ],
+        "chaveEstoque": "closin|pla||natural"
+      },
+      {
+        "nome": "Silver",
+        "hex": "#8D9197",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/silver.webp"
+        ],
+        "chaveEstoque": "closin|pla||silver"
+      },
+      {
+        "nome": "Transparente",
+        "hex": "#DEDFDE",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/transparente.webp"
+        ],
+        "chaveEstoque": "closin|pla||transparente"
+      },
+      {
+        "nome": "Violeta",
+        "hex": "#7E5AC7",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/violeta.webp"
+        ],
+        "chaveEstoque": "closin|pla||violeta"
+      },
+      {
+        "nome": "Wood",
+        "hex": "#AF9D87",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/closin-pla/wood.webp"
+        ],
+        "chaveEstoque": "closin|pla||wood"
       }
     ]
   },
@@ -494,8 +645,8 @@
       },
       {
         "nome": "Bronze",
-        "hex": "#8A5B35",
-        "hexFonte": "foto",
+        "hex": "#6B674B",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/bronze.webp"
@@ -504,9 +655,9 @@
       },
       {
         "nome": "Cinza",
-        "hex": "#8C9297",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#9E948A",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/cinza.webp"
         ],
@@ -524,9 +675,9 @@
       },
       {
         "nome": "Fluorescente Roxo",
-        "hex": "#A64CD4",
+        "hex": "#8D849D",
         "efeito": "neon",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/fluorescente-roxo.webp"
@@ -556,8 +707,8 @@
       },
       {
         "nome": "Lavanda",
-        "hex": "#A68EC1",
-        "hexFonte": "foto",
+        "hex": "#A0A0A7",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/lavanda.webp"
@@ -566,9 +717,9 @@
       },
       {
         "nome": "Madeira",
-        "hex": "#A9784E",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#8E7957",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/madeira.webp"
         ],
@@ -586,9 +737,9 @@
       },
       {
         "nome": "Prata",
-        "hex": "#B8BDC2",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#717370",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/prata.webp"
         ],
@@ -600,7 +751,7 @@
         "hexFonte": "sem_foto",
         "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/masterprint-petg/preto.webp"
+          "assets/fotos/masterprint-petg/preto-sem-foto.webp"
         ],
         "chaveEstoque": "masterprint|petg||preto"
       },
@@ -616,8 +767,8 @@
       },
       {
         "nome": "Roxo",
-        "hex": "#735575",
-        "hexFonte": "foto",
+        "hex": "#764D77",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/roxo.webp"
@@ -626,9 +777,9 @@
       },
       {
         "nome": "Skin",
-        "hex": "#D9A481",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#CF997C",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/skin.webp"
         ],
@@ -636,9 +787,9 @@
       },
       {
         "nome": "Translúcido Amarelo",
-        "hex": "#D6C366",
+        "hex": "#C1905E",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-amarelo.webp"
@@ -669,9 +820,9 @@
       },
       {
         "nome": "Translúcido Verde",
-        "hex": "#6EAE8A",
+        "hex": "#729998",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-verde.webp"
@@ -680,9 +831,9 @@
       },
       {
         "nome": "Translúcido Vermelho",
-        "hex": "#A85A5A",
+        "hex": "#AD474F",
         "efeito": "glass",
-        "hexFonte": "foto",
+        "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/translucido-vermelho.webp",
@@ -692,10 +843,10 @@
       },
       {
         "nome": "Transparente",
-        "hex": "#E5E8E7",
+        "hex": "#D7D9D7",
         "efeito": "glass",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/transparente.webp"
         ],
@@ -707,9 +858,39 @@
         "hexFonte": "sem_foto",
         "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/masterprint-petg/verde.webp"
+          "assets/fotos/masterprint-petg/verde-sem-foto.webp"
         ],
         "chaveEstoque": "masterprint|petg||verde"
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#B83035",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/vermelho.webp"
+        ],
+        "chaveEstoque": "masterprint|petg||vermelho"
+      },
+      {
+        "nome": "Cool Grey",
+        "hex": "#4C4C4A",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/cool-grey.webp"
+        ],
+        "chaveEstoque": "masterprint|petg||cool-grey"
+      },
+      {
+        "nome": "Green Olive",
+        "hex": "#5C5D42",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/green-olive.webp"
+        ],
+        "chaveEstoque": "masterprint|petg||green-olive"
       }
     ]
   },
@@ -1553,6 +1734,24 @@
   },
   {
     "marca": "Masterprint",
+    "material": "ASA",
+    "preco": 88,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-asa/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|asa||branco"
+      }
+    ]
+  },
+  {
+    "marca": "Masterprint",
     "material": "ABS",
     "preco": 70,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
@@ -1738,6 +1937,75 @@
       }
     ],
     "obs": "Rolo de 1kg"
+  },
+  {
+    "marca": "Masterprint",
+    "material": "TPR",
+    "preco": 261.51,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Amarelo",
+        "hex": "#CDA149",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/amarelo.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||amarelo"
+      },
+      {
+        "nome": "Azul",
+        "hex": "#43598B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/azul.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||azul"
+      },
+      {
+        "nome": "Branco",
+        "hex": "#E0E3E2",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/branco.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||branco"
+      },
+      {
+        "nome": "Preto",
+        "hex": "#25282D",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/preto.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||preto"
+      },
+      {
+        "nome": "Verde",
+        "hex": "#33715B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/verde.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||verde"
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C04753",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpr/vermelho.webp"
+        ],
+        "chaveEstoque": "masterprint|tpr||vermelho"
+      }
+    ],
+    "obs": "Rolo de 1kg — filamento 2,85 mm"
   },
   {
     "marca": "Creality Soleyin Ultra",
@@ -2007,7 +2275,9 @@
         "preco": 8.1,
         "sku": "ROLO200",
         "gtin": "7908229105083",
-        "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|200-etiquetas"
+        "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
       },
       {
         "nome": "500 Etiquetas",
@@ -2022,7 +2292,9 @@
         "preco": 32.0,
         "sku": "ROLO500",
         "gtin": "7908229105717",
-        "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|500-etiquetas"
+        "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
       }
     ]
   }
