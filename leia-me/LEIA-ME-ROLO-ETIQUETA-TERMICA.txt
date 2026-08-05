@@ -1,0 +1,22 @@
+ATUALIZAÇÃO 3ZK — ROLO ETIQUETA TÉRMICA
+
+Arquivos incluídos neste pacote:
+- script.js
+- dados/produtos.json
+- dados/produtos-base.json
+- automacao/mapeamento-olist.json
+- assets/fotos/rolo-etiqueta-termica/*
+
+O que foi feito:
+1. Produto novo adicionado na categoria "Outras".
+2. 2 variações cadastradas:
+   - 200 Etiquetas
+   - 500 Etiquetas
+3. Cada variação agora pode ter preço próprio no catálogo.
+4. Mensagens e textos ajustados para exibir "variação" em vez de "cor" nesse produto.
+5. Mapeamento da Olist adicionado:
+   - ROLO200 → ID 139837164379
+   - ROLO500 → ID 139837164380
+
+Observação:
+- O botão "Comprar no site" usa o link padrão caso você ainda não preencha um link específico do produto.

@@ -26,7 +26,7 @@
           "assets/fotos/flashforge-pla/laranja-escuro.webp"
         ],
         "idCatalogo": "flashforge|pla||laranja-escuro",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -147,8 +147,8 @@
           "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado-2.webp"
         ],
         "idCatalogo": "flashforge|pla||dusty-pink-rosa-desbotado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Mango Yellow / Amarelo Manga",
@@ -420,12 +420,12 @@
   {
     "marca": "Closin",
     "material": "PLA",
-    "preco": 88,
+    "preco": 85,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "cores": [
       {
         "nome": "Gold",
-        "hex": "#A97858",
+        "hex": "#C99A2E",
         "efeito": "silk",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
@@ -433,20 +433,20 @@
           "assets/fotos/closin-pla/gold.webp"
         ],
         "idCatalogo": "closin|pla||gold",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Pink Rosa Bebê",
-        "hex": "#EE748A",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "hex": "#E7A4B8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
         "idCatalogo": "closin|pla||pink-rosa-bebe",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Amarelo",
@@ -457,8 +457,8 @@
           "assets/fotos/closin-pla/amarelo.webp"
         ],
         "idCatalogo": "closin|pla||amarelo",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul",
@@ -469,8 +469,8 @@
           "assets/fotos/closin-pla/azul.webp"
         ],
         "idCatalogo": "closin|pla||azul",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Branco",
@@ -486,236 +486,55 @@
       },
       {
         "nome": "Preto",
-        "hex": "#24282B",
+        "hex": "#1B1B1B",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/preto.webp"
         ],
         "idCatalogo": "closin|pla||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Skin",
-        "hex": "#D0AA98",
+        "hex": "#D5A07D",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/skin.webp",
-          "assets/fotos/closin-pla/skin-2.webp"
+          "assets/fotos/closin-pla/skin.webp"
         ],
         "idCatalogo": "closin|pla||skin",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde",
-        "hex": "#37A66D",
+        "hex": "#2E9E5B",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/verde.webp"
         ],
         "idCatalogo": "closin|pla||verde",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Vermelho",
-        "hex": "#D6323F",
+        "hex": "#C94343",
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/closin-pla/vermelho.webp"
         ],
         "idCatalogo": "closin|pla||vermelho",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Azul Céu / Sky Blue",
-        "hex": "#309DD9",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
-        ],
-        "idCatalogo": "closin|pla||azul-ceu-sky-blue",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Branco Pérola",
-        "hex": "#E8E7EF",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/branco-perola.webp"
-        ],
-        "idCatalogo": "closin|pla||branco-perola",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Ciano",
-        "hex": "#168FD1",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/ciano.webp"
-        ],
-        "idCatalogo": "closin|pla||ciano",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Blue",
-        "hex": "#2775C8",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-blue.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-blue",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Green",
-        "hex": "#62D34B",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-green.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-green",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Red",
-        "hex": "#DB3045",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-red.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-red",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Fluo Yellow",
-        "hex": "#F2D847",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/fluo-yellow.webp"
-        ],
-        "idCatalogo": "closin|pla||fluo-yellow",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Lemon Green",
-        "hex": "#82D98E",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/lemon-green.webp"
-        ],
-        "idCatalogo": "closin|pla||lemon-green",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Marrom Escuro / Dark Brown",
-        "hex": "#4B3032",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/marrom-escuro-dark-brown.webp"
-        ],
-        "idCatalogo": "closin|pla||marrom-escuro-dark-brown",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Marrom Claro",
-        "hex": "#795B5C",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/marrom-claro.webp"
-        ],
-        "idCatalogo": "closin|pla||marrom-claro",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Natural",
-        "hex": "#E7E2D5",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/natural.webp"
-        ],
-        "idCatalogo": "closin|pla||natural",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Silver",
-        "hex": "#8E9296",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/silver.webp"
-        ],
-        "idCatalogo": "closin|pla||silver",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Transparente",
-        "hex": "#E1E0DB",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/transparente.webp"
-        ],
-        "idCatalogo": "closin|pla||transparente",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Violeta",
-        "hex": "#7950C7",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/violeta.webp"
-        ],
-        "idCatalogo": "closin|pla||violeta",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Wood",
-        "hex": "#B5A083",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/closin-pla/wood.webp"
-        ],
-        "idCatalogo": "closin|pla||wood",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "closin|pla|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Masterprint",
@@ -756,8 +575,8 @@
           "assets/fotos/masterprint-petg/branco.webp"
         ],
         "idCatalogo": "masterprint|petg||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Branco PCV Outdoor",
@@ -785,15 +604,15 @@
       },
       {
         "nome": "Cinza",
-        "hex": "#969590",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "hex": "#8C9297",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
           "assets/fotos/masterprint-petg/cinza.webp"
         ],
         "idCatalogo": "masterprint|petg||cinza",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Dourado",
@@ -859,15 +678,15 @@
       },
       {
         "nome": "Madeira",
-        "hex": "#8D7658",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "hex": "#A9784E",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
           "assets/fotos/masterprint-petg/madeira.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Marrom",
@@ -883,15 +702,15 @@
       },
       {
         "nome": "Prata",
-        "hex": "#6F7372",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "hex": "#B8BDC2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
           "assets/fotos/masterprint-petg/prata.webp"
         ],
         "idCatalogo": "masterprint|petg||prata",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Preto",
@@ -899,7 +718,7 @@
         "hexFonte": "sem_foto",
         "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/masterprint-petg/preto-sem-foto.webp"
+          "assets/fotos/masterprint-petg/preto.webp"
         ],
         "idCatalogo": "masterprint|petg||preto",
         "statusEstoque": "sem_estoque",
@@ -931,15 +750,15 @@
       },
       {
         "nome": "Skin",
-        "hex": "#C89A82",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "hex": "#D9A481",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Translúcido Amarelo",
@@ -1009,16 +828,16 @@
       },
       {
         "nome": "Transparente",
-        "hex": "#D7DEDC",
+        "hex": "#E5E8E7",
         "efeito": "glass",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
         "imagens": [
           "assets/fotos/masterprint-petg/transparente.webp"
         ],
         "idCatalogo": "masterprint|petg||transparente",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde",
@@ -1026,47 +845,11 @@
         "hexFonte": "sem_foto",
         "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/masterprint-petg/verde-sem-foto.webp"
+          "assets/fotos/masterprint-petg/verde.webp"
         ],
         "idCatalogo": "masterprint|petg||verde",
         "statusEstoque": "sem_estoque",
         "disponivel": false
-      },
-      {
-        "nome": "Vermelho",
-        "hex": "#B8323B",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/vermelho.webp"
-        ],
-        "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Cool Grey",
-        "hex": "#484B4D",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/cool-grey.webp"
-        ],
-        "idCatalogo": "masterprint|petg||cool-grey",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Green Olive",
-        "hex": "#596043",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/green-olive.webp"
-        ],
-        "idCatalogo": "masterprint|petg||green-olive",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|petg|",
@@ -1209,8 +992,8 @@
           "assets/fotos/fusionx-petg/amarelo-canario.webp"
         ],
         "idCatalogo": "fusionx|petg||amarelo-canario",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Azul Marinho",
@@ -1221,8 +1004,8 @@
           "assets/fotos/fusionx-petg/azul-marinho.webp"
         ],
         "idCatalogo": "fusionx|petg||azul-marinho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Café",
@@ -1233,8 +1016,8 @@
           "assets/fotos/fusionx-petg/cafe.webp"
         ],
         "idCatalogo": "fusionx|petg||cafe",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Champagne",
@@ -1269,8 +1052,8 @@
           "assets/fotos/fusionx-petg/laranja.webp"
         ],
         "idCatalogo": "fusionx|petg||laranja",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Limão Siciliano",
@@ -1281,8 +1064,8 @@
           "assets/fotos/fusionx-petg/limao-siciliano.webp"
         ],
         "idCatalogo": "fusionx|petg||limao-siciliano",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Pink Purple Violeta",
@@ -1305,8 +1088,8 @@
           "assets/fotos/fusionx-petg/tangerina.webp"
         ],
         "idCatalogo": "fusionx|petg||tangerina",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Verde",
@@ -1459,8 +1242,8 @@
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Prata Master",
@@ -1536,7 +1319,7 @@
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-roxo",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -2074,28 +1857,6 @@
   },
   {
     "marca": "Masterprint",
-    "material": "ASA",
-    "preco": 88,
-    "linkLoja": "https://3zkfilamentos.com.br/",
-    "cores": [
-      {
-        "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-asa/branco.webp"
-        ],
-        "idCatalogo": "masterprint|asa||branco",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      }
-    ],
-    "idCatalogo": "masterprint|asa|",
-    "disponivel": true
-  },
-  {
-    "marca": "Masterprint",
     "material": "ABS",
     "preco": 70,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
@@ -2121,8 +1882,8 @@
           "assets/fotos/masterprint-abs/laranja.webp"
         ],
         "idCatalogo": "masterprint|abs||laranja",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Amarelo",
@@ -2157,8 +1918,8 @@
           "assets/fotos/masterprint-abs/prata.webp"
         ],
         "idCatalogo": "masterprint|abs||prata",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Marrom",
@@ -2321,89 +2082,6 @@
     "disponivel": true
   },
   {
-    "marca": "Masterprint",
-    "material": "TPR",
-    "preco": 261.51,
-    "linkLoja": "https://3zkfilamentos.com.br/",
-    "cores": [
-      {
-        "nome": "Amarelo",
-        "hex": "#F5D01F",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-tpr/amarelo.webp"
-        ],
-        "idCatalogo": "masterprint|tpr||amarelo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
-      },
-      {
-        "nome": "Azul",
-        "hex": "#2E63C7",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-tpr/azul.webp"
-        ],
-        "idCatalogo": "masterprint|tpr||azul",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
-      },
-      {
-        "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-tpr/branco.webp"
-        ],
-        "idCatalogo": "masterprint|tpr||branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
-      },
-      {
-        "nome": "Preto",
-        "hex": "#1B1B1B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-tpr/preto.webp"
-        ],
-        "idCatalogo": "masterprint|tpr||preto",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
-      },
-      {
-        "nome": "Verde",
-        "hex": "#2E9E5B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-tpr/verde.webp"
-        ],
-        "idCatalogo": "masterprint|tpr||verde",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
-      },
-      {
-        "nome": "Vermelho",
-        "hex": "#C94343",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-tpr/vermelho.webp"
-        ],
-        "idCatalogo": "masterprint|tpr||vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
-      }
-    ],
-    "obs": "Rolo de 1kg — filamento 2,85 mm",
-    "idCatalogo": "masterprint|tpr|",
-    "disponivel": true
-  },
-  {
     "marca": "Creality Soleyin Ultra",
     "material": "PLA",
     "preco": 90,
@@ -2560,8 +2238,8 @@
           "assets/fotos/elegoo-pla/orange.webp"
         ],
         "idCatalogo": "elegoo|pla||orange",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Pink",
@@ -2674,7 +2352,7 @@
       }
     ],
     "idCatalogo": "elegoo|pla|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Multifila",
@@ -2696,6 +2374,54 @@
       }
     ],
     "idCatalogo": "multifila|pla|",
+    "disponivel": true
+  },
+  {
+    "marca": "Rolo Etiqueta",
+    "linha": "Térmica 10x15",
+    "material": "Outras",
+    "preco": 8.1,
+    "linkLoja": "",
+    "obs": "Compatível com Zebra e Elgin · Adesiva · Serrilhada",
+    "rotuloVariacaoSingular": "variação",
+    "rotuloVariacaoPlural": "variações",
+    "tipoProduto": "rolo de etiqueta térmica",
+    "cores": [
+      {
+        "nome": "200 Etiquetas",
+        "hex": "#F2F1EC",
+        "hexFonte": "manual",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp",
+          "assets/fotos/rolo-etiqueta-termica/200-etiquetas-2.webp"
+        ],
+        "preco": 8.1,
+        "sku": "ROLO200",
+        "gtin": "7908229105083",
+        "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "500 Etiquetas",
+        "hex": "#D9D4CA",
+        "hexFonte": "manual",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/rolo-etiqueta-termica/500-etiquetas-1.webp",
+          "assets/fotos/rolo-etiqueta-termica/500-etiquetas-2.webp",
+          "assets/fotos/rolo-etiqueta-termica/500-etiquetas-3.webp"
+        ],
+        "preco": 32.0,
+        "sku": "ROLO500",
+        "gtin": "7908229105717",
+        "idCatalogo": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "rolo-etiqueta-termica|outras|10x15",
     "disponivel": true
   }
 ]

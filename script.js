@@ -253,12 +253,36 @@ function obterTextoEstoque(cor) {
     : "Em estoque";
 }
 
+function obterRotuloVariacaoSingular(produto) {
+  return produto.rotuloVariacaoSingular || "cor";
+}
+
+function obterRotuloVariacaoPlural(produto) {
+  return produto.rotuloVariacaoPlural || "cores";
+}
+
+function obterTipoProduto(produto) {
+  return produto.tipoProduto || "filamento";
+}
+
+function obterPrecoProdutoOuVariacao(produto, cor) {
+  const precoCor = Number(cor && cor.preco);
+
+  if (Number.isFinite(precoCor) && precoCor > 0) {
+    return precoCor;
+  }
+
+  return Number(produto.preco) || 0;
+}
+
 function criarLinkWhatsApp(produto, cor) {
   const nomeProduto = obterNomeCompletoProduto(produto);
+  const tipoProduto = obterTipoProduto(produto);
+  const rotuloVariacao = obterRotuloVariacaoSingular(produto);
 
   const mensagem =
-    `Olá! Tenho interesse no filamento ${nomeProduto}, ` +
-    `na cor ${cor.nome}. Gostaria de confirmar a disponibilidade e o valor.`;
+    `Olá! Tenho interesse no ${tipoProduto} ${nomeProduto}, ` +
+    `na ${rotuloVariacao} ${cor.nome}. Gostaria de confirmar a disponibilidade e o valor.`;
 
   return `https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`;
 }
@@ -377,7 +401,7 @@ async function compartilharCor(produto, cor, botao) {
     try {
       await navigator.share({
         title: `${nomeProduto} — ${cor.nome}`,
-        text: "Veja a foto real desta cor no catálogo da 3ZK:",
+        text: `Veja a foto real desta ${rotuloVariacao} no catálogo da 3ZK:`,
         url: link
       });
 
@@ -686,7 +710,7 @@ function criarItemCarrinho(produto, cor) {
     material: produto.material,
     linha: produto.linha || "",
     corNome: cor.nome,
-    preco: Number(produto.preco) || 0,
+    preco: obterPrecoProdutoOuVariacao(produto, cor),
     hex: cor.hex || "#D9DFE8",
     efeito: cor.efeito || "",
     imagem: fotos[0] || "",
@@ -749,7 +773,7 @@ function adicionarAoCarrinho(produto, cor, botao) {
       existente.quantidade + 1
     );
 
-    existente.preco = Number(produto.preco) || existente.preco;
+    existente.preco = obterPrecoProdutoOuVariacao(produto, cor) || existente.preco;
     existente.imagem = obterFotosCor(produto, cor)[0] || existente.imagem;
     existente.hex = cor.hex || existente.hex;
   } else {
@@ -1740,7 +1764,7 @@ async function atualizarFoto({
 
     imagem.src = caminhoAtual;
     imagem.alt =
-      `${obterNomeCompletoProduto(produto)} na cor ${cor.nome}. ` +
+      `${obterNomeCompletoProduto(produto)} na ${obterRotuloVariacaoSingular(produto)} ${cor.nome}. ` +
       `Foto ${indiceAtual + 1} de ${fotosValidas.length}.`;
 
     imagem.dataset.caminho = caminhoAtual;
@@ -1783,7 +1807,7 @@ async function atualizarFoto({
   function abrirFotoAtual() {
     abrirLightbox(
       caminhoAtual,
-      `${obterNomeCompletoProduto(produto)} na cor ${cor.nome}`
+      `${obterNomeCompletoProduto(produto)} na ${obterRotuloVariacaoSingular(produto)} ${cor.nome}`
     );
   }
 
@@ -1791,58 +1815,6 @@ async function atualizarFoto({
   botaoVerFoto.onclick = abrirFotoAtual;
 
   mostrarFoto(0);
-}
-
-/* ============================================================
-   DESTAQUES DOS PRODUTOS
-   ============================================================ */
-function obterDestaqueProduto(produto) {
-  const marca = String(produto?.marca || "")
-    .trim()
-    .toLowerCase();
-  const material = String(produto?.material || "")
-    .trim()
-    .toUpperCase();
-
-  const possuiNovasCores =
-    (marca === "masterprint" && material === "PETG") ||
-    (marca === "closin" && material === "PLA");
-
-  if (!possuiNovasCores) {
-    return null;
-  }
-
-  return {
-    titulo: "Novas cores"
-  };
-}
-
-function criarSeloDestaqueProduto(destaque) {
-  const selo = document.createElement("span");
-  selo.className = "produto__novidade";
-  selo.setAttribute("aria-label", destaque.titulo);
-
-  selo.innerHTML = `
-    <svg
-      class="produto__novidade-icone"
-      viewBox="0 0 24 24"
-      fill="none"
-      aria-hidden="true"
-    >
-      <path
-        d="M12 2.75 13.8 8.2 19.25 10 13.8 11.8 12 17.25 10.2 11.8 4.75 10 10.2 8.2 12 2.75Z"
-        fill="currentColor"
-      ></path>
-      <path
-        d="m18.3 15.2.9 2.6 2.55.9-2.55.85-.9 2.7-.85-2.7-2.7-.85 2.7-.9.85-2.6Z"
-        fill="currentColor"
-        opacity=".72"
-      ></path>
-    </svg>
-    <span>${destaque.titulo}</span>
-  `;
-
-  return selo;
 }
 
 /* ============================================================
@@ -1857,20 +1829,11 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   artigo.id = `produto-${slugProduto}`;
   artigo.dataset.produto = slugProduto;
 
-  const destaque = obterDestaqueProduto(produto);
-  if (destaque) {
-    artigo.classList.add("produto--destaque");
-  }
-
   const corInicial = produto.cores[indiceCorInicial] || produto.cores[0];
   let corSelecionadaAtual = corInicial;
 
   const info = document.createElement("div");
   info.className = "produto__info";
-
-  if (destaque) {
-    artigo.appendChild(criarSeloDestaqueProduto(destaque));
-  }
 
   const marca = document.createElement("span");
   marca.className = "produto__marca";
@@ -1919,8 +1882,8 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const contagem = document.createElement("span");
   contagem.className = "produto__cor-contagem";
   contagem.textContent = produto.cores.length === 1
-    ? "1 cor disponível"
-    : `${produto.cores.length} cores disponíveis`;
+    ? `1 ${obterRotuloVariacaoSingular(produto)} disponível`
+    : `${produto.cores.length} ${obterRotuloVariacaoPlural(produto)} disponíveis`;
 
   cabecalhoCor.appendChild(nomeCor);
   cabecalhoCor.appendChild(contagem);
@@ -1964,7 +1927,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const dotsWrap = document.createElement("div");
   dotsWrap.className = "dots";
   dotsWrap.setAttribute("role", "listbox");
-  dotsWrap.setAttribute("aria-label", `Cores de ${produto.marca}`);
+  dotsWrap.setAttribute("aria-label", `${obterRotuloVariacaoPlural(produto)} de ${produto.marca}`);
 
   const foto = criarAreaFoto();
 
@@ -1976,7 +1939,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   const precoValor = document.createElement("span");
   precoValor.className = "produto__preco-valor";
-  precoValor.textContent = formatarPreco(produto.preco);
+  precoValor.textContent = formatarPreco(obterPrecoProdutoOuVariacao(produto, corInicial));
 
   precoWrap.appendChild(precoValor);
 
@@ -1997,7 +1960,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   botaoCompartilhar.type = "button";
   botaoCompartilhar.className =
     "produto__acao produto__acao--compartilhar";
-  botaoCompartilhar.textContent = "Compartilhar cor";
+  botaoCompartilhar.textContent = `Compartilhar ${obterRotuloVariacaoSingular(produto)}`;
 
   botaoCompartilhar.addEventListener("click", () => {
     compartilharCor(
@@ -2037,6 +2000,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     );
 
     estoqueInfo.textContent = obterTextoEstoque(cor);
+    precoValor.textContent = formatarPreco(obterPrecoProdutoOuVariacao(produto, cor));
 
     botaoLoja.href = obterLinkLoja(produto);
     botaoLoja.removeAttribute("aria-disabled");
@@ -2134,25 +2098,10 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 /* ============================================================
    PESQUISA E FILTROS
    ============================================================ */
-const MATERIAIS_PRINCIPAIS = new Set([
-  "PLA",
-  "PETG",
-  "ABS",
-  "ASA",
-  "TPU",
-  "TPR"
-]);
-
 function produtoCorresponde(produto, termo, materialSelecionado) {
-  const materialProduto = String(produto.material || "").trim().toUpperCase();
-
-  if (materialSelecionado === "outras") {
-    if (MATERIAIS_PRINCIPAIS.has(materialProduto)) {
-      return false;
-    }
-  } else if (
+  if (
     materialSelecionado !== "todos" &&
-    materialProduto !== String(materialSelecionado).trim().toUpperCase()
+    produto.material !== materialSelecionado
   ) {
     return false;
   }
@@ -2204,20 +2153,9 @@ function renderizar() {
   const termo = campoBuscaEl.value.trim();
   const destino = lerDestinoDoLink();
 
-  const filtrados = produtos
-    .filter((produto) =>
-      produtoCorresponde(produto, termo, materialAtivo)
-    )
-    .map((produto, indiceOriginal) => ({
-      produto,
-      indiceOriginal,
-      prioridade: obterDestaqueProduto(produto) ? 0 : 1
-    }))
-    .sort((a, b) =>
-      a.prioridade - b.prioridade ||
-      a.indiceOriginal - b.indiceOriginal
-    )
-    .map((item) => item.produto);
+  const filtrados = produtos.filter((produto) =>
+    produtoCorresponde(produto, termo, materialAtivo)
+  );
 
   listaProdutosEl.innerHTML = "";
 
