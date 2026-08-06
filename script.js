@@ -38,12 +38,20 @@ const estadoVazioEl = document.getElementById("estado-vazio");
 const campoBuscaEl = document.getElementById("campo-busca");
 const filtrosEl = document.getElementById("filtros-material");
 
-const formatarPreco = (valor) =>
-  valor.toLocaleString("pt-BR", {
+const formatarPreco = (valor) => {
+  const numero = Number(valor) || 0;
+
+  return numero.toLocaleString("pt-BR", {
     style: "currency",
     currency: "BRL",
-    minimumFractionDigits: 0
+    minimumFractionDigits: Number.isInteger(numero) ? 0 : 2,
+    maximumFractionDigits: 2
   });
+};
+
+function obterCorVisual(cor) {
+  return cor?.gradiente || cor?.hex || "#cccccc";
+}
 
 function normalizar(texto = "") {
   return String(texto)
@@ -1601,7 +1609,7 @@ function criarElementoDot(cor, index, aoSelecionar, estaAtivo) {
   const dot = document.createElement("button");
   dot.type = "button";
   dot.className = "dot" + (estaAtivo ? " dot--ativo" : "");
-  dot.style.setProperty("--cor-dot", cor.hex);
+  dot.style.setProperty("--cor-dot", obterCorVisual(cor));
   dot.setAttribute("role", "option");
   dot.setAttribute("aria-selected", estaAtivo ? "true" : "false");
   dot.setAttribute(
@@ -1830,7 +1838,8 @@ function obterDestaqueProduto(produto) {
 
   const possuiNovasCores =
     (marca === "masterprint" && material === "PETG") ||
-    (marca === "closin" && material === "PLA");
+    (marca === "closin" && material === "PLA") ||
+    (marca === "multifila" && material === "PLA");
 
   if (!possuiNovasCores) {
     return null;
@@ -1918,7 +1927,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   const spool = document.createElement("div");
   spool.className = "spool";
-  spool.style.setProperty("--cor-atual", corInicial.hex);
+  spool.style.setProperty("--cor-atual", obterCorVisual(corInicial));
 
   if (corInicial.efeito) {
     spool.classList.add(`spool--efeito-${corInicial.efeito}`);
@@ -2089,7 +2098,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     dotEl.classList.add("dot--ativo");
     dotEl.setAttribute("aria-selected", "true");
 
-    spool.style.setProperty("--cor-atual", cor.hex);
+    spool.style.setProperty("--cor-atual", obterCorVisual(cor));
     spool.classList.remove(
       "spool--efeito-silk",
       "spool--efeito-glass",

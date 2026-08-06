@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 206,
+  "total": 221,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -2268,6 +2268,171 @@
       "sku": "ROLO500",
       "gtin": "7908229105717",
       "descricaoOlist": "ROLO ETIQUETA TERMICA COMPATIVEL ECOMMERCE ZEBRA 100MM150MM - 500 Etiquetas"
+    },
+    {
+      "chave": "multifila|pla||rainbow-matte-coral-colors",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Rainbow Matte Coral Colors",
+      "olistId": 1053223602,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - RAINBOW MATTE CORAL COLORS"
+    },
+    {
+      "chave": "multifila|pla||silk-azul-safira",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Azul Safira",
+      "olistId": 1053223610,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK AZUL SAFIRA"
+    },
+    {
+      "chave": "multifila|pla||silk-cobre",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Cobre",
+      "olistId": 1053223606,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK COBRE"
+    },
+    {
+      "chave": "multifila|pla||silk-dual-color-preto-e-prata",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Dual Color Preto e Prata",
+      "olistId": 1053223635,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK DUAL COLOR PRETO E PRATA"
+    },
+    {
+      "chave": "multifila|pla||silk-dual-color-roxo-e-dourado",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Dual Color Roxo e Dourado",
+      "olistId": 1053223631,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK DUAL COLOR ROXO E DOURADO"
+    },
+    {
+      "chave": "multifila|pla||silk-dual-color-vermelho-e-azul",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Dual Color Vermelho e Azul",
+      "olistId": 1053223627,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK DUAL COLOR VERMELHO E AZUL"
+    },
+    {
+      "chave": "multifila|pla||silk-ouro-envelhecido",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Ouro Envelhecido",
+      "olistId": 1053223623,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK OURO ENVELHECIDO"
+    },
+    {
+      "chave": "multifila|pla||silk-rainbow-macaron",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Rainbow Macaron",
+      "olistId": 1053223639,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK RAINBOW MACARON"
+    },
+    {
+      "chave": "multifila|pla||silk-tricolor-cobre-azul-ouro",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Tricolor Cobre Azul Ouro",
+      "olistId": 1053223644,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK TRICOLOR COBRE AZUL OURO"
+    },
+    {
+      "chave": "multifila|pla||silk-tricolor-verde-roxo-cobre",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Tricolor Verde Roxo Cobre",
+      "olistId": 1053223648,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK TRICOLOR VERDE ROXO COBRE"
+    },
+    {
+      "chave": "multifila|pla||silk-verde",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Verde",
+      "olistId": 1053223619,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK VERDE"
+    },
+    {
+      "chave": "multifila|pla||silk-vermelho",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Vermelho",
+      "olistId": 1053223614,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - SILK VERMELHO"
+    },
+    {
+      "chave": "multifila|pla||termo-azul-e-branco",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Termo Azul e Branco",
+      "olistId": 1053223585,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - TERMO AZUL E BRANCO"
+    },
+    {
+      "chave": "multifila|pla||termo-roxo-e-verde",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Termo Roxo e Verde",
+      "olistId": 1053223589,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - TERMO ROXO E VERDE"
+    },
+    {
+      "chave": "multifila|pla||termo-vermelho-e-rosa",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Termo Vermelho e Rosa",
+      "olistId": 1053223593,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multifila - FILAMENTO PLA - TERMO VERMELHO E ROSA"
     }
   ]
 }

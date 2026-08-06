@@ -1,0 +1,10 @@
+Ajuste incremental para extrair dentro da pasta catalogo-3zk.
+
+Inclui:
+- melhoria visual das 16 fotos Multifila PLA em assets/fotos/multifila-pla/
+- inclusão do selo "Novas cores" para Multifila PLA via script.js
+
+Como usar:
+1. Abra a pasta catalogo-3zk do seu catálogo.
+2. Extraia este ZIP dentro dela.
+3. Aceite substituir os arquivos.

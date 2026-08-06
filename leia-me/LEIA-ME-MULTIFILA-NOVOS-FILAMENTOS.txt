@@ -1,0 +1,34 @@
+Atualização Multifila PLA — revisão final — 06/08/2026
+
+Arquivos alterados:
+- script.js
+- dados/produtos.json
+- dados/produtos-base.json
+- dados/controle-catalogo.json
+- automacao/mapeamento-olist.json
+- assets/fotos/multifila-pla/*.webp
+
+O que foi incluído:
+- 15 novas variações Multifila PLA, além do Branco já existente;
+- preços por variação conforme a coluna "Preço site cheio";
+- IDs das variações da Olist no mapeamento da automação;
+- fotos extraídas e recortadas do catálogo PDF da Multifila;
+- cores visuais conectadas ao seletor e ao rolo ilustrativo;
+- gradientes para produtos dual color, tricolor, rainbow e termo;
+- Multifila removida da lista de produtos pausados;
+- correção para exibir R$ 179,90 com duas casas decimais.
+
+Validações executadas:
+- sintaxe JavaScript;
+- leitura dos arquivos JSON;
+- IDs sem duplicidade;
+- existência das 15 novas imagens;
+- teste da automação com estoque simulado para todos os IDs mapeados;
+- teste no navegador das 16 variações Multifila, incluindo troca de nome,
+  preço, foto, cor do seletor e cor do rolo.
+
+Observação da fonte:
+- A Olist chama uma variação de "Silk Dual Color Vermelho e Azul".
+  No catálogo beta da Multifila, a imagem equivalente mais próxima aparece
+  como a combinação código 052, rotulada "Rosa e Azul". O ID e o nome usados
+  no site continuam seguindo a Olist; somente a foto vem dessa arte do PDF.

@@ -89,6 +89,16 @@ def main() -> int:
 
             ids.add(product_id(key))
             color["idCatalogo"] = key
+
+            # Estes campos pertencem somente ao catálogo-base. Eles precisam
+            # ser removidos do catálogo público em todas as execuções, inclusive
+            # quando o estoque anterior já contém a variação. Isso mantém a
+            # montagem idempotente e evita dados internos vazando para o site.
+            initial_status = str(
+                color.pop("statusEstoqueInicial", "sem_estoque")
+            ).strip() or "sem_estoque"
+            initial_available = color.pop("disponivelInicial", False) is True
+
             previous = previous_by_key.get(key)
 
             if previous:
@@ -101,12 +111,6 @@ def main() -> int:
                 # Produto novo: usa um estado inicial explícito somente quando
                 # ele foi cadastrado e conferido. Sem isso, continua oculto
                 # até a primeira sincronização real com a Olist.
-                initial_status = str(
-                    color.pop("statusEstoqueInicial", "sem_estoque")
-                ).strip() or "sem_estoque"
-                initial_available = (
-                    color.pop("disponivelInicial", False) is True
-                )
                 color["statusEstoque"] = initial_status
                 color["disponivel"] = initial_available
                 if not initial_available:

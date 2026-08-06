@@ -1,10 +1,9 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-08-04T20:36:51.549Z",
+  "atualizadoEm": "2026-08-06T19:02:00.000Z",
   "produtosPausados": [
     "fusion-high-speed|petg|",
-    "masterprint|pla|etiqueta-neutra",
-    "multifila|pla|"
+    "masterprint|pla|etiqueta-neutra"
   ],
   "coresPausadas": [
     "closin|petg||rosa",

@@ -2254,6 +2254,193 @@
           "assets/fotos/multifila-pla/branco.webp"
         ],
         "chaveEstoque": "multifila|pla||branco"
+      },
+      {
+        "nome": "Rainbow Matte Coral Colors",
+        "hex": "#D7A6C8",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors.webp"
+        ],
+        "preco": 170,
+        "chaveEstoque": "multifila|pla||rainbow-matte-coral-colors",
+        "gradiente": "linear-gradient(135deg, #A6E2D4 0%, #C9B8EB 25%, #F1BFD5 50%, #A8CFF0 72%, #B9E5C8 100%)"
+      },
+      {
+        "nome": "Silk Azul Safira",
+        "hex": "#4F8FD4",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-azul-safira.webp"
+        ],
+        "preco": 120,
+        "chaveEstoque": "multifila|pla||silk-azul-safira"
+      },
+      {
+        "nome": "Silk Cobre",
+        "hex": "#B56D49",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-cobre.webp"
+        ],
+        "preco": 120,
+        "chaveEstoque": "multifila|pla||silk-cobre"
+      },
+      {
+        "nome": "Silk Dual Color Preto e Prata",
+        "hex": "#777B82",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata.webp"
+        ],
+        "preco": 133,
+        "chaveEstoque": "multifila|pla||silk-dual-color-preto-e-prata",
+        "gradiente": "linear-gradient(135deg, #202126 0 48%, #C3C7CE 52% 100%)"
+      },
+      {
+        "nome": "Silk Dual Color Roxo e Dourado",
+        "hex": "#8A5D74",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado.webp"
+        ],
+        "preco": 133,
+        "chaveEstoque": "multifila|pla||silk-dual-color-roxo-e-dourado",
+        "gradiente": "linear-gradient(135deg, #5C285D 0 48%, #C99A3E 52% 100%)"
+      },
+      {
+        "nome": "Silk Dual Color Vermelho e Azul",
+        "hex": "#7B5A8A",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul.webp"
+        ],
+        "preco": 133,
+        "chaveEstoque": "multifila|pla||silk-dual-color-vermelho-e-azul",
+        "gradiente": "linear-gradient(135deg, #D7474F 0 48%, #477FD0 52% 100%)"
+      },
+      {
+        "nome": "Silk Ouro Envelhecido",
+        "hex": "#B78A45",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-ouro-envelhecido.webp"
+        ],
+        "preco": 120,
+        "chaveEstoque": "multifila|pla||silk-ouro-envelhecido"
+      },
+      {
+        "nome": "Silk Rainbow Macaron",
+        "hex": "#C58A90",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-rainbow-macaron.webp"
+        ],
+        "preco": 170,
+        "chaveEstoque": "multifila|pla||silk-rainbow-macaron",
+        "gradiente": "linear-gradient(135deg, #F2A7B8 0%, #F4C961 30%, #76D39C 58%, #73AADD 80%, #B693D8 100%)"
+      },
+      {
+        "nome": "Silk Tricolor Cobre Azul Ouro",
+        "hex": "#7F6490",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro.webp"
+        ],
+        "preco": 138,
+        "chaveEstoque": "multifila|pla||silk-tricolor-cobre-azul-ouro",
+        "gradiente": "conic-gradient(#B87343 0 33%, #3D73BF 33% 66%, #D4A23C 66% 100%)"
+      },
+      {
+        "nome": "Silk Tricolor Verde Roxo Cobre",
+        "hex": "#7D6F93",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre.webp"
+        ],
+        "preco": 138,
+        "chaveEstoque": "multifila|pla||silk-tricolor-verde-roxo-cobre",
+        "gradiente": "conic-gradient(#4B9362 0 33%, #75529A 33% 66%, #B87343 66% 100%)"
+      },
+      {
+        "nome": "Silk Verde",
+        "hex": "#57A44C",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-verde.webp"
+        ],
+        "preco": 120,
+        "chaveEstoque": "multifila|pla||silk-verde"
+      },
+      {
+        "nome": "Silk Vermelho",
+        "hex": "#DD3E43",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-vermelho.webp"
+        ],
+        "preco": 120,
+        "chaveEstoque": "multifila|pla||silk-vermelho"
+      },
+      {
+        "nome": "Termo Azul e Branco",
+        "hex": "#7CC8E8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/termo-azul-e-branco.webp"
+        ],
+        "preco": 179.9,
+        "chaveEstoque": "multifila|pla||termo-azul-e-branco",
+        "gradiente": "linear-gradient(135deg, #70C5E5 0 48%, #F2F4F3 52% 100%)"
+      },
+      {
+        "nome": "Termo Roxo e Verde",
+        "hex": "#8F82C6",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/termo-roxo-e-verde.webp"
+        ],
+        "preco": 179.9,
+        "chaveEstoque": "multifila|pla||termo-roxo-e-verde",
+        "gradiente": "linear-gradient(135deg, #886DB7 0 48%, #9DD8B8 52% 100%)"
+      },
+      {
+        "nome": "Termo Vermelho e Rosa",
+        "hex": "#E890A1",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/termo-vermelho-e-rosa.webp"
+        ],
+        "preco": 179.9,
+        "chaveEstoque": "multifila|pla||termo-vermelho-e-rosa",
+        "gradiente": "linear-gradient(135deg, #D94F5C 0 48%, #F2A8B9 52% 100%)"
       }
     ]
   },
