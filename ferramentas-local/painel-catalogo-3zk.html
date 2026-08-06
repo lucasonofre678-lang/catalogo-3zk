@@ -1588,6 +1588,10 @@
         return texto.trim() ? JSON.parse(texto) : fallback;
       } catch (erro) {
         if (fallback !== null) return fallback;
+        const nome = handle?.name || "arquivo JSON";
+        if (erro instanceof SyntaxError) {
+          throw new Error(`${nome} está inválido: ${erro.message}`);
+        }
         throw erro;
       }
     }
@@ -2612,7 +2616,17 @@
       try {
         const dados = await pasta.getDirectoryHandle("dados");
         const baseHandle = await dados.getFileHandle("produtos-base.json");
-        const publicoHandle = await dados.getFileHandle("produtos.json");
+        let publicoHandle = null;
+        let publico = [];
+        let avisoPublico = "";
+        try {
+          publicoHandle = await dados.getFileHandle("produtos.json");
+          publico = await lerJsonHandle(publicoHandle);
+          if (!Array.isArray(publico)) throw new Error("produtos.json precisa conter uma lista JSON.");
+        } catch (erro) {
+          avisoPublico = erro.message || "produtos.json não pôde ser carregado";
+          publico = [];
+        }
         let controleHandle;
         try { controleHandle = await dados.getFileHandle("controle-catalogo.json"); }
         catch {
@@ -2622,9 +2636,8 @@
           await gravador.close();
         }
         const base = await lerJsonHandle(baseHandle);
-        const publico = await lerJsonHandle(publicoHandle);
         const controle = await lerJsonHandle(controleHandle, {});
-        if (!Array.isArray(base) || !Array.isArray(publico)) throw new Error("Os arquivos de produtos precisam conter listas JSON válidas.");
+        if (!Array.isArray(base)) throw new Error("produtos-base.json precisa conter uma lista JSON válida.");
 
         limparUrlsPendentes3ZK();
         estado.arquivosFotosPendentes.clear();
@@ -2643,10 +2656,14 @@
         refs.statusConexao.className = "status-conexao status-conexao--ok";
         $("#status-pasta").textContent = pasta.name || "catalogo-3zk";
         $("#status-pasta").className = "ok";
-        $("#status-publico").textContent = "Carregado";
-        $("#status-publico").className = "ok";
+        $("#status-publico").textContent = avisoPublico ? "Será reconstruído" : "Carregado";
+        $("#status-publico").className = avisoPublico ? "aviso" : "ok";
         habilitarAcoes(true);
-        mostrarToast("Painel 3ZK conectado", `${estado.produtos.length} produtos prontos para edição.`);
+        if (avisoPublico) {
+          mostrarToast("Catálogo público precisa ser reconstruído", `${avisoPublico}. O painel abriu pela base segura; não edite produtos.json manualmente.`);
+        } else {
+          mostrarToast("Painel 3ZK conectado", `${estado.produtos.length} produtos prontos para edição.`);
+        }
       } catch (erro) {
         mostrarToast("Não foi possível abrir o catálogo", erro.message);
         throw erro;
@@ -3659,11 +3676,11 @@
       const comercial = diferencasComerciais3ZK().length > 0;
       const cadastro = diferencasCadastro4ZK().length > 0;
       const pausas = diferencasPausa3ZK().length > 0;
-      const possuiHandles = (!(comercial || cadastro) || (estado.baseHandle && estado.publicoHandle)) && (!cadastro || estado.mapeamentoHandle) && (!pausas || estado.controleHandle);
+      const possuiHandles = (!(comercial || cadastro) || estado.baseHandle) && (!cadastro || estado.mapeamentoHandle) && (!pausas || estado.controleHandle);
       refs.salvar.disabled = !mudou || estado.modo !== "arquivo" || !possuiHandles;
       refs.desfazer.disabled = !mudou;
       $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
-      $("#estado-alteracoes-detalhe").textContent = mudou ? "Cadastros, preços, fotos e pausas só chegam ao site depois de Salvar, Commit e Push." : "As mudanças só chegam ao site depois do Commit e Push.";
+      $("#estado-alteracoes-detalhe").textContent = mudou ? "O painel salva a base segura. Depois faça Commit e Push; a publicação monta produtos.json automaticamente, sem consultar a Olist." : "As mudanças só chegam ao site depois do Commit e Push.";
     };
 
     atualizarTudo = function() {
@@ -3723,8 +3740,7 @@
         validarIntegridadeCadastro4ZK();
         if (catalogoMudou) {
           const baseDisco = await lerJsonHandle(estado.baseHandle);
-          const publicoDisco = await lerJsonHandle(estado.publicoHandle);
-          if (assinatura3ZK(baseDisco) !== assinatura3ZK(estado.baseOriginalRaw) || assinatura3ZK(publicoDisco) !== assinatura3ZK(estado.publicoOriginalRaw)) throw new Error("Os arquivos de produtos mudaram depois que o painel foi aberto. Faça Fetch/Pull, recarregue o painel e tente novamente.");
+          if (assinatura3ZK(baseDisco) !== assinatura3ZK(estado.baseOriginalRaw)) throw new Error("produtos-base.json mudou depois que o painel foi aberto. Faça Fetch/Pull, recarregue o painel e tente novamente.");
         }
         if (cadastros.length) {
           const mapaDisco = normalizarMapeamento4ZK(await lerJsonHandle(estado.mapeamentoHandle));
@@ -3739,8 +3755,13 @@
         refs.salvar.textContent = "Salvando...";
         for (const [caminho, blob] of estado.arquivosFotosPendentes.entries()) await escreverBlob3ZK(caminho, blob);
         if (catalogoMudou) {
+          // produtos-base.json é a única fonte manual versionada. Para testar
+          // imediatamente no Live Server, o painel cria um preview ignorado
+          // pelo Git. produtos.json continua pertencendo à automação.
           await escreverJson3ZK(estado.baseHandle, estado.baseAtualRaw);
-          await escreverJson3ZK(estado.publicoHandle, estado.publicoAtualRaw);
+          const dados = await estado.pastaHandle.getDirectoryHandle("dados");
+          const previewHandle = await dados.getFileHandle("produtos-preview.json", { create: true });
+          await escreverJson3ZK(previewHandle, estado.publicoAtualRaw);
         }
         if (cadastros.length) await escreverJson3ZK(estado.mapeamentoHandle, normalizarMapeamento4ZK(estado.mapeamentoAtualRaw));
         if (pausas.length) {

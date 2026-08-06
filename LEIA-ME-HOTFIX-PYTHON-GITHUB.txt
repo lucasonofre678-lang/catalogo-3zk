@@ -1,0 +1,23 @@
+HOTFIX 3ZK - VALIDACAO SEM PYTHON
+Data: 06/08/2026
+
+CAUSA DO AVISO
+O arquivo VALIDAR-CATALOGO.cmd anterior dependia do Python instalado no Windows.
+O seu computador possui o atalho da Microsoft Store, mas nao possui o interpretador Python.
+Isso nao significa que o catalogo esteja quebrado; significa apenas que o validador local nao conseguiu iniciar.
+
+O QUE ESTE HOTFIX MUDA
+- A validacao local passa a usar o Windows PowerShell, que ja vem no Windows.
+- O hook do GitHub Desktop tambem usa PowerShell e nao exige Python.
+- Nenhum produto, foto, preco, estoque ou arquivo visual do site e alterado.
+- Foi adicionada a CENTRAL-3ZK-GITHUB.cmd com validacao, diagnostico e configuracao.
+
+ORDEM RECOMENDADA
+1. Extraia este ZIP dentro de C:\3ZK\catalogo-3zk e aceite substituir.
+2. Execute VALIDAR-CATALOGO.cmd.
+3. Se a validacao ficar verde, execute CONFIGURAR-GIT-SEGURO.cmd uma unica vez.
+4. Execute DIAGNOSTICO-GITHUB.cmd para conferir se existe commit sem Push ou alteracao sem commit.
+5. Somente depois abra o GitHub Desktop para Commit e Push.
+
+IMPORTANTE
+Este pacote nao altera dados/produtos.json nem os workflows do GitHub. Ele corrige apenas a camada local de validacao e diagnostico.

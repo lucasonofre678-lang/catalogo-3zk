@@ -2,3 +2,5 @@ _site/
 __pycache__/
 *.pyc
 dados/ultima-atualizacao.json
+
+dados/produtos-preview.json

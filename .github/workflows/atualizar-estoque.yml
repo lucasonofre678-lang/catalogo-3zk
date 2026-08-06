@@ -42,6 +42,9 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Validar catálogo antes de consultar a Olist
+        run: python automacao/validar_catalogo.py
+
       - name: Conferir segredo da Olist
         env:
           OLIST_API_TOKEN: ${{ secrets.OLIST_API_TOKEN }}
@@ -63,7 +66,7 @@ jobs:
         run: |
           python automacao/atualizar_estoque.py
 
-      - name: Validar resultado
+      - name: Validar resultado consultado
         shell: bash
         run: |
           python - <<'PY'
@@ -76,22 +79,28 @@ jobs:
           ):
               with path.open("r", encoding="utf-8") as file:
                   json.load(file)
-          print("Estoque validado.")
+          print("Estoque consultado e validado.")
           PY
 
-      - name: Aplicar resultado sobre a versão mais recente
+      - name: Aplicar somente o estoque sobre a versão mais recente
         shell: bash
         run: |
-          cp dados/produtos.json /tmp/produtos-3zk.json
+          cp dados/produtos.json /tmp/produtos-3zk-estoque.json
           cp dados/ultima-atualizacao.json /tmp/ultima-atualizacao-3zk.json
 
-          # Evita conflito se uma foto ou alteração visual for enviada enquanto
-          # esta consulta longa estiver em andamento.
+          # Uma foto, preço ou cadastro pode ter sido enviado enquanto esta
+          # consulta longa estava em andamento. Voltamos à versão mais recente
+          # e reaplicamos SOMENTE os status de estoque, preservando a base nova.
           git fetch origin main
           git reset --hard origin/main
 
-          cp /tmp/produtos-3zk.json dados/produtos.json
+          python automacao/gerar_catalogo_sem_consultar_olist.py \
+            --base dados/produtos-base.json \
+            --estoque-atual /tmp/produtos-3zk-estoque.json \
+            --output dados/produtos.json
+
           cp /tmp/ultima-atualizacao-3zk.json dados/ultima-atualizacao.json
+          python automacao/validar_catalogo.py --strict-public
 
       - name: Registrar estoque atualizado
         shell: bash

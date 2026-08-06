@@ -1,0 +1,54 @@
+name: Validar catálogo
+
+on:
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - "dados/**"
+      - "automacao/**"
+      - "ferramentas-local/**"
+      - "assets/**"
+      - "script.js"
+      - "index.html"
+      - "*.css"
+      - ".github/workflows/**"
+  push:
+    branches:
+      - main
+    paths:
+      - "dados/**"
+      - "automacao/**"
+      - "ferramentas-local/**"
+      - "assets/**"
+      - "script.js"
+      - "index.html"
+      - "*.css"
+      - ".github/workflows/**"
+
+permissions:
+  contents: read
+
+concurrency:
+  group: catalogo-3zk-validacao-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validar:
+    name: Conferir JSON, Olist e fotos
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Baixar o repositório
+        uses: actions/checkout@v6
+
+      - name: Preparar Python
+        uses: actions/setup-python@v6
+        with:
+          python-version: "3.13"
+
+      - name: Validar catálogo
+        run: python automacao/validar_catalogo.py
+
+      - name: Conferir sintaxe Python
+        run: python -m py_compile automacao/*.py ferramentas-local/painel_servidor.py

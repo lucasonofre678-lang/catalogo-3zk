@@ -1,0 +1,56 @@
+CORREÇÃO 3ZK — JSON, PAINEL E FLUXO DO GITHUB
+Data: 06/08/2026
+
+O ERRO ENCONTRADO
+O commit 2a4ebe5 adicionou esta linha depois do fechamento de dados/produtos.json:
+
+//testes
+
+JSON não aceita comentários. Por isso o painel mostrou:
+"Unexpected non-whitespace character after JSON" na linha 2976.
+O GitHub Desktop enviou o commit, mas a publicação não conseguia montar o catálogo.
+
+O QUE FOI CORRIGIDO
+- produtos.json restaurado para a última versão completa e válida;
+- 20 grupos, 221 variações e 221 vínculos Olist preservados;
+- Multifila, ASA, TPR, etiquetas, Masterprint PETG e selos preservados;
+- workflows do GitHub restaurados dentro de .github/workflows;
+- publicação agora valida o catálogo antes de montar o site;
+- sincronização Olist reaplica somente o estoque sobre a base mais recente;
+- painel não edita mais produtos.json, evitando conflito com a automação;
+- painel salva produtos-preview.json para testar imediatamente no Live Server;
+- produtos-preview.json fica fora do Git e não aparece no GitHub Desktop;
+- painel abre pela base segura mesmo se o catálogo público estiver quebrado;
+- erro de JSON agora informa o nome do arquivo;
+- validador local e proteção antes do commit adicionados.
+
+COMO INSTALAR
+1. Feche o painel, o VS Code e o GitHub Desktop.
+2. Extraia este ZIP diretamente dentro de C:\3ZK\catalogo-3zk.
+3. Aceite substituir e mesclar arquivos e pastas.
+4. Execute VALIDAR-CATALOGO.cmd.
+5. O resultado correto é: "VALIDAÇÃO APROVADA".
+6. Execute CONFIGURAR-GIT-SEGURO.cmd uma única vez.
+7. Abra o GitHub Desktop, faça Commit e Push.
+
+ORDEM ESPERADA NO GITHUB
+1. Validar catálogo — precisa ficar verde.
+2. Publicar catálogo rápido — precisa ficar verde.
+3. Sincronizar estoque Olist é separado e NÃO é necessário para publicar
+   fotos, preços, textos ou alterações visuais.
+
+REGRA NOVA
+- Edite manualmente somente dados/produtos-base.json pelo painel.
+- Não escreva nem cole comentários em arquivos JSON.
+- dados/produtos.json pertence à automação.
+- Antes do Commit, a proteção local executará a validação automaticamente.
+
+TESTES EXECUTADOS NESTE PACOTE
+- leitura estrita de todos os JSONs principais;
+- ausência de marcas de conflito Git;
+- 20 produtos / 221 variações / 221 IDs Olist;
+- chaves e IDs sem duplicidade;
+- fotos confirmadas existentes;
+- geração do catálogo sem consultar Olist;
+- sincronização completa usando estoque simulado;
+- sintaxe de script.js, painel, Python e workflows YAML.

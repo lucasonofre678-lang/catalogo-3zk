@@ -2312,16 +2312,24 @@ async function carregarProdutos() {
   `;
 
   try {
-    const [resposta, controleRecebido] = await Promise.all([
-      fetch("dados/produtos.json", {
-        cache: "no-store"
-      }),
-      carregarControleCatalogo()
-    ]);
+    const ambienteLocal = ["localhost", "127.0.0.1"].includes(location.hostname);
+    const caminhoPrincipal = ambienteLocal
+      ? "dados/produtos-preview.json"
+      : "dados/produtos.json";
+
+    let resposta = await fetch(caminhoPrincipal, { cache: "no-store" });
+
+    // O preview é criado pelo Painel 3ZK e fica fora do Git. Enquanto ele
+    // ainda não existir, o Live Server usa normalmente o último estoque salvo.
+    if (ambienteLocal && !resposta.ok) {
+      resposta = await fetch("dados/produtos.json", { cache: "no-store" });
+    }
+
+    const controleRecebido = await carregarControleCatalogo();
 
     if (!resposta.ok) {
       throw new Error(
-        `Não foi possível carregar dados/produtos.json (${resposta.status}).`
+        `Não foi possível carregar o catálogo público (${resposta.status}).`
       );
     }
 
@@ -2351,8 +2359,7 @@ async function carregarProdutos() {
       <div class="catalogo__mensagem catalogo__mensagem--erro">
         <strong>Não foi possível carregar os produtos.</strong>
         <span>
-          Abra o projeto pelo Live Server e confirme se existe
-          dados/produtos.json.
+          Abra o projeto pelo Live Server e execute VALIDAR-CATALOGO.cmd.
         </span>
       </div>
     `;
