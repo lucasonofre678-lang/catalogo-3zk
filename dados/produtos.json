@@ -2137,8 +2137,8 @@
           "assets/fotos/masterprint-abs/amarelo.webp"
         ],
         "idCatalogo": "masterprint|abs||amarelo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Roxo",
@@ -2173,8 +2173,8 @@
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
         "idCatalogo": "masterprint|abs||marrom",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Natural",
@@ -2209,8 +2209,8 @@
           "assets/fotos/masterprint-abs/branco.webp"
         ],
         "idCatalogo": "masterprint|abs||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Verde",
@@ -2245,8 +2245,8 @@
           "assets/fotos/masterprint-abs/dourado.webp"
         ],
         "idCatalogo": "masterprint|abs||dourado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Preto",
@@ -2943,6 +2943,8 @@
         "preco": 15.0,
         "sku": "ROLO200",
         "gtin": "7908229105083",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
         "statusEstoque": "em_estoque",
         "disponivel": true
@@ -2960,6 +2962,8 @@
         "preco": 30.0,
         "sku": "ROLO500",
         "gtin": "7908229105717",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
         "statusEstoque": "em_estoque",
         "disponivel": true
