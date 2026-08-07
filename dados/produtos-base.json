@@ -282,7 +282,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/preto.webp"
+          "assets/fotos/closin-petg/preto.webp",
+          "assets/fotos/closin-petg/preto-2.webp"
         ],
         "chaveEstoque": "closin|petg||preto"
       },
@@ -332,7 +333,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/vermelho.webp"
+          "assets/fotos/closin-petg/vermelho.webp",
+          "assets/fotos/closin-petg/vermelho-2.webp"
         ],
         "chaveEstoque": "closin|petg||vermelho"
       },
@@ -444,7 +446,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/vermelho.webp"
+          "assets/fotos/closin-pla/vermelho.webp",
+          "assets/fotos/closin-pla/vermelho-2.webp"
         ],
         "chaveEstoque": "closin|pla||vermelho"
       },
@@ -724,7 +727,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/madeira.webp"
+          "assets/fotos/masterprint-petg/madeira.webp",
+          "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "chaveEstoque": "masterprint|petg||madeira"
       },
@@ -891,7 +895,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/green-olive.webp"
+          "assets/fotos/masterprint-petg/green-olive.webp",
+          "assets/fotos/masterprint-petg/green-olive-2.webp"
         ],
         "chaveEstoque": "masterprint|petg||green-olive"
       }
@@ -1137,9 +1142,10 @@
         "nome": "Branco",
         "hex": "#E3E1DD",
         "hexFonte": "foto",
-        "fotoStatus": "revisar_linha",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/fusion-high-speed-petg/branco.webp"
+          "assets/fotos/fusion-high-speed-petg/branco.webp",
+          "assets/fotos/fusion-high-speed-petg/branco-2.webp"
         ],
         "chaveEstoque": "fusion-high-speed|petg||branco"
       },
@@ -2182,7 +2188,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/elegoo-pla/red.webp"
+          "assets/fotos/elegoo-pla/red.webp",
+          "assets/fotos/elegoo-pla/red-2.webp"
         ],
         "chaveEstoque": "elegoo|pla||red"
       },

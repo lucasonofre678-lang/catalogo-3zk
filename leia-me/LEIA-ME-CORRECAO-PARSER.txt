@@ -1,8 +1,0 @@
-CORRECAO DO VALIDADOR 3ZK - WINDOWS POWERSHELL 5.1
-
-1. Extraia este ZIP diretamente dentro da pasta catalogo-3zk.
-2. Aceite substituir automacao\validar_catalogo.ps1.
-3. Execute VALIDAR-CATALOGO.cmd novamente.
-
-Este pacote altera somente o validador local.
-Nao inclui nem modifica dados, produtos, precos, fotos, estoque ou workflows.
