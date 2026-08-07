@@ -282,7 +282,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/preto.webp"
+          "assets/fotos/closin-petg/preto.webp",
+          "assets/fotos/closin-petg/preto-2.webp"
         ],
         "chaveEstoque": "closin|petg||preto"
       },
@@ -332,7 +333,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/vermelho.webp"
+          "assets/fotos/closin-petg/vermelho.webp",
+          "assets/fotos/closin-petg/vermelho-2.webp"
         ],
         "chaveEstoque": "closin|petg||vermelho"
       },
@@ -444,7 +446,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/vermelho.webp"
+          "assets/fotos/closin-pla/vermelho.webp",
+          "assets/fotos/closin-pla/vermelho-2.webp"
         ],
         "chaveEstoque": "closin|pla||vermelho"
       },
@@ -724,7 +727,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/madeira.webp"
+          "assets/fotos/masterprint-petg/madeira.webp",
+          "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "chaveEstoque": "masterprint|petg||madeira"
       },
@@ -891,7 +895,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/green-olive.webp"
+          "assets/fotos/masterprint-petg/green-olive.webp",
+          "assets/fotos/masterprint-petg/green-olive-2.webp"
         ],
         "chaveEstoque": "masterprint|petg||green-olive"
       }
@@ -1137,9 +1142,10 @@
         "nome": "Branco",
         "hex": "#E3E1DD",
         "hexFonte": "foto",
-        "fotoStatus": "revisar_linha",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/fusion-high-speed-petg/branco.webp"
+          "assets/fotos/fusion-high-speed-petg/branco.webp",
+          "assets/fotos/fusion-high-speed-petg/branco-2.webp"
         ],
         "chaveEstoque": "fusion-high-speed|petg||branco"
       },
@@ -2182,7 +2188,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/elegoo-pla/red.webp"
+          "assets/fotos/elegoo-pla/red.webp",
+          "assets/fotos/elegoo-pla/red-2.webp"
         ],
         "chaveEstoque": "elegoo|pla||red"
       },
@@ -2251,6 +2258,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/branco-real.webp",
           "assets/fotos/multifila-pla/branco.webp"
         ],
         "chaveEstoque": "multifila|pla||branco"
@@ -2262,6 +2270,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/marmorizado-real.webp",
           "assets/fotos/multifila-pla/marmorizado-2.webp"
         ],
         "preco": 170,
@@ -2274,25 +2283,12 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-real.webp",
           "assets/fotos/multifila-pla/rainbow-matte-coral-colors.webp"
         ],
         "preco": 170,
         "chaveEstoque": "multifila|pla||rainbow-matte-coral-colors",
         "gradiente": "linear-gradient(135deg, #A6E2D4 0%, #C9B8EB 25%, #F1BFD5 50%, #A8CFF0 72%, #B9E5C8 100%)"
-      },
-      {
-        "nome": "Luminous Rainbow Colors",
-        "hex": "#A9A9D8",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/multifila-pla/luminous-rainbow-colors.webp"
-        ],
-        "preco": 164.9,
-        "chaveEstoque": "multifila|pla||luminous-rainbow-colors",
-        "gradiente": "linear-gradient(135deg, #F4F1DE 0%, #B8B1EA 25%, #62D2A4 50%, #4FC7E7 68%, #E45EB7 84%, #7AD873 100%)",
-        "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true
       },
       {
         "nome": "Silk Azul Safira",
@@ -2301,6 +2297,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-azul-safira-real.webp",
           "assets/fotos/multifila-pla/silk-azul-safira.webp"
         ],
         "preco": 120,
@@ -2313,6 +2310,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-cobre-real.webp",
           "assets/fotos/multifila-pla/silk-cobre.webp"
         ],
         "preco": 120,
@@ -2325,6 +2323,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata.webp"
         ],
         "preco": 133,
@@ -2338,6 +2337,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado.webp"
         ],
         "preco": 133,
@@ -2351,6 +2351,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul.webp"
         ],
         "preco": 133,
@@ -2364,6 +2365,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-ouro-envelhecido-real.webp",
           "assets/fotos/multifila-pla/silk-ouro-envelhecido.webp"
         ],
         "preco": 120,
@@ -2376,6 +2378,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-rainbow-macaron-real.webp",
+          "assets/fotos/multifila-pla/silk-rainbow-macaron-real-2.webp",
           "assets/fotos/multifila-pla/silk-rainbow-macaron.webp"
         ],
         "preco": 170,
@@ -2389,6 +2393,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro-real.webp",
           "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro.webp"
         ],
         "preco": 138,
@@ -2402,6 +2407,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre-real.webp",
+          "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre-real-2.webp",
           "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre.webp"
         ],
         "preco": 138,
@@ -2415,6 +2422,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-verde-real.webp",
           "assets/fotos/multifila-pla/silk-verde.webp"
         ],
         "preco": 120,
@@ -2427,6 +2435,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-vermelho-real.webp",
           "assets/fotos/multifila-pla/silk-vermelho.webp"
         ],
         "preco": 120,
@@ -2438,6 +2447,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/termo-azul-e-branco-real.webp",
           "assets/fotos/multifila-pla/termo-azul-e-branco.webp"
         ],
         "preco": 179.9,
@@ -2450,6 +2460,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/termo-roxo-e-verde-real.webp",
           "assets/fotos/multifila-pla/termo-roxo-e-verde.webp"
         ],
         "preco": 179.9,
@@ -2462,6 +2473,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/termo-vermelho-e-rosa-real.webp",
           "assets/fotos/multifila-pla/termo-vermelho-e-rosa.webp"
         ],
         "preco": 179.9,
@@ -2474,7 +2486,7 @@
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
-    "preco": 15.0,
+    "preco": 15,
     "linkLoja": "",
     "obs": "Compatível com Zebra e Elgin · Adesiva · Serrilhada",
     "rotuloVariacaoSingular": "variação",
@@ -2490,7 +2502,7 @@
           "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp",
           "assets/fotos/rolo-etiqueta-termica/200-etiquetas-2.webp"
         ],
-        "preco": 15.0,
+        "preco": 15,
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
@@ -2507,7 +2519,7 @@
           "assets/fotos/rolo-etiqueta-termica/500-etiquetas-2.webp",
           "assets/fotos/rolo-etiqueta-termica/500-etiquetas-3.webp"
         ],
-        "preco": 30.0,
+        "preco": 30,
         "sku": "ROLO500",
         "gtin": "7908229105717",
         "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
