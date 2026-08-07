@@ -2262,7 +2262,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/multifila-pla/marmorizado.webp"
+          "assets/fotos/multifila-pla/marmorizado-2.webp"
         ],
         "preco": 170,
         "chaveEstoque": "multifila|pla||marmorizado"
@@ -2460,7 +2460,7 @@
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
-    "preco": 15.0,
+    "preco": 15,
     "linkLoja": "",
     "obs": "Compatível com Zebra e Elgin · Adesiva · Serrilhada",
     "rotuloVariacaoSingular": "variação",
@@ -2476,7 +2476,7 @@
           "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp",
           "assets/fotos/rolo-etiqueta-termica/200-etiquetas-2.webp"
         ],
-        "preco": 15.0,
+        "preco": 15,
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
@@ -2493,7 +2493,7 @@
           "assets/fotos/rolo-etiqueta-termica/500-etiquetas-2.webp",
           "assets/fotos/rolo-etiqueta-termica/500-etiquetas-3.webp"
         ],
-        "preco": 30.0,
+        "preco": 30,
         "sku": "ROLO500",
         "gtin": "7908229105717",
         "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
