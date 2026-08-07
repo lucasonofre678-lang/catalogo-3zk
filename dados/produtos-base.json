@@ -2291,6 +2291,20 @@
         "gradiente": "linear-gradient(135deg, #A6E2D4 0%, #C9B8EB 25%, #F1BFD5 50%, #A8CFF0 72%, #B9E5C8 100%)"
       },
       {
+        "nome": "Luminous Rainbow Colors",
+        "hex": "#A9A9D8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/luminous-rainbow-colors.webp"
+        ],
+        "preco": 164.9,
+        "chaveEstoque": "multifila|pla||luminous-rainbow-colors",
+        "gradiente": "linear-gradient(135deg, #F4F1DE 0%, #B8B1EA 25%, #62D2A4 50%, #4FC7E7 68%, #E45EB7 84%, #7AD873 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
         "nome": "Silk Azul Safira",
         "hex": "#4F8FD4",
         "efeito": "silk",
