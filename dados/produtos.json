@@ -1401,8 +1401,8 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Laranja",
@@ -1501,8 +1501,8 @@
           "assets/fotos/masterprint-pla/silk-fuchsia.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-fuchsia",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Peacock Blue",
@@ -2173,8 +2173,8 @@
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
         "idCatalogo": "masterprint|abs||marrom",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural",
