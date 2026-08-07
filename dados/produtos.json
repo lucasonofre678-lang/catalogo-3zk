@@ -81,9 +81,11 @@
         "nome": "Lavender / Roxo Claro",
         "hex": "#C7B8E8",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/flashforge-pla/lavender-roxo-claro.webp"
+          "assets/fotos/flashforge-pla/lavender-roxo-claro.webp",
+          "assets/fotos/flashforge-pla/lavender-roxo-claro-2.webp",
+          "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "idCatalogo": "flashforge|pla||lavender-roxo-claro",
         "statusEstoque": "em_estoque",
@@ -466,7 +468,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/azul.webp"
+          "assets/fotos/closin-pla/azul.webp",
+          "assets/fotos/closin-pla/azul-2.webp"
         ],
         "idCatalogo": "closin|pla||azul",
         "statusEstoque": "em_estoque",
@@ -926,8 +929,8 @@
           "assets/fotos/masterprint-petg/roxo.webp"
         ],
         "idCatalogo": "masterprint|petg||roxo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Skin",
@@ -1393,19 +1396,19 @@
         "nome": "Branco",
         "hex": "#F2F2F0",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Laranja",
         "hex": "#F0842E",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/laranja.webp"
         ],
@@ -1417,7 +1420,7 @@
         "nome": "Cinza",
         "hex": "#9C9FA3",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/cinza.webp"
         ],
@@ -1444,7 +1447,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-pla/prata.webp"
+          "assets/fotos/masterprint-pla/prata.webp",
+          "assets/fotos/masterprint-pla/prata-2.webp"
         ],
         "idCatalogo": "masterprint|pla||prata",
         "statusEstoque": "sem_estoque",
@@ -1466,7 +1470,7 @@
         "nome": "Prata Master",
         "hex": "#B0B6BC",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/prata-master.webp"
         ],
@@ -1497,8 +1501,8 @@
           "assets/fotos/masterprint-pla/silk-fuchsia.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-fuchsia",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Peacock Blue",
@@ -1922,7 +1926,7 @@
         "hex": "#7A4FAE",
         "efeito": "silk",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
         ],
@@ -2205,8 +2209,8 @@
           "assets/fotos/masterprint-abs/branco.webp"
         ],
         "idCatalogo": "masterprint|abs||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Verde",
@@ -2272,7 +2276,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-tpu/branco.webp"
+          "assets/fotos/masterprint-tpu/branco.webp",
+          "assets/fotos/masterprint-tpu/branco-2.webp"
         ],
         "idCatalogo": "masterprint|tpu||branco",
         "statusEstoque": "em_estoque",
@@ -2294,7 +2299,7 @@
         "nome": "Preto",
         "hex": "#1B1B1B",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpu/preto.webp"
         ],
@@ -2307,7 +2312,7 @@
         "hex": "#EEF0EF",
         "efeito": "glass",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
@@ -2478,8 +2483,8 @@
           "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp"
         ],
         "idCatalogo": "creality-soleyin-ultra|pla||rosehip",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Strawberry Milk",
@@ -2927,6 +2932,54 @@
       }
     ],
     "idCatalogo": "multifila|pla|",
+    "disponivel": true
+  },
+  {
+    "marca": "Rolo Etiqueta",
+    "linha": "Térmica 10x15",
+    "material": "Outras",
+    "preco": 15.0,
+    "linkLoja": "",
+    "obs": "Compatível com Zebra e Elgin · Adesiva · Serrilhada",
+    "rotuloVariacaoSingular": "variação",
+    "rotuloVariacaoPlural": "variações",
+    "tipoProduto": "rolo de etiqueta térmica",
+    "cores": [
+      {
+        "nome": "200 Etiquetas",
+        "hex": "#F2F1EC",
+        "hexFonte": "manual",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp",
+          "assets/fotos/rolo-etiqueta-termica/200-etiquetas-2.webp"
+        ],
+        "preco": 15.0,
+        "sku": "ROLO200",
+        "gtin": "7908229105083",
+        "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "500 Etiquetas",
+        "hex": "#D9D4CA",
+        "hexFonte": "manual",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/rolo-etiqueta-termica/500-etiquetas-1.webp",
+          "assets/fotos/rolo-etiqueta-termica/500-etiquetas-2.webp",
+          "assets/fotos/rolo-etiqueta-termica/500-etiquetas-3.webp"
+        ],
+        "preco": 30.0,
+        "sku": "ROLO500",
+        "gtin": "7908229105717",
+        "idCatalogo": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "rolo-etiqueta-termica|outras|10x15",
     "disponivel": true
   }
 ]
