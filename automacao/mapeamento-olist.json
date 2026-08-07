@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 221,
+  "total": 197,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1962,6 +1962,28 @@
       "descricaoOlist": "FILAMENTO ELEGOO PLA - - YELLOW"
     },
     {
+      "chave": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
+      "marca": "Rolo Etiqueta",
+      "material": "Outras",
+      "linha": "Térmica 10x15",
+      "cor": "200 Etiquetas",
+      "olistId": 139837164379,
+      "sku": "ROLO200",
+      "gtin": "7908229105083",
+      "descricaoOlist": "ROLO ETIQUETA TERMICA COMPATIVEL ECOMMERCE ZEBRA 100MM150MM - 200 Etiquetas"
+    },
+    {
+      "chave": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
+      "marca": "Rolo Etiqueta",
+      "material": "Outras",
+      "linha": "Térmica 10x15",
+      "cor": "500 Etiquetas",
+      "olistId": 139837164380,
+      "sku": "ROLO500",
+      "gtin": "7908229105717",
+      "descricaoOlist": "ROLO ETIQUETA TERMICA COMPATIVEL ECOMMERCE ZEBRA 100MM150MM - 500 Etiquetas"
+    },
+    {
       "chave": "multifila|pla||branco",
       "marca": "Multifila",
       "material": "PLA",
@@ -1973,301 +1995,15 @@
       "descricaoOlist": "Multifila - FILAMENTO PLA - PLA BRANCO"
     },
     {
-      "chave": "closin|pla||azul-ceu-sky-blue",
-      "marca": "Closin",
+      "chave": "multifila|pla||marmorizado",
+      "marca": "Multifila",
       "material": "PLA",
       "linha": "",
-      "cor": "Azul Céu / Sky Blue",
-      "olistId": 1053138850,
-      "sku": "CL-Sky-Blue",
+      "cor": "Marmorizado",
+      "olistId": 1053223581,
+      "sku": null,
       "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Azul Ceu Sky Blue"
-    },
-    {
-      "chave": "closin|pla||branco-perola",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Branco Pérola",
-      "olistId": 1053138814,
-      "sku": "CL-Branco-Perola",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Branco Perola"
-    },
-    {
-      "chave": "closin|pla||ciano",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Ciano",
-      "olistId": 1053138856,
-      "sku": "CL-Ciano",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Ciano"
-    },
-    {
-      "chave": "closin|pla||fluo-blue",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Fluo Blue",
-      "olistId": 1053138866,
-      "sku": "CL- Fluo-Blue",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Fluo Blue"
-    },
-    {
-      "chave": "closin|pla||fluo-green",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Fluo Green",
-      "olistId": 1053138861,
-      "sku": "CL-Fluo-Green",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Fluo Green"
-    },
-    {
-      "chave": "closin|pla||fluo-red",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Fluo Red",
-      "olistId": 1053138870,
-      "sku": "CL-Fluo-Blue",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Fluo Red"
-    },
-    {
-      "chave": "closin|pla||fluo-yellow",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Fluo Yellow",
-      "olistId": 1053138874,
-      "sku": "CL-Fluo-Yellow",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Fluo Yellow"
-    },
-    {
-      "chave": "closin|pla||lemon-green",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Lemon Green",
-      "olistId": 1053138819,
-      "sku": "CL-Lemon-Green",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Lemon Green"
-    },
-    {
-      "chave": "closin|pla||marrom-escuro-dark-brown",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Marrom Escuro / Dark Brown",
-      "olistId": 1053138879,
-      "sku": "CL-Dark-Brown",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Marrom - Dark Brown"
-    },
-    {
-      "chave": "closin|pla||marrom-claro",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Marrom Claro",
-      "olistId": 1053138806,
-      "sku": "CL-Marrom-claro",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Marrom claro"
-    },
-    {
-      "chave": "closin|pla||natural",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Natural",
-      "olistId": 1053138834,
-      "sku": "CL- Natural",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Natural"
-    },
-    {
-      "chave": "closin|pla||silver",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Silver",
-      "olistId": 1053138829,
-      "sku": "CL- Silver",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Silver"
-    },
-    {
-      "chave": "closin|pla||transparente",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Transparente",
-      "olistId": 1053138809,
-      "sku": "CL- Transparente",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Transparente"
-    },
-    {
-      "chave": "closin|pla||violeta",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Violeta",
-      "olistId": 1053138844,
-      "sku": "CL- Violeta",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Violeta"
-    },
-    {
-      "chave": "closin|pla||wood",
-      "marca": "Closin",
-      "material": "PLA",
-      "linha": "",
-      "cor": "Wood",
-      "olistId": 1053138824,
-      "sku": "CL-Wood",
-      "gtin": null,
-      "descricaoOlist": "Filamentos Closin PLA  - Wood"
-    },
-    {
-      "chave": "masterprint|asa||branco",
-      "marca": "Masterprint",
-      "material": "ASA",
-      "linha": "",
-      "cor": "Branco",
-      "olistId": 1051030698,
-      "sku": "ASA - BRANCO",
-      "gtin": "7908229108428",
-      "descricaoOlist": "MP-FILAMENTO 3D - ASA  - BRANCO"
-    },
-    {
-      "chave": "masterprint|tpr||amarelo",
-      "marca": "Masterprint",
-      "material": "TPR",
-      "linha": "",
-      "cor": "Amarelo",
-      "olistId": 1051030717,
-      "sku": "TPR - AMARELO",
-      "gtin": "7908229104970",
-      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - AMARELO"
-    },
-    {
-      "chave": "masterprint|tpr||azul",
-      "marca": "Masterprint",
-      "material": "TPR",
-      "linha": "",
-      "cor": "Azul",
-      "olistId": 1051030713,
-      "sku": "TPR - AZUL",
-      "gtin": "7908229104963",
-      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - AZUL"
-    },
-    {
-      "chave": "masterprint|tpr||branco",
-      "marca": "Masterprint",
-      "material": "TPR",
-      "linha": "",
-      "cor": "Branco",
-      "olistId": 1051030709,
-      "sku": "TPR - BRANCO",
-      "gtin": "7908229104956",
-      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - BRANCO"
-    },
-    {
-      "chave": "masterprint|tpr||preto",
-      "marca": "Masterprint",
-      "material": "TPR",
-      "linha": "",
-      "cor": "Preto",
-      "olistId": 1051030705,
-      "sku": "TPR - PRETO",
-      "gtin": "7908229104949",
-      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - PRETO"
-    },
-    {
-      "chave": "masterprint|tpr||verde",
-      "marca": "Masterprint",
-      "material": "TPR",
-      "linha": "",
-      "cor": "Verde",
-      "olistId": 1051030725,
-      "sku": "TPR - VERDE",
-      "gtin": "7908229104994",
-      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - VERDE"
-    },
-    {
-      "chave": "masterprint|tpr||vermelho",
-      "marca": "Masterprint",
-      "material": "TPR",
-      "linha": "",
-      "cor": "Vermelho",
-      "olistId": 1051030721,
-      "sku": "TPR - VERMELHO",
-      "gtin": "7908229104987",
-      "descricaoOlist": "Masterprint - FILAMENTO 3D  TPR - VERMELHO"
-    },
-    {
-      "chave": "masterprint|petg||cool-grey",
-      "marca": "Masterprint",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Cool Grey",
-      "olistId": 1053249374,
-      "sku": "MP-PETG-COOL_GREY",
-      "gtin": "7908229112166",
-      "descricaoOlist": "Filamento 3D Pteg MasterPrint - COOL GREY"
-    },
-    {
-      "chave": "masterprint|petg||green-olive",
-      "marca": "Masterprint",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Green Olive",
-      "olistId": 1053249379,
-      "sku": "MP-PETG-GREEN_OLIVE",
-      "gtin": "7908229112173",
-      "descricaoOlist": "Filamento 3D Pteg MasterPrint - GREEN OLIVE"
-    },
-    {
-      "chave": "masterprint|petg||vermelho",
-      "marca": "Masterprint",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Vermelho",
-      "olistId": 1053249362,
-      "sku": "MP-PETG-VERMELHO",
-      "gtin": "7908229103829",
-      "descricaoOlist": "Filamento 3D Pteg MasterPrint - VERMELHO"
-    },
-    {
-      "chave": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
-      "marca": "Rolo Etiqueta",
-      "material": "Outras",
-      "linha": "Térmica 10x15",
-      "cor": "200 Etiquetas",
-      "olistId": 1040474787,
-      "sku": "ROLO200",
-      "gtin": "7908229105083",
-      "descricaoOlist": "ROLO ETIQUETA TERMICA COMPATIVEL ECOMMERCE ZEBRA 100MM150MM - 200 Etiquetas"
-    },
-    {
-      "chave": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
-      "marca": "Rolo Etiqueta",
-      "material": "Outras",
-      "linha": "Térmica 10x15",
-      "cor": "500 Etiquetas",
-      "olistId": 1040474784,
-      "sku": "ROLO500",
-      "gtin": "7908229105717",
-      "descricaoOlist": "ROLO ETIQUETA TERMICA COMPATIVEL ECOMMERCE ZEBRA 100MM150MM - 500 Etiquetas"
+      "descricaoOlist": "FILAMENTO PLA MARMORIZADO"
     },
     {
       "chave": "multifila|pla||rainbow-matte-coral-colors",
