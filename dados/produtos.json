@@ -1507,8 +1507,8 @@
           "assets/fotos/masterprint-pla/silk-fuchsia.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-fuchsia",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Peacock Blue",
@@ -2700,6 +2700,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/branco-real.webp",
           "assets/fotos/multifila-pla/branco.webp"
         ],
         "idCatalogo": "multifila|pla||branco",
@@ -2713,6 +2714,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/marmorizado-real.webp",
           "assets/fotos/multifila-pla/marmorizado-2.webp"
         ],
         "preco": 170,
@@ -2727,11 +2729,26 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-real.webp",
           "assets/fotos/multifila-pla/rainbow-matte-coral-colors.webp"
         ],
         "preco": 170,
         "gradiente": "linear-gradient(135deg, #A6E2D4 0%, #C9B8EB 25%, #F1BFD5 50%, #A8CFF0 72%, #B9E5C8 100%)",
         "idCatalogo": "multifila|pla||rainbow-matte-coral-colors",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Luminous Rainbow Colors",
+        "hex": "#A9A9D8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/luminous-rainbow-colors.webp"
+        ],
+        "preco": 164.9,
+        "gradiente": "linear-gradient(135deg, #F4F1DE 0%, #B8B1EA 25%, #62D2A4 50%, #4FC7E7 68%, #E45EB7 84%, #7AD873 100%)",
+        "idCatalogo": "multifila|pla||luminous-rainbow-colors",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -2742,6 +2759,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-azul-safira-real.webp",
           "assets/fotos/multifila-pla/silk-azul-safira.webp"
         ],
         "preco": 120,
@@ -2756,6 +2774,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-cobre-real.webp",
           "assets/fotos/multifila-pla/silk-cobre.webp"
         ],
         "preco": 120,
@@ -2770,6 +2789,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata.webp"
         ],
         "preco": 133,
@@ -2785,6 +2805,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado.webp"
         ],
         "preco": 133,
@@ -2800,6 +2821,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul.webp"
         ],
         "preco": 133,
@@ -2815,6 +2837,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-ouro-envelhecido-real.webp",
           "assets/fotos/multifila-pla/silk-ouro-envelhecido.webp"
         ],
         "preco": 120,
@@ -2829,6 +2852,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-rainbow-macaron-real.webp",
+          "assets/fotos/multifila-pla/silk-rainbow-macaron-real-2.webp",
           "assets/fotos/multifila-pla/silk-rainbow-macaron.webp"
         ],
         "preco": 170,
@@ -2844,6 +2869,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro-real.webp",
           "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro.webp"
         ],
         "preco": 138,
@@ -2859,6 +2885,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre-real.webp",
+          "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre-real-2.webp",
           "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre.webp"
         ],
         "preco": 138,
@@ -2874,6 +2902,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-verde-real.webp",
           "assets/fotos/multifila-pla/silk-verde.webp"
         ],
         "preco": 120,
@@ -2888,6 +2917,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/silk-vermelho-real.webp",
           "assets/fotos/multifila-pla/silk-vermelho.webp"
         ],
         "preco": 120,
@@ -2901,6 +2931,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/termo-azul-e-branco-real.webp",
           "assets/fotos/multifila-pla/termo-azul-e-branco.webp"
         ],
         "preco": 179.9,
@@ -2915,6 +2946,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/termo-roxo-e-verde-real.webp",
           "assets/fotos/multifila-pla/termo-roxo-e-verde.webp"
         ],
         "preco": 179.9,
@@ -2929,6 +2961,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/termo-vermelho-e-rosa-real.webp",
           "assets/fotos/multifila-pla/termo-vermelho-e-rosa.webp"
         ],
         "preco": 179.9,
