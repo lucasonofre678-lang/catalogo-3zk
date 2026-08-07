@@ -336,7 +336,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/preto.webp"
+          "assets/fotos/closin-petg/preto.webp",
+          "assets/fotos/closin-petg/preto-2.webp"
         ],
         "idCatalogo": "closin|petg||preto",
         "statusEstoque": "sem_estoque",
@@ -396,7 +397,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/vermelho.webp"
+          "assets/fotos/closin-petg/vermelho.webp",
+          "assets/fotos/closin-petg/vermelho-2.webp"
         ],
         "idCatalogo": "closin|petg||vermelho",
         "statusEstoque": "sem_estoque",
@@ -530,7 +532,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-pla/vermelho.webp"
+          "assets/fotos/closin-pla/vermelho.webp",
+          "assets/fotos/closin-pla/vermelho-2.webp"
         ],
         "idCatalogo": "closin|pla||vermelho",
         "statusEstoque": "em_estoque",
@@ -866,7 +869,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/madeira.webp"
+          "assets/fotos/masterprint-petg/madeira.webp",
+          "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
         "statusEstoque": "em_estoque",
@@ -1065,7 +1069,8 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/green-olive.webp"
+          "assets/fotos/masterprint-petg/green-olive.webp",
+          "assets/fotos/masterprint-petg/green-olive-2.webp"
         ],
         "idCatalogo": "masterprint|petg||green-olive",
         "statusEstoque": "em_estoque",
@@ -1361,9 +1366,10 @@
         "nome": "Branco",
         "hex": "#E3E1DD",
         "hexFonte": "foto",
-        "fotoStatus": "revisar_linha",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/fusion-high-speed-petg/branco.webp"
+          "assets/fotos/fusion-high-speed-petg/branco.webp",
+          "assets/fotos/fusion-high-speed-petg/branco-2.webp"
         ],
         "idCatalogo": "fusion-high-speed|petg||branco",
         "statusEstoque": "em_estoque",
@@ -2173,8 +2179,8 @@
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
         "idCatalogo": "masterprint|abs||marrom",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Natural",
@@ -2610,7 +2616,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/elegoo-pla/red.webp"
+          "assets/fotos/elegoo-pla/red.webp",
+          "assets/fotos/elegoo-pla/red-2.webp"
         ],
         "idCatalogo": "elegoo|pla||red",
         "statusEstoque": "sem_estoque",
@@ -2706,7 +2713,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/multifila-pla/marmorizado.webp"
+          "assets/fotos/multifila-pla/marmorizado-2.webp"
         ],
         "preco": 170,
         "idCatalogo": "multifila|pla||marmorizado",
@@ -2938,7 +2945,7 @@
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
-    "preco": 15.0,
+    "preco": 15,
     "linkLoja": "",
     "obs": "Compatível com Zebra e Elgin · Adesiva · Serrilhada",
     "rotuloVariacaoSingular": "variação",
@@ -2954,7 +2961,7 @@
           "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp",
           "assets/fotos/rolo-etiqueta-termica/200-etiquetas-2.webp"
         ],
-        "preco": 15.0,
+        "preco": 15,
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
@@ -2971,7 +2978,7 @@
           "assets/fotos/rolo-etiqueta-termica/500-etiquetas-2.webp",
           "assets/fotos/rolo-etiqueta-termica/500-etiquetas-3.webp"
         ],
-        "preco": 30.0,
+        "preco": 30,
         "sku": "ROLO500",
         "gtin": "7908229105717",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
