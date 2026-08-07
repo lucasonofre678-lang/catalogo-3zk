@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 222,
+  "total": 223,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1960,6 +1960,17 @@
       "sku": "50.203.0044",
       "gtin": null,
       "descricaoOlist": "FILAMENTO ELEGOO PLA - - YELLOW"
+    },
+    {
+      "chave": "multifila|pla||luminous-rainbow-colors",
+      "marca": "Multifila",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Luminous Rainbow Colors",
+      "olistId": 1053223598,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO PLA LUMINOUS RAINBOW COLORS"
     },
     {
       "chave": "multifila|pla||branco",
