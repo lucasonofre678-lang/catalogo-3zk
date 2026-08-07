@@ -929,8 +929,8 @@
           "assets/fotos/masterprint-petg/roxo.webp"
         ],
         "idCatalogo": "masterprint|petg||roxo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Skin",
@@ -2137,8 +2137,8 @@
           "assets/fotos/masterprint-abs/amarelo.webp"
         ],
         "idCatalogo": "masterprint|abs||amarelo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Roxo",
@@ -2209,7 +2209,7 @@
           "assets/fotos/masterprint-abs/branco.webp"
         ],
         "idCatalogo": "masterprint|abs||branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2245,8 +2245,8 @@
           "assets/fotos/masterprint-abs/dourado.webp"
         ],
         "idCatalogo": "masterprint|abs||dourado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Preto",
@@ -2483,8 +2483,8 @@
           "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp"
         ],
         "idCatalogo": "creality-soleyin-ultra|pla||rosehip",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Strawberry Milk",
@@ -2943,8 +2943,6 @@
         "preco": 15.0,
         "sku": "ROLO200",
         "gtin": "7908229105083",
-        "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true,
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
         "statusEstoque": "em_estoque",
         "disponivel": true
@@ -2962,8 +2960,6 @@
         "preco": 30.0,
         "sku": "ROLO500",
         "gtin": "7908229105717",
-        "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true,
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
         "statusEstoque": "em_estoque",
         "disponivel": true
