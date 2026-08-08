@@ -1301,8 +1301,8 @@
           "assets/fotos/fusionx-petg/pink-purple-violeta.webp"
         ],
         "idCatalogo": "fusionx|petg||pink-purple-violeta",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Tangerina",
@@ -1337,8 +1337,8 @@
           "assets/fotos/fusionx-petg/verde-agua.webp"
         ],
         "idCatalogo": "fusionx|petg||verde-agua",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde Escuro",
@@ -2179,8 +2179,8 @@
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
         "idCatalogo": "masterprint|abs||marrom",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural",
