@@ -2729,6 +2729,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-2.webp",
           "assets/fotos/multifila-pla/rainbow-matte-coral-colors-real.webp",
           "assets/fotos/multifila-pla/rainbow-matte-coral-colors.webp"
         ],
@@ -2744,6 +2745,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/multifila-pla/luminous-rainbow-colors-2.webp",
           "assets/fotos/multifila-pla/luminous-rainbow-colors.webp"
         ],
         "preco": 164.9,
@@ -2972,6 +2974,28 @@
       }
     ],
     "idCatalogo": "multifila|pla|",
+    "disponivel": true
+  },
+  {
+    "marca": "Multifila",
+    "material": "ABS",
+    "preco": 110,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/multifila-abs/preto.webp"
+        ],
+        "idCatalogo": "multifila|abs||preto",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "multifila|abs|",
     "disponivel": true
   },
   {
