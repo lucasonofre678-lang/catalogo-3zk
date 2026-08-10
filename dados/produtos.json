@@ -1507,8 +1507,8 @@
           "assets/fotos/masterprint-pla/silk-fuchsia.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-fuchsia",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Peacock Blue",
