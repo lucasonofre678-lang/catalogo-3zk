@@ -332,7 +332,26 @@ function montarGradienteSuaveCircular(cores) {
   return `conic-gradient(from 220deg, ${paradas.join(", ")})`;
 }
 
-function analisarCorVisualDeImagem(imagem) {
+function nomeIndicaCorComposta(nomeCor = "") {
+  const nome = normalizar(nomeCor);
+
+  return [
+    "dual color",
+    "duo color",
+    "duo",
+    "dual",
+    "tricolor",
+    "tri color",
+    "rainbow",
+    "multicolor",
+    "multicor",
+    "camaleao",
+    "camaleao",
+    "macaron"
+  ].some((trecho) => nome.includes(trecho));
+}
+
+function analisarCorVisualDeImagem(imagem, cor = null) {
   const canvas = document.createElement("canvas");
   const contexto = canvas.getContext("2d", { willReadFrequently: true });
 
@@ -462,10 +481,28 @@ function analisarCorVisualDeImagem(imagem) {
     }
   });
 
-  const topo = principais[0];
+  const coloridos = principais.filter((candidato) => (
+    candidato.s >= 0.18 &&
+    candidato.l >= 0.16 &&
+    candidato.l <= 0.88
+  ));
 
-  if (!topo) {
+  const basePrincipal = coloridos[0] || principais[0];
+
+  if (!basePrincipal) {
     return null;
+  }
+
+  const permiteMulticor = nomeIndicaCorComposta(cor?.nome || "");
+
+  if (!permiteMulticor) {
+    const hexBase = rgbParaHex(basePrincipal.rgb);
+
+    return {
+      css: hexBase,
+      hexBase,
+      paleta: [hexBase]
+    };
   }
 
   const relevantes = principais.filter((candidato, indice) => {
@@ -474,8 +511,9 @@ function analisarCorVisualDeImagem(imagem) {
     }
 
     return (
-      candidato.peso >= topo.peso * 0.18 &&
-      (candidato.s >= 0.18 || candidato.l <= 0.25 || candidato.l >= 0.78)
+      candidato.peso >= basePrincipal.peso * 0.18 &&
+      candidato.s >= 0.16 &&
+      distanciaRgb(candidato.rgb, basePrincipal.rgb) >= 52
     );
   }).slice(0, 4);
 
@@ -484,12 +522,7 @@ function analisarCorVisualDeImagem(imagem) {
   }
 
   const paleta = relevantes.map((item) => rgbParaHex(item.rgb));
-  const temMuitaVariedade =
-    relevantes.length >= 2 &&
-    relevantes[1].peso >= topo.peso * 0.34 &&
-    distanciaRgb(relevantes[0].rgb, relevantes[1].rgb) >= 72;
-
-  const css = temMuitaVariedade
+  const css = paleta.length > 1
     ? montarGradienteSuaveCircular(paleta)
     : paleta[0];
 
@@ -517,7 +550,7 @@ async function obterCorVisualExtraida(produto, cor) {
       for (const caminho of caminhos) {
         try {
           const imagem = await carregarImagemParaAnalise(caminho);
-          const resultado = analisarCorVisualDeImagem(imagem);
+          const resultado = analisarCorVisualDeImagem(imagem, cor);
 
           if (resultado) {
             return resultado;
