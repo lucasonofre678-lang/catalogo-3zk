@@ -50,7 +50,11 @@ const formatarPreco = (valor) => {
 };
 
 function obterCorVisual(cor) {
-  return cor?.gradiente || cor?.hex || "#cccccc";
+  return cor?._corVisualExtraida?.css || cor?.gradiente || cor?.hex || "#cccccc";
+}
+
+function obterHexBaseVisual(cor) {
+  return cor?._corVisualExtraida?.hexBase || cor?.hex || "#D9DFE8";
 }
 
 function normalizar(texto = "") {
@@ -223,6 +227,336 @@ function obterFotosCor(produto, cor) {
   ];
 }
 
+const cacheCorVisualPorFoto = new Map();
+
+function deveTentarExtrairCorDaFoto(produto, cor) {
+  if (!cor || cor.gradiente || cor._corVisualExtraida) {
+    return false;
+  }
+
+  const fonteHex = normalizar(cor.hexFonte || "");
+
+  if (["foto", "foto-ajustada", "manual"].includes(fonteHex)) {
+    return false;
+  }
+
+  return obterFotosCor(produto, cor).length > 0;
+}
+
+function carregarImagemParaAnalise(caminho) {
+  return new Promise((resolver, rejeitar) => {
+    const imagem = new Image();
+    imagem.decoding = "async";
+    imagem.onload = () => resolver(imagem);
+    imagem.onerror = () => rejeitar(new Error(`Não foi possível carregar ${caminho}`));
+    imagem.src = caminho;
+  });
+}
+
+function limitarNumero(valor, minimo, maximo) {
+  return Math.min(maximo, Math.max(minimo, valor));
+}
+
+function rgbParaHsl(r, g, b) {
+  const vermelho = r / 255;
+  const verde = g / 255;
+  const azul = b / 255;
+
+  const maximo = Math.max(vermelho, verde, azul);
+  const minimo = Math.min(vermelho, verde, azul);
+  const luminosidade = (maximo + minimo) / 2;
+  const diferenca = maximo - minimo;
+
+  if (diferenca === 0) {
+    return { h: 0, s: 0, l: luminosidade };
+  }
+
+  const saturacao = luminosidade > 0.5
+    ? diferenca / (2 - maximo - minimo)
+    : diferenca / (maximo + minimo);
+
+  let matiz = 0;
+
+  switch (maximo) {
+    case vermelho:
+      matiz = ((verde - azul) / diferenca + (verde < azul ? 6 : 0));
+      break;
+    case verde:
+      matiz = ((azul - vermelho) / diferenca + 2);
+      break;
+    default:
+      matiz = ((vermelho - verde) / diferenca + 4);
+      break;
+  }
+
+  matiz /= 6;
+
+  return { h: matiz, s: saturacao, l: luminosidade };
+}
+
+function rgbParaHex({ r, g, b }) {
+  const paraHex = (valor) =>
+    Math.round(limitarNumero(valor, 0, 255))
+      .toString(16)
+      .padStart(2, "0");
+
+  return `#${paraHex(r)}${paraHex(g)}${paraHex(b)}`;
+}
+
+function distanciaRgb(corA, corB) {
+  return Math.hypot(
+    corA.r - corB.r,
+    corA.g - corB.g,
+    corA.b - corB.b
+  );
+}
+
+function montarGradienteSuaveCircular(cores) {
+  const lista = cores.slice(0, 4);
+
+  if (lista.length === 1) {
+    return lista[0];
+  }
+
+  if (lista.length === 2) {
+    return `linear-gradient(135deg, ${lista[0]} 0 48%, ${lista[1]} 52% 100%)`;
+  }
+
+  const passo = 100 / lista.length;
+  const paradas = lista.map((cor, indice) =>
+    `${cor} ${Math.round(indice * passo)}%`
+  );
+
+  paradas.push(`${lista[0]} 100%`);
+
+  return `conic-gradient(from 220deg, ${paradas.join(", ")})`;
+}
+
+function analisarCorVisualDeImagem(imagem) {
+  const canvas = document.createElement("canvas");
+  const contexto = canvas.getContext("2d", { willReadFrequently: true });
+
+  if (!contexto) {
+    return null;
+  }
+
+  const tamanho = 84;
+  canvas.width = tamanho;
+  canvas.height = tamanho;
+  contexto.drawImage(imagem, 0, 0, tamanho, tamanho);
+
+  const dados = contexto.getImageData(0, 0, tamanho, tamanho).data;
+  const grupos = new Map();
+  const zonas = [
+    { cx: 0.38, cy: 0.52, rx: 0.19, ry: 0.30, peso: 1.28 },
+    { cx: 0.54, cy: 0.50, rx: 0.16, ry: 0.24, peso: 0.92 },
+    { cx: 0.68, cy: 0.68, rx: 0.13, ry: 0.18, peso: 0.48 }
+  ];
+
+  for (let y = 0; y < tamanho; y += 2) {
+    for (let x = 0; x < tamanho; x += 2) {
+      const px = x / tamanho;
+      const py = y / tamanho;
+
+      let pesoZona = 0;
+
+      zonas.forEach((zona) => {
+        const dx = (px - zona.cx) / zona.rx;
+        const dy = (py - zona.cy) / zona.ry;
+        const distancia = dx * dx + dy * dy;
+
+        if (distancia <= 1) {
+          pesoZona = Math.max(
+            pesoZona,
+            (1 - distancia) * zona.peso
+          );
+        }
+      });
+
+      if (!pesoZona) {
+        continue;
+      }
+
+      const indice = (y * tamanho + x) * 4;
+      const r = dados[indice];
+      const g = dados[indice + 1];
+      const b = dados[indice + 2];
+      const a = dados[indice + 3];
+
+      if (a < 200) {
+        continue;
+      }
+
+      const { h, s, l } = rgbParaHsl(r, g, b);
+
+      if (l > 0.96 && s < 0.18) {
+        continue;
+      }
+
+      if (l < 0.10 && s < 0.18) {
+        continue;
+      }
+
+      const pesoNeutral = s < 0.12 ? 0.28 : 1;
+      const pesoLuminosidade = l < 0.18 || l > 0.88 ? 0.75 : 1;
+      const peso = pesoZona * pesoNeutral * pesoLuminosidade * (0.58 + s * 0.85);
+
+      if (peso < 0.05) {
+        continue;
+      }
+
+      const passo = 24;
+      const chave = [r, g, b]
+        .map((valor) => limitarNumero(Math.round(valor / passo) * passo, 0, 255))
+        .join(",");
+
+      const atual = grupos.get(chave) || {
+        peso: 0,
+        somaR: 0,
+        somaG: 0,
+        somaB: 0,
+        somaH: 0,
+        somaS: 0,
+        somaL: 0
+      };
+
+      atual.peso += peso;
+      atual.somaR += r * peso;
+      atual.somaG += g * peso;
+      atual.somaB += b * peso;
+      atual.somaH += h * peso;
+      atual.somaS += s * peso;
+      atual.somaL += l * peso;
+
+      grupos.set(chave, atual);
+    }
+  }
+
+  const candidatos = [...grupos.values()]
+    .map((grupo) => ({
+      peso: grupo.peso,
+      rgb: {
+        r: grupo.somaR / grupo.peso,
+        g: grupo.somaG / grupo.peso,
+        b: grupo.somaB / grupo.peso
+      },
+      h: grupo.somaH / grupo.peso,
+      s: grupo.somaS / grupo.peso,
+      l: grupo.somaL / grupo.peso
+    }))
+    .sort((a, b) => b.peso - a.peso);
+
+  if (candidatos.length === 0) {
+    return null;
+  }
+
+  const principais = [];
+
+  candidatos.forEach((candidato) => {
+    const corMuitoProxima = principais.some((existente) =>
+      distanciaRgb(candidato.rgb, existente.rgb) < 56
+    );
+
+    if (!corMuitoProxima) {
+      principais.push(candidato);
+    }
+  });
+
+  const topo = principais[0];
+
+  if (!topo) {
+    return null;
+  }
+
+  const relevantes = principais.filter((candidato, indice) => {
+    if (indice === 0) {
+      return true;
+    }
+
+    return (
+      candidato.peso >= topo.peso * 0.18 &&
+      (candidato.s >= 0.18 || candidato.l <= 0.25 || candidato.l >= 0.78)
+    );
+  }).slice(0, 4);
+
+  if (relevantes.length === 0) {
+    return null;
+  }
+
+  const paleta = relevantes.map((item) => rgbParaHex(item.rgb));
+  const temMuitaVariedade =
+    relevantes.length >= 2 &&
+    relevantes[1].peso >= topo.peso * 0.34 &&
+    distanciaRgb(relevantes[0].rgb, relevantes[1].rgb) >= 72;
+
+  const css = temMuitaVariedade
+    ? montarGradienteSuaveCircular(paleta)
+    : paleta[0];
+
+  return {
+    css,
+    hexBase: paleta[0],
+    paleta
+  };
+}
+
+async function obterCorVisualExtraida(produto, cor) {
+  if (!deveTentarExtrairCorDaFoto(produto, cor)) {
+    return null;
+  }
+
+  const caminhos = obterFotosCor(produto, cor);
+  const chaveCache = caminhos.join("|");
+
+  if (!chaveCache) {
+    return null;
+  }
+
+  if (!cacheCorVisualPorFoto.has(chaveCache)) {
+    const promessa = (async () => {
+      for (const caminho of caminhos) {
+        try {
+          const imagem = await carregarImagemParaAnalise(caminho);
+          const resultado = analisarCorVisualDeImagem(imagem);
+
+          if (resultado) {
+            return resultado;
+          }
+        } catch (erro) {
+          // segue para o próximo caminho disponível
+        }
+      }
+
+      return null;
+    })();
+
+    cacheCorVisualPorFoto.set(chaveCache, promessa);
+  }
+
+  return cacheCorVisualPorFoto.get(chaveCache);
+}
+
+function aplicarCorVisualExtraida(produto, cor, aoAplicar) {
+  if (!deveTentarExtrairCorDaFoto(produto, cor)) {
+    return;
+  }
+
+  obterCorVisualExtraida(produto, cor)
+    .then((resultado) => {
+      if (!resultado) {
+        return;
+      }
+
+      cor._corVisualExtraida = resultado;
+
+      if (typeof aoAplicar === "function") {
+        aoAplicar(resultado);
+      }
+    })
+    .catch(() => {
+      // mantém a cor atual quando a extração automática falhar
+    });
+}
 
 function obterStatusEstoque(cor) {
   if (cor.disponivel === false || cor.statusEstoque === "sem_estoque") {
@@ -719,7 +1053,8 @@ function criarItemCarrinho(produto, cor) {
     linha: produto.linha || "",
     corNome: cor.nome,
     preco: obterPrecoProdutoOuVariacao(produto, cor),
-    hex: cor.hex || "#D9DFE8",
+    hex: obterHexBaseVisual(cor),
+    visual: obterCorVisual(cor),
     efeito: cor.efeito || "",
     imagem: fotos[0] || "",
     quantidade: 1
@@ -783,7 +1118,8 @@ function adicionarAoCarrinho(produto, cor, botao) {
 
     existente.preco = obterPrecoProdutoOuVariacao(produto, cor) || existente.preco;
     existente.imagem = obterFotosCor(produto, cor)[0] || existente.imagem;
-    existente.hex = cor.hex || existente.hex;
+    existente.hex = obterHexBaseVisual(cor) || existente.hex;
+    existente.visual = obterCorVisual(cor) || existente.visual;
   } else {
     carrinho.push(criarItemCarrinho(produto, cor));
   }
@@ -1014,7 +1350,7 @@ function renderizarRevisaoPedido() {
     <div class="pedido-revisao__item">
       <span
         class="pedido-revisao__cor"
-        style="--cor-revisao: ${escaparHTML(item.hex)}"
+        style="--cor-revisao: ${escaparHTML(item.visual || item.hex)}"
       ></span>
       <span>
         <strong>${escaparHTML(item.nomeProduto)}</strong>
@@ -1255,7 +1591,7 @@ function renderizarItensCarrinho() {
     <article class="carrinho-item" data-id="${escaparHTML(item.id)}">
       <div
         class="carrinho-item__visual"
-        style="--cor-item: ${escaparHTML(item.hex)}"
+        style="--cor-item: ${escaparHTML(item.visual || item.hex)}"
       >
         ${item.imagem ? `
           <img
@@ -2113,6 +2449,12 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     nomeCor.textContent = cor.nome;
     atualizarEstadoEstoque(cor);
 
+    aplicarCorVisualExtraida(produto, cor, () => {
+      if (corSelecionadaAtual === cor) {
+        spool.style.setProperty("--cor-atual", obterCorVisual(cor));
+      }
+    });
+
     atualizarFoto({
       produto,
       cor,
@@ -2128,10 +2470,17 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   produto.cores.forEach((cor, index) => {
     const estaAtivo = index === indiceCorInicial;
+    const dot = criarElementoDot(cor, index, selecionarCor, estaAtivo);
 
-    dotsWrap.appendChild(
-      criarElementoDot(cor, index, selecionarCor, estaAtivo)
-    );
+    dotsWrap.appendChild(dot);
+
+    aplicarCorVisualExtraida(produto, cor, () => {
+      dot.style.setProperty("--cor-dot", obterCorVisual(cor));
+
+      if (corSelecionadaAtual === cor) {
+        spool.style.setProperty("--cor-atual", obterCorVisual(cor));
+      }
+    });
   });
 
   detalhe.appendChild(cabecalhoCor);
