@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 223,
+  "total": 224,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -2455,6 +2455,17 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "Multifila - FILAMENTO PLA - TERMO VERMELHO E ROSA"
+    },
+    {
+      "chave": "multifila|abs||preto",
+      "marca": "Multifila",
+      "material": "ABS",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1053223578,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO ABS PRETO"
     }
   ]
 }

@@ -2497,6 +2497,24 @@
     ]
   },
   {
+    "marca": "Multifila",
+    "material": "ABS",
+    "preco": 110,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/multifila-abs/preto.webp"
+        ],
+        "chaveEstoque": "multifila|abs||preto"
+      }
+    ]
+  },
+  {
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
