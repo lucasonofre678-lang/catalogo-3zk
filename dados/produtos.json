@@ -2011,8 +2011,8 @@
           "assets/fotos/masterprint-pla-especial/dreamy-crystal-preto-vermelho.webp"
         ],
         "idCatalogo": "masterprint|pla|especial|dreamy-crystal-preto-vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Ice Cream",
@@ -2030,7 +2030,7 @@
     ],
     "linha": "Especial",
     "idCatalogo": "masterprint|pla|especial",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Masterprint",
@@ -2179,8 +2179,8 @@
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
         "idCatalogo": "masterprint|abs||marrom",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural",
