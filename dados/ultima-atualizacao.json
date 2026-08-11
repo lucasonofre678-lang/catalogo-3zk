@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-08-11T11:53:15-03:00",
+  "ultimaVerificacao": "2026-08-11T17:22:11-03:00",
   "fusoHorario": "America/Sao_Paulo",
-  "coresDisponiveis": 95,
-  "coresOcultas": 129,
+  "coresDisponiveis": 96,
+  "coresOcultas": 128,
   "depositosConsiderados": [
     "Geral",
     "Loja presencial"
@@ -13,7 +13,7 @@
   "estoquesReutilizadosPorLimite": 25,
   "estoquesReutilizadosPorErro": 0,
   "produtosPausadosSemConsulta": 9,
-  "proximoIndiceConsulta": 101,
+  "proximoIndiceConsulta": 76,
   "modoConsulta": "completa",
   "idsConsultadosParcialmente": [],
   "limiteApiAtingido": false

@@ -2167,8 +2167,8 @@
           "assets/fotos/masterprint-abs/prata.webp"
         ],
         "idCatalogo": "masterprint|abs||prata",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Marrom",
