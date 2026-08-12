@@ -1407,8 +1407,8 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -3022,7 +3022,7 @@
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
