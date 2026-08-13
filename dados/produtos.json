@@ -1349,12 +1349,12 @@
           "assets/fotos/fusionx-petg/verde-escuro.webp"
         ],
         "idCatalogo": "fusionx|petg||verde-escuro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "fusionx|petg|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Fusion High Speed",
@@ -1546,8 +1546,8 @@
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-roxo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fosco Cinza Fóssil",
@@ -2167,8 +2167,8 @@
           "assets/fotos/masterprint-abs/prata.webp"
         ],
         "idCatalogo": "masterprint|abs||prata",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Marrom",
