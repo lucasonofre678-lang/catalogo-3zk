@@ -50,11 +50,11 @@ const formatarPreco = (valor) => {
 };
 
 function obterCorVisual(cor) {
-  return cor?._corVisualExtraida?.css || cor?.gradiente || cor?.hex || "#cccccc";
+  return obterVisualCatalogoCor(cor).css;
 }
 
 function obterHexBaseVisual(cor) {
-  return cor?._corVisualExtraida?.hexBase || cor?.hex || "#D9DFE8";
+  return obterVisualCatalogoCor(cor).hexBase;
 }
 
 function normalizar(texto = "") {
@@ -69,6 +69,284 @@ function slugificar(texto = "") {
     .replace(/&/g, " e ")
     .replace(/[^a-z0-9]+/g, "-")
     .replace(/^-+|-+$/g, "");
+}
+
+const VISUAL_COR_EXATO = {
+  "natural transparente": { css: "#EEF0EF", hexBase: "#EEF0EF" },
+  "transparente": { css: "#DEDFDE", hexBase: "#DEDFDE" },
+  "translucent": { css: "#D9DDD8", hexBase: "#D9DDD8" },
+  "natural": { css: "#E2E1DB", hexBase: "#E2E1DB" },
+  "lavanda": { css: "#B49BC8", hexBase: "#B49BC8" },
+  "verde escuro": { css: "#365447", hexBase: "#365447" },
+  "honeydew / verde melao": { css: "#A7D0B8", hexBase: "#A7D0B8" },
+  "sea green / verde mar azulado": { css: "#63A79B", hexBase: "#63A79B" },
+  "azul esverdeado": { css: "#65C2D2", hexBase: "#65C2D2" },
+  "cool gray / cinza azulado": { css: "#8F9EAA", hexBase: "#8F9EAA" },
+  "light coral / rosa-alaranjado claro": { css: "#E07A68", hexBase: "#E07A68" },
+  "tangerina": { css: "#E95E2E", hexBase: "#E95E2E" },
+  "wood": { css: "#9B7651", hexBase: "#9B7651" },
+  "madeira": { css: "#8E7957", hexBase: "#8E7957" },
+  "marmorizado": {
+    css: "linear-gradient(135deg, #E2E0DA 0%, #BFC0BC 48%, #EBE8E1 100%)",
+    hexBase: "#D8D6D0"
+  },
+  "marmore": {
+    css: "linear-gradient(135deg, #E0DDD6 0%, #C8C5BD 48%, #F0EEE9 100%)",
+    hexBase: "#D7D3CB"
+  },
+  "rainbow": {
+    css: "linear-gradient(135deg, #E4868E 0%, #E9B46B 27%, #78C78B 53%, #6EA0D8 76%, #B98BD4 100%)",
+    hexBase: "#D98A92"
+  },
+  "silk rainbow": {
+    css: "linear-gradient(135deg, #E98A9C 0%, #F0C468 25%, #79CC93 52%, #6FA2E2 77%, #BE92DB 100%)",
+    hexBase: "#DE8D97"
+  },
+  "fosforescente natural/rainbow": {
+    css: "linear-gradient(135deg, #ECE9DC 0%, #A8DAF6 25%, #B6E2A9 50%, #F2C26E 75%, #D3B0EB 100%)",
+    hexBase: "#ECE9DC"
+  },
+  "fosforescente natural/azul": {
+    css: "linear-gradient(135deg, #ECE9DD 0%, #8EC3EA 100%)",
+    hexBase: "#ECE9DD"
+  },
+  "fosforescente natural/verde": {
+    css: "linear-gradient(135deg, #ECE9DD 0%, #A8D49C 100%)",
+    hexBase: "#ECE9DD"
+  },
+  "silk vermelho purpura": {
+    css: "linear-gradient(135deg, #D94D54 0%, #B54B94 100%)",
+    hexBase: "#D05B7D"
+  },
+  "dreamy crystal preto/vermelho": {
+    css: "linear-gradient(135deg, #1F2228 0%, #B84A52 100%)",
+    hexBase: "#6D444A"
+  },
+  "transparente preto/azul com glitter": {
+    css: "linear-gradient(135deg, #18202A 0%, #356EA8 100%)",
+    hexBase: "#243F67"
+  }
+};
+
+const PALETA_TOKEN_COR = {
+  preto: "#171B22",
+  black: "#171B22",
+  branco: "#E8E8E2",
+  white: "#E8E8E2",
+  natural: "#E6E7E2",
+  transparente: "#E2E4E2",
+  translucido: "#E1E3E2",
+  translucent: "#E1E3E2",
+  cinza: "#8B9096",
+  gray: "#8B9096",
+  grey: "#8B9096",
+  prata: "#B3B8BE",
+  silver: "#B3B8BE",
+  dourado: "#C99A3E",
+  gold: "#C99A3E",
+  bronze: "#8D744A",
+  champagne: "#D5B77B",
+  cobre: "#B87343",
+  marrom: "#6B4B33",
+  brown: "#6B4B33",
+  cafe: "#6C4F44",
+  madeira: "#8E7957",
+  wood: "#9B7651",
+  pele: "#C79A7D",
+  skin: "#C79A7D",
+  bege: "#D6C3A1",
+  beige: "#D6C3A1",
+  creme: "#E4D6B8",
+  amendoa: "#90749E",
+  amêndoa: "#90749E",
+  amarelo: "#E2C53E",
+  yellow: "#E2C53E",
+  manga: "#F1B82F",
+  abacaxi: "#C9AE39",
+  mel: "#D4A34E",
+  limao: "#C7D64A",
+  limão: "#C7D64A",
+  laranja: "#D97A39",
+  orange: "#D97A39",
+  tangerina: "#E95E2E",
+  coral: "#D56F5C",
+  vermelho: "#C94843",
+  red: "#C94843",
+  rosa: "#D96A96",
+  pink: "#D96A96",
+  fuchsia: "#C55C92",
+  roxo: "#8253A1",
+  purple: "#8253A1",
+  violeta: "#7E5AC7",
+  purpura: "#B14C8D",
+  púrpura: "#B14C8D",
+  lavanda: "#B49BC8",
+  lavender: "#C7B8E8",
+  azul: "#4A7FCF",
+  blue: "#4A7FCF",
+  ciano: "#0B89DC",
+  azure: "#3A8CA3",
+  safira: "#4F8FD4",
+  oceano: "#4C98B5",
+  ocean: "#4C98B5",
+  peacock: "#466F78",
+  ceu: "#5AAFCB",
+  céu: "#5AAFCB",
+  verde: "#59A06A",
+  green: "#59A06A",
+  floresta: "#315B42",
+  forest: "#315B42",
+  menta: "#8FC9A8",
+  mint: "#8FC9A8",
+  melao: "#A7D0B8",
+  melao: "#A7D0B8",
+  mar: "#5AA8A0",
+  sea: "#5AA8A0",
+  oliva: "#79814E",
+  olive: "#79814E",
+  esverdeado: "#83A064",
+  greenery: "#83A064"
+};
+
+const TOKENS_IGNORADOS_COR = new Set([
+  "silk", "dual", "duo", "color", "tricolor", "termo", "com", "glitter",
+  "fosforescente", "fosco", "new", "master", "pcv", "outdoor", "dark",
+  "cool", "light", "hot", "space", "dreamy", "crystal"
+]);
+
+function misturarCores(hexA, hexB, fator = 0.5) {
+  const corA = hexParaRgb(hexA);
+  const corB = hexParaRgb(hexB);
+  const mistura = {
+    r: Math.round(corA.r + (corB.r - corA.r) * fator),
+    g: Math.round(corA.g + (corB.g - corA.g) * fator),
+    b: Math.round(corA.b + (corB.b - corA.b) * fator)
+  };
+
+  return rgbParaHex(mistura);
+}
+
+function hexParaRgb(hex) {
+  const valor = String(hex || "").trim().replace("#", "");
+
+  if (!/^[0-9a-f]{6}$/i.test(valor)) {
+    return { r: 204, g: 204, b: 204 };
+  }
+
+  return {
+    r: Number.parseInt(valor.slice(0, 2), 16),
+    g: Number.parseInt(valor.slice(2, 4), 16),
+    b: Number.parseInt(valor.slice(4, 6), 16)
+  };
+}
+
+function rgbParaHex({ r, g, b }) {
+  const paraHex = (valor) =>
+    Number(valor)
+      .toString(16)
+      .padStart(2, "0");
+
+  return `#${paraHex(r)}${paraHex(g)}${paraHex(b)}`;
+}
+
+function montarGradienteVisual(cores) {
+  const lista = [...new Set(cores.filter(Boolean))];
+
+  if (lista.length <= 1) {
+    return lista[0] || "#cccccc";
+  }
+
+  if (lista.length === 2) {
+    return `linear-gradient(135deg, ${lista[0]} 0 48%, ${lista[1]} 52% 100%)`;
+  }
+
+  const passo = 100 / lista.length;
+  const paradas = lista.map((cor, indice) => {
+    const inicio = Math.round(indice * passo);
+    const fim = Math.round((indice + 1) * passo);
+    return `${cor} ${inicio}% ${fim}%`;
+  });
+
+  return `conic-gradient(from 220deg, ${paradas.join(", ")})`;
+}
+
+function extrairTokensDeCor(nome) {
+  return normalizar(nome)
+    .replace(/[^a-z0-9/]+/g, " ")
+    .split(/[\s/]+/)
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .filter((token) => !TOKENS_IGNORADOS_COR.has(token));
+}
+
+function obterCoresDoNome(nome) {
+  const tokens = extrairTokensDeCor(nome);
+  const cores = [];
+
+  tokens.forEach((token) => {
+    if (PALETA_TOKEN_COR[token]) {
+      cores.push(PALETA_TOKEN_COR[token]);
+    }
+  });
+
+  return [...new Set(cores)];
+}
+
+function nomeIndicaMulticor(nome) {
+  const valor = normalizar(nome);
+  const possuiBarraDireta = /\S\/\S/.test(String(nome || ""));
+
+  return (
+    possuiBarraDireta ||
+    ["dual", "duo", "tricolor", "rainbow", "macaron", " e ", "termo"]
+      .some((trecho) => valor.includes(trecho))
+  );
+}
+
+function obterVisualCatalogoCor(cor) {
+  const nomeNormalizado = normalizar(cor?.nome || "");
+  const hexOriginal = cor?.hex || "#D9DFE8";
+
+  if (VISUAL_COR_EXATO[nomeNormalizado]) {
+    return VISUAL_COR_EXATO[nomeNormalizado];
+  }
+
+  if (cor?.gradiente) {
+    return {
+      css: cor.gradiente,
+      hexBase: hexOriginal
+    };
+  }
+
+  if ((cor?.efeito || "") === "glass") {
+    const base = hexOriginal;
+    const claro = misturarCores(base, "#FFFFFF", 0.42);
+    return {
+      css: `linear-gradient(135deg, ${claro} 0%, ${base} 100%)`,
+      hexBase: claro
+    };
+  }
+
+  const coresDoNome = obterCoresDoNome(cor?.nome || "");
+
+  if (coresDoNome.length >= 2 && nomeIndicaMulticor(cor?.nome || "")) {
+    return {
+      css: montarGradienteVisual(coresDoNome),
+      hexBase: coresDoNome[0]
+    };
+  }
+
+  if (coresDoNome.length === 1) {
+    return {
+      css: coresDoNome[0],
+      hexBase: coresDoNome[0]
+    };
+  }
+
+  return {
+    css: hexOriginal,
+    hexBase: hexOriginal
+  };
 }
 
 
@@ -227,369 +505,6 @@ function obterFotosCor(produto, cor) {
   ];
 }
 
-const cacheCorVisualPorFoto = new Map();
-
-function deveTentarExtrairCorDaFoto(produto, cor) {
-  if (!cor || cor.gradiente || cor._corVisualExtraida) {
-    return false;
-  }
-
-  const fonteHex = normalizar(cor.hexFonte || "");
-
-  if (["foto", "foto-ajustada", "manual"].includes(fonteHex)) {
-    return false;
-  }
-
-  return obterFotosCor(produto, cor).length > 0;
-}
-
-function carregarImagemParaAnalise(caminho) {
-  return new Promise((resolver, rejeitar) => {
-    const imagem = new Image();
-    imagem.decoding = "async";
-    imagem.onload = () => resolver(imagem);
-    imagem.onerror = () => rejeitar(new Error(`Não foi possível carregar ${caminho}`));
-    imagem.src = caminho;
-  });
-}
-
-function limitarNumero(valor, minimo, maximo) {
-  return Math.min(maximo, Math.max(minimo, valor));
-}
-
-function rgbParaHsl(r, g, b) {
-  const vermelho = r / 255;
-  const verde = g / 255;
-  const azul = b / 255;
-
-  const maximo = Math.max(vermelho, verde, azul);
-  const minimo = Math.min(vermelho, verde, azul);
-  const luminosidade = (maximo + minimo) / 2;
-  const diferenca = maximo - minimo;
-
-  if (diferenca === 0) {
-    return { h: 0, s: 0, l: luminosidade };
-  }
-
-  const saturacao = luminosidade > 0.5
-    ? diferenca / (2 - maximo - minimo)
-    : diferenca / (maximo + minimo);
-
-  let matiz = 0;
-
-  switch (maximo) {
-    case vermelho:
-      matiz = ((verde - azul) / diferenca + (verde < azul ? 6 : 0));
-      break;
-    case verde:
-      matiz = ((azul - vermelho) / diferenca + 2);
-      break;
-    default:
-      matiz = ((vermelho - verde) / diferenca + 4);
-      break;
-  }
-
-  matiz /= 6;
-
-  return { h: matiz, s: saturacao, l: luminosidade };
-}
-
-function rgbParaHex({ r, g, b }) {
-  const paraHex = (valor) =>
-    Math.round(limitarNumero(valor, 0, 255))
-      .toString(16)
-      .padStart(2, "0");
-
-  return `#${paraHex(r)}${paraHex(g)}${paraHex(b)}`;
-}
-
-function distanciaRgb(corA, corB) {
-  return Math.hypot(
-    corA.r - corB.r,
-    corA.g - corB.g,
-    corA.b - corB.b
-  );
-}
-
-function montarGradienteSuaveCircular(cores) {
-  const lista = cores.slice(0, 4);
-
-  if (lista.length === 1) {
-    return lista[0];
-  }
-
-  if (lista.length === 2) {
-    return `linear-gradient(135deg, ${lista[0]} 0 48%, ${lista[1]} 52% 100%)`;
-  }
-
-  const passo = 100 / lista.length;
-  const paradas = lista.map((cor, indice) =>
-    `${cor} ${Math.round(indice * passo)}%`
-  );
-
-  paradas.push(`${lista[0]} 100%`);
-
-  return `conic-gradient(from 220deg, ${paradas.join(", ")})`;
-}
-
-function nomeIndicaCorComposta(nomeCor = "") {
-  const nome = normalizar(nomeCor);
-
-  return [
-    "dual color",
-    "duo color",
-    "duo",
-    "dual",
-    "tricolor",
-    "tri color",
-    "rainbow",
-    "multicolor",
-    "multicor",
-    "camaleao",
-    "camaleao",
-    "macaron"
-  ].some((trecho) => nome.includes(trecho));
-}
-
-function analisarCorVisualDeImagem(imagem, cor = null) {
-  const canvas = document.createElement("canvas");
-  const contexto = canvas.getContext("2d", { willReadFrequently: true });
-
-  if (!contexto) {
-    return null;
-  }
-
-  const tamanho = 84;
-  canvas.width = tamanho;
-  canvas.height = tamanho;
-  contexto.drawImage(imagem, 0, 0, tamanho, tamanho);
-
-  const dados = contexto.getImageData(0, 0, tamanho, tamanho).data;
-  const grupos = new Map();
-  const zonas = [
-    { cx: 0.38, cy: 0.52, rx: 0.19, ry: 0.30, peso: 1.28 },
-    { cx: 0.54, cy: 0.50, rx: 0.16, ry: 0.24, peso: 0.92 },
-    { cx: 0.68, cy: 0.68, rx: 0.13, ry: 0.18, peso: 0.48 }
-  ];
-
-  for (let y = 0; y < tamanho; y += 2) {
-    for (let x = 0; x < tamanho; x += 2) {
-      const px = x / tamanho;
-      const py = y / tamanho;
-
-      let pesoZona = 0;
-
-      zonas.forEach((zona) => {
-        const dx = (px - zona.cx) / zona.rx;
-        const dy = (py - zona.cy) / zona.ry;
-        const distancia = dx * dx + dy * dy;
-
-        if (distancia <= 1) {
-          pesoZona = Math.max(
-            pesoZona,
-            (1 - distancia) * zona.peso
-          );
-        }
-      });
-
-      if (!pesoZona) {
-        continue;
-      }
-
-      const indice = (y * tamanho + x) * 4;
-      const r = dados[indice];
-      const g = dados[indice + 1];
-      const b = dados[indice + 2];
-      const a = dados[indice + 3];
-
-      if (a < 200) {
-        continue;
-      }
-
-      const { h, s, l } = rgbParaHsl(r, g, b);
-
-      if (l > 0.96 && s < 0.18) {
-        continue;
-      }
-
-      if (l < 0.10 && s < 0.18) {
-        continue;
-      }
-
-      const pesoNeutral = s < 0.12 ? 0.28 : 1;
-      const pesoLuminosidade = l < 0.18 || l > 0.88 ? 0.75 : 1;
-      const peso = pesoZona * pesoNeutral * pesoLuminosidade * (0.58 + s * 0.85);
-
-      if (peso < 0.05) {
-        continue;
-      }
-
-      const passo = 24;
-      const chave = [r, g, b]
-        .map((valor) => limitarNumero(Math.round(valor / passo) * passo, 0, 255))
-        .join(",");
-
-      const atual = grupos.get(chave) || {
-        peso: 0,
-        somaR: 0,
-        somaG: 0,
-        somaB: 0,
-        somaH: 0,
-        somaS: 0,
-        somaL: 0
-      };
-
-      atual.peso += peso;
-      atual.somaR += r * peso;
-      atual.somaG += g * peso;
-      atual.somaB += b * peso;
-      atual.somaH += h * peso;
-      atual.somaS += s * peso;
-      atual.somaL += l * peso;
-
-      grupos.set(chave, atual);
-    }
-  }
-
-  const candidatos = [...grupos.values()]
-    .map((grupo) => ({
-      peso: grupo.peso,
-      rgb: {
-        r: grupo.somaR / grupo.peso,
-        g: grupo.somaG / grupo.peso,
-        b: grupo.somaB / grupo.peso
-      },
-      h: grupo.somaH / grupo.peso,
-      s: grupo.somaS / grupo.peso,
-      l: grupo.somaL / grupo.peso
-    }))
-    .sort((a, b) => b.peso - a.peso);
-
-  if (candidatos.length === 0) {
-    return null;
-  }
-
-  const principais = [];
-
-  candidatos.forEach((candidato) => {
-    const corMuitoProxima = principais.some((existente) =>
-      distanciaRgb(candidato.rgb, existente.rgb) < 56
-    );
-
-    if (!corMuitoProxima) {
-      principais.push(candidato);
-    }
-  });
-
-  const coloridos = principais.filter((candidato) => (
-    candidato.s >= 0.18 &&
-    candidato.l >= 0.16 &&
-    candidato.l <= 0.88
-  ));
-
-  const basePrincipal = coloridos[0] || principais[0];
-
-  if (!basePrincipal) {
-    return null;
-  }
-
-  const permiteMulticor = nomeIndicaCorComposta(cor?.nome || "");
-
-  if (!permiteMulticor) {
-    const hexBase = rgbParaHex(basePrincipal.rgb);
-
-    return {
-      css: hexBase,
-      hexBase,
-      paleta: [hexBase]
-    };
-  }
-
-  const relevantes = principais.filter((candidato, indice) => {
-    if (indice === 0) {
-      return true;
-    }
-
-    return (
-      candidato.peso >= basePrincipal.peso * 0.18 &&
-      candidato.s >= 0.16 &&
-      distanciaRgb(candidato.rgb, basePrincipal.rgb) >= 52
-    );
-  }).slice(0, 4);
-
-  if (relevantes.length === 0) {
-    return null;
-  }
-
-  const paleta = relevantes.map((item) => rgbParaHex(item.rgb));
-  const css = paleta.length > 1
-    ? montarGradienteSuaveCircular(paleta)
-    : paleta[0];
-
-  return {
-    css,
-    hexBase: paleta[0],
-    paleta
-  };
-}
-
-async function obterCorVisualExtraida(produto, cor) {
-  if (!deveTentarExtrairCorDaFoto(produto, cor)) {
-    return null;
-  }
-
-  const caminhos = obterFotosCor(produto, cor);
-  const chaveCache = caminhos.join("|");
-
-  if (!chaveCache) {
-    return null;
-  }
-
-  if (!cacheCorVisualPorFoto.has(chaveCache)) {
-    const promessa = (async () => {
-      for (const caminho of caminhos) {
-        try {
-          const imagem = await carregarImagemParaAnalise(caminho);
-          const resultado = analisarCorVisualDeImagem(imagem, cor);
-
-          if (resultado) {
-            return resultado;
-          }
-        } catch (erro) {
-          // segue para o próximo caminho disponível
-        }
-      }
-
-      return null;
-    })();
-
-    cacheCorVisualPorFoto.set(chaveCache, promessa);
-  }
-
-  return cacheCorVisualPorFoto.get(chaveCache);
-}
-
-function aplicarCorVisualExtraida(produto, cor, aoAplicar) {
-  if (!deveTentarExtrairCorDaFoto(produto, cor)) {
-    return;
-  }
-
-  obterCorVisualExtraida(produto, cor)
-    .then((resultado) => {
-      if (!resultado) {
-        return;
-      }
-
-      cor._corVisualExtraida = resultado;
-
-      if (typeof aoAplicar === "function") {
-        aoAplicar(resultado);
-      }
-    })
-    .catch(() => {
-      // mantém a cor atual quando a extração automática falhar
-    });
-}
 
 function obterStatusEstoque(cor) {
   if (cor.disponivel === false || cor.statusEstoque === "sem_estoque") {
@@ -2482,12 +2397,6 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     nomeCor.textContent = cor.nome;
     atualizarEstadoEstoque(cor);
 
-    aplicarCorVisualExtraida(produto, cor, () => {
-      if (corSelecionadaAtual === cor) {
-        spool.style.setProperty("--cor-atual", obterCorVisual(cor));
-      }
-    });
-
     atualizarFoto({
       produto,
       cor,
@@ -2503,17 +2412,10 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   produto.cores.forEach((cor, index) => {
     const estaAtivo = index === indiceCorInicial;
-    const dot = criarElementoDot(cor, index, selecionarCor, estaAtivo);
 
-    dotsWrap.appendChild(dot);
-
-    aplicarCorVisualExtraida(produto, cor, () => {
-      dot.style.setProperty("--cor-dot", obterCorVisual(cor));
-
-      if (corSelecionadaAtual === cor) {
-        spool.style.setProperty("--cor-atual", obterCorVisual(cor));
-      }
-    });
+    dotsWrap.appendChild(
+      criarElementoDot(cor, index, selecionarCor, estaAtivo)
+    );
   });
 
   detalhe.appendChild(cabecalhoCor);
