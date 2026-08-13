@@ -945,8 +945,8 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Translúcido Amarelo",
@@ -2949,6 +2949,7 @@
         "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/multifila-pla/termo-roxo-e-verde-real.webp",
+          "assets/fotos/multifila-pla/termo-roxo-e-verde-2.webp",
           "assets/fotos/multifila-pla/termo-roxo-e-verde.webp"
         ],
         "preco": 179.9,
