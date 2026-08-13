@@ -50,11 +50,11 @@ const formatarPreco = (valor) => {
 };
 
 function obterCorVisual(cor) {
-  return obterVisualCatalogoCor(cor).css;
+  return cor?._visualExtraidoFoto || obterVisualCatalogoCor(cor).css;
 }
 
 function obterHexBaseVisual(cor) {
-  return obterVisualCatalogoCor(cor).hexBase;
+  return cor?._visualExtraidoFoto || obterVisualCatalogoCor(cor).hexBase;
 }
 
 function normalizar(texto = "") {
@@ -71,185 +71,275 @@ function slugificar(texto = "") {
     .replace(/^-+|-+$/g, "");
 }
 
-const MAPA_COR_AUDITADA_FOTO = {
-  "assets/fotos/anycubic-petg/laranja.webp": "#D75A2E",
-  "assets/fotos/closin-petg/amarelo.webp": "#D3B53E",
-  "assets/fotos/closin-petg/azul.webp": "#3E4F89",
-  "assets/fotos/closin-petg/branco.webp": "#C9CCCD",
-  "assets/fotos/closin-petg/cinza.webp": "#838686",
-  "assets/fotos/closin-petg/fluo-blue.webp": "#182A8D",
-  "assets/fotos/closin-petg/fluo-green.webp": "#45B123",
-  "assets/fotos/closin-petg/fluo-yellow.webp": "#BFDB20",
-  "assets/fotos/closin-petg/laranja.webp": "#D46F2F",
-  "assets/fotos/closin-petg/pink.webp": "#E95F97",
-  "assets/fotos/closin-petg/preto.webp": "#23232B",
-  "assets/fotos/closin-petg/rosa.webp": "#E95E96",
-  "assets/fotos/closin-petg/silver-prateado.webp": "#ACACA9",
-  "assets/fotos/closin-petg/skin.webp": "#806450",
-  "assets/fotos/closin-petg/verde.webp": "#3E7C64",
-  "assets/fotos/closin-petg/vermelho.webp": "#9C3642",
-  "assets/fotos/closin-pla/amarelo.webp": "#DDC54E",
-  "assets/fotos/closin-pla/azul.webp": "#245AB0",
-  "assets/fotos/closin-pla/branco-perola.webp": "#D8DADA",
-  "assets/fotos/closin-pla/branco.webp": "#D0D4D4",
-  "assets/fotos/closin-pla/ciano.webp": "#1287D9",
-  "assets/fotos/closin-pla/fluo-blue.webp": "#2579D9",
-  "assets/fotos/closin-pla/fluo-green.webp": "#5FD844",
-  "assets/fotos/closin-pla/fluo-red.webp": "#CE303A",
-  "assets/fotos/closin-pla/fluo-yellow.webp": "#E8CC53",
-  "assets/fotos/closin-pla/gold.webp": "#886548",
-  "assets/fotos/closin-pla/lemon-green.webp": "#87C394",
-  "assets/fotos/closin-pla/marrom-claro.webp": "#755D4B",
-  "assets/fotos/closin-pla/natural.webp": "#DCDEDC",
-  "assets/fotos/closin-pla/pink-rosa-bebe.webp": "#9F7162",
-  "assets/fotos/closin-pla/preto.webp": "#2D2824",
-  "assets/fotos/closin-pla/silver.webp": "#A19C9B",
-  "assets/fotos/closin-pla/skin.webp": "#BB9A83",
-  "assets/fotos/closin-pla/transparente.webp": "#DBDAD9",
-  "assets/fotos/closin-pla/verde.webp": "#44956D",
-  "assets/fotos/closin-pla/vermelho.webp": "#BC3D48",
-  "assets/fotos/closin-pla/violeta.webp": "#7C64B3",
-  "assets/fotos/closin-pla/wood.webp": "#AAA296",
-  "assets/fotos/creality-soleyin-ultra-pla/cinza.webp": "#7C8085",
-  "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp": "#DA6236",
-  "assets/fotos/creality-soleyin-ultra-pla/strawberry-milk.webp": "#924A4B",
-  "assets/fotos/creality-soleyin-ultra-pla/verde-claro.webp": "#8CB19F",
-  "assets/fotos/elegoo-pla/grey.webp": "#797D7D",
-  "assets/fotos/elegoo-pla/orange.webp": "#D05E3A",
-  "assets/fotos/elegoo-pla/purple.webp": "#614C78",
-  "assets/fotos/elegoo-pla/red.webp": "#A4413A",
-  "assets/fotos/elegoo-pla/sky-blue.webp": "#59B3D0",
-  "assets/fotos/elegoo-pla/space-grey.webp": "#5B6062",
-  "assets/fotos/flashforge-pla/azul-esverdeado.webp": "#5898A6",
-  "assets/fotos/flashforge-pla/laranja-escuro.webp": "#923122",
-  "assets/fotos/flashforge-pla/vermelho-coral.webp": "#A14647",
-  "assets/fotos/fusion-high-speed-petg/branco.webp": "#D5D3CE",
-  "assets/fotos/fusionx-petg/amarelo-canario.webp": "#BB9361",
-  "assets/fotos/fusionx-petg/amarelo.webp": "#AD893B",
-  "assets/fotos/fusionx-petg/azul-marinho.webp": "#364F80",
-  "assets/fotos/fusionx-petg/cafe.webp": "#6D5045",
-  "assets/fotos/fusionx-petg/ciano.webp": "#498EA4",
-  "assets/fotos/fusionx-petg/laranja.webp": "#DF5143",
-  "assets/fotos/fusionx-petg/limao-siciliano.webp": "#D1B636",
-  "assets/fotos/fusionx-petg/pink-purple-violeta.webp": "#7E60A6",
-  "assets/fotos/fusionx-petg/tangerina.webp": "#F03E2D",
-  "assets/fotos/fusionx-petg/verde-agua.webp": "#39989D",
-  "assets/fotos/fusionx-petg/verde-escuro.webp": "#424751",
-  "assets/fotos/fusionx-petg/verde.webp": "#467C54",
-  "assets/fotos/masterprint-abs/amarelo.webp": "#DDCD3E",
-  "assets/fotos/masterprint-abs/azul.webp": "#26548B",
-  "assets/fotos/masterprint-abs/cinza.webp": "#909391",
-  "assets/fotos/masterprint-abs/dourado.webp": "#C99244",
-  "assets/fotos/masterprint-abs/laranja.webp": "#EC6240",
-  "assets/fotos/masterprint-abs/marrom.webp": "#654F3C",
-  "assets/fotos/masterprint-abs/natural.webp": "#D6D3C7",
-  "assets/fotos/masterprint-abs/prata.webp": "#C0C6C1",
-  "assets/fotos/masterprint-abs/preto.webp": "#3C4345",
-  "assets/fotos/masterprint-abs/rosa.webp": "#DE6381",
-  "assets/fotos/masterprint-abs/roxo.webp": "#6C4E9C",
-  "assets/fotos/masterprint-abs/verde.webp": "#2F6E6E",
-  "assets/fotos/masterprint-petg/bronze.webp": "#4E4B37",
-  "assets/fotos/masterprint-petg/cinza.webp": "#979690",
-  "assets/fotos/masterprint-petg/cool-grey.webp": "#4F504E",
-  "assets/fotos/masterprint-petg/fluorescente-roxo.webp": "#5E4C8B",
-  "assets/fotos/masterprint-petg/green-olive.webp": "#55553C",
-  "assets/fotos/masterprint-petg/lavanda.webp": "#9C9CA1",
-  "assets/fotos/masterprint-petg/madeira.webp": "#817158",
-  "assets/fotos/masterprint-petg/prata.webp": "#6E6F6D",
-  "assets/fotos/masterprint-petg/roxo.webp": "#663C68",
-  "assets/fotos/masterprint-petg/skin.webp": "#B48E7A",
-  "assets/fotos/masterprint-petg/vermelho.webp": "#B5343A",
-  "assets/fotos/masterprint-pla/branco.webp": "#D9DED9",
-  "assets/fotos/masterprint-pla/cinza-metalico.webp": "#717471",
-  "assets/fotos/masterprint-pla/cinza.webp": "#A1A3A2",
-  "assets/fotos/masterprint-pla/cobre-esverdeado.webp": "#77735B",
-  "assets/fotos/masterprint-pla/cobre.webp": "#5A3326",
-  "assets/fotos/masterprint-pla/dourado.webp": "#89652D",
-  "assets/fotos/masterprint-pla/dragon-fruit.webp": "#873869",
-  "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp": "#656A6E",
-  "assets/fotos/masterprint-pla/fosco-roxo.webp": "#76616E",
-  "assets/fotos/masterprint-pla/laranja.webp": "#EA6F37",
-  "assets/fotos/masterprint-pla/peacock-blue.webp": "#466A73",
-  "assets/fotos/masterprint-pla/prata-master.webp": "#ADB2B4",
-  "assets/fotos/masterprint-pla/prata.webp": "#83898B",
-  "assets/fotos/masterprint-pla/roxo-claro.webp": "#AFA1BA",
-  "assets/fotos/masterprint-pla/silk-azul-azure.webp": "#557498",
-  "assets/fotos/masterprint-pla/silk-cobre.webp": "#985C48",
-  "assets/fotos/masterprint-pla/silk-fuchsia.webp": "#AD5571",
-  "assets/fotos/masterprint-pla/silk-lavanda.webp": "#6E669F",
-  "assets/fotos/masterprint-pla/silk-roxo.webp": "#7F4785",
-  "assets/fotos/masterprint-pla/silk-vermelho-purpura.webp": "#D55489",
-  "assets/fotos/masterprint-tpr/amarelo.webp": "#D3A84F",
-  "assets/fotos/masterprint-tpr/azul.webp": "#3A4A6C",
-  "assets/fotos/masterprint-tpr/branco.webp": "#D1D5D3",
-  "assets/fotos/masterprint-tpr/preto.webp": "#1B202D",
-  "assets/fotos/masterprint-tpr/verde.webp": "#2F5E54",
-  "assets/fotos/masterprint-tpr/vermelho.webp": "#BD5051",
-  "assets/fotos/masterprint-tpu/branco.webp": "#C3CACE",
-  "assets/fotos/masterprint-tpu/cinza.webp": "#93999C",
-  "assets/fotos/masterprint-tpu/preto.webp": "#1A1B23",
-  "assets/fotos/multifila-pla/branco-real.webp": "#B6B8AF",
-  "assets/fotos/multifila-pla/silk-azul-safira-real.webp": "#2B5994",
-  "assets/fotos/multifila-pla/silk-cobre-real.webp": "#774531",
-  "assets/fotos/multifila-pla/silk-ouro-envelhecido-real.webp": "#A07934",
-  "assets/fotos/multifila-pla/silk-verde-real.webp": "#466C3E",
-  "assets/fotos/multifila-pla/silk-vermelho-real.webp": "#9D3232",
-  "assets/fotos/polyflow-pla/amarelo.webp": "#DBA634",
-  "assets/fotos/polyflow-pla/azul-claro.webp": "#3E7EB4",
-  "assets/fotos/polyflow-pla/azul-escuro.webp": "#29315B",
-  "assets/fotos/polyflow-pla/azul-tiffany.webp": "#40BBAB",
-  "assets/fotos/polyflow-pla/bege.webp": "#D0B995",
-  "assets/fotos/polyflow-pla/branco-dental.webp": "#D3D6D2",
-  "assets/fotos/polyflow-pla/cinza-claro.webp": "#AFAFA9",
-  "assets/fotos/polyflow-pla/marrom-chocolate.webp": "#3F312A",
-  "assets/fotos/polyflow-pla/preto.webp": "#1E1F1F",
-  "assets/fotos/polyflow-pla/rosa-neon.webp": "#F13663",
-  "assets/fotos/polyflow-pla/roxo.webp": "#4F3C66",
-  "assets/fotos/polyflow-pla/verde-limao.webp": "#B0B567",
-  "assets/fotos/polyflow-pla/verde-neon.webp": "#84E413",
-  "assets/fotos/polyflow-pla/verde.webp": "#226540",
-  "assets/fotos/polyflow-pla/vermelho.webp": "#A03139",
-  "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp": "#DDDED9",
-  "assets/fotos/rolo-etiqueta-termica/500-etiquetas-1.webp": "#D1D1D1",
+const VISUAL_COR_EXATO = {
+  "natural transparente": { css: "#EEF0EF", hexBase: "#EEF0EF" },
+  "transparente": { css: "#DEDFDE", hexBase: "#DEDFDE" },
+  "translucent": { css: "#D9DDD8", hexBase: "#D9DDD8" },
+  "natural": { css: "#E2E1DB", hexBase: "#E2E1DB" },
+  "lavanda": { css: "#B49BC8", hexBase: "#B49BC8" },
+  "verde escuro": { css: "#365447", hexBase: "#365447" },
+  "honeydew / verde melao": { css: "#A7D0B8", hexBase: "#A7D0B8" },
+  "sea green / verde mar azulado": { css: "#63A79B", hexBase: "#63A79B" },
+  "azul esverdeado": { css: "#65C2D2", hexBase: "#65C2D2" },
+  "cool gray / cinza azulado": { css: "#8F9EAA", hexBase: "#8F9EAA" },
+  "light coral / rosa-alaranjado claro": { css: "#E07A68", hexBase: "#E07A68" },
+  "tangerina": { css: "#E95E2E", hexBase: "#E95E2E" },
+  "wood": { css: "#9B7651", hexBase: "#9B7651" },
+  "madeira": { css: "#8E7957", hexBase: "#8E7957" },
+  "marmorizado": {
+    css: "linear-gradient(135deg, #E2E0DA 0%, #BFC0BC 48%, #EBE8E1 100%)",
+    hexBase: "#D8D6D0"
+  },
+  "marmore": {
+    css: "linear-gradient(135deg, #E0DDD6 0%, #C8C5BD 48%, #F0EEE9 100%)",
+    hexBase: "#D7D3CB"
+  },
+  "rainbow": {
+    css: "linear-gradient(135deg, #E4868E 0%, #E9B46B 27%, #78C78B 53%, #6EA0D8 76%, #B98BD4 100%)",
+    hexBase: "#D98A92"
+  },
+  "silk rainbow": {
+    css: "linear-gradient(135deg, #E98A9C 0%, #F0C468 25%, #79CC93 52%, #6FA2E2 77%, #BE92DB 100%)",
+    hexBase: "#DE8D97"
+  },
+  "fosforescente natural/rainbow": {
+    css: "linear-gradient(135deg, #ECE9DC 0%, #A8DAF6 25%, #B6E2A9 50%, #F2C26E 75%, #D3B0EB 100%)",
+    hexBase: "#ECE9DC"
+  },
+  "fosforescente natural/azul": {
+    css: "linear-gradient(135deg, #ECE9DD 0%, #8EC3EA 100%)",
+    hexBase: "#ECE9DD"
+  },
+  "fosforescente natural/verde": {
+    css: "linear-gradient(135deg, #ECE9DD 0%, #A8D49C 100%)",
+    hexBase: "#ECE9DD"
+  },
+  "silk vermelho purpura": {
+    css: "linear-gradient(135deg, #D94D54 0%, #B54B94 100%)",
+    hexBase: "#D05B7D"
+  },
+  "dreamy crystal preto/vermelho": {
+    css: "linear-gradient(135deg, #1F2228 0%, #B84A52 100%)",
+    hexBase: "#6D444A"
+  },
+  "transparente preto/azul com glitter": {
+    css: "linear-gradient(135deg, #18202A 0%, #356EA8 100%)",
+    hexBase: "#243F67"
+  }
 };
 
-function obterCorAuditadaDaFoto(cor) {
-  const caminhos = [];
+const PALETA_TOKEN_COR = {
+  preto: "#171B22",
+  black: "#171B22",
+  branco: "#E8E8E2",
+  white: "#E8E8E2",
+  natural: "#E6E7E2",
+  transparente: "#E2E4E2",
+  translucido: "#E1E3E2",
+  translucent: "#E1E3E2",
+  cinza: "#8B9096",
+  gray: "#8B9096",
+  grey: "#8B9096",
+  prata: "#B3B8BE",
+  silver: "#B3B8BE",
+  dourado: "#C99A3E",
+  gold: "#C99A3E",
+  bronze: "#8D744A",
+  champagne: "#D5B77B",
+  cobre: "#B87343",
+  marrom: "#6B4B33",
+  brown: "#6B4B33",
+  cafe: "#6C4F44",
+  madeira: "#8E7957",
+  wood: "#9B7651",
+  pele: "#C79A7D",
+  skin: "#C79A7D",
+  bege: "#D6C3A1",
+  beige: "#D6C3A1",
+  creme: "#E4D6B8",
+  amendoa: "#90749E",
+  amêndoa: "#90749E",
+  amarelo: "#E2C53E",
+  yellow: "#E2C53E",
+  manga: "#F1B82F",
+  abacaxi: "#C9AE39",
+  mel: "#D4A34E",
+  limao: "#C7D64A",
+  limão: "#C7D64A",
+  laranja: "#D97A39",
+  orange: "#D97A39",
+  tangerina: "#E95E2E",
+  coral: "#D56F5C",
+  vermelho: "#C94843",
+  red: "#C94843",
+  rosa: "#D96A96",
+  pink: "#D96A96",
+  fuchsia: "#C55C92",
+  roxo: "#8253A1",
+  purple: "#8253A1",
+  violeta: "#7E5AC7",
+  purpura: "#B14C8D",
+  púrpura: "#B14C8D",
+  lavanda: "#B49BC8",
+  lavender: "#C7B8E8",
+  azul: "#4A7FCF",
+  blue: "#4A7FCF",
+  ciano: "#0B89DC",
+  azure: "#3A8CA3",
+  safira: "#4F8FD4",
+  oceano: "#4C98B5",
+  ocean: "#4C98B5",
+  peacock: "#466F78",
+  ceu: "#5AAFCB",
+  céu: "#5AAFCB",
+  verde: "#59A06A",
+  green: "#59A06A",
+  floresta: "#315B42",
+  forest: "#315B42",
+  menta: "#8FC9A8",
+  mint: "#8FC9A8",
+  melao: "#A7D0B8",
+  melao: "#A7D0B8",
+  mar: "#5AA8A0",
+  sea: "#5AA8A0",
+  oliva: "#79814E",
+  olive: "#79814E",
+  esverdeado: "#83A064",
+  greenery: "#83A064"
+};
 
-  if (Array.isArray(cor?.imagens)) {
-    caminhos.push(...cor.imagens);
+const TOKENS_IGNORADOS_COR = new Set([
+  "silk", "dual", "duo", "color", "tricolor", "termo", "com", "glitter",
+  "fosforescente", "fosco", "new", "master", "pcv", "outdoor", "dark",
+  "cool", "light", "hot", "space", "dreamy", "crystal"
+]);
+
+function misturarCores(hexA, hexB, fator = 0.5) {
+  const corA = hexParaRgb(hexA);
+  const corB = hexParaRgb(hexB);
+  const mistura = {
+    r: Math.round(corA.r + (corB.r - corA.r) * fator),
+    g: Math.round(corA.g + (corB.g - corA.g) * fator),
+    b: Math.round(corA.b + (corB.b - corA.b) * fator)
+  };
+
+  return rgbParaHex(mistura);
+}
+
+function hexParaRgb(hex) {
+  const valor = String(hex || "").trim().replace("#", "");
+
+  if (!/^[0-9a-f]{6}$/i.test(valor)) {
+    return { r: 204, g: 204, b: 204 };
   }
 
-  if (cor?.imagem) {
-    caminhos.push(cor.imagem);
+  return {
+    r: Number.parseInt(valor.slice(0, 2), 16),
+    g: Number.parseInt(valor.slice(2, 4), 16),
+    b: Number.parseInt(valor.slice(4, 6), 16)
+  };
+}
+
+function rgbParaHex({ r, g, b }) {
+  const paraHex = (valor) =>
+    Number(valor)
+      .toString(16)
+      .padStart(2, "0");
+
+  return `#${paraHex(r)}${paraHex(g)}${paraHex(b)}`;
+}
+
+function montarGradienteVisual(cores) {
+  const lista = [...new Set(cores.filter(Boolean))];
+
+  if (lista.length <= 1) {
+    return lista[0] || "#cccccc";
   }
 
-  for (const caminho of caminhos) {
-    const corAuditada = MAPA_COR_AUDITADA_FOTO[caminho];
+  if (lista.length === 2) {
+    return `linear-gradient(135deg, ${lista[0]} 0 48%, ${lista[1]} 52% 100%)`;
+  }
 
-    if (corAuditada) {
-      return corAuditada;
+  const passo = 100 / lista.length;
+  const paradas = lista.map((cor, indice) => {
+    const inicio = Math.round(indice * passo);
+    const fim = Math.round((indice + 1) * passo);
+    return `${cor} ${inicio}% ${fim}%`;
+  });
+
+  return `conic-gradient(from 220deg, ${paradas.join(", ")})`;
+}
+
+function extrairTokensDeCor(nome) {
+  return normalizar(nome)
+    .replace(/[^a-z0-9/]+/g, " ")
+    .split(/[\s/]+/)
+    .map((token) => token.trim())
+    .filter(Boolean)
+    .filter((token) => !TOKENS_IGNORADOS_COR.has(token));
+}
+
+function obterCoresDoNome(nome) {
+  const tokens = extrairTokensDeCor(nome);
+  const cores = [];
+
+  tokens.forEach((token) => {
+    if (PALETA_TOKEN_COR[token]) {
+      cores.push(PALETA_TOKEN_COR[token]);
     }
-  }
+  });
 
-  return null;
+  return [...new Set(cores)];
+}
+
+function nomeIndicaMulticor(nome) {
+  const valor = normalizar(nome);
+  const possuiBarraDireta = /\S\/\S/.test(String(nome || ""));
+
+  return (
+    possuiBarraDireta ||
+    ["dual", "duo", "tricolor", "rainbow", "macaron", " e ", "termo"]
+      .some((trecho) => valor.includes(trecho))
+  );
 }
 
 function obterVisualCatalogoCor(cor) {
-  const corAuditada = obterCorAuditadaDaFoto(cor);
+  const nomeNormalizado = normalizar(cor?.nome || "");
   const hexOriginal = cor?.hex || "#D9DFE8";
 
-  if (corAuditada) {
-    return {
-      css: corAuditada,
-      hexBase: corAuditada
-    };
+  if (VISUAL_COR_EXATO[nomeNormalizado]) {
+    return VISUAL_COR_EXATO[nomeNormalizado];
   }
 
   if (cor?.gradiente) {
     return {
       css: cor.gradiente,
       hexBase: hexOriginal
+    };
+  }
+
+  if ((cor?.efeito || "") === "glass") {
+    const base = hexOriginal;
+    const claro = misturarCores(base, "#FFFFFF", 0.42);
+    return {
+      css: `linear-gradient(135deg, ${claro} 0%, ${base} 100%)`,
+      hexBase: claro
+    };
+  }
+
+  const coresDoNome = obterCoresDoNome(cor?.nome || "");
+
+  if (coresDoNome.length >= 2 && nomeIndicaMulticor(cor?.nome || "")) {
+    return {
+      css: montarGradienteVisual(coresDoNome),
+      hexBase: coresDoNome[0]
+    };
+  }
+
+  if (coresDoNome.length === 1) {
+    return {
+      css: coresDoNome[0],
+      hexBase: coresDoNome[0]
     };
   }
 
@@ -415,6 +505,345 @@ function obterFotosCor(produto, cor) {
   ];
 }
 
+const cacheCorExtraidaDaFoto = new Map();
+
+const MAPA_COR_SOLIDA_DA_FOTO = {
+  "assets/fotos/anycubic-petg/laranja.webp": "#D75A2E",
+  "assets/fotos/closin-petg/amarelo.webp": "#D3B53E",
+  "assets/fotos/closin-petg/azul.webp": "#3E4F89",
+  "assets/fotos/closin-petg/branco.webp": "#C9CCCD",
+  "assets/fotos/closin-petg/cinza.webp": "#838686",
+  "assets/fotos/closin-petg/fluo-blue.webp": "#182A8D",
+  "assets/fotos/closin-petg/fluo-green.webp": "#45B123",
+  "assets/fotos/closin-petg/fluo-yellow.webp": "#BFDB20",
+  "assets/fotos/closin-petg/laranja.webp": "#D46F2F",
+  "assets/fotos/closin-petg/pink.webp": "#E95F97",
+  "assets/fotos/closin-petg/preto.webp": "#23232B",
+  "assets/fotos/closin-petg/rosa.webp": "#E95E96",
+  "assets/fotos/closin-petg/silver-prateado.webp": "#ACACA9",
+  "assets/fotos/closin-petg/skin.webp": "#806450",
+  "assets/fotos/closin-petg/verde.webp": "#3E7C64",
+  "assets/fotos/closin-petg/vermelho.webp": "#9C3642",
+  "assets/fotos/closin-pla/amarelo.webp": "#DDC54E",
+  "assets/fotos/closin-pla/azul.webp": "#245AB0",
+  "assets/fotos/closin-pla/branco-perola.webp": "#D8DADA",
+  "assets/fotos/closin-pla/branco.webp": "#D0D4D4",
+  "assets/fotos/closin-pla/ciano.webp": "#1287D9",
+  "assets/fotos/closin-pla/fluo-blue.webp": "#2579D9",
+  "assets/fotos/closin-pla/fluo-green.webp": "#5FD844",
+  "assets/fotos/closin-pla/fluo-red.webp": "#CE303A",
+  "assets/fotos/closin-pla/fluo-yellow.webp": "#E8CC53",
+  "assets/fotos/closin-pla/gold.webp": "#886548",
+  "assets/fotos/closin-pla/lemon-green.webp": "#87C394",
+  "assets/fotos/closin-pla/marrom-claro.webp": "#755D4B",
+  "assets/fotos/closin-pla/natural.webp": "#DCDEDC",
+  "assets/fotos/closin-pla/pink-rosa-bebe.webp": "#E97A84",
+  "assets/fotos/closin-pla/preto.webp": "#2D2824",
+  "assets/fotos/closin-pla/silver.webp": "#A19C9B",
+  "assets/fotos/closin-pla/skin.webp": "#BB9A83",
+  "assets/fotos/closin-pla/transparente.webp": "#DBDAD9",
+  "assets/fotos/closin-pla/verde.webp": "#44956D",
+  "assets/fotos/closin-pla/vermelho.webp": "#BC3D48",
+  "assets/fotos/closin-pla/violeta.webp": "#7C64B3",
+  "assets/fotos/closin-pla/wood.webp": "#AAA296",
+  "assets/fotos/creality-soleyin-ultra-pla/cinza.webp": "#7C8085",
+  "assets/fotos/creality-soleyin-ultra-pla/rosehip.webp": "#DA6236",
+  "assets/fotos/creality-soleyin-ultra-pla/strawberry-milk.webp": "#924A4B",
+  "assets/fotos/creality-soleyin-ultra-pla/verde-claro.webp": "#8CB19F",
+  "assets/fotos/elegoo-pla/grey.webp": "#797D7D",
+  "assets/fotos/elegoo-pla/orange.webp": "#D05E3A",
+  "assets/fotos/elegoo-pla/purple.webp": "#614C78",
+  "assets/fotos/elegoo-pla/red.webp": "#A4413A",
+  "assets/fotos/elegoo-pla/sky-blue.webp": "#59B3D0",
+  "assets/fotos/elegoo-pla/space-grey.webp": "#5B6062",
+  "assets/fotos/flashforge-pla/azul-esverdeado.webp": "#5898A6",
+  "assets/fotos/flashforge-pla/laranja-escuro.webp": "#923122",
+  "assets/fotos/flashforge-pla/vermelho-coral.webp": "#A14647",
+  "assets/fotos/fusion-high-speed-petg/branco.webp": "#D5D3CE",
+  "assets/fotos/fusionx-petg/amarelo-canario.webp": "#BB9361",
+  "assets/fotos/fusionx-petg/amarelo.webp": "#AD893B",
+  "assets/fotos/fusionx-petg/azul-marinho.webp": "#364F80",
+  "assets/fotos/fusionx-petg/cafe.webp": "#6D5045",
+  "assets/fotos/fusionx-petg/ciano.webp": "#498EA4",
+  "assets/fotos/fusionx-petg/laranja.webp": "#DF5143",
+  "assets/fotos/fusionx-petg/limao-siciliano.webp": "#D1B636",
+  "assets/fotos/fusionx-petg/pink-purple-violeta.webp": "#7E60A6",
+  "assets/fotos/fusionx-petg/tangerina.webp": "#F03E2D",
+  "assets/fotos/fusionx-petg/verde-agua.webp": "#39989D",
+  "assets/fotos/fusionx-petg/verde-escuro.webp": "#424751",
+  "assets/fotos/fusionx-petg/verde.webp": "#467C54",
+  "assets/fotos/masterprint-abs/amarelo.webp": "#DDCD3E",
+  "assets/fotos/masterprint-abs/azul.webp": "#26548B",
+  "assets/fotos/masterprint-abs/cinza.webp": "#909391",
+  "assets/fotos/masterprint-abs/dourado.webp": "#C99244",
+  "assets/fotos/masterprint-abs/laranja.webp": "#EC6240",
+  "assets/fotos/masterprint-abs/marrom.webp": "#654F3C",
+  "assets/fotos/masterprint-abs/natural.webp": "#D6D3C7",
+  "assets/fotos/masterprint-abs/prata.webp": "#C0C6C1",
+  "assets/fotos/masterprint-abs/preto.webp": "#3C4345",
+  "assets/fotos/masterprint-abs/rosa.webp": "#DE6381",
+  "assets/fotos/masterprint-abs/roxo.webp": "#6C4E9C",
+  "assets/fotos/masterprint-abs/verde.webp": "#2F6E6E",
+  "assets/fotos/masterprint-petg/bronze.webp": "#4E4B37",
+  "assets/fotos/masterprint-petg/cinza.webp": "#979690",
+  "assets/fotos/masterprint-petg/cool-grey.webp": "#4F504E",
+  "assets/fotos/masterprint-petg/fluorescente-roxo.webp": "#5E4C8B",
+  "assets/fotos/masterprint-petg/green-olive.webp": "#55553C",
+  "assets/fotos/masterprint-petg/lavanda.webp": "#9C9CA1",
+  "assets/fotos/masterprint-petg/madeira.webp": "#817158",
+  "assets/fotos/masterprint-petg/prata.webp": "#6E6F6D",
+  "assets/fotos/masterprint-petg/roxo.webp": "#663C68",
+  "assets/fotos/masterprint-petg/skin.webp": "#B48E7A",
+  "assets/fotos/masterprint-petg/vermelho.webp": "#B5343A",
+  "assets/fotos/masterprint-pla/branco.webp": "#D9DED9",
+  "assets/fotos/masterprint-pla/cinza-metalico.webp": "#717471",
+  "assets/fotos/masterprint-pla/cinza.webp": "#A1A3A2",
+  "assets/fotos/masterprint-pla/cobre-esverdeado.webp": "#77735B",
+  "assets/fotos/masterprint-pla/cobre.webp": "#5A3326",
+  "assets/fotos/masterprint-pla/dourado.webp": "#89652D",
+  "assets/fotos/masterprint-pla/dragon-fruit.webp": "#873869",
+  "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp": "#656A6E",
+  "assets/fotos/masterprint-pla/fosco-roxo.webp": "#76616E",
+  "assets/fotos/masterprint-pla/laranja.webp": "#EA6F37",
+  "assets/fotos/masterprint-pla/peacock-blue.webp": "#466A73",
+  "assets/fotos/masterprint-pla/prata-master.webp": "#ADB2B4",
+  "assets/fotos/masterprint-pla/prata.webp": "#83898B",
+  "assets/fotos/masterprint-pla/roxo-claro.webp": "#AFA1BA",
+  "assets/fotos/masterprint-pla/silk-azul-azure.webp": "#557498",
+  "assets/fotos/masterprint-pla/silk-cobre.webp": "#985C48",
+  "assets/fotos/masterprint-pla/silk-fuchsia.webp": "#AD5571",
+  "assets/fotos/masterprint-pla/silk-lavanda.webp": "#6E669F",
+  "assets/fotos/masterprint-pla/silk-roxo.webp": "#7F4785",
+  "assets/fotos/masterprint-pla/silk-vermelho-purpura.webp": "#D55489",
+  "assets/fotos/masterprint-tpr/amarelo.webp": "#D3A84F",
+  "assets/fotos/masterprint-tpr/azul.webp": "#3A4A6C",
+  "assets/fotos/masterprint-tpr/branco.webp": "#D1D5D3",
+  "assets/fotos/masterprint-tpr/preto.webp": "#1B202D",
+  "assets/fotos/masterprint-tpr/verde.webp": "#2F5E54",
+  "assets/fotos/masterprint-tpr/vermelho.webp": "#BD5051",
+  "assets/fotos/masterprint-tpu/branco.webp": "#C3CACE",
+  "assets/fotos/masterprint-tpu/cinza.webp": "#93999C",
+  "assets/fotos/masterprint-tpu/preto.webp": "#1A1B23",
+  "assets/fotos/multifila-pla/branco-real.webp": "#B6B8AF",
+  "assets/fotos/multifila-pla/silk-azul-safira-real.webp": "#2B5994",
+  "assets/fotos/multifila-pla/silk-cobre-real.webp": "#774531",
+  "assets/fotos/multifila-pla/silk-ouro-envelhecido-real.webp": "#A07934",
+  "assets/fotos/multifila-pla/silk-verde-real.webp": "#466C3E",
+  "assets/fotos/multifila-pla/silk-vermelho-real.webp": "#9D3232",
+  "assets/fotos/polyflow-pla/amarelo.webp": "#DBA634",
+  "assets/fotos/polyflow-pla/azul-escuro.webp": "#29315B",
+  "assets/fotos/polyflow-pla/azul-tiffany.webp": "#40BBAB",
+  "assets/fotos/polyflow-pla/bege.webp": "#D0B995",
+  "assets/fotos/polyflow-pla/branco-dental.webp": "#D3D6D2",
+  "assets/fotos/polyflow-pla/cinza-claro.webp": "#AFAFA9",
+  "assets/fotos/polyflow-pla/marrom-chocolate.webp": "#3F312A",
+  "assets/fotos/polyflow-pla/preto.webp": "#1E1F1F",
+  "assets/fotos/polyflow-pla/rosa-neon.webp": "#F13663",
+  "assets/fotos/polyflow-pla/roxo.webp": "#4F3C66",
+  "assets/fotos/polyflow-pla/verde-limao.webp": "#B0B567",
+  "assets/fotos/polyflow-pla/verde-neon.webp": "#84E413",
+  "assets/fotos/polyflow-pla/verde.webp": "#226540",
+  "assets/fotos/polyflow-pla/vermelho.webp": "#A03139",
+  "assets/fotos/rolo-etiqueta-termica/200-etiquetas-1.webp": "#DDDED9",
+  "assets/fotos/rolo-etiqueta-termica/500-etiquetas-1.webp": "#D1D1D1",
+};
+function nomeIndicaCorSolida(cor) {
+  const nome = normalizar(cor?.nome || "");
+
+  if (!nome) {
+    return false;
+  }
+
+  if (cor?.gradiente) {
+    return false;
+  }
+
+  if ((cor?.efeito || "") === "glass") {
+    return false;
+  }
+
+  return ![
+    "dual", "duo", "tricolor", "rainbow", "macaron", "termo",
+    "marmorizado", "marmore", "mármore", "glitter"
+  ].some((trecho) => nome.includes(trecho)) && !/\S\/\S/.test(cor?.nome || "");
+}
+
+function carregarImagemCor(caminho) {
+  return new Promise((resolver, rejeitar) => {
+    const imagem = new Image();
+    imagem.decoding = "async";
+    imagem.onload = () => resolver(imagem);
+    imagem.onerror = () => rejeitar(new Error(`Falha ao carregar ${caminho}`));
+    imagem.src = caminho;
+  });
+}
+
+function rgbParaHsl(r, g, b) {
+  const vermelho = r / 255;
+  const verde = g / 255;
+  const azul = b / 255;
+  const maximo = Math.max(vermelho, verde, azul);
+  const minimo = Math.min(vermelho, verde, azul);
+  const luminosidade = (maximo + minimo) / 2;
+  const diferenca = maximo - minimo;
+
+  if (diferenca === 0) {
+    return { h: 0, s: 0, l: luminosidade };
+  }
+
+  const saturacao = luminosidade > 0.5
+    ? diferenca / (2 - maximo - minimo)
+    : diferenca / (maximo + minimo);
+
+  let matiz = 0;
+
+  switch (maximo) {
+    case vermelho:
+      matiz = (verde - azul) / diferenca + (verde < azul ? 6 : 0);
+      break;
+    case verde:
+      matiz = (azul - vermelho) / diferenca + 2;
+      break;
+    default:
+      matiz = (vermelho - verde) / diferenca + 4;
+      break;
+  }
+
+  return { h: matiz / 6, s: saturacao, l: luminosidade };
+}
+
+function analisarCorDaFoto(imagem, cor) {
+  const canvas = document.createElement("canvas");
+  const contexto = canvas.getContext("2d", { willReadFrequently: true });
+
+  if (!contexto) {
+    return null;
+  }
+
+  const largura = 90;
+  const altura = 120;
+  canvas.width = largura;
+  canvas.height = altura;
+  contexto.drawImage(imagem, 0, 0, largura, altura);
+
+  const dados = contexto.getImageData(0, 0, largura, altura).data;
+  const base = hexParaRgb(cor?.hex || "#cccccc");
+  const baseHsl = rgbParaHsl(base.r, base.g, base.b);
+  const usarFiltroSaturacao = baseHsl.s >= 0.18 && baseHsl.l > 0.16 && baseHsl.l < 0.85;
+  const grupos = new Map();
+
+  for (let y = 18; y < 102; y += 2) {
+    for (let x = 22; x < 68; x += 2) {
+      const indice = (y * largura + x) * 4;
+      const r = dados[indice];
+      const g = dados[indice + 1];
+      const b = dados[indice + 2];
+      const a = dados[indice + 3];
+
+      if (a < 220) continue;
+
+      const { s, l } = rgbParaHsl(r, g, b);
+
+      if (l > 0.96 || l < 0.05) continue;
+      if (usarFiltroSaturacao && s < 0.16) continue;
+      if (l > 0.88 && s < 0.18) continue;
+
+      const distanciaBase = Math.hypot(r - base.r, g - base.g, b - base.b);
+      if (usarFiltroSaturacao && distanciaBase > 135) continue;
+
+      const bucket = [r, g, b]
+        .map((valor) => Math.min(255, Math.round(valor / 16) * 16))
+        .join(",");
+
+      const pesoCentro = 1 - Math.abs(x - largura / 2) / (largura / 2);
+      const peso = (0.65 + pesoCentro * 0.7) * (1.2 - Math.min(distanciaBase, 180) / 240);
+      const atual = grupos.get(bucket) || { peso: 0, r: 0, g: 0, b: 0 };
+      atual.peso += peso;
+      atual.r += r * peso;
+      atual.g += g * peso;
+      atual.b += b * peso;
+      grupos.set(bucket, atual);
+    }
+  }
+
+  const melhor = [...grupos.values()].sort((a, b) => b.peso - a.peso)[0];
+  if (!melhor || melhor.peso <= 0) {
+    return null;
+  }
+
+  const resultado = rgbParaHex({
+    r: Math.round(melhor.r / melhor.peso),
+    g: Math.round(melhor.g / melhor.peso),
+    b: Math.round(melhor.b / melhor.peso)
+  });
+
+  const distanciaFinal = Math.hypot(
+    hexParaRgb(resultado).r - base.r,
+    hexParaRgb(resultado).g - base.g,
+    hexParaRgb(resultado).b - base.b
+  );
+
+  if (distanciaFinal > 145) {
+    return null;
+  }
+
+  return resultado;
+}
+
+async function obterCorSolidaDaFoto(produto, cor) {
+  if (!nomeIndicaCorSolida(cor)) {
+    return null;
+  }
+
+  const caminhos = obterFotosCor(produto, cor);
+  const corMapeada = caminhos.find((caminho) => MAPA_COR_SOLIDA_DA_FOTO[caminho]);
+
+  if (corMapeada) {
+    return MAPA_COR_SOLIDA_DA_FOTO[corMapeada];
+  }
+
+  const chave = caminhos.join("|");
+
+  if (!chave) {
+    return null;
+  }
+
+  if (!cacheCorExtraidaDaFoto.has(chave)) {
+    cacheCorExtraidaDaFoto.set(chave, (async () => {
+      for (const caminho of caminhos) {
+        try {
+          const imagem = await carregarImagemCor(caminho);
+          const corExtraida = analisarCorDaFoto(imagem, cor);
+          if (corExtraida) {
+            return corExtraida;
+          }
+        } catch (erro) {
+          // tenta a próxima foto disponível
+        }
+      }
+
+      return null;
+    })());
+  }
+
+  return cacheCorExtraidaDaFoto.get(chave);
+}
+
+function aplicarCorSolidaDaFoto(produto, cor, aoAtualizar) {
+  if (cor?._visualExtraidoFoto || !nomeIndicaCorSolida(cor)) {
+    return;
+  }
+
+  obterCorSolidaDaFoto(produto, cor)
+    .then((corExtraida) => {
+      if (!corExtraida) return;
+      cor._visualExtraidoFoto = corExtraida;
+      if (typeof aoAtualizar === "function") {
+        aoAtualizar(corExtraida);
+      }
+    })
+    .catch(() => {});
+}
 
 function obterStatusEstoque(cor) {
   if (cor.disponivel === false || cor.statusEstoque === "sem_estoque") {
@@ -1799,10 +2228,28 @@ document.addEventListener("keydown", (evento) => {
 /* ============================================================
    BOLINHAS DE COR
    ============================================================ */
-function criarElementoDot(cor, index, aoSelecionar, estaAtivo) {
+function calcularLuminanciaHex(hex) {
+  const { r, g, b } = hexParaRgb(hex);
+  return (0.2126 * r + 0.7152 * g + 0.0722 * b) / 255;
+}
+
+function obterClassesVisuaisDot(cor) {
+  const classes = [];
+  const luminancia = calcularLuminanciaHex(obterHexBaseVisual(cor));
+
+  if (luminancia >= 0.72) {
+    classes.push("dot--claro");
+  }
+
+  return classes.join(" ");
+}
+
+function criarElementoDot(produto, cor, index, aoSelecionar, estaAtivo) {
   const dot = document.createElement("button");
   dot.type = "button";
-  dot.className = "dot" + (estaAtivo ? " dot--ativo" : "");
+  dot.className = ["dot", obterClassesVisuaisDot(cor), estaAtivo ? "dot--ativo" : ""]
+    .filter(Boolean)
+    .join(" ");
   dot.style.setProperty("--cor-dot", obterCorVisual(cor));
   dot.setAttribute("role", "option");
   dot.setAttribute("aria-selected", estaAtivo ? "true" : "false");
@@ -1817,6 +2264,13 @@ function criarElementoDot(cor, index, aoSelecionar, estaAtivo) {
 
   dot.appendChild(tooltip);
   dot.addEventListener("click", () => aoSelecionar(index, dot));
+
+  aplicarCorSolidaDaFoto(produto, cor, () => {
+    dot.style.setProperty("--cor-dot", obterCorVisual(cor));
+    dot.className = ["dot", obterClassesVisuaisDot(cor), dot.classList.contains("dot--ativo") ? "dot--ativo" : ""]
+      .filter(Boolean)
+      .join(" ");
+  });
 
   return dot;
 }
@@ -2131,6 +2585,11 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const spool = document.createElement("div");
   spool.className = "spool";
   spool.style.setProperty("--cor-atual", obterCorVisual(corInicial));
+  aplicarCorSolidaDaFoto(produto, corInicial, () => {
+    if (corSelecionadaAtual === corInicial) {
+      spool.style.setProperty("--cor-atual", obterCorVisual(corInicial));
+    }
+  });
 
   if (corInicial.efeito) {
     spool.classList.add(`spool--efeito-${corInicial.efeito}`);
@@ -2316,6 +2775,12 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     nomeCor.textContent = cor.nome;
     atualizarEstadoEstoque(cor);
 
+    aplicarCorSolidaDaFoto(produto, cor, () => {
+      if (corSelecionadaAtual === cor) {
+        spool.style.setProperty("--cor-atual", obterCorVisual(cor));
+      }
+    });
+
     atualizarFoto({
       produto,
       cor,
@@ -2333,7 +2798,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     const estaAtivo = index === indiceCorInicial;
 
     dotsWrap.appendChild(
-      criarElementoDot(cor, index, selecionarCor, estaAtivo)
+      criarElementoDot(produto, cor, index, selecionarCor, estaAtivo)
     );
   });
 
