@@ -2120,6 +2120,15 @@ function obterDestaqueProduto(produto) {
     .trim()
     .toUpperCase();
 
+  const eProdutoNovo =
+    marca === "polyflow" && material === "PLA";
+
+  if (eProdutoNovo) {
+    return {
+      titulo: "Produto novo"
+    };
+  }
+
   const possuiNovasCores =
     (marca === "masterprint" && material === "PETG") ||
     (marca === "closin" && material === "PLA") ||

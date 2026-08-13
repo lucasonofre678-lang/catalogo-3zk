@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 224,
+  "total": 239,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -2466,6 +2466,171 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "FILAMENTO ABS PRETO"
+    },
+    {
+      "chave": "polyflow|pla||preto",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1053759662,
+      "sku": "2301",
+      "gtin": "0042882605874",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||branco-dental",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Branco Dental",
+      "olistId": 1053759665,
+      "sku": "2352",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||vermelho",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Vermelho",
+      "olistId": 1053759669,
+      "sku": "2309",
+      "gtin": "0042882745563",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||amarelo",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Amarelo",
+      "olistId": 1053759673,
+      "sku": "23070",
+      "gtin": "0042882745549",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||azul-escuro",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Azul Escuro",
+      "olistId": 1053759678,
+      "sku": "2311",
+      "gtin": "0042882745594",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||verde",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Verde",
+      "olistId": 1053759682,
+      "sku": "2354",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||marrom-chocolate",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marrom Chocolate",
+      "olistId": 1053759686,
+      "sku": "2338",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||roxo",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Roxo",
+      "olistId": 1053759690,
+      "sku": "2321",
+      "gtin": "0042882877097",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||azul-claro",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Azul Claro",
+      "olistId": 1053759694,
+      "sku": "2323",
+      "gtin": "0042882877110",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||cinza-claro",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Cinza Claro",
+      "olistId": 1053759698,
+      "sku": "2334",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||azul-tiffany",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Azul Tiffany",
+      "olistId": 1053759702,
+      "sku": "2332",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||verde-limao",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Verde Limao",
+      "olistId": 1053759706,
+      "sku": "2328",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||bege",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Bege",
+      "olistId": 1053759710,
+      "sku": "2305",
+      "gtin": "0042882745587",
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||verde-neon",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Verde Neon",
+      "olistId": 1053759714,
+      "sku": "2348",
+      "gtin": null,
+      "descricaoOlist": null
+    },
+    {
+      "chave": "polyflow|pla||rosa-neon",
+      "marca": "PolyFlow",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Rosa Neon",
+      "olistId": 1053759718,
+      "sku": "2330",
+      "gtin": null,
+      "descricaoOlist": null
     }
   ]
 }

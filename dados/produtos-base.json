@@ -2517,6 +2517,187 @@
     ]
   },
   {
+    "marca": "PolyFlow",
+    "material": "PLA",
+    "preco": 95,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "Rolo de 1kg",
+    "cores": [
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/preto.webp"
+        ],
+        "sku": "2301",
+        "gtin": "0042882605874",
+        "chaveEstoque": "polyflow|pla||preto"
+      },
+      {
+        "nome": "Branco Dental",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/branco-dental.webp"
+        ],
+        "sku": "2352",
+        "chaveEstoque": "polyflow|pla||branco-dental"
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C94343",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/vermelho.webp"
+        ],
+        "sku": "2309",
+        "gtin": "0042882745563",
+        "chaveEstoque": "polyflow|pla||vermelho"
+      },
+      {
+        "nome": "Amarelo",
+        "hex": "#E0B928",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/amarelo.webp"
+        ],
+        "sku": "23070",
+        "gtin": "0042882745549",
+        "chaveEstoque": "polyflow|pla||amarelo"
+      },
+      {
+        "nome": "Azul Escuro",
+        "hex": "#253E68",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/azul-escuro.webp"
+        ],
+        "sku": "2311",
+        "gtin": "0042882745594",
+        "chaveEstoque": "polyflow|pla||azul-escuro"
+      },
+      {
+        "nome": "Verde",
+        "hex": "#2E9E5B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/verde.webp"
+        ],
+        "sku": "2354",
+        "chaveEstoque": "polyflow|pla||verde"
+      },
+      {
+        "nome": "Marrom Chocolate",
+        "hex": "#6B4A34",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/marrom-chocolate.webp"
+        ],
+        "sku": "2338",
+        "chaveEstoque": "polyflow|pla||marrom-chocolate"
+      },
+      {
+        "nome": "Roxo",
+        "hex": "#6E4C9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/roxo.webp"
+        ],
+        "sku": "2321",
+        "gtin": "0042882877097",
+        "chaveEstoque": "polyflow|pla||roxo"
+      },
+      {
+        "nome": "Azul Claro",
+        "hex": "#5AAFCB",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/azul-claro.webp"
+        ],
+        "sku": "2323",
+        "gtin": "0042882877110",
+        "chaveEstoque": "polyflow|pla||azul-claro"
+      },
+      {
+        "nome": "Cinza Claro",
+        "hex": "#B0B3B5",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/cinza-claro.webp"
+        ],
+        "sku": "2334",
+        "chaveEstoque": "polyflow|pla||cinza-claro"
+      },
+      {
+        "nome": "Azul Tiffany",
+        "hex": "#55C6C2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/azul-tiffany.webp"
+        ],
+        "sku": "2332",
+        "chaveEstoque": "polyflow|pla||azul-tiffany"
+      },
+      {
+        "nome": "Verde Limao",
+        "hex": "#85D294",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/verde-limao.webp"
+        ],
+        "sku": "2328",
+        "chaveEstoque": "polyflow|pla||verde-limao"
+      },
+      {
+        "nome": "Bege",
+        "hex": "#D7C5A3",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/bege.webp"
+        ],
+        "sku": "2305",
+        "gtin": "0042882745587",
+        "chaveEstoque": "polyflow|pla||bege"
+      },
+      {
+        "nome": "Verde Neon",
+        "hex": "#77D43F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/verde-neon.webp"
+        ],
+        "sku": "2348",
+        "chaveEstoque": "polyflow|pla||verde-neon"
+      },
+      {
+        "nome": "Rosa Neon",
+        "hex": "#E85A9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/rosa-neon.webp"
+        ],
+        "sku": "2330",
+        "chaveEstoque": "polyflow|pla||rosa-neon"
+      }
+    ]
+  },
+  {
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
