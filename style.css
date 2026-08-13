@@ -481,13 +481,21 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: relative;
   width: 22px;
   height: 22px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 50%;
   background: var(--cor-dot);
-  box-shadow: inset 0 0 0 1px rgba(0,0,0,0.08);
-  transition: transform var(--transicao-suave), box-shadow var(--transicao-suave);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.12);
+  transition: transform var(--transicao-suave), box-shadow var(--transicao-suave), border-color var(--transicao-suave);
 }
 
-.dot:hover { transform: scale(1.22); }
+.dot:hover {
+  transform: scale(1.14);
+}
+
+.dot--claro {
+  border-color: rgba(124, 136, 152, 0.42);
+  box-shadow: inset 0 0 0 1px rgba(255,255,255,0.58);
+}
 
 .dot--ativo {
   box-shadow:
@@ -496,7 +504,9 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   transform: scale(1.08);
 }
 
-.dot--ativo:hover { transform: scale(1.28); }
+.dot--ativo:hover {
+  transform: scale(1.16);
+}
 
 .dot__tooltip {
   position: absolute;
