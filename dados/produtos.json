@@ -945,8 +945,8 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Translúcido Amarelo",
@@ -2453,7 +2453,7 @@
           "assets/fotos/creality-soleyin-ultra-pla/cinza.webp"
         ],
         "idCatalogo": "creality-soleyin-ultra|pla||cinza",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2996,6 +2996,219 @@
       }
     ],
     "idCatalogo": "multifila|abs|",
+    "disponivel": true
+  },
+  {
+    "marca": "PolyFlow",
+    "material": "PLA",
+    "preco": 95,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "Rolo de 1kg",
+    "cores": [
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/preto.webp"
+        ],
+        "sku": "2301",
+        "gtin": "0042882605874",
+        "idCatalogo": "polyflow|pla||preto",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Branco Dental",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/branco-dental.webp"
+        ],
+        "sku": "2352",
+        "idCatalogo": "polyflow|pla||branco-dental",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C94343",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/vermelho.webp"
+        ],
+        "sku": "2309",
+        "gtin": "0042882745563",
+        "idCatalogo": "polyflow|pla||vermelho",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Amarelo",
+        "hex": "#E0B928",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/amarelo.webp"
+        ],
+        "sku": "23070",
+        "gtin": "0042882745549",
+        "idCatalogo": "polyflow|pla||amarelo",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul Escuro",
+        "hex": "#253E68",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/azul-escuro.webp"
+        ],
+        "sku": "2311",
+        "gtin": "0042882745594",
+        "idCatalogo": "polyflow|pla||azul-escuro",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde",
+        "hex": "#2E9E5B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/verde.webp"
+        ],
+        "sku": "2354",
+        "idCatalogo": "polyflow|pla||verde",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marrom Chocolate",
+        "hex": "#6B4A34",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/marrom-chocolate.webp"
+        ],
+        "sku": "2338",
+        "idCatalogo": "polyflow|pla||marrom-chocolate",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Roxo",
+        "hex": "#6E4C9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/roxo.webp"
+        ],
+        "sku": "2321",
+        "gtin": "0042882877097",
+        "idCatalogo": "polyflow|pla||roxo",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul Claro",
+        "hex": "#5AAFCB",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/azul-claro.webp"
+        ],
+        "sku": "2323",
+        "gtin": "0042882877110",
+        "idCatalogo": "polyflow|pla||azul-claro",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Cinza Claro",
+        "hex": "#B0B3B5",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/cinza-claro.webp"
+        ],
+        "sku": "2334",
+        "idCatalogo": "polyflow|pla||cinza-claro",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul Tiffany",
+        "hex": "#55C6C2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/azul-tiffany.webp"
+        ],
+        "sku": "2332",
+        "idCatalogo": "polyflow|pla||azul-tiffany",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde Limao",
+        "hex": "#85D294",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/verde-limao.webp"
+        ],
+        "sku": "2328",
+        "idCatalogo": "polyflow|pla||verde-limao",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Bege",
+        "hex": "#D7C5A3",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/bege.webp"
+        ],
+        "sku": "2305",
+        "gtin": "0042882745587",
+        "idCatalogo": "polyflow|pla||bege",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde Neon",
+        "hex": "#77D43F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/verde-neon.webp"
+        ],
+        "sku": "2348",
+        "idCatalogo": "polyflow|pla||verde-neon",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Rosa Neon",
+        "hex": "#E85A9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/polyflow-pla/rosa-neon.webp"
+        ],
+        "sku": "2330",
+        "idCatalogo": "polyflow|pla||rosa-neon",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "polyflow|pla|",
     "disponivel": true
   },
   {
