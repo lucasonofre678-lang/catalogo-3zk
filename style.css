@@ -3433,3 +3433,668 @@ body.carrinho-aberto {
     transition: none !important;
   }
 }
+
+/* ============================================================
+   3ZK — RESPONSIVIDADE FINAL DO CATÁLOGO
+   Faixas testadas: 320–600, 601–768, 769–1080 e desktop >1080.
+   Objetivos: preço sempre evidente, cards sem áreas vazias,
+   foto legível, ações acessíveis e nenhuma coluna espremida.
+   ============================================================ */
+
+/* TABLETS / NOTEBOOKS COMPACTOS — corrige o conflito entre
+   o layout de 1080px e o antigo grid desktop forçado em 769px. */
+@media (min-width: 769px) and (max-width: 1080px) {
+  .catalogo {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  .catalogo__container {
+    gap: 14px !important;
+  }
+
+  .produto {
+    grid-template-columns: 108px 150px minmax(190px, 1fr) 160px !important;
+    grid-template-areas:
+      "info foto detalhe lado"
+      "amostra foto detalhe lado" !important;
+    column-gap: 18px !important;
+    row-gap: 14px !important;
+    align-items: center !important;
+    padding: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .produto__info {
+    grid-area: info !important;
+    align-self: end !important;
+  }
+
+  .produto__amostra {
+    grid-area: amostra !important;
+    align-self: start !important;
+    justify-content: flex-start !important;
+  }
+
+  .spool {
+    width: 72px !important;
+    height: 72px !important;
+  }
+
+  .spool::after {
+    width: 20px !important;
+    height: 20px !important;
+  }
+
+  .produto__foto-area {
+    grid-area: foto !important;
+    width: 100% !important;
+    max-width: 150px !important;
+    height: 184px !important;
+    justify-self: center !important;
+    margin: 0 !important;
+  }
+
+  .produto__detalhe {
+    grid-area: detalhe !important;
+    min-width: 0 !important;
+    align-self: center !important;
+  }
+
+  .produto__lado,
+  .produto .produto__lado {
+    grid-area: lado !important;
+    width: 160px !important;
+    min-width: 0 !important;
+    max-width: 160px !important;
+    height: 100% !important;
+    margin: 0 !important;
+    display: flex !important;
+    flex-direction: column !important;
+    justify-content: center !important;
+    align-self: stretch !important;
+  }
+
+  .produto .produto__preco {
+    width: 100% !important;
+    margin: 0 0 10px !important;
+    padding: 8px 10px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    gap: 1px !important;
+    background: #f8fbff !important;
+    border: 1px solid #dce7f5 !important;
+    border-radius: 11px !important;
+    text-align: right !important;
+  }
+
+  .produto .produto__preco::before {
+    content: "PREÇO";
+    color: #6b7280;
+    font-family: var(--fonte-titulo);
+    font-size: 7.5px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: .09em;
+  }
+
+  .produto .produto__preco-valor {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  .produto .produto__acoes {
+    width: 100% !important;
+    gap: 7px !important;
+  }
+
+  .produto .produto__acao {
+    width: 100% !important;
+    height: 39px !important;
+    min-height: 39px !important;
+    padding: 0 9px !important;
+    font-size: 10.5px !important;
+  }
+
+  .produto__cor-cabecalho {
+    gap: 6px 8px !important;
+  }
+
+  .produto__cor-nome {
+    font-size: 14.5px !important;
+  }
+
+  .produto__cor-contagem {
+    font-size: 10.5px !important;
+  }
+
+  .dots {
+    gap: 8px !important;
+    padding: 10px !important;
+  }
+
+  .dot {
+    width: 24px !important;
+    height: 24px !important;
+  }
+
+  .produto--destaque {
+    padding-top: 54px !important;
+  }
+
+  .produto__novidade {
+    top: 14px !important;
+    left: 16px !important;
+  }
+}
+
+/* TABLETS PEQUENOS / CELULAR DEITADO — o card vira uma composição
+   de duas colunas e mantém preço no topo + ações no rodapé. */
+@media (min-width: 601px) and (max-width: 768px) {
+  .catalogo {
+    padding-left: 14px !important;
+    padding-right: 14px !important;
+  }
+
+  .produto {
+    position: relative !important;
+    grid-template-columns: 190px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "info info"
+      "foto detalhe"
+      "amostra detalhe"
+      "acoes acoes" !important;
+    column-gap: 18px !important;
+    row-gap: 16px !important;
+    padding: 18px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .produto__info {
+    grid-area: info !important;
+    min-width: 0 !important;
+    padding-right: 108px !important;
+  }
+
+  .produto__foto-area {
+    grid-area: foto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: 202px !important;
+    margin: 0 !important;
+  }
+
+  .produto__amostra {
+    grid-area: amostra !important;
+    justify-content: center !important;
+    align-self: center !important;
+  }
+
+  .produto__detalhe {
+    grid-area: detalhe !important;
+    align-self: center !important;
+    min-width: 0 !important;
+  }
+
+  .produto .produto__lado {
+    display: contents !important;
+  }
+
+  .produto .produto__preco {
+    position: absolute !important;
+    top: 16px !important;
+    right: 18px !important;
+    z-index: 4 !important;
+    width: auto !important;
+    min-width: 84px !important;
+    max-width: 112px !important;
+    margin: 0 !important;
+    padding: 7px 10px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    gap: 1px !important;
+    background: #fff !important;
+    border: 1px solid #dbe5f3 !important;
+    border-radius: 11px !important;
+    box-shadow: 0 5px 14px rgba(17, 44, 89, .07) !important;
+    text-align: right !important;
+  }
+
+  .produto .produto__preco::before {
+    content: "PREÇO";
+    color: #6b7280;
+    font-family: var(--fonte-titulo);
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: .09em;
+  }
+
+  .produto .produto__preco-valor {
+    font-size: 20px !important;
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  .produto .produto__acoes {
+    grid-area: acoes !important;
+    width: 100% !important;
+    display: grid !important;
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    gap: 8px !important;
+    margin: 0 !important;
+  }
+
+  .produto .produto__acao {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 8px !important;
+    font-size: 10.5px !important;
+    white-space: normal !important;
+    line-height: 1.1 !important;
+  }
+
+  .dots {
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    gap: 9px !important;
+    padding: 10px !important;
+    scrollbar-width: thin;
+  }
+
+  .dot {
+    flex: 0 0 26px !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .produto--destaque {
+    padding-top: 54px !important;
+  }
+
+  .produto__novidade {
+    top: 14px !important;
+    left: 14px !important;
+  }
+
+  .produto--destaque .produto__preco {
+    top: 13px !important;
+  }
+}
+
+/* CELULARES — inclui Pro Max de 440px, XR, S20, S8, SE e similares. */
+@media (max-width: 600px) {
+  .catalogo {
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+    padding-bottom: 64px !important;
+  }
+
+  .catalogo__container {
+    gap: 12px !important;
+  }
+
+  .produto {
+    position: relative !important;
+    grid-template-columns: 82px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "info info"
+      "foto foto"
+      "amostra detalhe"
+      "acoes acoes" !important;
+    column-gap: 14px !important;
+    row-gap: 15px !important;
+    padding: 18px 16px 16px !important;
+    border-radius: 20px !important;
+    overflow: hidden !important;
+  }
+
+  .produto__info {
+    grid-area: info !important;
+    min-width: 0 !important;
+    padding-right: 102px !important;
+  }
+
+  .produto__marca {
+    max-width: 100% !important;
+    font-size: 15px !important;
+  }
+
+  .produto__foto-area {
+    grid-area: foto !important;
+    width: 100% !important;
+    max-width: none !important;
+    height: clamp(184px, 49vw, 210px) !important;
+    border-radius: 16px !important;
+    margin: 0 !important;
+  }
+
+  .produto__foto {
+    padding: 7px !important;
+  }
+
+  .produto__amostra {
+    grid-area: amostra !important;
+    align-self: center !important;
+    justify-content: center !important;
+  }
+
+  .spool {
+    width: 70px !important;
+    height: 70px !important;
+  }
+
+  .spool::after {
+    width: 19px !important;
+    height: 19px !important;
+  }
+
+  .produto__detalhe {
+    grid-area: detalhe !important;
+    align-self: center !important;
+    min-width: 0 !important;
+    width: 100% !important;
+    gap: 9px !important;
+  }
+
+  .produto__cor-cabecalho {
+    gap: 5px 8px !important;
+  }
+
+  .produto__cor-nome {
+    font-size: 14.5px !important;
+    line-height: 1.2 !important;
+  }
+
+  .produto__cor-contagem {
+    font-size: 10px !important;
+  }
+
+  .produto__compra-rapida {
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    gap: 7px !important;
+    width: 100% !important;
+  }
+
+  .produto__estoque {
+    min-height: 24px !important;
+    padding: 4px 8px !important;
+    font-size: 10px !important;
+    white-space: nowrap !important;
+  }
+
+  .produto__adicionar {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: 100% !important;
+    height: 36px !important;
+    min-height: 36px !important;
+    padding: 4px 8px 4px 5px !important;
+    gap: 6px !important;
+  }
+
+  .produto__adicionar-icone {
+    width: 25px !important;
+    height: 25px !important;
+    flex: 0 0 25px !important;
+  }
+
+  .produto__adicionar-texto {
+    min-width: 0 !important;
+    max-width: none !important;
+    white-space: normal !important;
+    text-align: left !important;
+    font-size: 9.7px !important;
+    line-height: 1.08 !important;
+  }
+
+  .dots {
+    width: 100% !important;
+    flex-wrap: nowrap !important;
+    overflow-x: auto !important;
+    overscroll-behavior-inline: contain;
+    gap: 9px !important;
+    padding: 10px !important;
+    border-radius: 14px !important;
+    scrollbar-width: thin;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .dot {
+    flex: 0 0 27px !important;
+    width: 27px !important;
+    height: 27px !important;
+  }
+
+  .produto .produto__lado {
+    display: contents !important;
+  }
+
+  .produto .produto__preco {
+    position: absolute !important;
+    top: 15px !important;
+    right: 16px !important;
+    z-index: 4 !important;
+    width: auto !important;
+    min-width: 82px !important;
+    max-width: 108px !important;
+    margin: 0 !important;
+    padding: 7px 10px 8px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: flex-end !important;
+    justify-content: center !important;
+    gap: 1px !important;
+    color: #111827 !important;
+    background: #fff !important;
+    border: 1px solid #dbe5f3 !important;
+    border-radius: 11px !important;
+    box-shadow: 0 5px 14px rgba(17, 44, 89, .07) !important;
+    text-align: right !important;
+  }
+
+  .produto .produto__preco::before {
+    content: "PREÇO";
+    color: #6b7280;
+    font-family: var(--fonte-titulo);
+    font-size: 8px;
+    font-weight: 800;
+    line-height: 1;
+    letter-spacing: .09em;
+  }
+
+  .produto .produto__preco-valor {
+    font-size: 19px !important;
+    font-weight: 900 !important;
+    line-height: 1.05 !important;
+    letter-spacing: -.035em !important;
+  }
+
+  .produto .produto__acoes {
+    grid-area: acoes !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+    width: 100% !important;
+    margin: 0 !important;
+  }
+
+  .produto .produto__acao {
+    width: 100% !important;
+    min-width: 0 !important;
+    height: 42px !important;
+    min-height: 42px !important;
+    padding: 0 8px !important;
+    font-size: 10.5px !important;
+    white-space: normal !important;
+    line-height: 1.12 !important;
+  }
+
+  .produto .produto__acao--foto,
+  .produto .produto__acao--compartilhar {
+    grid-column: auto !important;
+  }
+
+  .produto--destaque {
+    padding-top: 55px !important;
+  }
+
+  .produto--destaque .produto__info {
+    padding-right: 0 !important;
+  }
+
+  .produto--destaque .produto__preco {
+    top: 14px !important;
+  }
+
+  .produto__novidade {
+    top: 14px !important;
+    left: 14px !important;
+    max-width: calc(100% - 120px) !important;
+  }
+}
+
+/* CELULARES ESTREITOS — mantém 2x2 nos botões, mas reduz espaços
+   e evita qualquer estouro em 320/360/375px. */
+@media (max-width: 380px) {
+  .catalogo {
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+  }
+
+  .produto {
+    grid-template-columns: 72px minmax(0, 1fr) !important;
+    column-gap: 11px !important;
+    row-gap: 14px !important;
+    padding: 16px 12px 14px !important;
+    border-radius: 18px !important;
+  }
+
+  .produto__info {
+    padding-right: 94px !important;
+  }
+
+  .produto__foto-area {
+    height: 188px !important;
+  }
+
+  .spool {
+    width: 66px !important;
+    height: 66px !important;
+  }
+
+  .produto__cor-nome {
+    font-size: 14px !important;
+  }
+
+  .produto__cor-contagem {
+    font-size: 9.5px !important;
+  }
+
+  .produto__estoque {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+    font-size: 9.5px !important;
+  }
+
+  .produto__adicionar {
+    height: 35px !important;
+    min-height: 35px !important;
+    padding-right: 6px !important;
+  }
+
+  .produto__adicionar-texto {
+    font-size: 9.2px !important;
+  }
+
+  .produto .produto__preco {
+    top: 13px !important;
+    right: 12px !important;
+    min-width: 78px !important;
+    padding: 6px 8px 7px !important;
+  }
+
+  .produto .produto__preco-valor {
+    font-size: 18px !important;
+  }
+
+  .produto .produto__acoes {
+    gap: 7px !important;
+  }
+
+  .produto .produto__acao {
+    height: 41px !important;
+    min-height: 41px !important;
+    padding: 0 6px !important;
+    font-size: 10px !important;
+  }
+
+  .dots {
+    gap: 8px !important;
+    padding: 9px !important;
+  }
+
+  .dot {
+    flex-basis: 26px !important;
+    width: 26px !important;
+    height: 26px !important;
+  }
+
+  .produto__novidade {
+    left: 12px !important;
+    max-width: calc(100% - 106px) !important;
+    font-size: 9.8px !important;
+  }
+}
+
+@media (max-width: 340px) {
+  .catalogo {
+    padding-left: 6px !important;
+    padding-right: 6px !important;
+  }
+
+  .produto {
+    grid-template-columns: 66px minmax(0, 1fr) !important;
+    column-gap: 9px !important;
+    padding-left: 10px !important;
+    padding-right: 10px !important;
+  }
+
+  .produto__info {
+    padding-right: 88px !important;
+  }
+
+  .produto__foto-area {
+    height: 176px !important;
+  }
+
+  .spool {
+    width: 62px !important;
+    height: 62px !important;
+  }
+
+  .produto__adicionar-icone {
+    width: 23px !important;
+    height: 23px !important;
+    flex-basis: 23px !important;
+  }
+
+  .produto__adicionar-texto {
+    font-size: 8.8px !important;
+  }
+
+  .produto .produto__acao {
+    font-size: 9.6px !important;
+  }
+}
