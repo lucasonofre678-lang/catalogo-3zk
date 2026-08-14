@@ -738,8 +738,8 @@
           "assets/fotos/masterprint-petg/amarelo.webp"
         ],
         "idCatalogo": "masterprint|petg||amarelo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Azul",
@@ -750,8 +750,8 @@
           "assets/fotos/masterprint-petg/azul.webp"
         ],
         "idCatalogo": "masterprint|petg||azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Branco",
@@ -762,8 +762,8 @@
           "assets/fotos/masterprint-petg/branco.webp"
         ],
         "idCatalogo": "masterprint|petg||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Branco PCV Outdoor",
@@ -774,8 +774,8 @@
           "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
         ],
         "idCatalogo": "masterprint|petg||branco-pcv-outdoor",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Bronze",
@@ -810,8 +810,8 @@
           "assets/fotos/masterprint-petg/dourado.webp"
         ],
         "idCatalogo": "masterprint|petg||dourado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fluorescente Roxo",
@@ -836,8 +836,8 @@
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||fosco-branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -848,8 +848,8 @@
           "assets/fotos/masterprint-petg/laranja.webp"
         ],
         "idCatalogo": "masterprint|petg||laranja",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Lavanda",
@@ -860,8 +860,8 @@
           "assets/fotos/masterprint-petg/lavanda.webp"
         ],
         "idCatalogo": "masterprint|petg||lavanda",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Madeira",
@@ -885,8 +885,8 @@
           "assets/fotos/masterprint-petg/marrom.webp"
         ],
         "idCatalogo": "masterprint|petg||marrom",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Prata",
@@ -971,8 +971,8 @@
           "assets/fotos/masterprint-petg/translucido-azul.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Translúcido Branco",
@@ -984,8 +984,8 @@
           "assets/fotos/masterprint-petg/translucido-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Translúcido Verde",
@@ -1407,8 +1407,8 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -1646,8 +1646,8 @@
           "assets/fotos/masterprint-pla/dourado.webp"
         ],
         "idCatalogo": "masterprint|pla||dourado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Dragon Fruit",
@@ -1864,8 +1864,8 @@
           "assets/fotos/masterprint-pla/silk-verde.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Verde",
@@ -2263,8 +2263,8 @@
           "assets/fotos/masterprint-abs/preto.webp"
         ],
         "idCatalogo": "masterprint|abs||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|abs|",
