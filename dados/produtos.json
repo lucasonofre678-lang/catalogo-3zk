@@ -2048,7 +2048,7 @@
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp"
         ],
         "idCatalogo": "masterprint|pla|fosforescente|fosforescente-natural-azul",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
