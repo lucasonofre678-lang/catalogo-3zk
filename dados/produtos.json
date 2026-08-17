@@ -124,7 +124,7 @@
           "assets/fotos/flashforge-pla/sea-green-verde-mar-azulado.webp"
         ],
         "idCatalogo": "flashforge|pla||sea-green-verde-mar-azulado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
