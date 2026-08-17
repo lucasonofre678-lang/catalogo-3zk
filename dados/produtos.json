@@ -2987,7 +2987,7 @@
         "nome": "Preto",
         "hex": "#1B1B1B",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/multifila-abs/preto.webp"
         ],
@@ -3199,9 +3199,10 @@
         "nome": "Rosa Neon",
         "hex": "#E85A9C",
         "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/polyflow-pla/rosa-neon.webp"
+          "assets/fotos/polyflow-pla/rosa-neon.webp",
+          "assets/fotos/polyflow-pla/rosa-neon-2.webp"
         ],
         "sku": "2330",
         "idCatalogo": "polyflow|pla||rosa-neon",
