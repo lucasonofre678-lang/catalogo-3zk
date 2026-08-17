@@ -1,9 +1,9 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-08-14T11:44:01-03:00",
+  "ultimaVerificacao": "2026-08-17T15:09:11-03:00",
   "fusoHorario": "America/Sao_Paulo",
-  "coresDisponiveis": 108,
-  "coresOcultas": 131,
+  "coresDisponiveis": 123,
+  "coresOcultas": 116,
   "depositosConsiderados": [
     "Geral",
     "Loja presencial"
