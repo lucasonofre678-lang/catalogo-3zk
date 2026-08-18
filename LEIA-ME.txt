@@ -1,0 +1,11 @@
+3ZK — Atualização de preço
+Produto: Masterprint PETG
+Variação: Branco PCV Outdoor
+Preço específico: R$ 84,00
+
+Como usar:
+1. Extraia este ZIP na raiz da pasta catalogo-3zk.
+2. Execute APLICAR-PRECO-84-V2.cmd.
+3. O script aplica somente o preço específico dessa variação.
+4. Ele tenta validar com 'py -3' ou 'python'.
+5. Se não houver Python, valida o JSON e o valor com PowerShell e NÃO desfaz a alteração só por falta do Python.

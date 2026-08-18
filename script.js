@@ -596,7 +596,7 @@ const MAPA_COR_SOLIDA_DA_FOTO = {
   "assets/fotos/masterprint-petg/fosco-branco.webp": "#E7E5DE",
   "assets/fotos/masterprint-petg/green-olive.webp": "#55553C",
   "assets/fotos/masterprint-petg/laranja.webp": "#E8752D",
-  "assets/fotos/masterprint-petg/lavanda.webp": "#9C9CA1",
+  "assets/fotos/masterprint-petg/lavanda.webp": "#665A91",
   "assets/fotos/masterprint-petg/madeira.webp": "#817158",
   "assets/fotos/masterprint-petg/marrom.webp": "#684630",
   "assets/fotos/masterprint-petg/prata.webp": "#6E6F6D",

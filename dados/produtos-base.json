@@ -647,7 +647,8 @@
         "imagens": [
           "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
         ],
-        "chaveEstoque": "masterprint|petg||branco-pcv-outdoor"
+        "chaveEstoque": "masterprint|petg||branco-pcv-outdoor",
+        "preco": 84
       },
       {
         "nome": "Bronze",

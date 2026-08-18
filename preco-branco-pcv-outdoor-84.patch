@@ -1,0 +1,11 @@
+diff --git a/dados/produtos-base.json b/dados/produtos-base.json
+--- a/dados/produtos-base.json
++++ b/dados/produtos-base.json
+@@ -643,6 +643,7 @@
+         "imagens": [
+           "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
+         ],
++        "preco": 84,
+         "chaveEstoque": "masterprint|petg||branco-pcv-outdoor"
+       },
+       {
