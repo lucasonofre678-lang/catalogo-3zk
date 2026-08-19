@@ -2311,8 +2311,8 @@
           "assets/fotos/masterprint-tpu/preto.webp"
         ],
         "idCatalogo": "masterprint|tpu||preto",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural Transparente",
