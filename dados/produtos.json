@@ -773,6 +773,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
         ],
+        "preco": 84,
         "idCatalogo": "masterprint|petg||branco-pcv-outdoor",
         "statusEstoque": "em_estoque",
         "disponivel": true
@@ -873,7 +874,7 @@
           "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -945,7 +946,7 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
