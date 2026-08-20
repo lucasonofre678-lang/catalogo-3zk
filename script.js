@@ -1134,6 +1134,26 @@ const observacaoContadorEl = document.getElementById("observacao-contador");
 const pedidoToastEl = document.getElementById("pedido-toast");
 const pedidoToastTextoEl = document.getElementById("pedido-toast-texto");
 const pedidoToastAbrirEl = document.getElementById("pedido-toast-abrir");
+const pedidoBarraEl = document.getElementById("pedido-barra");
+const pedidoBarraResumoEl = document.getElementById("pedido-barra-resumo");
+const pedidoBarraAbrirEl = document.getElementById("pedido-barra-abrir");
+
+function ajustarTextosFluxoPedido() {
+  const introducao = document.querySelector(
+    '.carrinho-tela[data-tela-etapa="1"] .carrinho-tela__topo p'
+  );
+  const vazioTexto = carrinhoVazioEl?.querySelector("span");
+
+  if (introducao) {
+    introducao.textContent =
+      "Adicione as cores e quantidades que deseja. Preço e disponibilidade já aparecem no catálogo; no final enviamos esta lista pronta pelo WhatsApp.";
+  }
+
+  if (vazioTexto) {
+    vazioTexto.textContent =
+      'Escolha uma cor no catálogo e toque em “Adicionar ao pedido”. Você pode continuar adicionando produtos antes de enviar.';
+  }
+}
 
 let carrinho = carregarCarrinhoSalvo();
 let etapaCarrinho = 1;
@@ -1371,8 +1391,11 @@ function mostrarToastPedido(item) {
 
   window.clearTimeout(temporizadorToast);
 
+  const quantidadePedido = obterQuantidadeTotalCarrinho();
+  const totalPedido = obterResumoFinanceiroPedido().total;
+
   pedidoToastTextoEl.textContent =
-    `${item.nomeProduto} · ${item.corNome}`;
+    `${item.corNome} · ${obterTextoQuantidade(quantidadePedido)} no pedido · ${formatarPrecoPedido(totalPedido)}`;
 
   pedidoToastEl.hidden = false;
 
@@ -1439,12 +1462,12 @@ function adicionarAoCarrinho(produto, cor, botao) {
 
   if (botao) {
     const textoEl = botao.querySelector(".produto__adicionar-texto");
-    const textoOriginal = "Adicionar ao carrinho";
+    const textoOriginal = "Adicionar ao pedido";
 
     botao.classList.add("produto__adicionar--confirmado");
 
     if (textoEl) {
-      textoEl.textContent = "Adicionado!";
+      textoEl.textContent = "Adicionado";
     }
 
     window.setTimeout(() => {
@@ -1509,6 +1532,9 @@ function sincronizarBotaoAdicionar(botao) {
   const quantidadeEl = botao.querySelector(
     ".produto__adicionar-quantidade"
   );
+  const textoEl = botao.querySelector(
+    ".produto__adicionar-texto"
+  );
   const quantidade = carrinho.find(
     (item) => item.id === botao.dataset.itemId
   )?.quantidade || 0;
@@ -1516,6 +1542,12 @@ function sincronizarBotaoAdicionar(botao) {
   if (quantidadeEl) {
     quantidadeEl.textContent = String(quantidade);
     quantidadeEl.hidden = quantidade === 0;
+  }
+
+  if (textoEl && !botao.classList.contains("produto__adicionar--confirmado")) {
+    textoEl.textContent = quantidade > 0
+      ? "Adicionar mais"
+      : "Adicionar ao pedido";
   }
 
   botao.classList.toggle(
@@ -1987,7 +2019,7 @@ function renderizarCarrinho() {
 
   if (carrinhoResumoEl) {
     carrinhoResumoEl.textContent = quantidade === 0
-      ? "Carrinho vazio"
+      ? "Escolha cores e monte sua lista"
       : `${obterTextoQuantidade(quantidade)} · ${formatarPrecoPedido(total)}${financeiro.aplicaDesconto ? ` no ${financeiro.formaDescontoCurta}` : ""}`;
   }
 
@@ -1995,11 +2027,23 @@ function renderizarCarrinho() {
     abrirCarrinhoEl.setAttribute(
       "aria-label",
       quantidade === 0
-        ? "Abrir meu pedido. Carrinho vazio."
-        : `Abrir meu pedido. ${obterTextoQuantidade(
+        ? "Abrir montador de pedido. Nenhum produto selecionado."
+        : `Abrir montador de pedido. ${obterTextoQuantidade(
             quantidade
           )}, ${financeiro.aplicaDesconto ? `total com desconto no ${financeiro.formaDescontoCurta}` : "total"} ${formatarPrecoPedido(total)}.`
     );
+  }
+
+  if (pedidoBarraEl) {
+    pedidoBarraEl.hidden = !possuiItens;
+    pedidoBarraEl.classList.toggle("pedido-barra--visivel", possuiItens);
+    document.body.classList.toggle("pedido-em-montagem", possuiItens);
+  }
+
+  if (pedidoBarraResumoEl) {
+    pedidoBarraResumoEl.textContent = possuiItens
+      ? `${obterTextoQuantidade(quantidade)} · ${formatarPrecoPedido(total)}${financeiro.aplicaDesconto ? ` no ${financeiro.formaDescontoCurta}` : ""}`
+      : "0 itens";
   }
 
   if (carrinhoTotalItensEl) {
@@ -2105,6 +2149,7 @@ carrinhoOverlayEl?.addEventListener("click", fecharCarrinho);
 continuarEscolhendoEl?.addEventListener("click", fecharCarrinho);
 limparCarrinhoEl?.addEventListener("click", limparCarrinho);
 pedidoToastAbrirEl?.addEventListener("click", () => abrirCarrinho(1));
+pedidoBarraAbrirEl?.addEventListener("click", () => abrirCarrinho(1));
 
 carrinhoListaEl?.addEventListener("click", (evento) => {
   const botao = evento.target.closest("[data-acao]");
@@ -2190,6 +2235,7 @@ document.addEventListener("keydown", (evento) => {
 
 preencherDadosFormulario();
 prepararOpcoesComDesconto();
+ajustarTextosFluxoPedido();
 renderizarCarrinho();
 
 
@@ -2645,23 +2691,23 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   const botaoAdicionar = document.createElement("button");
   botaoAdicionar.type = "button";
   botaoAdicionar.className = "produto__adicionar";
-  botaoAdicionar.title = "Adicionar ao carrinho";
+  botaoAdicionar.title = "Adicionar ao pedido";
   botaoAdicionar.innerHTML = `
     <span class="produto__adicionar-icone" aria-hidden="true">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9">
-        <path d="M3.5 4.5h2.1l1.7 9.1a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 1.9-1.4l1.3-5.2H7"></path>
-        <circle cx="10" cy="19" r="1.2"></circle>
-        <circle cx="17.5" cy="19" r="1.2"></circle>
-        <path d="M15.5 4v4"></path>
-        <path d="M13.5 6h4"></path>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4.5" y="4" width="12" height="16" rx="2"></rect>
+        <path d="M8 4.5h5"></path>
+        <path d="M8 9h4"></path>
+        <path d="M8 13h3"></path>
+        <path d="M18.5 11v6"></path>
+        <path d="M15.5 14h6"></path>
       </svg>
     </span>
-    <span class="produto__adicionar-texto">Adicionar ao carrinho</span>
+    <span class="produto__adicionar-texto">Adicionar ao pedido</span>
     <span class="produto__adicionar-quantidade" hidden>0</span>
   `;
 
   compraRapida.appendChild(estoqueInfo);
-  compraRapida.appendChild(botaoAdicionar);
 
   botaoAdicionar.addEventListener("click", () => {
     adicionarAoCarrinho(
@@ -2698,25 +2744,6 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   botaoLoja.target = "_blank";
   botaoLoja.rel = "noopener";
 
-  const botaoWhatsApp = document.createElement("a");
-  botaoWhatsApp.className = "produto__acao produto__acao--whatsapp";
-  botaoWhatsApp.target = "_blank";
-  botaoWhatsApp.rel = "noopener";
-
-  const botaoCompartilhar = document.createElement("button");
-  botaoCompartilhar.type = "button";
-  botaoCompartilhar.className =
-    "produto__acao produto__acao--compartilhar";
-  botaoCompartilhar.textContent = `Compartilhar ${obterRotuloVariacaoSingular(produto)}`;
-
-  botaoCompartilhar.addEventListener("click", () => {
-    compartilharCor(
-      produto,
-      corSelecionadaAtual,
-      botaoCompartilhar
-    );
-  });
-
   const botaoVerFoto = document.createElement("button");
   botaoVerFoto.type = "button";
   botaoVerFoto.className = "produto__acao produto__acao--foto";
@@ -2724,8 +2751,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
   botaoVerFoto.disabled = true;
 
   acoes.appendChild(botaoLoja);
-  acoes.appendChild(botaoWhatsApp);
-  acoes.appendChild(botaoCompartilhar);
+  acoes.appendChild(botaoAdicionar);
   acoes.appendChild(botaoVerFoto);
 
   lado.appendChild(precoWrap);
@@ -2754,9 +2780,6 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     botaoLoja.tabIndex = 0;
     botaoLoja.textContent = "Comprar no site";
     botaoLoja.classList.remove("produto__acao--desativada");
-
-    botaoWhatsApp.textContent = "Pedir no WhatsApp";
-    botaoWhatsApp.href = criarLinkWhatsApp(produto, cor);
 
     botaoAdicionar.dataset.itemId =
       obterIdItemCarrinho(produto, cor);

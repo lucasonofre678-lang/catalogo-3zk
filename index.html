@@ -149,15 +149,16 @@
             stroke-linejoin="round"
             aria-hidden="true"
           >
-            <path d="M6.5 7.5h12l-1 8.5H7.5l-1-8.5Z"></path>
-            <path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"></path>
-            <circle cx="9" cy="19" r="1"></circle>
-            <circle cx="16" cy="19" r="1"></circle>
+            <rect x="5" y="4" width="14" height="17" rx="2.5"></rect>
+            <path d="M9 4.5h6"></path>
+            <path d="m8.5 10 1.5 1.5 3-3"></path>
+            <path d="M14.5 10H16"></path>
+            <path d="M8.5 15h7.5"></path>
           </svg>
 
           <span class="botao-carrinho__texto">
-            <strong>Meu pedido</strong>
-            <small id="carrinho-resumo">Carrinho vazio</small>
+            <strong>Montador de pedido</strong>
+            <small id="carrinho-resumo">Escolha cores e envie no WhatsApp</small>
           </span>
 
           <span
@@ -255,6 +256,37 @@
       <p class="hero__aviso">
         As bolinhas são uma referência visual. Clique em uma cor para ver a foto real.
       </p>
+
+    </div>
+  </section>
+
+  <section class="pedido-guia-faixa" aria-label="Como funciona o montador de pedido 3ZK">
+    <div class="pedido-guia">
+      <div class="pedido-guia__cabecalho">
+        <span class="pedido-guia__selo">MONTADOR 3ZK</span>
+        <strong>Monte seu pedido em 3 passos</strong>
+        <small>Escolha aqui e envie tudo organizado pelo WhatsApp no final.</small>
+      </div>
+
+      <ol class="pedido-guia__passos">
+        <li>
+          <b>1</b>
+          <span><strong>Escolha</strong><small>Cor, foto e preço</small></span>
+        </li>
+        <li>
+          <b>2</b>
+          <span><strong>Monte</strong><small>Produtos e quantidades</small></span>
+        </li>
+        <li>
+          <b>3</b>
+          <span><strong>Envie</strong><small>Pedido completo no WhatsApp</small></span>
+        </li>
+      </ol>
+
+      <div class="pedido-guia__seguranca">
+        <span class="pedido-guia__sem-pagamento">✓ Sem pagamento no site</span>
+        <small>Você só envia o pedido quando estiver pronto.</small>
+      </div>
     </div>
   </section>
 
@@ -278,15 +310,16 @@
   >
     <header class="carrinho-painel__cabecalho">
       <div>
-        <span class="carrinho-painel__sobrelinha">MONTE SEU PEDIDO</span>
-        <h2 id="carrinho-titulo">Seu pedido 3ZK</h2>
+        <span class="carrinho-painel__sobrelinha">MONTADOR 3ZK</span>
+        <h2 id="carrinho-titulo">Monte seu pedido</h2>
+        <p class="carrinho-painel__subtitulo">Sem checkout: organize tudo aqui e envie pelo WhatsApp.</p>
       </div>
 
       <button
         class="carrinho-painel__fechar"
         id="fechar-carrinho"
         type="button"
-        aria-label="Fechar carrinho"
+        aria-label="Fechar montador de pedido"
       >×</button>
     </header>
 
@@ -297,11 +330,11 @@
       </span>
       <span class="carrinho-etapa" data-indicador-etapa="2">
         <b>2</b>
-        <span>Dados</span>
+        <span>Seus dados</span>
       </span>
       <span class="carrinho-etapa" data-indicador-etapa="3">
         <b>3</b>
-        <span>Revisar</span>
+        <span>Revisar e enviar</span>
       </span>
     </nav>
 
@@ -309,8 +342,8 @@
       <section class="carrinho-tela carrinho-tela--ativa" data-tela-etapa="1">
         <div class="carrinho-tela__topo">
           <div>
-            <h3>Produtos escolhidos</h3>
-            <p>Adicione cores diferentes e ajuste as quantidades aqui.</p>
+            <h3>Pedido em montagem</h3>
+            <p>Adicione as cores e quantidades que deseja. Preço e disponibilidade já aparecem no catálogo; no final enviamos esta lista pronta pelo WhatsApp.</p>
           </div>
 
           <button
@@ -325,13 +358,16 @@
         <div class="carrinho-vazio" id="carrinho-vazio">
           <div class="carrinho-vazio__icone" aria-hidden="true">
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7">
-              <path d="M6.5 7.5h12l-1 8.5H7.5l-1-8.5Z"></path>
-              <path d="M9 7.5V6a3 3 0 0 1 6 0v1.5"></path>
+              <rect x="5" y="4" width="14" height="17" rx="2.5"></rect>
+              <path d="M9 4.5h6"></path>
+              <path d="m8.5 10 1.5 1.5 3-3"></path>
+              <path d="M14.5 10H16"></path>
+              <path d="M8.5 15h7.5"></path>
             </svg>
           </div>
-          <strong>Seu pedido ainda está vazio</strong>
-          <span>Escolha uma cor e toque no + para adicionar ao pedido.</span>
-          <button id="continuar-escolhendo" type="button">Explorar filamentos</button>
+          <strong>Comece a montar seu pedido</strong>
+          <span>Escolha uma cor no catálogo e toque em “Adicionar ao pedido”. Você pode continuar adicionando produtos antes de enviar.</span>
+          <button id="continuar-escolhendo" type="button">Escolher produtos</button>
         </div>
       </section>
 
@@ -495,11 +531,30 @@
   >
     <span class="pedido-toast__icone">✓</span>
     <span>
-      <strong>Adicionado ao pedido</strong>
+      <strong>Pedido atualizado</strong>
       <small id="pedido-toast-texto"></small>
     </span>
-    <button id="pedido-toast-abrir" type="button">Ver pedido</button>
+    <button id="pedido-toast-abrir" type="button">Revisar pedido</button>
   </div>
+
+  <aside class="pedido-barra" id="pedido-barra" hidden aria-label="Resumo do pedido em montagem">
+    <button class="pedido-barra__abrir" id="pedido-barra-abrir" type="button">
+      <span class="pedido-barra__icone" aria-hidden="true">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+          <rect x="5" y="4" width="14" height="17" rx="2.5"></rect>
+          <path d="M9 4.5h6"></path>
+          <path d="m8.5 10 1.5 1.5 3-3"></path>
+          <path d="M14.5 10H16"></path>
+          <path d="M8.5 15h7.5"></path>
+        </svg>
+      </span>
+      <span class="pedido-barra__texto">
+        <strong>Pedido em montagem</strong>
+        <small id="pedido-barra-resumo">0 itens</small>
+      </span>
+      <span class="pedido-barra__cta">Revisar</span>
+    </button>
+  </aside>
 
   <footer class="rodape">
     <div class="rodape__container">

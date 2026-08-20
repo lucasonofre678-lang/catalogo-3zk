@@ -619,7 +619,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   font-weight: 800 !important;
   line-height: 1 !important;
 
-  white-space: nowrap !important;
+  white-space: normal !important;
 }
 
 /* Volta os quatro botões para uma coluna */
@@ -790,12 +790,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   }
 
   .produto .produto__preco {
-    justify-content: flex-start !important;
+    justify-content: center !important;
   }
 
   .produto .produto__acao {
     height: 42px !important;
-    min-height: 42px !important;
+    min-height: 46px !important;
   }
 }
 
@@ -2539,6 +2539,12 @@ body.carrinho-aberto {
   transform: translate(-50%, 0) scale(1);
 }
 
+/* Quando o resumo persistente do pedido estiver visível, o aviso sobe
+   e ocupa sua própria faixa. Assim os dois componentes nunca se sobrepõem. */
+body.pedido-em-montagem .pedido-toast {
+  bottom: 104px;
+}
+
 .pedido-toast__icone {
   width: 37px;
   height: 37px;
@@ -3338,7 +3344,7 @@ body.carrinho-aberto {
   .produto__adicionar-texto {
     max-width: 91px !important;
     white-space: normal !important;
-    text-align: left !important;
+    text-align: center !important;
     line-height: 1.08 !important;
   }
 }
@@ -3542,7 +3548,7 @@ body.carrinho-aberto {
   .produto .produto__preco-valor {
     font-size: 20px !important;
     font-weight: 900 !important;
-    line-height: 1.05 !important;
+    line-height: 1.08 !important;
     letter-spacing: -.035em !important;
   }
 
@@ -4096,5 +4102,1040 @@ body.carrinho-aberto {
 
   .produto .produto__acao {
     font-size: 9.6px !important;
+  }
+}
+
+
+/* ============================================================
+   3ZK — FLUXO DE PEDIDO PRIORIZADO
+   Final: Comprar no site | Adicionar ao pedido | Ver foto.
+   ============================================================ */
+
+/* O botão Comprar no site permanece disponível, mas vira opção secundária. */
+.produto .produto__acao--loja {
+  color: #0757c9 !important;
+  background: #ffffff !important;
+  border-color: #b9cceb !important;
+  box-shadow: none !important;
+}
+
+.produto .produto__acao--loja:hover {
+  color: #054aa9 !important;
+  background: #f3f7ff !important;
+  border-color: #8fb0df !important;
+}
+
+/* Sem CTA no meio da área de cor: ali fica somente o status de estoque. */
+.produto__compra-rapida {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 8px !important;
+}
+
+/* "Adicionar ao pedido" ocupa o antigo espaço comercial do WhatsApp. */
+.produto .produto__acoes .produto__adicionar {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: 100% !important;
+  height: 48px !important;
+  min-height: 48px !important;
+  flex: 0 0 auto !important;
+  align-self: stretch !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: flex-start !important;
+  gap: 10px !important;
+  padding: 6px 12px !important;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #0e69e7 0%, #0858c9 100%) !important;
+  border: 1px solid #0757c9 !important;
+  border-radius: 12px !important;
+  box-shadow: 0 8px 18px rgba(0, 71, 171, 0.20) !important;
+}
+
+.produto .produto__acoes .produto__adicionar:hover {
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #0c63dd 0%, #064db5 100%) !important;
+  border-color: #064db5 !important;
+  box-shadow: 0 10px 22px rgba(0, 71, 171, 0.26) !important;
+  transform: translateY(-1px) !important;
+}
+
+.produto .produto__acoes .produto__adicionar-icone,
+.produto .produto__acoes .produto__adicionar:hover .produto__adicionar-icone {
+  width: 26px !important;
+  height: 26px !important;
+  flex: 0 0 26px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #0a57c4 !important;
+  background: rgba(255, 255, 255, 0.95) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25), inset 0 0 0 1px rgba(10, 87, 196, 0.08) !important;
+  transform: none !important;
+}
+
+.produto .produto__acoes .produto__adicionar-icone svg {
+  width: 15px !important;
+  height: 15px !important;
+}
+
+.produto .produto__acoes .produto__adicionar-texto {
+  position: static !important;
+  flex: 1 1 auto !important;
+  min-width: 0 !important;
+  width: auto !important;
+  height: auto !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  overflow: visible !important;
+  clip: auto !important;
+  white-space: nowrap !important;
+  color: currentColor !important;
+  font-size: 11.2px !important;
+  font-weight: 800 !important;
+  line-height: 1.05 !important;
+  text-align: left !important;
+  letter-spacing: -0.01em !important;
+}
+
+.produto .produto__acoes .produto__adicionar-quantidade {
+  position: static !important;
+  flex: 0 0 auto !important;
+  min-width: 22px !important;
+  height: 22px !important;
+  margin: 0 !important;
+  margin-left: auto !important;
+  padding: 0 6px !important;
+  color: #0a57c4 !important;
+  background: #ffffff !important;
+  border: 0 !important;
+  border-radius: 999px !important;
+  font-size: 9px !important;
+  font-weight: 800 !important;
+  line-height: 22px !important;
+  text-align: center !important;
+  box-shadow: 0 3px 8px rgba(0, 35, 90, 0.14) !important;
+}
+
+.produto .produto__acoes .produto__adicionar--no-carrinho,
+.produto .produto__acoes .produto__adicionar--no-carrinho:hover {
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #075fda 0%, #003d94 100%) !important;
+  border-color: #003d94 !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado,
+.produto .produto__acoes .produto__adicionar--confirmado:hover {
+  color: #11633e !important;
+  background: #eaf9f1 !important;
+  border-color: #9dd8b7 !important;
+  box-shadow: 0 8px 18px rgba(18, 140, 88, 0.14) !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado .produto__adicionar-icone,
+.produto .produto__acoes .produto__adicionar--confirmado:hover .produto__adicionar-icone {
+  color: #ffffff !important;
+  background: #128c58 !important;
+  box-shadow: none !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado .produto__adicionar-texto,
+.produto .produto__acoes .produto__adicionar--confirmado:hover .produto__adicionar-texto {
+  text-align: center !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado .produto__adicionar-quantidade,
+.produto .produto__acoes .produto__adicionar--confirmado:hover .produto__adicionar-quantidade {
+  display: none !important;
+}
+
+/* Mobile: primeira linha para compra/pedido; foto ocupa a linha inteira. */
+@media (max-width: 768px) {
+  .produto .produto__acoes .produto__adicionar {
+    width: 100% !important;
+    min-height: 42px !important;
+    padding: 6px 10px !important;
+    gap: 8px !important;
+  }
+
+  .produto .produto__acoes .produto__adicionar-icone,
+  .produto .produto__acoes .produto__adicionar:hover .produto__adicionar-icone {
+    width: 24px !important;
+    height: 24px !important;
+    flex-basis: 24px !important;
+  }
+
+  .produto .produto__acoes .produto__adicionar-texto {
+    font-size: 11px !important;
+    white-space: normal !important;
+    line-height: 1.08 !important;
+  }
+
+  .produto .produto__acoes .produto__acao--foto {
+    grid-column: 1 / -1 !important;
+  }
+}
+
+/* ============================================================
+   PROTÓTIPO — MONTADOR DE PEDIDO 3ZK
+   Experiência orientada a lista de pedido, não a checkout.
+   ============================================================ */
+
+/* Cabeçalho: deixa de parecer um carrinho e vira acesso a uma ferramenta. */
+.botao-carrinho {
+  min-height: 52px;
+  gap: 11px;
+  padding: 7px 12px 7px 8px;
+  color: #0B3E86;
+  background: #FFFFFF;
+  border: 1px solid #C9DCF8;
+  border-radius: 14px;
+  box-shadow: 0 9px 24px rgba(17, 64, 128, 0.14);
+}
+
+.botao-carrinho::before {
+  content: none !important;
+  display: none !important;
+}
+
+.botao-carrinho:hover {
+  background: #F8FBFF;
+  border-color: #9DC1F2;
+  box-shadow: 0 13px 29px rgba(17, 64, 128, 0.18);
+}
+
+.botao-carrinho__icone {
+  width: 34px;
+  height: 34px;
+  padding: 7px;
+  color: #FFFFFF;
+  background: linear-gradient(145deg, #0A6AE4, #064DAF);
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(7, 87, 201, 0.24);
+}
+
+.botao-carrinho__texto {
+  min-width: 145px;
+}
+
+.botao-carrinho__texto strong {
+  color: #102A50;
+  font-size: 12.5px;
+  font-weight: 850;
+  letter-spacing: -0.01em;
+}
+
+.botao-carrinho__texto small {
+  max-width: 190px;
+  color: #66758B;
+  font-size: 9.5px;
+}
+
+/* Guia curto no próprio catálogo: explica o comportamento antes do primeiro clique. */
+.pedido-guia {
+  width: min(100%, 1040px);
+  display: grid;
+  grid-template-columns: minmax(260px, 1.1fr) minmax(0, 1.8fr) auto;
+  align-items: center;
+  gap: 22px;
+  margin: 22px auto 0;
+  padding: 20px 22px;
+  background: #ffffff;
+  border: 1px solid #D8E4F5;
+  border-radius: 20px;
+  box-shadow: 0 10px 28px rgba(22, 58, 106, 0.08);
+}
+
+.pedido-guia__cabecalho {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+}
+
+.pedido-guia__selo {
+  display: inline-flex;
+  align-items: center;
+  padding: 5px 9px;
+  color: #0860CE;
+  background: #EEF5FF;
+  border: 1px solid #D9E7FB;
+  border-radius: 999px;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
+}
+
+.pedido-guia__cabecalho strong {
+  color: #13233B;
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+}
+
+.pedido-guia__cabecalho small {
+  max-width: 330px;
+  color: #5F6E82;
+  font-size: 13px;
+  line-height: 1.45;
+}
+
+.pedido-guia__passos {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.pedido-guia__passos::before {
+  content: none;
+}
+
+.pedido-guia__passos li {
+  display: grid;
+  grid-template-columns: 36px minmax(0, 1fr);
+  align-items: start;
+  gap: 10px;
+  min-width: 0;
+  padding: 12px 12px 11px;
+  background: #F7FAFF;
+  border: 1px solid #E3ECF8;
+  border-radius: 14px;
+}
+
+.pedido-guia__passos li > b {
+  width: 36px;
+  height: 36px;
+  display: grid;
+  place-items: center;
+  color: #FFFFFF;
+  background: linear-gradient(180deg, #0A63D8 0%, #084FB3 100%);
+  border-radius: 50%;
+  font-family: var(--fonte-dado);
+  font-size: 11px;
+  box-shadow: 0 6px 14px rgba(7, 87, 201, 0.18);
+}
+
+.pedido-guia__passos li > span {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+
+.pedido-guia__passos strong {
+  overflow: visible;
+  color: #223249;
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.2;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.pedido-guia__passos small {
+  overflow: visible;
+  color: #6E7E92;
+  font-size: 11.2px;
+  line-height: 1.35;
+  text-overflow: clip;
+  white-space: normal;
+}
+
+.pedido-guia__sem-pagamento {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 14px;
+  color: #176445;
+  background: #ECF9F2;
+  border: 1px solid #BCE5CE;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .pedido-guia {
+    grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 18px;
+  }
+
+  .pedido-guia__cabecalho {
+    align-items: center;
+    text-align: center;
+  }
+
+  .pedido-guia__cabecalho small {
+    max-width: 520px;
+  }
+
+  .pedido-guia__passos {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .pedido-guia__sem-pagamento {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 700px) {
+  .pedido-guia__passos {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .pedido-guia {
+    margin-top: 16px;
+    padding: 14px;
+    border-radius: 16px;
+  }
+
+  .pedido-guia__selo {
+    font-size: 9px;
+  }
+
+  .pedido-guia__cabecalho strong {
+    font-size: 17px;
+  }
+
+  .pedido-guia__cabecalho small {
+    font-size: 12px;
+  }
+
+  .pedido-guia__passos {
+    grid-template-columns: 1fr;
+    gap: 9px;
+  }
+
+  .pedido-guia__passos li {
+    grid-template-columns: 34px 1fr;
+    padding: 11px;
+  }
+
+  .pedido-guia__passos li > b {
+    width: 34px;
+    height: 34px;
+  }
+
+  .pedido-guia__passos strong {
+    font-size: 12px;
+  }
+
+  .pedido-guia__passos small {
+    font-size: 11px;
+  }
+
+  .pedido-guia__sem-pagamento {
+    width: 100%;
+    justify-content: center;
+    text-align: center;
+    white-space: normal;
+  }
+}
+
+.pedido-toast__icone {
+  color: #FFFFFF;
+  background: #0A63D8;
+}
+
+@media (max-width: 900px) {
+}
+
+@media (max-width: 600px) {
+  .botao-carrinho {
+    min-height: 44px;
+    padding: 5px 8px 5px 6px;
+  }
+
+  .botao-carrinho__icone {
+    width: 31px;
+    height: 31px;
+    padding: 6px;
+  }
+
+  .botao-carrinho__texto {
+    min-width: 0;
+  }
+
+  .botao-carrinho__texto strong {
+    font-size: 10.5px;
+  }
+
+  .botao-carrinho__texto small {
+    max-width: 118px;
+    font-size: 8px;
+  }
+
+
+  .carrinho-painel__cabecalho {
+    min-height: 96px;
+  }
+
+  .carrinho-painel__subtitulo {
+    max-width: 280px;
+    font-size: 9px;
+  }
+
+  .carrinho-etapa {
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .carrinho-etapa:not(:last-child)::after {
+    top: 12px;
+  }
+
+  .pedido-barra {
+    right: 10px;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    width: calc(100vw - 20px);
+  }
+
+  .pedido-barra__abrir {
+    min-height: 62px;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    gap: 9px;
+    padding: 8px;
+    border-radius: 15px;
+  }
+
+  .pedido-barra__icone {
+    width: 38px;
+    height: 38px;
+  }
+
+  .pedido-barra__texto strong {
+    font-size: 11px;
+  }
+
+  .pedido-barra__texto small {
+    font-size: 9px;
+  }
+
+  .pedido-barra__cta {
+    min-height: 36px;
+    padding: 0 11px;
+    font-size: 9px;
+  }
+
+  body:has(.pedido-barra--visivel) .rodape {
+    padding-bottom: 86px;
+  }
+}
+
+
+/* ============================================================
+   3ZK — AJUSTE FINAL DO CTA DE PEDIDO
+   Mantém o contador visível sem sobrepor o texto.
+   ============================================================ */
+.produto .produto__acoes .produto__adicionar--no-carrinho {
+  gap: 7px !important;
+  padding-left: 9px !important;
+  padding-right: 9px !important;
+}
+
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-icone {
+  width: 23px !important;
+  height: 23px !important;
+  flex-basis: 23px !important;
+}
+
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-icone svg {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-texto {
+  min-width: 0 !important;
+  font-size: 10.7px !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+  text-align: left !important;
+}
+
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-quantidade {
+  position: static !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  flex: 0 0 19px !important;
+  width: 19px !important;
+  min-width: 19px !important;
+  height: 19px !important;
+  margin-left: auto !important;
+  padding: 0 !important;
+  font-size: 8.5px !important;
+  line-height: 19px !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado .produto__adicionar-quantidade {
+  display: none !important;
+}
+
+
+/* ============================================================
+   3ZK — PROTÓTIPO MONTADOR DE PEDIDO V2
+   Layout robusto, sem cortes e com foco no fluxo do pedido.
+   ============================================================ */
+
+/* O guia sai do container estreito do hero e acompanha a largura do catálogo. */
+.pedido-guia-faixa {
+  padding: 0 28px 34px;
+  background: var(--cor-fundo);
+}
+
+.pedido-guia-faixa .pedido-guia {
+  width: 100% !important;
+  max-width: 1180px !important;
+  margin: 0 auto !important;
+  padding: 18px 20px !important;
+  display: grid !important;
+  grid-template-columns: minmax(230px, 1fr) minmax(420px, 1.9fr) minmax(190px, .8fr) !important;
+  align-items: center !important;
+  gap: 18px !important;
+  overflow: visible !important;
+  background: #ffffff !important;
+  border: 1px solid #d7e4f4 !important;
+  border-radius: 18px !important;
+  box-shadow: 0 10px 30px rgba(20, 55, 100, .07) !important;
+}
+
+.pedido-guia-faixa .pedido-guia__cabecalho {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 5px !important;
+  text-align: left !important;
+}
+
+.pedido-guia-faixa .pedido-guia__selo {
+  display: inline-flex !important;
+  align-items: center !important;
+  width: fit-content !important;
+  padding: 5px 9px !important;
+  color: #075bc9 !important;
+  background: #eef5ff !important;
+  border: 1px solid #d7e6fb !important;
+  border-radius: 999px !important;
+  font-size: 9px !important;
+  font-weight: 850 !important;
+  letter-spacing: .08em !important;
+  line-height: 1 !important;
+  white-space: nowrap !important;
+}
+
+.pedido-guia-faixa .pedido-guia__cabecalho > strong {
+  color: #15243a !important;
+  font-size: 17px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  letter-spacing: -.025em !important;
+  white-space: normal !important;
+}
+
+.pedido-guia-faixa .pedido-guia__cabecalho > small {
+  max-width: 300px !important;
+  color: #66758a !important;
+  font-size: 10.5px !important;
+  line-height: 1.4 !important;
+  white-space: normal !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos {
+  min-width: 0 !important;
+  display: grid !important;
+  grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  gap: 10px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos::before {
+  content: none !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos li {
+  min-width: 0 !important;
+  min-height: 62px !important;
+  display: grid !important;
+  grid-template-columns: 32px minmax(0, 1fr) !important;
+  align-items: center !important;
+  gap: 9px !important;
+  padding: 10px !important;
+  background: #f7faff !important;
+  border: 1px solid #e2ebf7 !important;
+  border-radius: 13px !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos li > b {
+  width: 32px !important;
+  height: 32px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #ffffff !important;
+  background: linear-gradient(180deg, #0a64da 0%, #0751ba 100%) !important;
+  border: 0 !important;
+  border-radius: 50% !important;
+  font-size: 10px !important;
+  box-shadow: 0 5px 12px rgba(7, 87, 201, .16) !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos li > span {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  gap: 2px !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos strong,
+.pedido-guia-faixa .pedido-guia__passos small {
+  overflow: visible !important;
+  text-overflow: clip !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos strong {
+  color: #213249 !important;
+  font-size: 11px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+}
+
+.pedido-guia-faixa .pedido-guia__passos small {
+  color: #718096 !important;
+  font-size: 9.5px !important;
+  line-height: 1.25 !important;
+}
+
+.pedido-guia__seguranca {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 5px !important;
+}
+
+.pedido-guia-faixa .pedido-guia__sem-pagamento {
+  width: fit-content !important;
+  max-width: 100% !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  padding: 8px 11px !important;
+  color: #176445 !important;
+  background: #ecf9f2 !important;
+  border: 1px solid #bce5ce !important;
+  border-radius: 999px !important;
+  font-size: 10px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+  white-space: normal !important;
+}
+
+.pedido-guia__seguranca > small {
+  color: #728095 !important;
+  font-size: 9px !important;
+  line-height: 1.3 !important;
+  white-space: normal !important;
+}
+
+/* CTA do produto: grid fixa ícone, texto e contador sem sobreposição. */
+.produto .produto__acoes .produto__adicionar {
+  width: 100% !important;
+  min-width: 0 !important;
+  min-height: 46px !important;
+  height: auto !important;
+  display: grid !important;
+  grid-template-columns: 24px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  justify-items: stretch !important;
+  gap: 7px !important;
+  padding: 7px 9px !important;
+  overflow: hidden !important;
+  border-radius: 11px !important;
+}
+
+.produto .produto__acoes .produto__adicionar-icone,
+.produto .produto__acoes .produto__adicionar:hover .produto__adicionar-icone,
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-icone {
+  width: 24px !important;
+  height: 24px !important;
+  min-width: 24px !important;
+  flex-basis: 24px !important;
+  justify-self: start !important;
+}
+
+.produto .produto__acoes .produto__adicionar-icone svg,
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-icone svg {
+  width: 13px !important;
+  height: 13px !important;
+}
+
+.produto .produto__acoes .produto__adicionar-texto,
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-texto {
+  min-width: 0 !important;
+  width: 100% !important;
+  font-size: 10.4px !important;
+  font-weight: 800 !important;
+  line-height: 1.1 !important;
+  text-align: center !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+}
+
+.produto .produto__acoes .produto__adicionar-quantidade,
+.produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-quantidade {
+  position: static !important;
+  justify-self: end !important;
+  align-self: center !important;
+  display: inline-grid !important;
+  place-items: center !important;
+  flex: none !important;
+  width: 21px !important;
+  min-width: 21px !important;
+  height: 21px !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  border-radius: 999px !important;
+  font-size: 9px !important;
+  line-height: 1 !important;
+}
+
+.produto .produto__acoes .produto__adicionar-quantidade[hidden] {
+  display: none !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado {
+  grid-template-columns: 24px minmax(0, 1fr) !important;
+}
+
+.produto .produto__acoes .produto__adicionar--confirmado .produto__adicionar-quantidade {
+  display: none !important;
+}
+
+/* Barra persistente: deixa claro que é um pedido em montagem, não checkout. */
+.pedido-barra {
+  position: fixed !important;
+  z-index: 85 !important;
+  left: 50% !important;
+  right: auto !important;
+  bottom: max(16px, env(safe-area-inset-bottom)) !important;
+  width: min(620px, calc(100vw - 32px)) !important;
+  transform: translate(-50%, 18px) !important;
+  opacity: 0 !important;
+  pointer-events: none !important;
+  transition: transform .22s ease, opacity .22s ease !important;
+}
+
+.pedido-barra[hidden] {
+  display: none !important;
+}
+
+.pedido-barra.pedido-barra--visivel {
+  transform: translate(-50%, 0) !important;
+  opacity: 1 !important;
+  pointer-events: auto !important;
+}
+
+.pedido-barra__abrir {
+  width: 100% !important;
+  min-height: 66px !important;
+  display: grid !important;
+  grid-template-columns: 42px minmax(0, 1fr) auto !important;
+  align-items: center !important;
+  gap: 11px !important;
+  padding: 9px 10px !important;
+  color: #ffffff !important;
+  background: linear-gradient(135deg, #0a5fce 0%, #06459e 100%) !important;
+  border: 1px solid rgba(255,255,255,.16) !important;
+  border-radius: 17px !important;
+  box-shadow: 0 16px 38px rgba(0, 48, 112, .28) !important;
+}
+
+.pedido-barra__icone {
+  width: 42px !important;
+  height: 42px !important;
+  display: grid !important;
+  place-items: center !important;
+  color: #0758c5 !important;
+  background: #ffffff !important;
+  border-radius: 12px !important;
+}
+
+.pedido-barra__icone svg {
+  width: 21px !important;
+  height: 21px !important;
+}
+
+.pedido-barra__texto {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-start !important;
+  gap: 2px !important;
+  text-align: left !important;
+}
+
+.pedido-barra__texto strong {
+  color: #ffffff !important;
+  font-size: 13px !important;
+  font-weight: 800 !important;
+  line-height: 1.15 !important;
+}
+
+.pedido-barra__texto small {
+  max-width: 100% !important;
+  color: rgba(255,255,255,.78) !important;
+  font-size: 10.5px !important;
+  line-height: 1.2 !important;
+  white-space: normal !important;
+}
+
+.pedido-barra__cta {
+  min-height: 40px !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  padding: 0 15px !important;
+  color: #064da9 !important;
+  background: #ffffff !important;
+  border-radius: 11px !important;
+  font-size: 10.5px !important;
+  font-weight: 850 !important;
+  white-space: nowrap !important;
+}
+
+body.pedido-em-montagem .catalogo {
+  padding-bottom: 180px !important;
+}
+
+/* Painel: nomes mais claros e sem cara de checkout. */
+.carrinho-etapas .carrinho-etapa span {
+  white-space: normal !important;
+  line-height: 1.15 !important;
+  text-align: center !important;
+}
+
+@media (max-width: 980px) {
+  .pedido-guia-faixa .pedido-guia {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia__cabecalho,
+  .pedido-guia__seguranca {
+    align-items: center !important;
+    text-align: center !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia__cabecalho > small {
+    max-width: 520px !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia__passos {
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 700px) {
+  body.pedido-em-montagem .pedido-toast {
+    bottom: 84px;
+  }
+
+  .pedido-guia-faixa {
+    padding: 0 14px 24px !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia {
+    padding: 14px !important;
+    border-radius: 16px !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia__passos {
+    grid-template-columns: 1fr !important;
+    gap: 8px !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia__passos li {
+    min-height: 54px !important;
+  }
+
+  .pedido-barra {
+    bottom: max(10px, env(safe-area-inset-bottom)) !important;
+    width: calc(100vw - 20px) !important;
+  }
+
+  .pedido-barra__abrir {
+    min-height: 60px !important;
+    grid-template-columns: 38px minmax(0, 1fr) auto !important;
+    gap: 8px !important;
+    padding: 8px !important;
+    border-radius: 15px !important;
+  }
+
+  .pedido-barra__icone {
+    width: 38px !important;
+    height: 38px !important;
+  }
+
+  .pedido-barra__texto strong {
+    font-size: 11.5px !important;
+  }
+
+  .pedido-barra__texto small {
+    font-size: 9px !important;
+  }
+
+  .pedido-barra__cta {
+    min-height: 36px !important;
+    padding: 0 11px !important;
+    font-size: 9.5px !important;
+  }
+}
+
+@media (max-width: 430px) {
+  .pedido-guia-faixa .pedido-guia__cabecalho > strong {
+    font-size: 15.5px !important;
+  }
+
+  .pedido-guia-faixa .pedido-guia__cabecalho > small {
+    font-size: 10px !important;
+  }
+
+  .produto .produto__acoes .produto__adicionar {
+    grid-template-columns: 22px minmax(0, 1fr) auto !important;
+    gap: 5px !important;
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+
+  .produto .produto__acoes .produto__adicionar-icone,
+  .produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-icone {
+    width: 22px !important;
+    height: 22px !important;
+    min-width: 22px !important;
+  }
+
+  .produto .produto__acoes .produto__adicionar-texto,
+  .produto .produto__acoes .produto__adicionar--no-carrinho .produto__adicionar-texto {
+    font-size: 9.6px !important;
+  }
+
+  .pedido-barra__cta {
+    padding: 0 9px !important;
   }
 }
