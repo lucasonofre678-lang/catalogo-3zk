@@ -1,12 +1,13 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-08-19T17:47:29.659Z",
+  "atualizadoEm": "2026-08-22T17:16:41.601Z",
   "produtosPausados": [
     "fusion-high-speed|petg|",
     "masterprint|pla|etiqueta-neutra"
   ],
   "coresPausadas": [
     "masterprint|petg||roxo",
+    "masterprint|petg||vermelho",
     "masterprint|pla|fosforescente|fosforescente-natural-rainbow",
     "masterprint|pla|fosforescente|fosforescente-natural-verde",
     "masterprint|pla||roxo-claro",
