@@ -1049,8 +1049,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cool Grey",
