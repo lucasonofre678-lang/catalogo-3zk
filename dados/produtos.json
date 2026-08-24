@@ -124,8 +124,8 @@
           "assets/fotos/flashforge-pla/sea-green-verde-mar-azulado.webp"
         ],
         "idCatalogo": "flashforge|pla||sea-green-verde-mar-azulado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Honey / Mel",
