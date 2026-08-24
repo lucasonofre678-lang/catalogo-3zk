@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 239,
+  "total": 240,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -2268,6 +2268,16 @@
       "sku": "MP-PETG-VERMELHO",
       "gtin": "7908229103829",
       "descricaoOlist": "Filamento 3D Pteg MasterPrint - VERMELHO"
+    },
+    {
+      "chave": "masterprint|petg|5kg|branco",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "5kg",
+      "cor": "Branco",
+      "olistId": 1054314125,
+      "gtin": "7908229110421",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG BRANCO 5KG (1.75MM) DER 4"
     },
     {
       "chave": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",

@@ -2547,9 +2547,13 @@ function obterDestaqueProduto(produto) {
   const material = String(produto?.material || "")
     .trim()
     .toUpperCase();
+  const linha = String(produto?.linha || "")
+    .trim()
+    .toLowerCase();
 
   const eProdutoNovo =
-    marca === "polyflow" && material === "PLA";
+    (marca === "polyflow" && material === "PLA") ||
+    (marca === "masterprint" && material === "PETG" && linha === "5kg");
 
   if (eProdutoNovo) {
     return {

@@ -2701,6 +2701,29 @@
     ]
   },
   {
+    "marca": "Masterprint",
+    "material": "PETG",
+    "linha": "5kg",
+    "preco": 315,
+    "linkLoja": "",
+    "obs": "Bobina de 5 kg · 1,75 mm",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg-5kg/branco.webp"
+        ],
+        "gtin": "7908229110421",
+        "chaveEstoque": "masterprint|petg|5kg|branco",
+        "statusEstoqueInicial": "ultimas_unidades",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
