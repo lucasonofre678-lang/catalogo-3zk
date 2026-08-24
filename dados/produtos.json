@@ -874,8 +874,8 @@
           "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Marrom",
@@ -959,8 +959,8 @@
           "assets/fotos/masterprint-petg/translucido-amarelo.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-amarelo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Translúcido Azul",
@@ -998,8 +998,8 @@
           "assets/fotos/masterprint-petg/translucido-verde.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Translúcido Vermelho",
@@ -1012,8 +1012,8 @@
           "assets/fotos/masterprint-petg/translucido-vermelho-2.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Transparente",
@@ -3215,6 +3215,31 @@
     "disponivel": true
   },
   {
+    "marca": "Masterprint",
+    "material": "PETG",
+    "linha": "5kg",
+    "preco": 315,
+    "linkLoja": "",
+    "obs": "Bobina de 5 kg · 1,75 mm",
+    "cores": [
+      {
+        "nome": "Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg-5kg/branco.webp"
+        ],
+        "gtin": "7908229110421",
+        "idCatalogo": "masterprint|petg|5kg|branco",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "masterprint|petg|5kg",
+    "disponivel": true
+  },
+  {
     "marca": "Rolo Etiqueta",
     "linha": "Térmica 10x15",
     "material": "Outras",
@@ -3238,7 +3263,7 @@
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
