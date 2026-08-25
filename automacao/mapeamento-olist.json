@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 240,
+  "total": 242,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -255,6 +255,28 @@
       "sku": "PETG - Fluo Green",
       "gtin": null,
       "descricaoOlist": "Filamentos Closin PETG  - PETG - Fluo Green"
+    },
+    {
+      "chave": "closin|petg||fluo-red",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fluo Red",
+      "olistId": 1054371770,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PETG - Fluo Red - 1kg"
+    },
+    {
+      "chave": "closin|petg||fluo-rose",
+      "marca": "Closin",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fluo Rose",
+      "olistId": 1054371778,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PETG - Fluo Rose - 1kg"
     },
     {
       "chave": "closin|petg||fluo-yellow",

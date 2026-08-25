@@ -247,6 +247,30 @@
         "chaveEstoque": "closin|petg||fluo-green"
       },
       {
+        "nome": "Fluo Red",
+        "hex": "#F5333F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-red.webp"
+        ],
+        "chaveEstoque": "closin|petg||fluo-red",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Fluo Rose",
+        "hex": "#FF4D8D",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-rose.webp"
+        ],
+        "chaveEstoque": "closin|petg||fluo-rose",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
         "nome": "Fluo Yellow",
         "hex": "#D6E636",
         "hexFonte": "foto",
