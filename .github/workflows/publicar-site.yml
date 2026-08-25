@@ -16,21 +16,18 @@ on:
       - "dados/ultima-atualizacao.json"
       - "automacao/gerar_catalogo_sem_consultar_olist.py"
       - "automacao/validar_catalogo.py"
-      - "CNAME"
       - ".github/workflows/publicar-site.yml"
 
 permissions:
   contents: read
-  pages: write
-  id-token: write
 
 concurrency:
   group: catalogo-3zk-publicacao
   cancel-in-progress: true
 
 jobs:
-  montar:
-    name: Validar e montar site sem consultar estoque
+  publicar:
+    name: Validar, montar e publicar na Cloudflare Pages
     runs-on: ubuntu-latest
     timeout-minutes: 7
 
@@ -64,12 +61,6 @@ jobs:
             cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
           fi
 
-          if [ -f CNAME ]; then
-            cp CNAME _site/CNAME
-          fi
-
-          touch _site/.nojekyll
-
       - name: Validar catálogo montado
         shell: bash
         run: |
@@ -86,24 +77,9 @@ jobs:
           print("Publicação rápida validada.")
           PY
 
-      - name: Configurar GitHub Pages
-        uses: actions/configure-pages@v5
-
-      - name: Enviar site para publicação
-        uses: actions/upload-pages-artifact@v4
+      - name: Publicar na Cloudflare Pages
+        uses: cloudflare/wrangler-action@v3
         with:
-          path: "_site"
-
-  publicar:
-    name: Publicar catálogo
-    needs: montar
-    runs-on: ubuntu-latest
-
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-
-    steps:
-      - name: Publicar no GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+          apiToken: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          accountId: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+          command: pages deploy _site --project-name=catalogo-3zk --branch=main
