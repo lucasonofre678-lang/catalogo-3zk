@@ -486,8 +486,8 @@
           "assets/fotos/closin-pla/branco.webp"
         ],
         "idCatalogo": "closin|pla||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Preto",
