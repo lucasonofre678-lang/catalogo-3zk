@@ -88,7 +88,7 @@
           "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "idCatalogo": "flashforge|pla||lavender-roxo-claro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
