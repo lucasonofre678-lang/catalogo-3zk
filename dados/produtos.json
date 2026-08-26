@@ -255,8 +255,8 @@
           "assets/fotos/closin-petg/branco.webp"
         ],
         "idCatalogo": "closin|petg||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cinza",
@@ -291,8 +291,32 @@
           "assets/fotos/closin-petg/fluo-green.webp"
         ],
         "idCatalogo": "closin|petg||fluo-green",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fluo Red",
+        "hex": "#F5333F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-red.webp"
+        ],
+        "idCatalogo": "closin|petg||fluo-red",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fluo Rose",
+        "hex": "#FF4D8D",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-petg/fluo-rose.webp"
+        ],
+        "idCatalogo": "closin|petg||fluo-rose",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fluo Yellow",
@@ -303,8 +327,8 @@
           "assets/fotos/closin-petg/fluo-yellow.webp"
         ],
         "idCatalogo": "closin|petg||fluo-yellow",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -327,8 +351,8 @@
           "assets/fotos/closin-petg/pink.webp"
         ],
         "idCatalogo": "closin|petg||pink",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Preto",
@@ -340,8 +364,8 @@
           "assets/fotos/closin-petg/preto-2.webp"
         ],
         "idCatalogo": "closin|petg||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Rosa",
@@ -352,8 +376,8 @@
           "assets/fotos/closin-petg/rosa.webp"
         ],
         "idCatalogo": "closin|petg||rosa",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silver Prateado",
@@ -388,8 +412,8 @@
           "assets/fotos/closin-petg/verde.webp"
         ],
         "idCatalogo": "closin|petg||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Vermelho",
@@ -419,7 +443,7 @@
     ],
     "obs": "Rolo de 1kg",
     "idCatalogo": "closin|petg|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Closin",
@@ -946,8 +970,8 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Translúcido Amarelo",
