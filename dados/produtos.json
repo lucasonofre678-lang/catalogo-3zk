@@ -88,7 +88,7 @@
           "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "idCatalogo": "flashforge|pla||lavender-roxo-claro",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -970,8 +970,8 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Translúcido Amarelo",
@@ -1009,7 +1009,7 @@
           "assets/fotos/masterprint-petg/translucido-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2348,7 +2348,7 @@
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
         "idCatalogo": "masterprint|tpu||natural-transparente",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
