@@ -811,8 +811,8 @@
           "assets/fotos/masterprint-petg/bronze.webp"
         ],
         "idCatalogo": "masterprint|petg||bronze",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cinza",
@@ -970,8 +970,8 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Translúcido Amarelo",
@@ -1009,7 +1009,7 @@
           "assets/fotos/masterprint-petg/translucido-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-branco",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -1061,8 +1061,8 @@
           "assets/fotos/masterprint-petg/verde-sem-foto.webp"
         ],
         "idCatalogo": "masterprint|petg||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Vermelho",
