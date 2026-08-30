@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-08-30T12:19:10-03:00",
+  "ultimaVerificacao": "2026-08-30T17:34:00-03:00",
   "fusoHorario": "America/Sao_Paulo",
   "coresDisponiveis": 132,
   "coresOcultas": 110,
@@ -13,7 +13,7 @@
   "estoquesReutilizadosPorLimite": 41,
   "estoquesReutilizadosPorErro": 0,
   "produtosPausadosSemConsulta": 11,
-  "proximoIndiceConsulta": 92,
+  "proximoIndiceConsulta": 51,
   "modoConsulta": "completa",
   "idsConsultadosParcialmente": [],
   "limiteApiAtingido": false
