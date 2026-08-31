@@ -2216,8 +2216,8 @@
           "assets/fotos/masterprint-abs/natural.webp"
         ],
         "idCatalogo": "masterprint|abs||natural",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul",
