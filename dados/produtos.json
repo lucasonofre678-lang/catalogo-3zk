@@ -88,7 +88,7 @@
           "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "idCatalogo": "flashforge|pla||lavender-roxo-claro",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -811,8 +811,8 @@
           "assets/fotos/masterprint-petg/bronze.webp"
         ],
         "idCatalogo": "masterprint|petg||bronze",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cinza",
@@ -1061,8 +1061,8 @@
           "assets/fotos/masterprint-petg/verde-sem-foto.webp"
         ],
         "idCatalogo": "masterprint|petg||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Vermelho",
@@ -2216,8 +2216,8 @@
           "assets/fotos/masterprint-abs/natural.webp"
         ],
         "idCatalogo": "masterprint|abs||natural",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul",
@@ -2348,7 +2348,7 @@
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
         "idCatalogo": "masterprint|tpu||natural-transparente",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
