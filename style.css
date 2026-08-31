@@ -5139,3 +5139,294 @@ body.pedido-em-montagem .catalogo {
     padding: 0 9px !important;
   }
 }
+
+/* ============================================================
+   MANUTENCAO 3D  (bloco isolado — apague daqui ate o fim do
+   arquivo para remover a funcao, junto com o bloco do index.html)
+   ============================================================ */
+.botao-manutencao {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 10px 16px;
+
+  color: #FFFFFF;
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  border-radius: var(--raio-full);
+
+  font-size: 14px;
+  font-weight: 600;
+  white-space: nowrap;
+
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+
+  transition:
+    transform var(--transicao-suave),
+    background var(--transicao-suave),
+    box-shadow var(--transicao-suave);
+}
+
+.botao-manutencao:hover {
+  background: rgba(255, 255, 255, 0.18);
+  border-color: rgba(255, 255, 255, 0.85);
+  transform: translateY(-2px);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, 0.18);
+}
+
+.botao-manutencao:focus-visible {
+  outline: 2px solid #FFFFFF;
+  outline-offset: 2px;
+}
+
+.botao-manutencao__icone {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+}
+
+/* Tablet: encolhe o texto antes de escondê-lo */
+@media (max-width: 900px) {
+  .botao-manutencao {
+    padding: 10px 13px;
+    font-size: 13px;
+  }
+}
+
+/* Celular: vira botão de ícone, igual ao PEDIDO 3ZK */
+@media (max-width: 760px) {
+  .botao-manutencao {
+    min-width: 44px;
+    padding: 9px 10px;
+    justify-content: center;
+  }
+
+  .botao-manutencao__texto {
+    display: none;
+  }
+
+  .botao-manutencao__icone {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+@media (max-width: 400px) {
+  .botao-manutencao {
+    min-width: 42px;
+    min-height: 42px;
+    padding: 8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .botao-manutencao,
+  .botao-manutencao:hover {
+    transform: none;
+  }
+}
+/* ===================== FIM MANUTENCAO 3D ===================== */
+
+/* ============================================================
+   MANUTENCAO 3D — tela explicativa
+   Bloco isolado. Apague daqui ate o fim do arquivo para remover.
+   ============================================================ */
+
+/* ---------- Tela explicativa (so CSS, via :target) ---------- */
+.manutencao-tela {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transicao-suave),
+    visibility var(--transicao-suave);
+}
+
+.manutencao-tela:target {
+  opacity: 1;
+  visibility: visible;
+}
+
+.manutencao-tela__fundo {
+  position: absolute;
+  inset: 0;
+  background: rgba(9, 22, 46, 0.55);
+}
+
+.manutencao-tela__caixa {
+  position: relative;
+  width: min(480px, 100%);
+  max-height: 88vh;
+  overflow-y: auto;
+  padding: 30px 28px 26px;
+
+  background: var(--cor-fundo-alt);
+  border-radius: var(--raio-lg);
+  box-shadow: var(--sombra-3);
+
+  transform: translateY(10px);
+  transition: transform var(--transicao-suave);
+}
+
+.manutencao-tela:target .manutencao-tela__caixa {
+  transform: translateY(0);
+}
+
+.manutencao-tela__fechar {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--cor-texto-suave);
+  border-radius: var(--raio-full);
+  font-size: 22px;
+  line-height: 1;
+  transition: background var(--transicao-suave);
+}
+
+.manutencao-tela__fechar:hover {
+  background: var(--cor-fundo);
+}
+
+.manutencao-tela__selo {
+  display: inline-block;
+  margin-bottom: 12px;
+  padding: 5px 12px;
+  color: var(--cor-marca);
+  background: var(--cor-marca-clara);
+  border-radius: var(--raio-full);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+.manutencao-tela__titulo {
+  margin: 0 0 10px;
+  color: var(--cor-texto);
+  font-size: 21px;
+  font-weight: 800;
+  line-height: 1.25;
+}
+
+.manutencao-tela__texto {
+  margin: 0 0 18px;
+  color: var(--cor-texto-suave);
+  font-size: 14px;
+  line-height: 1.55;
+}
+
+.manutencao-tela__passos {
+  margin: 0 0 22px;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  color: var(--cor-texto);
+  font-size: 13.5px;
+  line-height: 1.45;
+}
+
+.manutencao-tela__acoes {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.manutencao-tela__botao {
+  flex: 1 1 auto;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 20px;
+
+  color: #FFFFFF;
+  background: var(--cor-marca);
+  border-radius: var(--raio-full);
+  font-size: 14px;
+  font-weight: 700;
+
+  box-shadow: 0 8px 20px rgba(0, 71, 171, 0.22);
+  transition:
+    background var(--transicao-suave),
+    transform var(--transicao-suave);
+}
+
+.manutencao-tela__botao:hover {
+  background: var(--cor-marca-hover);
+  transform: translateY(-1px);
+}
+
+.manutencao-tela__voltar {
+  flex: 0 0 auto;
+  min-height: 46px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 18px;
+
+  color: var(--cor-texto-suave);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-full);
+  font-size: 13.5px;
+  font-weight: 600;
+  transition:
+    background var(--transicao-suave),
+    color var(--transicao-suave);
+}
+
+.manutencao-tela__voltar:hover {
+  color: var(--cor-texto);
+  background: var(--cor-fundo);
+}
+
+.manutencao-tela__nota {
+  display: block;
+  margin-top: 16px;
+  color: var(--cor-texto-suave);
+  font-size: 11.5px;
+  line-height: 1.45;
+}
+
+@media (max-width: 480px) {
+  .manutencao-tela {
+    padding: 14px;
+  }
+
+  .manutencao-tela__caixa {
+    padding: 26px 20px 22px;
+  }
+
+  .manutencao-tela__titulo {
+    font-size: 19px;
+  }
+
+  .manutencao-tela__botao,
+  .manutencao-tela__voltar {
+    flex: 1 1 100%;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .manutencao-tela,
+  .manutencao-tela__caixa,
+  .manutencao-tela__botao:hover {
+    transition: none;
+    transform: none;
+  }
+}
+/* ========== FIM MANUTENCAO 3D — tela ========== */

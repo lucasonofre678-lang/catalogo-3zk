@@ -131,6 +131,34 @@
           <span>Falar no WhatsApp</span>
         </a>
 
+        <!-- ============================================================
+             MANUTENCAO 3D
+             TROQUE O LINK DO GOOGLE FORMS AQUI (unico lugar do projeto).
+             Para remover a funcao inteira, apague este bloco <a> ate o
+             comentario de fim, e o bloco "MANUTENCAO 3D" do style.css.
+             ============================================================ -->
+        <a
+          class="botao-manutencao"
+          href="#manutencao"
+          title="Sua impressora esta com problema? Conte para a 3ZK o que aconteceu."
+          aria-label="Manutencao 3D: assistencia tecnica para impressoras 3D"
+        >
+          <svg
+            class="botao-manutencao__icone"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.9"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            aria-hidden="true"
+          >
+            <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"></path>
+          </svg>
+          <span class="botao-manutencao__texto">Manutenção 3D</span>
+        </a>
+        <!-- ===================== FIM MANUTENCAO 3D ===================== -->
+
         <button
           class="botao-carrinho"
           id="abrir-carrinho"
@@ -555,6 +583,52 @@
       <span class="pedido-barra__cta">Revisar</span>
     </button>
   </aside>
+
+  <!-- ============================================================
+       MANUTENCAO 3D — tela explicativa (abre com #manutencao)
+       Funciona so com CSS (:target), sem JavaScript.
+       TROQUE O LINK DO GOOGLE FORMS AQUI (unico lugar do projeto).
+       Apague daqui ate o comentario de fim para remover.
+       ============================================================ -->
+  <div class="manutencao-tela" id="manutencao" role="dialog" aria-modal="true" aria-labelledby="manutencao-titulo">
+    <a class="manutencao-tela__fundo" href="#" aria-label="Fechar"></a>
+
+    <div class="manutencao-tela__caixa">
+      <a class="manutencao-tela__fechar" href="#" aria-label="Fechar">&times;</a>
+
+      <span class="manutencao-tela__selo">Assistência técnica</span>
+
+      <h2 class="manutencao-tela__titulo" id="manutencao-titulo">Manutenção de impressoras 3D</h2>
+
+      <p class="manutencao-tela__texto">
+        Sua impressora parou, está entupindo, desalinhada ou imprimindo com falha?
+        Conte para a 3ZK o que aconteceu. Nossa equipe analisa as informações e
+        entra em contato para orientar os próximos passos.
+      </p>
+
+      <ol class="manutencao-tela__passos">
+        <li>Você descreve o problema em um formulário rápido</li>
+        <li>A 3ZK analisa as informações</li>
+        <li>Entramos em contato para combinar como prosseguir</li>
+      </ol>
+
+      <div class="manutencao-tela__acoes">
+        <a
+          class="manutencao-tela__botao"
+          href="https://forms.gle/VcvL8WY9HG8YU87f6"
+          target="_blank"
+          rel="noopener"
+        >Descrever o problema</a>
+
+        <a class="manutencao-tela__voltar" href="#">Voltar ao catálogo</a>
+      </div>
+
+      <small class="manutencao-tela__nota">
+        Sem custo para enviar. O orçamento só é combinado depois do nosso contato.
+      </small>
+    </div>
+  </div>
+  <!-- ================ FIM MANUTENCAO 3D — tela ================ -->
 
   <footer class="rodape">
     <div class="rodape__container">
