@@ -898,8 +898,8 @@
           "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Marrom",
@@ -1049,7 +1049,7 @@
           "assets/fotos/masterprint-petg/transparente.webp"
         ],
         "idCatalogo": "masterprint|petg||transparente",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
