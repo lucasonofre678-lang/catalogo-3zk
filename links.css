@@ -11,14 +11,11 @@ body {
 
 body {
     min-height: 100vh;
-
     font-family:
         Arial,
         Helvetica,
         sans-serif;
-
     color: #ffffff;
-
     background:
         linear-gradient(
             180deg,
@@ -26,47 +23,30 @@ body {
             #061e72 48%,
             #041750 100%
         );
-
     overflow-x: hidden;
 }
-
-
-/* =========================
-   PÁGINA
-========================= */
 
 .links-page {
     width: 100%;
     max-width: 760px;
     min-height: 100vh;
-
     margin: 0 auto;
-
     padding:
         72px 28px 34px;
-
     display: flex;
     flex-direction: column;
 }
 
-
-/* =========================
-   CABEÇALHO
-========================= */
-
 .header {
     text-align: center;
-
     margin-bottom: 58px;
 }
 
 .logo {
     display: block;
-
     width: 225px;
     max-width: 58vw;
     height: auto;
-
     margin:
         0 auto 42px;
 }
@@ -74,18 +54,14 @@ body {
 .tagline {
     font-size: 10px;
     font-weight: 700;
-
     letter-spacing: 4px;
-
     color:
         rgba(255, 255, 255, 0.9);
-
     margin-bottom: 94px;
 }
 
 .tagline span {
     color: #12b8ee;
-
     margin:
         0 8px;
 }
@@ -93,64 +69,44 @@ body {
 .header h1 {
     font-size: 44px;
     line-height: 1.1;
-
     font-weight: 800;
-
     letter-spacing: -1.2px;
-
     margin-bottom: 18px;
 }
 
 .subtitle {
     font-size: 21px;
     line-height: 1.4;
-
     color:
         rgba(255, 255, 255, 0.72);
 }
 
-
-/* =========================
-   LINKS
-========================= */
-
 .links {
     display: flex;
     flex-direction: column;
-
     gap: 24px;
 }
 
 .link-card {
     width: 100%;
     min-height: 176px;
-
     display: flex;
     align-items: center;
-
     padding:
         30px 42px;
-
     text-decoration: none;
     color: #ffffff;
-
     background:
         rgba(4, 22, 63, 0.48);
-
     border:
         2px solid rgba(79, 150, 240, 0.58);
-
     border-radius: 30px;
-
     transition:
         transform 0.2s ease,
         background 0.2s ease,
         border-color 0.2s ease,
         box-shadow 0.2s ease;
 }
-
-
-/* CARD PRINCIPAL */
 
 .link-card.featured {
     background:
@@ -159,21 +115,14 @@ body {
             #286bd0 0%,
             #0750bb 100%
         );
-
     border-color: #168eff;
-
     box-shadow:
         0 12px 35px rgba(0, 0, 0, 0.16);
 }
 
-
-/* HOVER */
-
 .link-card:hover {
     transform: translateY(-3px);
-
     border-color: #209bff;
-
     box-shadow:
         0 16px 38px rgba(0, 0, 0, 0.22);
 }
@@ -187,35 +136,21 @@ body {
         );
 }
 
-
-/* CLIQUE */
-
 .link-card:active {
     transform: scale(0.985);
 }
 
-
-/* =========================
-   ÍCONE
-========================= */
-
 .link-icon {
     width: 82px;
     height: 82px;
-
     flex-shrink: 0;
-
     display: flex;
     align-items: center;
     justify-content: center;
-
     margin-right: 34px;
-
     border-radius: 50%;
-
     background:
         rgba(24, 123, 236, 0.30);
-
     color: #ffffff;
 }
 
@@ -227,40 +162,26 @@ body {
 .link-icon svg {
     width: 42px;
     height: 42px;
-
     fill: none;
-
     stroke: currentColor;
-
     stroke-width: 1.8;
-
     stroke-linecap: round;
     stroke-linejoin: round;
 }
 
-
-/* =========================
-   TEXTO
-========================= */
-
 .link-content {
     flex: 1;
-
     min-width: 0;
-
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-
     gap: 7px;
 }
 
 .link-type {
     font-size: 13px;
     font-weight: 700;
-
     letter-spacing: 4px;
-
     color:
         #55c9f5;
 }
@@ -273,37 +194,24 @@ body {
 .link-content strong {
     font-size: 27px;
     line-height: 1.15;
-
     font-weight: 800;
-
     letter-spacing: -0.3px;
 }
 
 .link-content span:last-child {
     font-size: 15px;
     line-height: 1.4;
-
     color:
         rgba(255, 255, 255, 0.72);
 }
 
-
-/* =========================
-   SETA
-========================= */
-
 .arrow {
     flex-shrink: 0;
-
     margin-left: 25px;
-
     font-size: 43px;
     line-height: 1;
-
     font-weight: 300;
-
     color: #ffffff;
-
     transition:
         transform 0.2s ease;
 }
@@ -312,23 +220,13 @@ body {
     transform: translateX(6px);
 }
 
-
-/* =========================
-   RODAPÉ
-========================= */
-
 footer {
     margin-top: auto;
-
     padding-top: 54px;
-
     text-align: center;
-
     font-size: 11px;
     font-weight: 700;
-
     letter-spacing: 3px;
-
     color:
         rgba(255, 255, 255, 0.42);
 }
@@ -336,15 +234,9 @@ footer {
 footer span {
     color:
         rgba(255, 255, 255, 0.25);
-
     margin:
         0 5px;
 }
-
-
-/* =========================
-   MOBILE
-========================= */
 
 @media (max-width: 600px) {
 
@@ -353,112 +245,83 @@ footer span {
             42px 16px 28px;
     }
 
-
     .header {
         margin-bottom: 36px;
     }
 
-
     .logo {
         width: 170px;
-
         margin-bottom: 30px;
     }
 
-
     .tagline {
         font-size: 7px;
-
         letter-spacing: 2.2px;
-
         margin-bottom: 48px;
     }
-
 
     .tagline span {
         margin:
             0 4px;
     }
 
-
     .header h1 {
         font-size: 31px;
-
         letter-spacing: -0.6px;
-
         margin-bottom: 12px;
     }
-
 
     .subtitle {
         font-size: 15px;
     }
 
-
     .links {
         gap: 14px;
     }
 
-
     .link-card {
         min-height: 125px;
-
         padding:
             20px 17px;
-
         border-radius: 21px;
     }
-
 
     .link-icon {
         width: 55px;
         height: 55px;
-
         margin-right: 15px;
     }
-
 
     .link-icon svg {
         width: 29px;
         height: 29px;
     }
 
-
     .link-type {
         font-size: 8px;
-
         letter-spacing: 2.4px;
     }
-
 
     .link-content {
         gap: 4px;
     }
 
-
     .link-content strong {
         font-size: 17px;
     }
-
 
     .link-content span:last-child {
         font-size: 12px;
     }
 
-
     .arrow {
         font-size: 27px;
-
         margin-left: 9px;
     }
 
-
     footer {
         padding-top: 34px;
-
         font-size: 8px;
-
         letter-spacing: 2px;
     }
-
 }
