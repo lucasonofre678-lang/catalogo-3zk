@@ -2,11 +2,13 @@ name: Publicar catálogo rápido
 
 on:
   workflow_dispatch:
+
   push:
     branches:
       - main
     paths:
       - "index.html"
+      - "links.html"
       - "*.css"
       - "script.js"
       - "assets/**"
@@ -49,7 +51,7 @@ jobs:
           rm -rf _site
           mkdir -p _site/dados
 
-          cp index.html script.js _site/
+          cp index.html links.html script.js _site/
           cp ./*.css _site/
           cp -R assets _site/assets
           cp dados/controle-catalogo.json _site/dados/controle-catalogo.json
@@ -74,6 +76,7 @@ jobs:
           ):
               with path.open("r", encoding="utf-8") as file:
                   json.load(file)
+
           print("Publicação rápida validada.")
           PY
 
