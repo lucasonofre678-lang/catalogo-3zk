@@ -88,7 +88,7 @@
           "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "idCatalogo": "flashforge|pla||lavender-roxo-claro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -632,7 +632,7 @@
           "assets/fotos/closin-pla/fluo-red.webp"
         ],
         "idCatalogo": "closin|pla||fluo-red",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -3304,8 +3304,8 @@
         "sku": "ROLO500",
         "gtin": "7908229105717",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "rolo-etiqueta-termica|outras|10x15",
