@@ -632,7 +632,7 @@
           "assets/fotos/closin-pla/fluo-red.webp"
         ],
         "idCatalogo": "closin|pla||fluo-red",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
