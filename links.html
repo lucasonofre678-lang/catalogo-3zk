@@ -4,9 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="theme-color" content="#06247A">
-    <meta name="description" content="3ZK — Tecnologia, qualidade e impressão 3D">
-
     <title>3ZK | Links</title>
 
     <link rel="stylesheet" href="links.css">
@@ -16,152 +13,185 @@
 
     <main class="links-page">
 
-        <!-- DECORAÇÕES DE FUNDO -->
-        <div class="background-decoration decoration-top"></div>
-        <div class="background-decoration decoration-bottom"></div>
+        <!-- =========================
+             CABEÇALHO
+        ========================== -->
+
+        <header class="header">
+
+            <img
+                src="assets/logo-fundo-invisivel.png"
+                alt="3ZK"
+                class="logo"
+            >
+
+            <p class="tagline">
+                TECNOLOGIA
+                <span>•</span>
+                QUALIDADE
+                <span>•</span>
+                IMPRESSÃO 3D
+            </p>
+
+            <h1>Bem-vindo à 3ZK</h1>
+
+            <p class="subtitle">
+                Escolha para onde você quer ir:
+            </p>
+
+        </header>
 
 
-        <section class="links-container">
+        <!-- =========================
+             LINKS
+        ========================== -->
 
-            <!-- LOGO -->
-            <header class="brand">
+        <section class="links">
 
-                <img
-                    src="assets/logo-fundo-invisivel.png"
-                    alt="3ZK"
-                    class="brand-logo"
-                >
 
-                <div class="brand-tagline">
-                    <span>TECNOLOGIA</span>
-                    <i></i>
-                    <span>QUALIDADE</span>
-                    <i></i>
-                    <span>IMPRESSÃO 3D</span>
+            <!-- CATÁLOGO -->
+            <a
+                href="https://3zk.com.br/"
+                class="link-card featured"
+            >
+
+                <div class="link-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M4 7.5 12 3l8 4.5v9L12 21l-8-4.5z"/>
+                        <path d="M4 7.5 12 12l8-4.5"/>
+                        <path d="M12 12v9"/>
+                    </svg>
+
                 </div>
 
-            </header>
 
+                <div class="link-content">
 
-            <!-- TÍTULO -->
-            <section class="welcome">
-
-                <h1>Bem-vindo à 3ZK</h1>
-
-                <p>
-                    Escolha para onde você quer ir:
-                </p>
-
-            </section>
-
-
-            <!-- LINKS -->
-            <nav class="links-list" aria-label="Links da 3ZK">
-
-
-                <!-- SITE FILAMENTOS -->
-                <a
-                    href="https://3zkfilamentos.com.br/"
-                    class="link-card link-primary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-
-                    <div class="link-icon">
-                        <!-- Ícone globo -->
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <circle cx="12" cy="12" r="9"></circle>
-                            <path d="M3 12h18"></path>
-                            <path d="M12 3c3 2.5 3 15.5 0 18"></path>
-                            <path d="M12 3c-3 2.5-3 15.5 0 18"></path>
-                        </svg>
-                    </div>
-
-                    <div class="link-content">
-
-                        <span class="link-label">
-                            SITE
-                        </span>
-
-                        <strong>
-                            3ZK Filamentos
-                        </strong>
-
-                        <span class="link-description">
-                            Filamentos para impressão 3D
-                        </span>
-
-                    </div>
-
-                    <span class="link-arrow">
-                        →
+                    <span class="link-type">
+                        CATÁLOGO
                     </span>
 
-                </a>
+                    <strong>
+                        Catálogo 3ZK
+                    </strong>
 
-
-                <!-- CATÁLOGO -->
-                <a
-                    href="https://3zk.com.br/"
-                    class="link-card link-secondary"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-
-                    <div class="link-icon">
-
-                        <!-- Ícone caixa -->
-                        <svg
-                            viewBox="0 0 24 24"
-                            aria-hidden="true"
-                        >
-                            <path d="M12 3L21 8L12 13L3 8L12 3Z"></path>
-                            <path d="M3 8V16L12 21L21 16V8"></path>
-                            <path d="M12 13V21"></path>
-                        </svg>
-
-                    </div>
-
-                    <div class="link-content">
-
-                        <span class="link-label">
-                            CATÁLOGO
-                        </span>
-
-                        <strong>
-                            Catálogo 3ZK
-                        </strong>
-
-                        <span class="link-description">
-                            Confira todos os nossos produtos
-                        </span>
-
-                    </div>
-
-                    <span class="link-arrow">
-                        →
+                    <span>
+                        Vendas locais em Curitiba
                     </span>
 
-                </a>
-
-            </nav>
+                </div>
 
 
-            <!-- RODAPÉ -->
-            <footer class="footer">
+                <div class="arrow">
+                    →
+                </div>
 
-                <span>3ZK</span>
+            </a>
 
-                <i></i>
 
-                <span>MAIS DO QUE FILAMENTOS</span>
 
-            </footer>
+            <!-- SITE -->
+            <a
+                href="https://3zkfilamentos.com.br/"
+                class="link-card"
+            >
+
+                <div class="link-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <circle cx="12" cy="12" r="9"/>
+                        <path d="M3 12h18"/>
+                        <path d="M12 3c2.5 2.4 3.8 5.4 3.8 9S14.5 18.6 12 21"/>
+                        <path d="M12 3c-2.5 2.4-3.8 5.4-3.8 9S9.5 18.6 12 21"/>
+                    </svg>
+
+                </div>
+
+
+                <div class="link-content">
+
+                    <span class="link-type">
+                        SITE
+                    </span>
+
+                    <strong>
+                        3ZK Filamentos
+                    </strong>
+
+                    <span>
+                        Vendas para todo o Brasil
+                    </span>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
+
+
+
+            <!-- WHATSAPP -->
+            <a
+                href="https://wa.me/554184539430"
+                class="link-card"
+            >
+
+                <div class="link-icon">
+
+                    <svg
+                        viewBox="0 0 24 24"
+                        aria-hidden="true"
+                    >
+                        <path d="M20 11.5a8 8 0 0 1-11.8 7L4 20l1.5-4.1A8 8 0 1 1 20 11.5Z"/>
+                        <path d="M8.5 8.5c.2-.4.4-.4.7-.4h.5c.2 0 .4.1.5.4l.6 1.4c.1.2.1.4-.1.6l-.5.6c.5 1 1.2 1.7 2.2 2.2l.6-.5c.2-.2.4-.2.6-.1l1.4.6c.3.1.4.3.4.5v.5c0 .3-.1.5-.4.7-.3.2-.8.3-1.1.2-1.1-.2-2.4-.9-3.5-2s-1.8-2.4-2-3.5c-.1-.4 0-.8.1-1.2Z"/>
+                    </svg>
+
+                </div>
+
+
+                <div class="link-content">
+
+                    <span class="link-type">
+                        FALE CONOSCO
+                    </span>
+
+                    <strong>
+                        WhatsApp 3ZK
+                    </strong>
+
+                    <span>
+                        Fale diretamente com nossa equipe
+                    </span>
+
+                </div>
+
+
+                <div class="arrow">
+                    →
+                </div>
+
+            </a>
 
         </section>
+
+
+        <!-- =========================
+             RODAPÉ
+        ========================== -->
+
+        <footer>
+            3ZK <span>•</span> MAIS DO QUE FILAMENTOS
+        </footer>
 
     </main>
 
