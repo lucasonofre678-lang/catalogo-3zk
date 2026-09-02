@@ -26,8 +26,8 @@
           "assets/fotos/flashforge-pla/laranja-escuro.webp"
         ],
         "idCatalogo": "flashforge|pla||laranja-escuro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul Esverdeado",
@@ -2869,7 +2869,7 @@
         ],
         "preco": 120,
         "idCatalogo": "multifila|pla||silk-ouro-envelhecido",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
