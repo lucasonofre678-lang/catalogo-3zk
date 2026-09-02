@@ -31,14 +31,13 @@ body {
 }
 
 
-/* ========================================
+/* =========================
    PÁGINA
-======================================== */
+========================= */
 
 .links-page {
     width: 100%;
     max-width: 760px;
-
     min-height: 100vh;
 
     margin: 0 auto;
@@ -51,9 +50,9 @@ body {
 }
 
 
-/* ========================================
+/* =========================
    CABEÇALHO
-======================================== */
+========================= */
 
 .header {
     text-align: center;
@@ -61,27 +60,19 @@ body {
     margin-bottom: 58px;
 }
 
-
-/* LOGO */
-
 .logo {
     display: block;
 
     width: 225px;
     max-width: 58vw;
-
     height: auto;
 
     margin:
         0 auto 42px;
 }
 
-
-/* TAGLINE */
-
 .tagline {
     font-size: 10px;
-
     font-weight: 700;
 
     letter-spacing: 4px;
@@ -99,12 +90,8 @@ body {
         0 8px;
 }
 
-
-/* TÍTULO */
-
 .header h1 {
     font-size: 44px;
-
     line-height: 1.1;
 
     font-weight: 800;
@@ -114,12 +101,8 @@ body {
     margin-bottom: 18px;
 }
 
-
-/* SUBTÍTULO */
-
 .subtitle {
     font-size: 21px;
-
     line-height: 1.4;
 
     color:
@@ -127,37 +110,28 @@ body {
 }
 
 
-/* ========================================
-   LISTA DE LINKS
-======================================== */
+/* =========================
+   LINKS
+========================= */
 
 .links {
     display: flex;
-
     flex-direction: column;
 
     gap: 24px;
 }
 
-
-/* ========================================
-   CARD
-======================================== */
-
 .link-card {
     width: 100%;
-
     min-height: 176px;
 
     display: flex;
-
     align-items: center;
 
     padding:
         30px 42px;
 
     text-decoration: none;
-
     color: #ffffff;
 
     background:
@@ -176,7 +150,7 @@ body {
 }
 
 
-/* PRIMEIRO CARD */
+/* CARD PRINCIPAL */
 
 .link-card.featured {
     background:
@@ -221,9 +195,9 @@ body {
 }
 
 
-/* ========================================
+/* =========================
    ÍCONE
-======================================== */
+========================= */
 
 .link-icon {
     width: 82px;
@@ -232,7 +206,6 @@ body {
     flex-shrink: 0;
 
     display: flex;
-
     align-items: center;
     justify-content: center;
 
@@ -246,16 +219,10 @@ body {
     color: #ffffff;
 }
 
-
-/* ÍCONE DO CARD DESTACADO */
-
 .featured .link-icon {
     background:
         #2186ef;
 }
-
-
-/* SVG */
 
 .link-icon svg {
     width: 42px;
@@ -272,9 +239,9 @@ body {
 }
 
 
-/* ========================================
-   CONTEÚDO
-======================================== */
+/* =========================
+   TEXTO
+========================= */
 
 .link-content {
     flex: 1;
@@ -282,20 +249,14 @@ body {
     min-width: 0;
 
     display: flex;
-
     flex-direction: column;
-
     align-items: flex-start;
 
     gap: 7px;
 }
 
-
-/* PEQUENO TÍTULO */
-
 .link-type {
     font-size: 13px;
-
     font-weight: 700;
 
     letter-spacing: 4px;
@@ -309,12 +270,8 @@ body {
         #65d2f6;
 }
 
-
-/* TÍTULO PRINCIPAL */
-
 .link-content strong {
     font-size: 27px;
-
     line-height: 1.15;
 
     font-weight: 800;
@@ -322,12 +279,8 @@ body {
     letter-spacing: -0.3px;
 }
 
-
-/* DESCRIÇÃO */
-
 .link-content span:last-child {
     font-size: 15px;
-
     line-height: 1.4;
 
     color:
@@ -335,9 +288,9 @@ body {
 }
 
 
-/* ========================================
+/* =========================
    SETA
-======================================== */
+========================= */
 
 .arrow {
     flex-shrink: 0;
@@ -345,7 +298,6 @@ body {
     margin-left: 25px;
 
     font-size: 43px;
-
     line-height: 1;
 
     font-weight: 300;
@@ -361,9 +313,9 @@ body {
 }
 
 
-/* ========================================
+/* =========================
    RODAPÉ
-======================================== */
+========================= */
 
 footer {
     margin-top: auto;
@@ -373,7 +325,6 @@ footer {
     text-align: center;
 
     font-size: 11px;
-
     font-weight: 700;
 
     letter-spacing: 3px;
@@ -391,9 +342,9 @@ footer span {
 }
 
 
-/* ========================================
-   CELULAR
-======================================== */
+/* =========================
+   MOBILE
+========================= */
 
 @media (max-width: 600px) {
 
@@ -402,8 +353,6 @@ footer span {
             42px 16px 28px;
     }
 
-
-    /* HEADER */
 
     .header {
         margin-bottom: 36px;
@@ -425,6 +374,7 @@ footer span {
         margin-bottom: 48px;
     }
 
+
     .tagline span {
         margin:
             0 4px;
@@ -444,8 +394,6 @@ footer span {
         font-size: 15px;
     }
 
-
-    /* CARDS */
 
     .links {
         gap: 14px;
@@ -505,8 +453,6 @@ footer span {
     }
 
 
-    /* FOOTER */
-
     footer {
         padding-top: 34px;
 
@@ -514,4 +460,5 @@ footer span {
 
         letter-spacing: 2px;
     }
+
 }
