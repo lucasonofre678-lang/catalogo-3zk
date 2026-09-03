@@ -2,7 +2,7 @@
   {
     "marca": "Flashforge",
     "material": "PLA",
-    "preco": 90,
+    "preco": 99,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
     "cores": [
       {
@@ -211,9 +211,146 @@
         "idCatalogo": "flashforge|pla||forest-green-verde-floresta",
         "statusEstoque": "em_estoque",
         "disponivel": true
+      },
+      {
+        "nome": "Red / Vermelho",
+        "hex": "#C0272D",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/red-vermelho.webp"
+        ],
+        "idCatalogo": "flashforge|pla||red-vermelho",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Yellow / Amarelo",
+        "hex": "#EFC01F",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/yellow-amarelo.webp"
+        ],
+        "idCatalogo": "flashforge|pla||yellow-amarelo",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Ice Blue / Azul Claro",
+        "hex": "#B7D6E4",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/ice-blue-azul-claro.webp"
+        ],
+        "idCatalogo": "flashforge|pla||ice-blue-azul-claro",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Pink / Rosa",
+        "hex": "#E16A9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/pink-rosa.webp"
+        ],
+        "idCatalogo": "flashforge|pla||pink-rosa",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Tangerine / Tangerina",
+        "hex": "#E4762B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/tangerine-tangerina.webp"
+        ],
+        "idCatalogo": "flashforge|pla||tangerine-tangerina",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Sand / Bege Claro",
+        "hex": "#D6C6A5",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/sand-bege-claro.webp"
+        ],
+        "idCatalogo": "flashforge|pla||sand-bege-claro",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Skin Color / Cor da Pele",
+        "hex": "#E4BC9C",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/skin-color-cor-da-pele.webp"
+        ],
+        "idCatalogo": "flashforge|pla||skin-color-cor-da-pele",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "flashforge|pla|",
+    "disponivel": true
+  },
+  {
+    "marca": "Flashforge",
+    "material": "PLA",
+    "linha": "Marble",
+    "preco": 134.9,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
+    "cores": [
+      {
+        "nome": "Marble Black / Mármore Preto",
+        "hex": "#3E4045",
+        "efeito": "marmorizado",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/marble-black-marmore-preto.webp"
+        ],
+        "preco": 134.9,
+        "idCatalogo": "flashforge|pla|marble|marble-black-marmore-preto",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marble Brown / Mármore Marrom",
+        "hex": "#8B6B4F",
+        "efeito": "marmorizado",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/marble-brown-marmore-marrom.webp"
+        ],
+        "preco": 134.9,
+        "idCatalogo": "flashforge|pla|marble|marble-brown-marmore-marrom",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marble Natural / Mármore Natural",
+        "hex": "#CBC2B4",
+        "efeito": "marmorizado",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/marble-natural-marmore-natural.webp"
+        ],
+        "preco": 134.9,
+        "idCatalogo": "flashforge|pla|marble|marble-natural-marmore-natural",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "flashforge|pla|marble",
     "disponivel": true
   },
   {
@@ -1073,8 +1210,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cool Grey",
