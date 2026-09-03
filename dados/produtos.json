@@ -26,8 +26,8 @@
           "assets/fotos/flashforge-pla/laranja-escuro.webp"
         ],
         "idCatalogo": "flashforge|pla||laranja-escuro",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Azul Esverdeado",
@@ -149,8 +149,8 @@
           "assets/fotos/flashforge-pla/dusty-pink-rosa-desbotado-2.webp"
         ],
         "idCatalogo": "flashforge|pla||dusty-pink-rosa-desbotado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Mango Yellow / Amarelo Manga",
@@ -197,8 +197,8 @@
           "assets/fotos/flashforge-pla/midnight-azul-escuro.webp"
         ],
         "idCatalogo": "flashforge|pla||midnight-azul-escuro",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Forest Green / Verde Floresta",
@@ -209,8 +209,8 @@
           "assets/fotos/flashforge-pla/forest-green-verde-floresta.webp"
         ],
         "idCatalogo": "flashforge|pla||forest-green-verde-floresta",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "flashforge|pla|",
@@ -2919,8 +2919,8 @@
         "preco": 138,
         "gradiente": "conic-gradient(#4B9362 0 33%, #75529A 33% 66%, #B87343 66% 100%)",
         "idCatalogo": "multifila|pla||silk-tricolor-verde-roxo-cobre",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Verde",
