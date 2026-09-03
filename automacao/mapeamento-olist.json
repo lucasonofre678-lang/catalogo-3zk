@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 242,
+  "total": 252,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -189,6 +189,116 @@
       "sku": "6937120327790",
       "gtin": "6937120327790",
       "descricaoOlist": "FILAMENTO FLASHFORGE PLA  - VERDE FLORESTA"
+    },
+    {
+      "chave": "flashforge|pla||red-vermelho",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Red / Vermelho",
+      "olistId": 1054828680,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE RED 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||yellow-amarelo",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Yellow / Amarelo",
+      "olistId": 1054828683,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE YELLOW 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||ice-blue-azul-claro",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Ice Blue / Azul Claro",
+      "olistId": 1054828688,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE ICE BLUE 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||pink-rosa",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Pink / Rosa",
+      "olistId": 1054828697,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE PINK 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||tangerine-tangerina",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Tangerine / Tangerina",
+      "olistId": 1054828703,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE TANGERINE 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||sand-bege-claro",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Sand / Bege Claro",
+      "olistId": 1054828710,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE SAND 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||skin-color-cor-da-pele",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Skin Color / Cor da Pele",
+      "olistId": 1054828717,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE SKIN COLOR 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||marble-black-marmore-preto",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marble Black / Mármore Preto",
+      "olistId": 1054828726,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE BLACK 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||marble-brown-marmore-marrom",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marble Brown / Mármore Marrom",
+      "olistId": 1054828731,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE BROWN 1.75MM 1KG"
+    },
+    {
+      "chave": "flashforge|pla||marble-natural-marmore-natural",
+      "marca": "Flashforge",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marble Natural / Mármore Natural",
+      "olistId": 1054828735,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE NATURAL 1.75MM 1KG"
     },
     {
       "chave": "closin|petg||amarelo",
