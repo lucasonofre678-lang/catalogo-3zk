@@ -261,7 +261,19 @@
         "chaveEstoque": "flashforge|pla||skin-color-cor-da-pele",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
-      },
+      }
+      
+    ]
+  },
+
+
+  {
+    "marca": "Flashforge",
+    "material": "PLA",
+    "linha": "Marble",
+    "preco": 134.9,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
+    "cores": [
       {
         "nome": "Marble Black / Mármore Preto",
         "hex": "#3E4045",
@@ -306,6 +318,7 @@
       }
     ]
   },
+
   {
     "marca": "Closin",
     "material": "PETG",
