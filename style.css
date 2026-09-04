@@ -5430,3 +5430,38 @@ body.pedido-em-montagem .catalogo {
   }
 }
 /* ========== FIM MANUTENCAO 3D — tela ========== */
+
+/* ============================================================
+   COPIAR PEDIDO — botao de copiar o pedido no carrinho
+   Bloco isolado. Apague daqui ate o fim do arquivo para remover.
+   ============================================================ */
+.carrinho-acoes {
+  display: flex;
+  flex-direction: column;
+  margin-top: 9px;
+}
+
+.carrinho-acoes[hidden] {
+  display: none;
+}
+
+.carrinho-botao--copiar {
+  width: 100%;
+  color: #3B4A61;
+  background: #FFFFFF;
+  border: 1px solid #D4DDE9;
+}
+
+.carrinho-botao--copiar:hover {
+  color: var(--carrinho-azul);
+  background: #F2F7FF;
+  border-color: #AFC6E8;
+}
+
+.carrinho-botao--copiar:disabled {
+  cursor: not-allowed;
+  color: #98A2B3;
+  background: #F4F6F9;
+  border-color: #E2E7EE;
+}
+/* ================== FIM COPIAR PEDIDO ================== */

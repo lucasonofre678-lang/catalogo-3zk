@@ -99,7 +99,7 @@
 
   >
 
-  <link rel="stylesheet" href="style.css?v=20260831-1840">
+  <link rel="stylesheet" href="style.css?v=20260904-2005">
   
 </head>
 
@@ -291,7 +291,6 @@
   <section class="pedido-guia-faixa" aria-label="Como funciona o montador de pedido 3ZK">
     <div class="pedido-guia">
       <div class="pedido-guia__cabecalho">
-        <span class="pedido-guia__selo">MONTADOR 3ZK</span>
         <strong>Monte seu pedido em 3 passos</strong>
         <small>Escolha aqui e envie tudo organizado pelo WhatsApp no final.</small>
       </div>
@@ -338,7 +337,6 @@
   >
     <header class="carrinho-painel__cabecalho">
       <div>
-        <span class="carrinho-painel__sobrelinha">MONTADOR 3ZK</span>
         <h2 id="carrinho-titulo">Monte seu pedido</h2>
         <p class="carrinho-painel__subtitulo">Sem checkout: organize tudo aqui e envie pelo WhatsApp.</p>
       </div>
@@ -422,18 +420,6 @@
             <small>Informe seu nome para identificarmos o pedido.</small>
           </label>
 
-          <label class="pedido-campo pedido-campo--inteiro">
-            <span>Telefone</span>
-            <input
-              id="pedido-telefone"
-              name="telefone"
-              type="tel"
-              autocomplete="tel"
-              maxlength="24"
-              placeholder="(47) 99999-9999"
-              inputmode="tel"
-            >
-          </label>
 
           <fieldset class="pedido-opcoes pedido-campo--inteiro">
             <legend>Forma de entrega</legend>
@@ -546,6 +532,19 @@
           disabled
         >Continuar</button>
       </div>
+
+      <!-- ============================================================
+           COPIAR PEDIDO
+           Apague daqui ate o comentario de fim para remover.
+           ============================================================ -->
+      <div class="carrinho-acoes" id="carrinho-acoes" hidden>
+        <button
+          class="carrinho-botao carrinho-botao--copiar"
+          id="carrinho-copiar"
+          type="button"
+        >📋 Copiar pedido</button>
+      </div>
+      <!-- ================== FIM COPIAR PEDIDO ================== -->
     </footer>
   </aside>
 
@@ -639,6 +638,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260831-1840"></script>
+  <script src="script.js?v=20260904-2005"></script>
 </body>
 </html>

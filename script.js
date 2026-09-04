@@ -1763,18 +1763,21 @@ function criarCodigoPedido() {
   return obterCodigoPedido();
 }
 
-function criarMensagemPedidoWhatsApp() {
+function criarMensagemPedidoWhatsApp(opcoes = {}) {
+  const rapido = opcoes.rapido === true;
   const dados = obterDadosFormulario();
   const financeiro = obterResumoFinanceiroPedido();
   const linhas = [
     "🛒 *NOVO PEDIDO — CATÁLOGO 3ZK*",
-    `Código: ${criarCodigoPedido()}`,
-    "",
-    `👤 *Cliente:* ${dados.nome}`
+    `Código: ${criarCodigoPedido()}`
   ];
 
-  if (dados.telefone) {
-    linhas.push(`📱 *Telefone:* ${dados.telefone}`);
+  if (!rapido) {
+    linhas.push("", `👤 *Cliente:* ${dados.nome}`);
+
+    if (dados.telefone) {
+      linhas.push(`📱 *Telefone:* ${dados.telefone}`);
+    }
   }
 
   linhas.push("", "📦 *PRODUTOS*");
@@ -1804,14 +1807,21 @@ function criarMensagemPedidoWhatsApp() {
     linhas.push(`✅ *Total: ${formatarPrecoPedido(financeiro.total)}*`);
   }
 
-  linhas.push(
-    "",
-    `🚚 *Entrega:* ${obterRotuloEntrega(dados.entrega)}`,
-    `💳 *Pagamento:* ${obterRotuloPagamento(dados.pagamento)}`
-  );
+  if (rapido) {
+    linhas.push(
+      "",
+      "📌 *Falta combinar:* entrega e forma de pagamento."
+    );
+  } else {
+    linhas.push(
+      "",
+      `🚚 *Entrega:* ${obterRotuloEntrega(dados.entrega)}`,
+      `💳 *Pagamento:* ${obterRotuloPagamento(dados.pagamento)}`
+    );
 
-  if (dados.observacao) {
-    linhas.push("", "📝 *Observação:*", dados.observacao);
+    if (dados.observacao) {
+      linhas.push("", "📝 *Observação:*", dados.observacao);
+    }
   }
 
   linhas.push(
@@ -1844,6 +1854,76 @@ function enviarPedidoWhatsApp() {
   window.open(endereco, "_blank", "noopener");
 }
 
+/* ============================================================
+   COPIAR PEDIDO — copia o pedido organizado do carrinho
+   Bloco adicionado. Para remover a funcao, apague daqui ate o
+   comentario "FIM PEDIDO RAPIDO".
+   ============================================================ */
+async function copiarTextoPedido(texto) {
+  try {
+    if (navigator.clipboard && window.isSecureContext) {
+      await navigator.clipboard.writeText(texto);
+      return true;
+    }
+
+    const campo = document.createElement("textarea");
+    campo.value = texto;
+    campo.setAttribute("readonly", "");
+    campo.style.position = "fixed";
+    campo.style.left = "-9999px";
+    campo.style.opacity = "0";
+
+    document.body.appendChild(campo);
+    campo.focus();
+    campo.select();
+
+    const copiou = document.execCommand("copy");
+    campo.remove();
+
+    if (!copiou) throw new Error("copia bloqueada");
+    return true;
+  } catch (erro) {
+    window.prompt("Copie o pedido abaixo:", texto);
+    return false;
+  }
+}
+
+async function copiarPedidoCarrinho() {
+  if (carrinho.length === 0) return;
+
+  const botao = document.getElementById("carrinho-copiar");
+  const mensagem = criarMensagemPedidoWhatsApp({
+    rapido: etapaCarrinho !== 3
+  });
+
+  const copiou = await copiarTextoPedido(mensagem);
+
+  if (botao && copiou) {
+    const original = botao.textContent;
+    botao.textContent = "✅ Pedido copiado!";
+    botao.disabled = true;
+
+    window.setTimeout(() => {
+      botao.textContent = original;
+      botao.disabled = false;
+    }, 2200);
+  }
+}
+
+function atualizarAcoesRapidas() {
+  const caixa = document.getElementById("carrinho-acoes");
+  const copiar = document.getElementById("carrinho-copiar");
+
+  if (!caixa) return;
+
+  const temItens = carrinho.length > 0;
+
+  caixa.hidden = !temItens || etapaCarrinho === 2;
+
+  if (copiar) copiar.disabled = !temItens;
+}
+/* ==================== FIM COPIAR PEDIDO ==================== */
+
 function atualizarIndicadoresEtapa() {
   document
     .querySelectorAll("[data-indicador-etapa]")
@@ -1874,7 +1954,7 @@ function atualizarIndicadoresEtapa() {
   carrinhoVoltarEl.hidden = etapaCarrinho === 1;
 
   if (etapaCarrinho === 1) {
-    carrinhoAvancarEl.textContent = "Continuar para os dados";
+    carrinhoAvancarEl.textContent = "Finalizar pedido";
     carrinhoAvancarEl.classList.remove(
       "carrinho-botao--whatsapp"
     );
@@ -1901,6 +1981,8 @@ function atualizarIndicadoresEtapa() {
   }
 
   carrinhoAvancarEl.disabled = carrinho.length === 0;
+
+  atualizarAcoesRapidas();
 }
 
 function mostrarEtapaCarrinho(numero) {
@@ -2186,6 +2268,10 @@ carrinhoAvancarEl?.addEventListener("click", () => {
 
   enviarPedidoWhatsApp();
 });
+
+document
+  .getElementById("carrinho-copiar")
+  ?.addEventListener("click", copiarPedidoCarrinho);
 
 pedidoFormularioEl?.addEventListener("input", salvarDadosFormulario);
 pedidoFormularioEl?.addEventListener("change", (evento) => {
