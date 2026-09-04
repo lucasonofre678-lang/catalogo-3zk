@@ -2305,8 +2305,8 @@
           "assets/fotos/masterprint-abs/amarelo.webp"
         ],
         "idCatalogo": "masterprint|abs||amarelo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Roxo",
