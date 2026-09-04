@@ -268,7 +268,7 @@
       "descricaoOlist": "FILAMENTO FLASHFORGE SKIN COLOR 1.75MM 1KG"
     },
     {
-      "chave": "flashforge|pla||marble-black-marmore-preto",
+      "chave": "flashforge|pla|marble|marble-black-marmore-preto",
       "marca": "Flashforge",
       "material": "PLA",
       "linha": "",
@@ -279,7 +279,7 @@
       "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE BLACK 1.75MM 1KG"
     },
     {
-      "chave": "flashforge|pla||marble-brown-marmore-marrom",
+      "chave": "flashforge|pla|marble|marble-brown-marmore-marrom",
       "marca": "Flashforge",
       "material": "PLA",
       "linha": "",
@@ -290,7 +290,7 @@
       "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE BROWN 1.75MM 1KG"
     },
     {
-      "chave": "flashforge|pla||marble-natural-marmore-natural",
+      "chave": "flashforge|pla|marble|marble-natural-marmore-natural",
       "marca": "Flashforge",
       "material": "PLA",
       "linha": "",

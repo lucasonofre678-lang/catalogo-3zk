@@ -281,7 +281,7 @@
         "assets/fotos/flashforge-pla/marble-black-marmore-preto.webp"
       ],
       "preco": 134.9,
-      "idCatalogo": "flashforge|pla|marble|marble-black-marmore-preto",
+      "chaveEstoque": "flashforge|pla|marble|marble-black-marmore-preto",
       "statusEstoque": "em_estoque",
       "disponivel": true
     },
@@ -295,7 +295,7 @@
         "assets/fotos/flashforge-pla/marble-brown-marmore-marrom.webp"
       ],
       "preco": 134.9,
-      "idCatalogo": "flashforge|pla|marble|marble-brown-marmore-marrom",
+      "chaveEstoque": "flashforge|pla|marble|marble-brown-marmore-marrom",
       "statusEstoque": "em_estoque",
       "disponivel": true
     },
@@ -309,7 +309,7 @@
         "assets/fotos/flashforge-pla/marble-natural-marmore-natural.webp"
       ],
       "preco": 134.9,
-      "idCatalogo": "flashforge|pla|marble|marble-natural-marmore-natural",
+      "chaveEstoque": "flashforge|pla|marble|marble-natural-marmore-natural",
       "statusEstoque": "em_estoque",
       "disponivel": true
     }
