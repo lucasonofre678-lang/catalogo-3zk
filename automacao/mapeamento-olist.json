@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 252,
+  "total": 273,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -268,7 +268,7 @@
       "descricaoOlist": "FILAMENTO FLASHFORGE SKIN COLOR 1.75MM 1KG"
     },
     {
-      "chave": "flashforge|pla|marble|marble-black-marmore-preto",
+      "chave": "flashforge|pla||marble-black-marmore-preto",
       "marca": "Flashforge",
       "material": "PLA",
       "linha": "",
@@ -279,7 +279,7 @@
       "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE BLACK 1.75MM 1KG"
     },
     {
-      "chave": "flashforge|pla|marble|marble-brown-marmore-marrom",
+      "chave": "flashforge|pla||marble-brown-marmore-marrom",
       "marca": "Flashforge",
       "material": "PLA",
       "linha": "",
@@ -290,7 +290,7 @@
       "descricaoOlist": "FILAMENTO FLASHFORGE MARBLE BROWN 1.75MM 1KG"
     },
     {
-      "chave": "flashforge|pla|marble|marble-natural-marmore-natural",
+      "chave": "flashforge|pla||marble-natural-marmore-natural",
       "marca": "Flashforge",
       "material": "PLA",
       "linha": "",
@@ -2773,6 +2773,237 @@
       "sku": "2330",
       "gtin": null,
       "descricaoOlist": null
+    },
+    {
+      "chave": "canetas-marcadoras-multifila|utilidades||12-unidades-preta-e-branca",
+      "marca": "Canetas Marcadoras Multifila",
+      "material": "Utilidades",
+      "linha": "",
+      "cor": "12 unidades · Preta e Branca",
+      "olistId": 1054858321,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Canetas Marcadoras Multifila Utilidades — 12 unidades · Preta e Branca"
+    },
+    {
+      "chave": "canetas-marcadoras-multifila|utilidades||24-unidades-coloridas",
+      "marca": "Canetas Marcadoras Multifila",
+      "material": "Utilidades",
+      "linha": "",
+      "cor": "24 unidades · Coloridas",
+      "olistId": 1054858326,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Canetas Marcadoras Multifila Utilidades — 24 unidades · Coloridas"
+    },
+    {
+      "chave": "canetas-marcadoras-multifila|utilidades||48-unidades-coloridas",
+      "marca": "Canetas Marcadoras Multifila",
+      "material": "Utilidades",
+      "linha": "",
+      "cor": "48 unidades · Coloridas",
+      "olistId": 1054858330,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Canetas Marcadoras Multifila Utilidades — 48 unidades · Coloridas"
+    },
+    {
+      "chave": "parafusos-tipo-gancho|chaveiros|kit-100|cromado",
+      "marca": "Parafusos Tipo Gancho",
+      "material": "Chaveiros",
+      "linha": "Kit 100",
+      "cor": "Cromado",
+      "olistId": 1054858393,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Parafusos Tipo Gancho Chaveiros Kit 100 — Cromado"
+    },
+    {
+      "chave": "parafusos-tipo-gancho|chaveiros|kit-100|dourado",
+      "marca": "Parafusos Tipo Gancho",
+      "material": "Chaveiros",
+      "linha": "Kit 100",
+      "cor": "Dourado",
+      "olistId": 1054858389,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Parafusos Tipo Gancho Chaveiros Kit 100 — Dourado"
+    },
+    {
+      "chave": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-dourado",
+      "marca": "Kit de Chaveiros",
+      "material": "Metal",
+      "linha": "",
+      "cor": "25 un · Gancho Duplo com Argola · Dourado",
+      "olistId": 1054858334,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit de Chaveiros Metal — 25 un · Gancho Duplo com Argola · Dourado"
+    },
+    {
+      "chave": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-prata",
+      "marca": "Kit de Chaveiros",
+      "material": "Metal",
+      "linha": "",
+      "cor": "25 un · Gancho Duplo com Argola · Prata",
+      "olistId": 1054858338,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit de Chaveiros Metal — 25 un · Gancho Duplo com Argola · Prata"
+    },
+    {
+      "chave": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-dourado",
+      "marca": "Kit de Chaveiros",
+      "material": "Metal",
+      "linha": "",
+      "cor": "50 un · Gancho Argola Simples · Dourado",
+      "olistId": 1054858346,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit de Chaveiros Metal — 50 un · Gancho Argola Simples · Dourado"
+    },
+    {
+      "chave": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-prata",
+      "marca": "Kit de Chaveiros",
+      "material": "Metal",
+      "linha": "",
+      "cor": "50 un · Gancho Argola Simples · Prata",
+      "olistId": 1054858342,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit de Chaveiros Metal — 50 un · Gancho Argola Simples · Prata"
+    },
+    {
+      "chave": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-dourado",
+      "marca": "Kit de Chaveiros",
+      "material": "Metal",
+      "linha": "",
+      "cor": "50 un · Simples 25mm + Elo 8mm · Dourado",
+      "olistId": 1054858356,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit de Chaveiros Metal — 50 un · Simples 25mm + Elo 8mm · Dourado"
+    },
+    {
+      "chave": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-prata",
+      "marca": "Kit de Chaveiros",
+      "material": "Metal",
+      "linha": "",
+      "cor": "50 un · Simples 25mm + Elo 8mm · Prata",
+      "olistId": 1054858352,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit de Chaveiros Metal — 50 un · Simples 25mm + Elo 8mm · Prata"
+    },
+    {
+      "chave": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
+      "marca": "Kit 35 em 1",
+      "material": "Ferramentas",
+      "linha": "com bolsa organizadora",
+      "cor": "Kit completo",
+      "olistId": 1054858360,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Kit 35 em 1 Ferramentas com bolsa organizadora — Kit completo"
+    },
+    {
+      "chave": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
+      "marca": "Pincéis de Silicone",
+      "material": "Ferramentas",
+      "linha": "Kit 5",
+      "cor": "Kit com 5 pincéis",
+      "olistId": 1054858385,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Pincéis de Silicone Ferramentas Kit 5 — Kit com 5 pincéis"
+    },
+    {
+      "chave": "multbond|colas||super-adesivo-instantaneo-100g",
+      "marca": "Multbond",
+      "material": "Colas",
+      "linha": "",
+      "cor": "Super Adesivo Instantâneo · 100g",
+      "olistId": 1054858314,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multbond Colas — Super Adesivo Instantâneo · 100g"
+    },
+    {
+      "chave": "multbond|colas||cola-acelerador-de-secagem-220g",
+      "marca": "Multbond",
+      "material": "Colas",
+      "linha": "",
+      "cor": "Cola + Acelerador de Secagem · 220g",
+      "olistId": 1054858317,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Multbond Colas — Cola + Acelerador de Secagem · 220g"
+    },
+    {
+      "chave": "luminarias-led|iluminacao||branco-quente-6w-branco",
+      "marca": "Luminárias LED",
+      "material": "Iluminação",
+      "linha": "",
+      "cor": "Branco Quente 6W · Branco",
+      "olistId": 1054858364,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Luminárias LED Iluminação — Branco Quente 6W · Branco"
+    },
+    {
+      "chave": "luminarias-led|iluminacao||branco-quente-6w-preto",
+      "marca": "Luminárias LED",
+      "material": "Iluminação",
+      "linha": "",
+      "cor": "Branco Quente 6W · Preto",
+      "olistId": 1054858369,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Luminárias LED Iluminação — Branco Quente 6W · Preto"
+    },
+    {
+      "chave": "luminarias-led|iluminacao||frio-quente-neutro-6w-branco",
+      "marca": "Luminárias LED",
+      "material": "Iluminação",
+      "linha": "",
+      "cor": "Frio / Quente / Neutro 6W · Branco",
+      "olistId": 1054858377,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Luminárias LED Iluminação — Frio / Quente / Neutro 6W · Branco"
+    },
+    {
+      "chave": "luminarias-led|iluminacao||rgb-2w-branca",
+      "marca": "Luminárias LED",
+      "material": "Iluminação",
+      "linha": "",
+      "cor": "RGB 2W · Branca",
+      "olistId": 1054858373,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Luminárias LED Iluminação — RGB 2W · Branca"
+    },
+    {
+      "chave": "luminaria-de-cura-uv|resinas|5w|5w",
+      "marca": "Luminária de Cura UV",
+      "material": "Resinas",
+      "linha": "5W",
+      "cor": "5W",
+      "olistId": 1054858381,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Luminária de Cura UV Resinas 5W — 5W"
+    },
+    {
+      "chave": "resina-uv-fotopolimerizavel|resinas|100g|100g",
+      "marca": "Resina UV Fotopolimerizável",
+      "material": "Resinas",
+      "linha": "100g",
+      "cor": "100g",
+      "olistId": 1054858397,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "Resina UV Fotopolimerizável Resinas 100g — 100g"
     }
   ]
 }

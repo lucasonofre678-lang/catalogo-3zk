@@ -3015,13 +3015,167 @@ function encontrarIndiceCorPorSlug(produto, slugCor) {
 let materialAtivo = "todos";
 let destinoDoLinkJaAplicado = false;
 
+/* ============================================================
+   SECOES DO CATALOGO — Filamentos / Acessorios 3D
+   Um produto e acessorio quando tem "secao": "acessorios" no
+   produtos-base.json. Sem esse campo, ele e filamento.
+   A categoria do acessorio vem do campo "categoria".
+   Apague daqui ate "FIM SECOES DO CATALOGO" para remover.
+   ============================================================ */
+let secaoAtiva = "filamentos";
+let categoriaAtiva = "todas";
+
+const secoesGrupoEl = document.getElementById("secoes-grupo");
+const acessoriosIntroEl = document.getElementById("acessorios-intro");
+const filtrosCategoriaEl = document.getElementById("filtros-categoria");
+
+function obterSecaoProduto(produto) {
+  return normalizar(produto.secao) === "acessorios"
+    ? "acessorios"
+    : "filamentos";
+}
+
+function obterCategoriaProduto(produto) {
+  const categoria = String(produto.categoria || "").trim();
+  return categoria || "Outros";
+}
+
+function listarCategoriasAcessorios() {
+  const vistas = new Map();
+
+  produtos
+    .filter((produto) => obterSecaoProduto(produto) === "acessorios")
+    .forEach((produto) => {
+      const categoria = obterCategoriaProduto(produto);
+      vistas.set(normalizar(categoria), categoria);
+    });
+
+  return [...vistas.values()].sort((a, b) =>
+    a.localeCompare(b, "pt-BR")
+  );
+}
+
+function montarFiltrosCategoria() {
+  if (!filtrosCategoriaEl) return;
+
+  const categorias = listarCategoriasAcessorios();
+
+  // Menos de duas categorias nao justifica filtro.
+  if (categorias.length < 2) {
+    filtrosCategoriaEl.innerHTML = "";
+    filtrosCategoriaEl.hidden = true;
+    categoriaAtiva = "todas";
+    return;
+  }
+
+  filtrosCategoriaEl.hidden = false;
+  filtrosCategoriaEl.innerHTML =
+    [
+      `<button class="filtro filtro--ativo" data-categoria="todas">Todos</button>`,
+      ...categorias.map(
+        (categoria) =>
+          `<button class="filtro" data-categoria="${escaparHTML(
+            categoria
+          )}">${escaparHTML(categoria)}</button>`
+      )
+    ].join("");
+
+  categoriaAtiva = "todas";
+}
+
+function atualizarFiltrosMaterial() {
+  if (!filtrosEl) return;
+
+  const materiaisComProduto = new Set(
+    produtos
+      .filter((produto) => obterSecaoProduto(produto) === "filamentos")
+      .map((produto) => normalizar(produto.material))
+  );
+
+  filtrosEl.querySelectorAll(".filtro").forEach((botao) => {
+    const material = normalizar(botao.dataset.material);
+
+    botao.hidden =
+      material !== "todos" && !materiaisComProduto.has(material);
+  });
+}
+
+function aplicarSecaoAtiva() {
+  if (secoesGrupoEl) {
+    secoesGrupoEl.querySelectorAll(".secoes__botao").forEach((botao) => {
+      const ativo = botao.dataset.secao === secaoAtiva;
+      botao.classList.toggle("secoes__botao--ativo", ativo);
+      botao.setAttribute("aria-selected", ativo ? "true" : "false");
+    });
+  }
+
+  const emAcessorios = secaoAtiva === "acessorios";
+
+  if (acessoriosIntroEl) acessoriosIntroEl.hidden = !emAcessorios;
+  if (filtrosEl) filtrosEl.hidden = emAcessorios;
+
+  if (listaProdutosEl) {
+    listaProdutosEl.classList.toggle(
+      "catalogo__container--acessorios",
+      emAcessorios
+    );
+  }
+}
+
+function trocarSecao(novaSecao) {
+  const destino =
+    novaSecao === "acessorios" ? "acessorios" : "filamentos";
+
+  if (destino === secaoAtiva) return;
+
+  secaoAtiva = destino;
+  categoriaAtiva = "todas";
+
+  if (filtrosCategoriaEl) {
+    filtrosCategoriaEl
+      .querySelectorAll(".filtro")
+      .forEach((item) =>
+        item.classList.toggle(
+          "filtro--ativo",
+          item.dataset.categoria === "todas"
+        )
+      );
+  }
+
+  aplicarSecaoAtiva();
+
+  if (listaProdutosEl) {
+    listaProdutosEl.classList.add("catalogo__container--trocando");
+    window.setTimeout(() => {
+      listaProdutosEl.classList.remove("catalogo__container--trocando");
+    }, 260);
+  }
+
+  renderizar();
+}
+/* ================ FIM SECOES DO CATALOGO ================ */
+
 function renderizar() {
   const termo = campoBuscaEl.value.trim();
   const destino = lerDestinoDoLink();
 
   const filtrados = produtos
+    .filter((produto) => obterSecaoProduto(produto) === secaoAtiva)
+    .filter((produto) => {
+      if (secaoAtiva !== "acessorios") return true;
+      if (normalizar(categoriaAtiva) === "todas") return true;
+
+      return (
+        normalizar(obterCategoriaProduto(produto)) ===
+        normalizar(categoriaAtiva)
+      );
+    })
     .filter((produto) =>
-      produtoCorresponde(produto, termo, materialAtivo)
+      produtoCorresponde(
+        produto,
+        termo,
+        secaoAtiva === "acessorios" ? "todos" : materialAtivo
+      )
     )
     .map((produto, indiceOriginal) => ({
       produto,
@@ -3149,6 +3303,10 @@ async function carregarProdutos() {
     produtos = aplicarControleCatalogo(produtosValidos);
     reconciliarCarrinhoComCatalogo();
 
+    montarFiltrosCategoria();
+    atualizarFiltrosMaterial();
+    aplicarSecaoAtiva();
+
     renderizar();
     renderizarCarrinho();
   } catch (erro) {
@@ -3166,6 +3324,25 @@ async function carregarProdutos() {
     estadoVazioEl.hidden = true;
   }
 }
+
+secoesGrupoEl?.addEventListener("click", (evento) => {
+  const botao = evento.target.closest(".secoes__botao");
+  if (!botao) return;
+
+  trocarSecao(botao.dataset.secao);
+});
+
+filtrosCategoriaEl?.addEventListener("click", (evento) => {
+  const botao = evento.target.closest(".filtro");
+  if (!botao) return;
+
+  filtrosCategoriaEl.querySelectorAll(".filtro").forEach((item) => {
+    item.classList.toggle("filtro--ativo", item === botao);
+  });
+
+  categoriaAtiva = botao.dataset.categoria || "todas";
+  renderizar();
+});
 
 campoBuscaEl.addEventListener("input", renderizar);
 

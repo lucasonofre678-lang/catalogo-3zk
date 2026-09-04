@@ -99,7 +99,7 @@
 
   >
 
-  <link rel="stylesheet" href="style.css?v=20260904-2005">
+  <link rel="stylesheet" href="style.css?v=20260904-2130">
   
 </head>
 
@@ -291,6 +291,7 @@
   <section class="pedido-guia-faixa" aria-label="Como funciona o montador de pedido 3ZK">
     <div class="pedido-guia">
       <div class="pedido-guia__cabecalho">
+        <span class="pedido-guia__selo">MONTADOR 3ZK</span>
         <strong>Monte seu pedido em 3 passos</strong>
         <small>Escolha aqui e envie tudo organizado pelo WhatsApp no final.</small>
       </div>
@@ -317,6 +318,49 @@
     </div>
   </section>
 
+  <!-- ============================================================
+       SECOES DO CATALOGO — Filamentos / Acessorios 3D
+       Apague daqui ate "FIM SECOES DO CATALOGO" para remover.
+       ============================================================ -->
+  <section class="secoes-faixa" aria-label="Escolha o que procura">
+    <div class="secoes">
+      <span class="secoes__titulo">O que você procura?</span>
+
+      <div class="secoes__grupo" id="secoes-grupo" role="tablist">
+        <button
+          class="secoes__botao secoes__botao--ativo"
+          data-secao="filamentos"
+          type="button"
+          role="tab"
+          aria-selected="true"
+        >Filamentos</button>
+
+        <button
+          class="secoes__botao"
+          data-secao="acessorios"
+          type="button"
+          role="tab"
+          aria-selected="false"
+        >Acessórios 3D</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="acessorios-intro" id="acessorios-intro" hidden>
+    <div class="acessorios-intro__caixa">
+      <strong>Acessórios 3D</strong>
+      <span>Tudo para complementar sua impressão 3D.</span>
+    </div>
+
+    <div
+      class="filtros filtros--acessorios"
+      id="filtros-categoria"
+      role="group"
+      aria-label="Filtrar acessórios por categoria"
+    ></div>
+  </section>
+  <!-- ================ FIM SECOES DO CATALOGO ================ -->
+
   <main class="catalogo">
     <div class="catalogo__container" id="lista-produtos"></div>
 
@@ -337,6 +381,7 @@
   >
     <header class="carrinho-painel__cabecalho">
       <div>
+        <span class="carrinho-painel__sobrelinha">MONTADOR 3ZK</span>
         <h2 id="carrinho-titulo">Monte seu pedido</h2>
         <p class="carrinho-painel__subtitulo">Sem checkout: organize tudo aqui e envie pelo WhatsApp.</p>
       </div>
@@ -638,6 +683,6 @@
     </div>
   </footer>
 
-  <script src="script.js?v=20260904-2005"></script>
+  <script src="script.js?v=20260904-2130"></script>
 </body>
 </html>

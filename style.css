@@ -5465,3 +5465,156 @@ body.pedido-em-montagem .catalogo {
   border-color: #E2E7EE;
 }
 /* ================== FIM COPIAR PEDIDO ================== */
+
+/* ============================================================
+   SECOES DO CATALOGO — Filamentos / Acessorios 3D
+   Bloco isolado. Apague daqui ate o fim do arquivo para remover.
+   ============================================================ */
+.secoes-faixa {
+  padding: 0 28px 22px;
+}
+
+.secoes {
+  max-width: 1180px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+}
+
+.secoes__titulo {
+  color: var(--cor-texto-suave);
+  font-size: 13.5px;
+  font-weight: 500;
+}
+
+.secoes__grupo {
+  display: inline-flex;
+  gap: 4px;
+  padding: 4px;
+  background: var(--cor-fundo-alt);
+  border: 1px solid var(--cor-borda);
+  border-radius: var(--raio-full);
+  box-shadow: var(--sombra-1);
+}
+
+.secoes__botao {
+  padding: 9px 20px;
+  color: var(--cor-texto-suave);
+  background: transparent;
+  border-radius: var(--raio-full);
+  font-size: 13.5px;
+  font-weight: 600;
+  white-space: nowrap;
+  transition:
+    color var(--transicao-suave),
+    background var(--transicao-suave),
+    box-shadow var(--transicao-suave);
+}
+
+.secoes__botao:hover {
+  color: var(--cor-marca);
+}
+
+.secoes__botao--ativo {
+  color: #FFFFFF;
+  background: var(--cor-marca);
+  box-shadow: 0 6px 16px rgba(0, 71, 171, 0.20);
+}
+
+.secoes__botao--ativo:hover {
+  color: #FFFFFF;
+}
+
+/* Introducao da area de acessorios */
+.acessorios-intro {
+  padding: 0 28px 22px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.acessorios-intro[hidden] {
+  display: none;
+}
+
+.acessorios-intro__caixa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-align: center;
+  animation: acessoriosEntrada 260ms cubic-bezier(.2,.8,.2,1);
+}
+
+.acessorios-intro__caixa strong {
+  color: var(--cor-texto);
+  font-size: 19px;
+  font-weight: 800;
+}
+
+.acessorios-intro__caixa span {
+  color: var(--cor-texto-suave);
+  font-size: 14px;
+}
+
+.filtros--acessorios[hidden] {
+  display: none;
+}
+
+/* Transicao suave ao trocar de secao */
+.catalogo__container--trocando {
+  opacity: 0;
+  transform: translateY(6px);
+  transition: none;
+}
+
+.catalogo__container {
+  transition:
+    opacity var(--transicao-suave),
+    transform var(--transicao-suave);
+}
+
+@keyframes acessoriosEntrada {
+  from { opacity: 0; transform: translateY(-4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@media (max-width: 600px) {
+  .secoes-faixa {
+    padding: 0 16px 18px;
+  }
+
+  .secoes {
+    flex-direction: column;
+    gap: 9px;
+  }
+
+  .secoes__grupo {
+    width: 100%;
+    max-width: 360px;
+  }
+
+  .secoes__botao {
+    flex: 1 1 0;
+    padding: 10px 8px;
+    font-size: 13px;
+    text-align: center;
+  }
+
+  .acessorios-intro {
+    padding: 0 16px 18px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .catalogo__container,
+  .acessorios-intro__caixa {
+    transition: none;
+    animation: none;
+  }
+}
+/* ================ FIM SECOES DO CATALOGO ================ */

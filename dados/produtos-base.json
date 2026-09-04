@@ -261,19 +261,7 @@
         "chaveEstoque": "flashforge|pla||skin-color-cor-da-pele",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
-      }
-      
-    ]
-  },
-
-
-  {
-    "marca": "Flashforge",
-    "material": "PLA",
-    "linha": "Marble",
-    "preco": 134.9,
-    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
-    "cores": [
+      },
       {
         "nome": "Marble Black / Mármore Preto",
         "hex": "#3E4045",
@@ -284,7 +272,7 @@
           "assets/fotos/flashforge-pla/marble-black-marmore-preto.webp"
         ],
         "preco": 134.9,
-        "chaveEstoque": "flashforge|pla|marble|marble-black-marmore-preto",
+        "chaveEstoque": "flashforge|pla||marble-black-marmore-preto",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
@@ -298,7 +286,7 @@
           "assets/fotos/flashforge-pla/marble-brown-marmore-marrom.webp"
         ],
         "preco": 134.9,
-        "chaveEstoque": "flashforge|pla|marble|marble-brown-marmore-marrom",
+        "chaveEstoque": "flashforge|pla||marble-brown-marmore-marrom",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
@@ -312,13 +300,12 @@
           "assets/fotos/flashforge-pla/marble-natural-marmore-natural.webp"
         ],
         "preco": 134.9,
-        "chaveEstoque": "flashforge|pla|marble|marble-natural-marmore-natural",
+        "chaveEstoque": "flashforge|pla||marble-natural-marmore-natural",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       }
     ]
   },
-
   {
     "marca": "Closin",
     "material": "PETG",
@@ -2927,6 +2914,387 @@
         "sku": "ROLO500",
         "gtin": "7908229105717",
         "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Canetas Marcadoras Multifila",
+    "material": "Utilidades",
+    "preco": 45,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Utilidades",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "12 unidades · Preta e Branca",
+        "hex": "#2B2B2B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/canetas-marcadoras-multifila-utilidades/12-unidades-preta-e-branca.webp"
+        ],
+        "chaveEstoque": "canetas-marcadoras-multifila|utilidades||12-unidades-preta-e-branca",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "24 unidades · Coloridas",
+        "hex": "#9AA0A6",
+        "gradiente": "linear-gradient(135deg, #E23B3B 0 25%, #E8A72A 25% 50%, #2FA84F 50% 75%, #2F6FE2 75% 100%)",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/canetas-marcadoras-multifila-utilidades/24-unidades-coloridas.webp"
+        ],
+        "preco": 69,
+        "chaveEstoque": "canetas-marcadoras-multifila|utilidades||24-unidades-coloridas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "48 unidades · Coloridas",
+        "hex": "#9AA0A6",
+        "gradiente": "linear-gradient(135deg, #E23B3B 0 25%, #E8A72A 25% 50%, #2FA84F 50% 75%, #2F6FE2 75% 100%)",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/canetas-marcadoras-multifila-utilidades/48-unidades-coloridas.webp"
+        ],
+        "preco": 139,
+        "chaveEstoque": "canetas-marcadoras-multifila|utilidades||48-unidades-coloridas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Parafusos Tipo Gancho",
+    "material": "Chaveiros",
+    "linha": "Kit 100",
+    "preco": 15,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Chaveiros",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Cromado",
+        "hex": "#C7CBD1",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/cromado.webp"
+        ],
+        "chaveEstoque": "parafusos-tipo-gancho|chaveiros|kit-100|cromado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dourado",
+        "hex": "#C9A227",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/dourado.webp"
+        ],
+        "chaveEstoque": "parafusos-tipo-gancho|chaveiros|kit-100|dourado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Kit de Chaveiros",
+    "material": "Metal",
+    "preco": 37.5,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Chaveiros",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "25 un · Gancho Duplo com Argola · Dourado",
+        "hex": "#C9A227",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-de-chaveiros-metal/25-un-gancho-duplo-com-argola-dourado.webp"
+        ],
+        "chaveEstoque": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-dourado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "25 un · Gancho Duplo com Argola · Prata",
+        "hex": "#C7CBD1",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-de-chaveiros-metal/25-un-gancho-duplo-com-argola-prata.webp"
+        ],
+        "chaveEstoque": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-prata",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "50 un · Gancho Argola Simples · Dourado",
+        "hex": "#C9A227",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-dourado.webp"
+        ],
+        "chaveEstoque": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-dourado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "50 un · Gancho Argola Simples · Prata",
+        "hex": "#C7CBD1",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-prata.webp"
+        ],
+        "chaveEstoque": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-prata",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "50 un · Simples 25mm + Elo 8mm · Dourado",
+        "hex": "#C9A227",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-de-chaveiros-metal/50-un-simples-25mm-elo-8mm-dourado.webp"
+        ],
+        "chaveEstoque": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-dourado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "50 un · Simples 25mm + Elo 8mm · Prata",
+        "hex": "#C7CBD1",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-de-chaveiros-metal/50-un-simples-25mm-elo-8mm-prata.webp"
+        ],
+        "chaveEstoque": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-prata",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Kit 35 em 1",
+    "material": "Ferramentas",
+    "linha": "com bolsa organizadora",
+    "preco": 149,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Ferramentas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Kit completo",
+        "hex": "#4A4F57",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/kit-35-em-1-ferramentas-com-bolsa-organizadora/kit-completo.webp"
+        ],
+        "chaveEstoque": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Pincéis de Silicone",
+    "material": "Ferramentas",
+    "linha": "Kit 5",
+    "preco": 22.9,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Ferramentas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Kit com 5 pincéis",
+        "hex": "#8E9AA6",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/pinceis-de-silicone-ferramentas-kit-5/kit-com-5-pinceis.webp"
+        ],
+        "chaveEstoque": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Multbond",
+    "material": "Colas",
+    "preco": 34.9,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Colas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Super Adesivo Instantâneo · 100g",
+        "hex": "#E4E7EB",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/multbond-colas/super-adesivo-instantaneo-100g.webp"
+        ],
+        "chaveEstoque": "multbond|colas||super-adesivo-instantaneo-100g",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Cola + Acelerador de Secagem · 220g",
+        "hex": "#D8DEE6",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/multbond-colas/cola-acelerador-de-secagem-220g.webp"
+        ],
+        "preco": 79,
+        "chaveEstoque": "multbond|colas||cola-acelerador-de-secagem-220g",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Luminárias LED",
+    "material": "Iluminação",
+    "preco": 49,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Iluminação",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Branco Quente 6W · Branco",
+        "hex": "#F2F2F0",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/luminarias-led-iluminacao/branco-quente-6w-branco.webp"
+        ],
+        "chaveEstoque": "luminarias-led|iluminacao||branco-quente-6w-branco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Branco Quente 6W · Preto",
+        "hex": "#2B2B2B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/luminarias-led-iluminacao/branco-quente-6w-preto.webp"
+        ],
+        "chaveEstoque": "luminarias-led|iluminacao||branco-quente-6w-preto",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Frio / Quente / Neutro 6W · Branco",
+        "hex": "#EDEFF2",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/luminarias-led-iluminacao/frio-quente-neutro-6w-branco.webp"
+        ],
+        "chaveEstoque": "luminarias-led|iluminacao||frio-quente-neutro-6w-branco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "RGB 2W · Branca",
+        "hex": "#9AA0A6",
+        "gradiente": "linear-gradient(135deg, #E23B3B 0 33%, #2FA84F 33% 66%, #2F6FE2 66% 100%)",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/luminarias-led-iluminacao/rgb-2w-branca.webp"
+        ],
+        "preco": 55.9,
+        "chaveEstoque": "luminarias-led|iluminacao||rgb-2w-branca",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Luminária de Cura UV",
+    "material": "Resinas",
+    "linha": "5W",
+    "preco": 37.9,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Resinas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "5W",
+        "hex": "#8E7BD6",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/luminaria-de-cura-uv-resinas-5w/5w.webp"
+        ],
+        "chaveEstoque": "luminaria-de-cura-uv|resinas|5w|5w",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Resina UV Fotopolimerizável",
+    "material": "Resinas",
+    "linha": "100g",
+    "preco": 59,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Resinas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "100g",
+        "hex": "#EDE7DC",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/resina-uv-fotopolimerizavel-resinas-100g/100g.webp"
+        ],
+        "chaveEstoque": "resina-uv-fotopolimerizavel|resinas|100g|100g",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       }
