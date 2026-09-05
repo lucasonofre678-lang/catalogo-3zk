@@ -2389,7 +2389,7 @@
           "assets/fotos/masterprint-abs/verde.webp"
         ],
         "idCatalogo": "masterprint|abs||verde",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
