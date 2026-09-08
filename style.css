@@ -955,73 +955,6 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 
 /* ============================================================
-   CARROSSEL DE FOTOS
-   ============================================================ */
-
-.produto__foto-seta {
-  position: absolute;
-  top: 50%;
-  z-index: 4;
-  width: 34px;
-  height: 34px;
-  display: grid;
-  place-items: center;
-  color: #ffffff;
-  background: rgba(17, 24, 39, 0.72);
-  border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 50%;
-  font-size: 26px;
-  line-height: 1;
-  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
-  transform: translateY(-50%);
-  transition:
-    background var(--transicao-suave),
-    transform var(--transicao-suave),
-    opacity var(--transicao-suave);
-}
-
-.produto__foto-seta:hover {
-  background: var(--cor-marca);
-  transform: translateY(-50%) scale(1.06);
-}
-
-.produto__foto-seta--anterior {
-  left: 8px;
-}
-
-.produto__foto-seta--proxima {
-  right: 8px;
-}
-
-.produto__foto-contador {
-  position: absolute;
-  left: 8px;
-  bottom: 8px;
-  z-index: 4;
-  padding: 5px 8px;
-  color: #ffffff;
-  background: rgba(17, 24, 39, 0.78);
-  border-radius: 8px;
-  font-family: var(--fonte-dado);
-  font-size: 9.5px;
-  font-weight: 600;
-  pointer-events: none;
-}
-
-.produto__foto-seta[hidden],
-.produto__foto-contador[hidden] {
-  display: none;
-}
-
-@media (max-width: 680px) {
-  .produto__foto-seta {
-    width: 40px;
-    height: 40px;
-    font-size: 30px;
-  }
-}
-
-/* ============================================================
    ESTOQUE E CARREGAMENTO DO CATÁLOGO
    ============================================================ */
 
@@ -5618,3 +5551,1325 @@ body.pedido-em-montagem .catalogo {
   }
 }
 /* ================ FIM SECOES DO CATALOGO ================ */
+
+/* ============================================================
+   3ZK — INÍCIO: PHOTO SWATCHES + GALERIA DE CORES + PREÇO PIX
+   Nova UX de variações baseada nas fotos reais cadastradas.
+   Bloco isolado para remoção/rollback seguro.
+   ============================================================ */
+
+/* Preço principal + Pix + 3x */
+.produto .produto__preco {
+  display: flex !important;
+  flex-direction: column !important;
+  align-items: flex-end !important;
+  justify-content: center !important;
+  gap: 4px !important;
+  white-space: normal !important;
+}
+
+.produto__preco-pix {
+  display: block;
+  color: #17834f;
+  font-size: 12.5px;
+  font-weight: 800;
+  line-height: 1.15;
+  white-space: nowrap;
+}
+
+.produto__preco-parcelamento {
+  display: block;
+  max-width: 174px;
+  color: #5e6978;
+  font-size: 10.5px;
+  font-weight: 500;
+  line-height: 1.25;
+  text-align: right;
+}
+
+/* A amostra pequena usa a foto real; o spool sintético fica apenas como fallback. */
+.produto__amostra {
+  position: relative;
+}
+
+.produto__amostra-foto {
+  display: none;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  object-position: center;
+  border: 1px solid #dce6f3;
+  border-radius: 18px;
+  background: #fff;
+  box-shadow: 0 8px 20px -12px rgba(23, 48, 84, .32);
+}
+
+.produto__amostra--com-foto .spool {
+  display: none !important;
+}
+
+.produto__amostra--com-foto .produto__amostra-foto {
+  display: block;
+}
+
+/* Faixa compacta de fotos reais no card.
+   A navegação é adaptada por dispositivo no bloco V6 ao final do arquivo. */
+.produto__swatches-bloco {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 0;
+}
+
+.produto__swatches-linha {
+  display: block;
+  min-width: 0;
+}
+
+.produto__foto-swatches {
+  display: flex;
+  gap: 8px;
+  min-width: 0;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 5px 10px 7px 3px;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.produto__foto-swatches::-webkit-scrollbar {
+  display: none;
+}
+
+.produto__foto-swatch {
+  appearance: none;
+  flex: 0 0 58px;
+  width: 58px;
+  min-width: 58px;
+  padding: 3px 3px 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #243047;
+  background: #fff;
+  border: 1px solid #dfe7f1;
+  border-radius: 12px;
+  cursor: pointer;
+  scroll-snap-align: start;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease;
+}
+
+.produto__foto-swatch:hover {
+  border-color: #9cbbe7;
+  background: #f9fbff;
+  transform: translateY(-1px);
+}
+
+.produto__foto-swatch:focus-visible,
+.produto__ver-todas-cores:focus-visible,
+.galeria-cores button:focus-visible,
+.galeria-cores input:focus-visible {
+  outline: 3px solid rgba(0, 87, 199, .24);
+  outline-offset: 2px;
+}
+
+.produto__foto-swatch--ativo {
+  border-color: #0757c9;
+  background: #f3f8ff;
+  box-shadow: 0 0 0 2px #fff, 0 0 0 4px #0757c9;
+}
+
+.produto__foto-swatch-quadro {
+  position: relative;
+  display: grid;
+  place-items: center;
+  width: 50px;
+  height: 45px;
+  overflow: hidden;
+  background: #f3f6fa;
+  border-radius: 9px;
+}
+
+.produto__foto-swatch-imagem {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.produto__foto-swatch--com-foto .produto__foto-swatch-imagem {
+  display: block;
+}
+
+.produto__foto-swatch-placeholder {
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 100%;
+  color: #95a1b1;
+}
+
+.produto__foto-swatch-placeholder svg {
+  width: 20px;
+  height: 20px;
+}
+
+.produto__foto-swatch--com-foto .produto__foto-swatch-placeholder {
+  display: none;
+}
+
+.produto__foto-swatch-nome {
+  width: 100%;
+  overflow: hidden;
+  color: #536070;
+  font-size: 9px;
+  font-weight: 650;
+  line-height: 1.15;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.produto__foto-swatch--ativo .produto__foto-swatch-nome {
+  color: #07499f;
+  font-weight: 800;
+}
+
+.produto__ver-todas-cores {
+  appearance: none;
+  min-height: 34px;
+  width: 100%;
+  padding: 7px 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+  color: #0757c9;
+  background: #f8fbff;
+  border: 1px solid #d5e3f5;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 800;
+  cursor: pointer;
+  transition: background .18s ease, border-color .18s ease, transform .18s ease;
+}
+
+.produto__ver-todas-cores:hover {
+  background: #edf5ff;
+  border-color: #b7cfef;
+  transform: translateY(-1px);
+}
+
+.produto__ver-todas-cores svg {
+  width: 15px;
+  height: 15px;
+  flex: 0 0 auto;
+}
+
+.produto__ver-todas-cores[hidden] {
+  display: none !important;
+}
+
+/* Galeria: modal compacto no desktop, bottom sheet no celular. */
+body.galeria-cores-aberta {
+  overflow: hidden;
+}
+
+.galeria-cores {
+  position: fixed;
+  inset: 0;
+  z-index: 10050;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 28px;
+  background: rgba(14, 29, 50, .52);
+  backdrop-filter: blur(5px);
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity .2s ease, visibility .2s ease;
+}
+
+.galeria-cores--aberta {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+.galeria-cores__painel {
+  width: min(940px, 100%);
+  max-height: min(760px, calc(100vh - 56px));
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid #dbe5f2;
+  border-radius: 24px;
+  box-shadow: 0 28px 80px rgba(11, 35, 69, .28);
+  transform: translateY(12px) scale(.985);
+  transition: transform .22s cubic-bezier(.2,.8,.2,1);
+}
+
+.galeria-cores--aberta .galeria-cores__painel {
+  transform: translateY(0) scale(1);
+}
+
+.galeria-cores__cabecalho {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 22px 24px 14px;
+}
+
+.galeria-cores__titulo-wrap {
+  min-width: 0;
+}
+
+.galeria-cores__eyebrow {
+  display: block;
+  margin-bottom: 4px;
+  color: #0757c9;
+  font-size: 10px;
+  font-weight: 850;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.galeria-cores__titulo {
+  margin: 0;
+  color: #111827;
+  font-family: var(--fonte-titulo);
+  font-size: 22px;
+  font-weight: 850;
+  line-height: 1.15;
+  letter-spacing: -.02em;
+}
+
+.galeria-cores__subtitulo {
+  margin: 6px 0 0;
+  color: #6b7687;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+.galeria-cores__fechar {
+  appearance: none;
+  flex: 0 0 38px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: #3b4757;
+  background: #f4f7fb;
+  border: 1px solid #e0e7f0;
+  border-radius: 50%;
+  font-size: 25px;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.galeria-cores__ferramentas {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 0 24px 16px;
+}
+
+.galeria-cores__busca-wrap {
+  flex: 1 1 auto;
+  min-width: 0;
+  height: 42px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 13px;
+  background: #f8fafc;
+  border: 1px solid #dbe5f1;
+  border-radius: 12px;
+}
+
+.galeria-cores__busca-wrap svg {
+  width: 18px;
+  height: 18px;
+  flex: 0 0 auto;
+  color: #637083;
+}
+
+.galeria-cores__busca {
+  min-width: 0;
+  width: 100%;
+  padding: 0;
+  color: #172033;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font: inherit;
+  font-size: 13px;
+}
+
+.galeria-cores__contador {
+  flex: 0 0 auto;
+  color: #667386;
+  font-family: var(--fonte-dado);
+  font-size: 12px;
+}
+
+.galeria-cores__conteudo {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+  padding: 4px 24px 22px;
+  overscroll-behavior: contain;
+}
+
+.galeria-cores__grade {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.galeria-cores__item {
+  appearance: none;
+  position: relative;
+  min-width: 0;
+  padding: 7px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  color: #182235;
+  background: #fff;
+  border: 1px solid #dde5ef;
+  border-radius: 15px;
+  text-align: left;
+  cursor: pointer;
+  transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease;
+}
+
+.galeria-cores__item:hover {
+  border-color: #9bb9e4;
+  box-shadow: 0 10px 24px -18px rgba(0, 74, 171, .5);
+  transform: translateY(-2px);
+}
+
+.galeria-cores__item--ativo {
+  border-color: #0757c9;
+  background: #f7fbff;
+  box-shadow: 0 0 0 2px rgba(7, 87, 201, .12);
+}
+
+.galeria-cores__foto {
+  position: relative;
+  display: grid;
+  place-items: center;
+  aspect-ratio: 1 / .82;
+  overflow: hidden;
+  background: #f3f6f9;
+  border-radius: 11px;
+}
+
+.galeria-cores__imagem {
+  display: none;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+.galeria-cores__item--com-foto .galeria-cores__imagem {
+  display: block;
+}
+
+.galeria-cores__placeholder {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+  color: #919eae;
+  text-align: center;
+}
+
+.galeria-cores__placeholder svg {
+  width: 28px;
+  height: 28px;
+}
+
+.galeria-cores__placeholder small {
+  font-size: 9px;
+}
+
+.galeria-cores__item--com-foto .galeria-cores__placeholder {
+  display: none;
+}
+
+.galeria-cores__selecionada {
+  position: absolute;
+  top: 7px;
+  left: 7px;
+  padding: 4px 7px;
+  color: #fff;
+  background: #0757c9;
+  border-radius: 999px;
+  font-size: 8.5px;
+  font-weight: 800;
+}
+
+.galeria-cores__item-info {
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 0 2px 2px;
+}
+
+.galeria-cores__nome {
+  overflow: hidden;
+  color: #1b2537;
+  font-size: 11.5px;
+  font-weight: 800;
+  line-height: 1.25;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.galeria-cores__preco {
+  color: #445166;
+  font-family: var(--fonte-dado);
+  font-size: 10.5px;
+  font-weight: 700;
+}
+
+.galeria-cores__estoque {
+  align-self: flex-start;
+  padding: 3px 6px;
+  color: #8b5b00;
+  background: #fff5d9;
+  border-radius: 999px;
+  font-size: 8.5px;
+  font-weight: 750;
+}
+
+.galeria-cores__vazio {
+  padding: 48px 20px;
+  color: #6d7887;
+  text-align: center;
+  font-size: 13px;
+}
+
+.galeria-cores__rodape {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 13px 24px 16px;
+  color: #647083;
+  background: #fbfcfe;
+  border-top: 1px solid #e4eaf2;
+  font-size: 11px;
+}
+
+.galeria-cores__fechar-secundario {
+  appearance: none;
+  min-height: 36px;
+  padding: 0 14px;
+  color: #0757c9;
+  background: #fff;
+  border: 1px solid #bdd0ec;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 10.5px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Zoom do lightbox já existente. */
+.lightbox__conteudo {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.lightbox__viewport {
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  touch-action: none;
+  border-radius: 12px;
+}
+
+.lightbox__imagem {
+  max-width: 100%;
+  max-height: min(78vh, 760px);
+  transform-origin: center center;
+  transition: transform .16s ease;
+  user-select: none;
+  -webkit-user-drag: none;
+  touch-action: none;
+}
+
+.lightbox__imagem--ampliada {
+  cursor: grab;
+  transition: none;
+}
+
+.lightbox__imagem--arrastando {
+  cursor: grabbing;
+}
+
+.lightbox__controles {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 7px;
+}
+
+.lightbox__controle {
+  appearance: none;
+  min-width: 36px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0 9px;
+  color: #174f9d;
+  background: #f5f9ff;
+  border: 1px solid #c9d9ef;
+  border-radius: 9px;
+  font-size: 15px;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.lightbox__controle--reset {
+  font-size: 10px;
+}
+
+.lightbox__zoom-status {
+  min-width: 48px;
+  color: #596678;
+  font-family: var(--fonte-dado);
+  font-size: 11px;
+  text-align: center;
+}
+
+/* Tablet: preserva o card horizontal sem deixar preço ou swatches apertados. */
+@media (min-width: 769px) and (max-width: 1080px) {
+  .produto__foto-swatch {
+    flex-basis: 54px;
+    width: 54px;
+    min-width: 54px;
+  }
+
+  .produto__foto-swatch-quadro {
+    width: 46px;
+    height: 42px;
+  }
+
+
+  .produto__preco-pix {
+    font-size: 11.5px;
+  }
+
+  .produto__preco-parcelamento {
+    font-size: 9.8px;
+  }
+
+  .galeria-cores__grade {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Tablet pequeno: preço ganha uma linha própria, evitando o selo apertado no topo. */
+@media (min-width: 601px) and (max-width: 768px) {
+  .produto {
+    grid-template-areas:
+      "info info"
+      "foto detalhe"
+      "amostra detalhe"
+      "preco preco"
+      "acoes acoes" !important;
+  }
+
+  .produto__info {
+    padding-right: 0 !important;
+  }
+
+  .produto .produto__preco {
+    position: static !important;
+    grid-area: preco !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    padding: 11px 14px !important;
+    margin: 0 !important;
+    display: grid !important;
+    grid-template-columns: auto auto minmax(0, 1fr) !important;
+    align-items: center !important;
+    justify-content: start !important;
+    column-gap: 12px !important;
+    color: #111827 !important;
+    background: #f8fbff !important;
+    border: 1px solid #dbe7f5 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    text-align: left !important;
+  }
+
+  .produto .produto__preco::before {
+    display: none !important;
+  }
+
+  .produto__preco-pix,
+  .produto__preco-parcelamento {
+    text-align: left;
+  }
+
+  .produto__preco-parcelamento {
+    max-width: none;
+  }
+
+  .produto__amostra-foto {
+    width: 80px;
+    height: 80px;
+  }
+
+
+  .produto__foto-swatches {
+    padding-inline: 2px;
+  }
+
+  .produto__foto-swatch {
+    flex-basis: 60px;
+    width: 60px;
+    min-width: 60px;
+  }
+
+  .galeria-cores {
+    padding: 18px;
+  }
+
+  .galeria-cores__grade {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+/* Mobile: bottom sheet, duas colunas e faixa de miniaturas natural ao toque. */
+@media (max-width: 600px) {
+  .produto {
+    grid-template-areas:
+      "info info"
+      "foto foto"
+      "amostra detalhe"
+      "preco preco"
+      "acoes acoes" !important;
+  }
+
+  .produto__info,
+  .produto--destaque .produto__info {
+    padding-right: 0 !important;
+  }
+
+  .produto__amostra-foto {
+    width: 72px;
+    height: 72px;
+    border-radius: 15px;
+  }
+
+
+  .produto__foto-swatches {
+    width: 100%;
+    gap: 7px;
+    padding: 5px 10px 7px 3px;
+  }
+
+  .produto__foto-swatch {
+    flex: 0 0 54px;
+    width: 54px;
+    min-width: 54px;
+    padding: 3px 3px 5px;
+    border-radius: 11px;
+  }
+
+  .produto__foto-swatch-quadro {
+    width: 46px;
+    height: 42px;
+  }
+
+  .produto__foto-swatch-nome {
+    font-size: 8.3px;
+  }
+
+  .produto__ver-todas-cores {
+    min-height: 36px;
+    justify-content: flex-start;
+    padding: 8px 10px;
+    font-size: 9.7px;
+  }
+
+  .produto__ver-todas-cores span:last-child {
+    margin-left: auto;
+    font-size: 16px;
+  }
+
+  .produto .produto__preco,
+  .produto--destaque .produto__preco {
+    position: static !important;
+    grid-area: preco !important;
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    padding: 11px 12px !important;
+    display: grid !important;
+    grid-template-columns: auto minmax(0, 1fr) !important;
+    grid-template-areas:
+      "normal pix"
+      "parcela parcela" !important;
+    align-items: center !important;
+    gap: 4px 10px !important;
+    color: #111827 !important;
+    background: #f8fbff !important;
+    border: 1px solid #dbe7f5 !important;
+    border-radius: 12px !important;
+    box-shadow: none !important;
+    text-align: left !important;
+  }
+
+  .produto .produto__preco::before {
+    display: none !important;
+  }
+
+  .produto .produto__preco-valor {
+    grid-area: normal;
+    font-size: 19px !important;
+    text-align: left !important;
+  }
+
+  .produto__preco-pix {
+    grid-area: pix;
+    justify-self: end;
+    font-size: 11.5px;
+    text-align: right;
+  }
+
+  .produto__preco-parcelamento {
+    grid-area: parcela;
+    max-width: none;
+    font-size: 9.8px;
+    text-align: left;
+  }
+
+  .galeria-cores {
+    align-items: flex-end;
+    padding: 0;
+    background: rgba(11, 24, 43, .58);
+  }
+
+  .galeria-cores__painel {
+    width: 100%;
+    max-height: 92dvh;
+    border-width: 1px 0 0;
+    border-radius: 24px 24px 0 0;
+    transform: translateY(24px);
+  }
+
+  .galeria-cores__cabecalho {
+    position: relative;
+    padding: 17px 16px 10px;
+  }
+
+  .galeria-cores__cabecalho::before {
+    content: "";
+    position: absolute;
+    top: 7px;
+    left: 50%;
+    width: 42px;
+    height: 4px;
+    border-radius: 999px;
+    background: #d8e0ea;
+    transform: translateX(-50%);
+  }
+
+  .galeria-cores__eyebrow {
+    margin-top: 7px;
+    font-size: 8.5px;
+  }
+
+  .galeria-cores__titulo {
+    font-size: 18px;
+  }
+
+  .galeria-cores__subtitulo {
+    font-size: 10.5px;
+  }
+
+  .galeria-cores__fechar {
+    flex-basis: 34px;
+    width: 34px;
+    height: 34px;
+    font-size: 22px;
+  }
+
+  .galeria-cores__ferramentas {
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    gap: 9px;
+    padding: 4px 16px 12px;
+    background: #fff;
+  }
+
+  .galeria-cores__busca-wrap {
+    height: 40px;
+  }
+
+  .galeria-cores__contador {
+    font-size: 10.5px;
+  }
+
+  .galeria-cores__conteudo {
+    padding: 2px 12px 18px;
+  }
+
+  .galeria-cores__grade {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 9px;
+  }
+
+  .galeria-cores__item {
+    padding: 6px;
+    gap: 7px;
+    border-radius: 13px;
+  }
+
+  .galeria-cores__foto {
+    aspect-ratio: 1 / .84;
+  }
+
+  .galeria-cores__nome {
+    font-size: 10.5px;
+  }
+
+  .galeria-cores__preco {
+    font-size: 9.8px;
+  }
+
+  .galeria-cores__rodape {
+    position: sticky;
+    bottom: 0;
+    padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+    background: rgba(255,255,255,.96);
+    backdrop-filter: blur(8px);
+  }
+
+  .galeria-cores__rodape > span {
+    display: none;
+  }
+
+  .galeria-cores__fechar-secundario {
+    width: 100%;
+    min-height: 40px;
+  }
+
+  .lightbox__controles {
+    flex-wrap: wrap;
+  }
+}
+
+@media (max-width: 380px) {
+  .produto__amostra-foto {
+    width: 66px;
+    height: 66px;
+  }
+
+  .produto__foto-swatch {
+    flex-basis: 50px;
+    width: 50px;
+    min-width: 50px;
+  }
+
+  .produto__foto-swatch-quadro {
+    width: 42px;
+    height: 39px;
+  }
+
+  .produto__foto-swatch-nome {
+    font-size: 7.9px;
+  }
+
+  .produto__preco-pix {
+    font-size: 10.8px;
+  }
+
+  .produto__preco-parcelamento {
+    font-size: 9.2px;
+  }
+
+  .galeria-cores__cabecalho {
+    padding-inline: 12px;
+  }
+
+  .galeria-cores__ferramentas {
+    padding-inline: 12px;
+  }
+
+  .galeria-cores__conteudo {
+    padding-inline: 9px;
+  }
+}
+
+@media (max-width: 340px) {
+  .produto__foto-swatch {
+    flex-basis: 48px;
+    width: 48px;
+    min-width: 48px;
+  }
+
+  .produto__foto-swatch-quadro {
+    width: 40px;
+    height: 37px;
+  }
+
+  .produto__ver-todas-cores {
+    font-size: 9px;
+  }
+
+  .produto .produto__preco {
+    grid-template-columns: 1fr !important;
+    grid-template-areas:
+      "normal"
+      "pix"
+      "parcela" !important;
+  }
+
+  .produto__preco-pix {
+    justify-self: start;
+    text-align: left;
+  }
+
+  .galeria-cores__titulo {
+    font-size: 16.5px;
+  }
+
+  .galeria-cores__subtitulo {
+    font-size: 9.8px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .produto__foto-swatch,
+  .produto__ver-todas-cores,
+  .galeria-cores,
+  .galeria-cores__painel,
+  .galeria-cores__item,
+  .lightbox__imagem {
+    transition: none !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ============================================================
+   3ZK — FIM: PHOTO SWATCHES + GALERIA DE CORES + PREÇO PIX
+   ============================================================ */
+
+
+
+/* ============================================================
+   3ZK — AJUSTE V2: UMA ÚNICA FOTO PRINCIPAL
+   Remove a amostra duplicada e dá mais destaque à foto real.
+   A faixa abaixo mostra somente as outras variações.
+   ============================================================ */
+
+/* A foto principal é a única representação grande da cor selecionada. */
+.produto__amostra {
+  display: none !important;
+}
+
+/* Desktop: recupera o espaço da antiga amostra e aumenta a foto principal. */
+@media (min-width: 1081px) {
+  .produto {
+    grid-template-columns: 180px minmax(300px, 1fr) 230px 170px !important;
+    grid-template-areas: "info detalhe foto lado" !important;
+    column-gap: 24px !important;
+  }
+
+  .produto__info { grid-area: info !important; }
+  .produto__detalhe { grid-area: detalhe !important; }
+  .produto__foto-area {
+    grid-area: foto !important;
+    width: 100% !important;
+    max-width: 230px !important;
+    height: 190px !important;
+    justify-self: center !important;
+  }
+  .produto__lado { grid-area: lado !important; }
+}
+
+/* Notebook/tablet: uma linha limpa, sem miniatura duplicada ao lado. */
+@media (min-width: 769px) and (max-width: 1080px) {
+  .produto {
+    grid-template-columns: 108px 190px minmax(220px, 1fr) 160px !important;
+    grid-template-areas: "info foto detalhe lado" !important;
+    align-items: center !important;
+  }
+
+  .produto__foto-area {
+    width: 100% !important;
+    max-width: 190px !important;
+    height: 210px !important;
+  }
+}
+
+/* Tablet pequeno: a foto cresce e o seletor usa toda a coluna de detalhes. */
+@media (min-width: 601px) and (max-width: 768px) {
+  .produto {
+    grid-template-columns: 220px minmax(0, 1fr) !important;
+    grid-template-areas:
+      "info info"
+      "foto detalhe"
+      "preco preco"
+      "acoes acoes" !important;
+  }
+
+  .produto__foto-area {
+    height: 230px !important;
+  }
+}
+
+/* Mobile: uma única foto grande e, logo abaixo, nome + outras cores. */
+@media (max-width: 600px) {
+  .produto {
+    grid-template-columns: minmax(0, 1fr) !important;
+    grid-template-areas:
+      "info"
+      "foto"
+      "detalhe"
+      "preco"
+      "acoes" !important;
+    row-gap: 14px !important;
+  }
+
+  .produto__info,
+  .produto--destaque .produto__info {
+    grid-area: info !important;
+  }
+
+  .produto__foto-area {
+    grid-area: foto !important;
+    height: clamp(230px, 68vw, 280px) !important;
+    border-radius: 17px !important;
+  }
+
+  .produto__detalhe {
+    grid-area: detalhe !important;
+    width: 100% !important;
+  }
+
+  .produto__foto-swatches {
+    padding-left: 0 !important;
+    padding-right: 8px !important;
+  }
+}
+
+@media (max-width: 380px) {
+  .produto__foto-area {
+    height: clamp(218px, 70vw, 250px) !important;
+  }
+}
+
+/* ================ FIM AJUSTE V2: UMA ÚNICA FOTO PRINCIPAL ================ */
+
+/* ============================================================
+   3ZK — V4: BUSCA DIRETA NO CATÁLOGO + FOTO PRINCIPAL LIMPA
+   A busca usa os cards existentes; não existe lista paralela.
+   ============================================================ */
+
+.produto__foto-swatch--ativo {
+  cursor: default;
+}
+
+.produto__foto-swatch--ativo:hover {
+  transform: none;
+}
+
+.resumo-busca[hidden] {
+  display: none !important;
+}
+
+.resumo-busca {
+  width: min(1120px, calc(100% - 4px));
+  margin: -2px auto 16px;
+  padding: 0 4px;
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 5px 9px;
+  color: #647083;
+  text-align: center;
+  font-size: 10.5px;
+  line-height: 1.45;
+}
+
+.resumo-busca__principal {
+  color: #263247;
+  font-weight: 800;
+}
+
+.resumo-busca__explicacao {
+  color: #647083;
+}
+
+.resumo-busca__sinonimos {
+  color: #0757c9;
+  font-weight: 650;
+}
+
+@media (max-width: 600px) {
+  .resumo-busca {
+    width: 100%;
+    margin: -4px auto 13px;
+    padding-inline: 8px;
+    gap: 3px 6px;
+    font-size: 9.5px;
+  }
+
+  .resumo-busca__principal,
+  .resumo-busca__explicacao,
+  .resumo-busca__sinonimos {
+    width: 100%;
+  }
+}
+
+/* ================ FIM V4: BUSCA DIRETA + FOTO LIMPA ================ */
+
+
+/* ============================================================
+   3ZK — V6: NAVEGAÇÃO HORIZONTAL DAS MINIATURAS
+   Desktop: setas somente à esquerda/direita, sempre na mesma linha.
+   Sem overflow: setas somem. Tablet/mobile: navegação por arraste.
+   ============================================================ */
+
+.produto__swatches-linha {
+  min-width: 0;
+}
+
+.produto__swatches-linha--com-navegacao {
+  display: grid;
+  grid-template-columns: 30px minmax(0, 1fr) 30px;
+  align-items: center;
+  gap: 7px;
+}
+
+.produto__swatches-linha--sem-navegacao {
+  display: block;
+}
+
+.produto__swatches-seta {
+  appearance: none;
+  width: 30px;
+  height: 44px;
+  min-width: 30px;
+  padding: 0;
+  display: grid;
+  place-items: center;
+  align-self: center;
+  color: #0757c9;
+  background: #f5f9ff;
+  border: 1px solid #d7e4f5;
+  border-radius: 10px;
+  font-family: inherit;
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 1;
+  cursor: pointer;
+  user-select: none;
+  transition: background .18s ease, border-color .18s ease, opacity .18s ease;
+}
+
+.produto__swatches-seta span {
+  display: block;
+  transform: translateY(-1px);
+}
+
+.produto__swatches-seta:hover:not(:disabled) {
+  background: #eaf3ff;
+  border-color: #b9d0ef;
+}
+
+.produto__swatches-seta:focus-visible {
+  outline: 3px solid rgba(0, 87, 199, .24);
+  outline-offset: 2px;
+}
+
+.produto__swatches-seta:disabled {
+  opacity: .34;
+  cursor: default;
+}
+
+.produto__swatches-seta[hidden] {
+  display: none !important;
+}
+
+@media (min-width: 769px) and (max-width: 1080px) {
+  .produto__swatches-linha--com-navegacao {
+    grid-template-columns: 28px minmax(0, 1fr) 28px;
+    gap: 5px;
+  }
+
+  .produto__swatches-seta {
+    width: 28px;
+    min-width: 28px;
+  }
+}
+
+@media (max-width: 768px) {
+  .produto__swatches-linha,
+  .produto__swatches-linha--com-navegacao,
+  .produto__swatches-linha--sem-navegacao {
+    display: block !important;
+  }
+
+  .produto__swatches-seta {
+    display: none !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .produto__swatches-seta {
+    transition: none !important;
+  }
+}
+
+/* ================ FIM V6: NAVEGAÇÃO HORIZONTAL ================ */
+
+/* ============================================================
+   3ZK — V7: FOLGA LATERAL DAS MINIATURAS
+   Evita que o contorno da primeira/última variação seja recortado
+   pelo próprio container com overflow horizontal.
+   ============================================================ */
+
+.produto__foto-swatches {
+  padding-left: 7px !important;
+  padding-right: 7px !important;
+  scroll-padding-inline: 7px;
+}
+
+@media (max-width: 768px) {
+  .produto__foto-swatches {
+    padding-left: 7px !important;
+    padding-right: 7px !important;
+  }
+}
+
+/* ================ FIM V7: FOLGA LATERAL DAS MINIATURAS ================ */

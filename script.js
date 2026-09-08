@@ -71,6 +71,216 @@ function slugificar(texto = "") {
     .replace(/^-+|-+$/g, "");
 }
 
+/* ============================================================
+   BUSCA INTELIGENTE DE CORES
+   Expande nomes equivalentes (ex.: bege -> Skin/pele) e tolera
+   pequenos erros de digitação sem alterar os dados do catálogo.
+   ============================================================ */
+const STOPWORDS_BUSCA = new Set([
+  "a", "o", "as", "os", "de", "da", "do", "das", "dos",
+  "e", "em", "com", "cor", "cores", "tom", "tons"
+]);
+
+const FAMILIAS_COR_BUSCA = [
+  {
+    id: "verde",
+    rotulo: "verde",
+    aliases: [
+      "verde", "green", "greenery", "esverdeado", "oliva", "olive",
+      "menta", "mint", "limao", "lime", "floresta", "forest",
+      "sea green", "honeydew"
+    ]
+  },
+  {
+    id: "azul",
+    rotulo: "azul",
+    aliases: [
+      "azul", "blue", "ciano", "cyan", "turquesa", "turquoise",
+      "marinho", "navy", "celeste", "oceano", "ocean"
+    ]
+  },
+  { id: "vermelho", rotulo: "vermelho", aliases: ["vermelho", "red", "vinho", "wine", "bordo", "bordô"] },
+  { id: "rosa", rotulo: "rosa", aliases: ["rosa", "pink", "magenta", "fuchsia", "fucsia"] },
+  { id: "roxo", rotulo: "roxo", aliases: ["roxo", "purple", "violeta", "violet", "lavanda", "lavender", "lilas", "lilac"] },
+  { id: "amarelo", rotulo: "amarelo", aliases: ["amarelo", "yellow", "manga", "mango", "mel", "honey"] },
+  { id: "laranja", rotulo: "laranja", aliases: ["laranja", "orange", "tangerina", "tangerine"] },
+  { id: "preto", rotulo: "preto", aliases: ["preto", "black", "midnight"] },
+  { id: "branco", rotulo: "branco", aliases: ["branco", "white", "marfim", "ivory"] },
+  { id: "cinza", rotulo: "cinza", aliases: ["cinza", "gray", "grey", "grafite", "graphite"] },
+  { id: "marrom", rotulo: "marrom", aliases: ["marrom", "brown", "cafe", "café", "chocolate", "madeira", "wood"] },
+  {
+    id: "bege",
+    rotulo: "bege / pele",
+    aliases: ["bege", "beige", "skin", "cor da pele", "pele", "nude", "areia", "sand", "creme"]
+  },
+  { id: "dourado", rotulo: "dourado", aliases: ["dourado", "gold", "ouro"] },
+  { id: "prata", rotulo: "prata", aliases: ["prata", "silver"] },
+  { id: "cobre", rotulo: "cobre", aliases: ["cobre", "copper", "bronze"] },
+  { id: "transparente", rotulo: "transparente", aliases: ["transparente", "transparent", "translucido", "translúcido", "translucent", "cristal", "crystal"] }
+].map((familia) => ({
+  ...familia,
+  aliasesNormalizados: familia.aliases.map((alias) => normalizar(alias))
+}));
+
+function normalizarBusca(texto = "") {
+  return normalizar(texto)
+    .replace(/[^a-z0-9]+/g, " ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function distanciaEdicaoAte(textoA, textoB, limite = 2) {
+  const a = String(textoA || "");
+  const b = String(textoB || "");
+
+  if (Math.abs(a.length - b.length) > limite) return limite + 1;
+  if (a === b) return 0;
+
+  let anterior = Array.from({ length: b.length + 1 }, (_, i) => i);
+
+  for (let i = 1; i <= a.length; i += 1) {
+    const atual = [i];
+    let menorLinha = atual[0];
+
+    for (let j = 1; j <= b.length; j += 1) {
+      const custo = a[i - 1] === b[j - 1] ? 0 : 1;
+      const valor = Math.min(
+        atual[j - 1] + 1,
+        anterior[j] + 1,
+        anterior[j - 1] + custo
+      );
+
+      atual[j] = valor;
+      menorLinha = Math.min(menorLinha, valor);
+    }
+
+    if (menorLinha > limite) return limite + 1;
+    anterior = atual;
+  }
+
+  return anterior[b.length];
+}
+
+function tokenCombinaComTexto(texto, token) {
+  const textoNormalizado = normalizarBusca(texto);
+  const tokenNormalizado = normalizarBusca(token);
+
+  if (!tokenNormalizado) return true;
+  if (textoNormalizado.includes(tokenNormalizado)) return true;
+
+  if (tokenNormalizado.length < 4) return false;
+
+  const limite = tokenNormalizado.length >= 7 ? 2 : 1;
+  return textoNormalizado.split(" ").some((palavra) =>
+    palavra.length >= 3 &&
+    distanciaEdicaoAte(palavra, tokenNormalizado, limite) <= limite
+  );
+}
+
+function textoContemFraseBusca(texto = "", frase = "") {
+  const textoNormalizado = ` ${normalizarBusca(texto)} `;
+  const fraseNormalizada = normalizarBusca(frase);
+
+  if (!fraseNormalizada) return false;
+
+  return textoNormalizado.includes(` ${fraseNormalizada} `);
+}
+
+function obterFamiliasDoTexto(texto = "") {
+  const normalizado = normalizarBusca(texto);
+  const familias = new Set();
+
+  FAMILIAS_COR_BUSCA.forEach((familia) => {
+    const encontrou = familia.aliasesNormalizados.some((alias) =>
+      textoContemFraseBusca(normalizado, alias)
+    );
+
+    if (encontrou) familias.add(familia.id);
+  });
+
+  return familias;
+}
+
+function criarConsultaBusca(termo = "") {
+  const normalizado = normalizarBusca(termo);
+  const tokens = normalizado
+    .split(" ")
+    .filter(Boolean)
+    .filter((token) => !STOPWORDS_BUSCA.has(token));
+
+  return {
+    original: String(termo || "").trim(),
+    normalizado,
+    tokens,
+    familias: obterFamiliasDoTexto(normalizado)
+  };
+}
+
+function obterFamiliasCor(cor) {
+  return obterFamiliasDoTexto(cor?.nome || "");
+}
+
+function pontuarCorNaBusca(cor, consulta) {
+  if (!consulta?.normalizado) return 0;
+
+  const nome = normalizarBusca(cor?.nome || "");
+  const familiasCor = obterFamiliasCor(cor);
+
+  if (consulta.familias.size) {
+    const pertenceAFamiliaBuscada = [...consulta.familias].some((familia) =>
+      familiasCor.has(familia)
+    );
+
+    if (!pertenceAFamiliaBuscada) return 0;
+  }
+
+  let pontos = 0;
+
+  if (nome === consulta.normalizado) pontos += 160;
+  else if (nome.startsWith(consulta.normalizado)) pontos += 120;
+  else if (nome.includes(consulta.normalizado)) pontos += 95;
+
+  consulta.familias.forEach((familia) => {
+    if (familiasCor.has(familia)) pontos += 70;
+  });
+
+  consulta.tokens.forEach((token) => {
+    if (tokenCombinaComTexto(nome, token)) pontos += 22;
+  });
+
+  return pontos;
+}
+
+function corCorrespondeConsulta(cor, consulta) {
+  if (!consulta?.normalizado) return true;
+
+  const nome = normalizarBusca(cor?.nome || "");
+  const familiasCor = obterFamiliasCor(cor);
+
+  return consulta.tokens.every((token) => {
+    const familiasDoToken = obterFamiliasDoTexto(token);
+
+    if (familiasDoToken.size) {
+      return [...familiasDoToken].some((familia) => familiasCor.has(familia));
+    }
+
+    return tokenCombinaComTexto(nome, token);
+  });
+}
+
+function consultaTemIntencaoDeCor(consulta) {
+  if (!consulta?.normalizado) return false;
+  if (consulta.familias.size) return true;
+
+  return produtos.some((produto) =>
+    produto.cores?.some((cor) =>
+      tokenCombinaComTexto(cor.nome, consulta.normalizado)
+    )
+  );
+}
+
+/* ================ FIM BUSCA INTELIGENTE DE CORES ================ */
+
 const VISUAL_COR_EXATO = {
   "natural transparente": { css: "#EEF0EF", hexBase: "#EEF0EF" },
   "transparente": { css: "#DEDFDE", hexBase: "#DEDFDE" },
@@ -1111,6 +1321,7 @@ const CHAVE_DADOS_PEDIDO_3ZK = "3zk-dados-pedido-v1";
 const CHAVE_CODIGO_PEDIDO_3ZK = "3zk-codigo-pedido-v1";
 const LIMITE_QUANTIDADE_ITEM = 99;
 const DESCONTO_PAGAMENTO_PERCENTUAL = 0.05;
+const PARCELAS_SEM_JUROS = 3;
 
 const abrirCarrinhoEl = document.getElementById("abrir-carrinho");
 const fecharCarrinhoEl = document.getElementById("fechar-carrinho");
@@ -1315,6 +1526,22 @@ function formatarPrecoPedido(valor) {
   });
 }
 
+function calcularDescontoPagamento(valor) {
+  const base = arredondarCentavos(Number(valor) || 0);
+  return arredondarCentavos(base * DESCONTO_PAGAMENTO_PERCENTUAL);
+}
+
+function obterResumoPrecoCatalogo(valor) {
+  const precoNormal = arredondarCentavos(Number(valor) || 0);
+  const descontoPix = calcularDescontoPagamento(precoNormal);
+
+  return {
+    precoNormal,
+    precoPix: arredondarCentavos(precoNormal - descontoPix),
+    valorParcela: arredondarCentavos(precoNormal / PARCELAS_SEM_JUROS)
+  };
+}
+
 function obterPagamentoComDesconto() {
   const pagamento = obterDadosFormulario().pagamento;
 
@@ -1345,9 +1572,7 @@ function obterResumoFinanceiroPedido() {
   const subtotal = arredondarCentavos(obterValorTotalCarrinho());
   const pagamentoComDesconto = obterPagamentoComDesconto();
   const desconto = pagamentoComDesconto.aplica
-    ? arredondarCentavos(
-        subtotal * DESCONTO_PAGAMENTO_PERCENTUAL
-      )
+    ? calcularDescontoPagamento(subtotal)
     : 0;
   const total = arredondarCentavos(subtotal - desconto);
 
@@ -2335,7 +2560,15 @@ lightbox.setAttribute("aria-hidden", "true");
 lightbox.innerHTML = `
   <div class="lightbox__conteudo" role="dialog" aria-modal="true" aria-label="Foto ampliada do filamento">
     <button class="lightbox__fechar" type="button" aria-label="Fechar foto">×</button>
-    <img class="lightbox__imagem" alt="">
+    <div class="lightbox__viewport">
+      <img class="lightbox__imagem" alt="">
+    </div>
+    <div class="lightbox__controles" aria-label="Controles de zoom">
+      <button class="lightbox__controle" type="button" data-zoom="menos" aria-label="Diminuir zoom">−</button>
+      <span class="lightbox__zoom-status" aria-live="polite">100%</span>
+      <button class="lightbox__controle" type="button" data-zoom="mais" aria-label="Aumentar zoom">+</button>
+      <button class="lightbox__controle lightbox__controle--reset" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
+    </div>
   </div>
 `;
 
@@ -2343,12 +2576,51 @@ document.body.appendChild(lightbox);
 
 const lightboxImagem = lightbox.querySelector(".lightbox__imagem");
 const lightboxFechar = lightbox.querySelector(".lightbox__fechar");
+const lightboxViewport = lightbox.querySelector(".lightbox__viewport");
+const lightboxZoomStatus = lightbox.querySelector(".lightbox__zoom-status");
+const lightboxZoomMenos = lightbox.querySelector('[data-zoom="menos"]');
+const lightboxZoomMais = lightbox.querySelector('[data-zoom="mais"]');
+const lightboxZoomReset = lightbox.querySelector('[data-zoom="reset"]');
+
+let lightboxZoom = 1;
+let lightboxDeslocamentoX = 0;
+let lightboxDeslocamentoY = 0;
+let lightboxArrastando = false;
+let lightboxPonteiroId = null;
+let lightboxInicioArrasteX = 0;
+let lightboxInicioArrasteY = 0;
+let lightboxInicioDeslocamentoX = 0;
+let lightboxInicioDeslocamentoY = 0;
+
+function aplicarTransformacaoLightbox() {
+  lightboxImagem.style.transform =
+    `translate(${lightboxDeslocamentoX}px, ${lightboxDeslocamentoY}px) scale(${lightboxZoom})`;
+  lightboxImagem.classList.toggle("lightbox__imagem--ampliada", lightboxZoom > 1);
+  lightboxZoomStatus.textContent = `${Math.round(lightboxZoom * 100)}%`;
+}
+
+function definirZoomLightbox(novoZoom) {
+  lightboxZoom = Math.min(4, Math.max(1, novoZoom));
+
+  if (lightboxZoom === 1) {
+    lightboxDeslocamentoX = 0;
+    lightboxDeslocamentoY = 0;
+  }
+
+  aplicarTransformacaoLightbox();
+}
+
+function resetarZoomLightbox() {
+  lightboxZoom = 1;
+  lightboxDeslocamentoX = 0;
+  lightboxDeslocamentoY = 0;
+  aplicarTransformacaoLightbox();
+}
 
 function abrirLightbox(src, alt) {
-  if (!src) return;
-
   lightboxImagem.src = src;
   lightboxImagem.alt = alt;
+  resetarZoomLightbox();
   lightbox.classList.add("lightbox--aberto");
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
@@ -2359,15 +2631,61 @@ function fecharLightbox() {
   lightbox.classList.remove("lightbox--aberto");
   lightbox.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
+  resetarZoomLightbox();
 }
 
 lightboxFechar.addEventListener("click", fecharLightbox);
+lightboxZoomMenos.addEventListener("click", () => definirZoomLightbox(lightboxZoom - 0.5));
+lightboxZoomMais.addEventListener("click", () => definirZoomLightbox(lightboxZoom + 0.5));
+lightboxZoomReset.addEventListener("click", resetarZoomLightbox);
 
 lightbox.addEventListener("click", (evento) => {
   if (evento.target === lightbox) {
     fecharLightbox();
   }
 });
+
+lightboxViewport.addEventListener("wheel", (evento) => {
+  evento.preventDefault();
+  definirZoomLightbox(lightboxZoom + (evento.deltaY < 0 ? 0.25 : -0.25));
+}, { passive: false });
+
+lightboxImagem.addEventListener("dblclick", () => {
+  definirZoomLightbox(lightboxZoom > 1 ? 1 : 2);
+});
+
+lightboxImagem.addEventListener("pointerdown", (evento) => {
+  if (lightboxZoom <= 1) return;
+
+  lightboxArrastando = true;
+  lightboxPonteiroId = evento.pointerId;
+  lightboxInicioArrasteX = evento.clientX;
+  lightboxInicioArrasteY = evento.clientY;
+  lightboxInicioDeslocamentoX = lightboxDeslocamentoX;
+  lightboxInicioDeslocamentoY = lightboxDeslocamentoY;
+  lightboxImagem.setPointerCapture(evento.pointerId);
+  lightboxImagem.classList.add("lightbox__imagem--arrastando");
+});
+
+lightboxImagem.addEventListener("pointermove", (evento) => {
+  if (!lightboxArrastando || evento.pointerId !== lightboxPonteiroId) return;
+
+  lightboxDeslocamentoX =
+    lightboxInicioDeslocamentoX + (evento.clientX - lightboxInicioArrasteX);
+  lightboxDeslocamentoY =
+    lightboxInicioDeslocamentoY + (evento.clientY - lightboxInicioArrasteY);
+  aplicarTransformacaoLightbox();
+});
+
+function encerrarArrasteLightbox(evento) {
+  if (evento.pointerId !== lightboxPonteiroId) return;
+  lightboxArrastando = false;
+  lightboxPonteiroId = null;
+  lightboxImagem.classList.remove("lightbox__imagem--arrastando");
+}
+
+lightboxImagem.addEventListener("pointerup", encerrarArrasteLightbox);
+lightboxImagem.addEventListener("pointercancel", encerrarArrasteLightbox);
 
 document.addEventListener("keydown", (evento) => {
   if (evento.key === "Escape" && lightbox.classList.contains("lightbox--aberto")) {
@@ -2458,42 +2776,16 @@ function criarAreaFoto() {
   legenda.className = "produto__foto-legenda";
   legenda.textContent = "Clique para ampliar";
 
-  const anterior = document.createElement("button");
-  anterior.type = "button";
-  anterior.className =
-    "produto__foto-seta produto__foto-seta--anterior";
-  anterior.setAttribute("aria-label", "Ver foto anterior");
-  anterior.textContent = "‹";
-  anterior.hidden = true;
-
-  const proxima = document.createElement("button");
-  proxima.type = "button";
-  proxima.className =
-    "produto__foto-seta produto__foto-seta--proxima";
-  proxima.setAttribute("aria-label", "Ver próxima foto");
-  proxima.textContent = "›";
-  proxima.hidden = true;
-
-  const contador = document.createElement("span");
-  contador.className = "produto__foto-contador";
-  contador.hidden = true;
-
   botao.appendChild(imagem);
   botao.appendChild(placeholder);
   botao.appendChild(legenda);
 
   area.appendChild(botao);
-  area.appendChild(anterior);
-  area.appendChild(proxima);
-  area.appendChild(contador);
 
   return {
     area,
     botao,
-    imagem,
-    anterior,
-    proxima,
-    contador
+    imagem
   };
 }
 
@@ -2513,10 +2805,7 @@ async function atualizarFoto({
   area,
   botaoImagem,
   imagem,
-  botaoVerFoto,
-  anterior,
-  proxima,
-  contador
+  botaoVerFoto
 }) {
   const caminhos = obterFotosCor(produto, cor);
   const tokenCarregamento = `${Date.now()}-${Math.random()}`;
@@ -2524,30 +2813,18 @@ async function atualizarFoto({
   imagem.dataset.tokenCarregamento = tokenCarregamento;
 
   area.classList.remove("produto__foto-area--carregada");
-  area.classList.remove("produto__foto-area--multipla");
 
   botaoImagem.disabled = true;
   botaoVerFoto.disabled = true;
   botaoVerFoto.textContent = "Carregando foto...";
 
-  anterior.hidden = true;
-  proxima.hidden = true;
-  contador.hidden = true;
-
-  anterior.onclick = null;
-  proxima.onclick = null;
-
-  const resultados = await Promise.all(
-    caminhos.map((caminho) => testarImagem(caminho))
-  );
+  const caminhoAtual = await obterPrimeiraFotoValida(produto, cor);
 
   if (imagem.dataset.tokenCarregamento !== tokenCarregamento) {
     return;
   }
 
-  const fotosValidas = resultados.filter(Boolean);
-
-  if (fotosValidas.length === 0) {
+  if (!caminhoAtual) {
     botaoVerFoto.textContent = "Foto em breve";
 
     console.warn(
@@ -2559,56 +2836,15 @@ async function atualizarFoto({
     return;
   }
 
-  let indiceAtual = 0;
-  let caminhoAtual = fotosValidas[0];
+  imagem.src = caminhoAtual;
+  imagem.alt =
+    `${obterNomeCompletoProduto(produto)} na ${obterRotuloVariacaoSingular(produto)} ${cor.nome}.`;
+  imagem.dataset.caminho = caminhoAtual;
 
-  function mostrarFoto(indice) {
-    indiceAtual =
-      (indice + fotosValidas.length) % fotosValidas.length;
-
-    caminhoAtual = fotosValidas[indiceAtual];
-
-    imagem.src = caminhoAtual;
-    imagem.alt =
-      `${obterNomeCompletoProduto(produto)} na ${obterRotuloVariacaoSingular(produto)} ${cor.nome}. ` +
-      `Foto ${indiceAtual + 1} de ${fotosValidas.length}.`;
-
-    imagem.dataset.caminho = caminhoAtual;
-
-    area.classList.add("produto__foto-area--carregada");
-    area.classList.toggle(
-      "produto__foto-area--multipla",
-      fotosValidas.length > 1
-    );
-
-    botaoImagem.disabled = false;
-    botaoVerFoto.disabled = false;
-    botaoVerFoto.textContent =
-      fotosValidas.length > 1
-        ? `Ver fotos (${fotosValidas.length})`
-        : "Ver foto ampliada";
-
-    const possuiVarias = fotosValidas.length > 1;
-
-    anterior.hidden = !possuiVarias;
-    proxima.hidden = !possuiVarias;
-    contador.hidden = !possuiVarias;
-
-    if (possuiVarias) {
-      contador.textContent =
-        `${indiceAtual + 1} / ${fotosValidas.length}`;
-    }
-  }
-
-  anterior.onclick = (evento) => {
-    evento.stopPropagation();
-    mostrarFoto(indiceAtual - 1);
-  };
-
-  proxima.onclick = (evento) => {
-    evento.stopPropagation();
-    mostrarFoto(indiceAtual + 1);
-  };
+  area.classList.add("produto__foto-area--carregada");
+  botaoImagem.disabled = false;
+  botaoVerFoto.disabled = false;
+  botaoVerFoto.textContent = "Ver foto ampliada";
 
   function abrirFotoAtual() {
     abrirLightbox(
@@ -2619,8 +2855,6 @@ async function atualizarFoto({
 
   botaoImagem.onclick = abrirFotoAtual;
   botaoVerFoto.onclick = abrirFotoAtual;
-
-  mostrarFoto(0);
 }
 
 /* ============================================================
@@ -2690,6 +2924,342 @@ function criarSeloDestaqueProduto(destaque) {
 }
 
 /* ============================================================
+   3ZK — FOTO SWATCHES E GALERIA DE CORES
+   A foto real vira a referência principal para explorar variações.
+   Não altera dados, estoque, IDs, Olist nem a lógica do pedido.
+   ============================================================ */
+const cachePrimeiraFotoVariacao = new Map();
+let galeriaCoresAtiva = null;
+let ultimoFocoAntesGaleria = null;
+
+function obterPrimeiraFotoValida(produto, cor) {
+  const caminhos = obterFotosCor(produto, cor);
+  const chave = caminhos.join("|");
+
+  if (!chave) {
+    return Promise.resolve(null);
+  }
+
+  if (!cachePrimeiraFotoVariacao.has(chave)) {
+    cachePrimeiraFotoVariacao.set(chave, (async () => {
+      for (const caminho of caminhos) {
+        const valido = await testarImagem(caminho);
+        if (valido) return valido;
+      }
+      return null;
+    })());
+  }
+
+  return cachePrimeiraFotoVariacao.get(chave);
+}
+
+function aplicarFotoRealEmElemento(produto, cor, imagem, container, classeCarregada) {
+  const token = `${Date.now()}-${Math.random()}`;
+  imagem.dataset.tokenFoto = token;
+  container.classList.remove(classeCarregada);
+  imagem.removeAttribute("src");
+
+  obterPrimeiraFotoValida(produto, cor).then((caminho) => {
+    if (imagem.dataset.tokenFoto !== token || !caminho) return;
+
+    imagem.src = caminho;
+    imagem.alt = `${obterNomeCompletoProduto(produto)} — ${cor.nome}`;
+    container.classList.add(classeCarregada);
+  }).catch(() => {});
+}
+
+function criarFotoSwatch(produto, cor, index, aoSelecionar, estaAtivo) {
+  const botao = document.createElement("button");
+  botao.type = "button";
+  botao.className = `produto__foto-swatch${estaAtivo ? " produto__foto-swatch--ativo" : ""}`;
+  botao.dataset.corIndex = String(index);
+  botao.setAttribute("role", "option");
+  botao.setAttribute("aria-selected", estaAtivo ? "true" : "false");
+  botao.setAttribute(
+    "aria-label",
+    `Selecionar ${obterRotuloVariacaoSingular(produto)} ${cor.nome}. ${obterTextoEstoque(cor)}`
+  );
+  botao.title = cor.nome;
+
+  const quadro = document.createElement("span");
+  quadro.className = "produto__foto-swatch-quadro";
+
+  const imagem = document.createElement("img");
+  imagem.className = "produto__foto-swatch-imagem";
+  imagem.loading = "lazy";
+  imagem.decoding = "async";
+  imagem.alt = "";
+
+  const placeholder = document.createElement("span");
+  placeholder.className = "produto__foto-swatch-placeholder";
+  placeholder.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+      <circle cx="9" cy="10" r="2"></circle>
+      <path d="m5 17 4-4 3 3 2-2 5 5"></path>
+    </svg>
+  `;
+
+  const nome = document.createElement("span");
+  nome.className = "produto__foto-swatch-nome";
+  nome.textContent = cor.nome;
+
+  quadro.appendChild(imagem);
+  quadro.appendChild(placeholder);
+  botao.appendChild(quadro);
+  botao.appendChild(nome);
+
+  aplicarFotoRealEmElemento(
+    produto,
+    cor,
+    imagem,
+    botao,
+    "produto__foto-swatch--com-foto"
+  );
+
+  if (estaAtivo) {
+    botao.setAttribute("aria-current", "true");
+    botao.title = `${cor.nome} — selecionada`;
+    botao.addEventListener("click", (evento) => {
+      evento.preventDefault();
+    });
+  } else {
+    botao.addEventListener("click", () => aoSelecionar(index));
+  }
+
+  return botao;
+}
+
+function atualizarAmostraComFotoReal(produto, cor, amostraWrap, amostraImagem) {
+  aplicarFotoRealEmElemento(
+    produto,
+    cor,
+    amostraImagem,
+    amostraWrap,
+    "produto__amostra--com-foto"
+  );
+}
+
+function garantirGaleriaCores() {
+  if (galeriaCoresAtiva) return galeriaCoresAtiva;
+
+  const overlay = document.createElement("div");
+  overlay.className = "galeria-cores";
+  overlay.setAttribute("aria-hidden", "true");
+
+  overlay.innerHTML = `
+    <section class="galeria-cores__painel" role="dialog" aria-modal="true" aria-labelledby="galeria-cores-titulo">
+      <header class="galeria-cores__cabecalho">
+        <div class="galeria-cores__titulo-wrap">
+          <span class="galeria-cores__eyebrow">Explore pelas fotos reais</span>
+          <h2 id="galeria-cores-titulo" class="galeria-cores__titulo"></h2>
+          <p class="galeria-cores__subtitulo"></p>
+        </div>
+        <button class="galeria-cores__fechar" type="button" aria-label="Fechar galeria de cores">×</button>
+      </header>
+      <div class="galeria-cores__ferramentas">
+        <label class="galeria-cores__busca-wrap">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"></circle>
+            <path d="m20 20-3.5-3.5"></path>
+          </svg>
+          <input class="galeria-cores__busca" type="search" autocomplete="off" placeholder="Buscar uma cor..." aria-label="Buscar uma cor">
+        </label>
+        <span class="galeria-cores__contador" aria-live="polite"></span>
+      </div>
+      <div class="galeria-cores__conteudo">
+        <div class="galeria-cores__grade" role="listbox" aria-label="Cores disponíveis"></div>
+        <div class="galeria-cores__vazio" hidden>Nenhuma cor encontrada.</div>
+      </div>
+      <footer class="galeria-cores__rodape">
+        <span>Toque ou clique em uma foto para selecionar a cor.</span>
+        <button class="galeria-cores__fechar-secundario" type="button">Voltar ao produto</button>
+      </footer>
+    </section>
+  `;
+
+  document.body.appendChild(overlay);
+
+  const painel = overlay.querySelector(".galeria-cores__painel");
+  const titulo = overlay.querySelector(".galeria-cores__titulo");
+  const subtitulo = overlay.querySelector(".galeria-cores__subtitulo");
+  const busca = overlay.querySelector(".galeria-cores__busca");
+  const contador = overlay.querySelector(".galeria-cores__contador");
+  const grade = overlay.querySelector(".galeria-cores__grade");
+  const vazio = overlay.querySelector(".galeria-cores__vazio");
+  const fechar = overlay.querySelector(".galeria-cores__fechar");
+  const fecharSecundario = overlay.querySelector(".galeria-cores__fechar-secundario");
+
+  galeriaCoresAtiva = {
+    overlay,
+    painel,
+    titulo,
+    subtitulo,
+    busca,
+    contador,
+    grade,
+    vazio,
+    fechar,
+    fecharSecundario,
+    produto: null,
+    aoSelecionar: null
+  };
+
+  function fecharGaleria() {
+    overlay.classList.remove("galeria-cores--aberta");
+    overlay.setAttribute("aria-hidden", "true");
+    document.body.classList.remove("galeria-cores-aberta");
+    busca.value = "";
+    if (ultimoFocoAntesGaleria?.focus) ultimoFocoAntesGaleria.focus();
+  }
+
+  fechar.addEventListener("click", fecharGaleria);
+  fecharSecundario.addEventListener("click", fecharGaleria);
+  overlay.addEventListener("click", (evento) => {
+    if (evento.target === overlay) fecharGaleria();
+  });
+
+  document.addEventListener("keydown", (evento) => {
+    if (evento.key === "Escape" && overlay.classList.contains("galeria-cores--aberta")) {
+      fecharGaleria();
+    }
+  });
+
+  busca.addEventListener("input", () => {
+    const termo = normalizar(busca.value.trim());
+    let visiveis = 0;
+
+    grade.querySelectorAll(".galeria-cores__item").forEach((item) => {
+      const corresponde = !termo || normalizar(item.dataset.corNome).includes(termo);
+      item.hidden = !corresponde;
+      if (corresponde) visiveis += 1;
+    });
+
+    vazio.hidden = visiveis !== 0;
+    contador.textContent = visiveis === 1 ? "1 cor" : `${visiveis} cores`;
+  });
+
+  return galeriaCoresAtiva;
+}
+
+function criarItemGaleriaCor(produto, cor, index, indiceSelecionado, aoSelecionar) {
+  const botao = document.createElement("button");
+  botao.type = "button";
+  botao.className = `galeria-cores__item${index === indiceSelecionado ? " galeria-cores__item--ativo" : ""}`;
+  botao.dataset.corNome = cor.nome;
+  botao.dataset.corIndex = String(index);
+  botao.setAttribute("role", "option");
+  botao.setAttribute("aria-selected", index === indiceSelecionado ? "true" : "false");
+  botao.setAttribute("aria-label", `Selecionar ${cor.nome}`);
+
+  const foto = document.createElement("span");
+  foto.className = "galeria-cores__foto";
+
+  const imagem = document.createElement("img");
+  imagem.className = "galeria-cores__imagem";
+  imagem.loading = "lazy";
+  imagem.decoding = "async";
+  imagem.alt = "";
+
+  const placeholder = document.createElement("span");
+  placeholder.className = "galeria-cores__placeholder";
+  placeholder.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true">
+      <rect x="3" y="4" width="18" height="16" rx="3"></rect>
+      <circle cx="9" cy="10" r="2"></circle>
+      <path d="m5 17 4-4 3 3 2-2 5 5"></path>
+    </svg>
+    <small>Foto em breve</small>
+  `;
+
+  foto.appendChild(imagem);
+  foto.appendChild(placeholder);
+
+  const info = document.createElement("span");
+  info.className = "galeria-cores__item-info";
+
+  const nome = document.createElement("strong");
+  nome.className = "galeria-cores__nome";
+  nome.textContent = cor.nome;
+
+  const preco = document.createElement("span");
+  preco.className = "galeria-cores__preco";
+  preco.textContent = formatarPreco(obterPrecoProdutoOuVariacao(produto, cor));
+
+  info.appendChild(nome);
+  info.appendChild(preco);
+
+  if (obterStatusEstoque(cor) === "ultimas_unidades") {
+    const estoque = document.createElement("span");
+    estoque.className = "galeria-cores__estoque";
+    estoque.textContent = "Últimas unidades";
+    info.appendChild(estoque);
+  }
+
+  if (index === indiceSelecionado) {
+    const selecionada = document.createElement("span");
+    selecionada.className = "galeria-cores__selecionada";
+    selecionada.textContent = "Selecionada";
+    foto.appendChild(selecionada);
+  }
+
+  botao.appendChild(foto);
+  botao.appendChild(info);
+
+  aplicarFotoRealEmElemento(
+    produto,
+    cor,
+    imagem,
+    botao,
+    "galeria-cores__item--com-foto"
+  );
+
+  botao.addEventListener("click", () => aoSelecionar(index));
+  return botao;
+}
+
+function abrirGaleriaCores(produto, indiceSelecionado, aoSelecionar, botaoOrigem) {
+  const galeria = garantirGaleriaCores();
+  ultimoFocoAntesGaleria = botaoOrigem || document.activeElement;
+  galeria.produto = produto;
+  galeria.aoSelecionar = aoSelecionar;
+  galeria.titulo.textContent = `${obterRotuloVariacaoPlural(produto)} de ${obterNomeCompletoProduto(produto)}`;
+  galeria.subtitulo.textContent = `${produto.cores.length} opções disponíveis · fotos reais das variações`;
+  galeria.contador.textContent = produto.cores.length === 1 ? "1 cor" : `${produto.cores.length} cores`;
+  galeria.busca.value = "";
+  galeria.vazio.hidden = true;
+  galeria.grade.innerHTML = "";
+
+  produto.cores.forEach((cor, index) => {
+    galeria.grade.appendChild(
+      criarItemGaleriaCor(produto, cor, index, indiceSelecionado, (indice) => {
+        aoSelecionar(indice);
+        galeria.overlay.classList.remove("galeria-cores--aberta");
+        galeria.overlay.setAttribute("aria-hidden", "true");
+        document.body.classList.remove("galeria-cores-aberta");
+        if (ultimoFocoAntesGaleria?.focus) {
+          ultimoFocoAntesGaleria.focus({ preventScroll: true });
+        }
+      })
+    );
+  });
+
+  galeria.overlay.classList.add("galeria-cores--aberta");
+  galeria.overlay.setAttribute("aria-hidden", "false");
+  document.body.classList.add("galeria-cores-aberta");
+
+  requestAnimationFrame(() => {
+    const selecionado = galeria.grade.querySelector(".galeria-cores__item--ativo");
+    selecionado?.scrollIntoView({ block: "nearest", inline: "nearest" });
+    galeria.busca.focus({ preventScroll: true });
+  });
+}
+
+/* ============================================================
+   FIM — FOTO SWATCHES E GALERIA DE CORES 3ZK
+   ============================================================ */
+
+/* ============================================================
    LINHA DE PRODUTO
    ============================================================ */
 function criarLinhaProduto(produto, indiceCorInicial = 0) {
@@ -2749,7 +3319,15 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     spool.classList.add(`spool--efeito-${corInicial.efeito}`);
   }
 
+  const amostraImagem = document.createElement("img");
+  amostraImagem.className = "produto__amostra-foto";
+  amostraImagem.loading = "lazy";
+  amostraImagem.decoding = "async";
+  amostraImagem.alt = "";
+
   amostraWrap.appendChild(spool);
+  amostraWrap.appendChild(amostraImagem);
+  atualizarAmostraComFotoReal(produto, corInicial, amostraWrap, amostraImagem);
 
   const detalhe = document.createElement("div");
   detalhe.className = "produto__detalhe";
@@ -2807,10 +3385,111 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     );
   });
 
-  const dotsWrap = document.createElement("div");
-  dotsWrap.className = "dots";
-  dotsWrap.setAttribute("role", "listbox");
-  dotsWrap.setAttribute("aria-label", `${obterRotuloVariacaoPlural(produto)} de ${produto.marca}`);
+  const swatchesBloco = document.createElement("div");
+  swatchesBloco.className = "produto__swatches-bloco";
+
+  const swatchesLinha = document.createElement("div");
+  swatchesLinha.className = "produto__swatches-linha produto__swatches-linha--sem-navegacao";
+
+  const botaoSwatchesAnterior = document.createElement("button");
+  botaoSwatchesAnterior.type = "button";
+  botaoSwatchesAnterior.className = "produto__swatches-seta produto__swatches-seta--anterior";
+  botaoSwatchesAnterior.setAttribute("aria-label", "Ver cores anteriores");
+  botaoSwatchesAnterior.innerHTML = '<span aria-hidden="true">‹</span>';
+  botaoSwatchesAnterior.hidden = true;
+
+  const swatchesWrap = document.createElement("div");
+  swatchesWrap.className = "produto__foto-swatches";
+  swatchesWrap.setAttribute("role", "listbox");
+  swatchesWrap.setAttribute("aria-label", `${obterRotuloVariacaoPlural(produto)} de ${produto.marca}`);
+
+  const botaoSwatchesProxima = document.createElement("button");
+  botaoSwatchesProxima.type = "button";
+  botaoSwatchesProxima.className = "produto__swatches-seta produto__swatches-seta--proxima";
+  botaoSwatchesProxima.setAttribute("aria-label", "Ver próximas cores");
+  botaoSwatchesProxima.innerHTML = '<span aria-hidden="true">›</span>';
+  botaoSwatchesProxima.hidden = true;
+
+  const botaoTodasCores = document.createElement("button");
+  botaoTodasCores.type = "button";
+  botaoTodasCores.className = "produto__ver-todas-cores";
+  botaoTodasCores.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+      <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+      <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+      <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+    </svg>
+    <span>Ver todas as ${produto.cores.length} ${obterRotuloVariacaoPlural(produto)}</span>
+    <span aria-hidden="true">›</span>
+  `;
+
+  swatchesLinha.appendChild(botaoSwatchesAnterior);
+  swatchesLinha.appendChild(swatchesWrap);
+  swatchesLinha.appendChild(botaoSwatchesProxima);
+  swatchesBloco.appendChild(swatchesLinha);
+
+  let frameNavegacaoSwatches = 0;
+
+  function atualizarNavegacaoSwatches() {
+    const suportaSetas = window.matchMedia("(min-width: 769px)").matches;
+    const limiteScroll = Math.max(0, swatchesWrap.scrollWidth - swatchesWrap.clientWidth);
+    const temOverflow = limiteScroll > 2;
+    const mostrarSetas = suportaSetas && temOverflow;
+
+    botaoSwatchesAnterior.hidden = !mostrarSetas;
+    botaoSwatchesProxima.hidden = !mostrarSetas;
+    swatchesLinha.classList.toggle("produto__swatches-linha--com-navegacao", mostrarSetas);
+    swatchesLinha.classList.toggle("produto__swatches-linha--sem-navegacao", !mostrarSetas);
+
+    if (!mostrarSetas) {
+      botaoSwatchesAnterior.disabled = true;
+      botaoSwatchesProxima.disabled = true;
+      return;
+    }
+
+    botaoSwatchesAnterior.disabled = swatchesWrap.scrollLeft <= 2;
+    botaoSwatchesProxima.disabled = swatchesWrap.scrollLeft >= limiteScroll - 2;
+  }
+
+  function agendarAtualizacaoNavegacaoSwatches() {
+    cancelAnimationFrame(frameNavegacaoSwatches);
+    frameNavegacaoSwatches = requestAnimationFrame(atualizarNavegacaoSwatches);
+  }
+
+  function deslocarSwatches(direcao) {
+    const primeiroSwatch = swatchesWrap.querySelector(".produto__foto-swatch");
+    const larguraItem = primeiroSwatch
+      ? primeiroSwatch.getBoundingClientRect().width + 8
+      : 66;
+    const itensPorPasso = Math.max(
+      1,
+      Math.floor(swatchesWrap.clientWidth / Math.max(1, larguraItem)) - 1
+    );
+
+    swatchesWrap.scrollBy({
+      left: direcao * larguraItem * itensPorPasso,
+      behavior: "smooth"
+    });
+  }
+
+  botaoSwatchesAnterior.addEventListener("click", () => deslocarSwatches(-1));
+  botaoSwatchesProxima.addEventListener("click", () => deslocarSwatches(1));
+  swatchesWrap.addEventListener("scroll", agendarAtualizacaoNavegacaoSwatches, { passive: true });
+
+  if (typeof ResizeObserver !== "undefined") {
+    const observadorSwatches = new ResizeObserver(agendarAtualizacaoNavegacaoSwatches);
+    observadorSwatches.observe(swatchesLinha);
+    observadorSwatches.observe(swatchesWrap);
+  } else {
+    window.addEventListener("resize", agendarAtualizacaoNavegacaoSwatches, { passive: true });
+  }
+
+  if (produto.cores.length > 6) {
+    swatchesBloco.appendChild(botaoTodasCores);
+  } else {
+    botaoTodasCores.hidden = true;
+  }
 
   const foto = criarAreaFoto();
 
@@ -2822,9 +3501,16 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   const precoValor = document.createElement("span");
   precoValor.className = "produto__preco-valor";
-  precoValor.textContent = formatarPreco(obterPrecoProdutoOuVariacao(produto, corInicial));
+
+  const precoPix = document.createElement("strong");
+  precoPix.className = "produto__preco-pix";
+
+  const precoParcelamento = document.createElement("span");
+  precoParcelamento.className = "produto__preco-parcelamento";
 
   precoWrap.appendChild(precoValor);
+  precoWrap.appendChild(precoPix);
+  precoWrap.appendChild(precoParcelamento);
 
   const acoes = document.createElement("div");
   acoes.className = "produto__acoes";
@@ -2863,7 +3549,13 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     );
 
     estoqueInfo.textContent = obterTextoEstoque(cor);
-    precoValor.textContent = formatarPreco(obterPrecoProdutoOuVariacao(produto, cor));
+    const resumoPreco = obterResumoPrecoCatalogo(
+      obterPrecoProdutoOuVariacao(produto, cor)
+    );
+    precoValor.textContent = formatarPreco(resumoPreco.precoNormal);
+    precoPix.textContent = `PIX: ${formatarPrecoPedido(resumoPreco.precoPix)}`;
+    precoParcelamento.textContent =
+      `ou ${PARCELAS_SEM_JUROS}x de ${formatarPrecoPedido(resumoPreco.valorParcela)} sem juros`;
 
     botaoLoja.href = obterLinkLoja(produto);
     botaoLoja.removeAttribute("aria-disabled");
@@ -2878,18 +3570,39 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     sincronizarBotaoAdicionar(botaoAdicionar);
   }
 
-  function selecionarCor(index, dotEl) {
+  function renderizarFotoSwatches(indiceSelecionado) {
+    const scrollAnterior = swatchesWrap.scrollLeft;
+    swatchesWrap.innerHTML = "";
+
+    produto.cores.forEach((cor, index) => {
+      // A posição de cada variação é estável: a selecionada continua na fila.
+      // Assim nada "pula" de lugar quando o cliente troca de cor.
+      swatchesWrap.appendChild(
+        criarFotoSwatch(
+          produto,
+          cor,
+          index,
+          selecionarCor,
+          index === indiceSelecionado
+        )
+      );
+    });
+
+    requestAnimationFrame(() => {
+      swatchesWrap.scrollLeft = Math.min(
+        scrollAnterior,
+        Math.max(0, swatchesWrap.scrollWidth - swatchesWrap.clientWidth)
+      );
+      atualizarNavegacaoSwatches();
+    });
+  }
+
+  function selecionarCor(index) {
     const cor = produto.cores[index];
     corSelecionadaAtual = cor;
     atualizarEnderecoDaCor(produto, cor);
 
-    dotsWrap.querySelectorAll(".dot").forEach((dot) => {
-      dot.classList.remove("dot--ativo");
-      dot.setAttribute("aria-selected", "false");
-    });
-
-    dotEl.classList.add("dot--ativo");
-    dotEl.setAttribute("aria-selected", "true");
+    renderizarFotoSwatches(index);
 
     spool.style.setProperty("--cor-atual", obterCorVisual(cor));
     spool.classList.remove(
@@ -2905,6 +3618,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
     nomeCor.textContent = cor.nome;
     atualizarEstadoEstoque(cor);
+    atualizarAmostraComFotoReal(produto, cor, amostraWrap, amostraImagem);
 
     aplicarCorSolidaDaFoto(produto, cor, () => {
       if (corSelecionadaAtual === cor) {
@@ -2918,24 +3632,25 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
       area: foto.area,
       botaoImagem: foto.botao,
       imagem: foto.imagem,
-      botaoVerFoto,
-      anterior: foto.anterior,
-      proxima: foto.proxima,
-      contador: foto.contador
+      botaoVerFoto
     });
   }
 
-  produto.cores.forEach((cor, index) => {
-    const estaAtivo = index === indiceCorInicial;
+  renderizarFotoSwatches(indiceCorInicial);
 
-    dotsWrap.appendChild(
-      criarElementoDot(produto, cor, index, selecionarCor, estaAtivo)
+  botaoTodasCores.addEventListener("click", () => {
+    const indiceSelecionado = produto.cores.indexOf(corSelecionadaAtual);
+    abrirGaleriaCores(
+      produto,
+      indiceSelecionado >= 0 ? indiceSelecionado : 0,
+      selecionarCor,
+      botaoTodasCores
     );
   });
 
   detalhe.appendChild(cabecalhoCor);
   detalhe.appendChild(compraRapida);
-  detalhe.appendChild(dotsWrap);
+  detalhe.appendChild(swatchesBloco);
 
   artigo.appendChild(info);
   artigo.appendChild(amostraWrap);
@@ -2951,10 +3666,7 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
     area: foto.area,
     botaoImagem: foto.botao,
     imagem: foto.imagem,
-    botaoVerFoto,
-    anterior: foto.anterior,
-    proxima: foto.proxima,
-    contador: foto.contador
+    botaoVerFoto
   });
 
   return artigo;
@@ -2972,34 +3684,43 @@ function produtoCorresponde(produto, termo, materialSelecionado) {
     return false;
   }
 
-  if (!termo) {
-    return true;
-  }
+  if (!termo) return true;
 
-  const termoNormalizado = normalizar(termo);
-  const campos = [
+  const consulta = criarConsultaBusca(termo);
+  const textoProduto = [
     produto.marca,
     produto.material,
     produto.linha || "",
-    produto.obs || "",
-    ...produto.cores.map((cor) => cor.nome)
-  ];
+    produto.obs || ""
+  ].join(" ");
 
-  return campos.some((campo) =>
-    normalizar(campo).includes(termoNormalizado)
-  );
+  return consulta.tokens.every((token) => {
+    if (tokenCombinaComTexto(textoProduto, token)) return true;
+
+    const consultaToken = criarConsultaBusca(token);
+    return produto.cores.some((cor) =>
+      corCorrespondeConsulta(cor, consultaToken)
+    );
+  });
 }
 
 function encontrarCorInicial(produto, termo) {
   if (!termo) return 0;
 
-  const termoNormalizado = normalizar(termo);
+  const consulta = criarConsultaBusca(termo);
+  let melhorIndice = 0;
+  let melhorPontuacao = 0;
 
-  const indice = produto.cores.findIndex((cor) =>
-    normalizar(cor.nome).includes(termoNormalizado)
-  );
+  produto.cores.forEach((cor, indice) => {
+    const pontos = pontuarCorNaBusca(cor, consulta);
 
-  return indice >= 0 ? indice : 0;
+    if (pontos > melhorPontuacao) {
+      melhorPontuacao = pontos;
+      melhorIndice = indice;
+    }
+  });
+
+  return melhorPontuacao > 0 ? melhorIndice : 0;
 }
 
 function encontrarIndiceCorPorSlug(produto, slugCor) {
@@ -3155,6 +3876,124 @@ function trocarSecao(novaSecao) {
 }
 /* ================ FIM SECOES DO CATALOGO ================ */
 
+/* ============================================================
+   BUSCA DIRETA NO CATÁLOGO
+   A busca inteligente atua nos próprios cards:
+   - filtra os produtos;
+   - escolhe a melhor variação correspondente;
+   - ordena os cards por relevância;
+   - não cria uma segunda lista de produtos.
+   ============================================================ */
+const resumoBuscaCatalogoEl = document.getElementById("resumo-busca-catalogo");
+
+function obterMelhorPontuacaoCor(produto, consulta) {
+  if (!consulta?.normalizado || !Array.isArray(produto?.cores)) return 0;
+
+  return produto.cores.reduce(
+    (melhor, cor) => Math.max(melhor, pontuarCorNaBusca(cor, consulta)),
+    0
+  );
+}
+
+function pontuarProdutoNaBusca(produto, termo) {
+  const consulta = criarConsultaBusca(termo);
+  if (!consulta.normalizado) return 0;
+
+  const textoProduto = normalizarBusca([
+    produto.marca,
+    produto.material,
+    produto.linha || "",
+    produto.obs || ""
+  ].join(" "));
+
+  let pontos = obterMelhorPontuacaoCor(produto, consulta) * 2;
+
+  if (textoProduto === consulta.normalizado) pontos += 180;
+  else if (textoProduto.startsWith(consulta.normalizado)) pontos += 125;
+  else if (textoProduto.includes(consulta.normalizado)) pontos += 90;
+
+  consulta.tokens.forEach((token) => {
+    if (tokenCombinaComTexto(textoProduto, token)) pontos += 38;
+  });
+
+  return pontos;
+}
+
+function contarCoresRelacionadas(produtosFiltrados, termo) {
+  const consulta = criarConsultaBusca(termo);
+  if (!consulta.normalizado || !consultaTemIntencaoDeCor(consulta)) return 0;
+
+  return produtosFiltrados.reduce((total, produto) => {
+    const correspondencias = produto.cores.filter(
+      (cor) => pontuarCorNaBusca(cor, consulta) > 0
+    ).length;
+
+    return total + correspondencias;
+  }, 0);
+}
+
+function obterResumoSinonimosBusca(consulta) {
+  if (!consulta?.familias?.size) return "";
+
+  const rotulos = [...consulta.familias]
+    .map((id) => FAMILIAS_COR_BUSCA.find((familia) => familia.id === id)?.rotulo)
+    .filter(Boolean);
+
+  if (!rotulos.length) return "";
+  return `Incluindo nomes equivalentes de ${rotulos.join(" e ")}.`;
+}
+
+function renderizarResumoBuscaCatalogo(termo, produtosFiltrados) {
+  if (!resumoBuscaCatalogoEl) return;
+
+  const consulta = criarConsultaBusca(termo);
+  resumoBuscaCatalogoEl.innerHTML = "";
+
+  if (!consulta.normalizado) {
+    resumoBuscaCatalogoEl.hidden = true;
+    return;
+  }
+
+  resumoBuscaCatalogoEl.hidden = false;
+
+  const principal = document.createElement("span");
+  principal.className = "resumo-busca__principal";
+
+  const quantidadeProdutos = produtosFiltrados.length;
+  const quantidadeCores = contarCoresRelacionadas(produtosFiltrados, termo);
+
+  if (quantidadeCores > 0) {
+    principal.textContent =
+      `${quantidadeProdutos} ${quantidadeProdutos === 1 ? "produto" : "produtos"} ` +
+      `com ${quantidadeCores} ${quantidadeCores === 1 ? "cor relacionada" : "cores relacionadas"} ` +
+      `a “${consulta.original}”.`;
+  } else {
+    principal.textContent =
+      `${quantidadeProdutos} ${quantidadeProdutos === 1 ? "produto encontrado" : "produtos encontrados"} ` +
+      `para “${consulta.original}”.`;
+  }
+
+  resumoBuscaCatalogoEl.appendChild(principal);
+
+  if (quantidadeCores > 0) {
+    const explicacao = document.createElement("span");
+    explicacao.className = "resumo-busca__explicacao";
+    explicacao.textContent =
+      "Cada card já abre na variação mais próxima da sua busca.";
+    resumoBuscaCatalogoEl.appendChild(explicacao);
+
+    const sinonimos = obterResumoSinonimosBusca(consulta);
+    if (sinonimos) {
+      const sinonimosEl = document.createElement("span");
+      sinonimosEl.className = "resumo-busca__sinonimos";
+      sinonimosEl.textContent = sinonimos;
+      resumoBuscaCatalogoEl.appendChild(sinonimosEl);
+    }
+  }
+}
+
+/* ================ FIM BUSCA DIRETA NO CATÁLOGO ================ */
+
 function renderizar() {
   const termo = campoBuscaEl.value.trim();
   const destino = lerDestinoDoLink();
@@ -3180,13 +4019,26 @@ function renderizar() {
     .map((produto, indiceOriginal) => ({
       produto,
       indiceOriginal,
-      prioridade: obterDestaqueProduto(produto) ? 0 : 1
+      prioridade: obterDestaqueProduto(produto) ? 0 : 1,
+      relevanciaBusca: termo ? pontuarProdutoNaBusca(produto, termo) : 0
     }))
-    .sort((a, b) =>
-      a.prioridade - b.prioridade ||
-      a.indiceOriginal - b.indiceOriginal
-    )
+    .sort((a, b) => {
+      if (termo) {
+        return (
+          b.relevanciaBusca - a.relevanciaBusca ||
+          a.prioridade - b.prioridade ||
+          a.indiceOriginal - b.indiceOriginal
+        );
+      }
+
+      return (
+        a.prioridade - b.prioridade ||
+        a.indiceOriginal - b.indiceOriginal
+      );
+    })
     .map((item) => item.produto);
+
+  renderizarResumoBuscaCatalogo(termo, filtrados);
 
   listaProdutosEl.innerHTML = "";
 
@@ -3197,7 +4049,10 @@ function renderizar() {
       destino.produto &&
       obterSlugProduto(produto) === destino.produto;
 
-    if (produtoCorrespondeAoLink && destino.cor) {
+    // Uma busca ativa tem prioridade sobre a cor salva na URL.
+    // Assim, pesquisar "vermelho" abre o card diretamente na melhor
+    // variação vermelha, mesmo que o endereço ainda esteja em ?cor=silver.
+    if (!termo && produtoCorrespondeAoLink && destino.cor) {
       const indiceCorDoLink = encontrarIndiceCorPorSlug(
         produto,
         destino.cor
