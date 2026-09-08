@@ -2615,8 +2615,8 @@
           "assets/fotos/creality-soleyin-ultra-pla/cinza.webp"
         ],
         "idCatalogo": "creality-soleyin-ultra|pla||cinza",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Greenery / Esverdeado",
@@ -2680,7 +2680,7 @@
       }
     ],
     "idCatalogo": "creality-soleyin-ultra|pla|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Elegoo",
