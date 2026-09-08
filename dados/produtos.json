@@ -3393,12 +3393,12 @@
         ],
         "gtin": "7908229110421",
         "idCatalogo": "masterprint|petg|5kg|branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "masterprint|petg|5kg",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Rolo Etiqueta",
