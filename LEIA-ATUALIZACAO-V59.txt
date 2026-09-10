@@ -1,0 +1,8 @@
+3ZK V5.9
+
+- Lightbox da página do produto reduzido e centralizado.
+- WhatsApp + Instagram movidos para um menu compacto "Contato" no cabeçalho.
+- Redes removidas do rodapé.
+- Instagram: @3zk.filamentos.
+- Masterprint PETG Verde corrigido para assets/fotos/masterprint-petg/verde.webp.
+- fotoStatus do Masterprint PETG Verde marcado como confirmada, sem alterar estoque, preço, IDs, SKU, GTIN ou chaveEstoque.

@@ -1,0 +1,14 @@
+3ZK — Atualização de produção V6.0
+
+Foco: página de produto no mobile.
+
+- Opção/cor selecionada + estoque + preço + Pix agora formam um único bloco visual com miniatura da seleção.
+- A seção de variações deixa explícito "CORES DO FILAMENTO" ou "OPÇÕES DO ACESSÓRIO".
+- A quantidade de cores/opções aparece junto ao título da seção.
+- A busca de variações só aparece quando há mais de 8 opções.
+- Acessórios com uma única opção não exibem uma seção de escolha inútil.
+- Corrigido "1 opção disponíveis" para "1 opção disponível".
+- A frase visual de instrução das setas foi removida.
+- A barra fixa de adicionar só aparece depois que o botão principal já foi ultrapassado na rolagem.
+
+Não altera produtos.json, produtos-base.json, estoque, Olist, SKU, GTIN, chaveEstoque ou preços.

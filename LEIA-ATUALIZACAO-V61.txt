@@ -1,0 +1,16 @@
+3ZK — Atualização V6.1
+
+Objetivo:
+- unir foto + informações de compra em um único bloco visual na página de produto;
+- remover a miniatura repetida do resumo de preço;
+- deixar mais claro que a grade abaixo mostra as cores/opções deste produto;
+- preservar carrinho, estoque, preços, Olist, IDs, SKU, GTIN e chaveEstoque.
+
+Arquivos incluídos:
+- index.html (somente cache-bust)
+- produto.html
+- produto.js
+- style.css
+
+Como instalar:
+Extraia este ZIP dentro de C:\3ZK e permita substituir os arquivos de catalogo-3zk.

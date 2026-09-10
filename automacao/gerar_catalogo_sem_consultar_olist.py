@@ -1,12 +1,8 @@
 #!/usr/bin/env python3
-"""Monta o catálogo público com dados visuais novos e o último estoque conhecido.
+"""Monta o catálogo PÚBLICO sem expor identificadores internos.
 
-Este script NÃO acessa a Olist. Ele combina:
-- dados/produtos-base.json: nomes, preços, fotos, HEX e links atuais;
-- dados/produtos.json: último status de estoque válido já conhecido.
-
-Assim, fotos, CSS, preços e textos podem ser publicados rapidamente sem iniciar
-uma sincronização pesada de centenas de produtos.
+Usa a base interna e o último estoque conhecido, aplica as pausas antes do
+deploy e grava somente os campos necessários para o frontend.
 """
 
 from __future__ import annotations
@@ -22,19 +18,33 @@ class BuildError(RuntimeError):
     pass
 
 
+INTERNAL_PUBLIC_KEYS = {
+    "chaveEstoque",
+    "idCatalogo",
+    "olistId",
+    "sku",
+    "gtin",
+    "statusEstoqueInicial",
+    "disponivelInicial",
+}
+
+
 def parse_args() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
     parser.add_argument("--base", default="dados/produtos-base.json")
     parser.add_argument("--estoque-atual", default="dados/produtos.json")
+    parser.add_argument("--controle", default="dados/controle-catalogo.json")
     parser.add_argument("--output", default="_site/dados/produtos.json")
     return parser.parse_args()
 
 
-def load_json(path: Path) -> Any:
+def load_json(path: Path, default: Any = None) -> Any:
     try:
         return json.loads(path.read_text(encoding="utf-8"))
-    except FileNotFoundError as exc:
-        raise BuildError(f"Arquivo não encontrado: {path}") from exc
+    except FileNotFoundError:
+        if default is not None:
+            return default
+        raise BuildError(f"Arquivo não encontrado: {path}")
     except json.JSONDecodeError as exc:
         raise BuildError(f"JSON inválido em {path}: {exc}") from exc
 
@@ -46,11 +56,23 @@ def product_id(stock_key: str) -> str:
     return "|".join(parts[:3])
 
 
+def sanitize(value: Any) -> Any:
+    if isinstance(value, dict):
+        return {
+            key: sanitize(item)
+            for key, item in value.items()
+            if key not in INTERNAL_PUBLIC_KEYS
+        }
+    if isinstance(value, list):
+        return [sanitize(item) for item in value]
+    return value
+
+
 def atomic_write(path: Path, value: Any) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
     temporary.write_text(
-        json.dumps(value, ensure_ascii=False, indent=2) + "\n",
+        json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n",
         encoding="utf-8",
     )
     temporary.replace(path)
@@ -60,9 +82,21 @@ def main() -> int:
     args = parse_args()
     base = load_json(Path(args.base))
     current = load_json(Path(args.estoque_atual))
+    control = load_json(Path(args.controle), default={})
 
     if not isinstance(base, list) or not isinstance(current, list):
         raise BuildError("Os arquivos de produtos precisam conter listas.")
+
+    paused_products = {
+        str(item).strip()
+        for item in control.get("produtosPausados", [])
+        if str(item).strip()
+    }
+    paused_colors = {
+        str(item).strip()
+        for item in control.get("coresPausadas", [])
+        if str(item).strip()
+    }
 
     previous_by_key: dict[str, dict[str, Any]] = {}
     for product in current:
@@ -71,67 +105,65 @@ def main() -> int:
             if key:
                 previous_by_key[key] = color
 
-    generated = copy.deepcopy(base)
+    public_products: list[dict[str, Any]] = []
     reused = 0
-    new_without_stock = 0
+    hidden = 0
 
-    for product in generated:
-        ids: set[str] = set()
-        visible = 0
+    for source_product in base:
+        product = copy.deepcopy(source_product)
+        public_colors: list[dict[str, Any]] = []
+        product_key: str | None = None
 
         for color in product.get("cores", []):
-            key = str(color.pop("chaveEstoque", "")).strip()
+            key = str(color.get("chaveEstoque") or "").strip()
             if not key:
                 raise BuildError(
                     f"Cor sem chaveEstoque: {product.get('marca')} "
                     f"{product.get('material')} — {color.get('nome')}"
                 )
 
-            ids.add(product_id(key))
-            color["idCatalogo"] = key
+            current_product_key = product_id(key)
+            product_key = product_key or current_product_key
+            if current_product_key != product_key:
+                raise BuildError(
+                    "Produto com chaves incompatíveis: "
+                    f"{product.get('marca')} {product.get('material')}"
+                )
 
-            # Estes campos pertencem somente ao catálogo-base. Eles precisam
-            # ser removidos do catálogo público em todas as execuções, inclusive
-            # quando o estoque anterior já contém a variação. Isso mantém a
-            # montagem idempotente e evita dados internos vazando para o site.
-            initial_status = str(
-                color.pop("statusEstoqueInicial", "sem_estoque")
-            ).strip() or "sem_estoque"
-            initial_available = color.pop("disponivelInicial", False) is True
+            if current_product_key in paused_products or key in paused_colors:
+                hidden += 1
+                continue
 
             previous = previous_by_key.get(key)
-
             if previous:
-                color["statusEstoque"] = previous.get(
-                    "statusEstoque", "sem_estoque"
-                )
-                color["disponivel"] = previous.get("disponivel") is True
+                status = previous.get("statusEstoque", "sem_estoque")
+                available = previous.get("disponivel") is True
                 reused += 1
             else:
-                # Produto novo: usa um estado inicial explícito somente quando
-                # ele foi cadastrado e conferido. Sem isso, continua oculto
-                # até a primeira sincronização real com a Olist.
-                color["statusEstoque"] = initial_status
-                color["disponivel"] = initial_available
-                if not initial_available:
-                    new_without_stock += 1
+                status = str(color.get("statusEstoqueInicial", "sem_estoque")).strip() or "sem_estoque"
+                available = color.get("disponivelInicial") is True
 
-            if color["disponivel"]:
-                visible += 1
+            # O site já oculta itens indisponíveis. Não há motivo para enviá-los ao navegador.
+            if not available:
+                hidden += 1
+                continue
 
-        if len(ids) != 1:
-            raise BuildError(
-                "Produto com chaves incompatíveis: "
-                f"{product.get('marca')} {product.get('material')}"
-            )
+            color["statusEstoque"] = status
+            color["disponivel"] = True
+            public_colors.append(sanitize(color))
 
-        product["idCatalogo"] = next(iter(ids))
-        product["disponivel"] = visible > 0
+        if not public_colors:
+            continue
 
-    atomic_write(Path(args.output), generated)
-    print("Catálogo visual montado sem consultar a Olist.")
-    print(f"- Estoques reaproveitados: {reused}")
-    print(f"- Cores novas aguardando sincronização: {new_without_stock}")
+        product["cores"] = public_colors
+        product["disponivel"] = True
+        public_products.append(sanitize(product))
+
+    atomic_write(Path(args.output), public_products)
+    print("Catálogo público sanitizado montado.")
+    print(f"- Variações com estoque reaproveitado: {reused}")
+    print(f"- Variações não publicadas: {hidden}")
+    print(f"- Produtos públicos: {len(public_products)}")
     return 0
 
 

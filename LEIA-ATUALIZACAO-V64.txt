@@ -1,0 +1,16 @@
+3ZK V6.4 — CORREÇÃO PRÉ-COMMIT
+
+Problema encontrado:
+- a V6.2/V6.3 havia substituído script.js por uma versão com listener legado de #filtros-material;
+- o novo index.html não possui esse elemento;
+- o erro JavaScript ocorria antes de carregarProdutos(), deixando o catálogo em "Carregando...".
+
+Correção:
+- restaurado o renderizador moderno da V5.8/V5.7 (cards novos + filtros V56);
+- mantidas as regras de segurança da V6.2;
+- mantido o zoom da V6.3;
+- preview local tem timeout e fallback seguro para dados/produtos.json;
+- workflow de deploy agora roda node --check e smoke test HTML/JS antes de publicar;
+- build público sanitizado foi executado localmente com 24 produtos e 155 variações públicas.
+
+NÃO fazer commit da V6.3 antiga. Aplicar esta V6.4 antes.

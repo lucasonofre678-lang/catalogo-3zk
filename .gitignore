@@ -4,3 +4,14 @@ __pycache__/
 dados/ultima-atualizacao.json
 
 dados/produtos-preview.json
+
+# Segredos e credenciais locais
+.env
+.env.*
+!.env.example
+secrets/
+credentials/
+*.pem
+*.key
+wrangler.toml
+.dev.vars

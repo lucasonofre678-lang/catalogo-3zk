@@ -1,0 +1,14 @@
+3ZK — hardening antes do commit
+
+O deploy público agora:
+- gera dados/produtos.json sanitizado;
+- remove idCatalogo, chaveEstoque, Olist ID, SKU e GTIN do arquivo servido ao navegador;
+- não publica variações sem estoque nem itens pausados;
+- não publica controle-catalogo.json;
+- não publica ultima-atualizacao.json;
+- remove comentários HTML do artefato publicado;
+- publica produto.html e produto.js;
+- adiciona headers básicos de segurança no Cloudflare Pages.
+
+IMPORTANTE:
+Se o repositório GitHub for público, produtos-base.json, mapeamento-olist.json, automações e documentação continuam visíveis pelo GitHub. Para proteger esses arquivos, use repositório privado. O site público continuará funcionando porque a Action publica somente _site.

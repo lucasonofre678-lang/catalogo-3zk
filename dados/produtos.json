@@ -1192,10 +1192,10 @@
       {
         "nome": "Verde",
         "hex": "#3E8B57",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/verde-sem-foto.webp"
+          "assets/fotos/masterprint-petg/verde.webp"
         ],
         "idCatalogo": "masterprint|petg||verde",
         "statusEstoque": "em_estoque",

@@ -9,8 +9,10 @@ on:
     paths:
       - "index.html"
       - "links.html"
+      - "produto.html"
       - "*.css"
       - "script.js"
+      - "produto.js"
       - "assets/**"
       - "dados/produtos-base.json"
       - "dados/produtos.json"
@@ -43,7 +45,38 @@ jobs:
           python-version: "3.13"
 
       - name: Validar arquivos antes da publicação
-        run: python automacao/validar_catalogo.py
+        run: |
+          python automacao/validar_catalogo.py
+          node --check script.js
+          node --check produto.js
+
+          python - <<'PY'
+          from pathlib import Path
+
+          html = Path("index.html").read_text(encoding="utf-8")
+          js = Path("script.js").read_text(encoding="utf-8")
+
+          required_html = (
+              'id="catalogo-abas-v56"',
+              'id="filtros-rapidos-v56"',
+              'id="lista-produtos"',
+          )
+          required_js = (
+              'getElementById("catalogo-abas-v56")',
+              'renderizarAbasCatalogoV56',
+              'carregarProdutos();',
+          )
+
+          missing = [item for item in required_html if item not in html]
+          missing += [item for item in required_js if item not in js]
+          if missing:
+              raise SystemExit(f"Integração HTML/JS incompleta: {missing}")
+
+          if 'filtrosEl.addEventListener(' in js:
+              raise SystemExit("Listener legado de filtros pode interromper a inicialização.")
+
+          print("Smoke test estático HTML/JS aprovado.")
+          PY
 
       - name: Montar arquivos públicos
         shell: bash
@@ -51,17 +84,35 @@ jobs:
           rm -rf _site
           mkdir -p _site/dados
 
-          cp index.html links.html script.js _site/
+          cp index.html links.html produto.html script.js produto.js _site/
           cp ./*.css _site/
           cp -R assets _site/assets
-          cp dados/controle-catalogo.json _site/dados/controle-catalogo.json
 
           python automacao/gerar_catalogo_sem_consultar_olist.py \
+            --controle dados/controle-catalogo.json \
             --output _site/dados/produtos.json
 
-          if [ -f dados/ultima-atualizacao.json ]; then
-            cp dados/ultima-atualizacao.json _site/dados/ultima-atualizacao.json
-          fi
+          python - <<'PY'
+          from pathlib import Path
+          import re
+
+          for path in Path("_site").glob("*.html"):
+              text = path.read_text(encoding="utf-8")
+              text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
+              text = re.sub(r"\n[ \t]*\n[ \t]*\n+", "\n\n", text)
+              path.write_text(text, encoding="utf-8")
+          PY
+
+          cat > _site/_headers <<'EOF'
+          /*
+            X-Content-Type-Options: nosniff
+            Referrer-Policy: strict-origin-when-cross-origin
+            X-Frame-Options: DENY
+            Permissions-Policy: camera=(), microphone=(), geolocation=()
+            Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+          /dados/produtos.json
+            Cache-Control: no-store
+          EOF
 
       - name: Validar catálogo montado
         shell: bash
@@ -70,14 +121,48 @@ jobs:
           import json
           from pathlib import Path
 
-          for path in (
-              Path("_site/dados/produtos.json"),
-              Path("_site/dados/controle-catalogo.json"),
-          ):
-              with path.open("r", encoding="utf-8") as file:
-                  json.load(file)
+          product_path = Path("_site/dados/produtos.json")
+          with product_path.open("r", encoding="utf-8") as file:
+              products = json.load(file)
 
-          print("Publicação rápida validada.")
+          if not isinstance(products, list) or not products:
+              raise SystemExit("Catálogo público vazio ou inválido.")
+          if not any(isinstance(p, dict) and p.get("cores") for p in products):
+              raise SystemExit("Catálogo público não contém variações utilizáveis.")
+
+          forbidden = {
+              "idCatalogo", "chaveEstoque", "olistId", "sku", "gtin",
+              "statusEstoqueInicial", "disponivelInicial",
+          }
+
+          def find_forbidden(value, path="root"):
+              found = []
+              if isinstance(value, dict):
+                  for key, item in value.items():
+                      if key in forbidden:
+                          found.append(f"{path}.{key}")
+                      found.extend(find_forbidden(item, f"{path}.{key}"))
+              elif isinstance(value, list):
+                  for index, item in enumerate(value):
+                      found.extend(find_forbidden(item, f"{path}[{index}]"))
+              return found
+
+          leaked = find_forbidden(products)
+          if leaked:
+              raise SystemExit(f"Dados internos no catálogo público: {leaked[:10]}")
+
+          for internal_path in (
+              Path("_site/dados/controle-catalogo.json"),
+              Path("_site/dados/ultima-atualizacao.json"),
+          ):
+              if internal_path.exists():
+                  raise SystemExit(f"Arquivo interno publicado por engano: {internal_path}")
+
+          for html_path in Path("_site").glob("*.html"):
+              if "<!--" in html_path.read_text(encoding="utf-8"):
+                  raise SystemExit(f"Comentário HTML ficou no deploy: {html_path}")
+
+          print("Publicação rápida e sanitização validadas.")
           PY
 
       - name: Publicar na Cloudflare Pages

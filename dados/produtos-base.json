@@ -265,62 +265,62 @@
     ]
   },
   {
-  "marca": "Flashforge",
-  "material": "PLA",
-  "linha": "Marble",
-  "preco": 134.9,
-  "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
-  "cores": [
-    {
-      "nome": "Marble Black / Mármore Preto",
-      "hex": "#3E4045",
-      "efeito": "marmorizado",
-      "hexFonte": "sem_foto",
-      "fotoStatus": "ausente",
-      "imagens": [
-        "assets/fotos/flashforge-pla/marble-black-marmore-preto.webp"
-      ],
-      "preco": 134.9,
-      "chaveEstoque": "flashforge|pla|marble|marble-black-marmore-preto",
-      "statusEstoque": "em_estoque",
-      "disponivel": true
-    },
-    {
-      "nome": "Marble Brown / Mármore Marrom",
-      "hex": "#8B6B4F",
-      "efeito": "marmorizado",
-      "hexFonte": "sem_foto",
-      "fotoStatus": "ausente",
-      "imagens": [
-        "assets/fotos/flashforge-pla/marble-brown-marmore-marrom.webp"
-      ],
-      "preco": 134.9,
-      "chaveEstoque": "flashforge|pla|marble|marble-brown-marmore-marrom",
-      "statusEstoque": "em_estoque",
-      "disponivel": true
-    },
-    {
-      "nome": "Marble Natural / Mármore Natural",
-      "hex": "#CBC2B4",
-      "efeito": "marmorizado",
-      "hexFonte": "sem_foto",
-      "fotoStatus": "ausente",
-      "imagens": [
-        "assets/fotos/flashforge-pla/marble-natural-marmore-natural.webp"
-      ],
-      "preco": 134.9,
-      "chaveEstoque": "flashforge|pla|marble|marble-natural-marmore-natural",
-      "statusEstoque": "em_estoque",
-      "disponivel": true
-    }
-  ],
-  "idCatalogo": "flashforge|pla|marble",
-  "disponivel": true
-},
+    "marca": "Flashforge",
+    "material": "PLA",
+    "linha": "Marble",
+    "preco": 134.9,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
+    "cores": [
+      {
+        "nome": "Marble Black / Mármore Preto",
+        "hex": "#3E4045",
+        "efeito": "marmorizado",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/marble-black-marmore-preto.webp"
+        ],
+        "preco": 134.9,
+        "chaveEstoque": "flashforge|pla|marble|marble-black-marmore-preto",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marble Brown / Mármore Marrom",
+        "hex": "#8B6B4F",
+        "efeito": "marmorizado",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/marble-brown-marmore-marrom.webp"
+        ],
+        "preco": 134.9,
+        "chaveEstoque": "flashforge|pla|marble|marble-brown-marmore-marrom",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marble Natural / Mármore Natural",
+        "hex": "#CBC2B4",
+        "efeito": "marmorizado",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/flashforge-pla/marble-natural-marmore-natural.webp"
+        ],
+        "preco": 134.9,
+        "chaveEstoque": "flashforge|pla|marble|marble-natural-marmore-natural",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "flashforge|pla|marble",
+    "disponivel": true
+  },
   {
     "marca": "Closin",
     "material": "PETG",
-    "preco": 72.90,
+    "preco": 72.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "cores": [
       {
@@ -1024,10 +1024,10 @@
       {
         "nome": "Verde",
         "hex": "#3E8B57",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-petg/verde-sem-foto.webp"
+          "assets/fotos/masterprint-petg/verde.webp"
         ],
         "chaveEstoque": "masterprint|petg||verde"
       },
