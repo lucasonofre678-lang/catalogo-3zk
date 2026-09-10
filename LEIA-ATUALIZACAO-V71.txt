@@ -1,0 +1,8 @@
+3ZK V7.1 — retorno visual fiel dos filamentos
+
+- Filamentos/Acessórios: mantém o seletor novo.
+- Filamentos: restaura bolinhas clássicas e quebra em linhas.
+- Setas laterais: trocam para a cor anterior/próxima.
+- Materiais: volta a mostrar Todos, PLA, PETG, ABS, ASA, TPU e TPR de forma visível.
+- Filtros: botão avançado continua disponível no canto.
+- Acessórios: permanecem no fluxo novo com página própria.

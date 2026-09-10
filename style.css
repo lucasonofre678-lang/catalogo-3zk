@@ -8789,3 +8789,260 @@ body.filtros-v56-abertos { overflow: hidden; }
   }
 }
 /* ================= FIM 3ZK V6.5 ================= */
+
+/* ============================================================
+   V7.0 — RETORNO CLÁSSICO DOS FILAMENTOS
+   Filamentos voltam ao card horizontal com bolinhas.
+   Acessórios permanecem no fluxo novo.
+   ============================================================ */
+.produto__cores-controle{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) 34px;
+  align-items:center;
+  gap:8px;
+}
+.produto__dots-classicos{
+  min-width:0;
+  flex-wrap:nowrap;
+  overflow-x:auto;
+  overflow-y:visible;
+  scroll-behavior:smooth;
+  scrollbar-width:none;
+  overscroll-behavior-x:contain;
+}
+.produto__dots-classicos::-webkit-scrollbar{display:none}
+.produto__cores-seta,
+.produto__foto-seta{
+  display:grid;
+  place-items:center;
+  border:1px solid #D8E2F0;
+  background:#fff;
+  color:var(--cor-marca);
+  box-shadow:0 5px 14px rgba(19,54,96,.10);
+  transition:transform .16s ease, background .16s ease, border-color .16s ease;
+}
+.produto__cores-seta{
+  width:34px;
+  height:34px;
+  border-radius:11px;
+  font-size:22px;
+  line-height:1;
+}
+.produto__cores-seta:hover,
+.produto__foto-seta:hover{
+  background:#F3F7FF;
+  border-color:#B7CBE7;
+  transform:translateY(-1px);
+}
+.produto__foto-seta{
+  position:absolute;
+  z-index:6;
+  top:50%;
+  width:31px;
+  height:42px;
+  border-radius:12px;
+  transform:translateY(-50%);
+  font-size:22px;
+}
+.produto__foto-seta:hover{transform:translateY(-50%) scale(1.03)}
+.produto__foto-seta--anterior{left:7px}
+.produto__foto-seta--proxima{right:7px}
+.produto__foto-area .produto__foto-legenda{left:50%;right:auto;transform:translateX(-50%);white-space:nowrap}
+
+.lightbox__conteudo{
+  width:min(94vw,900px);
+  max-height:90vh;
+  display:grid;
+  grid-template-columns:48px minmax(0,1fr) 48px;
+  grid-template-rows:minmax(0,1fr) auto auto;
+  gap:10px 12px;
+  align-items:center;
+  padding:16px;
+}
+.lightbox__viewport{
+  grid-column:2;
+  grid-row:1;
+  min-width:0;
+  min-height:0;
+}
+.lightbox__seta{
+  display:none;
+  width:44px;
+  height:54px;
+  place-items:center;
+  border:1px solid #DCE4EF;
+  border-radius:14px;
+  background:#fff;
+  color:var(--cor-marca);
+  font-size:28px;
+  font-weight:700;
+  box-shadow:0 7px 22px rgba(0,0,0,.16);
+}
+.lightbox--navegavel .lightbox__seta{display:grid}
+.lightbox__seta--anterior{grid-column:1;grid-row:1}
+.lightbox__seta--proxima{grid-column:3;grid-row:1}
+.lightbox__legenda{
+  grid-column:1 / -1;
+  grid-row:2;
+  min-height:20px;
+  text-align:center;
+  font-size:12px;
+  font-weight:700;
+  color:#425269;
+}
+.lightbox__controles{
+  grid-column:1 / -1;
+  grid-row:3;
+  justify-self:center;
+}
+.lightbox__imagem{
+  width:100%;
+  height:auto;
+  max-height:calc(90vh - 125px);
+  object-fit:contain;
+}
+
+@media (max-width:768px){
+  .produto__cores-controle{grid-template-columns:32px minmax(0,1fr) 32px;gap:6px}
+  .produto__cores-seta{width:32px;height:32px}
+  .produto__dots-classicos{padding:9px 10px;gap:9px}
+  .produto__foto-seta{width:34px;height:46px;background:rgba(255,255,255,.94)}
+  .lightbox__conteudo{
+    width:100%;
+    max-height:92vh;
+    grid-template-columns:38px minmax(0,1fr) 38px;
+    gap:8px;
+    padding:12px;
+  }
+  .lightbox__seta{width:36px;height:48px;font-size:24px;border-radius:12px}
+  .lightbox__imagem{max-height:calc(92vh - 110px)}
+}
+/* ======================= FIM V7.0 ======================= */
+.produto__cores-controle--uma-cor{grid-template-columns:minmax(0,1fr)}
+
+
+/* ============================================================
+   V7.1 — RESTAURAÇÃO VISUAL DO CATÁLOGO CLÁSSICO
+   - Bolinhas voltam ao layout clássico com quebra de linha.
+   - Todos os materiais/categorias ficam visíveis.
+   - O botão de filtros avançados permanece separado no canto.
+   ============================================================ */
+.produto__cores-controle{
+  display:grid;
+  grid-template-columns:34px minmax(0,1fr) 34px;
+  align-items:center;
+  gap:8px;
+}
+
+.produto__dots-classicos{
+  display:flex;
+  flex-wrap:wrap !important;
+  overflow:visible !important;
+  gap:10px;
+  padding:11px 12px;
+  scroll-behavior:auto;
+  scrollbar-width:auto;
+}
+
+.produto__dots-classicos::-webkit-scrollbar{
+  display:none;
+}
+
+.catalogo-toolbar-v56{
+  display:grid;
+  grid-template-columns:minmax(0,1fr) auto;
+  align-items:center;
+  gap:12px;
+  width:100%;
+}
+
+.filtros-rapidos-v56{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  flex-wrap:wrap !important;
+  gap:8px;
+  min-width:0;
+  overflow:visible !important;
+}
+
+.filtro-rapido-v56{
+  flex:0 0 auto !important;
+  min-width:auto !important;
+  min-height:38px;
+  padding:8px 17px !important;
+  border-radius:999px;
+  font-size:13px;
+  font-weight:600;
+  white-space:nowrap;
+}
+
+.abrir-filtros-v56{
+  justify-self:end;
+  flex:0 0 auto;
+}
+
+@media (max-width:768px){
+  .catalogo-toolbar-v56{
+    grid-template-columns:minmax(0,1fr) auto !important;
+    align-items:start;
+    gap:8px;
+  }
+
+  .filtros-rapidos-v56{
+    justify-content:flex-start;
+    flex-wrap:wrap !important;
+    overflow:visible !important;
+    gap:7px;
+  }
+
+  .filtro-rapido-v56{
+    flex:0 0 auto !important;
+    min-height:35px;
+    padding:7px 13px !important;
+    font-size:11px;
+  }
+
+  .abrir-filtros-v56{
+    position:sticky;
+    top:8px;
+    width:auto;
+    min-width:40px;
+    min-height:40px;
+    padding:0 11px;
+    border-radius:12px;
+  }
+
+  .abrir-filtros-v56 span{
+    display:none;
+  }
+
+  .produto__cores-controle{
+    grid-template-columns:32px minmax(0,1fr) 32px;
+    gap:6px;
+  }
+
+  .produto__dots-classicos{
+    flex-wrap:wrap !important;
+    overflow:visible !important;
+    padding:9px 10px;
+    gap:9px;
+  }
+}
+
+@media (max-width:390px){
+  .catalogo-toolbar-v56{
+    grid-template-columns:1fr;
+  }
+
+  .abrir-filtros-v56{
+    position:static;
+    justify-self:end;
+    margin-top:2px;
+  }
+
+  .filtros-rapidos-v56{
+    justify-content:center;
+  }
+}
+/* ======================= FIM V7.1 ======================= */

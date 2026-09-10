@@ -2570,9 +2570,12 @@ lightbox.setAttribute("aria-hidden", "true");
 lightbox.innerHTML = `
   <div class="lightbox__conteudo" role="dialog" aria-modal="true" aria-label="Foto ampliada do filamento">
     <button class="lightbox__fechar" type="button" aria-label="Fechar foto">×</button>
+    <button class="lightbox__seta lightbox__seta--anterior" type="button" aria-label="Foto ou cor anterior">‹</button>
     <div class="lightbox__viewport">
       <img class="lightbox__imagem" alt="">
     </div>
+    <button class="lightbox__seta lightbox__seta--proxima" type="button" aria-label="Próxima foto ou cor">›</button>
+    <div class="lightbox__legenda" aria-live="polite"></div>
     <div class="lightbox__controles" aria-label="Controles de zoom">
       <button class="lightbox__controle" type="button" data-zoom="menos" aria-label="Diminuir zoom">−</button>
       <span class="lightbox__zoom-status" aria-live="polite">100%</span>
@@ -2591,6 +2594,9 @@ const lightboxZoomStatus = lightbox.querySelector(".lightbox__zoom-status");
 const lightboxZoomMenos = lightbox.querySelector('[data-zoom="menos"]');
 const lightboxZoomMais = lightbox.querySelector('[data-zoom="mais"]');
 const lightboxZoomReset = lightbox.querySelector('[data-zoom="reset"]');
+const lightboxAnterior = lightbox.querySelector(".lightbox__seta--anterior");
+const lightboxProxima = lightbox.querySelector(".lightbox__seta--proxima");
+const lightboxLegenda = lightbox.querySelector(".lightbox__legenda");
 
 let lightboxZoom = 1;
 let lightboxDeslocamentoX = 0;
@@ -2601,6 +2607,10 @@ let lightboxInicioArrasteX = 0;
 let lightboxInicioArrasteY = 0;
 let lightboxInicioDeslocamentoX = 0;
 let lightboxInicioDeslocamentoY = 0;
+let lightboxItensProduto = [];
+let lightboxIndiceItem = 0;
+let lightboxProdutoAtual = null;
+let lightboxSelecionarCor = null;
 
 function aplicarTransformacaoLightbox() {
   lightboxImagem.style.transform =
@@ -2627,7 +2637,74 @@ function resetarZoomLightbox() {
   aplicarTransformacaoLightbox();
 }
 
+
+async function montarItensLightboxProduto(produto) {
+  const grupos = await Promise.all(
+    produto.cores.map(async (cor, indiceCor) => {
+      const fotos = obterFotosCor(produto, cor);
+      const validadas = await Promise.all(fotos.map((caminho) => testarImagem(caminho)));
+      return validadas
+        .filter(Boolean)
+        .map((src, indiceFoto, lista) => ({
+          src,
+          cor,
+          indiceCor,
+          indiceFoto,
+          totalFotosCor: lista.length
+        }));
+    })
+  );
+  return grupos.flat();
+}
+
+function renderizarItemLightboxProduto() {
+  const item = lightboxItensProduto[lightboxIndiceItem];
+  if (!item) return;
+
+  lightboxImagem.src = item.src;
+  lightboxImagem.alt = `${obterNomeCompletoProduto(lightboxProdutoAtual)} — ${item.cor.nome}`;
+  lightboxLegenda.textContent = item.totalFotosCor > 1
+    ? `${item.cor.nome} · foto ${item.indiceFoto + 1} de ${item.totalFotosCor}`
+    : item.cor.nome;
+  resetarZoomLightbox();
+
+  if (typeof lightboxSelecionarCor === "function") {
+    lightboxSelecionarCor(item.indiceCor);
+  }
+}
+
+async function abrirLightboxProduto(produto, corInicial, aoSelecionarCor) {
+  const itens = await montarItensLightboxProduto(produto);
+  if (!itens.length) return;
+
+  lightboxProdutoAtual = produto;
+  lightboxItensProduto = itens;
+  lightboxSelecionarCor = aoSelecionarCor;
+
+  const indiceCor = produto.cores.indexOf(corInicial);
+  const inicio = itens.findIndex((item) => item.indiceCor === indiceCor);
+  lightboxIndiceItem = inicio >= 0 ? inicio : 0;
+
+  lightbox.classList.add("lightbox--aberto", "lightbox--navegavel");
+  lightbox.setAttribute("aria-hidden", "false");
+  document.body.style.overflow = "hidden";
+  renderizarItemLightboxProduto();
+  lightboxFechar.focus();
+}
+
+function avancarLightboxProduto(delta) {
+  if (!lightboxItensProduto.length) return;
+  lightboxIndiceItem =
+    (lightboxIndiceItem + delta + lightboxItensProduto.length) % lightboxItensProduto.length;
+  renderizarItemLightboxProduto();
+}
+
 function abrirLightbox(src, alt) {
+  lightboxItensProduto = [];
+  lightboxProdutoAtual = null;
+  lightboxSelecionarCor = null;
+  lightbox.classList.remove("lightbox--navegavel");
+  lightboxLegenda.textContent = "";
   lightboxImagem.src = src;
   lightboxImagem.alt = alt;
   resetarZoomLightbox();
@@ -2638,16 +2715,22 @@ function abrirLightbox(src, alt) {
 }
 
 function fecharLightbox() {
-  lightbox.classList.remove("lightbox--aberto");
+  lightbox.classList.remove("lightbox--aberto", "lightbox--navegavel");
   lightbox.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   resetarZoomLightbox();
+  lightboxItensProduto = [];
+  lightboxProdutoAtual = null;
+  lightboxSelecionarCor = null;
+  lightboxLegenda.textContent = "";
 }
 
 lightboxFechar.addEventListener("click", fecharLightbox);
 lightboxZoomMenos.addEventListener("click", () => definirZoomLightbox(lightboxZoom - 0.5));
 lightboxZoomMais.addEventListener("click", () => definirZoomLightbox(lightboxZoom + 0.5));
 lightboxZoomReset.addEventListener("click", resetarZoomLightbox);
+lightboxAnterior.addEventListener("click", () => avancarLightboxProduto(-1));
+lightboxProxima.addEventListener("click", () => avancarLightboxProduto(1));
 
 lightbox.addEventListener("click", (evento) => {
   if (evento.target === lightbox) {
@@ -2698,8 +2781,18 @@ lightboxImagem.addEventListener("pointerup", encerrarArrasteLightbox);
 lightboxImagem.addEventListener("pointercancel", encerrarArrasteLightbox);
 
 document.addEventListener("keydown", (evento) => {
-  if (evento.key === "Escape" && lightbox.classList.contains("lightbox--aberto")) {
+  if (!lightbox.classList.contains("lightbox--aberto")) return;
+  if (evento.key === "Escape") {
     fecharLightbox();
+    return;
+  }
+  if (lightboxItensProduto.length && evento.key === "ArrowLeft") {
+    evento.preventDefault();
+    avancarLightboxProduto(-1);
+  }
+  if (lightboxItensProduto.length && evento.key === "ArrowRight") {
+    evento.preventDefault();
+    avancarLightboxProduto(1);
   }
 });
 
@@ -2815,7 +2908,8 @@ async function atualizarFoto({
   area,
   botaoImagem,
   imagem,
-  botaoVerFoto
+  botaoVerFoto,
+  aoSelecionarCor = null
 }) {
   const caminhos = obterFotosCor(produto, cor);
   const tokenCarregamento = `${Date.now()}-${Math.random()}`;
@@ -2857,6 +2951,10 @@ async function atualizarFoto({
   botaoVerFoto.textContent = "Ver foto ampliada";
 
   function abrirFotoAtual() {
+    if (obterSecaoProduto(produto) === "filamentos") {
+      abrirLightboxProduto(produto, cor, aoSelecionarCor);
+      return;
+    }
     abrirLightbox(
       caminhoAtual,
       `${obterNomeCompletoProduto(produto)} na ${obterRotuloVariacaoSingular(produto)} ${cor.nome}`
@@ -3272,7 +3370,7 @@ function abrirGaleriaCores(produto, indiceSelecionado, aoSelecionar, botaoOrigem
 /* ============================================================
    LINHA DE PRODUTO
    ============================================================ */
-function criarLinhaProduto(produto, indiceCorInicial = 0) {
+function criarCardAcessorioNovo(produto, indiceCorInicial = 0) {
   const artigo = document.createElement("article");
   artigo.className = "catalogo-card-v57";
 
@@ -3373,6 +3471,305 @@ function criarLinhaProduto(produto, indiceCorInicial = 0) {
 
   return artigo;
 }
+
+
+function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
+  const artigo = document.createElement("article");
+  artigo.className = "produto";
+
+  const slugProduto = obterSlugProduto(produto);
+  artigo.id = `produto-${slugProduto}`;
+  artigo.dataset.produto = slugProduto;
+
+  const destaque = obterDestaqueProduto(produto);
+  if (destaque) {
+    artigo.classList.add("produto--destaque");
+    artigo.appendChild(criarSeloDestaqueProduto(destaque));
+  }
+
+  let indiceSelecionadoAtual = Math.max(0, Math.min(indiceCorInicial, produto.cores.length - 1));
+  let corSelecionadaAtual = produto.cores[indiceSelecionadoAtual] || produto.cores[0];
+
+  const info = document.createElement("div");
+  info.className = "produto__info";
+
+  const marca = document.createElement("span");
+  marca.className = "produto__marca";
+  marca.textContent = produto.linha
+    ? `${produto.marca} — ${produto.linha}`
+    : produto.marca;
+
+  const tag = document.createElement("span");
+  tag.className = "produto__material-tag";
+  tag.textContent = produto.material;
+
+  info.appendChild(marca);
+  info.appendChild(tag);
+
+  if (produto.obs) {
+    const observacao = document.createElement("span");
+    observacao.className = "produto__obs";
+    observacao.textContent = produto.obs;
+    info.appendChild(observacao);
+  }
+
+  const amostraWrap = document.createElement("div");
+  amostraWrap.className = "produto__amostra";
+
+  const spool = document.createElement("div");
+  spool.className = "spool";
+  spool.style.setProperty("--cor-atual", obterCorVisual(corSelecionadaAtual));
+  if (corSelecionadaAtual?.efeito) {
+    spool.classList.add(`spool--efeito-${corSelecionadaAtual.efeito}`);
+  }
+
+  const amostraImagem = document.createElement("img");
+  amostraImagem.className = "produto__amostra-foto";
+  amostraImagem.loading = "lazy";
+  amostraImagem.decoding = "async";
+  amostraImagem.alt = "";
+  amostraWrap.appendChild(spool);
+  amostraWrap.appendChild(amostraImagem);
+  atualizarAmostraComFotoReal(produto, corSelecionadaAtual, amostraWrap, amostraImagem);
+
+  const detalhe = document.createElement("div");
+  detalhe.className = "produto__detalhe";
+
+  const cabecalhoCor = document.createElement("div");
+  cabecalhoCor.className = "produto__cor-cabecalho";
+
+  const nomeCor = document.createElement("span");
+  nomeCor.className = "produto__cor-nome";
+  nomeCor.setAttribute("aria-live", "polite");
+  nomeCor.textContent = corSelecionadaAtual.nome;
+
+  const contagem = document.createElement("span");
+  contagem.className = "produto__cor-contagem";
+  contagem.textContent = produto.cores.length === 1
+    ? "1 cor disponível"
+    : `${produto.cores.length} cores disponíveis`;
+
+  cabecalhoCor.appendChild(nomeCor);
+  cabecalhoCor.appendChild(contagem);
+
+  const compraRapida = document.createElement("div");
+  compraRapida.className = "produto__compra-rapida";
+
+  const estoqueInfo = document.createElement("span");
+  estoqueInfo.className = "produto__estoque";
+  estoqueInfo.setAttribute("aria-live", "polite");
+  compraRapida.appendChild(estoqueInfo);
+
+  const dotsControle = document.createElement("div");
+  dotsControle.className = "produto__cores-controle";
+
+  const botaoCorAnterior = document.createElement("button");
+  botaoCorAnterior.type = "button";
+  botaoCorAnterior.className = "produto__cores-seta";
+  botaoCorAnterior.setAttribute("aria-label", "Cor anterior");
+  botaoCorAnterior.innerHTML = '<span aria-hidden="true">‹</span>';
+
+  const dots = document.createElement("div");
+  dots.className = "dots produto__dots-classicos";
+  dots.setAttribute("role", "listbox");
+  dots.setAttribute("aria-label", `Cores de ${produto.marca}`);
+
+  const botaoCorProxima = document.createElement("button");
+  botaoCorProxima.type = "button";
+  botaoCorProxima.className = "produto__cores-seta";
+  botaoCorProxima.setAttribute("aria-label", "Próxima cor");
+  botaoCorProxima.innerHTML = '<span aria-hidden="true">›</span>';
+
+  dotsControle.appendChild(botaoCorAnterior);
+  dotsControle.appendChild(dots);
+  dotsControle.appendChild(botaoCorProxima);
+  if (produto.cores.length <= 1) {
+    botaoCorAnterior.hidden = true;
+    botaoCorProxima.hidden = true;
+    dotsControle.classList.add("produto__cores-controle--uma-cor");
+  }
+
+  const foto = criarAreaFoto();
+
+  const lado = document.createElement("div");
+  lado.className = "produto__lado";
+
+  const precoWrap = document.createElement("div");
+  precoWrap.className = "produto__preco";
+  const precoValor = document.createElement("span");
+  precoValor.className = "produto__preco-valor";
+  const precoPix = document.createElement("strong");
+  precoPix.className = "produto__preco-pix";
+  const precoParcelamento = document.createElement("span");
+  precoParcelamento.className = "produto__preco-parcelamento";
+  precoWrap.appendChild(precoValor);
+  precoWrap.appendChild(precoPix);
+  precoWrap.appendChild(precoParcelamento);
+
+  const acoes = document.createElement("div");
+  acoes.className = "produto__acoes";
+
+  const botaoLoja = document.createElement("a");
+  botaoLoja.className = "produto__acao produto__acao--loja";
+  botaoLoja.target = "_blank";
+  botaoLoja.rel = "noopener";
+
+  const botaoAdicionar = document.createElement("button");
+  botaoAdicionar.type = "button";
+  botaoAdicionar.className = "produto__adicionar";
+  botaoAdicionar.title = "Adicionar ao pedido";
+  botaoAdicionar.innerHTML = `
+    <span class="produto__adicionar-icone" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+        <rect x="4.5" y="4" width="12" height="16" rx="2"></rect>
+        <path d="M8 4.5h5"></path><path d="M8 9h4"></path><path d="M8 13h3"></path>
+        <path d="M18.5 11v6"></path><path d="M15.5 14h6"></path>
+      </svg>
+    </span>
+    <span class="produto__adicionar-texto">Adicionar ao pedido</span>
+    <span class="produto__adicionar-quantidade" hidden>0</span>
+  `;
+
+  const botaoVerFoto = document.createElement("button");
+  botaoVerFoto.type = "button";
+  botaoVerFoto.className = "produto__acao produto__acao--foto";
+  botaoVerFoto.textContent = "Foto em breve";
+  botaoVerFoto.disabled = true;
+
+  acoes.appendChild(botaoLoja);
+  acoes.appendChild(botaoAdicionar);
+  acoes.appendChild(botaoVerFoto);
+  lado.appendChild(precoWrap);
+  lado.appendChild(acoes);
+
+  function atualizarEstadoEstoque(cor) {
+    const status = obterStatusEstoque(cor);
+    estoqueInfo.classList.remove(
+      "produto__estoque--disponivel",
+      "produto__estoque--baixo",
+      "produto__estoque--esgotado"
+    );
+    estoqueInfo.classList.add(
+      status === "ultimas_unidades"
+        ? "produto__estoque--baixo"
+        : "produto__estoque--disponivel"
+    );
+    estoqueInfo.textContent = obterTextoEstoque(cor);
+
+    const resumoPreco = obterResumoPrecoCatalogo(obterPrecoProdutoOuVariacao(produto, cor));
+    precoValor.textContent = formatarPreco(resumoPreco.precoNormal);
+    precoPix.textContent = `PIX: ${formatarPrecoPedido(resumoPreco.precoPix)}`;
+    precoParcelamento.textContent =
+      `ou ${PARCELAS_SEM_JUROS}x de ${formatarPrecoPedido(resumoPreco.valorParcela)} sem juros`;
+
+    botaoLoja.href = obterLinkLoja(produto);
+    botaoLoja.textContent = "Comprar no site";
+    botaoAdicionar.dataset.itemId = obterIdItemCarrinho(produto, cor);
+    botaoAdicionar.dataset.corNome = cor.nome;
+    botaoAdicionar.disabled = !corEstaDisponivel(cor);
+    sincronizarBotaoAdicionar(botaoAdicionar);
+  }
+
+  function renderizarDots() {
+    dots.innerHTML = "";
+    produto.cores.forEach((cor, index) => {
+      const dot = criarElementoDot(
+        produto,
+        cor,
+        index,
+        selecionarCor,
+        index === indiceSelecionadoAtual
+      );
+      dot.dataset.indiceCor = String(index);
+      dots.appendChild(dot);
+    });
+  }
+
+  function atualizarDotAtivo() {
+    dots.querySelectorAll(".dot").forEach((dot, index) => {
+      const ativo = index === indiceSelecionadoAtual;
+      dot.classList.toggle("dot--ativo", ativo);
+      dot.setAttribute("aria-selected", ativo ? "true" : "false");
+    });
+  }
+
+  function selecionarCor(index) {
+    if (!produto.cores.length) return;
+    indiceSelecionadoAtual = (index + produto.cores.length) % produto.cores.length;
+    const cor = produto.cores[indiceSelecionadoAtual];
+    corSelecionadaAtual = cor;
+    atualizarEnderecoDaCor(produto, cor);
+
+    atualizarDotAtivo();
+    spool.style.setProperty("--cor-atual", obterCorVisual(cor));
+    spool.classList.remove(
+      "spool--efeito-silk", "spool--efeito-glass", "spool--efeito-fosco", "spool--efeito-glow"
+    );
+    if (cor.efeito) spool.classList.add(`spool--efeito-${cor.efeito}`);
+
+    nomeCor.textContent = cor.nome;
+    atualizarEstadoEstoque(cor);
+    atualizarAmostraComFotoReal(produto, cor, amostraWrap, amostraImagem);
+    aplicarCorSolidaDaFoto(produto, cor, () => {
+      if (corSelecionadaAtual === cor) {
+        spool.style.setProperty("--cor-atual", obterCorVisual(cor));
+      }
+    });
+
+    atualizarFoto({
+      produto,
+      cor,
+      area: foto.area,
+      botaoImagem: foto.botao,
+      imagem: foto.imagem,
+      botaoVerFoto,
+      aoSelecionarCor: selecionarCor
+    });
+  }
+
+  function moverCor(delta) {
+    selecionarCor(indiceSelecionadoAtual + delta);
+  }
+
+  botaoCorAnterior.addEventListener("click", () => moverCor(-1));
+  botaoCorProxima.addEventListener("click", () => moverCor(1));
+
+  botaoAdicionar.addEventListener("click", () => {
+    adicionarAoCarrinho(produto, corSelecionadaAtual, botaoAdicionar);
+  });
+
+  detalhe.appendChild(cabecalhoCor);
+  detalhe.appendChild(compraRapida);
+  detalhe.appendChild(dotsControle);
+
+  artigo.appendChild(info);
+  artigo.appendChild(amostraWrap);
+  artigo.appendChild(detalhe);
+  artigo.appendChild(foto.area);
+  artigo.appendChild(lado);
+
+  renderizarDots();
+  atualizarEstadoEstoque(corSelecionadaAtual);
+  atualizarFoto({
+    produto,
+    cor: corSelecionadaAtual,
+    area: foto.area,
+    botaoImagem: foto.botao,
+    imagem: foto.imagem,
+    botaoVerFoto,
+    aoSelecionarCor: selecionarCor
+  });
+
+  return artigo;
+}
+
+function criarLinhaProduto(produto, indiceCorInicial = 0) {
+  if (obterSecaoProduto(produto) === "acessorios") {
+    return criarCardAcessorioNovo(produto, indiceCorInicial);
+  }
+  return criarLinhaFilamentoClassico(produto, indiceCorInicial);
+}
+
 
 /* ============================================================
    PESQUISA E FILTROS
@@ -3743,46 +4140,43 @@ function renderizarFiltrosRapidosV56() {
   if (!filtrosRapidosV56El) return;
 
   if (secaoAtiva === "acessorios") {
-    const preferidas = ["Etiquetas", "Ferramentas", "Chaveiros"];
     const categorias = listarCategoriasAcessorios();
-    const atalhos = [
-      ...preferidas.filter((nome) =>
-        categorias.some((categoria) => normalizar(categoria) === normalizar(nome))
-      ),
-      ...categorias.filter((categoria) =>
-        !preferidas.some((nome) => normalizar(nome) === normalizar(categoria))
-      )
-    ].slice(0, 3);
+    const todosAtivo = !(filtrosV56.categorias?.length);
 
-    filtrosRapidosV56El.innerHTML = atalhos.map((categoria) => `
+    filtrosRapidosV56El.innerHTML = `
       <button
         type="button"
-        class="filtro-rapido-v56 ${arrayContemNormalizado(filtrosV56.categorias, categoria) ? "filtro-rapido-v56--ativo" : ""}"
-        data-categoria-rapida-v56="${escaparHTML(categoria)}"
-      >${escaparHTML(categoria)}</button>
-    `).join("");
-
+        class="filtro-rapido-v56 ${todosAtivo ? "filtro-rapido-v56--ativo" : ""}"
+        data-todos-rapido-v71="categorias"
+      >Todos</button>
+      ${categorias.map((categoria) => `
+        <button
+          type="button"
+          class="filtro-rapido-v56 ${arrayContemNormalizado(filtrosV56.categorias, categoria) ? "filtro-rapido-v56--ativo" : ""}"
+          data-categoria-rapida-v56="${escaparHTML(categoria)}"
+        >${escaparHTML(categoria)}</button>
+      `).join("")}
+    `;
     return;
   }
 
-  const preferidos = ["PLA", "PETG", "ABS"];
   const materiais = listarMateriaisFilamentos();
-  const atalhos = [
-    ...preferidos.filter((nome) =>
-      materiais.some((material) => normalizar(material) === normalizar(nome))
-    ),
-    ...materiais.filter((material) =>
-      !preferidos.some((nome) => normalizar(nome) === normalizar(material))
-    )
-  ].slice(0, 3);
+  const todosAtivo = !(filtrosV56.materiais?.length);
 
-  filtrosRapidosV56El.innerHTML = atalhos.map((material) => `
+  filtrosRapidosV56El.innerHTML = `
     <button
       type="button"
-      class="filtro-rapido-v56 ${arrayContemNormalizado(filtrosV56.materiais, material) ? "filtro-rapido-v56--ativo" : ""}"
-      data-material-rapido-v56="${escaparHTML(material)}"
-    >${escaparHTML(material)}</button>
-  `).join("");
+      class="filtro-rapido-v56 ${todosAtivo ? "filtro-rapido-v56--ativo" : ""}"
+      data-todos-rapido-v71="materiais"
+    >Todos</button>
+    ${materiais.map((material) => `
+      <button
+        type="button"
+        class="filtro-rapido-v56 ${arrayContemNormalizado(filtrosV56.materiais, material) ? "filtro-rapido-v56--ativo" : ""}"
+        data-material-rapido-v56="${escaparHTML(material)}"
+      >${escaparHTML(material)}</button>
+    `).join("")}
+  `;
 }
 
 function renderizarFiltrosAplicadosV56() {
@@ -4209,14 +4603,14 @@ function renderizar() {
     })
     .map((item) => item.produto);
 
-  const modoCores = consultaAtivaTemIntencaoDeCorV56(termo, filtrosV56);
+  const modoCores = false;
 
   const tituloCatalogoV57 = document.getElementById("catalogo-titulo-v57");
   const contagemCatalogoV57 = document.getElementById("catalogo-contagem-v57");
   if (tituloCatalogoV57) {
-    tituloCatalogoV57.textContent = modoCores
-      ? "Cores encontradas"
-      : (secaoAtiva === "acessorios" ? "Escolha um acessório" : "Escolha um filamento");
+    tituloCatalogoV57.textContent = secaoAtiva === "acessorios"
+      ? "Escolha um acessório"
+      : "Escolha um filamento";
   }
   if (contagemCatalogoV57) {
     const rotulo = secaoAtiva === "acessorios"
@@ -4225,8 +4619,10 @@ function renderizar() {
     contagemCatalogoV57.textContent = modoCores ? "" : `${produtosFiltrados.length} ${rotulo}`;
   }
   listaProdutosEl.innerHTML = "";
-  listaProdutosEl.classList.toggle("catalogo__container--acessorios", secaoAtiva === "acessorios");
-  listaProdutosEl.classList.toggle("catalogo__container--resultados-cor-v56", modoCores);
+  const emAcessorios = secaoAtiva === "acessorios";
+  listaProdutosEl.classList.toggle("catalogo__container--acessorios", emAcessorios);
+  listaProdutosEl.classList.toggle("catalogo__container--novo-v57", emAcessorios);
+  listaProdutosEl.classList.toggle("catalogo__container--resultados-cor-v56", false);
 
   let totalVariacoes = 0;
 
@@ -4245,7 +4641,8 @@ function renderizar() {
     });
   } else {
     produtosFiltrados.forEach((produto) => {
-      let indiceCorInicial = encontrarCorInicial(produto, termo);
+      const termoCorInicial = [termo, filtrosV56.cor].filter(Boolean).join(" ");
+      let indiceCorInicial = encontrarCorInicial(produto, termoCorInicial);
 
       const produtoCorrespondeAoLink =
         destino.produto && obterSlugProduto(produto) === destino.produto;
@@ -4418,21 +4815,29 @@ abasCatalogoV56El?.addEventListener("click", (evento) => {
 });
 
 filtrosRapidosV56El?.addEventListener("click", (evento) => {
+  const todos = evento.target.closest("[data-todos-rapido-v71]");
   const material = evento.target.closest("[data-material-rapido-v56]");
   const categoria = evento.target.closest("[data-categoria-rapida-v56]");
 
+  if (todos) {
+    if (todos.dataset.todosRapidoV71 === "materiais") filtrosV56.materiais = [];
+    if (todos.dataset.todosRapidoV71 === "categorias") filtrosV56.categorias = [];
+    renderizar();
+    return;
+  }
+
   if (material) {
-    filtrosV56.materiais = alternarValorFiltro(
-      filtrosV56.materiais,
-      material.dataset.materialRapidoV56
-    );
+    const valor = material.dataset.materialRapidoV56;
+    filtrosV56.materiais = arrayContemNormalizado(filtrosV56.materiais, valor)
+      ? []
+      : [valor];
   }
 
   if (categoria) {
-    filtrosV56.categorias = alternarValorFiltro(
-      filtrosV56.categorias,
-      categoria.dataset.categoriaRapidaV56
-    );
+    const valor = categoria.dataset.categoriaRapidaV56;
+    filtrosV56.categorias = arrayContemNormalizado(filtrosV56.categorias, valor)
+      ? []
+      : [valor];
   }
 
   renderizar();

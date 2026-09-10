@@ -1,0 +1,21 @@
+3ZK V7.0 — retorno clássico dos filamentos + acessórios novos
+
+O que muda:
+- Filamentos voltam ao card horizontal clássico.
+- Seleção por bolinhas de cor.
+- As setas ao lado das bolinhas selecionam diretamente a cor anterior/próxima.
+- A foto principal continua ampliável.
+- No lightbox, setas esquerda/direita percorrem fotos e, ao terminar as fotos da cor, avançam para a próxima cor.
+- A cor escolhida no lightbox sincroniza o card.
+- Busca por cor volta a manter um card por produto e abrir o card na melhor cor correspondente.
+- Acessórios mantêm o card novo e a página dedicada com opções.
+- Segurança, carrinho e carregamento estável permanecem.
+
+Arquivos alterados:
+index.html
+style.css
+script.js
+produto.html (somente cache-bust)
+produto.js (mantido junto para garantir compatibilidade)
+
+Não altera dados/produtos.json, produtos-base.json, Olist, SKU, GTIN, chaveEstoque, preços ou automações.
