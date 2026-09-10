@@ -8735,3 +8735,57 @@ body.filtros-v56-abertos { overflow: hidden; }
 }
 /* ======================== FIM V6.3 ======================== */
 
+
+
+/* ============================================================
+   3ZK V6.5 — CTA DE ITEM JÁ ADICIONADO
+   Reduz o peso visual do antigo “Adicionar mais” e usa o botão
+   como atalho para o Pedido 3ZK, onde a quantidade é ajustada.
+   ============================================================ */
+.produto .produto__acoes .produto__adicionar--no-carrinho,
+.produto-v57__adicionar.produto__adicionar--no-carrinho,
+#produto-sticky-add-v57.produto__adicionar--no-carrinho {
+  background: #f5f9ff !important;
+  color: #0758bd !important;
+  border: 1px solid #bfd5f0 !important;
+  box-shadow: none !important;
+}
+
+.produto .produto__acoes .produto__adicionar--no-carrinho:hover,
+.produto-v57__adicionar.produto__adicionar--no-carrinho:hover,
+#produto-sticky-add-v57.produto__adicionar--no-carrinho:hover {
+  background: #edf5ff !important;
+  border-color: #8eb8e7 !important;
+  color: #044b9f !important;
+}
+
+.produto-v57__adicionar.produto__adicionar--no-carrinho .produto__adicionar-icone {
+  background: #dcecff !important;
+  color: #0758bd !important;
+}
+
+.produto-v57__adicionar.produto__adicionar--no-carrinho .produto__adicionar-icone::before {
+  content: "✓";
+  font-size: 13px;
+  font-weight: 900;
+}
+
+.produto-v57__adicionar.produto__adicionar--no-carrinho .produto__adicionar-icone {
+  font-size: 0 !important;
+}
+
+.produto__adicionar--no-carrinho .produto__adicionar-quantidade {
+  display: none !important;
+}
+
+@media (max-width: 700px) {
+  .produto-v57__adicionar.produto__adicionar--no-carrinho {
+    min-height: 42px !important;
+  }
+
+  #produto-sticky-add-v57.produto__adicionar--no-carrinho {
+    background: #ffffff !important;
+    min-width: 118px;
+  }
+}
+/* ================= FIM 3ZK V6.5 ================= */

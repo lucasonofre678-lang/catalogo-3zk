@@ -1669,12 +1669,14 @@ function adicionarAoCarrinho(produto, cor, botao) {
   const id = obterIdItemCarrinho(produto, cor);
   const existente = carrinho.find((item) => item.id === id);
 
-  if (existente) {
-    existente.quantidade = Math.min(
-      LIMITE_QUANTIDADE_ITEM,
-      existente.quantidade + 1
-    );
+  // Se a variação já está no pedido, o CTA vira um atalho para o carrinho.
+  // A quantidade é ajustada no próprio Pedido 3ZK com os controles − / +.
+  if (existente && botao?.classList.contains("produto__adicionar--no-carrinho")) {
+    abrirCarrinho(1);
+    return;
+  }
 
+  if (existente) {
     existente.preco = obterPrecoProdutoOuVariacao(produto, cor) || existente.preco;
     existente.imagem = obterFotosCor(produto, cor)[0] || existente.imagem;
     existente.hex = obterHexBaseVisual(cor) || existente.hex;
@@ -1772,12 +1774,14 @@ function sincronizarBotaoAdicionar(botao) {
 
   if (quantidadeEl) {
     quantidadeEl.textContent = String(quantidade);
-    quantidadeEl.hidden = quantidade === 0;
+    // A quantidade continua disponível no Pedido 3ZK; não precisa virar
+    // um segundo destaque visual no CTA do produto.
+    quantidadeEl.hidden = true;
   }
 
   if (textoEl && !botao.classList.contains("produto__adicionar--confirmado")) {
     textoEl.textContent = quantidade > 0
-      ? "Adicionar mais"
+      ? `No pedido · ${quantidade}`
       : "Adicionar ao pedido";
   }
 
@@ -1791,7 +1795,7 @@ function sincronizarBotaoAdicionar(botao) {
   botao.setAttribute(
     "aria-label",
     quantidade > 0
-      ? `${quantidade} no pedido. Adicionar mais uma unidade da cor ${nomeCor}.`
+      ? `${quantidade} ${quantidade === 1 ? "unidade" : "unidades"} de ${nomeCor} no pedido. Abrir Pedido 3ZK para alterar a quantidade.`
       : `Adicionar a cor ${nomeCor} ao pedido.`
   );
 }

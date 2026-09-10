@@ -1,0 +1,10 @@
+3ZK V6.5 — CTA de pedido mais limpo
+
+- Remove o estado visual gigante “Adicionar mais + quantidade”.
+- Após adicionar, o botão vira “No pedido · N” em estilo secundário.
+- Clicar nesse estado abre o Pedido 3ZK em vez de incrementar silenciosamente.
+- Quantidade continua sendo ajustada no carrinho com − / +.
+- Mantém todas as correções e segurança da V6.4.
+
+Extraia este ZIP em C:\3ZK e substitua os arquivos solicitados.
+Depois use Ctrl+F5 uma vez no navegador.
