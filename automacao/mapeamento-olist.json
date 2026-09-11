@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 273,
+  "total": 274,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1256,6 +1256,17 @@
       "sku": "PLA FOSCO ROXO",
       "gtin": "7908229110872",
       "descricaoOlist": "Filamento PLA Masterprint - PLA FOSCO ROXO"
+    },
+    {
+      "chave": "masterprint|pla||fosco-azul-artico",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fosco Azul Ártico",
+      "olistId": 1055270827,
+      "sku": null,
+      "gtin": "7908229110896",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA FOSCO AZUL ARTICO 1KG (1.75MM) DER 4"
     },
     {
       "chave": "masterprint|pla||fosco-cinza-fossil",

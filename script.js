@@ -3128,12 +3128,15 @@ function criarFotoSwatch(produto, cor, index, aoSelecionar, estaAtivo) {
   if (estaAtivo) {
     botao.setAttribute("aria-current", "true");
     botao.title = `${cor.nome} — selecionada`;
-    botao.addEventListener("click", (evento) => {
-      evento.preventDefault();
-    });
-  } else {
-    botao.addEventListener("click", () => aoSelecionar(index));
   }
+
+  botao.addEventListener("click", (evento) => {
+    if (botao.getAttribute("aria-selected") === "true") {
+      evento.preventDefault();
+      return;
+    }
+    aoSelecionar(index);
+  });
 
   return botao;
 }
@@ -3560,34 +3563,58 @@ function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
   estoqueInfo.setAttribute("aria-live", "polite");
   compraRapida.appendChild(estoqueInfo);
 
-  const dotsControle = document.createElement("div");
-  dotsControle.className = "produto__cores-controle";
+  const swatchesBloco = document.createElement("div");
+  swatchesBloco.className = "produto__swatches-bloco";
 
-  const botaoCorAnterior = document.createElement("button");
-  botaoCorAnterior.type = "button";
-  botaoCorAnterior.className = "produto__cores-seta";
-  botaoCorAnterior.setAttribute("aria-label", "Cor anterior");
-  botaoCorAnterior.innerHTML = '<span aria-hidden="true">‹</span>';
+  const swatchesLinha = document.createElement("div");
+  swatchesLinha.className = "produto__swatches-linha produto__swatches-linha--sem-navegacao";
 
-  const dots = document.createElement("div");
-  dots.className = "dots produto__dots-classicos";
-  dots.setAttribute("role", "listbox");
-  dots.setAttribute("aria-label", `Cores de ${produto.marca}`);
+  const botaoSwatchesAnterior = document.createElement("button");
+  botaoSwatchesAnterior.type = "button";
+  botaoSwatchesAnterior.className = "produto__swatches-seta produto__swatches-seta--anterior";
+  botaoSwatchesAnterior.setAttribute("aria-label", "Ver cores anteriores");
+  botaoSwatchesAnterior.innerHTML = '<span aria-hidden="true">‹</span>';
+  botaoSwatchesAnterior.hidden = true;
 
-  const botaoCorProxima = document.createElement("button");
-  botaoCorProxima.type = "button";
-  botaoCorProxima.className = "produto__cores-seta";
-  botaoCorProxima.setAttribute("aria-label", "Próxima cor");
-  botaoCorProxima.innerHTML = '<span aria-hidden="true">›</span>';
+  const swatches = document.createElement("div");
+  swatches.className = "produto__foto-swatches";
+  swatches.setAttribute("role", "listbox");
+  swatches.setAttribute("aria-label", `Cores de ${produto.marca}`);
 
-  dotsControle.appendChild(botaoCorAnterior);
-  dotsControle.appendChild(dots);
-  dotsControle.appendChild(botaoCorProxima);
-  if (produto.cores.length <= 1) {
-    botaoCorAnterior.hidden = true;
-    botaoCorProxima.hidden = true;
-    dotsControle.classList.add("produto__cores-controle--uma-cor");
-  }
+  const botaoSwatchesProximo = document.createElement("button");
+  botaoSwatchesProximo.type = "button";
+  botaoSwatchesProximo.className = "produto__swatches-seta produto__swatches-seta--proxima";
+  botaoSwatchesProximo.setAttribute("aria-label", "Ver próximas cores");
+  botaoSwatchesProximo.innerHTML = '<span aria-hidden="true">›</span>';
+  botaoSwatchesProximo.hidden = true;
+
+  swatchesLinha.appendChild(botaoSwatchesAnterior);
+  swatchesLinha.appendChild(swatches);
+  swatchesLinha.appendChild(botaoSwatchesProximo);
+
+  const botaoVerTodasCores = document.createElement("button");
+  botaoVerTodasCores.type = "button";
+  botaoVerTodasCores.className = "produto__ver-todas-cores";
+  botaoVerTodasCores.setAttribute(
+    "aria-label",
+    produto.cores.length === 1
+      ? "Ver a cor disponível"
+      : `Ver todas as ${produto.cores.length} cores disponíveis`
+  );
+  botaoVerTodasCores.innerHTML = `
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true">
+      <rect x="4" y="4" width="6" height="6" rx="1.2"></rect>
+      <rect x="14" y="4" width="6" height="6" rx="1.2"></rect>
+      <rect x="4" y="14" width="6" height="6" rx="1.2"></rect>
+      <rect x="14" y="14" width="6" height="6" rx="1.2"></rect>
+    </svg>
+    <span>${produto.cores.length === 1 ? "Ver cor disponível" : `Ver todas as ${produto.cores.length} cores`}</span>
+    <span aria-hidden="true">›</span>
+  `;
+  botaoVerTodasCores.hidden = produto.cores.length <= 1;
+
+  swatchesBloco.appendChild(swatchesLinha);
+  swatchesBloco.appendChild(botaoVerTodasCores);
 
   const foto = criarAreaFoto();
 
@@ -3670,27 +3697,75 @@ function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
     sincronizarBotaoAdicionar(botaoAdicionar);
   }
 
-  function renderizarDots() {
-    dots.innerHTML = "";
+  function atualizarNavegacaoSwatches() {
+    const possuiOverflow = swatches.scrollWidth > swatches.clientWidth + 4;
+    const mostrarSetas = possuiOverflow;
+
+    swatchesLinha.classList.toggle("produto__swatches-linha--com-navegacao", mostrarSetas);
+    swatchesLinha.classList.toggle("produto__swatches-linha--sem-navegacao", !mostrarSetas);
+    botaoSwatchesAnterior.hidden = !mostrarSetas;
+    botaoSwatchesProximo.hidden = !mostrarSetas;
+
+    if (!mostrarSetas) return;
+
+    const limiteDireito = Math.max(0, swatches.scrollWidth - swatches.clientWidth);
+    botaoSwatchesAnterior.disabled = swatches.scrollLeft <= 2;
+    botaoSwatchesProximo.disabled = swatches.scrollLeft >= limiteDireito - 2;
+  }
+
+  function renderizarSwatches() {
+    swatches.innerHTML = "";
     produto.cores.forEach((cor, index) => {
-      const dot = criarElementoDot(
-        produto,
-        cor,
-        index,
-        selecionarCor,
-        index === indiceSelecionadoAtual
+      swatches.appendChild(
+        criarFotoSwatch(
+          produto,
+          cor,
+          index,
+          selecionarCor,
+          index === indiceSelecionadoAtual
+        )
       );
-      dot.dataset.indiceCor = String(index);
-      dots.appendChild(dot);
+    });
+
+    requestAnimationFrame(atualizarNavegacaoSwatches);
+  }
+
+  function atualizarSwatchAtivo() {
+    swatches.querySelectorAll(".produto__foto-swatch").forEach((swatch, index) => {
+      const ativo = index === indiceSelecionadoAtual;
+      swatch.classList.toggle("produto__foto-swatch--ativo", ativo);
+      swatch.setAttribute("aria-selected", ativo ? "true" : "false");
+
+      if (ativo) {
+        swatch.setAttribute("aria-current", "true");
+        swatch.title = `${produto.cores[index].nome} — selecionada`;
+      } else {
+        swatch.removeAttribute("aria-current");
+        swatch.title = produto.cores[index].nome;
+      }
     });
   }
 
-  function atualizarDotAtivo() {
-    dots.querySelectorAll(".dot").forEach((dot, index) => {
-      const ativo = index === indiceSelecionadoAtual;
-      dot.classList.toggle("dot--ativo", ativo);
-      dot.setAttribute("aria-selected", ativo ? "true" : "false");
-    });
+  function garantirSwatchSelecionadoVisivel() {
+    const ativo = swatches.querySelector(".produto__foto-swatch--ativo");
+    if (!ativo) return;
+
+    const esquerda = ativo.offsetLeft;
+    const direita = esquerda + ativo.offsetWidth;
+    const visivelEsquerda = swatches.scrollLeft;
+    const visivelDireita = visivelEsquerda + swatches.clientWidth;
+
+    if (esquerda < visivelEsquerda) {
+      swatches.scrollTo({
+        left: Math.max(0, esquerda - 8),
+        behavior: "smooth"
+      });
+    } else if (direita > visivelDireita) {
+      swatches.scrollTo({
+        left: Math.max(0, direita - swatches.clientWidth + 8),
+        behavior: "smooth"
+      });
+    }
   }
 
   function selecionarCor(index) {
@@ -3700,7 +3775,8 @@ function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
     corSelecionadaAtual = cor;
     atualizarEnderecoDaCor(produto, cor);
 
-    atualizarDotAtivo();
+    atualizarSwatchAtivo();
+    garantirSwatchSelecionadoVisivel();
     spool.style.setProperty("--cor-atual", obterCorVisual(cor));
     spool.classList.remove(
       "spool--efeito-silk", "spool--efeito-glass", "spool--efeito-fosco", "spool--efeito-glow"
@@ -3727,12 +3803,26 @@ function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
     });
   }
 
-  function moverCor(delta) {
-    selecionarCor(indiceSelecionadoAtual + delta);
+  function rolarSwatches(direcao) {
+    const primeiro = swatches.querySelector(".produto__foto-swatch");
+    const passoItem = primeiro ? primeiro.getBoundingClientRect().width + 8 : 66;
+    const quantidadeVisivel = Math.max(1, Math.floor(swatches.clientWidth / passoItem) - 1);
+    const distancia = passoItem * quantidadeVisivel * direcao;
+    swatches.scrollBy({ left: distancia, behavior: "smooth" });
   }
 
-  botaoCorAnterior.addEventListener("click", () => moverCor(-1));
-  botaoCorProxima.addEventListener("click", () => moverCor(1));
+  botaoSwatchesAnterior.addEventListener("click", () => rolarSwatches(-1));
+  botaoSwatchesProximo.addEventListener("click", () => rolarSwatches(1));
+  swatches.addEventListener("scroll", atualizarNavegacaoSwatches, { passive: true });
+
+  botaoVerTodasCores.addEventListener("click", () => {
+    abrirGaleriaCores(
+      produto,
+      indiceSelecionadoAtual,
+      selecionarCor,
+      botaoVerTodasCores
+    );
+  });
 
   botaoAdicionar.addEventListener("click", () => {
     adicionarAoCarrinho(produto, corSelecionadaAtual, botaoAdicionar);
@@ -3740,7 +3830,7 @@ function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
 
   detalhe.appendChild(cabecalhoCor);
   detalhe.appendChild(compraRapida);
-  detalhe.appendChild(dotsControle);
+  detalhe.appendChild(swatchesBloco);
 
   artigo.appendChild(info);
   artigo.appendChild(amostraWrap);
@@ -3748,7 +3838,7 @@ function criarLinhaFilamentoClassico(produto, indiceCorInicial = 0) {
   artigo.appendChild(foto.area);
   artigo.appendChild(lado);
 
-  renderizarDots();
+  renderizarSwatches();
   atualizarEstadoEstoque(corSelecionadaAtual);
   atualizarFoto({
     produto,

@@ -1712,6 +1712,19 @@
         "disponivel": false
       },
       {
+        "nome": "Fosco Azul Ártico",
+        "hex": "#22556B",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/fosco-azul-artico.webp"
+        ],
+        "idCatalogo": "masterprint|pla||fosco-azul-artico",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
         "nome": "Fosco Cinza Fóssil",
         "hex": "#686E72",
         "efeito": "fosco",
