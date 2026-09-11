@@ -3019,8 +3019,8 @@
         ],
         "preco": 120,
         "idCatalogo": "multifila|pla||silk-ouro-envelhecido",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Rainbow Macaron",
