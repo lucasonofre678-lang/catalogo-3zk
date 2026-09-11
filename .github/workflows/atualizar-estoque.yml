@@ -97,7 +97,8 @@ jobs:
           python automacao/gerar_catalogo_sem_consultar_olist.py \
             --base dados/produtos-base.json \
             --estoque-atual /tmp/produtos-3zk-estoque.json \
-            --output dados/produtos.json
+            --output dados/produtos.json \
+            --catalogo-completo
 
           cp /tmp/ultima-atualizacao-3zk.json dados/ultima-atualizacao.json
           python automacao/validar_catalogo.py --strict-public

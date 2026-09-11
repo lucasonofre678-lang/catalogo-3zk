@@ -35,6 +35,15 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--estoque-atual", default="dados/produtos.json")
     parser.add_argument("--controle", default="dados/controle-catalogo.json")
     parser.add_argument("--output", default="_site/dados/produtos.json")
+    parser.add_argument(
+        "--catalogo-completo",
+        action="store_true",
+        help=(
+            "Mantém todas as variações e os idCatalogo. Use somente para "
+            "reconstruir dados/produtos.json; a publicação do site deve "
+            "continuar usando o modo sanitizado padrão."
+        ),
+    )
     return parser.parse_args()
 
 
@@ -68,11 +77,15 @@ def sanitize(value: Any) -> Any:
     return value
 
 
-def atomic_write(path: Path, value: Any) -> None:
+def atomic_write(path: Path, value: Any, *, compact: bool = True) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     temporary = path.with_suffix(path.suffix + ".tmp")
+    if compact:
+        content = json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n"
+    else:
+        content = json.dumps(value, ensure_ascii=False, indent=2) + "\n"
     temporary.write_text(
-        json.dumps(value, ensure_ascii=False, separators=(",", ":")) + "\n",
+        content,
         encoding="utf-8",
     )
     temporary.replace(path)
@@ -130,7 +143,10 @@ def main() -> int:
                     f"{product.get('marca')} {product.get('material')}"
                 )
 
-            if current_product_key in paused_products or key in paused_colors:
+            if (
+                not args.catalogo_completo
+                and (current_product_key in paused_products or key in paused_colors)
+            ):
                 hidden += 1
                 continue
 
@@ -143,24 +159,51 @@ def main() -> int:
                 status = str(color.get("statusEstoqueInicial", "sem_estoque")).strip() or "sem_estoque"
                 available = color.get("disponivelInicial") is True
 
+            if args.catalogo_completo:
+                color.pop("chaveEstoque", None)
+                color.pop("statusEstoqueInicial", None)
+                color.pop("disponivelInicial", None)
+                color["idCatalogo"] = key
+                color["statusEstoque"] = status
+                color["disponivel"] = available
+                public_colors.append(color)
+                continue
+
+            color["statusEstoque"] = status
+            color["disponivel"] = available
+
             # O site já oculta itens indisponíveis. Não há motivo para enviá-los ao navegador.
             if not available:
                 hidden += 1
                 continue
 
-            color["statusEstoque"] = status
-            color["disponivel"] = True
             public_colors.append(sanitize(color))
 
         if not public_colors:
             continue
 
         product["cores"] = public_colors
-        product["disponivel"] = True
-        public_products.append(sanitize(product))
+        product["disponivel"] = any(
+            color.get("disponivel") is True for color in public_colors
+        )
 
-    atomic_write(Path(args.output), public_products)
-    print("Catálogo público sanitizado montado.")
+        if args.catalogo_completo:
+            product["idCatalogo"] = product_key
+            # Mantém a mesma ordem de campos gerada por atualizar_estoque.py.
+            product["disponivel"] = product.pop("disponivel")
+            public_products.append(product)
+        else:
+            public_products.append(sanitize(product))
+
+    atomic_write(
+        Path(args.output),
+        public_products,
+        compact=not args.catalogo_completo,
+    )
+    if args.catalogo_completo:
+        print("Catálogo completo reconstruído com o estoque reaproveitado.")
+    else:
+        print("Catálogo público sanitizado montado.")
     print(f"- Variações com estoque reaproveitado: {reused}")
     print(f"- Variações não publicadas: {hidden}")
     print(f"- Produtos públicos: {len(public_products)}")
