@@ -2402,8 +2402,8 @@
           "assets/fotos/masterprint-abs/verde.webp"
         ],
         "idCatalogo": "masterprint|abs||verde",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cinza",
@@ -2498,8 +2498,8 @@
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
         "idCatalogo": "masterprint|tpu||natural-transparente",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "obs": "Rolo de 1kg",
