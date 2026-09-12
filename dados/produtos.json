@@ -1107,7 +1107,7 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
