@@ -3692,7 +3692,7 @@
           "assets/fotos/pinceis-de-silicone-ferramentas-kit-5/kit-com-5-pinceis.webp"
         ],
         "idCatalogo": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3797,7 +3797,7 @@
         ],
         "preco": 55.9,
         "idCatalogo": "luminarias-led|iluminacao||rgb-2w-branca",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
