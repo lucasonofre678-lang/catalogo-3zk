@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 274,
+  "total": 283,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -2301,6 +2301,105 @@
       "sku": "CL-Wood",
       "gtin": null,
       "descricaoOlist": "Filamentos Closin PLA  - Wood"
+    },
+    {
+      "chave": "closin|pla|silk|arco-iris",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Arco-Íris",
+      "olistId": 1055427347,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA - Arco-Iris - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|silver-prateado",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Silver Prateado",
+      "olistId": 1055427350,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Silver Prateado - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|vermelho",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Vermelho",
+      "olistId": 1055427354,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Vermelho - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|verde-limao",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Verde Limão",
+      "olistId": 1055427359,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Verde Limao - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|verde",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Verde",
+      "olistId": 1055427363,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Verde - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|gold-dourado",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Gold Dourado",
+      "olistId": 1055427368,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Gold Dourado - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|azul",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Azul",
+      "olistId": 1055427372,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Azul - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|red-copper",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Red Copper",
+      "olistId": 1055427376,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA - SILK - Red Copper - 1kg"
+    },
+    {
+      "chave": "closin|pla|silk|rose",
+      "marca": "Closin",
+      "material": "PLA",
+      "linha": "Silk",
+      "cor": "Rose",
+      "olistId": 1055427380,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "PLA SILK - Rose - 1kg"
     },
     {
       "chave": "masterprint|asa||branco",

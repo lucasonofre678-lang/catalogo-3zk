@@ -885,6 +885,134 @@
     "disponivel": true
   },
   {
+    "marca": "Closin",
+    "material": "PLA",
+    "linha": "Silk",
+    "preco": 105,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "cores": [
+      {
+        "nome": "Arco-Íris",
+        "hex": "#9E7396",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/arco-iris.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|arco-iris",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silver Prateado",
+        "hex": "#B9BEC4",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/silver-prateado.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|silver-prateado",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C23A34",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/vermelho.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|vermelho",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde Limão",
+        "hex": "#9CCB3B",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/verde-limao.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|verde-limao",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde",
+        "hex": "#3E9A63",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/verde.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|verde",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Gold Dourado",
+        "hex": "#C9A227",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/gold-dourado.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|gold-dourado",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul",
+        "hex": "#2E6FC4",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/azul.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|azul",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Red Copper",
+        "hex": "#A85A3A",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/red-copper.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|red-copper",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Rose",
+        "hex": "#C97A8E",
+        "efeito": "silk",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/closin-pla-silk/rose.webp"
+        ],
+        "idCatalogo": "closin|pla|silk|rose",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "closin|pla|silk",
+    "disponivel": true
+  },
+  {
     "marca": "Masterprint",
     "material": "PETG",
     "preco": 63,
