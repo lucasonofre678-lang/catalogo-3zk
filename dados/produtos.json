@@ -659,8 +659,8 @@
           "assets/fotos/closin-pla/preto.webp"
         ],
         "idCatalogo": "closin|pla||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Skin",
@@ -986,8 +986,8 @@
         ],
         "preco": 65,
         "idCatalogo": "masterprint|petg||fluorescente-roxo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fosco Branco",
@@ -1108,7 +1108,7 @@
           "assets/fotos/masterprint-petg/skin.webp"
         ],
         "idCatalogo": "masterprint|petg||skin",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2113,13 +2113,13 @@
           "assets/fotos/masterprint-pla-silk-especial/silk-roxo-com-glitter.webp"
         ],
         "idCatalogo": "masterprint|pla|silk-especial|silk-roxo-com-glitter",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "linha": "Silk Especial",
     "idCatalogo": "masterprint|pla|silk-especial",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Masterprint",
@@ -2343,8 +2343,8 @@
           "assets/fotos/masterprint-abs/prata.webp"
         ],
         "idCatalogo": "masterprint|abs||prata",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Marrom",
@@ -2499,8 +2499,8 @@
           "assets/fotos/masterprint-tpu/natural-transparente.webp"
         ],
         "idCatalogo": "masterprint|tpu||natural-transparente",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "obs": "Rolo de 1kg",
@@ -3020,8 +3020,8 @@
         ],
         "preco": 120,
         "idCatalogo": "multifila|pla||silk-ouro-envelhecido",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Rainbow Macaron",
@@ -3693,7 +3693,7 @@
           "assets/fotos/pinceis-de-silicone-ferramentas-kit-5/kit-com-5-pinceis.webp"
         ],
         "idCatalogo": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3798,7 +3798,7 @@
         ],
         "preco": 55.9,
         "idCatalogo": "luminarias-led|iluminacao||rgb-2w-branca",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3826,7 +3826,7 @@
           "assets/fotos/luminaria-de-cura-uv-resinas-5w/5w.webp"
         ],
         "idCatalogo": "luminaria-de-cura-uv|resinas|5w|5w",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3854,7 +3854,7 @@
           "assets/fotos/resina-uv-fotopolimerizavel-resinas-100g/100g.webp"
         ],
         "idCatalogo": "resina-uv-fotopolimerizavel|resinas|100g|100g",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
