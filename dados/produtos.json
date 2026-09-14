@@ -88,8 +88,8 @@
           "assets/fotos/flashforge-pla/lavender-roxo-claro-3.webp"
         ],
         "idCatalogo": "flashforge|pla||lavender-roxo-claro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Light Coral / Rosa-Alaranjado Claro",
@@ -659,8 +659,8 @@
           "assets/fotos/closin-pla/preto.webp"
         ],
         "idCatalogo": "closin|pla||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Skin",
