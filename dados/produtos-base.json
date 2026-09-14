@@ -850,7 +850,8 @@
         "imagens": [
           "assets/fotos/masterprint-petg/fluorescente-roxo.webp"
         ],
-        "chaveEstoque": "masterprint|petg||fluorescente-roxo"
+        "chaveEstoque": "masterprint|petg||fluorescente-roxo",
+        "preco": 65
       },
       {
         "nome": "Fosco Branco",

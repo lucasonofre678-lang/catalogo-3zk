@@ -913,6 +913,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   visibility: visible;
 }
 
+/* Foto ampliada aberta a partir da galeria de cores (z-index 10050):
+   precisa ficar por cima sem mexer no empilhamento padrão do lightbox. */
+.lightbox--sobre-galeria {
+  z-index: 10060;
+}
+
 .lightbox__conteudo {
   position: relative;
   width: min(92vw, 760px);
@@ -5800,6 +5806,12 @@ body.galeria-cores-aberta {
   text-align: left;
   cursor: pointer;
   transition: border-color .18s ease, box-shadow .18s ease, transform .18s ease, background .18s ease;
+}
+
+/* A busca da galeria usa o atributo hidden. Sem esta regra o display:flex
+   acima venceria o padrão do navegador e a cor filtrada continuaria à vista. */
+.galeria-cores__item[hidden] {
+  display: none !important;
 }
 
 .galeria-cores__item:hover {

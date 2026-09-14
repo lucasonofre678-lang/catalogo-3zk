@@ -2611,6 +2611,12 @@ let lightboxItensProduto = [];
 let lightboxIndiceItem = 0;
 let lightboxProdutoAtual = null;
 let lightboxSelecionarCor = null;
+// Quando a ampliação é aberta a partir da galeria de cores, a galeria continua
+// aberta por baixo: ao fechar a foto o foco volta para o item clicado.
+let lightboxFocoAoFechar = null;
+// Guarda o último Escape consumido pela foto ampliada, para que a galeria de
+// cores por baixo não trate o mesmo evento e feche junto.
+let lightboxEscapeConsumido = null;
 
 function aplicarTransformacaoLightbox() {
   lightboxImagem.style.transform =
@@ -2673,13 +2679,15 @@ function renderizarItemLightboxProduto() {
   }
 }
 
-async function abrirLightboxProduto(produto, corInicial, aoSelecionarCor) {
+async function abrirLightboxProduto(produto, corInicial, aoSelecionarCor, opcoes = {}) {
   const itens = await montarItensLightboxProduto(produto);
   if (!itens.length) return;
 
   lightboxProdutoAtual = produto;
   lightboxItensProduto = itens;
   lightboxSelecionarCor = aoSelecionarCor;
+  lightboxFocoAoFechar = opcoes.focoAoFechar || null;
+  lightbox.classList.toggle("lightbox--sobre-galeria", opcoes.sobreGaleria === true);
 
   const indiceCor = produto.cores.indexOf(corInicial);
   const inicio = itens.findIndex((item) => item.indiceCor === indiceCor);
@@ -2703,7 +2711,8 @@ function abrirLightbox(src, alt) {
   lightboxItensProduto = [];
   lightboxProdutoAtual = null;
   lightboxSelecionarCor = null;
-  lightbox.classList.remove("lightbox--navegavel");
+  lightboxFocoAoFechar = null;
+  lightbox.classList.remove("lightbox--navegavel", "lightbox--sobre-galeria");
   lightboxLegenda.textContent = "";
   lightboxImagem.src = src;
   lightboxImagem.alt = alt;
@@ -2715,14 +2724,27 @@ function abrirLightbox(src, alt) {
 }
 
 function fecharLightbox() {
-  lightbox.classList.remove("lightbox--aberto", "lightbox--navegavel");
+  const focoDeRetorno = lightboxFocoAoFechar;
+
+  lightbox.classList.remove(
+    "lightbox--aberto",
+    "lightbox--navegavel",
+    "lightbox--sobre-galeria"
+  );
   lightbox.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   resetarZoomLightbox();
   lightboxItensProduto = [];
   lightboxProdutoAtual = null;
   lightboxSelecionarCor = null;
+  lightboxFocoAoFechar = null;
   lightboxLegenda.textContent = "";
+
+  // Fechar a foto ampliada devolve o usuário exatamente ao item da galeria
+  // de cores que ele abriu, sem encerrar a galeria.
+  if (focoDeRetorno?.isConnected && typeof focoDeRetorno.focus === "function") {
+    focoDeRetorno.focus({ preventScroll: true });
+  }
 }
 
 lightboxFechar.addEventListener("click", fecharLightbox);
@@ -2783,6 +2805,9 @@ lightboxImagem.addEventListener("pointercancel", encerrarArrasteLightbox);
 document.addEventListener("keydown", (evento) => {
   if (!lightbox.classList.contains("lightbox--aberto")) return;
   if (evento.key === "Escape") {
+    // Marca o evento como já tratado: com a galeria de cores por baixo, o
+    // Escape fecha apenas a foto ampliada e a galeria continua aberta.
+    lightboxEscapeConsumido = evento;
     fecharLightbox();
     return;
   }
@@ -3213,8 +3238,59 @@ function garantirGaleriaCores() {
     fechar,
     fecharSecundario,
     produto: null,
-    aoSelecionar: null
+    aoSelecionar: null,
+    aplicarBusca: null,
+    marcarSelecionada: null
   };
+
+  // Mantém o texto original do estado vazio para reutilizar sem termo de busca.
+  const textoVazioPadrao = vazio.textContent;
+
+  function aplicarBusca() {
+    const tokens = normalizar(busca.value).split(/\s+/).filter(Boolean);
+    const itens = grade.querySelectorAll(".galeria-cores__item");
+    let visiveis = 0;
+
+    itens.forEach((item) => {
+      const alvo = normalizar(item.dataset.corNome || "");
+      const corresponde = tokens.every((token) => alvo.includes(token));
+      item.hidden = !corresponde;
+      if (corresponde) visiveis += 1;
+    });
+
+    const total = itens.length;
+    vazio.textContent = tokens.length
+      ? `Nenhuma cor encontrada para "${busca.value.trim()}".`
+      : textoVazioPadrao;
+    vazio.hidden = visiveis !== 0;
+
+    if (!tokens.length) {
+      contador.textContent = total === 1 ? "1 cor" : `${total} cores`;
+    } else {
+      contador.textContent = `${visiveis} de ${total} ${total === 1 ? "cor" : "cores"}`;
+    }
+  }
+
+  function marcarSelecionada(indiceSelecionado) {
+    grade.querySelectorAll(".galeria-cores__item").forEach((item) => {
+      const ativo = Number(item.dataset.corIndex) === indiceSelecionado;
+      item.classList.toggle("galeria-cores__item--ativo", ativo);
+      item.setAttribute("aria-selected", ativo ? "true" : "false");
+
+      const selo = item.querySelector(".galeria-cores__selecionada");
+      if (ativo && !selo) {
+        const novoSelo = document.createElement("span");
+        novoSelo.className = "galeria-cores__selecionada";
+        novoSelo.textContent = "Selecionada";
+        item.querySelector(".galeria-cores__foto")?.appendChild(novoSelo);
+      } else if (!ativo && selo) {
+        selo.remove();
+      }
+    });
+  }
+
+  galeriaCoresAtiva.aplicarBusca = aplicarBusca;
+  galeriaCoresAtiva.marcarSelecionada = marcarSelecionada;
 
   function fecharGaleria() {
     overlay.classList.remove("galeria-cores--aberta");
@@ -3231,24 +3307,18 @@ function garantirGaleriaCores() {
   });
 
   document.addEventListener("keydown", (evento) => {
-    if (evento.key === "Escape" && overlay.classList.contains("galeria-cores--aberta")) {
-      fecharGaleria();
-    }
+    if (evento.key !== "Escape") return;
+    if (!overlay.classList.contains("galeria-cores--aberta")) return;
+    // Com a foto ampliada por cima, o Escape pertence à foto: ela fecha e a
+    // galeria continua aberta. O lightbox é criado antes da galeria, então o
+    // handler dele já rodou e marcou o evento.
+    if (evento === lightboxEscapeConsumido) return;
+    if (lightbox.classList.contains("lightbox--aberto")) return;
+    fecharGaleria();
   });
 
-  busca.addEventListener("input", () => {
-    const termo = normalizar(busca.value.trim());
-    let visiveis = 0;
-
-    grade.querySelectorAll(".galeria-cores__item").forEach((item) => {
-      const corresponde = !termo || normalizar(item.dataset.corNome).includes(termo);
-      item.hidden = !corresponde;
-      if (corresponde) visiveis += 1;
-    });
-
-    vazio.hidden = visiveis !== 0;
-    contador.textContent = visiveis === 1 ? "1 cor" : `${visiveis} cores`;
-  });
+  busca.addEventListener("input", aplicarBusca);
+  busca.addEventListener("search", aplicarBusca);
 
   return galeriaCoresAtiva;
 }
@@ -3325,7 +3395,7 @@ function criarItemGaleriaCor(produto, cor, index, indiceSelecionado, aoSeleciona
     "galeria-cores__item--com-foto"
   );
 
-  botao.addEventListener("click", () => aoSelecionar(index));
+  botao.addEventListener("click", () => aoSelecionar(index, botao));
   return botao;
 }
 
@@ -3336,25 +3406,41 @@ function abrirGaleriaCores(produto, indiceSelecionado, aoSelecionar, botaoOrigem
   galeria.aoSelecionar = aoSelecionar;
   galeria.titulo.textContent = `${obterRotuloVariacaoPlural(produto)} de ${obterNomeCompletoProduto(produto)}`;
   galeria.subtitulo.textContent = `${produto.cores.length} opções disponíveis`;
-  galeria.contador.textContent = produto.cores.length === 1 ? "1 cor" : `${produto.cores.length} cores`;
   galeria.busca.value = "";
-  galeria.vazio.hidden = true;
   galeria.grade.innerHTML = "";
+
+  // Selecionar uma cor na galeria atualiza o card (foto, preço, estoque e URL)
+  // e abre a foto ampliada POR CIMA da galeria, que permanece aberta.
+  async function selecionarNaGaleria(indice, elemento) {
+    aoSelecionar(indice);
+    galeria.marcarSelecionada(indice);
+
+    const cor = produto.cores[indice];
+    if (!cor) return;
+
+    // Sem foto confirmada não há o que ampliar: a cor fica só selecionada.
+    const foto = await obterPrimeiraFotoValida(produto, cor);
+    if (!foto) return;
+    if (!galeria.overlay.classList.contains("galeria-cores--aberta")) return;
+
+    await abrirLightboxProduto(
+      produto,
+      cor,
+      (novoIndice) => {
+        aoSelecionar(novoIndice);
+        galeria.marcarSelecionada(novoIndice);
+      },
+      { sobreGaleria: true, focoAoFechar: elemento }
+    );
+  }
 
   produto.cores.forEach((cor, index) => {
     galeria.grade.appendChild(
-      criarItemGaleriaCor(produto, cor, index, indiceSelecionado, (indice) => {
-        aoSelecionar(indice);
-        galeria.overlay.classList.remove("galeria-cores--aberta");
-        galeria.overlay.setAttribute("aria-hidden", "true");
-        document.body.classList.remove("galeria-cores-aberta");
-        if (ultimoFocoAntesGaleria?.focus) {
-          ultimoFocoAntesGaleria.focus({ preventScroll: true });
-        }
-      })
+      criarItemGaleriaCor(produto, cor, index, indiceSelecionado, selecionarNaGaleria)
     );
   });
 
+  galeria.aplicarBusca();
   galeria.overlay.classList.add("galeria-cores--aberta");
   galeria.overlay.setAttribute("aria-hidden", "false");
   document.body.classList.add("galeria-cores-aberta");

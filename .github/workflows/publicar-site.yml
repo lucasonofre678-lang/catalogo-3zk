@@ -3,6 +3,10 @@ name: Publicar catálogo rápido
 on:
   workflow_dispatch:
 
+  # Permite que a publicação agendada reutilize exatamente estes mesmos passos,
+  # sem duplicar o processo. Ver: .github/workflows/publicar-catalogo-agendado.yml
+  workflow_call:
+
   push:
     branches:
       - main

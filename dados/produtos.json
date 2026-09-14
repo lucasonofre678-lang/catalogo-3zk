@@ -984,6 +984,7 @@
         "imagens": [
           "assets/fotos/masterprint-petg/fluorescente-roxo.webp"
         ],
+        "preco": 65,
         "idCatalogo": "masterprint|petg||fluorescente-roxo",
         "statusEstoque": "sem_estoque",
         "disponivel": false

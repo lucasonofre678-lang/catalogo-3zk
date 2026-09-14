@@ -1,0 +1,33 @@
+name: Publicar catálogo agendado
+
+# Publicação automática do catálogo que JÁ está no repositório.
+#
+# Esta rotina é independente da sincronização de estoque:
+# não consulta a Olist, não executa automacao/atualizar_estoque.py
+# e não altera nenhum arquivo de dados. Ela apenas republica o site
+# reutilizando o workflow "Publicar catálogo rápido".
+
+on:
+  workflow_dispatch:
+
+  schedule:
+    # Horários de Brasília (UTC-3): 09:00, 14:00 e 21:00.
+    # Em UTC isso corresponde a 12:00, 17:00 e 00:00.
+    - cron: "0 0,12,17 * * *"
+
+# O workflow reutilizado só lê o repositório e publica na Cloudflare Pages.
+permissions:
+  contents: read
+
+concurrency:
+  # Nunca deixa duas publicações agendadas rodarem ao mesmo tempo.
+  group: catalogo-3zk-publicacao-agendada
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    name: Republicar o catálogo atual
+    # Reaproveita integralmente o processo de "Publicar catálogo rápido":
+    # validação, montagem do _site e deploy. Nada é duplicado aqui.
+    uses: ./.github/workflows/publicar-site.yml
+    secrets: inherit
