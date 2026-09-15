@@ -3793,7 +3793,7 @@
           "assets/fotos/kit-35-em-1-ferramentas-com-bolsa-organizadora/kit-completo.webp"
         ],
         "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3912,7 +3912,7 @@
           "assets/fotos/luminarias-led-iluminacao/frio-quente-neutro-6w-branco.webp"
         ],
         "idCatalogo": "luminarias-led|iluminacao||frio-quente-neutro-6w-branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
