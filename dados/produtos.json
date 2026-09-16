@@ -3133,7 +3133,7 @@
         "preco": 133,
         "gradiente": "linear-gradient(135deg, #D7474F 0 48%, #477FD0 52% 100%)",
         "idCatalogo": "multifila|pla||silk-dual-color-vermelho-e-azul",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
