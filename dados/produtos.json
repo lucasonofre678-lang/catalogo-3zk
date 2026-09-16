@@ -2423,8 +2423,8 @@
           "assets/fotos/masterprint-abs/rosa.webp"
         ],
         "idCatalogo": "masterprint|abs||rosa",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
