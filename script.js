@@ -9,6 +9,26 @@ let controleCatalogo = {
   coresPausadas: []
 };
 
+/*
+  Cada publicação troca o parâmetro ?v= do script.js pelo identificador
+  do commit publicado. O mesmo identificador é usado nas requisições do
+  catálogo, impedindo que o navegador reaproveite um JSON de outra versão.
+*/
+const VERSAO_PUBLICACAO_3ZK = (() => {
+  try {
+    const urlScript = new URL(document.currentScript?.src || "", window.location.href);
+    return urlScript.searchParams.get("v") || Date.now().toString(36);
+  } catch (erro) {
+    return Date.now().toString(36);
+  }
+})();
+
+function obterUrlSemCache3ZK(caminho) {
+  const url = new URL(caminho, window.location.href);
+  url.searchParams.set("v", VERSAO_PUBLICACAO_3ZK);
+  return url.href;
+}
+
 /* ============================================================
    CONFIGURAÇÕES QUE VOCÊ PODE ALTERAR
    ============================================================ */
@@ -627,7 +647,7 @@ async function carregarControleCatalogo() {
   }
 
   try {
-    const resposta = await fetch("dados/controle-catalogo.json", {
+    const resposta = await fetch(obterUrlSemCache3ZK("dados/controle-catalogo.json"), {
       cache: "no-store"
     });
 
@@ -4883,7 +4903,7 @@ async function buscarCatalogoJson(caminho, limiteMs = 2500) {
   const temporizador = window.setTimeout(() => controlador.abort(), limiteMs);
 
   try {
-    const resposta = await fetch(caminho, {
+    const resposta = await fetch(obterUrlSemCache3ZK(caminho), {
       cache: "no-store",
       signal: controlador.signal
     });
@@ -5115,4 +5135,12 @@ document.addEventListener("keydown", (evento) => {
 });
 
 sincronizarCodigoPedidoComCarrinho();
+
+// Ao voltar pelo botão do navegador, descarta a cópia congelada pelo bfcache.
+window.addEventListener("pageshow", (evento) => {
+  if (evento.persisted) {
+    window.location.reload();
+  }
+});
+
 carregarProdutos();

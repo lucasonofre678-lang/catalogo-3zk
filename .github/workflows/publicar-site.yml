@@ -82,7 +82,7 @@ jobs:
           print("Smoke test estático HTML/JS aprovado.")
           PY
 
-      - name: Montar arquivos públicos
+      - name: Montar arquivos públicos sem cache antigo
         shell: bash
         run: |
           rm -rf _site
@@ -98,10 +98,26 @@ jobs:
 
           python - <<'PY'
           from pathlib import Path
+          import os
           import re
+
+          versao = os.environ.get("GITHUB_SHA", "sem-versao")[:12]
+          recurso_local = re.compile(
+              r'(?P<inicio>(?:href|src)=["\'])'
+              r'(?P<arquivo>(?:style|links)\.css|(?:script|produto)\.js)'
+              r'(?:\?v=[^"\']*)?'
+              r'(?P<fim>["\'])'
+          )
 
           for path in Path("_site").glob("*.html"):
               text = path.read_text(encoding="utf-8")
+              text = recurso_local.sub(
+                  lambda match: (
+                      f'{match.group("inicio")}{match.group("arquivo")}'
+                      f'?v={versao}{match.group("fim")}'
+                  ),
+                  text,
+              )
               text = re.sub(r"<!--.*?-->", "", text, flags=re.S)
               text = re.sub(r"\n[ \t]*\n[ \t]*\n+", "\n\n", text)
               path.write_text(text, encoding="utf-8")
@@ -109,13 +125,22 @@ jobs:
 
           cat > _site/_headers <<'EOF'
           /*
+            Cache-Control: no-cache, must-revalidate, max-age=0
             X-Content-Type-Options: nosniff
             Referrer-Policy: strict-origin-when-cross-origin
             X-Frame-Options: DENY
             Permissions-Policy: camera=(), microphone=(), geolocation=()
             Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+          /
+            Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+          /index.html
+            Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+          /links.html
+            Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+          /produto.html
+            Cache-Control: no-store, no-cache, must-revalidate, max-age=0
           /dados/produtos.json
-            Cache-Control: no-store
+            Cache-Control: no-store, no-cache, must-revalidate, max-age=0
           EOF
 
       - name: Validar catálogo montado
@@ -123,6 +148,7 @@ jobs:
         run: |
           python - <<'PY'
           import json
+          import re
           from pathlib import Path
 
           product_path = Path("_site/dados/produtos.json")
@@ -163,10 +189,18 @@ jobs:
                   raise SystemExit(f"Arquivo interno publicado por engano: {internal_path}")
 
           for html_path in Path("_site").glob("*.html"):
-              if "<!--" in html_path.read_text(encoding="utf-8"):
+              html = html_path.read_text(encoding="utf-8")
+              if "<!--" in html:
                   raise SystemExit(f"Comentário HTML ficou no deploy: {html_path}")
+              if not re.search(r'[?&]v=[0-9a-f]{12}(?:["\'])', html):
+                  raise SystemExit(f"Versão automática dos arquivos ausente: {html_path}")
 
-          print("Publicação rápida e sanitização validadas.")
+          headers = Path("_site/_headers").read_text(encoding="utf-8")
+          for trecho in ("/dados/produtos.json", "no-store", "must-revalidate"):
+              if trecho not in headers:
+                  raise SystemExit(f"Proteção contra cache incompleta: {trecho}")
+
+          print("Publicação rápida, sanitização e controle de cache validados.")
           PY
 
       - name: Publicar na Cloudflare Pages
