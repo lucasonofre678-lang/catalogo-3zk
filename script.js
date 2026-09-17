@@ -2602,6 +2602,38 @@ lightbox.innerHTML = `
       <button class="lightbox__controle" type="button" data-zoom="mais" aria-label="Aumentar zoom">+</button>
       <button class="lightbox__controle lightbox__controle--reset" type="button" data-zoom="reset" aria-label="Restaurar zoom">100%</button>
     </div>
+    <aside class="lightbox__compra" aria-label="Dados da cor selecionada">
+      <span class="lightbox__compra-ficha"></span>
+      <h2 class="lightbox__compra-produto"></h2>
+      <div class="lightbox__compra-variacao">
+        <span class="lightbox__compra-amostra" aria-hidden="true"></span>
+        <span class="lightbox__compra-variacao-texto">
+          <span class="lightbox__compra-rotulo"></span>
+          <strong class="lightbox__compra-cor"></strong>
+        </span>
+      </div>
+      <span class="produto__estoque lightbox__compra-estoque" aria-live="polite"></span>
+      <div class="lightbox__compra-precos">
+        <span class="lightbox__compra-preco"></span>
+        <span class="lightbox__compra-pix-linha">
+          <strong class="lightbox__compra-pix"></strong>
+          <span class="lightbox__compra-selo"></span>
+        </span>
+        <span class="lightbox__compra-parcelas"></span>
+      </div>
+      <button class="produto__adicionar lightbox__compra-adicionar" type="button" title="Adicionar ao pedido">
+        <span class="produto__adicionar-icone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="4.5" y="4" width="12" height="16" rx="2"></rect>
+            <path d="M8 4.5h5"></path><path d="M8 9h4"></path><path d="M8 13h3"></path>
+            <path d="M18.5 11v6"></path><path d="M15.5 14h6"></path>
+          </svg>
+        </span>
+        <span class="produto__adicionar-texto">Adicionar ao pedido</span>
+        <span class="produto__adicionar-quantidade" hidden>0</span>
+      </button>
+      <p class="lightbox__compra-nota">Sem checkout: você revisa o pedido e envia pelo WhatsApp.</p>
+    </aside>
   </div>
 `;
 
@@ -2617,6 +2649,20 @@ const lightboxZoomReset = lightbox.querySelector('[data-zoom="reset"]');
 const lightboxAnterior = lightbox.querySelector(".lightbox__seta--anterior");
 const lightboxProxima = lightbox.querySelector(".lightbox__seta--proxima");
 const lightboxLegenda = lightbox.querySelector(".lightbox__legenda");
+const lightboxConteudo = lightbox.querySelector(".lightbox__conteudo");
+const lightboxCompra = lightbox.querySelector(".lightbox__compra");
+const lightboxCompraFicha = lightbox.querySelector(".lightbox__compra-ficha");
+const lightboxCompraProduto = lightbox.querySelector(".lightbox__compra-produto");
+const lightboxCompraRotulo = lightbox.querySelector(".lightbox__compra-rotulo");
+const lightboxCompraCor = lightbox.querySelector(".lightbox__compra-cor");
+const lightboxCompraAmostra = lightbox.querySelector(".lightbox__compra-amostra");
+const lightboxCompraSelo = lightbox.querySelector(".lightbox__compra-selo");
+const lightboxCompraEstoque = lightbox.querySelector(".lightbox__compra-estoque");
+const lightboxCompraPreco = lightbox.querySelector(".lightbox__compra-preco");
+const lightboxCompraPix = lightbox.querySelector(".lightbox__compra-pix");
+const lightboxCompraParcelas = lightbox.querySelector(".lightbox__compra-parcelas");
+const lightboxCompraBotao = lightbox.querySelector(".lightbox__compra-adicionar");
+const ROTULO_PADRAO_LIGHTBOX = "Foto ampliada do filamento";
 
 let lightboxZoom = 1;
 let lightboxDeslocamentoX = 0;
@@ -2664,9 +2710,16 @@ function resetarZoomLightbox() {
 }
 
 
-async function montarItensLightboxProduto(produto) {
+async function montarItensLightboxProduto(produto, indicesCores) {
+  // Sem lista explícita, usa todas as cores do produto na ordem do cadastro.
+  // Com lista, respeita exatamente a ordem/filtro da janela "Ver todas as cores".
+  const ordem = Array.isArray(indicesCores) && indicesCores.length
+    ? indicesCores.filter((indice) => produto.cores[indice])
+    : produto.cores.map((_, indice) => indice);
+
   const grupos = await Promise.all(
-    produto.cores.map(async (cor, indiceCor) => {
+    ordem.map(async (indiceCor) => {
+      const cor = produto.cores[indiceCor];
       const fotos = obterFotosCor(produto, cor);
       const validadas = await Promise.all(fotos.map((caminho) => testarImagem(caminho)));
       return validadas
@@ -2683,6 +2736,86 @@ async function montarItensLightboxProduto(produto) {
   return grupos.flat();
 }
 
+function atualizarCompraLightbox(item) {
+  const produto = lightboxProdutoAtual;
+  if (!produto || !item) return;
+
+  const cor = item.cor;
+  const nomeProduto = obterNomeProdutoParaInterface(produto);
+
+  lightboxCompraFicha.textContent = [produto.marca, produto.material, produto.linha]
+    .filter(Boolean)
+    .join(" · ");
+  lightboxCompraProduto.textContent = nomeProduto;
+  lightboxCompraRotulo.textContent = obterRotuloVariacaoSingular(produto);
+  lightboxCompraCor.textContent = cor.nome;
+
+  // Mesma cor visual usada nas bolinhas do catálogo (aceita gradiente).
+  lightboxCompraAmostra.style.background = obterCorVisual(cor);
+  lightboxCompraAmostra.className = "lightbox__compra-amostra";
+  if (cor.efeito) {
+    lightboxCompraAmostra.classList.add(`lightbox__compra-amostra--${cor.efeito}`);
+  }
+
+  // O card refina a cor pela foto; a amostra acompanha pelo mesmo caminho.
+  aplicarCorSolidaDaFoto(produto, cor, () => {
+    const atual = lightboxItensProduto[lightboxIndiceItem];
+    if (atual && atual.cor === cor) {
+      lightboxCompraAmostra.style.background = obterCorVisual(cor);
+    }
+  });
+
+  // Mesmo cálculo de preço, Pix e parcelamento do catálogo.
+  const resumoPreco = obterResumoPrecoCatalogo(obterPrecoProdutoOuVariacao(produto, cor));
+  lightboxCompraPreco.textContent = formatarPreco(resumoPreco.precoNormal);
+  lightboxCompraPix.textContent = `PIX: ${formatarPrecoPedido(resumoPreco.precoPix)}`;
+  lightboxCompraParcelas.textContent =
+    `ou ${PARCELAS_SEM_JUROS}x de ${formatarPrecoPedido(resumoPreco.valorParcela)} sem juros`;
+  lightboxCompraSelo.textContent =
+    `${Math.round(DESCONTO_PAGAMENTO_PERCENTUAL * 100)}% OFF`;
+
+  // Mesmas classes de estoque do catálogo.
+  const status = obterStatusEstoque(cor);
+  const disponivel = corEstaDisponivel(cor);
+  lightboxCompraEstoque.classList.remove(
+    "produto__estoque--disponivel",
+    "produto__estoque--baixo",
+    "produto__estoque--esgotado"
+  );
+  lightboxCompraEstoque.classList.add(
+    status === "sem_estoque"
+      ? "produto__estoque--esgotado"
+      : status === "ultimas_unidades"
+        ? "produto__estoque--baixo"
+        : "produto__estoque--disponivel"
+  );
+  lightboxCompraEstoque.textContent = disponivel ? obterTextoEstoque(cor) : "Sem estoque";
+
+  // O botão é o mesmo componente do card: o carrinho identifica a variação
+  // por dataset.itemId e sincronizarBotoesAdicionar() mantém o estado.
+  lightboxCompraBotao.dataset.itemId = obterIdItemCarrinho(produto, cor);
+  lightboxCompraBotao.dataset.corNome = cor.nome;
+  lightboxCompraBotao.classList.remove("produto__adicionar--confirmado");
+  lightboxCompraBotao.disabled = !disponivel;
+
+  if (disponivel) {
+    sincronizarBotaoAdicionar(lightboxCompraBotao);
+  } else {
+    lightboxCompraBotao.classList.remove("produto__adicionar--no-carrinho");
+    const textoEl = lightboxCompraBotao.querySelector(".produto__adicionar-texto");
+    if (textoEl) textoEl.textContent = "Sem estoque";
+    lightboxCompraBotao.setAttribute(
+      "aria-label",
+      `${cor.nome} sem estoque no momento.`
+    );
+  }
+
+  lightboxConteudo.setAttribute(
+    "aria-label",
+    `${nomeProduto} — ${cor.nome}. Foto ampliada e compra.`
+  );
+}
+
 function renderizarItemLightboxProduto() {
   const item = lightboxItensProduto[lightboxIndiceItem];
   if (!item) return;
@@ -2693,6 +2826,7 @@ function renderizarItemLightboxProduto() {
     ? `${item.cor.nome} · foto ${item.indiceFoto + 1} de ${item.totalFotosCor}`
     : item.cor.nome;
   resetarZoomLightbox();
+  atualizarCompraLightbox(item);
 
   if (typeof lightboxSelecionarCor === "function") {
     lightboxSelecionarCor(item.indiceCor);
@@ -2700,7 +2834,7 @@ function renderizarItemLightboxProduto() {
 }
 
 async function abrirLightboxProduto(produto, corInicial, aoSelecionarCor, opcoes = {}) {
-  const itens = await montarItensLightboxProduto(produto);
+  const itens = await montarItensLightboxProduto(produto, opcoes.indicesCores);
   if (!itens.length) return;
 
   lightboxProdutoAtual = produto;
@@ -2713,7 +2847,7 @@ async function abrirLightboxProduto(produto, corInicial, aoSelecionarCor, opcoes
   const inicio = itens.findIndex((item) => item.indiceCor === indiceCor);
   lightboxIndiceItem = inicio >= 0 ? inicio : 0;
 
-  lightbox.classList.add("lightbox--aberto", "lightbox--navegavel");
+  lightbox.classList.add("lightbox--aberto", "lightbox--navegavel", "lightbox--compra");
   lightbox.setAttribute("aria-hidden", "false");
   document.body.style.overflow = "hidden";
   renderizarItemLightboxProduto();
@@ -2732,7 +2866,8 @@ function abrirLightbox(src, alt) {
   lightboxProdutoAtual = null;
   lightboxSelecionarCor = null;
   lightboxFocoAoFechar = null;
-  lightbox.classList.remove("lightbox--navegavel", "lightbox--sobre-galeria");
+  lightbox.classList.remove("lightbox--navegavel", "lightbox--sobre-galeria", "lightbox--compra");
+  lightboxConteudo.setAttribute("aria-label", ROTULO_PADRAO_LIGHTBOX);
   lightboxLegenda.textContent = "";
   lightboxImagem.src = src;
   lightboxImagem.alt = alt;
@@ -2749,8 +2884,11 @@ function fecharLightbox() {
   lightbox.classList.remove(
     "lightbox--aberto",
     "lightbox--navegavel",
-    "lightbox--sobre-galeria"
+    "lightbox--sobre-galeria",
+    "lightbox--compra"
   );
+  lightboxConteudo.setAttribute("aria-label", ROTULO_PADRAO_LIGHTBOX);
+  lightboxCompraBotao.classList.remove("produto__adicionar--confirmado");
   lightbox.setAttribute("aria-hidden", "true");
   document.body.style.overflow = "";
   resetarZoomLightbox();
@@ -2773,6 +2911,66 @@ lightboxZoomMais.addEventListener("click", () => definirZoomLightbox(lightboxZoo
 lightboxZoomReset.addEventListener("click", resetarZoomLightbox);
 lightboxAnterior.addEventListener("click", () => avancarLightboxProduto(-1));
 lightboxProxima.addEventListener("click", () => avancarLightboxProduto(1));
+
+lightboxCompraBotao.addEventListener("click", () => {
+  const item = lightboxItensProduto[lightboxIndiceItem];
+  if (!lightboxProdutoAtual || !item || lightboxCompraBotao.disabled) return;
+
+  // Durante a confirmação de 0,9s do próprio botão, ignora cliques repetidos.
+  if (lightboxCompraBotao.classList.contains("produto__adicionar--confirmado")) return;
+
+  // Já está no pedido: o CTA leva ao Pedido 3ZK, que fica abaixo deste modal.
+  // Por isso a foto e a galeria são encerradas antes de abrir o carrinho.
+  if (lightboxCompraBotao.classList.contains("produto__adicionar--no-carrinho")) {
+    fecharLightbox();
+    if (galeriaCoresAtiva?.overlay.classList.contains("galeria-cores--aberta")) {
+      galeriaCoresAtiva.encerrar();
+    }
+    abrirCarrinho(1);
+    return;
+  }
+
+  adicionarAoCarrinho(lightboxProdutoAtual, item.cor, lightboxCompraBotao);
+});
+
+// Enquanto o modal está aberto, o Tab circula apenas dentro dele.
+function prenderFocoLightbox(evento) {
+  if (evento.key !== "Tab") return;
+  if (!lightbox.classList.contains("lightbox--aberto")) return;
+
+  const focaveis = [
+    ...lightboxConteudo.querySelectorAll(
+      'button:not([disabled]):not([hidden]), input:not([disabled]), textarea:not([disabled]), [href]'
+    )
+  ].filter((elemento) => elemento.offsetParent !== null);
+
+  if (focaveis.length === 0) return;
+
+  const primeiro = focaveis[0];
+  const ultimo = focaveis[focaveis.length - 1];
+
+  if (evento.shiftKey && document.activeElement === primeiro) {
+    evento.preventDefault();
+    ultimo.focus();
+  } else if (!evento.shiftKey && document.activeElement === ultimo) {
+    evento.preventDefault();
+    primeiro.focus();
+  } else if (!lightboxConteudo.contains(document.activeElement)) {
+    evento.preventDefault();
+    primeiro.focus();
+  }
+}
+
+document.addEventListener("keydown", prenderFocoLightbox);
+
+// As setas do teclado não devem competir com quem está digitando (por exemplo
+// na busca da galeria, que fica atrás do modal).
+function usuarioEstaDigitando() {
+  const elemento = document.activeElement;
+  if (!elemento) return false;
+  if (elemento.isContentEditable) return true;
+  return ["INPUT", "TEXTAREA", "SELECT"].includes(elemento.tagName);
+}
 
 lightbox.addEventListener("click", (evento) => {
   if (evento.target === lightbox) {
@@ -2831,6 +3029,7 @@ document.addEventListener("keydown", (evento) => {
     fecharLightbox();
     return;
   }
+  if (usuarioEstaDigitando()) return;
   if (lightboxItensProduto.length && evento.key === "ArrowLeft") {
     evento.preventDefault();
     avancarLightboxProduto(-1);
@@ -3320,6 +3519,8 @@ function garantirGaleriaCores() {
     if (ultimoFocoAntesGaleria?.focus) ultimoFocoAntesGaleria.focus();
   }
 
+  galeriaCoresAtiva.encerrar = fecharGaleria;
+
   fechar.addEventListener("click", fecharGaleria);
   fecharSecundario.addEventListener("click", fecharGaleria);
   overlay.addEventListener("click", (evento) => {
@@ -3443,6 +3644,12 @@ function abrirGaleriaCores(produto, indiceSelecionado, aoSelecionar, botaoOrigem
     if (!foto) return;
     if (!galeria.overlay.classList.contains("galeria-cores--aberta")) return;
 
+    // As setas do modal seguem exatamente as cores visíveis na galeria,
+    // na mesma ordem em que aparecem nela (respeitando a busca).
+    const indicesVisiveis = [...galeria.grade.querySelectorAll(".galeria-cores__item")]
+      .filter((item) => !item.hidden)
+      .map((item) => Number(item.dataset.corIndex));
+
     await abrirLightboxProduto(
       produto,
       cor,
@@ -3450,7 +3657,11 @@ function abrirGaleriaCores(produto, indiceSelecionado, aoSelecionar, botaoOrigem
         aoSelecionar(novoIndice);
         galeria.marcarSelecionada(novoIndice);
       },
-      { sobreGaleria: true, focoAoFechar: elemento }
+      {
+        sobreGaleria: true,
+        focoAoFechar: elemento,
+        indicesCores: indicesVisiveis.includes(indice) ? indicesVisiveis : null
+      }
     );
   }
 
