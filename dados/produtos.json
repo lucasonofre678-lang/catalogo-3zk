@@ -2531,8 +2531,8 @@
           "assets/fotos/masterprint-abs/verde.webp"
         ],
         "idCatalogo": "masterprint|abs||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Cinza",
