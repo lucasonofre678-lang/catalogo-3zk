@@ -1698,7 +1698,7 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2423,8 +2423,8 @@
           "assets/fotos/masterprint-abs/rosa.webp"
         ],
         "idCatalogo": "masterprint|abs||rosa",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -3133,7 +3133,7 @@
         "preco": 133,
         "gradiente": "linear-gradient(135deg, #D7474F 0 48%, #477FD0 52% 100%)",
         "idCatalogo": "multifila|pla||silk-dual-color-vermelho-e-azul",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
