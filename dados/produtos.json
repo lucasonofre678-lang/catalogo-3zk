@@ -781,7 +781,7 @@
           "assets/fotos/closin-pla/fluo-yellow.webp"
         ],
         "idCatalogo": "closin|pla||fluo-yellow",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
