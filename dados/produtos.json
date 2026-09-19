@@ -610,7 +610,7 @@
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
         "idCatalogo": "closin|pla||pink-rosa-bebe",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1698,8 +1698,8 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Laranja",
@@ -2531,8 +2531,8 @@
           "assets/fotos/masterprint-abs/verde.webp"
         ],
         "idCatalogo": "masterprint|abs||verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Cinza",
