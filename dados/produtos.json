@@ -3085,7 +3085,7 @@
         ],
         "preco": 120,
         "idCatalogo": "multifila|pla||silk-cobre",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
