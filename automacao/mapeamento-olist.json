@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 283,
+  "total": 296,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -3114,6 +3114,149 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "Resina UV Fotopolimerizável Resinas 100g — 100g"
+    },
+    {
+      "chave": "silica-gel-azul|5g||1-unidade",
+      "marca": "Sílica Gel Azul",
+      "material": "5 g",
+      "linha": "",
+      "cor": "1 unidade",
+      "olistId": 1055717649,
+      "sku": "SC5AZ",
+      "gtin": "",
+      "descricaoOlist": "SACHE 5GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|5g||kit-10-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "5 g",
+      "linha": "",
+      "cor": "Kit com 10 unidades",
+      "olistId": 1055744263,
+      "sku": "SC5AZ",
+      "gtin": "",
+      "descricaoOlist": "KIT 10 - SACHE 5GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|5g||kit-25-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "5 g",
+      "linha": "",
+      "cor": "Kit com 25 unidades",
+      "olistId": 1055744346,
+      "sku": "SC5AZ",
+      "gtin": "",
+      "descricaoOlist": "KIT 25 - SACHE 5GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|5g||kit-50-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "5 g",
+      "linha": "",
+      "cor": "Kit com 50 unidades",
+      "olistId": 1055744363,
+      "sku": "SC5AZ",
+      "gtin": "",
+      "descricaoOlist": "KIT 50 - SACHE 5GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|5g||kit-100-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "5 g",
+      "linha": "",
+      "cor": "Kit com 100 unidades",
+      "olistId": 1055744373,
+      "sku": "SC5AZ",
+      "gtin": "",
+      "descricaoOlist": "KIT 100 - SACHE 5GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|5g||kit-250-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "5 g",
+      "linha": "",
+      "cor": "Kit com 250 unidades",
+      "olistId": 1055744466,
+      "sku": "SC5AZ",
+      "gtin": "",
+      "descricaoOlist": "KIT 250 - SACHE 5GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|10g||1-unidade",
+      "marca": "Sílica Gel Azul",
+      "material": "10 g",
+      "linha": "",
+      "cor": "1 unidade",
+      "olistId": 1055717623,
+      "sku": "SC10AZ13",
+      "gtin": "",
+      "descricaoOlist": "SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|10g||kit-10-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "10 g",
+      "linha": "",
+      "cor": "Kit com 10 unidades",
+      "olistId": 1055743893,
+      "sku": "SC10AZ13",
+      "gtin": "",
+      "descricaoOlist": "KIT 10 - SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|10g||kit-25-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "10 g",
+      "linha": "",
+      "cor": "Kit com 25 unidades",
+      "olistId": 1055744084,
+      "sku": "SC10AZ13",
+      "gtin": "",
+      "descricaoOlist": "KIT 25 - SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|10g||kit-50-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "10 g",
+      "linha": "",
+      "cor": "Kit com 50 unidades",
+      "olistId": 1055744155,
+      "sku": "SC10AZ13",
+      "gtin": "",
+      "descricaoOlist": "KIT 50 - SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|10g||kit-100-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "10 g",
+      "linha": "",
+      "cor": "Kit com 100 unidades",
+      "olistId": 1055744181,
+      "sku": "SC10AZ13",
+      "gtin": "",
+      "descricaoOlist": "KIT 100 - SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "silica-gel-azul|10g||kit-250-unidades",
+      "marca": "Sílica Gel Azul",
+      "material": "10 g",
+      "linha": "",
+      "cor": "Kit com 250 unidades",
+      "olistId": 1055744205,
+      "sku": "SC10AZ13",
+      "gtin": "",
+      "descricaoOlist": "KIT 250 - SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
+    },
+    {
+      "chave": "masterprint|petg||fibra-de-carbono",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fibra de Carbono",
+      "olistId": 1054489188,
+      "sku": "",
+      "gtin": "7908229110797",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG FIBRA DE CARBONO 1KG (1.75MM) DER 4"
     }
   ]
 }

@@ -1188,6 +1188,20 @@
           "assets/fotos/masterprint-petg/green-olive-2.webp"
         ],
         "chaveEstoque": "masterprint|petg||green-olive"
+      },
+      {
+        "nome": "Fibra de Carbono",
+        "hex": "#252525",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/fibra-de-carbono.webp"
+        ],
+        "preco": 120,
+        "gtin": "7908229110797",
+        "chaveEstoque": "masterprint|petg||fibra-de-carbono",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
       }
     ]
   },
@@ -2045,7 +2059,7 @@
   {
     "marca": "Masterprint",
     "material": "ASA",
-    "preco": 88,
+    "preco": 90,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "cores": [
       {
@@ -3448,5 +3462,201 @@
         "disponivelInicial": true
       }
     ]
+  },
+  {
+    "marca": "Sílica Gel Azul",
+    "material": "5 g",
+    "preco": 1,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Armazenamento",
+    "rotuloVariacaoSingular": "quantidade",
+    "rotuloVariacaoPlural": "quantidades",
+    "tipoProduto": "sílica gel",
+    "cores": [
+      {
+        "nome": "1 unidade",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-5g/1-unidade.webp"
+        ],
+        "preco": 1,
+        "sku": "SC5AZ",
+        "chaveEstoque": "silica-gel-azul|5g||1-unidade",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 10 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-5g/kit-10-unidades.webp"
+        ],
+        "preco": 8.9,
+        "sku": "SC5AZ",
+        "chaveEstoque": "silica-gel-azul|5g||kit-10-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 25 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-5g/kit-25-unidades.webp"
+        ],
+        "preco": 19.9,
+        "sku": "SC5AZ",
+        "chaveEstoque": "silica-gel-azul|5g||kit-25-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 50 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-5g/kit-50-unidades.webp"
+        ],
+        "preco": 34.9,
+        "sku": "SC5AZ",
+        "chaveEstoque": "silica-gel-azul|5g||kit-50-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 100 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-5g/kit-100-unidades.webp"
+        ],
+        "preco": 59.9,
+        "sku": "SC5AZ",
+        "chaveEstoque": "silica-gel-azul|5g||kit-100-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 250 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-5g/kit-250-unidades.webp"
+        ],
+        "preco": 119.9,
+        "sku": "SC5AZ",
+        "chaveEstoque": "silica-gel-azul|5g||kit-250-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ],
+    "obs": "Sachês dessecantes de sílica gel azul para auxiliar no armazenamento de filamentos."
+  },
+  {
+    "marca": "Sílica Gel Azul",
+    "material": "10 g",
+    "preco": 2,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Armazenamento",
+    "rotuloVariacaoSingular": "quantidade",
+    "rotuloVariacaoPlural": "quantidades",
+    "tipoProduto": "sílica gel",
+    "cores": [
+      {
+        "nome": "1 unidade",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-10g/1-unidade.webp"
+        ],
+        "preco": 2,
+        "sku": "SC10AZ13",
+        "chaveEstoque": "silica-gel-azul|10g||1-unidade",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 10 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-10g/kit-10-unidades.webp"
+        ],
+        "preco": 14.9,
+        "sku": "SC10AZ13",
+        "chaveEstoque": "silica-gel-azul|10g||kit-10-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 25 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-10g/kit-25-unidades.webp"
+        ],
+        "preco": 32.9,
+        "sku": "SC10AZ13",
+        "chaveEstoque": "silica-gel-azul|10g||kit-25-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 50 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-10g/kit-50-unidades.webp"
+        ],
+        "preco": 59.9,
+        "sku": "SC10AZ13",
+        "chaveEstoque": "silica-gel-azul|10g||kit-50-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 100 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-10g/kit-100-unidades.webp"
+        ],
+        "preco": 109.9,
+        "sku": "SC10AZ13",
+        "chaveEstoque": "silica-gel-azul|10g||kit-100-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Kit com 250 unidades",
+        "hex": "#1E6FD9",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/silica-gel-azul-10g/kit-250-unidades.webp"
+        ],
+        "preco": 219.9,
+        "sku": "SC10AZ13",
+        "chaveEstoque": "silica-gel-azul|10g||kit-250-unidades",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ],
+    "obs": "Sachês dessecantes de sílica gel azul para auxiliar no armazenamento de filamentos."
   }
 ]
