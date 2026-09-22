@@ -639,13 +639,6 @@ function normalizarControleCatalogo(valor) {
 }
 
 async function carregarControleCatalogo() {
-  const host = String(window.location.hostname || "").toLowerCase();
-  const ambienteLocal = host === "localhost" || host === "127.0.0.1" || host === "::1";
-
-  if (!ambienteLocal) {
-    return normalizarControleCatalogo({});
-  }
-
   try {
     const resposta = await fetch(obterUrlSemCache3ZK("dados/controle-catalogo.json"), {
       cache: "no-store"
@@ -3763,6 +3756,33 @@ function criarCardAcessorioNovo(produto, indiceCorInicial = 0) {
     ? `1 ${singular} disponível`
     : `${quantidade} ${plural} disponíveis`;
 
+  const ehSilicaGel = String(produto.tipoProduto || "")
+    .toLocaleLowerCase("pt-BR")
+    .includes("sílica gel");
+  let opcoesRapidas = null;
+
+  if (ehSilicaGel && produto.cores.length > 1) {
+    opcoesRapidas = document.createElement("div");
+    opcoesRapidas.className = "catalogo-card-v57__opcoes";
+    opcoesRapidas.setAttribute("aria-label", `Kits disponíveis de ${nomeProduto}`);
+
+    produto.cores.forEach((cor) => {
+      const opcao = document.createElement("a");
+      opcao.className = "catalogo-card-v57__opcao";
+      opcao.href = `produto.html?produto=${encodeURIComponent(slugProduto)}&cor=${encodeURIComponent(obterSlugCor(cor))}`;
+
+      const nomeOpcao = document.createElement("span");
+      nomeOpcao.textContent = cor.nome.replace(/^Kit com\s+/i, "Kit ");
+
+      const precoOpcao = document.createElement("strong");
+      precoOpcao.textContent = formatarPreco(obterPrecoProdutoOuVariacao(produto, cor));
+
+      opcao.appendChild(nomeOpcao);
+      opcao.appendChild(precoOpcao);
+      opcoesRapidas.appendChild(opcao);
+    });
+  }
+
   const rodape = document.createElement("div");
   rodape.className = "catalogo-card-v57__rodape";
 
@@ -3784,6 +3804,7 @@ function criarCardAcessorioNovo(produto, indiceCorInicial = 0) {
   corpo.appendChild(meta);
   corpo.appendChild(nomeLink);
   corpo.appendChild(disponibilidade);
+  if (opcoesRapidas) corpo.appendChild(opcoesRapidas);
   corpo.appendChild(rodape);
 
   artigo.appendChild(fotoLink);

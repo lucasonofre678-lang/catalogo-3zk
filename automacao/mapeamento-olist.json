@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento entre as cores do catálogo 3ZK e os produtos/variações da Olist.",
-  "total": 296,
+  "total": 297,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -631,11 +631,11 @@
       "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG BRANCO"
     },
     {
-      "chave": "masterprint|petg||branco-pcv-outdoor",
+      "chave": "masterprint|petg|especial|branco-pvc-outdoor",
       "marca": "Masterprint",
       "material": "PETG",
-      "linha": "",
-      "cor": "Branco PCV Outdoor",
+      "linha": "Especial",
+      "cor": "Branco PVC Outdoor",
       "olistId": 1044898245,
       "sku": "BRANCOOUTDDOOR",
       "gtin": "7908229110827",
@@ -3248,15 +3248,26 @@
       "descricaoOlist": "KIT 250 - SACHE 10GR SILICA GEL AZUL 1-3MM IMPRESSAO PADRAO"
     },
     {
-      "chave": "masterprint|petg||fibra-de-carbono",
+      "chave": "masterprint|petg|especial|fibra-de-carbono",
       "marca": "Masterprint",
       "material": "PETG",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Fibra de Carbono",
       "olistId": 1054489188,
       "sku": "",
       "gtin": "7908229110797",
       "descricaoOlist": "MP-FILAMENTO 3D - PETG FIBRA DE CARBONO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|asa||preto",
+      "marca": "Masterprint",
+      "material": "ASA",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1055714256,
+      "sku": "",
+      "gtin": "7908229108435",
+      "descricaoOlist": "MP-FILAMENTO 3D - ASA PRETO 1KG (1.75MM) DER 4"
     }
   ]
 }

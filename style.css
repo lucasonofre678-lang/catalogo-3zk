@@ -7455,6 +7455,44 @@ body.filtros-v56-abertos { overflow: hidden; }
   color:#687386;
   font-size:11px;
 }
+.catalogo-card-v57__opcoes{
+  display:grid;
+  grid-template-columns:repeat(2,minmax(0,1fr));
+  gap:7px;
+  margin-top:12px;
+}
+.catalogo-card-v57__opcao{
+  min-width:0;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  gap:7px;
+  padding:8px 9px;
+  border:1px solid #D9E4F4;
+  border-radius:10px;
+  background:#F7FAFF;
+  color:#344257;
+  font-size:10px;
+  font-weight:700;
+  line-height:1.2;
+  transition:border-color .18s ease,background .18s ease,transform .18s ease;
+}
+.catalogo-card-v57__opcao:hover{
+  transform:translateY(-1px);
+  border-color:#8CB5EC;
+  background:#EEF5FF;
+}
+.catalogo-card-v57__opcao span{
+  min-width:0;
+  overflow:hidden;
+  text-overflow:ellipsis;
+  white-space:nowrap;
+}
+.catalogo-card-v57__opcao strong{
+  flex:0 0 auto;
+  color:#0047AB;
+  font-size:10px;
+}
 .catalogo-card-v57__rodape{
   display:flex;
   flex-direction:column;

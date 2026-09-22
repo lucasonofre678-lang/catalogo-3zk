@@ -1055,19 +1055,6 @@
         "disponivel": false
       },
       {
-        "nome": "Branco PCV Outdoor",
-        "hex": "#ECEDE8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
-        ],
-        "preco": 84,
-        "idCatalogo": "masterprint|petg||branco-pcv-outdoor",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
         "nome": "Bronze",
         "hex": "#6B674B",
         "hexFonte": "foto-ajustada",
@@ -1366,23 +1353,50 @@
         "idCatalogo": "masterprint|petg||green-olive",
         "statusEstoque": "em_estoque",
         "disponivel": true
+      }
+    ],
+    "idCatalogo": "masterprint|petg|",
+    "disponivel": true
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PETG",
+    "linha": "Especial",
+    "preco": 84,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "PETG técnico para aplicações que exigem maior resistência e desempenho.",
+    "cores": [
+      {
+        "nome": "Branco PVC Outdoor",
+        "hex": "#ECEDE8",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/branco-pcv-outdoor.webp"
+        ],
+        "sku": "BRANCOOUTDDOOR",
+        "gtin": "7908229110827",
+        "preco": 84,
+        "idCatalogo": "masterprint|petg|especial|branco-pvc-outdoor",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fibra de Carbono",
         "hex": "#252525",
-        "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/fibra-de-carbono.webp"
         ],
         "preco": 120,
         "gtin": "7908229110797",
-        "idCatalogo": "masterprint|petg||fibra-de-carbono",
+        "idCatalogo": "masterprint|petg|especial|fibra-de-carbono",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
-    "idCatalogo": "masterprint|petg|",
+    "idCatalogo": "masterprint|petg|especial",
     "disponivel": true
   },
   {
@@ -1984,14 +1998,15 @@
         "nome": "Mármore",
         "hex": "#D4D0C8",
         "efeito": "fosco",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/marmore.webp"
         ],
+        "preco": 94,
         "idCatalogo": "masterprint|pla||marmore",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Marrom",
@@ -2415,6 +2430,19 @@
           "assets/fotos/masterprint-asa/branco.webp"
         ],
         "idCatalogo": "masterprint|asa||branco",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Preto",
+        "hex": "#1B1B1B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-asa/preto.webp"
+        ],
+        "gtin": "7908229108435",
+        "idCatalogo": "masterprint|asa||preto",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
@@ -4018,9 +4046,9 @@
         "nome": "1 unidade",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-5g/1-unidade.webp"
+          "assets/fotos/silica-gel-azul-5g/produto.webp"
         ],
         "preco": 1,
         "sku": "SC5AZ",
@@ -4032,9 +4060,9 @@
         "nome": "Kit com 10 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-5g/kit-10-unidades.webp"
+          "assets/fotos/silica-gel-azul-5g/produto.webp"
         ],
         "preco": 8.9,
         "sku": "SC5AZ",
@@ -4046,9 +4074,9 @@
         "nome": "Kit com 25 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-5g/kit-25-unidades.webp"
+          "assets/fotos/silica-gel-azul-5g/produto.webp"
         ],
         "preco": 19.9,
         "sku": "SC5AZ",
@@ -4060,9 +4088,9 @@
         "nome": "Kit com 50 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-5g/kit-50-unidades.webp"
+          "assets/fotos/silica-gel-azul-5g/produto.webp"
         ],
         "preco": 34.9,
         "sku": "SC5AZ",
@@ -4074,9 +4102,9 @@
         "nome": "Kit com 100 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-5g/kit-100-unidades.webp"
+          "assets/fotos/silica-gel-azul-5g/produto.webp"
         ],
         "preco": 59.9,
         "sku": "SC5AZ",
@@ -4088,9 +4116,9 @@
         "nome": "Kit com 250 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-5g/kit-250-unidades.webp"
+          "assets/fotos/silica-gel-azul-5g/produto.webp"
         ],
         "preco": 119.9,
         "sku": "SC5AZ",
@@ -4118,9 +4146,9 @@
         "nome": "1 unidade",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-10g/1-unidade.webp"
+          "assets/fotos/silica-gel-azul-10g/produto.webp"
         ],
         "preco": 2,
         "sku": "SC10AZ13",
@@ -4132,9 +4160,9 @@
         "nome": "Kit com 10 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-10g/kit-10-unidades.webp"
+          "assets/fotos/silica-gel-azul-10g/produto.webp"
         ],
         "preco": 14.9,
         "sku": "SC10AZ13",
@@ -4146,9 +4174,9 @@
         "nome": "Kit com 25 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-10g/kit-25-unidades.webp"
+          "assets/fotos/silica-gel-azul-10g/produto.webp"
         ],
         "preco": 32.9,
         "sku": "SC10AZ13",
@@ -4160,9 +4188,9 @@
         "nome": "Kit com 50 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-10g/kit-50-unidades.webp"
+          "assets/fotos/silica-gel-azul-10g/produto.webp"
         ],
         "preco": 59.9,
         "sku": "SC10AZ13",
@@ -4174,9 +4202,9 @@
         "nome": "Kit com 100 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-10g/kit-100-unidades.webp"
+          "assets/fotos/silica-gel-azul-10g/produto.webp"
         ],
         "preco": 109.9,
         "sku": "SC10AZ13",
@@ -4188,9 +4216,9 @@
         "nome": "Kit com 250 unidades",
         "hex": "#1E6FD9",
         "hexFonte": "manual",
-        "fotoStatus": "ausente",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/silica-gel-azul-10g/kit-250-unidades.webp"
+          "assets/fotos/silica-gel-azul-10g/produto.webp"
         ],
         "preco": 219.9,
         "sku": "SC10AZ13",
