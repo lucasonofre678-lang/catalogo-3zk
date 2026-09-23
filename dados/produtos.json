@@ -721,7 +721,7 @@
           "assets/fotos/closin-pla/branco-perola.webp"
         ],
         "idCatalogo": "closin|pla||branco-perola",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -745,7 +745,7 @@
           "assets/fotos/closin-pla/fluo-blue.webp"
         ],
         "idCatalogo": "closin|pla||fluo-blue",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -3190,8 +3190,8 @@
         ],
         "preco": 120,
         "idCatalogo": "multifila|pla||silk-ouro-envelhecido",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Rainbow Macaron",
