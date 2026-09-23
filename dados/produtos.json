@@ -721,7 +721,7 @@
           "assets/fotos/closin-pla/branco-perola.webp"
         ],
         "idCatalogo": "closin|pla||branco-perola",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -745,7 +745,7 @@
           "assets/fotos/closin-pla/fluo-blue.webp"
         ],
         "idCatalogo": "closin|pla||fluo-blue",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -3583,6 +3583,8 @@
         "idCatalogo": "multifila|pla|silk|silk-ouro-envelhecido",
         "statusEstoque": "em_estoque",
         "disponivel": true
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Tricolor Cobre Azul Ouro",
@@ -4523,7 +4525,7 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-simples-25mm-elo-8mm-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-prata",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
