@@ -4580,7 +4580,7 @@
         ],
         "gtin": "7898757183595",
         "idCatalogo": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
@@ -4742,7 +4742,7 @@
         ],
         "gtin": "7898757183403",
         "idCatalogo": "resina-uv-fotopolimerizavel|resinas|100g|100g",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
