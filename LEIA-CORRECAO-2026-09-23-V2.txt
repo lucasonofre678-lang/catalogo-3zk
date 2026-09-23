@@ -1,0 +1,58 @@
+CORREÇÃO DO CATÁLOGO 3ZK — 23/09/2026 — V2
+
+PROBLEMA DE CARREGAMENTO CORRIGIDO
+
+No Live Server, o site tentava usar dados/produtos-preview.json antes do
+catálogo oficial. Um preview antigo, incompleto ou incompatível podia causar a
+mensagem "Não foi possível carregar os produtos".
+
+Agora o site sempre abre dados/produtos.json. O preview só é usado quando o
+endereço contém explicitamente ?preview=1.
+
+O identificador de versão do script também foi atualizado no index.html e no
+produto.html para impedir que o navegador reutilize o JavaScript antigo.
+
+AUDITORIA DOS 45 ITENS
+
+- 45 de 45 itens encontrados no cadastro-base e no catálogo público.
+- 45 de 45 itens disponíveis e sem pausa manual.
+- Nenhum ID ou chave de estoque duplicado.
+- 42 filamentos comparados com a coluna "Preço site cheio" da planilha
+  Analise_Custos_Multfila_3ZK_Revisada.xlsx.
+- Mesa PEI, kit de pincéis e resina UV comparados com a coluna "Preço" da
+  exportação produtos_2026-09-23-15-14-24.xls.
+
+PREÇOS CONFIRMADOS
+
+- Mesa PEI A1/P1/X1: R$ 149,00
+- Kit com 5 pincéis de silicone: R$ 22,90
+- Resina UV 100 g: R$ 59,00
+- PLA Matte, incluindo os cinco Dual: R$ 120,00
+- PLA Silk comum: R$ 120,00
+- PLA Silk Dual: R$ 133,00
+- PLA Rainbow e Silk Rainbow: R$ 170,00
+
+CORREÇÃO DE PREÇO FEITA
+
+Os cinco PLA Matte Dual estavam cadastrados por R$ 133,00. A planilha informa
+R$ 120,00. Todos foram corrigidos para R$ 120,00:
+
+- Dual Verde e Amarelo
+- Dual Vermelho e Laranja
+- Dual Laranja e Roxo Escuro
+- Dual Azul e Verde
+- Dual Rosa e Verde
+
+VALIDAÇÕES
+
+- JSON compatível com JSON.parse do navegador: aprovado.
+- 42 produtos e 339 variações: aprovado.
+- 339 vínculos Olist: aprovado.
+- Validação estrita do catálogo: aprovada.
+- Sintaxe JavaScript de script.js e produto.js: aprovada.
+
+COMO INSTALAR
+
+Extraia este ZIP diretamente dentro da pasta catalogo-3zk e confirme a
+substituição dos arquivos existentes. Depois abra o Live Server normalmente.
+

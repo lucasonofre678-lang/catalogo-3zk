@@ -1,0 +1,36 @@
+ATUALIZAÇÃO DO CATÁLOGO 3ZK — FOTOS E SEPARAÇÃO DE PRODUTOS
+
+O que foi alterado
+
+- As 28 fotos recebidas foram adicionadas ao catálogo.
+- As imagens correspondem a 27 variações.
+- Silk Rainbow Ice Cream recebeu duas fotos.
+- O produto Multifila PLA Clássico foi dividido em dois cartões:
+  - Multifila PLA Branco — R$ 105,00
+  - Multifila PLA Marmorizado — R$ 170,00
+- Os IDs da Olist dos dois produtos foram preservados.
+- As chaves internas de Branco e Marmorizado foram migradas para que cada
+  cartão tenha um identificador próprio e não gere conflito no site.
+
+Fotos adicionadas
+
+- 18 variações PLA Matte
+- 8 variações PLA Silk
+- 1 variação PLA Silk Rainbow, com duas fotos
+
+Validações
+
+- 43 produtos públicos
+- 339 variações
+- 339 vínculos Olist
+- Nenhuma chave de estoque duplicada
+- Nenhum identificador público de produto duplicado
+- Todas as fotos marcadas como confirmadas existem no ZIP
+- Validação estrita do catálogo aprovada
+- Sintaxe das automações e do JavaScript aprovada
+
+Como instalar
+
+Extraia este ZIP diretamente dentro da pasta catalogo-3zk e confirme a
+substituição dos arquivos existentes.
+

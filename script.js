@@ -5170,17 +5170,17 @@ async function carregarProdutos() {
   }
 
   try {
-    const host = String(window.location.hostname || "").toLowerCase();
-    const ambienteLocal = host === "localhost" || host === "127.0.0.1" || host === "::1";
+    const parametrosCarregamento = new URLSearchParams(window.location.search);
+    const previewSolicitado = parametrosCarregamento.get("preview") === "1";
     let dados = null;
 
-    if (ambienteLocal) {
-      // O preview é opcional e nunca pode travar o Live Server.
-      dados = await buscarCatalogoJson("dados/produtos-preview.json", 700);
-      if (!dados) {
-        dados = await buscarCatalogoJson("dados/produtos.json", 2500);
-      }
-    } else {
+    // O catálogo oficial é sempre a fonte padrão, inclusive no Live Server.
+    // Um produtos-preview.json antigo ou incompleto não pode derrubar a loja.
+    if (previewSolicitado) {
+      dados = await buscarCatalogoJson("dados/produtos-preview.json", 1200);
+    }
+
+    if (!dados) {
       dados = await buscarCatalogoJson("dados/produtos.json", 5000);
     }
 

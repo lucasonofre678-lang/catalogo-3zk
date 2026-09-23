@@ -510,7 +510,7 @@
         "chaveEstoque": "closin|petg||wood"
       }
     ],
-    "obs": "Rolo de 1kg"
+    "obs": ""
   },
   {
     "marca": "Closin",
@@ -1186,7 +1186,7 @@
     "linha": "Especial",
     "preco": 84,
     "linkLoja": "https://3zkfilamentos.com.br/",
-    "obs": "PETG técnico para aplicações que exigem maior resistência e desempenho.",
+    "obs": "",
     "cores": [
       {
         "nome": "Branco PVC Outdoor",
@@ -1477,7 +1477,7 @@
         "chaveEstoque": "fusion-high-speed|petg||preto"
       }
     ],
-    "obs": "Rolo com 1,2kg — 200g a mais que o rolo padrão"
+    "obs": ""
   },
   {
     "marca": "Masterprint",
@@ -2291,7 +2291,7 @@
         "chaveEstoque": "masterprint|tpu||natural-transparente"
       }
     ],
-    "obs": "Rolo de 1kg"
+    "obs": ""
   },
   {
     "marca": "Masterprint",
@@ -2360,7 +2360,7 @@
         "chaveEstoque": "masterprint|tpr||vermelho"
       }
     ],
-    "obs": "Rolo de 1kg — filamento 2,85 mm"
+    "obs": ""
   },
   {
     "marca": "Creality Soleyin Ultra",
@@ -2593,8 +2593,10 @@
   {
     "marca": "Multifila",
     "material": "PLA",
-    "preco": 105,
+    "linha": "Branco",
+    "preco": 105.0,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
     "cores": [
       {
         "nome": "Branco",
@@ -2605,8 +2607,23 @@
           "assets/fotos/multifila-pla/branco-real.webp",
           "assets/fotos/multifila-pla/branco.webp"
         ],
-        "chaveEstoque": "multifila|pla||branco"
-      },
+        "chaveEstoque": "multifila|pla|branco|branco",
+        "preco": 105.0,
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-branco-pla",
+        "gtin": "7898757180716"
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "PLA",
+    "linha": "Marmorizado",
+    "preco": 170.0,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
+    "cores": [
       {
         "nome": "Marmorizado",
         "hex": "#C8C8C2",
@@ -2617,39 +2634,402 @@
           "assets/fotos/multifila-pla/marmorizado-real.webp",
           "assets/fotos/multifila-pla/marmorizado-2.webp"
         ],
-        "preco": 170,
-        "chaveEstoque": "multifila|pla||marmorizado"
-      },
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|marmorizado|marmorizado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-marmorizado-pla",
+        "gtin": "7898757181522"
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "PLA",
+    "linha": "Matte",
+    "preco": 120.0,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
+    "cores": [
       {
-        "nome": "Rainbow Matte Coral Colors",
-        "hex": "#D7A6C8",
+        "nome": "Branco",
+        "hex": "#F1F1ED",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/branco.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|branco",
         "efeito": "fosco",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-2.webp",
-          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-real.webp",
-          "assets/fotos/multifila-pla/rainbow-matte-coral-colors.webp"
-        ],
-        "preco": 170,
-        "chaveEstoque": "multifila|pla||rainbow-matte-coral-colors",
-        "gradiente": "linear-gradient(135deg, #A6E2D4 0%, #C9B8EB 25%, #F1BFD5 50%, #A8CFF0 72%, #B9E5C8 100%)"
-      },
-      {
-        "nome": "Luminous Rainbow Colors",
-        "hex": "#A9A9D8",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/multifila-pla/luminous-rainbow-colors-2.webp",
-          "assets/fotos/multifila-pla/luminous-rainbow-colors.webp"
-        ],
-        "preco": 164.9,
-        "chaveEstoque": "multifila|pla||luminous-rainbow-colors",
-        "gradiente": "linear-gradient(135deg, #F4F1DE 0%, #B8B1EA 25%, #62D2A4 50%, #4FC7E7 68%, #E45EB7 84%, #7AD873 100%)",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
+      {
+        "nome": "Vermelho",
+        "hex": "#B8383E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/vermelho.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|vermelho",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Azul",
+        "hex": "#2087D4",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/azul.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|azul",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Preto",
+        "hex": "#24262A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/preto.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|preto",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#E87528",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/laranja.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|laranja",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dual Verde e Amarelo",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/dual-verde-e-amarelo.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|dual-verde-e-amarelo",
+        "efeito": "fosco",
+        "gradiente": "linear-gradient(135deg, #4F9A5C 0 48%, #E4D348 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dual Vermelho e Laranja",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/dual-vermelho-e-laranja.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|dual-vermelho-e-laranja",
+        "efeito": "fosco",
+        "gradiente": "linear-gradient(135deg, #C43E45 0 48%, #EA7A2D 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dual Laranja e Roxo Escuro",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/dual-laranja-e-roxo-escuro.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|dual-laranja-e-roxo-escuro",
+        "efeito": "fosco",
+        "gradiente": "linear-gradient(135deg, #EA7A2D 0 48%, #4E315F 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dual Azul e Verde",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/dual-azul-e-verde.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|dual-azul-e-verde",
+        "efeito": "fosco",
+        "gradiente": "linear-gradient(135deg, #2F74BD 0 48%, #4D9A66 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dual Rosa e Verde",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/dual-rosa-e-verde.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|dual-rosa-e-verde",
+        "efeito": "fosco",
+        "gradiente": "linear-gradient(135deg, #D987AD 0 48%, #55956A 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Verde Militar",
+        "hex": "#596B4A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/verde-militar.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|verde-militar",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Bordô",
+        "hex": "#6E2337",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/bordo.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|bordo",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Azul Marinho",
+        "hex": "#344E6A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/azul-marinho.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|azul-marinho",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Verde Matcha",
+        "hex": "#A7B77A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/verde-matcha.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|verde-matcha",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Amarelo Limão",
+        "hex": "#D8DF42",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/amarelo-limao.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|amarelo-limao",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Roxo Íris",
+        "hex": "#77619B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/roxo-iris.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|roxo-iris",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Azul Capri",
+        "hex": "#399FCC",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/azul-capri.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|azul-capri",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Azul Brisa",
+        "hex": "#9EBBD2",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/azul-brisa.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|azul-brisa",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Caramelo",
+        "hex": "#B07A4B",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/caramelo.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|caramelo",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Castanho Satin",
+        "hex": "#7D5C4D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/castanho-satin.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|castanho-satin",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Bege Mist",
+        "hex": "#C9BDAA",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/bege-mist.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|bege-mist",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Verde Citrus",
+        "hex": "#99B84A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/verde-citrus.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|verde-citrus",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Azul Ocean",
+        "hex": "#315BC2",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/azul-ocean.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|azul-ocean",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Vinho",
+        "hex": "#722C44",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/vinho.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|vinho",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Amarelo Creme",
+        "hex": "#E8D68E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/amarelo-creme.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|amarelo-creme",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Laranja Melon",
+        "hex": "#E8A06D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-matte/laranja-melon.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|matte|laranja-melon",
+        "efeito": "fosco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "PLA",
+    "linha": "Silk",
+    "preco": 120.0,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
+    "cores": [
       {
         "nome": "Silk Azul Safira",
         "hex": "#4F8FD4",
@@ -2660,8 +3040,12 @@
           "assets/fotos/multifila-pla/silk-azul-safira-real.webp",
           "assets/fotos/multifila-pla/silk-azul-safira.webp"
         ],
-        "preco": 120,
-        "chaveEstoque": "multifila|pla||silk-azul-safira"
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-azul-safira",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-azul-safira-pla",
+        "gtin": "7898757180952"
       },
       {
         "nome": "Silk Cobre",
@@ -2673,8 +3057,12 @@
           "assets/fotos/multifila-pla/silk-cobre-real.webp",
           "assets/fotos/multifila-pla/silk-cobre.webp"
         ],
-        "preco": 120,
-        "chaveEstoque": "multifila|pla||silk-cobre"
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-cobre",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-cobre-pla",
+        "gtin": "7898757180921"
       },
       {
         "nome": "Silk Dual Color Preto e Prata",
@@ -2686,9 +3074,13 @@
           "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-preto-e-prata.webp"
         ],
-        "preco": 133,
-        "chaveEstoque": "multifila|pla||silk-dual-color-preto-e-prata",
-        "gradiente": "linear-gradient(135deg, #202126 0 48%, #C3C7CE 52% 100%)"
+        "preco": 133.0,
+        "chaveEstoque": "multifila|pla|silk|silk-dual-color-preto-e-prata",
+        "gradiente": "linear-gradient(135deg, #202126 0 48%, #C3C7CE 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-preto-prata-pla",
+        "gtin": "7898757182741"
       },
       {
         "nome": "Silk Dual Color Roxo e Dourado",
@@ -2700,9 +3092,13 @@
           "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-roxo-e-dourado.webp"
         ],
-        "preco": 133,
-        "chaveEstoque": "multifila|pla||silk-dual-color-roxo-e-dourado",
-        "gradiente": "linear-gradient(135deg, #5C285D 0 48%, #C99A3E 52% 100%)"
+        "preco": 133.0,
+        "chaveEstoque": "multifila|pla|silk|silk-dual-color-roxo-e-dourado",
+        "gradiente": "linear-gradient(135deg, #5C285D 0 48%, #C99A3E 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-roxo-dourado-pla",
+        "gtin": "7898757182734"
       },
       {
         "nome": "Silk Dual Color Vermelho e Azul",
@@ -2714,9 +3110,13 @@
           "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul-real.webp",
           "assets/fotos/multifila-pla/silk-dual-color-vermelho-e-azul.webp"
         ],
-        "preco": 133,
-        "chaveEstoque": "multifila|pla||silk-dual-color-vermelho-e-azul",
-        "gradiente": "linear-gradient(135deg, #D7474F 0 48%, #477FD0 52% 100%)"
+        "preco": 133.0,
+        "chaveEstoque": "multifila|pla|silk|silk-dual-color-vermelho-e-azul",
+        "gradiente": "linear-gradient(135deg, #D7474F 0 48%, #477FD0 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-vermelho-azul-pla",
+        "gtin": "7898757181287"
       },
       {
         "nome": "Silk Ouro Envelhecido",
@@ -2725,26 +3125,14 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/multifila-pla/silk-ouro-envelhecido-real.webp",
-          "assets/fotos/multifila-pla/silk-ouro-envelhecido.webp"
+          "assets/fotos/multifila-pla-silk/silk-ouro-envelhecido.webp"
         ],
-        "preco": 120,
-        "chaveEstoque": "multifila|pla||silk-ouro-envelhecido"
-      },
-      {
-        "nome": "Silk Rainbow Macaron",
-        "hex": "#C58A90",
-        "efeito": "silk",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/multifila-pla/silk-rainbow-macaron-real.webp",
-          "assets/fotos/multifila-pla/silk-rainbow-macaron-real-2.webp",
-          "assets/fotos/multifila-pla/silk-rainbow-macaron.webp"
-        ],
-        "preco": 170,
-        "chaveEstoque": "multifila|pla||silk-rainbow-macaron",
-        "gradiente": "linear-gradient(135deg, #F2A7B8 0%, #F4C961 30%, #76D39C 58%, #73AADD 80%, #B693D8 100%)"
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-ouro-envelhecido",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-ouro-envelhecido-pla",
+        "gtin": "7898757181249"
       },
       {
         "nome": "Silk Tricolor Cobre Azul Ouro",
@@ -2756,9 +3144,13 @@
           "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro-real.webp",
           "assets/fotos/multifila-pla/silk-tricolor-cobre-azul-ouro.webp"
         ],
-        "preco": 138,
-        "chaveEstoque": "multifila|pla||silk-tricolor-cobre-azul-ouro",
-        "gradiente": "conic-gradient(#B87343 0 33%, #3D73BF 33% 66%, #D4A23C 66% 100%)"
+        "preco": 138.0,
+        "chaveEstoque": "multifila|pla|silk|silk-tricolor-cobre-azul-ouro",
+        "gradiente": "conic-gradient(#B87343 0 33%, #3D73BF 33% 66%, #D4A23C 66% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-cobre-azul-ouro-pla",
+        "gtin": "7898757182765"
       },
       {
         "nome": "Silk Tricolor Verde Roxo Cobre",
@@ -2771,9 +3163,13 @@
           "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre-real-2.webp",
           "assets/fotos/multifila-pla/silk-tricolor-verde-roxo-cobre.webp"
         ],
-        "preco": 138,
-        "chaveEstoque": "multifila|pla||silk-tricolor-verde-roxo-cobre",
-        "gradiente": "conic-gradient(#4B9362 0 33%, #75529A 33% 66%, #B87343 66% 100%)"
+        "preco": 138.0,
+        "chaveEstoque": "multifila|pla|silk|silk-tricolor-verde-roxo-cobre",
+        "gradiente": "conic-gradient(#4B9362 0 33%, #75529A 33% 66%, #B87343 66% 100%)",
+        "statusEstoqueInicial": "sem_estoque",
+        "disponivelInicial": false,
+        "sku": "multifila-silk-verde-roxo-cobre-pla",
+        "gtin": "7898757182772"
       },
       {
         "nome": "Silk Verde",
@@ -2785,8 +3181,12 @@
           "assets/fotos/multifila-pla/silk-verde-real.webp",
           "assets/fotos/multifila-pla/silk-verde.webp"
         ],
-        "preco": 120,
-        "chaveEstoque": "multifila|pla||silk-verde"
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-verde",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-verde-pla",
+        "gtin": "7898757180976"
       },
       {
         "nome": "Silk Vermelho",
@@ -2798,9 +3198,307 @@
           "assets/fotos/multifila-pla/silk-vermelho-real.webp",
           "assets/fotos/multifila-pla/silk-vermelho.webp"
         ],
-        "preco": 120,
-        "chaveEstoque": "multifila|pla||silk-vermelho"
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-vermelho",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-vermelho-pla",
+        "gtin": "7898757180969"
       },
+      {
+        "nome": "Aço Escovado",
+        "hex": "#8B9197",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/aco-escovado.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|aco-escovado",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Branco",
+        "hex": "#EDEDE7",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-branco.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-branco",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Preto",
+        "hex": "#282A2E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-preto.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-preto",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Amarelo",
+        "hex": "#E5C33D",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-amarelo.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-amarelo",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Tangerina",
+        "hex": "#E7772E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-tangerina.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-tangerina",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Azul Bebê",
+        "hex": "#83B8DB",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-azul-bebe.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-azul-bebe",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Verde Limão",
+        "hex": "#8ACB4A",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-verde-limao.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-verde-limao",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Rosa Claro",
+        "hex": "#E6A5BE",
+        "hexFonte": "manual",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-rosa-claro.webp"
+        ],
+        "preco": 120.0,
+        "chaveEstoque": "multifila|pla|silk|silk-rosa-claro",
+        "efeito": "silk",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Dual Azul e Dourado",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-dual-azul-e-dourado.webp"
+        ],
+        "preco": 133.0,
+        "chaveEstoque": "multifila|pla|silk|silk-dual-azul-e-dourado",
+        "efeito": "silk",
+        "gradiente": "linear-gradient(135deg, #3F74BD 0 48%, #C89C3F 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Dual Preto e Vermelho",
+        "hex": "#8E9298",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-silk/silk-dual-preto-e-vermelho.webp"
+        ],
+        "preco": 133.0,
+        "chaveEstoque": "multifila|pla|silk|silk-dual-preto-e-vermelho",
+        "efeito": "silk",
+        "gradiente": "linear-gradient(135deg, #24262A 0 48%, #C63E45 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "PLA",
+    "linha": "Rainbow",
+    "preco": 164.9,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
+    "cores": [
+      {
+        "nome": "Rainbow Matte Coral Colors",
+        "hex": "#D7A6C8",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-2.webp",
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors-real.webp",
+          "assets/fotos/multifila-pla/rainbow-matte-coral-colors.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|rainbow-matte-coral-colors",
+        "gradiente": "linear-gradient(135deg, #A6E2D4 0%, #C9B8EB 25%, #F1BFD5 50%, #A8CFF0 72%, #B9E5C8 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-rainbow-matte-coral-pla",
+        "gtin": "7898757182857"
+      },
+      {
+        "nome": "Luminous Rainbow Colors",
+        "hex": "#A9A9D8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/luminous-rainbow-colors-2.webp",
+          "assets/fotos/multifila-pla/luminous-rainbow-colors.webp"
+        ],
+        "preco": 164.9,
+        "chaveEstoque": "multifila|pla|rainbow|luminous-rainbow-colors",
+        "gradiente": "linear-gradient(135deg, #F4F1DE 0%, #B8B1EA 25%, #62D2A4 50%, #4FC7E7 68%, #E45EB7 84%, #7AD873 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-luminous-rainbow-pla",
+        "gtin": "7898757182840"
+      },
+      {
+        "nome": "Silk Rainbow Macaron",
+        "hex": "#C58A90",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla/silk-rainbow-macaron-real.webp",
+          "assets/fotos/multifila-pla/silk-rainbow-macaron-real-2.webp",
+          "assets/fotos/multifila-pla/silk-rainbow-macaron.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|silk-rainbow-macaron",
+        "gradiente": "linear-gradient(135deg, #F2A7B8 0%, #F4C961 30%, #76D39C 58%, #73AADD 80%, #B693D8 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-silk-rainbow-macaron-pla",
+        "gtin": "7898757182789"
+      },
+      {
+        "nome": "Matte Lollipop",
+        "hex": "#D99CBC",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-rainbow/matte-lollipop.webp",
+          "assets/fotos/multifila-pla-rainbow/matte-lollipop-2.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|matte-lollipop",
+        "gradiente": "linear-gradient(135deg, #F3A6C4 0%, #F2C96B 35%, #8DD2A5 68%, #92B7E5 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Candy Colors",
+        "hex": "#BDA6D5",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-rainbow/candy-colors.webp",
+          "assets/fotos/multifila-pla-rainbow/candy-colors-2.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|candy-colors",
+        "gradiente": "linear-gradient(135deg, #F4A4BE 0%, #E9C45F 28%, #72CFA2 55%, #73ACE2 78%, #B891D8 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Rainbow Fada",
+        "hex": "#E3C46E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-rainbow/silk-rainbow-fada.webp",
+          "assets/fotos/multifila-pla-rainbow/silk-rainbow-fada-2.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|silk-rainbow-fada",
+        "efeito": "silk",
+        "gradiente": "linear-gradient(135deg, #F0AE8C 0%, #F1D45C 33%, #A4CF67 66%, #E9A8BC 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Rainbow Ice Cream",
+        "hex": "#D8A6C8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-rainbow/silk-rainbow-ice-cream.webp",
+          "assets/fotos/multifila-pla-rainbow/silk-rainbow-ice-cream-2.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|silk-rainbow-ice-cream",
+        "efeito": "silk",
+        "gradiente": "linear-gradient(135deg, #F3B5CA 0%, #E9CF8A 32%, #9FD0C0 65%, #B4A5D9 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Rainbow Sweet",
+        "hex": "#BBA6D8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/multifila-pla-rainbow/silk-rainbow-sweet.webp",
+          "assets/fotos/multifila-pla-rainbow/silk-rainbow-sweet-2.webp"
+        ],
+        "preco": 170.0,
+        "chaveEstoque": "multifila|pla|rainbow|silk-rainbow-sweet",
+        "efeito": "silk",
+        "gradiente": "linear-gradient(135deg, #ECA0B9 0%, #E9B763 30%, #79C4A2 60%, #8E9FD8 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "PLA",
+    "linha": "Termo",
+    "preco": 179.9,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
+    "cores": [
       {
         "nome": "Termo Azul e Branco",
         "hex": "#7CC8E8",
@@ -2811,8 +3509,12 @@
           "assets/fotos/multifila-pla/termo-azul-e-branco.webp"
         ],
         "preco": 179.9,
-        "chaveEstoque": "multifila|pla||termo-azul-e-branco",
-        "gradiente": "linear-gradient(135deg, #70C5E5 0 48%, #F2F4F3 52% 100%)"
+        "chaveEstoque": "multifila|pla|termo|termo-azul-e-branco",
+        "gradiente": "linear-gradient(135deg, #70C5E5 0 48%, #F2F4F3 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-termo-azul-branco-pla",
+        "gtin": "7898757181850"
       },
       {
         "nome": "Termo Roxo e Verde",
@@ -2825,8 +3527,12 @@
           "assets/fotos/multifila-pla/termo-roxo-e-verde.webp"
         ],
         "preco": 179.9,
-        "chaveEstoque": "multifila|pla||termo-roxo-e-verde",
-        "gradiente": "linear-gradient(135deg, #886DB7 0 48%, #9DD8B8 52% 100%)"
+        "chaveEstoque": "multifila|pla|termo|termo-roxo-e-verde",
+        "gradiente": "linear-gradient(135deg, #886DB7 0 48%, #9DD8B8 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-termo-roxo-verde-pla",
+        "gtin": "7898757181867"
       },
       {
         "nome": "Termo Vermelho e Rosa",
@@ -2838,8 +3544,12 @@
           "assets/fotos/multifila-pla/termo-vermelho-e-rosa.webp"
         ],
         "preco": 179.9,
-        "chaveEstoque": "multifila|pla||termo-vermelho-e-rosa",
-        "gradiente": "linear-gradient(135deg, #D94F5C 0 48%, #F2A8B9 52% 100%)"
+        "chaveEstoque": "multifila|pla|termo|termo-vermelho-e-rosa",
+        "gradiente": "linear-gradient(135deg, #D94F5C 0 48%, #F2A8B9 52% 100%)",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "sku": "multifila-termo-vermelho-rosa-pla",
+        "gtin": "7898757181881"
       }
     ]
   },
@@ -2866,7 +3576,7 @@
     "material": "PLA",
     "preco": 95,
     "linkLoja": "https://3zkfilamentos.com.br/",
-    "obs": "Rolo de 1kg",
+    "obs": "",
     "cores": [
       {
         "nome": "Preto",
@@ -3049,7 +3759,7 @@
     "linha": "5kg",
     "preco": 315,
     "linkLoja": "",
-    "obs": "Bobina de 5 kg · 1,75 mm",
+    "obs": "",
     "cores": [
       {
         "nome": "Branco",
@@ -3072,7 +3782,7 @@
     "material": "Outras",
     "preco": 15,
     "linkLoja": "",
-    "obs": "Compatível com Zebra e Elgin · Adesiva · Serrilhada",
+    "obs": "",
     "rotuloVariacaoSingular": "variação",
     "rotuloVariacaoPlural": "variações",
     "tipoProduto": "rolo de etiqueta térmica",
@@ -3107,6 +3817,34 @@
         "sku": "ROLO500",
         "gtin": "7908229105717",
         "chaveEstoque": "rolo-etiqueta-termica|outras|10x15|500-etiquetas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Multifila",
+    "material": "Mesa PEI",
+    "linha": "A1/P1/X1",
+    "preco": 149.0,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Peças e acessórios",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "obs": "",
+    "cores": [
+      {
+        "nome": "Dourada · dupla face",
+        "hex": "#B79761",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/mesa-pei-texturizada-multifila-a1-p1-x1/dourada-dupla-face.webp"
+        ],
+        "preco": 149.0,
+        "chaveEstoque": "multifila|mesa-pei|a1-p1-x1|dourada-dupla-face",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       }
@@ -3336,7 +4074,8 @@
         ],
         "chaveEstoque": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
         "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true
+        "disponivelInicial": true,
+        "gtin": "7898757183595"
       }
     ]
   },
@@ -3489,7 +4228,8 @@
         ],
         "chaveEstoque": "resina-uv-fotopolimerizavel|resinas|100g|100g",
         "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true
+        "disponivelInicial": true,
+        "gtin": "7898757183403"
       }
     ]
   },
@@ -3589,7 +4329,7 @@
         "disponivelInicial": true
       }
     ],
-    "obs": "Sachês dessecantes de sílica gel azul para auxiliar no armazenamento de filamentos."
+    "obs": ""
   },
   {
     "marca": "Sílica Gel Azul",
@@ -3687,6 +4427,6 @@
         "disponivelInicial": true
       }
     ],
-    "obs": "Sachês dessecantes de sílica gel azul para auxiliar no armazenamento de filamentos."
+    "obs": ""
   }
 ]

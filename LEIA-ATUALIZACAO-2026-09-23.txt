@@ -1,0 +1,44 @@
+ATUALIZAÇÃO DO CATÁLOGO 3ZK — 23/09/2026
+
+Esta atualização foi preparada para ser extraída diretamente dentro da pasta
+catalogo-3zk, mantendo a estrutura correta de arquivos.
+
+O que foi feito
+
+- Conferência dos 45 itens informados com a exportação atual da Olist.
+- Inclusão da Mesa PEI Texturizada Multifila A1/P1/X1, preço R$ 149,00.
+- Pincéis de silicone e Resina UV 100 g foram preservados, pois já existiam.
+- Inclusão das novas variações Multifila PLA Matte, Silk e Rainbow.
+- Silk Ouro Envelhecido foi preservado no cadastro existente, sem duplicação.
+- O antigo cartão Multifila PLA foi dividido em cinco cartões:
+  Clássico, Matte, Silk, Rainbow e Termo.
+- O PLA fosforescente continua separado.
+- IDs Olist e estoque inicial foram associados às 45 linhas da compra.
+- Fotos recebidas adicionadas para:
+  Mesa PEI; Matte Azul; Matte Azul Marinho; Matte Azul Ocean;
+  Silk Rainbow Fada (duas fotos).
+
+Resumo do catálogo
+
+- 42 produtos
+- 339 variações
+- 339 vínculos Olist
+- Multifila PLA Clássico: 2 variações
+- Multifila PLA Matte: 26 variações
+- Multifila PLA Silk: 20 variações
+- Multifila PLA Rainbow: 8 variações
+- Multifila PLA Termo: 3 variações
+
+Observação
+
+As novas variações para as quais ainda não foi enviada foto ficaram cadastradas
+como "foto ausente". Elas poderão receber as imagens posteriormente sem mudar
+o ID da Olist nem a chave de estoque.
+
+Validações executadas
+
+- Validação normal do catálogo: aprovada.
+- Validação estrita do catálogo público: aprovada.
+- Sintaxe das automações Python: aprovada.
+- Sintaxe do JavaScript: aprovada.
+
