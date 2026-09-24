@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-09-23",
-  "total": 339,
+  "total": 340,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1278,6 +1278,17 @@
       "sku": null,
       "gtin": "7908229110902",
       "descricaoOlist": "Filamento PLA Masterprint - PLA FOSCO CINZA FOSSIL"
+    },
+    {
+      "chave": "masterprint|pla||fosco-branco",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fosco Branco",
+      "olistId": 1055915374,
+      "sku": null,
+      "gtin": "7908229110919",
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - FOSCO BRANCO"
     },
     {
       "chave": "masterprint|pla||cobre-esverdeado",

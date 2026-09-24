@@ -1895,6 +1895,19 @@
         "disponivel": true
       },
       {
+        "nome": "Fosco Branco",
+        "hex": "#E8E7E2",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/fosco-branco.webp"
+        ],
+        "idCatalogo": "masterprint|pla||fosco-branco",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
         "nome": "Cobre Esverdeado",
         "hex": "#7C7963",
         "hexFonte": "foto",

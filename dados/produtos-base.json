@@ -1635,6 +1635,19 @@
         "chaveEstoque": "masterprint|pla||fosco-cinza-fossil"
       },
       {
+        "nome": "Fosco Branco",
+        "hex": "#E8E7E2",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/fosco-branco.webp"
+        ],
+        "chaveEstoque": "masterprint|pla||fosco-branco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
         "nome": "Cobre Esverdeado",
         "hex": "#7C7963",
         "hexFonte": "foto",
