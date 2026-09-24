@@ -610,8 +610,8 @@
           "assets/fotos/closin-pla/pink-rosa-bebe.webp"
         ],
         "idCatalogo": "closin|pla||pink-rosa-bebe",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Amarelo",
@@ -1051,8 +1051,8 @@
           "assets/fotos/masterprint-petg/branco.webp"
         ],
         "idCatalogo": "masterprint|petg||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Bronze",
@@ -1187,8 +1187,8 @@
           "assets/fotos/masterprint-petg/preto-sem-foto.webp"
         ],
         "idCatalogo": "masterprint|petg||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Rosa",
@@ -1891,7 +1891,7 @@
           "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-cinza-fossil",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4341,7 +4341,7 @@
         ],
         "preco": 149.0,
         "idCatalogo": "multifila|mesa-pei|a1-p1-x1|dourada-dupla-face",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
