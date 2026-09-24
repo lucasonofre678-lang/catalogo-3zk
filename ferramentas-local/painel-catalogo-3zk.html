@@ -1042,13 +1042,14 @@
     }
 
   </style>
+  <link rel="stylesheet" href="painel-2.css">
 </head>
 <body>
   <header class="topo">
     <div class="topo__conteudo">
       <div class="marca">
         <div class="marca__icone">3ZK</div>
-        <div class="marca__texto"><strong>Painel do Catálogo 4.0</strong><span>Produtos, preços, fotos e disponibilidade</span></div>
+        <div class="marca__texto"><strong>Painel Local 2.0</strong><span>Central de manutenção do catálogo</span></div>
       </div>
       <div class="topo__acoes">
         <a class="topo__botao" href="https://3zk.com.br" target="_blank" rel="noopener">
@@ -1189,17 +1190,22 @@
               </div>
 
               <div class="cadastro-grade" id="cadastro-dados-novo">
+                <div class="cadastro-campo cadastro-campo--largo"><label>Tipo de produto</label><div class="segmentado" id="cadastro-tipo" role="group" aria-label="Tipo de produto"><button type="button" data-cadastro-tipo="filamento">Filamento</button><button type="button" data-cadastro-tipo="acessorio">Acessório</button></div></div>
                 <div class="cadastro-campo"><label for="cadastro-marca">Marca *</label><input class="campo" id="cadastro-marca" data-cadastro-campo="marca" maxlength="80" placeholder="Ex.: Sunlu"></div>
                 <div class="cadastro-campo"><label for="cadastro-material">Material *</label><input class="campo" id="cadastro-material" data-cadastro-campo="material" maxlength="30" list="materiais-cadastro" placeholder="Ex.: PLA+"><datalist id="materiais-cadastro"><option value="PLA"><option value="PLA+"><option value="PETG"><option value="ABS"><option value="ASA"><option value="TPU"><option value="TPR"><option value="HIPS"><option value="NYLON"><option value="PC"></datalist></div>
                 <div class="cadastro-campo"><label for="cadastro-linha">Linha ou modelo</label><input class="campo" id="cadastro-linha" data-cadastro-campo="linha" maxlength="80" placeholder="Ex.: High Speed, Silk, Matte"></div>
-                <div class="cadastro-campo"><label for="cadastro-preco">Preço de venda *</label><input class="campo" id="cadastro-preco" data-cadastro-campo="preco" inputmode="decimal" placeholder="Ex.: 89,90"></div>
+                <div class="cadastro-campo"><label for="cadastro-preco">Preço base *</label><input class="campo" id="cadastro-preco" data-cadastro-campo="preco" inputmode="decimal" placeholder="Ex.: 89,90"><small>As cores herdam este preço, salvo exceções.</small></div>
+                <div class="cadastro-campo" data-so-filamento><label for="cadastro-peso">Peso</label><input class="campo" id="cadastro-peso" data-cadastro-campo="peso" maxlength="20" list="pesos-cadastro" placeholder="Ex.: 1kg"><datalist id="pesos-cadastro"><option value="1kg"><option value="500g"><option value="250g"><option value="3kg"><option value="5kg"></datalist></div>
+                <div class="cadastro-campo" data-so-filamento><label for="cadastro-diametro">Diâmetro</label><input class="campo" id="cadastro-diametro" data-cadastro-campo="diametro" maxlength="20" list="diametros-cadastro" placeholder="Ex.: 1,75 mm"><datalist id="diametros-cadastro"><option value="1,75 mm"><option value="2,85 mm"></datalist></div>
+                <div class="cadastro-campo" data-so-acessorio hidden><label for="cadastro-categoria">Categoria *</label><input class="campo" id="cadastro-categoria" data-cadastro-campo="categoria" maxlength="60" list="categorias-cadastro" placeholder="Ex.: Ferramentas"><datalist id="categorias-cadastro"></datalist></div>
                 <div class="cadastro-campo cadastro-campo--largo"><label for="cadastro-link">Link da loja</label><input class="campo" id="cadastro-link" data-cadastro-campo="linkLoja" type="url" placeholder="https://3zkfilamentos.com.br/"><small>Pode deixar o link geral da loja e ajustar depois.</small></div>
                 <div class="cadastro-campo cadastro-campo--largo"><label for="cadastro-obs">Observação comercial</label><input class="campo" id="cadastro-obs" data-cadastro-campo="obs" maxlength="120" placeholder="Ex.: Rolo de 1kg • 1,75 mm"></div>
               </div>
 
-              <div class="cadastro-check" style="margin-top:12px">
-                <input id="cadastro-pausado" data-cadastro-campo="pausado" type="checkbox" checked>
-                <label for="cadastro-pausado"><strong>Cadastrar pausado até a revisão final</strong><span>Recomendado. O produto fica oculto mesmo quando a Olist informar estoque. Depois é só reativar no painel.</span></label>
+              <div class="cadastro-status-inicial">
+                <strong>Situação ao salvar</strong>
+                <div class="segmentado" id="cadastro-status" role="group" aria-label="Situação ao salvar"><button type="button" data-cadastro-status="rascunho">Rascunho</button><button type="button" data-cadastro-status="pausado">Pausado</button><button type="button" data-cadastro-status="ativo">Ativo</button></div>
+                <span id="cadastro-status-ajuda">Rascunho não aparece no site. Termine o cadastro com calma e publique depois pelo painel.</span>
               </div>
             </div>
           </article>
@@ -1211,7 +1217,7 @@
             </div>
             <div class="cadastro-card__corpo">
               <div class="variantes-toolbar">
-                <div class="variantes-toolbar__texto"><strong>Variações do produto</strong><span>SKU, GTIN e descrição são opcionais; o ID da Olist é obrigatório.</span></div>
+                <div class="variantes-toolbar__texto"><strong>Variações do produto</strong><span>Cada cor herda marca, material e preço base. SKU e GTIN são opcionais; o ID da Olist é obrigatório só para cadastrar como Ativo.</span></div>
                 <button class="botao botao--primario botao--pequeno" id="cadastro-adicionar-variante" type="button">+ Adicionar cor</button>
               </div>
               <div class="variantes-lista" id="cadastro-variantes"></div>
@@ -1236,7 +1242,7 @@
               <div class="cadastro-resumo__linha"><span>Cores</span><strong id="cadastro-resumo-cores">1</strong></div>
               <div class="cadastro-resumo__linha"><span>Fotos selecionadas</span><strong id="cadastro-resumo-fotos">0</strong></div>
               <div class="cadastro-resumo__linha"><span>Integração Olist</span><strong id="cadastro-resumo-olist">Incompleta</strong></div>
-              <div class="cadastro-resumo__linha"><span>Publicação inicial</span><strong id="cadastro-resumo-pausa">Pausado</strong></div>
+              <div class="cadastro-resumo__linha"><span>Situação ao salvar</span><strong id="cadastro-resumo-pausa">Rascunho</strong></div>
             </div>
             <div class="cadastro-status" id="cadastro-validacao"></div>
             <div class="cadastro-resumo__acoes">
@@ -1244,6 +1250,11 @@
               <button class="botao botao--cinza" id="cadastro-limpar" type="button">Limpar formulário</button>
             </div>
             <div class="cadastro-rascunho" id="cadastro-rascunho-status">Rascunho salvo automaticamente neste navegador.</div>
+          </article>
+
+          <article class="cartao" id="cadastro-previa-cartao">
+            <div class="cartao__cabecalho"><div><strong>Prévia no catálogo</strong><span>Card e drawer como o cliente verá</span></div></div>
+            <div class="cartao__corpo"><div id="cadastro-previa"></div></div>
           </article>
 
           <article class="cartao">
@@ -1338,8 +1349,8 @@
     <div class="modal__caixa">
       <div class="modal__topo"><div class="modal__icone">Ⅱ</div><button class="modal__fechar" data-fechar-modal="modal-motivo" type="button">×</button></div>
       <h2 id="motivo-titulo">Pausar item</h2>
-      <p id="motivo-subtitulo">Escolha um motivo interno. Ele fica somente neste navegador e não é publicado.</p>
-      <div class="modal__secao"><strong>Motivo da pausa</strong><div class="motivos" id="motivos"><button class="motivo motivo--ativo" data-motivo="Temporariamente indisponível" type="button">Temporariamente indisponível</button><button class="motivo" data-motivo="Aguardando reposição" type="button">Aguardando reposição</button><button class="motivo" data-motivo="Preço em revisão" type="button">Preço em revisão</button><button class="motivo" data-motivo="Foto ou cadastro em revisão" type="button">Foto ou cadastro em revisão</button><button class="motivo" data-motivo="Decisão comercial" type="button">Decisão comercial</button><button class="motivo" data-motivo="Outro motivo" type="button">Outro motivo</button></div></div>
+      <p id="motivo-subtitulo">Escolha um motivo interno. Ele fica no controle do catálogo (arquivo interno, nunca publicado no site).</p>
+      <div class="modal__secao"><strong>Motivo da pausa</strong><div class="motivos" id="motivos"><button class="motivo motivo--ativo" data-motivo="Aguardando estoque" type="button">Aguardando estoque</button><button class="motivo" data-motivo="Aguardando foto" type="button">Aguardando foto</button><button class="motivo" data-motivo="Revisando cadastro" type="button">Revisando cadastro</button><button class="motivo" data-motivo="Descontinuado" type="button">Descontinuado</button><button class="motivo" data-motivo="Outro" type="button">Outro</button></div></div>
       <div class="modal__secao"><strong>Observação interna opcional</strong><textarea class="campo" id="motivo-observacao" maxlength="240" placeholder="Ex.: fornecedor pediu para suspender até sexta-feira"></textarea></div>
       <div class="modal__acoes"><button class="botao botao--cinza" data-fechar-modal="modal-motivo" type="button">Cancelar</button><button class="botao botao--vermelho" id="confirmar-pausa" type="button">Confirmar pausa</button></div>
     </div>
@@ -1363,7 +1374,7 @@
       <div class="passos"><div class="passo"><b>1</b><span>Abra o <strong>GitHub Desktop</strong>.</span></div><div class="passo"><b>2</b><span>Confira os arquivos alterados em <strong>dados</strong>, <strong>automacao/mapeamento-olist.json</strong> e <strong>assets/fotos</strong>.</span></div><div class="passo"><b>3</b><span>Faça o Commit e depois clique em <strong>Push origin</strong>.</span></div><div class="passo"><b>4</b><span>Cadastros novos também executam <strong>Sincronizar estoque Olist</strong>; aguarde as Actions ficarem verdes.</span></div></div>
       <div class="codigo-bloco"><div class="codigo-bloco__topo"><strong>SUMMARY SUGERIDO</strong><button class="botao botao--claro botao--pequeno" id="copiar-summary" type="button">Copiar</button></div><code id="summary-sugerido">Atualiza disponibilidade manual do catálogo</code></div>
       <div class="codigo-bloco"><div class="codigo-bloco__topo"><strong>DESCRIÇÃO OPCIONAL</strong><button class="botao botao--claro botao--pequeno" id="copiar-descricao" type="button">Copiar</button></div><code id="descricao-sugerida">Atualiza produtos e cores pausados pelo Painel 3ZK.</code></div>
-      <div class="modal__acoes"><a class="botao botao--claro" href="https://github.com/lucasonofre678-lang/catalogo-3zk/actions" target="_blank" rel="noopener">Abrir Actions</a><button class="botao botao--primario" data-fechar-modal="modal-salvo" type="button">Entendi</button></div>
+      <div class="modal__acoes"><a class="botao botao--claro" href="x-github-client://openRepo/https://github.com/lucasonofre678-lang/catalogo-3zk">Abrir GitHub Desktop</a><a class="botao botao--claro" href="https://github.com/lucasonofre678-lang/catalogo-3zk/actions" target="_blank" rel="noopener">Abrir Actions</a><button class="botao botao--claro" id="acompanhar-publicacao" type="button">Acompanhar publicação</button><button class="botao botao--primario" data-fechar-modal="modal-salvo" type="button">Entendi</button></div>
     </div>
   </div>
 
@@ -1884,7 +1895,7 @@
       const mudou = alteracoes.length > 0;
       refs.salvar.disabled = !mudou || !estado.controleHandle || estado.modo !== "arquivo";
       refs.desfazer.disabled = !mudou;
-      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
+      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} ${alteracoes.length === 1 ? "alteração" : "alterações"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
       $("#estado-alteracoes-detalhe").textContent = mudou ? "Revise a aba Alterações antes de salvar." : "As mudanças só chegam ao site depois do Commit e Push.";
     }
 
@@ -2603,7 +2614,7 @@
       const possuiHandles = (!comercial || (estado.baseHandle && estado.publicoHandle)) && (!pausas || estado.controleHandle);
       refs.salvar.disabled = !mudou || estado.modo !== "arquivo" || !possuiHandles;
       refs.desfazer.disabled = !mudou;
-      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
+      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} ${alteracoes.length === 1 ? "alteração" : "alterações"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
       $("#estado-alteracoes-detalhe").textContent = mudou ? "Preços, fotos e pausas só chegam ao site depois de Salvar, Commit e Push." : "As mudanças só chegam ao site depois do Commit e Push.";
     };
 
@@ -3106,6 +3117,9 @@
         hex: /^#[0-9a-f]{6}$/i.test(String(dados.hex || "")) ? String(dados.hex).toUpperCase() : "#D9DFE8",
         efeito: ["", "silk", "glass", "fosco", "glow"].includes(dados.efeito) ? dados.efeito : "",
         olistId: String(dados.olistId || ""),
+        familiaCor: String(dados.familiaCor || ""),
+        precoModo: dados.precoModo === "especifico" ? "especifico" : "herdar",
+        preco: String(dados.preco || ""),
         sku: String(dados.sku || ""),
         gtin: String(dados.gtin || ""),
         descricaoOlist: String(dados.descricaoOlist || ""),
@@ -3116,13 +3130,18 @@
     function cadastroVazio3ZK() {
       return {
         modo: "novo",
+        tipo: "filamento",
         produtoExistenteId: "",
         marca: "",
         material: "",
         linha: "",
         preco: "",
+        peso: "1kg",
+        diametro: "1,75 mm",
+        categoria: "",
         linkLoja: "https://3zkfilamentos.com.br/",
-        obs: "Rolo de 1kg",
+        obs: "",
+        status: "rascunho",
         pausado: true,
         variantes: [novaVarianteCadastro3ZK()]
       };
@@ -3152,6 +3171,8 @@
           ...cadastroVazio3ZK(),
           ...salvo,
           modo: salvo.modo === "cores" ? "cores" : "novo",
+          tipo: salvo.tipo === "acessorio" ? "acessorio" : "filamento",
+          status: ["rascunho", "pausado", "ativo"].includes(salvo.status) ? salvo.status : (salvo.pausado === false ? "ativo" : "rascunho"),
           pausado: salvo.pausado !== false,
           variantes: Array.isArray(salvo.variantes) && salvo.variantes.length ? salvo.variantes.map(novaVarianteCadastro3ZK) : [novaVarianteCadastro3ZK()]
         };
@@ -3205,13 +3226,19 @@
     function contextoCadastro3ZK() {
       if (estado.cadastro?.modo === "cores") return produtoSelecionadoCadastro3ZK();
       const preco = precoEntrada3ZK(estado.cadastro?.preco);
+      const acessorio = estado.cadastro?.tipo === "acessorio";
+      const peso = String(estado.cadastro?.peso || "").trim();
+      const diametro = String(estado.cadastro?.diametro || "").trim();
+      const tecnico = !acessorio && (peso || diametro) ? [peso ? `Rolo de ${peso}` : "", diametro].filter(Boolean).join(" • ") : "";
       return {
         marca: String(estado.cadastro?.marca || "").trim(),
         material: String(estado.cadastro?.material || "").trim(),
         linha: String(estado.cadastro?.linha || "").trim(),
         preco: preco || 0,
         linkLoja: String(estado.cadastro?.linkLoja || "").trim(),
-        obs: String(estado.cadastro?.obs || "").trim()
+        obs: [tecnico, String(estado.cadastro?.obs || "").trim()].filter(Boolean).join(" • "),
+        acessorio,
+        categoria: String(estado.cadastro?.categoria || "").trim()
       };
     }
 
@@ -3230,6 +3257,16 @@
       refsCadastro.dadosNovo.hidden = modo === "cores";
       $("#cadastro-modo-badge").textContent = modo === "cores" ? "Novas cores" : "Novo produto";
       $("#cadastro-modo-badge").classList.toggle("cadastro-badge--novo", modo === "novo");
+      const tipo = estado.cadastro?.tipo === "acessorio" ? "acessorio" : "filamento";
+      $$("[data-cadastro-tipo]").forEach((botao) => botao.classList.toggle("ativo", botao.dataset.cadastroTipo === tipo));
+      $$("[data-so-filamento]").forEach((campo) => { campo.hidden = tipo !== "filamento"; });
+      $$("[data-so-acessorio]").forEach((campo) => { campo.hidden = tipo !== "acessorio"; });
+      const status = estado.cadastro?.status || "rascunho";
+      $$("[data-cadastro-status]").forEach((botao) => botao.classList.toggle("ativo", botao.dataset.cadastroStatus === status));
+      const ajudaStatus = { rascunho: "Rascunho não aparece no site. Termine o cadastro com calma e publique depois pelo painel.", pausado: "Fica oculto mesmo se a Olist informar estoque, até ser reativado.", ativo: "Aparece no site assim que a Olist informar estoque. Exige ID da Olist em todas as cores." };
+      $("#cadastro-status-ajuda").textContent = ajudaStatus[status];
+      const categorias = [...new Set(estado.baseAtualRaw.map((produto) => String(produto.categoria || "").trim()).filter(Boolean))].sort((a, b) => a.localeCompare(b, "pt-BR"));
+      $("#categorias-cadastro").innerHTML = categorias.map((item) => `<option value="${escapar(item)}">`).join("");
       preencherProdutosExistentesCadastro3ZK();
     }
 
@@ -3251,7 +3288,9 @@
             <div class="cadastro-campo"><label>Nome da cor *</label><input class="campo" data-variante-campo="nome" data-variante-id="${escapar(variante.tempId)}" maxlength="100" value="${escapar(variante.nome)}" placeholder="Ex.: Preto Absoluto"></div>
             <div class="cadastro-campo"><label>Cor visual *</label><div class="cadastro-cor-linha"><input type="color" data-variante-campo="hex-color" data-variante-id="${escapar(variante.tempId)}" value="${escapar(variante.hex)}"><input class="campo" data-variante-campo="hex" data-variante-id="${escapar(variante.tempId)}" maxlength="7" value="${escapar(variante.hex)}"></div></div>
             <div class="cadastro-campo"><label>Efeito visual</label>${campoEfeitoCadastro3ZK(variante.efeito, variante.tempId)}</div>
-            <div class="cadastro-campo"><label>ID da Olist *</label><input class="campo" data-variante-campo="olistId" data-variante-id="${escapar(variante.tempId)}" inputmode="numeric" value="${escapar(variante.olistId)}" placeholder="Ex.: 1048182488"></div>
+            <div class="cadastro-campo"><label>Família de cor</label><select class="campo" data-variante-campo="familiaCor" data-variante-id="${escapar(variante.tempId)}">${(window.painel3ZK?.opcoesFamilia?.(variante.familiaCor, variante.nome) || '<option value="">Automática</option>')}</select></div>
+            <div class="cadastro-campo"><label>Preço</label><div class="cadastro-cor-linha"><select class="campo" data-variante-campo="precoModo" data-variante-id="${escapar(variante.tempId)}"><option value="herdar" ${variante.precoModo !== "especifico" ? "selected" : ""}>Herdar base</option><option value="especifico" ${variante.precoModo === "especifico" ? "selected" : ""}>Específico</option></select><input class="campo" data-variante-campo="preco" data-variante-id="${escapar(variante.tempId)}" inputmode="decimal" value="${escapar(variante.preco)}" placeholder="R$" ${variante.precoModo === "especifico" ? "" : "hidden"}></div></div>
+            <div class="cadastro-campo"><label>ID da Olist ${estado.cadastro?.status === "ativo" ? "*" : "(opcional em rascunho)"}</label><input class="campo" data-variante-campo="olistId" data-variante-id="${escapar(variante.tempId)}" inputmode="numeric" value="${escapar(variante.olistId)}" placeholder="Ex.: 1048182488"></div>
             <div class="cadastro-campo"><label>SKU</label><input class="campo" data-variante-campo="sku" data-variante-id="${escapar(variante.tempId)}" maxlength="100" value="${escapar(variante.sku)}" placeholder="Opcional"></div>
             <div class="cadastro-campo"><label>GTIN / EAN</label><input class="campo" data-variante-campo="gtin" data-variante-id="${escapar(variante.tempId)}" maxlength="30" value="${escapar(variante.gtin)}" placeholder="Opcional"></div>
             <div class="cadastro-campo cadastro-campo--descricao"><label>Descrição na Olist</label><input class="campo" data-variante-campo="descricaoOlist" data-variante-id="${escapar(variante.tempId)}" maxlength="220" value="${escapar(variante.descricaoOlist)}" placeholder="Opcional, ajuda a identificar nos relatórios"></div>
@@ -3277,6 +3316,7 @@
       } else {
         if (!produto.marca) erros.push("Informe a marca do produto.");
         if (!produto.material) erros.push("Informe o material.");
+        if (produto.acessorio && !produto.categoria) erros.push("Informe a categoria do acessório.");
         if (!(produto.preco > 0)) erros.push("Informe um preço de venda maior que zero.");
         if (produto.linkLoja && !/^https?:\/\//i.test(produto.linkLoja)) erros.push("O link da loja precisa começar com http:// ou https://.");
         produtoId = idProdutoCadastro3ZK(produto.marca, produto.material, produto.linha);
@@ -3298,11 +3338,14 @@
         const numero = indice + 1;
         const nome = String(variante.nome || "").trim();
         const slug = slugificar(nome);
-        const olistId = Number(String(variante.olistId || "").trim());
+        const olistId = String(variante.olistId || "").trim() ? Number(String(variante.olistId).trim()) : NaN;
         if (!nome) erros.push(`Cor ${numero}: informe o nome.`);
         if (nome && !slug) erros.push(`Cor ${numero}: o nome não gerou uma identificação válida.`);
         if (!/^#[0-9A-F]{6}$/i.test(variante.hex)) erros.push(`Cor ${numero}: use uma cor hexadecimal no formato #RRGGBB.`);
-        if (!Number.isInteger(olistId) || olistId <= 0) erros.push(`Cor ${numero}: informe um ID válido da Olist.`);
+        const olistVazio = !String(variante.olistId || "").trim();
+        if (olistVazio && cadastro.status === "ativo") erros.push(`Cor ${numero}: informe o ID da Olist (ou salve como Rascunho/Pausado).`);
+        else if (!olistVazio && (!Number.isInteger(olistId) || olistId <= 0)) erros.push(`Cor ${numero}: o ID da Olist precisa ser um número.`);
+        if (variante.precoModo === "especifico" && precoEntrada3ZK(variante.preco) === null) erros.push(`Cor ${numero}: informe um preço específico válido ou use Herdar base.`);
         const chave = produtoId && slug ? `${produtoId}|${slug}` : "";
         if (chave && chavesExistentes.has(chave)) erros.push(`Cor ${numero}: a chave ${chave} já está cadastrada.`);
         if (slug && coresExistentes.has(slug)) erros.push(`Cor ${numero}: ${nome} já existe nesse produto.`);
@@ -3320,7 +3363,10 @@
       if (new Set(gtins).size !== gtins.length) avisos.push("Existem GTINs repetidos entre as novas cores.");
       if (!cadastro.variantes.some((item) => item.arquivos.length)) avisos.push("Nenhuma foto foi selecionada. O produto poderá ser cadastrado, mas aparecerá com a amostra visual até receber fotos.");
       if (!estado.mapeamentoHandle && estado.modo === "arquivo") erros.push("O arquivo automacao/mapeamento-olist.json não foi conectado.");
-      if (cadastro.pausado) avisos.push("O produto ficará pausado até ser reativado manualmente no painel.");
+      const semOlist = cadastro.variantes.filter((item) => !String(item.olistId || "").trim()).length;
+      if (semOlist && cadastro.status !== "ativo") avisos.push(`${semOlist} cor${semOlist === 1 ? "" : "es"} sem ID da Olist: ${semOlist === 1 ? "ficará" : "ficarão"} fora do site até receber o vínculo.`);
+      if (cadastro.status === "rascunho") avisos.push("Será salvo como rascunho: não aparece no site até ser publicado pelo painel.");
+      if (cadastro.status === "pausado") avisos.push("O produto ficará pausado até ser reativado manualmente no painel.");
 
       return { erros: [...new Set(erros)], avisos: [...new Set(avisos)], produto, produtoId, chavesNovas };
     }
@@ -3336,14 +3382,16 @@
       $("#cadastro-resumo-preco").textContent = Number(produto.preco) > 0 ? formatarPreco(produto.preco) : "—";
       $("#cadastro-resumo-cores").textContent = cadastro.variantes.length;
       $("#cadastro-resumo-fotos").textContent = fotos;
-      $("#cadastro-resumo-olist").textContent = resultado.erros.some((item) => item.includes("Olist")) ? "Incompleta" : `${cadastro.variantes.length}/${cadastro.variantes.length} IDs`;
-      $("#cadastro-resumo-pausa").textContent = cadastro.pausado ? "Pausado" : "Automática após estoque";
+      const comOlist = cadastro.variantes.filter((item) => String(item.olistId || "").trim()).length;
+      $("#cadastro-resumo-olist").textContent = `${comOlist}/${cadastro.variantes.length} IDs`;
+      $("#cadastro-resumo-pausa").textContent = { rascunho: "Rascunho", pausado: "Pausado", ativo: "Ativo (após estoque)" }[cadastro.status] || "Rascunho";
       refsCadastro.validar.innerHTML = [
         ...resultado.erros.map((texto) => `<div class="cadastro-status__item cadastro-status__item--erro"><b>!</b><span>${escapar(texto)}</span></div>`),
         ...resultado.avisos.map((texto) => `<div class="cadastro-status__item cadastro-status__item--aviso"><b>i</b><span>${escapar(texto)}</span></div>`),
         ...(!resultado.erros.length ? [`<div class="cadastro-status__item cadastro-status__item--ok"><b>✓</b><span>Cadastro válido. O painel gerará ${cadastro.variantes.length} chave${cadastro.variantes.length === 1 ? "" : "s"} e atualizará o mapeamento da Olist.</span></div>`] : [])
       ].join("");
       refsCadastro.preparar.disabled = resultado.erros.length > 0 || estado.modo !== "arquivo";
+      window.painel3ZK?.previaCadastro?.();
     }
 
     function renderizarCadastro3ZK() {
@@ -3356,13 +3404,15 @@
         linha: cadastro.linha,
         preco: cadastro.preco,
         linkLoja: cadastro.linkLoja,
-        obs: cadastro.obs
+        obs: cadastro.obs,
+        peso: cadastro.peso,
+        diametro: cadastro.diametro,
+        categoria: cadastro.categoria
       };
       Object.entries(campos).forEach(([chave, valor]) => {
         const campo = $(`[data-cadastro-campo='${chave}']`);
         if (campo && campo.value !== String(valor || "")) campo.value = valor || "";
       });
-      $("#cadastro-pausado").checked = cadastro.pausado !== false;
       renderizarVariantesCadastro3ZK();
       atualizarResumoCadastro3ZK();
       $("#contador-cadastro").textContent = diferencasCadastro4ZK().length;
@@ -3402,6 +3452,8 @@
     function corBaseCadastro3ZK(variante, chave, imagens) {
       const cor = {
         nome: String(variante.nome).trim(),
+        ...(variante.familiaCor ? { familiaCor: variante.familiaCor } : {}),
+        ...(variante.precoModo === "especifico" && precoEntrada3ZK(variante.preco) ? { preco: precoEntrada3ZK(variante.preco) } : {}),
         hex: String(variante.hex).toUpperCase(),
         hexFonte: imagens.length ? "foto" : "manual",
         fotoStatus: imagens.length ? "confirmada" : "ausente",
@@ -3471,7 +3523,7 @@
           const baseCor = corBaseCadastro3ZK(variante, chave, imagens);
           coresBase.push(baseCor);
           coresPublicas.push(corPublicaCadastro3ZK(baseCor));
-          mapeamentos.push(itemMapeamentoCadastro3ZK(produto, variante, chave));
+          if (String(variante.olistId || "").trim()) mapeamentos.push(itemMapeamentoCadastro3ZK(produto, variante, chave));
         }
 
         blobsTemporarios.forEach((blob, caminho) => estado.arquivosFotosPendentes.set(caminho, blob));
@@ -3485,15 +3537,18 @@
           };
           if (produto.linha) produtoBase.linha = produto.linha;
           if (produto.obs) produtoBase.obs = produto.obs;
+          if (produto.acessorio) Object.assign(produtoBase, { secao: "acessorios", categoria: produto.categoria, tipoProduto: normalizar(produto.categoria), rotuloVariacaoSingular: "variação", rotuloVariacaoPlural: "variações" });
           const produtoPublico = clonar3ZK(produtoBase);
           produtoPublico.cores = coresPublicas;
           produtoPublico.idCatalogo = produtoId;
           produtoPublico.disponivel = false;
           estado.baseAtualRaw.push(produtoBase);
           estado.publicoAtualRaw.push(produtoPublico);
-          if (cadastro.pausado) {
+          if (cadastro.status !== "ativo") {
             estado.produtosPausados.add(produtoId);
-            estado.detalhesProdutos[produtoId] = { motivo: "Cadastro novo aguardando revisão", observacao: `Cadastrado por ${operadorAtual()}` };
+            estado.detalhesProdutos[produtoId] = { motivo: cadastro.status === "rascunho" ? "Rascunho" : "Revisando cadastro", observacao: `Cadastrado por ${operadorAtual()}` };
+            registrarSessao("produto", produtoId, "pausar", { motivo: estado.detalhesProdutos[produtoId].motivo });
+            if (cadastro.status === "rascunho") window.painel3ZK?.marcarRascunho?.(produtoId, true);
           }
         } else {
           const baseAlvo = produtoRawPorId(estado.baseAtualRaw, produtoId);
@@ -3501,12 +3556,13 @@
           if (!baseAlvo || !publicoAlvo) throw new Error("O produto selecionado não foi encontrado nos dois arquivos do catálogo.");
           baseAlvo.cores.push(...coresBase);
           publicoAlvo.cores.push(...coresPublicas);
-          if (cadastro.pausado) {
-            coresBase.forEach((cor) => {
-              estado.coresPausadas.add(cor.chaveEstoque);
-              estado.detalhesCores[cor.chaveEstoque] = { motivo: "Cor nova aguardando revisão", observacao: `Cadastrada por ${operadorAtual()}` };
-            });
-          }
+          coresBase.forEach((cor, indiceCor) => {
+            const semOlist = !String(cadastro.variantes[indiceCor]?.olistId || "").trim();
+            if (cadastro.status === "ativo" && !semOlist) return;
+            estado.coresPausadas.add(cor.chaveEstoque);
+            estado.detalhesCores[cor.chaveEstoque] = { motivo: semOlist ? "Aguardando vínculo Olist" : "Revisando cadastro", observacao: `Cadastrada por ${operadorAtual()}` };
+            registrarSessao("cor", cor.chaveEstoque, "pausar", { motivo: estado.detalhesCores[cor.chaveEstoque].motivo });
+          });
         }
 
         estado.mapeamentoAtualRaw.itens.push(...mapeamentos);
@@ -3632,11 +3688,14 @@
       if (alteracoes.length === 1 && cadastros[0]?.tipo === "cadastro-cores") return `Adiciona ${cadastros[0].quantidade} cores em ${cadastros[0].nome}`;
       if (cadastros.length && cadastros.length === alteracoes.length) return `Cadastra produtos e cores no catálogo`;
       if (cadastros.length) return "Atualiza catálogo e cadastra novos produtos";
+      if (alteracoes.length === 1 && alteracoes[0].resumoCommit) return alteracoes[0].resumoCommit;
+      if (alteracoes.some((item) => item.resumoCommit)) return "Atualiza catálogo pelo Painel 3ZK";
       return gerarSummary3ZK(alteracoes);
     }
 
     function gerarDescricao4ZK(alteracoes = diferencas()) {
       return alteracoes.map((item) => {
+        if (item.descricao) return `- ${item.descricao}`;
         if (item.tipo === "cadastro-produto") return `- cadastra ${item.nome} com ${item.quantidade} cor${item.quantidade === 1 ? "" : "es"}`;
         if (item.tipo === "cadastro-cores") return `- adiciona ${item.quantidade} cor${item.quantidade === 1 ? "" : "es"} em ${item.nome}`;
         if (item.tipo === "preco") return `- altera preço de ${item.nome}: ${formatarPreco(item.antes)} → ${formatarPreco(item.depois)}`;
@@ -3648,6 +3707,7 @@
     renderizarAlteracoes = function() {
       const alteracoes = diferencas();
       const htmlAlteracoes = alteracoes.map((item) => {
+        if (typeof item.renderizar === "function") return item.renderizar();
         if (item.tipo === "cadastro-produto" || item.tipo === "cadastro-cores") {
           const texto = item.tipo === "cadastro-produto" ? `Cadastrar produto: ${escapar(item.nome)}` : `Adicionar cores: ${escapar(item.nome)}`;
           return `<div class="alteracao alteracao--cadastro"><div class="alteracao__icone">+</div><div class="alteracao__texto"><strong>${texto}</strong><span>${item.quantidade} ${item.quantidade === 1 ? "cor" : "cores"} • mapeamento da Olist incluído</span></div><button class="botao botao--cinza botao--pequeno" data-desfazer-cadastro="${escapar(item.produtoId)}" type="button">Desfazer</button></div>`;
@@ -3679,7 +3739,7 @@
       const possuiHandles = (!(comercial || cadastro) || estado.baseHandle) && (!cadastro || estado.mapeamentoHandle) && (!pausas || estado.controleHandle);
       refs.salvar.disabled = !mudou || estado.modo !== "arquivo" || !possuiHandles;
       refs.desfazer.disabled = !mudou;
-      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} alteração${alteracoes.length === 1 ? "" : "ões"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
+      $("#estado-alteracoes").textContent = mudou ? `${alteracoes.length} ${alteracoes.length === 1 ? "alteração" : "alterações"} ainda não salva${alteracoes.length === 1 ? "" : "s"}` : "Nenhuma alteração pendente";
       $("#estado-alteracoes-detalhe").textContent = mudou ? "O painel salva a base segura. Depois faça Commit e Push; a publicação monta produtos.json automaticamente, sem consultar a Olist." : "As mudanças só chegam ao site depois do Commit e Push.";
     };
 
@@ -3726,7 +3786,9 @@
       const comerciais = diferencasComerciais3ZK();
       const cadastros = diferencasCadastro4ZK();
       const pausas = diferencasPausa3ZK();
-      const catalogoMudou = comerciais.length || cadastros.length;
+      const extras = window.painel3ZK?.diferencasExtras?.() || [];
+      const mapeamentoMudou = assinatura3ZK(normalizarMapeamento4ZK(estado.mapeamentoAtualRaw)) !== assinatura3ZK(normalizarMapeamento4ZK(estado.mapeamentoOriginalRaw));
+      const catalogoMudou = comerciais.length || cadastros.length || extras.some((item) => item.arquivo === "base");
       const invalidos = estado.baseAtualRaw.filter((produto) => !(Number(produto.preco) > 0));
       if (invalidos.length) {
         mostrarToast("Existem preços inválidos", `${invalidos.length} produto(s) precisam ter preço maior que zero.`);
@@ -3738,15 +3800,17 @@
       refs.salvar.textContent = "Validando...";
       try {
         validarIntegridadeCadastro4ZK();
+        window.painel3ZK?.validarAntesDeSalvar?.();
         if (catalogoMudou) {
           const baseDisco = await lerJsonHandle(estado.baseHandle);
           if (assinatura3ZK(baseDisco) !== assinatura3ZK(estado.baseOriginalRaw)) throw new Error("produtos-base.json mudou depois que o painel foi aberto. Faça Fetch/Pull, recarregue o painel e tente novamente.");
         }
-        if (cadastros.length) {
+        if (mapeamentoMudou) {
           const mapaDisco = normalizarMapeamento4ZK(await lerJsonHandle(estado.mapeamentoHandle));
           if (assinatura3ZK(mapaDisco) !== assinatura3ZK(estado.mapeamentoOriginalRaw)) throw new Error("O mapeamento da Olist mudou depois que o painel foi aberto. Faça Fetch/Pull e recarregue o painel.");
         }
-        if (pausas.length) {
+        const controleMudou = pausas.length || extras.some((item) => item.arquivo === "controle");
+        if (controleMudou) {
           const controleDisco = normalizarControle(await lerJsonHandle(estado.controleHandle, {}));
           const assinarControle = (item) => assinatura3ZK({ atualizadoEm: item.atualizadoEm, produtos: [...item.produtosPausados].sort(), cores: [...item.coresPausadas].sort() });
           if (assinarControle(controleDisco) !== assinarControle(estado.controleOriginal)) throw new Error("O controle de pausas mudou depois que o painel foi aberto. Recarregue os arquivos para evitar conflito.");
@@ -3763,8 +3827,8 @@
           const previewHandle = await dados.getFileHandle("produtos-preview.json", { create: true });
           await escreverJson3ZK(previewHandle, estado.publicoAtualRaw);
         }
-        if (cadastros.length) await escreverJson3ZK(estado.mapeamentoHandle, normalizarMapeamento4ZK(estado.mapeamentoAtualRaw));
-        if (pausas.length) {
+        if (mapeamentoMudou) await escreverJson3ZK(estado.mapeamentoHandle, normalizarMapeamento4ZK(estado.mapeamentoAtualRaw));
+        if (controleMudou) {
           guardarBackup(estado.controleOriginal);
           const controle = controleAtual();
           await escreverJson3ZK(estado.controleHandle, controle);
@@ -3778,7 +3842,8 @@
           id: `${Date.now()}-${Math.random().toString(36).slice(2,8)}`,
           data: new Date().toISOString(), operador: operadorAtual() || "Não identificado", acao: item.acao, tipo: item.tipo, itemId: item.id, nome: item.nome,
           motivo: item.motivo || "", observacao: item.observacao || "",
-          resumo: item.tipo === "cadastro-produto" ? `Cadastrou ${item.nome}` : item.tipo === "cadastro-cores" ? `Adicionou cores em ${item.nome}` : item.tipo === "preco" ? `Alterou o preço de ${item.nome}` : item.tipo === "foto" ? `Atualizou as fotos de ${item.nome}` : `${item.acao === "pausar" ? "Pausou" : "Reativou"} ${item.nome}`
+          produtoId: item.produtoId || "", campo: item.campo || "", antes: item.antes ?? null, depois: item.depois ?? null,
+          resumo: item.resumoHistorico ? item.resumoHistorico : item.tipo === "cadastro-produto" ? `Cadastrou ${item.nome}` : item.tipo === "cadastro-cores" ? `Adicionou cores em ${item.nome}` : item.tipo === "preco" ? `Alterou o preço de ${item.nome}` : item.tipo === "foto" ? `Atualizou as fotos de ${item.nome}` : `${item.acao === "pausar" ? "Pausou" : "Reativou"} ${item.nome}`
         }))].slice(-CONFIG.maxHistorico);
         salvarPrivadoLocal();
         estado.sessoes.clear();
@@ -4013,8 +4078,26 @@
 
     preencherMateriaisComerciais();
     renderizarComercial3ZK();
+
+    // Funções internas reaproveitadas pelo Painel Local 2.0 (painel-2.js).
+    window.painel3ZK = Object.assign(window.painel3ZK || {}, {
+      produtoRawPorId, corRawPorId, imagensRaw, definirImagensRaw, definirPrecoRaw,
+      reconstruir: reconstruirProdutos3ZK, aplicarPreco: aplicarPreco3ZK, precoEntrada: precoEntrada3ZK,
+      abrirModalFotos: abrirModalFotos3ZK, renderizarModalFotos: renderizarModalFotos3ZK, abrirSeletorFotos: abrirSeletorFotosExistentes3ZK,
+      adicionarFotos: adicionarFotos3ZK, converterWebp: converterImagemWebp3ZK, proximoCaminhoFoto: proximoCaminhoFoto3ZK,
+      urlFoto: urlFoto3ZK, salvarTudo: salvarTudo4ZK, desfazerTudo: desfazerTudo4ZK, assinatura: assinatura3ZK,
+      diferencasPausa: diferencasPausa3ZK, diferencasComerciais: diferencasComerciais3ZK, diferencasCadastro: diferencasCadastro4ZK,
+      desfazerCadastro: desfazerCadastro4ZK, desfazerComercial: desfazerComercial3ZK,
+      normalizarMapeamento: normalizarMapeamento4ZK, idProduto: idProdutoCadastro3ZK, chaveCor: chaveCorCadastro3ZK,
+      nomeProduto: nomeProdutoCadastro3ZK, novaVariante: novaVarianteCadastro3ZK, cadastroVazio: cadastroVazio3ZK,
+      renderizarCadastro: renderizarCadastro3ZK, salvarRascunhoCadastro: salvarRascunhoCadastro3ZK,
+      renderizarVariantesCadastro: renderizarVariantesCadastro3ZK, atualizarResumoCadastro: atualizarResumoCadastro3ZK,
+      validarCadastro: validarCadastro3ZK, contextoCadastro: contextoCadastro3ZK
+    });
+    document.dispatchEvent(new CustomEvent("painel3zk:pronto"));
   })();
   </script>
+  <script src="painel-2.js"></script>
 
 </body>
 </html>

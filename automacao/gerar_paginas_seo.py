@@ -207,10 +207,22 @@ def familia_cor(nome: Any, efeito: Any = "") -> int:
     return familia_por_palavras(texto.split(" ")) or FAMILIA_OUTROS
 
 
+# Família escolhida no Painel Local (campo opcional "familiaCor"); espelha FAMILIA_COR_MANUAL do script.js.
+FAMILIA_COR_MANUAL = {
+    "branco": 1, "natural": 1, "amarelo": 2, "dourado": 2, "laranja": 3, "vermelho": 4, "rosa": 5, "roxo": 6,
+    "azul": 7, "ciano": 7, "verde": 8, "marrom": 9, "cinza": 10, "prata": 10, "preto": 11,
+    "translucido": 12, "multicolor": 13, "outros": 14,
+}
+
+
+def familia_ordem(c: dict) -> int:
+    return FAMILIA_COR_MANUAL.get(slugificar(c.get("familiaCor"))) or familia_cor(c.get("nome"), c.get("efeito"))
+
+
 def ordenar_cores_por_familia(cores: list[dict]) -> list[dict]:
     # Mesmo critério do script.js: família, depois nome (sem distinguir acentos/maiúsculas), depois ordem original.
     return [c for _, _, _, c in sorted(
-        ((familia_cor(c.get("nome"), c.get("efeito")), normalizar(c.get("nome")), i, c) for i, c in enumerate(cores)),
+        ((familia_ordem(c), normalizar(c.get("nome")), i, c) for i, c in enumerate(cores)),
         key=lambda x: x[:3],
     )]
 
@@ -266,7 +278,8 @@ def carregar_catalogo(caminho: Path, controle: Path | None) -> list[dict]:
         ]
         if cores:
             # Acessórios mantêm a ordem cadastrada; a cor padrão continua sendo a primeira do cadastro.
-            ordenadas = cores if secao(p) == "acessorios" else ordenar_cores_por_familia(cores)
+            manual = secao(p) == "acessorios" or p.get("ordemCores") == "manual"
+            ordenadas = cores if manual else ordenar_cores_por_familia(cores)
             produtos.append({**p, "cores": ordenadas, "_cor_padrao": cores[0]})
 
     usados: set[str] = set()
@@ -502,6 +515,9 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
         mat_slug = slugificar(material)
         trilha = [("Início", ""), ("Filamentos", "filamentos/"), (material, f"filamentos/{mat_slug}/"), (nome, None)]
         trilha_ld = [("Início", ""), ("Filamentos", "filamentos/"), (material, f"filamentos/{mat_slug}/"), (nome, url)]
+    # Título e descrição personalizados no Painel Local (seção SEO) têm prioridade.
+    titulo = str(p.get("seoTitulo") or "").strip() or titulo
+    descricao = str(p.get("seoDescricao") or "").strip() or descricao
 
     imagens_abs = []
     for c in cores:

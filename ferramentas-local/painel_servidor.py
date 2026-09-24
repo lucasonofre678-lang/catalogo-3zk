@@ -89,12 +89,17 @@ def normalize_control(value: Any) -> dict[str, Any]:
             return []
         return sorted({str(item).strip() for item in raw if str(item).strip()})
 
-    return {
+    control = {
         "versao": 1,
         "atualizadoEm": value.get("atualizadoEm"),
         "produtosPausados": clean_list(value.get("produtosPausados")),
         "coresPausadas": clean_list(value.get("coresPausadas")),
     }
+    # Campos administrativos do Painel Local 2.0 (arquivo interno, nunca publicado).
+    control["rascunhos"] = clean_list(value.get("rascunhos"))
+    motivos = value.get("motivos")
+    control["motivos"] = motivos if isinstance(motivos, dict) else {}
+    return control
 
 
 def backup_control() -> None:
@@ -143,6 +148,16 @@ class Handler(BaseHTTPRequestHandler):
                 self.send_error(HTTPStatus.NOT_FOUND, "Painel não encontrado")
                 return
             self.send_bytes(PANEL_PATH.read_bytes(), "text/html; charset=utf-8")
+            return
+
+        # Arquivos do Painel Local 2.0 carregados pelo HTML.
+        estaticos = {"/painel-2.js": "text/javascript; charset=utf-8", "/painel-2.css": "text/css; charset=utf-8"}
+        if self.path in estaticos:
+            arquivo = SCRIPT_DIR / self.path.lstrip("/")
+            if arquivo.exists():
+                self.send_bytes(arquivo.read_bytes(), estaticos[self.path])
+            else:
+                self.send_error(HTTPStatus.NOT_FOUND, "Arquivo do painel não encontrado")
             return
 
         if self.path == "/api/estado":

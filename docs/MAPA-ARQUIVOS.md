@@ -105,6 +105,8 @@ No snapshot documentado, `assets/` possui 298 arquivos no total. Dentro de `asse
 | Arquivo | Função |
 |---|---|
 | `ferramentas-local/painel-catalogo-3zk.html` | Painel administrativo local completo |
+| `ferramentas-local/painel-2.js` | Painel Local 2.0: visão geral, busca Ctrl+K, edição rápida, Olist, imagens, SEO, publicação e problemas |
+| `ferramentas-local/painel-2.css` | Estilos do Painel Local 2.0 |
 | `ferramentas-local/painel_servidor.py` | Servidor HTTP local simples, com `/api/estado` e `/api/salvar` para controle de pausas |
 | `ferramentas-local/ABRIR-PAINEL-3ZK.cmd` | Atalho para abrir o painel com servidor Python |
 | `ferramentas-local/ABRIR-PAINEL-SEM-PYTHON.cmd` | Atalho para fluxo sem Python |

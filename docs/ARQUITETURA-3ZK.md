@@ -243,9 +243,13 @@ Estrutura atual:
 - `versao`;
 - `atualizadoEm`;
 - `produtosPausados`;
-- `coresPausadas`.
+- `coresPausadas`;
+- `rascunhos` (opcional, Painel Local 2.0): produtos em rascunho. Todo rascunho também está em `produtosPausados`, então as automações continuam ocultando-o sem nenhuma regra nova;
+- `motivos` (opcional, Painel Local 2.0): motivo administrativo de cada pausa (`motivo`, `observacao`, `em`, `por`).
 
-O objetivo é ocultar itens sem apagá-los nem alterar seus IDs.
+O objetivo é ocultar itens sem apagá-los nem alterar seus IDs. O arquivo é interno: a publicação falha se ele aparecer em `_site`.
+
+Campos opcionais de `produtos-base.json` gravados pelo Painel Local 2.0 e lidos pelo site/gerador SEO: `familiaCor` na variação (família usada na ordem e no filtro "Cor"), `ordemCores: "manual"` no produto (preserva a ordem arrastada), `seoTitulo`/`seoDescricao` no produto (sobrepõem o texto automático). `preco` na variação já existia; sem ele a variação herda o preço do produto.
 
 ### `automacao/mapeamento-olist.json`
 
@@ -355,6 +359,10 @@ Dependendo da operação, o painel pode gravar:
 - novos arquivos dentro de `assets/fotos/`.
 
 O código atual deixa `dados/produtos.json` pertencendo à automação e usa `produtos-preview.json` para teste local imediato das alterações manuais.
+
+### Painel Local 2.0 (`painel-2.js` / `painel-2.css`)
+
+Camada de tarefas carregada pelo HTML do painel: visão geral, busca universal (Ctrl+K), produtos com edição rápida, estoque/Olist, imagens, SEO, publicação, histórico e central de problemas. Reaproveita as funções internas do painel expostas em `window.painel3ZK` e entra no mesmo "Salvar alterações" validado (sem base paralela). Estoque é somente leitura (fonte: Olist); "Sincronizar estoque agora" e "Republicar" abrem os workflows oficiais no GitHub, sem tokens no navegador.
 
 ### Proteção contra conflito
 

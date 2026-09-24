@@ -358,10 +358,24 @@
     return familiaPorPalavras(texto.split(" ")) || FAMILIA_OUTROS;
   }
 
+  /*
+    Família escolhida no Painel Local (campo opcional "familiaCor" da variação).
+    Quando existe, tem prioridade sobre a detecção pelo nome, tanto na ordem
+    quanto no filtro "Cor". Espelhado em automacao/gerar_paginas_seo.py.
+  */
+  const FAMILIA_COR_MANUAL = {
+    branco: [1, "Branco"], natural: [1, "Branco"], amarelo: [2, "Amarelo"], dourado: [2, "Amarelo"],
+    laranja: [3, "Laranja"], vermelho: [4, "Vermelho"], rosa: [5, "Rosa"], roxo: [6, "Roxo"],
+    azul: [7, "Azul"], ciano: [7, "Azul"], verde: [8, "Verde"], marrom: [9, "Marrom / Bege"],
+    cinza: [10, "Cinza"], prata: [10, "Cinza"], preto: [11, "Preto"], translucido: [12, "Transparente"],
+    multicolor: [13, "Multicor"], outros: [14, "Outros"]
+  };
+  const familiaManual = (cor) => FAMILIA_COR_MANUAL[slugificar(cor?.familiaCor || "")] || null;
+
   // Ordena por família e, dentro dela, pelo nome. Não altera os objetos da lista.
   function sortVariantsByColorFamily(variacoes) {
     return variacoes
-      .map((cor, indice) => ({ cor, indice, familia: getColorFamily(cor?.nome, normalizar(cor?.efeito || "")) }))
+      .map((cor, indice) => ({ cor, indice, familia: familiaManual(cor)?.[0] || getColorFamily(cor?.nome, normalizar(cor?.efeito || "")) }))
       .sort((a, b) => a.familia - b.familia || String(a.cor?.nome || "").localeCompare(String(b.cor?.nome || ""), "pt-BR") || a.indice - b.indice)
       .map((item) => item.cor);
   }
@@ -585,12 +599,13 @@
       if (slugsSeo.has(slugSeo)) slugSeo = obterSlugProduto(produto);
       slugsSeo.add(slugSeo);
       // Acessórios mantêm a ordem cadastrada (kits, tamanhos); filamentos são agrupados por família de cor.
-      const coresOrdenadas = secao === "acessorios" ? produto.cores : sortVariantsByColorFamily(produto.cores);
+      // "ordemCores": "manual" (definido no Painel Local) preserva a ordem arrastada pelo operador.
+      const coresOrdenadas = secao === "acessorios" || produto.ordemCores === "manual" ? produto.cores : sortVariantsByColorFamily(produto.cores);
       const cores = coresOrdenadas.map((cor) => ({
         ...cor,
         _slug: obterSlugCor(cor),
         _fotos: obterFotosCor(produto, cor),
-        _grupo: obterGrupoCor(cor),
+        _grupo: familiaManual(cor)?.[1] || obterGrupoCor(cor),
         _acabamento: obterAcabamento(produto, cor),
         _visual: obterCorVisual(cor),
         _ordemOriginal: produto.cores.indexOf(cor)

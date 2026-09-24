@@ -147,3 +147,39 @@ Validações:
 
 Observações e riscos:
 - a regra de família é por palavras do nome; cores novas com nomes incomuns caem em "Outros" até entrarem na lista `FAMILIAS_ORDEM_COR` (manter JS e Python iguais).
+
+
+## 2026-09-24 — Painel Local 2.0 (central de manutenção)
+
+Base:
+- branch: `main`
+- commit inicial: `5a06f1c` (sobre as alterações do Visual V4 ainda não commitadas)
+
+Escopo:
+- transformar `ferramentas-local` numa central por tarefas, preservando cadastro, pausas, preços e fotos do painel 4.0 e o mesmo salvamento validado;
+- visão geral, busca universal (Ctrl+K), produtos com ações rápidas, editor por abas, nova/duplicar variação, duplicar produto, edição em massa com prévia, estoque/Olist (somente leitura), imagens, SEO, publicação, histórico com desfazer e central de problemas;
+- cadastro guiado: tipo filamento/acessório, peso, diâmetro, categoria, status Rascunho/Pausado/Ativo, família e preço herdado/específico por cor, Olist opcional em rascunho, prévia de card e drawer;
+- preço base avisa quando variações têm o preço antigo gravado (ex.: 26 cores do Multifila PLA Matte) e permite que passem a herdar.
+
+Arquivos adicionados:
+- `ferramentas-local/painel-2.js`
+- `ferramentas-local/painel-2.css`
+
+Arquivos modificados:
+- `ferramentas-local/painel-catalogo-3zk.html` (cadastro, motivos de pausa, ganchos de salvamento, correção de plural e de ID Olist vazio)
+- `ferramentas-local/painel_servidor.py` (serve os arquivos novos e preserva `rascunhos`/`motivos`)
+- `script.js`, `automacao/gerar_paginas_seo.py` (respeitam `familiaCor`, `ordemCores` e `seoTitulo`/`seoDescricao`)
+- `docs/ARQUITETURA-3ZK.md`, `docs/MAPA-ARQUIVOS.md`
+
+Dados:
+- nenhum arquivo de dados alterado nesta tarefa (hashes conferidos).
+
+Validações:
+- 31 cenários automatizados no Chrome com pasta simulada (nada gravado no projeto): busca por nome/cor/SKU/chave/ID Olist, preço base e de variação, família, acabamento, arrastar, pausar produto e variação, reativar, nova variação com foto, duplicar variação e produto, vínculo Olist (bloqueio de duplicado e confirmação ALTERAR), cadastro em rascunho, lote +5%, SEO, prévia, detecção de imagem inexistente, Ctrl+S e Publicar agora;
+- comparação antes/depois das gravações: só os campos esperados mudaram; chaveEstoque, SKU, GTIN e idCatalogo intactos; JSON no mesmo formato;
+- `validar_catalogo.py`, `gerar_catalogo_sem_consultar_olist.py` e `gerar_paginas_seo.py` aprovados sobre o resultado; rascunho e pausado não publicados.
+
+Observações e riscos:
+- publicar continua exigindo Commit e Push (GitHub Desktop); o navegador não faz push nem dispara workflows sem token;
+- configurações de ordem pública de materiais/marcas/categorias não foram implementadas (ainda fixas no site);
+- histórico e desfazer do histórico ficam no navegador de quem usou o painel.
