@@ -6,10 +6,13 @@ Este mapa descreve a função observada dos arquivos na `main` documentada. A ex
 
 | Caminho | Papel real encontrado | Runtime público? |
 |---|---|---:|
-| `index.html` | Estrutura da página pública, SEO, hero, filtros, catálogo, carrinho e formulário | Sim |
-| `style.css` | Estilos atuais do site público, incluindo responsividade e estilos de destaque | Sim |
-| `script.js` | Carregamento do catálogo, controle manual, busca, fotos, carrinho, pedido e WhatsApp | Sim |
-| `destaques.css` | Arquivo de estilos de destaque presente no repositório, mas não referenciado por `index.html` | Não diretamente |
+| `index.html` | Página pública (visual V4): header, busca, categorias, sidebar de filtros, grid, drawer do produto, visualizador, pedido em etapas, SEO | Sim |
+| `style.css` | Estilos do site (visual V4) e das páginas estáticas de SEO | Sim |
+| `script.js` | Carregamento do catálogo, controle manual, busca, filtros, fotos, drawer/zoom, carrinho, pedido e WhatsApp | Sim |
+| `seo-produto.js` | Interação das páginas estáticas de SEO (troca de variação/miniaturas) | Sim |
+| `produto.html` + `produto.js` | Redirecionam links antigos `produto.html?produto=&cor=` para a ficha no catálogo | Sim |
+| `robots.txt` | Aponta para `https://3zk.com.br/sitemap.xml` (o sitemap é gerado na publicação) | Sim |
+| `automacao/gerar_paginas_seo.py` | Gera páginas de produto/categoria/marca/guia, `sitemap.xml` e cards pré-renderizados no `_site` durante a publicação | Não (build) |
 | `VALIDAR-CATALOGO.cmd` | Atalho Windows para validação | Não |
 | `CENTRAL-3ZK-GITHUB.cmd` | Utilitário local relacionado ao fluxo Git/GitHub | Não |
 | `CONFIGURAR-GIT-SEGURO.cmd` | Atalho para configurar proteção/hook Git | Não |

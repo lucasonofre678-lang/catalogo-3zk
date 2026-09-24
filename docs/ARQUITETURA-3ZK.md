@@ -60,11 +60,22 @@ A arquitetura atual é um site estático com dados JSON e automações externas 
 
 - `style.css`;
 - `script.js`;
-- fontes Google (`Poppins` e `Roboto Mono`);
+- fonte Google `Anuphan` (visual V4);
 - favicons em `assets/favicon/`;
 - imagem social em `assets/social/catalogo-3zk.jpg`.
 
-O arquivo `destaques.css` existe no repositório, mas não é referenciado por `index.html`. As regras de destaque atualmente usadas pelo site também existem em `style.css`.
+Desde 2026-09-24 o visual segue o padrão V4 (sidebar de filtros, cards, drawer do produto, visualizador com zoom, pedido em drawer + etapas, navegação inferior no mobile). `destaques.css` foi removido; os destaques "Produto novo"/"Novas cores" continuam definidos em `obterDestaqueProduto()` do `script.js`.
+
+### Páginas estáticas de SEO
+
+Na publicação, `automacao/gerar_paginas_seo.py` lê o catálogo público recém-montado (`_site/dados/produtos.json`) e gera em `_site/`:
+
+- `produto/<slug>/` (Product + Offer + BreadcrumbList, só com preço/estoque/fotos reais);
+- `filamentos/`, `filamentos/<material>/`, `acessorios/`, `marcas/`, `marcas/<marca>/`;
+- `guia-de-materiais/`, `sobre/`, `404.html`;
+- `sitemap.xml` (somente URLs reais) e cards pré-renderizados em `index.html`.
+
+As páginas não são versionadas no repositório: acompanham automaticamente cada publicação (inclusive as disparadas pelo estoque). A interação dessas páginas fica em `seo-produto.js` (sem script inline, por causa da CSP). `produto.html` só redireciona links antigos `produto.html?produto=&cor=` para a ficha no catálogo.
 
 ### Carregamento de dados
 

@@ -17,6 +17,8 @@ on:
       - "*.css"
       - "script.js"
       - "produto.js"
+      - "seo-produto.js"
+      - "robots.txt"
       - "assets/**"
       - "dados/produtos-base.json"
       - "dados/produtos.json"
@@ -24,6 +26,7 @@ on:
       - "dados/ultima-atualizacao.json"
       - "automacao/gerar_catalogo_sem_consultar_olist.py"
       - "automacao/validar_catalogo.py"
+      - "automacao/gerar_paginas_seo.py"
       - ".github/workflows/publicar-site.yml"
 
 permissions:
@@ -53,6 +56,8 @@ jobs:
           python automacao/validar_catalogo.py
           node --check script.js
           node --check produto.js
+          node --check seo-produto.js
+          python -m py_compile automacao/gerar_paginas_seo.py
 
           python - <<'PY'
           from pathlib import Path
@@ -61,14 +66,19 @@ jobs:
           js = Path("script.js").read_text(encoding="utf-8")
 
           required_html = (
-              'id="catalogo-abas-v56"',
-              'id="filtros-rapidos-v56"',
-              'id="lista-produtos"',
+              'id="productGrid"',
+              'id="cartDrawer"',
+              'id="productModal"',
+              'id="zoomModal"',
+              'id="orderForm"',
+              'src="script.js',
           )
           required_js = (
-              'getElementById("catalogo-abas-v56")',
-              'renderizarAbasCatalogoV56',
               'carregarProdutos();',
+              'const WHATSAPP_NUMERO = "554184539430"',
+              'const CHAVE_CARRINHO_3ZK = "3zk-carrinho-v1"',
+              'function criarMensagemPedidoWhatsApp(',
+              'function aplicarControleCatalogo(',
           )
 
           missing = [item for item in required_html if item not in html]
@@ -88,13 +98,20 @@ jobs:
           rm -rf _site
           mkdir -p _site/dados
 
-          cp index.html links.html produto.html script.js produto.js _site/
+          cp index.html links.html produto.html script.js produto.js seo-produto.js robots.txt _site/
           cp ./*.css _site/
           cp -R assets _site/assets
 
           python automacao/gerar_catalogo_sem_consultar_olist.py \
             --controle dados/controle-catalogo.json \
             --output _site/dados/produtos.json
+
+          # Páginas de produto/categoria, sitemap e cards pré-renderizados,
+          # sempre a partir do catálogo público recém-montado (preço/estoque atuais).
+          python automacao/gerar_paginas_seo.py \
+            --catalogo _site/dados/produtos.json \
+            --site _site \
+            --versao "${GITHUB_SHA::12}"
 
           python - <<'PY'
           from pathlib import Path
@@ -194,6 +211,23 @@ jobs:
                   raise SystemExit(f"Comentário HTML ficou no deploy: {html_path}")
               if not re.search(r'[?&]v=[0-9a-f]{12}(?:["\'])', html):
                   raise SystemExit(f"Versão automática dos arquivos ausente: {html_path}")
+
+          sitemap = Path("_site/sitemap.xml").read_text(encoding="utf-8")
+          urls = re.findall(r"<loc>https://3zk\.com\.br/([^<]*)</loc>", sitemap)
+          if len(urls) < 5:
+              raise SystemExit("Sitemap incompleto.")
+          for url in urls:
+              alvo = Path("_site") / url / "index.html" if url else Path("_site/index.html")
+              if not alvo.exists():
+                  raise SystemExit(f"URL do sitemap sem página: {url}")
+          if "Sitemap: https://3zk.com.br/sitemap.xml" not in Path("_site/robots.txt").read_text(encoding="utf-8"):
+              raise SystemExit("robots.txt sem o sitemap.")
+          for pagina in Path("_site/produto").glob("*/index.html"):
+              texto = pagina.read_text(encoding="utf-8")
+              if '"@type":"Product"' not in texto or '<link rel="canonical"' not in texto:
+                  raise SystemExit(f"Página de produto sem Product/canonical: {pagina}")
+              if "<!--" in texto:
+                  raise SystemExit(f"Comentário HTML ficou no deploy: {pagina}")
 
           headers = Path("_site/_headers").read_text(encoding="utf-8")
           for trecho in ("/dados/produtos.json", "no-store", "must-revalidate"):

@@ -180,7 +180,7 @@ Dados privados do painel, como operador/histórico local e detalhes auxiliares, 
 
 ## Pontos que exigem cuidado
 
-1. `destaques.css` existe, mas não é carregado por `index.html`; não assumir que editar esse arquivo sozinho alterará o site.
+1. As páginas `produto/`, `filamentos/`, `acessorios/`, `marcas/`, `guia-de-materiais/`, `sobre/`, `404.html` e `sitemap.xml` só existem no `_site` (geradas na publicação); para vê-las localmente, rode `python automacao/gerar_paginas_seo.py` sobre um `_site` montado.
 2. `produtos-preview.json` é local e ignorado pelo Git; não deve ser confundido com o catálogo público oficial.
 3. `dados/produtos.json` pertence ao fluxo de automação; mudanças manuais de cadastro devem partir da base.
 4. Existem pastas/fotos históricas que não correspondem necessariamente a produtos ativos; não limpar por nome sem análise.
