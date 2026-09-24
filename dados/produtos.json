@@ -2538,8 +2538,8 @@
           "assets/fotos/masterprint-abs/marrom.webp"
         ],
         "idCatalogo": "masterprint|abs||marrom",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural",
@@ -3524,7 +3524,7 @@
         "sku": "multifila-silk-cobre-pla",
         "gtin": "7898757180921",
         "idCatalogo": "multifila|pla|silk|silk-cobre",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -3578,7 +3578,7 @@
         "sku": "multifila-silk-vermelho-azul-pla",
         "gtin": "7898757181287",
         "idCatalogo": "multifila|pla|silk|silk-dual-color-vermelho-e-azul",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4143,7 +4143,7 @@
         ],
         "sku": "2338",
         "idCatalogo": "polyflow|pla||marrom-chocolate",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
