@@ -769,8 +769,8 @@
           "assets/fotos/closin-pla/fluo-red.webp"
         ],
         "idCatalogo": "closin|pla||fluo-red",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Fluo Yellow",
