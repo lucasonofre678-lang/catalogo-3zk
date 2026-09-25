@@ -203,9 +203,10 @@
       {
         "nome": "Forest Green / Verde Floresta",
         "hex": "#315B42",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/flashforge-pla/forest-green-verde-floresta-real.webp",
           "assets/fotos/flashforge-pla/forest-green-verde-floresta.webp"
         ],
         "idCatalogo": "flashforge|pla||forest-green-verde-floresta",
@@ -1045,9 +1046,10 @@
       {
         "nome": "Branco",
         "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-petg/branco-real.webp",
           "assets/fotos/masterprint-petg/branco.webp"
         ],
         "idCatalogo": "masterprint|petg||branco",
@@ -1243,9 +1245,10 @@
         "nome": "Translúcido Azul",
         "hex": "#5E92B8",
         "efeito": "glass",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-petg/translucido-azul-real.webp",
           "assets/fotos/masterprint-petg/translucido-azul.webp"
         ],
         "idCatalogo": "masterprint|petg||translucido-azul",
@@ -1785,6 +1788,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-pla/roxo-claro-real.webp",
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
@@ -2155,6 +2159,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-pla/silk-laranja-preto-real.webp",
           "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-laranja-preto",
@@ -2364,10 +2369,10 @@
         "nome": "Ice Cream",
         "hex": "#D8A6B9",
         "efeito": "silk",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-pla-especial/ice-cream.webp"
+          "assets/fotos/masterprint-pla-especial/ice-cream-real.webp"
         ],
         "idCatalogo": "masterprint|pla|especial|ice-cream",
         "statusEstoque": "sem_estoque",
@@ -2619,6 +2624,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-abs/preto-real.webp",
           "assets/fotos/masterprint-abs/preto.webp"
         ],
         "idCatalogo": "masterprint|abs||preto",
