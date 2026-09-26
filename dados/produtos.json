@@ -2158,8 +2158,8 @@
           "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-laranja-preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Lavanda",
@@ -2370,13 +2370,13 @@
           "assets/fotos/masterprint-pla-especial/ice-cream.webp"
         ],
         "idCatalogo": "masterprint|pla|especial|ice-cream",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "linha": "Especial",
     "idCatalogo": "masterprint|pla|especial",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Masterprint",
