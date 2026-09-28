@@ -770,8 +770,8 @@
           "assets/fotos/closin-pla/fluo-red.webp"
         ],
         "idCatalogo": "closin|pla||fluo-red",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Fluo Yellow",
@@ -2177,8 +2177,8 @@
           "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-laranja-preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Lavanda",
@@ -2389,13 +2389,13 @@
           "assets/fotos/masterprint-pla-especial/ice-cream-real.webp"
         ],
         "idCatalogo": "masterprint|pla|especial|ice-cream",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "linha": "Especial",
     "idCatalogo": "masterprint|pla|especial",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Masterprint",
@@ -4794,12 +4794,12 @@
           "assets/fotos/luminaria-de-cura-uv-resinas-5w/5w.webp"
         ],
         "idCatalogo": "luminaria-de-cura-uv|resinas|5w|5w",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "luminaria-de-cura-uv|resinas|5w",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Resina UV Fotopolimerizável",
