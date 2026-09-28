@@ -33,7 +33,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260928-v6">
+  <link rel="stylesheet" href="style.css?v=20260928-v7">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://3zk.com.br/#organizacao","name":"3ZK Filamentos","alternateName":"3ZK","url":"https://3zk.com.br/","logo":"https://3zk.com.br/assets/logo-fundo-azul.png","contactPoint":{"@type":"ContactPoint","contactType":"customer service","url":"https://wa.me/554184539430","availableLanguage":"pt-BR"},"sameAs":["https://www.instagram.com/3zk.filamentos/","https://3zkfilamentos.com.br/"]},{"@type":"WebSite","@id":"https://3zk.com.br/#site","name":"3ZK Filamentos","alternateName":"3ZK","url":"https://3zk.com.br/","inLanguage":"pt-BR","publisher":{"@id":"https://3zk.com.br/#organizacao"}}]}</script>
 </head>
 <body>
@@ -110,14 +110,109 @@
   </header>
 
   <main>
-    <section class="intro shell" aria-labelledby="intro-title">
-      <h1 id="intro-title">Filamentos para impressão 3D</h1>
-      <p class="intro-copy">Materiais, cores e acabamentos para o seu próximo projeto.</p>
-      <ul class="trust-row" aria-label="Benefícios">
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"></path></svg>Estoque atualizado</li>
-        <li class="trust-pix"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M18 6 6 18"></path><circle cx="7.5" cy="7.5" r="2.5"></circle><circle cx="16.5" cy="16.5" r="2.5"></circle></svg>5% no Pix</li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><rect x="3.5" y="6" width="17" height="12" rx="2"></rect><path d="M3.5 10h17M7 14.5h3"></path></svg>3x sem juros</li>
-        <li><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 17.5V12a7 7 0 0 1 14 0v5.5"></path><path d="M5 13.5h2.5v5H5zM16.5 13.5H19v5h-2.5z"></path></svg>Atendimento 3ZK</li>
+    <section class="home-topo" aria-label="Destaques da loja">
+      <div class="banners" data-banners role="region" aria-roledescription="carrossel" aria-label="Destaques da loja">
+        <div class="banners__trilho" data-banners-trilho>
+          <article class="banner banner--3zk is-ativo" aria-roledescription="slide" aria-label="1 de 4">
+            <div class="banner__conteudo shell">
+              <div class="banner__texto">
+                <span class="banner__selo">Catálogo oficial 3ZK</span>
+                <p class="banner__titulo">O catálogo da 3ZK para <span class="banner__destaque">Curitiba e região</span></p>
+                <p class="banner__sub"><span class="banner__sub-longo">Filamentos, resinas e acessórios com a foto real de cada cor. Monte o pedido aqui e envie pelo WhatsApp: combinamos retirada ou entrega.</span><span class="banner__sub-curto">Foto real de cada cor. Peça pelo WhatsApp e combine retirada ou entrega.</span></p>
+                <div class="banner__acoes">
+                  <a class="banner__cta" href="#catalogo" data-hero-catalogo>Ver catálogo<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+                  <a class="banner__link" href="https://3zkfilamentos.com.br/" target="_blank" rel="noopener">Fora de Curitiba? Loja online<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+                </div>
+              </div>
+              <div class="banner__arte banner__arte--marca">
+                <div class="marca-cartao">
+                  <span class="marca-cartao__logo"><img src="assets/logo-fundo-invisivel.png" alt="3ZK Filamentos" width="5925" height="3373" decoding="async"></span>
+                  <p class="marca-cartao__slogan">Filamentos para impressão 3D · Curitiba/PR</p>
+                  <ol class="marca-cartao__passos" aria-label="Como funciona">
+                    <li><b>1</b><span><strong>Escolha a cor</strong><small>Foto real e estoque de cada rolo</small></span></li>
+                    <li><b>2</b><span><strong>Monte o pedido</strong><small>Quantas cores e materiais quiser</small></span></li>
+                    <li><b>3</b><span><strong>Envie pelo WhatsApp</strong><small>Combinamos retirada ou entrega</small></span></li>
+                  </ol>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="banner banner--closin" aria-roledescription="slide" aria-label="2 de 4">
+            <div class="banner__conteudo shell">
+              <div class="banner__texto">
+                <span class="banner__selo">Novas cores</span>
+                <p class="banner__titulo">Closin PLA</p>
+                <p class="banner__sub">Cores vivas, acabamento uniforme e a foto real de cada rolo no catálogo.</p>
+                <p class="banner__preco" data-banner-preco="closin-pla" hidden></p>
+                <a class="banner__cta" href="produto/closin-pla/" data-banner-produto="closin-pla">Ver as cores<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+              </div>
+              <div class="banner__arte banner__arte--rolos" aria-hidden="true">
+                <img class="banner__rolo banner__rolo--1" src="assets/home/closin-pla-amarelo.webp" alt="" width="760" height="511" decoding="async">
+                <img class="banner__rolo banner__rolo--2" src="assets/home/closin-pla-azul.webp" alt="" width="760" height="511" decoding="async">
+                <img class="banner__rolo banner__rolo--3" src="assets/home/closin-pla-vermelho.webp" alt="" width="760" height="511" decoding="async">
+              </div>
+            </div>
+          </article>
+
+          <article class="banner banner--pix" aria-roledescription="slide" aria-label="3 de 4">
+            <div class="banner__conteudo shell">
+              <div class="banner__texto">
+                <span class="banner__selo">Pagamento facilitado</span>
+                <p class="banner__titulo"><span class="banner__destaque">5% OFF</span> no Pix</p>
+                <p class="banner__sub">Desconto pagando no Pix ou em dinheiro. No cartão, em até 3x sem juros. Vale para todo o catálogo.</p>
+                <ul class="banner__formas" aria-label="Formas de pagamento"><li>Pix</li><li>Dinheiro</li><li>Cartão em 3x</li></ul>
+                <a class="banner__cta" href="#catalogo" data-hero-catalogo>Ver catálogo<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+              </div>
+              <div class="banner__arte banner__arte--pix" aria-hidden="true">
+                <div class="pix-cartao" data-banner-exemplo="closin-pla-silk">
+                  <span class="pix-cartao__produto" data-exemplo-nome>Closin PLA Silk</span>
+                  <s data-exemplo-normal>R$ 105,00</s>
+                  <strong><span data-exemplo-pix>R$ 99,75</span><small>no Pix</small></strong>
+                  <span class="pix-cartao__parcela" data-exemplo-parcela>ou 3x de R$ 35,00 sem juros</span>
+                </div>
+                <div class="pix-selo"><strong>5%</strong><span>OFF</span></div>
+              </div>
+            </div>
+          </article>
+
+          <article class="banner banner--acessorios" aria-roledescription="slide" aria-label="4 de 4">
+            <div class="banner__conteudo shell">
+              <div class="banner__texto">
+                <span class="banner__selo">Acessórios</span>
+                <p class="banner__titulo">Tudo para <span class="banner__destaque">finalizar</span> sua peça</p>
+                <p class="banner__sub">Canetas 3D Marker, cola Mult Bond, resina UV e mais itens Multifila para o acabamento.</p>
+                <a class="banner__cta" href="acessorios/" data-home-categoria="Acessórios">Ver acessórios<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+              </div>
+              <div class="banner__arte banner__arte--produtos" aria-hidden="true">
+                <span class="banner__produto"><img src="assets/fotos/multbond-colas/cola-acelerador-de-secagem-220g.webp" alt="" loading="lazy" decoding="async"><em>Mult Bond</em></span>
+                <span class="banner__produto"><img src="assets/fotos/canetas-marcadoras-multifila-utilidades/24-unidades-coloridas.webp" alt="" loading="lazy" decoding="async"><em>3D Marker</em></span>
+                <span class="banner__produto"><img src="assets/fotos/resina-uv-fotopolimerizavel-resinas-100g/100g.webp" alt="" loading="lazy" decoding="async"><em>Resina UV</em></span>
+              </div>
+            </div>
+          </article>
+        </div>
+        <button class="banners__seta banners__seta--anterior" type="button" data-banners-anterior aria-label="Banner anterior"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 6-6 6 6 6"></path></svg></button>
+        <button class="banners__seta banners__seta--proximo" type="button" data-banners-proximo aria-label="Próximo banner"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></button>
+        <div class="banners__pontos" role="group" aria-label="Escolher banner"><button type="button" data-banners-ir="0" aria-label="Banner 1: Catálogo 3ZK" aria-current="true"></button><button type="button" data-banners-ir="1" aria-label="Banner 2: Closin PLA" aria-current="false"></button><button type="button" data-banners-ir="2" aria-label="Banner 3: 5% OFF no Pix" aria-current="false"></button><button type="button" data-banners-ir="3" aria-label="Banner 4: Acessórios" aria-current="false"></button></div>
+      </div>
+    </section>
+
+    <nav class="atalhos shell" aria-label="Escolha o material">
+      <a href="filamentos/pla/" data-home-categoria="PLA"><strong>PLA</strong><span>Fácil e versátil</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="filamentos/petg/" data-home-categoria="PETG"><strong>PETG</strong><span>Resistente e durável</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="filamentos/abs/" data-home-categoria="ABS"><strong>ABS</strong><span>Aguenta calor</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="filamentos/asa/" data-home-categoria="ASA"><strong>ASA</strong><span>Resiste ao sol</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="filamentos/tpu/" data-home-categoria="TPU"><strong>TPU</strong><span>Flexível</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+      <a href="acessorios/" data-home-categoria="Acessórios"><strong>Acessórios</strong><span>Ferramentas e resinas</span><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"></path></svg></a>
+    </nav>
+
+    <section class="home-intro shell" aria-labelledby="home-titulo">
+      <h1 id="home-titulo">Filamentos para impressão 3D em Curitiba</h1>
+      <ul aria-label="Vantagens">
+        <li>5% no Pix</li>
+        <li>3x sem juros</li>
+        <li>Retirada em Curitiba</li>
       </ul>
     </section>
 

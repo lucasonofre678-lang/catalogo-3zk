@@ -195,17 +195,133 @@ ul{margin:0;padding:0;list-style:none}
 .category-chip.is-active::after{content:"";position:absolute;left:var(--s-3);right:var(--s-3);bottom:-6px;height:2px;border-radius:2px;background:var(--c-primary)}
 
 /* ==========================================================
-   INTRO (cabeçalho do catálogo)
+   INÍCIO DA LOJA — carrossel de banners de ponta a ponta,
+   atalhos sobre a borda do banner e título da página
    ========================================================== */
-.intro{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"title trust" "copy trust";align-items:end;column-gap:var(--s-5);padding:var(--s-5) 0 var(--s-4)}
-.intro h1{grid-area:title;font-size:clamp(26px,2.3vw,34px);font-weight:700;line-height:1.1;letter-spacing:-.025em;color:var(--ink)}
-.intro-copy{grid-area:copy;margin-top:var(--s-1);color:var(--ink-2);font-size:15px}
-.trust-row{grid-area:trust;display:flex;flex-wrap:wrap;align-items:center;gap:var(--s-2) var(--s-4);color:var(--ink-2);font-size:13px;font-weight:500;padding-bottom:2px}
-.trust-row li{display:inline-flex;align-items:center;gap:6px;white-space:nowrap}
-.trust-row li+li::before{content:"";width:4px;height:4px;border-radius:50%;background:var(--line-strong);margin-right:var(--s-2)}
-.trust-row svg{width:16px;height:16px;color:var(--c-primary)}
-.trust-row li.trust-pix{padding:3px 10px 3px 8px;border:1px solid rgba(20,108,62,.22);border-radius:var(--radius-pill);background:rgba(20,108,62,.08);color:var(--success);font-weight:700}
-.trust-row li.trust-pix svg{color:var(--success)}
+.banners{--duracao-banner:20s;position:relative;isolation:isolate;overflow:hidden}
+.banners__trilho{display:flex;transition:transform .8s cubic-bezier(.22,.7,.2,1);touch-action:pan-y}
+.banner{position:relative;isolation:isolate;flex:0 0 100%;min-height:clamp(430px,34vw,520px);padding-block:clamp(32px,4vw,56px) clamp(96px,8vw,112px);overflow:hidden;color:#fff}
+.banner::before{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;background-image:linear-gradient(rgba(255,255,255,.045) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.045) 1px,transparent 1px);background-size:64px 64px;-webkit-mask-image:radial-gradient(ellipse 55% 75% at 72% 45%,#000 5%,transparent 70%);mask-image:radial-gradient(ellipse 55% 75% at 72% 45%,#000 5%,transparent 70%)}
+.banner--3zk{background:radial-gradient(40% 70% at 74% 50%,rgba(21,187,253,.3),transparent 70%),radial-gradient(35% 60% at 6% 8%,rgba(21,187,253,.14),transparent 70%),linear-gradient(118deg,#00082A 0%,#001A6E 48%,#00248E 100%)}
+.banner--3zk::after{content:"";position:absolute;z-index:-1;top:-30%;right:14%;width:clamp(90px,11vw,170px);height:160%;background:linear-gradient(180deg,rgba(21,187,253,.34),rgba(21,187,253,0) 80%);transform:skewX(-14deg);pointer-events:none}
+.banner--closin{background:radial-gradient(40% 70% at 72% 48%,rgba(56,150,255,.5),transparent 70%),radial-gradient(35% 60% at 8% 10%,rgba(21,187,253,.18),transparent 70%),linear-gradient(118deg,#000A30 0%,#001C74 50%,#0A4CC4 100%)}
+.banner--pix{background:radial-gradient(40% 70% at 72% 50%,rgba(94,230,168,.32),transparent 70%),radial-gradient(35% 60% at 8% 10%,rgba(255,209,102,.1),transparent 70%),linear-gradient(118deg,#011A11 0%,#054A2F 52%,#0B8A55 100%)}
+.banner--acessorios{background:radial-gradient(40% 70% at 72% 50%,rgba(91,227,125,.2),transparent 70%),linear-gradient(118deg,#050806 0%,#0E1812 52%,#16301F 100%)}
+.banner__conteudo{display:grid;grid-template-columns:minmax(0,.92fr) minmax(0,1.08fr);align-items:center;gap:24px;height:100%}
+.banner__texto{position:relative;z-index:2;max-width:500px}
+.banner__texto>*{opacity:0;transform:translateY(16px);transition:opacity .6s ease,transform .7s cubic-bezier(.2,.7,.2,1)}
+.banner.is-ativo .banner__texto>*{opacity:1;transform:none}
+.banner.is-ativo .banner__texto>:nth-child(2){transition-delay:.07s}
+.banner.is-ativo .banner__texto>:nth-child(3){transition-delay:.14s}
+.banner.is-ativo .banner__texto>:nth-child(4){transition-delay:.21s}
+.banner.is-ativo .banner__texto>:nth-child(5){transition-delay:.28s}
+.banner__arte{position:relative;align-self:stretch;min-height:260px;opacity:0;transform:translateX(28px) scale(.97);transition:opacity .8s ease .12s,transform 1s cubic-bezier(.2,.7,.2,1) .12s}
+.banner.is-ativo .banner__arte{opacity:1;transform:none}
+.banner__selo{display:inline-block;padding:5px 12px;border-radius:var(--radius-pill);background:rgba(255,255,255,.14);color:#fff;font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.banner--closin .banner__selo,.banner--3zk .banner__selo{background:#15BBFD;color:#00154F}
+.banner--3zk .banner__destaque{color:#5CCBFF}
+.banner--3zk .banner__conteudo{grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr)}
+.banner--3zk .banner__texto{max-width:640px}
+.banner--3zk .banner__titulo{font-size:clamp(38px,4.1vw,60px)}
+.banner--3zk .banner__sub{max-width:520px}
+.banner__sub-curto{display:none}
+.banner--pix .banner__selo{background:#5EE6A8;color:#022418}
+.banner--acessorios .banner__selo{background:#5BE37D;color:#07140C}
+.banner__titulo{margin-top:14px;font-size:clamp(40px,4.5vw,66px);font-weight:700;line-height:1.02;letter-spacing:-.04em;text-wrap:balance}
+.banner--pix .banner__destaque{color:#FFD166}
+.banner--acessorios .banner__destaque{color:#5BE37D}
+.banner__sub{max-width:440px;margin-top:14px;color:rgba(255,255,255,.8);font-size:clamp(15px,1.15vw,17px);line-height:1.55}
+.banner__preco{display:flex;flex-wrap:wrap;align-items:baseline;gap:2px 10px;margin-top:18px;color:rgba(255,255,255,.72);font-size:14px}
+.banner__preco strong{color:#fff;font-size:30px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.banner__preco em{color:#6FE7B0;font-style:normal;font-weight:600;font-variant-numeric:tabular-nums}
+.banner__formas{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+.banner__formas li{padding:6px 12px;border:1px solid rgba(255,255,255,.22);border-radius:var(--radius-pill);background:rgba(255,255,255,.08);font-size:13px;font-weight:600}
+.banner__cta{display:inline-flex;align-items:center;gap:10px;height:52px;margin-top:26px;padding:0 24px;border-radius:13px;background:#fff;color:var(--c-primary);font-size:15.5px;font-weight:700;text-decoration:none;box-shadow:0 12px 28px rgba(0,0,0,.28);transition:transform var(--t),box-shadow var(--t)}
+.banner__cta svg{width:18px;height:18px;stroke-width:2.2;transition:transform var(--t)}
+.banner__cta:hover{transform:translateY(-1px);box-shadow:0 16px 34px rgba(0,0,0,.36)}
+.banner__cta:hover svg{transform:translateX(3px)}
+.banner--pix .banner__cta{color:#054A2F}
+.banner--acessorios .banner__cta{background:#5BE37D;color:#07140C}
+
+.banner__acoes{display:flex;flex-wrap:wrap;align-items:center;gap:12px 24px;margin-top:26px}
+.banner__acoes .banner__cta{margin-top:0}
+.banner__link{display:inline-flex;align-items:center;gap:6px;color:#CFE3FF;font-size:14.5px;font-weight:600;text-decoration:none}
+.banner__link svg{width:16px;height:16px;stroke-width:2.2;transition:transform var(--t-fast)}
+.banner__link:hover{color:#fff;text-decoration:underline;text-underline-offset:4px}
+.banner__link:hover svg{transform:translateX(2px)}
+
+/* banner 1: identidade 3ZK e como o catálogo funciona */
+.banner__arte--marca{display:grid;place-items:center}
+.marca-cartao{width:min(420px,100%);padding:24px 26px 18px;border:1px solid rgba(255,255,255,.16);border-radius:24px;background:linear-gradient(160deg,rgba(255,255,255,.12),rgba(255,255,255,.04));-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px);box-shadow:0 30px 70px rgba(0,4,26,.45)}
+.marca-cartao__logo{display:block;width:62%;aspect-ratio:3.16;overflow:hidden}
+.marca-cartao__logo img{width:147%;max-width:none;height:auto;margin:-26.1% 0 0 -23.5%}
+.marca-cartao__slogan{margin-top:12px;color:#9FC4F2;font-size:13px;font-weight:600;letter-spacing:.04em}
+.marca-cartao__passos{display:grid;gap:0;margin-top:16px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.marca-cartao__passos li{display:grid;grid-template-columns:34px minmax(0,1fr);align-items:center;gap:12px;padding:7px 0}
+.marca-cartao__passos b{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#15BBFD;color:#00154F;font-size:15px;font-weight:700}
+.marca-cartao__passos strong{display:block;font-size:15px;font-weight:700}
+.marca-cartao__passos small{display:block;margin-top:1px;color:#A9C2E8;font-size:13px}
+
+/* banner 2: composição de carretéis com luz e sombra de chão */
+.banner__arte--rolos::before{content:"";position:absolute;left:52%;top:50%;width:78%;aspect-ratio:1;translate:-50% -50%;border-radius:50%;background:radial-gradient(circle,rgba(255,255,255,.14),transparent 64%)}
+.banner__arte--rolos::after{content:"";position:absolute;left:14%;right:10%;bottom:-3%;height:12%;border-radius:50%;background:radial-gradient(ellipse at center,rgba(0,0,0,.5),transparent 70%)}
+.banner__rolo{position:absolute;z-index:1;height:auto;filter:drop-shadow(0 22px 26px rgba(0,0,0,.45))}
+.banner__rolo--1{top:2%;left:2%;width:50%}
+.banner__rolo--2{top:0;right:0;width:50%}
+.banner__rolo--3{z-index:2;bottom:0;left:52%;width:70%;translate:-50% 0;filter:drop-shadow(0 28px 32px rgba(0,0,0,.5))}
+
+/* banner 3: cartão de preço com o selo de desconto */
+.banner__arte--pix{display:grid;place-items:center}
+.pix-cartao{position:relative;display:grid;gap:4px;width:min(340px,90%);padding:26px 28px;border-radius:22px;background:#fff;color:var(--ink);box-shadow:0 30px 70px rgba(0,0,0,.38);rotate:-3deg}
+.pix-cartao__produto{color:var(--ink-3);font-size:13px;font-weight:600}
+.pix-cartao s{color:var(--ink-3);font-size:15px}
+.pix-cartao strong{display:flex;align-items:baseline;gap:8px;color:var(--success);font-size:42px;font-weight:700;letter-spacing:-.03em;line-height:1.05;font-variant-numeric:tabular-nums}
+.pix-cartao strong small{font-size:15px;font-weight:600;letter-spacing:0}
+.pix-cartao__parcela{margin-top:6px;padding-top:12px;border-top:1px dashed var(--line);color:var(--ink-2);font-size:14px}
+.pix-selo{position:absolute;top:6%;right:12%;display:grid;place-content:center;width:118px;height:118px;border-radius:50%;background:#FFD166;color:#3A2A00;text-align:center;box-shadow:0 16px 36px rgba(0,0,0,.3),inset 0 0 0 6px rgba(255,255,255,.35);rotate:10deg}
+.pix-selo strong{font-size:40px;font-weight:700;line-height:.95;letter-spacing:-.03em}
+.pix-selo span{font-size:14px;font-weight:700;letter-spacing:.12em}
+
+/* banner 4: produtos em cartões brancos com legenda */
+.banner__arte--produtos{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));align-items:center;gap:16px;max-width:620px;justify-self:end;width:100%}
+.banner__produto{position:relative;display:block;min-height:0;aspect-ratio:4/5;overflow:hidden;border-radius:18px;background:#fff;box-shadow:0 22px 48px rgba(0,0,0,.45)}
+.banner__produto:nth-child(2){transform:translateY(-18px) scale(1.07)}
+.banner__produto img{position:absolute;inset:7% 8% 20%;width:84%;height:73%;object-fit:contain}
+.banner__produto em{position:absolute;left:0;right:0;bottom:12px;color:var(--ink);font-size:13px;font-style:normal;font-weight:700;text-align:center}
+
+/* navegação: setas nas bordas da tela, pontos alinhados ao conteúdo, com progresso */
+.banners__seta{position:absolute;z-index:3;top:calc(50% - 30px);display:grid;place-items:center;width:46px;height:46px;margin-top:-23px;padding:0;border:1px solid rgba(255,255,255,.26);border-radius:50%;background:rgba(0,0,0,.26);color:#fff;-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px);opacity:0;transition:opacity var(--t),background var(--t)}
+.banners__seta svg{width:20px;height:20px;stroke-width:2.2}
+.banners__seta--anterior{left:16px}
+.banners__seta--proximo{right:16px}
+.banners:hover .banners__seta,.banners__seta:focus-visible{opacity:1}
+.banners__seta:hover{background:rgba(0,0,0,.45)}
+.banners__pontos{position:absolute;z-index:3;left:50%;bottom:clamp(64px,5.4vw,76px);display:flex;gap:8px;width:min(calc(100% - var(--gutter) * 2),var(--container));translate:-50% 0}
+.banners__pontos button{position:relative;width:8px;height:8px;padding:0;overflow:hidden;border:0;border-radius:var(--radius-pill);background:rgba(255,255,255,.4);transition:width var(--t),background var(--t)}
+.banners__pontos button[aria-current="true"]{width:36px;background:#fff}
+.banners.is-rodando .banners__pontos button[aria-current="true"]{background:rgba(255,255,255,.35)}
+.banners__pontos button::after{content:"";position:absolute;inset:0;border-radius:inherit;background:#fff;transform:scaleX(0);transform-origin:left}
+.banners.is-rodando .banners__pontos button[aria-current="true"]::after{animation:bannerProgresso var(--duracao-banner) linear forwards}
+.banners.is-pausado .banners__pontos button[aria-current="true"]::after{animation-play-state:paused}
+@keyframes bannerProgresso{to{transform:scaleX(1)}}
+
+/* título da página (H1) logo abaixo dos atalhos */
+.home-intro{display:flex;flex-wrap:wrap;align-items:baseline;justify-content:space-between;gap:6px 24px;margin-bottom:18px}
+.home-intro h1{color:var(--ink);font-size:clamp(20px,1.7vw,24px);font-weight:700;letter-spacing:-.02em;line-height:1.2}
+.home-intro ul{display:flex;flex-wrap:wrap;gap:4px 18px;color:var(--ink-2);font-size:13.5px;font-weight:500}
+.home-intro li{display:inline-flex;align-items:center;gap:6px}
+.home-intro li::before{content:"✓";color:var(--success);font-weight:700}
+
+/* atalhos por material: uma barra única, sem números */
+.atalhos{position:relative;z-index:4;display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:1px;margin-top:-46px;margin-bottom:26px;overflow:hidden;border:1px solid var(--line);border-radius:16px;background:#E3E9EF;box-shadow:0 18px 44px rgba(8,26,64,.18)}
+.atalhos a{position:relative;display:grid;gap:2px;min-width:0;padding:16px 36px 16px 20px;background:#fff;color:var(--ink);text-decoration:none;transition:background var(--t-fast)}
+.atalhos strong{font-size:16px;font-weight:700;transition:color var(--t-fast)}
+.atalhos span{overflow:hidden;color:var(--ink-3);font-size:13px;text-overflow:ellipsis;white-space:nowrap}
+.atalhos svg{position:absolute;top:50%;right:14px;width:16px;height:16px;margin-top:-8px;color:var(--c-primary);opacity:0;transform:translateX(-4px);transition:opacity var(--t-fast),transform var(--t-fast)}
+.atalhos a:hover{background:#F3F7FD}
+.atalhos a:hover strong{color:var(--c-primary)}
+.atalhos a:hover svg{opacity:1;transform:none}
+.atalhos a:focus-visible{outline:3px solid var(--focus);outline-offset:-3px}
 
 /* ==========================================================
    SIDEBAR / FILTROS
@@ -557,8 +673,6 @@ ul{margin:0;padding:0;list-style:none}
   .catalog-shell{display:block}
   .desktop-filters{display:none}
   .filter-open-button{display:inline-flex}
-  .intro{grid-template-columns:1fr;grid-template-areas:"title" "copy" "trust";padding:var(--s-4) 0 var(--s-3)}
-  .trust-row{margin-top:var(--s-3)}
   .guide-grid{grid-template-columns:1fr;gap:var(--s-4)}
   .footer-grid{grid-template-columns:repeat(2,1fr)}
   .zoom-backdrop{padding:var(--s-3)}
@@ -618,12 +732,7 @@ ul{margin:0;padding:0;list-style:none}
   .mobile-search input{font-size:16px}
   .category-chip{height:32px;font-size:14px}
 
-  .intro{padding:var(--s-4) 0 var(--s-3)}
-  .intro h1{font-size:24px}
-  .intro-copy{font-size:14px}
-  .trust-row{flex-wrap:wrap;gap:var(--s-1) var(--s-3);margin-top:var(--s-2);font-size:12px}
-  .trust-row li+li::before{display:none}
-  .trust-row li.trust-pix{padding:2px 8px 2px 6px}
+
 
   .catalog-shell{padding-bottom:var(--s-6)}
   .catalog-toolbar{flex-direction:column;align-items:stretch;gap:10px;padding-bottom:var(--s-3);margin-bottom:var(--s-3)}
@@ -743,6 +852,73 @@ ul{margin:0;padding:0;list-style:none}
 @media (prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
   *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+}
+
+/* ==========================================================
+   INÍCIO DA LOJA — tablet e celular
+   ========================================================== */
+@media (max-width:1180px){
+  .atalhos{grid-template-columns:repeat(3,minmax(0,1fr))}
+}
+@media (max-width:960px){
+  .banner__conteudo,.banner--3zk .banner__conteudo{grid-template-columns:minmax(0,1fr) minmax(0,.9fr);gap:12px}
+  .banner__titulo{font-size:clamp(32px,5vw,46px)}
+  .pix-selo{width:92px;height:92px;right:4%}
+  .pix-selo strong{font-size:30px}
+  .pix-cartao strong{font-size:32px}
+}
+@media (hover:none){
+  .banners__seta{display:none}
+}
+@media (max-width:620px){
+  /* banners no celular: tudo centralizado, um recado por tela */
+  .banner{min-height:0;padding-block:26px 112px}
+  .banner__conteudo,.banner--3zk .banner__conteudo{grid-template-columns:1fr;align-content:center;justify-items:center;gap:18px;text-align:center}
+  .banner__texto,.banner--3zk .banner__texto{display:flex;flex-direction:column;align-items:center;max-width:420px;width:100%}
+  .banner__titulo,.banner--3zk .banner__titulo{margin-top:12px;font-size:clamp(30px,8.4vw,36px)}
+  .banner__sub,.banner--3zk .banner__sub{max-width:330px;margin:10px auto 0;font-size:15px}
+  .banner__sub-longo{display:none}
+  .banner__sub-curto{display:inline}
+  .banner__preco{justify-content:center;margin-top:12px}
+  .banner__preco span{width:100%}
+  .banner__preco strong{font-size:24px}
+  .banner__formas{display:none}
+  .banner__cta{width:100%;max-width:330px;height:50px;justify-content:center;margin-top:20px}
+  .banner__acoes{flex-direction:column;width:100%;gap:14px;margin-top:20px}
+  .banner__acoes .banner__cta{margin-top:0}
+  .banner__link{font-size:14px}
+  .banner__arte{width:100%;max-width:360px;min-height:168px}
+  /* slide 1 no celular: só os 3 passos, em linha, como visual da parte de baixo */
+  .banner__arte--marca{min-height:0}
+  .marca-cartao{width:100%;padding:0;border:0;border-radius:0;background:none;box-shadow:none;-webkit-backdrop-filter:none;backdrop-filter:none}
+  .marca-cartao__logo,.marca-cartao__slogan{display:none}
+  .marca-cartao__passos{grid-template-columns:repeat(3,minmax(0,1fr));gap:10px;margin:6px 0 0;padding-top:18px;border-top:1px solid rgba(255,255,255,.14)}
+  .marca-cartao__passos li{grid-template-columns:1fr;align-content:start;align-items:start;justify-items:center;gap:8px;padding:0;text-align:center}
+  .marca-cartao__passos b{width:34px;height:34px;border-radius:50%}
+  .marca-cartao__passos strong{font-size:13.5px;line-height:1.25}
+  .marca-cartao__passos small{display:none}
+  .banner--3zk::after{right:-9%;width:80px;opacity:.55}
+  .banner__rolo--1,.banner__rolo--2{width:46%}
+  .banner__rolo--3{width:64%}
+  .pix-cartao{width:min(250px,78%);padding:16px 18px}
+  .pix-cartao strong{font-size:28px}
+  .pix-selo{top:0;right:2%;width:78px;height:78px}
+  .pix-selo strong{font-size:24px}
+  .pix-selo span{font-size:11px}
+  .banner__arte--produtos{gap:8px;padding-inline:4px}
+  .banner__produto{border-radius:12px}
+  .banner__produto em{bottom:8px;font-size:11px}
+  .banners__pontos{justify-content:center;bottom:78px}
+  /* atalhos numa linha só, deslizando para o lado, sobre a borda do banner */
+  .atalhos{display:flex;margin-top:-50px;margin-bottom:20px;overflow-x:auto;border-radius:14px;scroll-snap-type:x mandatory;scrollbar-width:none}
+  .atalhos::-webkit-scrollbar{display:none}
+  .atalhos a{flex:0 0 36%;padding:12px 14px;scroll-snap-align:start}
+  .atalhos strong{font-size:15px}
+  .atalhos span{font-size:12px}
+  .atalhos svg{display:none}
+  .home-intro{margin-bottom:12px}
+  .home-intro h1{font-size:19px}
+  .home-intro ul{gap:2px 12px;font-size:12.5px}
 }
 
 /* ==========================================================

@@ -1562,7 +1562,7 @@
   const GESTURE_MQ = "(max-width: 960px), (pointer: coarse)";
   function gestureEnabled() { return matchMedia(GESTURE_MQ).matches && !state.zoomOpen && els.modalBackdrop.hidden && els.review.hidden && els.maintenance.hidden; }
   function isGestureBlockedTarget(target) {
-    if (target.closest("input, select, textarea, a, .category-scroll, .card-variants, .active-filters, .zoom-backdrop, .product-modal, .mobile-bottom-nav, .seo-directory")) return true;
+    if (target.closest("input, select, textarea, a, .banners, .category-scroll, .card-variants, .active-filters, .zoom-backdrop, .product-modal, .mobile-bottom-nav, .seo-directory")) return true;
     const button = target.closest("button,[role=\"button\"]");
     return !!(button && !button.closest(".product-card"));
   }
@@ -1669,7 +1669,103 @@
     if (e.ctrlKey || e.metaKey || e.shiftKey) return;
     e.preventDefault(); setCategory(b.dataset.category);
   });
-  function scrollToCatalog() { const cat = $("#catalogo"); if (cat.getBoundingClientRect().top < 0) cat.scrollIntoView({ behavior: scrollBehavior(), block: "start" }); }
+  function scrollToCatalog() { $("#catalogo").scrollIntoView({ behavior: scrollBehavior(), block: "start" }); }
+
+  /* ============================================================
+     INÍCIO DA LOJA — atalhos por material e carrossel de banners
+     Os atalhos filtram o catálogo na própria página; o href continua
+     valendo para nova aba e para os buscadores.
+     ============================================================ */
+  function filtrarPeloInicio(categoria = "Todos") {
+    state.query = "";
+    ["materials", "brands", "colors", "finishes"].forEach((k) => state[k].clear());
+    state.category = CATEGORIAS_BARRA.includes(categoria) ? categoria : "Todos";
+    syncSearch(); renderAll(); scrollToCatalog();
+  }
+  document.addEventListener("click", (e) => {
+    const alvo = e.target.closest("[data-home-categoria], [data-hero-catalogo]");
+    if (!alvo || e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+    e.preventDefault();
+    if (alvo.dataset.homeCategoria) filtrarPeloInicio(alvo.dataset.homeCategoria);
+    else scrollToCatalog();
+  });
+
+  // Carrossel de banners do início: setas, pontos, arraste no celular e troca automática
+  // (pausa com o mouse em cima, com foco, com a aba oculta ou com movimento reduzido).
+  const banners = (() => {
+    const raiz = $("[data-banners]");
+    if (!raiz) return { atualizar() {} };
+    const trilho = $("[data-banners-trilho]", raiz);
+    const slides = $$(".banner", trilho);
+    const pontos = $$("[data-banners-ir]", raiz);
+    let atual = 0, timer = null, pausado = false, arraste = null, bloquearClique = false;
+    const DURACAO = 20000; // mesmo tempo de --duracao-banner no style.css
+    function ir(i) {
+      atual = (i + slides.length) % slides.length;
+      trilho.style.transform = `translateX(${-100 * atual}%)`;
+      slides.forEach((slide, j) => { const ativo = j === atual; slide.classList.toggle("is-ativo", ativo); slide.setAttribute("aria-hidden", String(!ativo)); slide.inert = !ativo; });
+      pontos.forEach((ponto, j) => ponto.setAttribute("aria-current", String(j === atual)));
+    }
+    // O ponto ativo mostra o progresso até a próxima troca; reinicia a cada troca ou clique.
+    function iniciar() {
+      clearInterval(timer);
+      raiz.classList.remove("is-rodando");
+      raiz.classList.toggle("is-pausado", pausado);
+      if (slides.length < 2 || pausado || document.hidden || reducedMotion()) return;
+      void raiz.offsetWidth;
+      raiz.classList.add("is-rodando");
+      timer = setInterval(() => { ir(atual + 1); iniciar(); }, DURACAO);
+    }
+    $("[data-banners-anterior]", raiz).addEventListener("click", () => { ir(atual - 1); iniciar(); });
+    $("[data-banners-proximo]", raiz).addEventListener("click", () => { ir(atual + 1); iniciar(); });
+    pontos.forEach((ponto) => ponto.addEventListener("click", () => { ir(Number(ponto.dataset.bannersIr)); iniciar(); }));
+    raiz.addEventListener("mouseenter", () => { pausado = true; iniciar(); });
+    raiz.addEventListener("mouseleave", () => { pausado = false; iniciar(); });
+    raiz.addEventListener("focusin", () => { pausado = true; iniciar(); });
+    raiz.addEventListener("focusout", (e) => { if (!raiz.contains(e.relatedTarget)) { pausado = false; iniciar(); } });
+    document.addEventListener("visibilitychange", iniciar);
+    trilho.addEventListener("pointerdown", (e) => { if (e.pointerType !== "mouse") arraste = { x: e.clientX, y: e.clientY }; });
+    trilho.addEventListener("pointerup", (e) => {
+      if (!arraste) return;
+      const dx = e.clientX - arraste.x, dy = e.clientY - arraste.y;
+      arraste = null;
+      if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) { bloquearClique = true; ir(atual + (dx < 0 ? 1 : -1)); iniciar(); setTimeout(() => { bloquearClique = false; }, 300); }
+    });
+    trilho.addEventListener("pointercancel", () => { arraste = null; });
+    trilho.addEventListener("click", (e) => { if (bloquearClique) { e.preventDefault(); e.stopPropagation(); } }, true);
+    // CTA de produto abre o drawer do catálogo quando o produto já carregou.
+    raiz.addEventListener("click", (e) => {
+      const cta = e.target.closest("[data-banner-produto]");
+      if (!cta || e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return;
+      const produto = produtos.find((p) => p._slugSeo === cta.dataset.bannerProduto);
+      if (!produto) return;
+      e.preventDefault(); openProduct(produto);
+    });
+    ir(0); iniciar();
+    return {
+      // Preços reais nos banners (mesmo cálculo de Pix e parcelas dos cards).
+      atualizar() {
+        $$("[data-banner-preco]", raiz).forEach((el) => {
+          const p = produtos.find((x) => x._slugSeo === el.dataset.bannerPreco);
+          if (!p) return;
+          const menor = Math.min(...p.cores.map((c) => getPrice(p, c)));
+          const r = obterResumoPrecoCatalogo(menor);
+          el.innerHTML = `<span>${p.cores.length} cores em estoque · a partir de</span><strong>${money.format(r.precoNormal)}</strong><em>${money.format(r.precoPix)} no Pix</em>`;
+          el.hidden = false;
+        });
+        $$("[data-banner-exemplo]", raiz).forEach((el) => {
+          const p = produtos.find((x) => x._slugSeo === el.dataset.bannerExemplo);
+          if (!p) return;
+          const r = obterResumoPrecoCatalogo(getPrice(p, p.cores[indiceVariacaoPadrao(p)] || p.cores[0]));
+          $("[data-exemplo-nome]", el).textContent = getName(p);
+          $("[data-exemplo-normal]", el).textContent = money.format(r.precoNormal);
+          $("[data-exemplo-pix]", el).textContent = money.format(r.precoPix);
+          $("[data-exemplo-parcela]", el).textContent = `ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros`;
+        });
+      }
+    };
+  })();
+
   function updateCategoryUI() {
     $$("[data-category]").forEach((b) => { const on = b.dataset.category === state.category; b.classList.toggle("is-active", on); b.setAttribute("aria-pressed", String(on)); });
   }
@@ -1891,6 +1987,7 @@
       renderAll();
       renderizarCarrinho();
       renderDiretorio();
+      banners.atualizar();
       aplicarLinkDireto();
     } catch (erro) {
       console.error("[3ZK] Erro ao carregar o catálogo:", erro);
