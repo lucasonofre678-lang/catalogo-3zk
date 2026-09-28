@@ -660,13 +660,13 @@
 
   function priceBlock(p, c) {
     const r = obterResumoPrecoCatalogo(getPrice(p, c));
-    return `<strong class="price-main">${money.format(r.precoNormal)}</strong><span class="price-pix">${money.format(r.precoPix)} no Pix <em>5% OFF</em></span><span class="price-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span>`;
+    return `<span class="price-card-reference">${money.format(r.precoNormal)} no cartão</span><span class="price-pix"><strong>${money.format(r.precoPix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="price-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span>`;
   }
 
   // Versão compacta do mesmo cálculo para os cards (mesmo markup em automacao/gerar_paginas_seo.py).
   function cardPriceBlock(p, c) {
     const r = obterResumoPrecoCatalogo(getPrice(p, c)), [stock, stockClass] = stockLabel(c);
-    return `<div class="card-price-row"><span class="price">${money.format(r.precoNormal)}</span><span class="card-pix"><span>${money.format(r.precoPix)} no Pix</span><em>5% OFF</em></span><span class="card-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span><span class="stock ${stockClass}">${stock}</span></div>`;
+    return `<div class="card-price-row"><span class="card-reference-price">${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="card-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span><span class="stock ${stockClass}">${stock}</span></div>`;
   }
 
   // Variação mostrada por padrão: a primeira do cadastro, mesmo com as cores reordenadas por família.
@@ -862,7 +862,7 @@
     const href = esc(productHref(p));
     return `<article class="product-card${corEstaDisponivel(c) ? "" : " is-out"}" data-product="${esc(p._key)}">
       <div class="card-media"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : ""}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img src="${esc(firstImage(c))}" alt="${esc(`${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
-      <div class="card-body"><p class="product-kicker">${esc(getKicker(p))}</p><h3 class="product-title"><a href="${href}" data-open-product>${esc(title)}</a></h3><p class="variant-summary"><span title="${esc(c.nome)}">${esc(c.nome)}</span>${many ? `<small>${variants.length < p.cores.length ? `${variants.length} de ` : ""}${p.cores.length} ${variantNoun(p, true)}</small>` : ""}</p>
+      <div class="card-body"><p class="product-kicker">${esc(getKicker(p))}</p><h3 class="product-title"><a href="${href}" data-open-product>${esc(title)}</a></h3><p class="variant-summary"><span title="${esc(c.nome)}">${esc(c.nome)}</span>${many && !p.ocultarContagemVariacoesNoCard ? `<small>${variants.length < p.cores.length ? `${variants.length} de ` : ""}${p.cores.length} ${variantNoun(p, true)}</small>` : ""}</p>
       <div class="card-variants">${many ? shown.map((v) => { const vi = p.cores.indexOf(v); return `<button type="button" class="variant-mini ${vi === idx ? "is-active" : ""}" data-variant="${vi}" aria-label="Pré-visualizar ${esc(v.nome)}" aria-pressed="${vi === idx}" title="${esc(v.nome)}"><img src="${esc(firstImage(v))}" alt="" loading="lazy" decoding="async"></button>`; }).join("") + (extra > 0 ? `<a href="${href}" class="more-variants" data-open-product aria-label="Ver mais ${extra} ${variantNoun(p, extra > 1)}">+${extra}</a>` : "") : ""}</div>
       ${cardPriceBlock(p, c)}
       <a class="primary-button card-cta" href="${href}" data-open-product>${esc(cardCta(p))}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></a></div></article>`;
@@ -1812,21 +1812,35 @@
   /* ============================================================
      CARREGAMENTO DO CATÁLOGO
      ============================================================ */
-  async function buscarCatalogoJson(caminho, limiteMs = 2500) {
-    const controlador = new AbortController();
-    const temporizador = window.setTimeout(() => controlador.abort(), limiteMs);
-    try {
-      const resposta = await fetch(obterUrlSemCache3ZK(caminho), { cache: "no-store", signal: controlador.signal });
-      if (!resposta.ok) return null;
-      const dados = await resposta.json();
-      if (!Array.isArray(dados)) return null;
-      return dados.some((produto) => produto && Array.isArray(produto.cores)) ? dados : null;
-    } catch (erro) {
-      if (erro?.name !== "AbortError") console.warn(`[3ZK] Falha ao ler ${caminho}.`, erro);
-      return null;
-    } finally {
-      window.clearTimeout(temporizador);
+  async function buscarCatalogoJson(caminho, limiteMs = 2500, totalTentativas = 4) {
+    /*
+      Durante uma publicação ou extração, o Live Server pode recarregar a
+      página enquanto o JSON ainda está sendo substituído. Nesse instante o
+      arquivo pode estar temporariamente incompleto. Repetir a leitura evita
+      que o catálogo fique preso em "0 produtos" até o próximo F5.
+    */
+    for (let tentativa = 1; tentativa <= totalTentativas; tentativa += 1) {
+      const controlador = new AbortController();
+      const temporizador = window.setTimeout(() => controlador.abort(), limiteMs);
+      try {
+        const resposta = await fetch(obterUrlSemCache3ZK(caminho), { cache: "no-store", signal: controlador.signal });
+        if (resposta.ok) {
+          const dados = await resposta.json();
+          if (Array.isArray(dados) && dados.some((produto) => produto && Array.isArray(produto.cores))) return dados;
+        }
+      } catch (erro) {
+        if (tentativa === totalTentativas && erro?.name !== "AbortError") {
+          console.warn(`[3ZK] Falha ao ler ${caminho} após ${totalTentativas} tentativas.`, erro);
+        }
+      } finally {
+        window.clearTimeout(temporizador);
+      }
+
+      if (tentativa < totalTentativas) {
+        await new Promise((resolver) => window.setTimeout(resolver, 300 * tentativa));
+      }
     }
+    return null;
   }
 
   function renderDiretorio() {

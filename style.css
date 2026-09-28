@@ -134,10 +134,12 @@ ul{margin:0;padding:0;list-style:none}
 .stock--out{color:var(--danger)}
 .stock--out::before{width:9px;height:2px;border-radius:1px}
 
-/* preço — principal forte, Pix secundário, parcelamento terciário */
+/* preço — Pix em destaque, preço no cartão como referência */
 .price-block{display:grid;gap:2px}
-.price-main{font-size:28px;font-weight:700;line-height:1.1;letter-spacing:-.02em;color:var(--ink);font-variant-numeric:tabular-nums}
-.price-pix{display:flex;align-items:center;gap:var(--s-2);font-size:14px;font-weight:600;color:var(--success);font-variant-numeric:tabular-nums}
+.price-card-reference{font-size:13px;color:var(--ink-3);font-variant-numeric:tabular-nums}
+.price-pix{display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 7px;color:var(--success);font-variant-numeric:tabular-nums}
+.price-pix strong{font-size:30px;font-weight:700;line-height:1.08;letter-spacing:-.025em}
+.price-pix>span{font-size:14px;font-weight:600}
 .price-pix em{font-style:normal;font-size:11px;font-weight:600;letter-spacing:.02em;padding:1px 6px;border-radius:var(--radius-pill);background:rgba(20,108,62,.1);border:1px solid rgba(20,108,62,.2)}
 .price-installments{font-size:13px;color:var(--ink-3)}
 
@@ -292,10 +294,12 @@ ul{margin:0;padding:0;list-style:none}
 .variant-mini.is-active{border-color:var(--c-accent);box-shadow:0 0 0 1px var(--c-accent)}
 .more-variants{height:30px;min-width:30px;padding:0 6px;border:1px solid var(--line);border-radius:var(--radius-xs);background:transparent;color:var(--c-primary);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
 .more-variants:hover{background:var(--c-primary-soft);border-color:var(--c-primary-line)}
-.card-price-row{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"price stock" "pix pix" "inst inst";align-items:baseline;gap:1px var(--s-2)}
-.card-price-row .price{grid-area:price}
+.card-price-row{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"reference stock" "pix pix" "inst inst";align-items:baseline;gap:2px var(--s-2)}
+.card-reference-price{grid-area:reference;font-size:12px;line-height:1.2;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .card-price-row .stock{grid-area:stock;justify-self:end}
-.card-pix{grid-area:pix;display:flex;align-items:center;flex-wrap:wrap;gap:2px 6px;min-width:0;font-size:13.5px;font-weight:600;line-height:1.3;color:var(--success);font-variant-numeric:tabular-nums}
+.card-pix{grid-area:pix;display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 6px;min-width:0;color:var(--success);font-variant-numeric:tabular-nums}
+.card-pix strong{font-size:21px;font-weight:700;line-height:1.12;letter-spacing:-.02em}
+.card-pix>span{font-size:12.5px;font-weight:600}
 .card-pix em{font-style:normal;font-size:10px;font-weight:700;letter-spacing:.03em;line-height:1;padding:3px 5px;border-radius:var(--radius-pill);background:rgba(20,108,62,.1);border:1px solid rgba(20,108,62,.2);white-space:nowrap}
 .card-installments{grid-area:inst;font-size:12px;line-height:1.3;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .price{font-size:19px;font-weight:700;letter-spacing:-.015em;color:var(--ink);font-variant-numeric:tabular-nums}
@@ -304,6 +308,11 @@ ul{margin:0;padding:0;list-style:none}
 .card-cta svg{width:16px;height:16px;transition:transform var(--t-fast)}
 .card-cta:hover svg{transform:translateX(2px)}
 .product-card.is-out .card-media img{opacity:.55}
+
+/* contato direto, sempre visível no desktop sem competir com a navegação móvel */
+.whatsapp-float{position:fixed;right:22px;bottom:22px;z-index:calc(var(--z-bottom-nav) + 1);width:58px;height:58px;display:grid;place-items:center;border:2px solid #fff;border-radius:50%;background:#25D366;color:#fff;box-shadow:0 8px 24px rgba(13,74,39,.3);transition:transform var(--t-fast),background var(--t-fast),box-shadow var(--t-fast)}
+.whatsapp-float:hover{background:#1FBA59;transform:translateY(-2px);box-shadow:0 12px 28px rgba(13,74,39,.36)}
+.whatsapp-float svg{width:31px;height:31px;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
 
 /* estado vazio */
 .empty-state{display:grid;justify-items:center;gap:var(--s-2);text-align:center;padding:var(--s-7) var(--s-5);background:var(--surface);border:1px dashed var(--line-strong);border-radius:var(--radius-panel)}
@@ -644,11 +653,11 @@ ul{margin:0;padding:0;list-style:none}
   .card-variants{height:26px;gap:3px;margin-bottom:10px;padding-top:var(--s-2)}
   .variant-mini{width:26px;height:26px;border-radius:5px}
   .more-variants{height:26px;min-width:26px;padding:0 4px;font-size:11px;border-radius:5px}
-  .card-price-row{grid-template-columns:minmax(0,1fr);grid-template-areas:"price" "pix" "inst" "stock";gap:1px}
+  .card-price-row{grid-template-columns:minmax(0,1fr);grid-template-areas:"reference" "pix" "inst" "stock";gap:2px}
   .card-price-row .stock{justify-self:start;margin-top:2px}
   .card-pix{font-size:12.5px;gap:2px 5px}
   .card-installments{font-size:11px}
-  .price{font-size:16px}
+  .card-pix strong{font-size:19px}
   .stock{font-size:11px}
   .card-cta{min-height:36px;margin-top:10px;font-size:13px;gap:4px;padding:0 var(--s-2)}
 
@@ -674,7 +683,7 @@ ul{margin:0;padding:0;list-style:none}
   .modal-image-zoom{--pad-y:var(--s-3);--pad-x:var(--s-6)}
   .modal-info{flex:none;overflow:visible;padding:var(--s-4) var(--s-4) var(--s-5)}
   .modal-info h2{font-size:21px}
-  .price-main{font-size:24px}
+  .price-pix strong{font-size:27px}
   .variant-grid{grid-template-columns:repeat(4,minmax(0,1fr));gap:6px}
   .variant-grid.is-long{max-height:none;overflow:visible}
   .variant-choice-name{font-size:11px}
@@ -869,6 +878,7 @@ img.img-missing{opacity:0}
   .header-actions{gap:2px}
   .form-options,.form-options--compact{grid-template-columns:1fr}
   .review-data{grid-template-columns:1fr}
+  .whatsapp-float{display:none}
 }
 @media (max-width:620px){
   .product-flag{right:6px;top:6px;height:18px;padding:0 5px;font-size:9.5px}

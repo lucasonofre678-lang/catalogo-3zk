@@ -447,7 +447,7 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
         if extra > 0:
             minis += f'<a href="{href}" class="more-variants" data-open-product aria-label="Ver mais {extra} {e(rotulo_variacao(p, extra > 1))}">+{extra}</a>'
     flag = f'<span class="product-flag">{e(p["_destaque"])}</span>' if p["_destaque"] else ""
-    resumo = f'<small>{len(cores)} {e(rotulo_variacao(p, True))}</small>' if muitas else ""
+    resumo = f'<small>{len(cores)} {e(rotulo_variacao(p, True))}</small>' if muitas and not p.get("ocultarContagemVariacoesNoCard") else ""
     return (
         f'<article class="product-card" data-product="{e(p["_slug_link"])}">'
         f'<div class="card-media"><span class="product-badge">{e(badge)}</span>{flag}<a class="card-media-open" href="{href}" data-open-product aria-label="Abrir {e(titulo)}"></a>'
@@ -467,8 +467,8 @@ def grade(produtos: list[dict], raiz: str, acima_da_dobra: bool = True) -> str:
 def price_block(valor: float) -> str:
     r = resumo_preco(valor)
     return (
-        f'<strong class="price-main">{moeda(r["normal"])}</strong>'
-        f'<span class="price-pix">{moeda(r["pix"])} no Pix <em>5% OFF</em></span>'
+        f'<span class="price-card-reference">{moeda(r["normal"])} no cartão</span>'
+        f'<span class="price-pix"><strong>{moeda(r["pix"])}</strong><span>à vista no Pix</span><em>5% OFF</em></span>'
         f'<span class="price-installments">ou 3x de {moeda(r["parcela"])} sem juros no cartão</span>'
     )
 
@@ -477,8 +477,8 @@ def card_price_block(valor: float, estoque: str, classe: str) -> str:
     """Mesmo markup de cardPriceBlock no script.js."""
     r = resumo_preco(valor)
     return (
-        f'<div class="card-price-row"><span class="price">{moeda(r["normal"])}</span>'
-        f'<span class="card-pix"><span>{moeda(r["pix"])} no Pix</span><em>5% OFF</em></span>'
+        f'<div class="card-price-row"><span class="card-reference-price">{moeda(r["normal"])} no cartão</span>'
+        f'<span class="card-pix"><strong>{moeda(r["pix"])}</strong><span>à vista no Pix</span><em>5% OFF</em></span>'
         f'<span class="card-installments">ou 3x de {moeda(r["parcela"])} sem juros no cartão</span>'
         f'<span class="stock {classe}">{e(estoque)}</span></div>'
     )
@@ -505,7 +505,10 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
     marca = p.get("marca") or ""
 
     if acessorio:
-        descricao = f"{nome} no catálogo 3ZK: {n} {plural if n > 1 else rotulo_variacao(p, False)} com foto, preço e disponibilidade. Monte seu pedido e envie pelo WhatsApp."
+        if p.get("ocultarContagemVariacoesNoCard"):
+            descricao = f"{nome} no catálogo 3ZK com opções de kits, fotos, preços e disponibilidade. Monte seu pedido e envie pelo WhatsApp."
+        else:
+            descricao = f"{nome} no catálogo 3ZK: {n} {plural if n > 1 else rotulo_variacao(p, False)} com foto, preço e disponibilidade. Monte seu pedido e envie pelo WhatsApp."
         titulo = f"{nome} | Acessórios para impressão 3D | 3ZK"
         trilha = [("Início", ""), ("Acessórios", "acessorios/"), (nome, None)]
         trilha_ld = [("Início", ""), ("Acessórios", "acessorios/"), (nome, url)]
@@ -570,7 +573,8 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
         fatos.append(("Material", material))
         if p.get("linha"):
             fatos.append(("Linha", p["linha"]))
-    fatos.append((plural.capitalize(), str(n)))
+    if not p.get("ocultarContagemVariacoesNoCard"):
+        fatos.append((plural.capitalize(), str(n)))
     fatos.append(("Preço", faixa))
 
     corpo = breadcrumb_html(raiz, trilha)
@@ -588,7 +592,7 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
 </div>
 <section class="seo-section" aria-labelledby="variacoes"><h2 id="variacoes">{e(plural.capitalize())} disponíveis</h2><p>Selecione uma opção para ver a foto, o preço e a disponibilidade.</p><div class="seo-variant-list">{variantes}</div></section>
 <section class="seo-section" aria-labelledby="dados-produto"><h2 id="dados-produto">Informações do produto</h2><div class="seo-facts">{''.join(f'<div class="seo-fact"><strong>{e(k)}</strong><span>{e(v)}</span></div>' for k, v in fatos)}</div></section>
-<section class="seo-content-block"><h2>Sobre {e(nome)}</h2><p>{e(descricao)} {e(plural.capitalize())} disponíveis no momento: {e(lista_nomes)}. O preço e a disponibilidade podem variar conforme a opção escolhida; o pedido é montado no catálogo e confirmado pela equipe 3ZK pelo WhatsApp, com 5% de desconto no Pix ou dinheiro.</p></section>
+<section class="seo-content-block"><h2>Sobre {e(nome)}</h2><p>{e(descricao)} {'Opções de kits' if p.get('ocultarContagemVariacoesNoCard') else e(plural.capitalize())} disponíveis no momento: {e(lista_nomes)}. O preço e a disponibilidade podem variar conforme a opção escolhida; o pedido é montado no catálogo e confirmado pela equipe 3ZK pelo WhatsApp, com 5% de desconto no Pix ou dinheiro.</p></section>
 """
     relacionados = [x for x in PRODUTOS if x is not p and x["_secao"] == p["_secao"] and (acessorio or x.get("material") == material)][:4]
     if relacionados:

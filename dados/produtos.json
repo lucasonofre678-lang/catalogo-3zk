@@ -1788,6 +1788,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-pla/roxo-claro-matte-soft-purple.webp",
           "assets/fotos/masterprint-pla/roxo-claro-real.webp",
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
@@ -1908,6 +1909,19 @@
           "assets/fotos/masterprint-pla/fosco-branco.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-branco",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fosco Laranja Nascer do Sol",
+        "hex": "#E8752A",
+        "efeito": "fosco",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/fosco-laranja-nascer-do-sol.webp"
+        ],
+        "idCatalogo": "masterprint|pla||fosco-laranja-nascer-do-sol",
         "statusEstoque": "em_estoque",
         "disponivel": true
       },
@@ -2690,6 +2704,54 @@
         "idCatalogo": "masterprint|tpu||natural-transparente",
         "statusEstoque": "sem_estoque",
         "disponivel": false
+      },
+      {
+        "nome": "Azul",
+        "hex": "#2E5AB8",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/azul.webp"
+        ],
+        "idCatalogo": "masterprint|tpu||azul",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C83232",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/vermelho.webp"
+        ],
+        "idCatalogo": "masterprint|tpu||vermelho",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#E96B28",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/laranja.webp"
+        ],
+        "idCatalogo": "masterprint|tpu||laranja",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Marrom",
+        "hex": "#704934",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-tpu/marrom.webp"
+        ],
+        "idCatalogo": "masterprint|tpu||marrom",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "obs": "",
@@ -4777,6 +4839,7 @@
     "categoria": "Armazenamento",
     "rotuloVariacaoSingular": "quantidade",
     "rotuloVariacaoPlural": "quantidades",
+    "ocultarContagemVariacoesNoCard": true,
     "tipoProduto": "sílica gel",
     "cores": [
       {
@@ -4877,6 +4940,7 @@
     "categoria": "Armazenamento",
     "rotuloVariacaoSingular": "quantidade",
     "rotuloVariacaoPlural": "quantidades",
+    "ocultarContagemVariacoesNoCard": true,
     "tipoProduto": "sílica gel",
     "cores": [
       {
