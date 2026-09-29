@@ -2177,8 +2177,8 @@
           "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-laranja-preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Lavanda",
@@ -2389,13 +2389,13 @@
           "assets/fotos/masterprint-pla-especial/ice-cream-real.webp"
         ],
         "idCatalogo": "masterprint|pla|especial|ice-cream",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "linha": "Especial",
     "idCatalogo": "masterprint|pla|especial",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Masterprint",
@@ -2714,7 +2714,7 @@
           "assets/fotos/masterprint-tpu/azul.webp"
         ],
         "idCatalogo": "masterprint|tpu||azul",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2726,7 +2726,7 @@
           "assets/fotos/masterprint-tpu/vermelho.webp"
         ],
         "idCatalogo": "masterprint|tpu||vermelho",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2738,7 +2738,7 @@
           "assets/fotos/masterprint-tpu/laranja.webp"
         ],
         "idCatalogo": "masterprint|tpu||laranja",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2750,7 +2750,7 @@
           "assets/fotos/masterprint-tpu/marrom.webp"
         ],
         "idCatalogo": "masterprint|tpu||marrom",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -4794,12 +4794,12 @@
           "assets/fotos/luminaria-de-cura-uv-resinas-5w/5w.webp"
         ],
         "idCatalogo": "luminaria-de-cura-uv|resinas|5w|5w",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "luminaria-de-cura-uv|resinas|5w",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Resina UV Fotopolimerizável",
