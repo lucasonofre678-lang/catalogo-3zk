@@ -6,13 +6,14 @@ Este mapa descreve a função observada dos arquivos na `main` documentada. A ex
 
 | Caminho | Papel real encontrado | Runtime público? |
 |---|---|---:|
-| `index.html` | Página pública (visual V4): header, busca, categorias, sidebar de filtros, grid, drawer do produto, visualizador, pedido em etapas, SEO | Sim |
+| `index.html` | Página pública (visual V4): header, busca, categorias, sidebar de filtros, grid, drawer do produto, visualizador, finalização do pedido em uma tela, dúvidas frequentes, SEO | Sim |
 | `style.css` | Estilos do site (visual V4) e das páginas estáticas de SEO | Sim |
 | `script.js` | Carregamento do catálogo, controle manual, busca, filtros, fotos, drawer/zoom, carrinho, pedido e WhatsApp | Sim |
 | `seo-produto.js` | Interação das páginas estáticas de SEO (troca de variação/miniaturas) | Sim |
 | `produto.html` + `produto.js` | Redirecionam links antigos `produto.html?produto=&cor=` para a ficha no catálogo | Sim |
 | `robots.txt` | Aponta para `https://3zk.com.br/sitemap.xml` (o sitemap é gerado na publicação) | Sim |
 | `automacao/gerar_paginas_seo.py` | Gera páginas de produto/categoria/marca/guia, `sitemap.xml` e cards pré-renderizados no `_site` durante a publicação | Não (build) |
+| `automacao/gerar_miniaturas.py` | Cria miniaturas WebP das fotos em `_site/assets/miniaturas/` (p = 200 px, c = 560 px) durante a publicação; fotos originais intactas | Não (build) |
 | `VALIDAR-CATALOGO.cmd` | Atalho Windows para validação | Não |
 | `CENTRAL-3ZK-GITHUB.cmd` | Utilitário local relacionado ao fluxo Git/GitHub | Não |
 | `CONFIGURAR-GIT-SEGURO.cmd` | Atalho para configurar proteção/hook Git | Não |
@@ -66,6 +67,7 @@ Este mapa descreve a função observada dos arquivos na `main` documentada. A ex
 - `assets/logo-fundo-invisivel.png`
 - `assets/logo-fundo-azul.png`
 - `assets/favicon/**`
+- `assets/fontes/**` (fonte Anuphan em WoFF2, licença SIL OFL em `OFL.txt`)
 - `assets/social/catalogo-3zk.jpg`
 
 ### Fotos

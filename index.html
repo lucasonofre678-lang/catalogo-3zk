@@ -30,10 +30,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
   <link rel="apple-touch-icon" sizes="180x180" href="assets/favicon/apple-touch-icon.png">
   <link rel="manifest" href="assets/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="style.css?v=20260928-v7">
+  <link rel="preload" href="assets/fontes/anuphan-latin.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="style.css?v=20260928-v8">
   <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Organization","@id":"https://3zk.com.br/#organizacao","name":"3ZK Filamentos","alternateName":"3ZK","url":"https://3zk.com.br/","logo":"https://3zk.com.br/assets/logo-fundo-azul.png","contactPoint":{"@type":"ContactPoint","contactType":"customer service","url":"https://wa.me/554184539430","availableLanguage":"pt-BR"},"sameAs":["https://www.instagram.com/3zk.filamentos/","https://3zkfilamentos.com.br/"]},{"@type":"WebSite","@id":"https://3zk.com.br/#site","name":"3ZK Filamentos","alternateName":"3ZK","url":"https://3zk.com.br/","inLanguage":"pt-BR","publisher":{"@id":"https://3zk.com.br/#organizacao"}}]}</script>
 </head>
 <body>
@@ -194,7 +192,7 @@
         </div>
         <button class="banners__seta banners__seta--anterior" type="button" data-banners-anterior aria-label="Banner anterior"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m14.5 6-6 6 6 6"></path></svg></button>
         <button class="banners__seta banners__seta--proximo" type="button" data-banners-proximo aria-label="Próximo banner"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></button>
-        <div class="banners__pontos" role="group" aria-label="Escolher banner"><button type="button" data-banners-ir="0" aria-label="Banner 1: Catálogo 3ZK" aria-current="true"></button><button type="button" data-banners-ir="1" aria-label="Banner 2: Closin PLA" aria-current="false"></button><button type="button" data-banners-ir="2" aria-label="Banner 3: 5% OFF no Pix" aria-current="false"></button><button type="button" data-banners-ir="3" aria-label="Banner 4: Acessórios" aria-current="false"></button></div>
+        <div class="banners__pontos" role="group" aria-label="Controles dos banners"><button type="button" data-banners-ir="0" aria-label="Banner 1: Catálogo 3ZK" aria-current="true"></button><button type="button" data-banners-ir="1" aria-label="Banner 2: Closin PLA" aria-current="false"></button><button type="button" data-banners-ir="2" aria-label="Banner 3: 5% OFF no Pix" aria-current="false"></button><button type="button" data-banners-ir="3" aria-label="Banner 4: Acessórios" aria-current="false"></button><button class="banners__pausa" type="button" data-banners-pausa aria-label="Pausar troca automática dos banners" aria-pressed="false"></button></div>
       </div>
     </section>
 
@@ -266,38 +264,63 @@
           <p>Um resumo rápido para orientar a escolha sem tirar você do catálogo.</p>
         </div>
         <div class="material-guides">
-          <a class="seo-guide-link" href="filamentos/pla/"><strong>PLA</strong><span>Fácil de imprimir e versátil.</span></a>
-          <a class="seo-guide-link" href="filamentos/petg/"><strong>PETG</strong><span>Resistência e boa durabilidade.</span></a>
-          <a class="seo-guide-link" href="filamentos/abs/"><strong>ABS</strong><span>Boa resistência mecânica e térmica.</span></a>
-          <a class="seo-guide-link" href="filamentos/tpu/"><strong>TPU</strong><span>Flexível para peças funcionais.</span></a>
+          <a class="guia-card" href="filamentos/pla/" data-home-categoria="PLA"><strong>PLA</strong><span>Fácil de imprimir e versátil.</span><small>Protótipos, peças decorativas e uso geral.</small><em>Ver PLA</em></a>
+          <a class="guia-card" href="filamentos/petg/" data-home-categoria="PETG"><strong>PETG</strong><span>Resistência e boa durabilidade.</span><small>Peças funcionais e objetos do dia a dia.</small><em>Ver PETG</em></a>
+          <a class="guia-card" href="filamentos/abs/" data-home-categoria="ABS"><strong>ABS</strong><span>Boa resistência mecânica e térmica.</span><small>Peças técnicas; pede mesa aquecida.</small><em>Ver ABS</em></a>
+          <a class="guia-card" href="filamentos/asa/" data-home-categoria="ASA"><strong>ASA</strong><span>Resistente ao sol e ao tempo.</span><small>Peças que ficam em ambiente externo.</small><em>Ver ASA</em></a>
+          <a class="guia-card" href="filamentos/tpu/" data-home-categoria="TPU"><strong>TPU</strong><span>Flexível para peças funcionais.</span><small>Capas, vedações e amortecedores.</small><em>Ver TPU</em></a>
         </div>
         <a class="seo-guide-cta" href="guia-de-materiais/">Abrir guia completo de materiais</a>
       </div>
     </section>
 
-    <section class="help-section shell" id="ajuda" aria-labelledby="help-title">
-      <div>
+    <section class="duvidas shell" id="ajuda" aria-labelledby="duvidas-titulo">
+      <div class="duvidas__lista">
+        <p class="eyebrow">DÚVIDAS FREQUENTES</p>
+        <h2 id="duvidas-titulo">Como funciona comprar na 3ZK</h2>
+        <details class="duvida" open>
+          <summary>Como faço o pedido?</summary>
+          <p>Escolha o produto e a cor, toque em <strong>Adicionar ao pedido</strong> e depois em <strong>Enviar pedido no WhatsApp</strong>. A equipe confirma estoque, entrega e valor final na conversa. Nada é cobrado no site.</p>
+        </details>
+        <details class="duvida">
+          <summary>Quais são as formas de pagamento?</summary>
+          <p>Pix ou dinheiro com 5% de desconto, ou cartão em até 3x sem juros. A forma de pagamento é combinada com a equipe no WhatsApp.</p>
+        </details>
+        <details class="duvida">
+          <summary>Tem retirada ou entrega em Curitiba?</summary>
+          <p>Sim. A 3ZK faz vendas locais em Curitiba: você combina a retirada pelo WhatsApp ou consulta a entrega para Curitiba, região e demais localidades.</p>
+        </details>
+        <details class="duvida">
+          <summary>O estoque e as fotos do catálogo são reais?</summary>
+          <p>Cada cor aparece com foto e disponibilidade atualizada várias vezes ao dia. Mesmo assim, a equipe confirma o estoque antes de fechar o pedido.</p>
+        </details>
+        <details class="duvida">
+          <summary>Moro fora de Curitiba. Consigo comprar?</summary>
+          <p>Sim: a <a href="https://3zkfilamentos.com.br/" target="_blank" rel="noopener">loja online 3zkfilamentos.com.br</a> atende todo o Brasil.</p>
+        </details>
+        <details class="duvida">
+          <summary>Vocês fazem manutenção de impressoras 3D?</summary>
+          <p>Sim. Impressora parada, entupindo ou imprimindo com falha? <a href="#manutencao" data-open-maintenance>Descreva o problema</a> em um formulário rápido: a equipe analisa e entra em contato para orientar os próximos passos.</p>
+        </details>
+      </div>
+      <aside class="ajuda-cartao" aria-labelledby="help-title">
         <p class="eyebrow">ATENDIMENTO</p>
         <h2 id="help-title">Precisa de ajuda para escolher?</h2>
-        <p>A equipe 3ZK ajuda com material, cor ou quantidade. Monte o pedido no catálogo e envie pelo WhatsApp: estoque, entrega e valor final são confirmados pela equipe.</p>
-      </div>
-      <a class="secondary-button" href="https://wa.me/554184539430" target="_blank" rel="noopener">Falar no WhatsApp</a>
+        <p>A equipe 3ZK ajuda com material, cor ou quantidade.</p>
+        <a class="primary-button is-whatsapp" href="https://wa.me/554184539430" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.7 7.7 0 0 1-8 7.6 8.6 8.6 0 0 1-3.5-.75L4 19.5l1.2-3.9A7.6 7.6 0 1 1 20 11.5Z"></path><path d="M9.2 9.2c.3 2.4 2.2 4.4 4.6 4.8l1-1.1 1.6.8-.4 1.5c-3.6.2-7.2-3.3-7-7l1.5-.4.8 1.6Z"></path></svg>Falar no WhatsApp</a>
+        <ul class="ajuda-cartao__links">
+          <li><a href="guia-de-materiais/">Guia de materiais</a></li>
+          <li><a href="#manutencao" data-open-maintenance>Manutenção 3D</a></li>
+          <li><a href="sobre/">Sobre a 3ZK</a></li>
+        </ul>
+      </aside>
     </section>
 
     <section class="seo-home-content shell" aria-labelledby="seo-home-title">
       <div class="seo-content-block">
-        <h2 id="seo-home-title">Filamentos e acessórios para impressão 3D</h2>
+        <h2 id="seo-home-title">Filamentos e acessórios para impressão 3D em Curitiba</h2>
         <p>A 3ZK reúne no catálogo filamentos PLA, PETG, ABS, ASA, TPU e TPR de marcas como Masterprint, Closin, Flashforge, Multifila e PolyFlow, além de acessórios para o dia a dia da impressão 3D: ferramentas, colas, resina UV e luminária de cura. Cada cor aparece com foto e disponibilidade atualizada, e os filtros ajudam a comparar material, marca, cor, acabamento e preço.</p>
-        <div class="seo-content-links"><a href="filamentos/">Todos os filamentos</a><a href="filamentos/pla/">Filamento PLA</a><a href="filamentos/petg/">Filamento PETG</a><a href="filamentos/abs/">Filamento ABS</a><a href="filamentos/tpu/">Filamento TPU</a><a href="acessorios/">Acessórios</a><a href="guia-de-materiais/">Guia de materiais</a></div>
-      </div>
-      <div class="seo-local-block">
-        <h2>Filamento 3D em Curitiba e região</h2>
-        <p>A 3ZK faz vendas locais em Curitiba: você monta o pedido no catálogo, envia pelo WhatsApp e combina retirada ou consulta de entrega com a equipe. Para compras fora de Curitiba, a <a href="https://3zkfilamentos.com.br/" target="_blank" rel="noopener">loja online 3zkfilamentos.com.br</a> atende todo o Brasil.</p>
-      </div>
-      <div class="seo-content-block">
-        <h2>Manutenção de impressoras 3D</h2>
-        <p>Impressora parada, entupindo ou imprimindo com falha? Descreva o problema em um formulário rápido: a equipe da 3ZK analisa as informações e entra em contato para orientar os próximos passos.</p>
-        <div class="seo-content-links"><a href="https://forms.gle/VcvL8WY9HG8YU87f6" target="_blank" rel="noopener">Descrever o problema</a><a href="sobre/">Sobre a 3ZK</a></div>
+        <div class="seo-content-links"><a href="filamentos/">Todos os filamentos</a><a href="filamentos/pla/">Filamento PLA</a><a href="filamentos/petg/">Filamento PETG</a><a href="filamentos/abs/">Filamento ABS</a><a href="filamentos/tpu/">Filamento TPU</a><a href="acessorios/">Acessórios</a><a href="marcas/">Marcas</a></div>
       </div>
       <div class="seo-directory" id="seoDirectory" hidden></div>
     </section>
@@ -329,6 +352,7 @@
       <span class="mobile-nav-icon-wrap"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.8 7.5h10.4l1 12H5.8l1-12Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg><b id="mobileBottomCartCount" hidden>0</b></span>
       <span>Pedido</span>
     </button>
+    <button type="button" class="mobile-nav-checkout" id="mobileNavCheckout" hidden><span>Finalizar pedido</span><strong id="mobileNavCheckoutTotal">R$ 0,00</strong><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></button>
   </nav>
 
   <a class="whatsapp-float" href="https://wa.me/554184539430" target="_blank" rel="noopener" aria-label="Falar com a 3ZK no WhatsApp" title="Falar com a 3ZK no WhatsApp">
@@ -361,7 +385,7 @@
       <div class="cart-summary"><span>Subtotal</span><strong id="cartTotal">R$ 0,00</strong></div>
       <p class="cart-pix" id="cartPix"></p>
       <button class="primary-button" type="button" id="cartContinue" disabled>Finalizar pedido</button>
-      <p class="cart-note">Sem checkout: você revisa tudo e envia pelo WhatsApp.</p>
+      <p class="cart-note">Você confere tudo em uma tela e envia pelo WhatsApp.</p>
     </div>
   </aside>
 
@@ -455,70 +479,73 @@
             <span class="qty-stepper"><button type="button" id="zoomQtyMinus" aria-label="Diminuir quantidade"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6 12h12"></path></svg></button><output id="zoomQty" aria-live="polite">1</output><button type="button" id="zoomQtyPlus" aria-label="Aumentar quantidade"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 6v12M6 12h12"></path></svg></button></span>
           </div>
           <button class="primary-button zoom-add" type="button" id="zoomAdd">Adicionar ao pedido</button>
-          <small>Sem checkout: você revisa o pedido antes de enviar pelo WhatsApp.</small>
+          <small>Você confere tudo em uma tela e envia pelo WhatsApp.</small>
         </div>
       </aside>
     </section>
   </div>
 
-  <!-- FINALIZAÇÃO DO PEDIDO (etapas 2 e 3) -->
+  <!-- FINALIZAÇÃO DO PEDIDO: uma tela só (itens, preferências e envio) -->
   <div class="review-backdrop" id="reviewBackdrop" hidden>
     <section class="review-modal" role="dialog" aria-modal="true" aria-labelledby="reviewTitle" id="reviewModal">
       <button class="icon-button modal-close" type="button" id="reviewClose" aria-label="Fechar finalização do pedido"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m7 7 10 10M17 7 7 17"></path></svg></button>
-      <ol class="order-steps" aria-label="Etapas do pedido">
-        <li class="order-step is-done" data-order-step="1"><b>1</b><span>Produtos</span></li>
-        <li class="order-step" data-order-step="2"><b>2</b><span>Seus dados</span></li>
-        <li class="order-step" data-order-step="3"><b>3</b><span>Revisar e enviar</span></li>
-      </ol>
-      <p class="eyebrow" id="reviewEyebrow">ETAPA 2 DE 3</p>
-      <h2 id="reviewTitle">Como podemos atender você?</h2>
 
-      <div class="review-step" data-review-step="2">
-        <p class="review-lead">Esses dados vão organizados na mensagem do WhatsApp.</p>
+      <div class="review-confirmar" id="reviewConfirmar">
+        <p class="eyebrow">Último passo · Pedido <span id="reviewCode"></span></p>
+        <h2 id="reviewTitle" tabindex="-1">Confira e envie seu pedido</h2>
+        <div class="review-items" id="reviewItems"></div>
+
         <form class="order-form" id="orderForm" novalidate>
-          <label class="form-field">
-            <span>Nome e sobrenome <b aria-hidden="true">*</b></span>
-            <input id="orderName" name="nome" type="text" autocomplete="name" maxlength="80" placeholder="Digite seu nome" required>
-            <small>Informe seu nome para identificarmos o pedido.</small>
-          </label>
-          <label class="form-field">
-            <span>Telefone <em>(opcional)</em></span>
-            <input id="orderPhone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" maxlength="16" placeholder="(41) 99999-9999">
-          </label>
           <fieldset class="form-options">
-            <legend>Forma de entrega</legend>
+            <legend>Como prefere receber?</legend>
             <label class="form-option"><input type="radio" name="entrega" value="retirada" checked><span><strong>Retirada</strong><small>Combinamos o horário pelo WhatsApp</small></span></label>
-            <label class="form-option"><input type="radio" name="entrega" value="entrega"><span><strong>Consultar entrega</strong><small>Curitiba, região e demais localidades</small></span></label>
+            <label class="form-option"><input type="radio" name="entrega" value="entrega"><span><strong>Entrega</strong><small>Curitiba, região e demais localidades</small></span></label>
           </fieldset>
+          <p class="form-dica" id="orderDeliveryHint" hidden>Conte o bairro ou o CEP na observação para calcularmos a entrega.</p>
           <fieldset class="form-options form-options--compact">
-            <legend>Preferência de pagamento</legend>
-            <label class="form-option"><input type="radio" name="pagamento" value="pix" checked><span><strong>Pix</strong><small class="form-benefit">5% de desconto</small></span></label>
-            <label class="form-option"><input type="radio" name="pagamento" value="dinheiro"><span><strong>Dinheiro</strong><small class="form-benefit">5% de desconto</small></span></label>
-            <label class="form-option"><input type="radio" name="pagamento" value="combinar"><span><strong>Combinar no WhatsApp</strong><small>Até 3x sem juros no cartão</small></span></label>
+            <legend>Como prefere pagar?</legend>
+            <label class="form-option"><input type="radio" name="pagamento" value="pix" checked><span><strong>Pix</strong><small class="form-benefit">5% OFF</small></span></label>
+            <label class="form-option"><input type="radio" name="pagamento" value="dinheiro"><span><strong>Dinheiro</strong><small class="form-benefit">5% OFF</small></span></label>
+            <label class="form-option"><input type="radio" name="pagamento" value="combinar"><span><strong>Cartão</strong><small>Até 3x sem juros</small></span></label>
           </fieldset>
           <label class="form-field">
-            <span>Observação</span>
-            <textarea id="orderNote" name="observacao" maxlength="300" placeholder="Prazo, endereço, dúvidas ou alguma informação importante..."></textarea>
-            <small class="form-counter"><span id="orderNoteCount">0</span>/300</small>
+            <span>Seu nome <em>(opcional)</em></span>
+            <input id="orderName" name="nome" type="text" autocomplete="name" maxlength="80" placeholder="Como podemos chamar você?">
           </label>
+          <details class="form-mais" id="orderMore">
+            <summary>Adicionar telefone ou observação</summary>
+            <label class="form-field">
+              <span>Telefone <em>(opcional)</em></span>
+              <input id="orderPhone" name="telefone" type="tel" autocomplete="tel" inputmode="tel" maxlength="16" placeholder="(41) 99999-9999">
+            </label>
+            <label class="form-field">
+              <span>Observação <em>(opcional)</em></span>
+              <textarea id="orderNote" name="observacao" maxlength="300" placeholder="Bairro ou CEP para entrega, prazo, dúvidas..."></textarea>
+              <small class="form-counter"><span id="orderNoteCount">0</span>/300</small>
+            </label>
+          </details>
         </form>
-      </div>
 
-      <div class="review-step" data-review-step="3" hidden>
-        <p class="review-lead">O pedido será aberto no WhatsApp da 3ZK para confirmação.</p>
-        <p class="review-code">Código do pedido: <strong id="reviewCode"></strong></p>
-        <div id="reviewItems" class="review-items"></div>
-        <dl class="review-data" id="reviewData"></dl>
         <div class="review-lines" id="reviewLines"></div>
-        <div class="review-total"><span id="reviewTotalLabel">Total dos produtos</span><strong id="reviewTotal">R$ 0,00</strong></div>
-        <div class="order-notice"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><circle cx="12" cy="12" r="8.5"></circle><path d="M12 11v5M12 8h.01"></path></svg><span>Estoque, entrega e valor final serão confirmados pela equipe antes do fechamento.</span></div>
+        <p class="review-garantia"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M12 3.5 5 6.5v5c0 4.2 2.9 7.7 7 9 4.1-1.3 7-4.8 7-9v-5l-7-3Z"></path><path d="m9 12 2.2 2.2L15.5 10"></path></svg><span>Nada é cobrado aqui. A 3ZK confirma estoque, entrega e valor final pelo WhatsApp.</span></p>
+
+        <div class="review-actions">
+          <div class="review-total"><span id="reviewTotalLabel">Total</span><strong id="reviewTotal">R$ 0,00</strong></div>
+          <button class="primary-button is-whatsapp" type="button" id="reviewNext"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.7 7.7 0 0 1-8 7.6 8.6 8.6 0 0 1-3.5-.75L4 19.5l1.2-3.9A7.6 7.6 0 1 1 20 11.5Z"></path><path d="M9.2 9.2c.3 2.4 2.2 4.4 4.6 4.8l1-1.1 1.6.8-.4 1.5c-3.6.2-7.2-3.3-7-7l1.5-.4.8 1.6Z"></path></svg>Enviar pedido no WhatsApp</button>
+          <div class="review-links"><button class="link-button" type="button" id="reviewBack">Editar itens</button><button class="link-button" type="button" id="reviewCopy">Copiar pedido</button></div>
+        </div>
       </div>
 
-      <div class="review-actions">
-        <button class="secondary-button" type="button" id="reviewBack">Voltar</button>
-        <button class="primary-button" type="button" id="reviewNext">Revisar pedido</button>
+      <div class="review-sucesso" id="reviewSucesso" hidden>
+        <span class="review-sucesso__icone" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="m5 12.5 4.2 4.2L19 7"></path></svg></span>
+        <h2 id="reviewSucessoTitulo" tabindex="-1">Pedido aberto no WhatsApp</h2>
+        <p>Confira a mensagem e toque em <strong>enviar</strong> na conversa. A 3ZK responde confirmando estoque, entrega e valor final.</p>
+        <div class="review-sucesso__acoes">
+          <button class="secondary-button" type="button" id="reviewReenviar"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.7 7.7 0 0 1-8 7.6 8.6 8.6 0 0 1-3.5-.75L4 19.5l1.2-3.9A7.6 7.6 0 1 1 20 11.5Z"></path><path d="M9.2 9.2c.3 2.4 2.2 4.4 4.6 4.8l1-1.1 1.6.8-.4 1.5c-3.6.2-7.2-3.3-7-7l1.5-.4.8 1.6Z"></path></svg>Abrir o WhatsApp de novo</button>
+          <button class="primary-button" type="button" id="reviewNovo">Começar um novo pedido</button>
+        </div>
+        <p class="review-sucesso__nota">Os itens continuam salvos neste aparelho até você começar um novo pedido.</p>
       </div>
-      <button class="text-button review-copy" type="button" id="reviewCopy">Copiar pedido</button>
     </section>
   </div>
 
@@ -541,9 +568,9 @@
 
   <div class="toast" id="toast" role="status" aria-live="polite" hidden>
     <span class="toast-msg" id="toastMsg"></span>
-    <button class="toast-action" type="button" id="toastAction" hidden>Ver pedido</button>
+    <button class="toast-action" type="button" id="toastAction" hidden>Finalizar pedido</button>
   </div>
 
-  <script src="script.js?v=20260928-v6"></script>
+  <script src="script.js?v=20260928-v7"></script>
 </body>
 </html>

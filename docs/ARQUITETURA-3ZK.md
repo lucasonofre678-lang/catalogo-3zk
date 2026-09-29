@@ -60,7 +60,7 @@ A arquitetura atual é um site estático com dados JSON e automações externas 
 
 - `style.css`;
 - `script.js`;
-- fonte Google `Anuphan` (visual V4);
+- fonte `Anuphan` hospedada no próprio site (`assets/fontes/`, com `preload`), sem Google Fonts;
 - favicons em `assets/favicon/`;
 - imagem social em `assets/social/catalogo-3zk.jpg`.
 
@@ -75,6 +75,8 @@ Na publicação, `automacao/gerar_paginas_seo.py` lê o catálogo público recé
 - `guia-de-materiais/`, `sobre/`, `404.html`;
 - `sitemap.xml` (somente URLs reais) e cards pré-renderizados em `index.html`.
 
+Antes disso, `automacao/gerar_miniaturas.py` cria miniaturas WebP em `_site/assets/miniaturas/` (Pillow instalado no workflow). Quando elas existem, o gerador as usa nos cards/cores e marca `index.html` com `<meta name="3zk-miniaturas">`; o `script.js` só troca para miniaturas com essa marca e volta sozinho para a foto original se uma miniatura faltar.
+
 As páginas não são versionadas no repositório: acompanham automaticamente cada publicação (inclusive as disparadas pelo estoque). A interação dessas páginas fica em `seo-produto.js` (sem script inline, por causa da CSP). `produto.html` só redireciona links antigos `produto.html?produto=&cor=` para a ficha no catálogo.
 
 ### Carregamento de dados
@@ -84,7 +86,7 @@ As páginas não são versionadas no repositório: acompanham automaticamente ca
 Em produção:
 
 1. busca `dados/produtos.json` com `cache: "no-store"`;
-2. busca `dados/controle-catalogo.json`;
+2. busca `dados/controle-catalogo.json` somente no servidor local (Live Server/Painel); publicado, o arquivo não existe e as pausas já vêm aplicadas no `produtos.json`;
 3. valida se o catálogo público é uma lista e se cada produto possui `cores`;
 4. aplica pausas manuais;
 5. elimina cores sem disponibilidade;

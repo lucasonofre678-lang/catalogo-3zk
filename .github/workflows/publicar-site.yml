@@ -58,6 +58,7 @@ jobs:
           node --check produto.js
           node --check seo-produto.js
           python -m py_compile automacao/gerar_paginas_seo.py
+          python -m py_compile automacao/gerar_miniaturas.py
 
           python - <<'PY'
           from pathlib import Path
@@ -101,10 +102,20 @@ jobs:
           cp index.html links.html produto.html script.js produto.js seo-produto.js robots.txt _site/
           cp ./*.css _site/
           cp -R assets _site/assets
+          # Navegadores e buscadores pedem /favicon.ico na raiz mesmo com <link rel="icon">.
+          cp assets/favicon/favicon.ico _site/favicon.ico
 
           python automacao/gerar_catalogo_sem_consultar_olist.py \
             --controle dados/controle-catalogo.json \
             --output _site/dados/produtos.json
+
+          # Miniaturas WebP das fotos (cards, cores e pedido). As fotos originais não mudam.
+          # Se algo falhar aqui, a publicação segue e o site usa as fotos originais.
+          if python -m pip install --quiet --disable-pip-version-check pillow; then
+            python automacao/gerar_miniaturas.py --site _site || echo "Aviso: miniaturas não geradas; o site usa as fotos originais."
+          else
+            echo "Aviso: Pillow indisponível; o site usa as fotos originais."
+          fi
 
           # Páginas de produto/categoria, sitemap e cards pré-renderizados,
           # sempre a partir do catálogo público recém-montado (preço/estoque atuais).
@@ -147,7 +158,7 @@ jobs:
             Referrer-Policy: strict-origin-when-cross-origin
             X-Frame-Options: DENY
             Permissions-Policy: camera=(), microphone=(), geolocation=()
-            Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
+            Content-Security-Policy: default-src 'self'; script-src 'self'; style-src 'self'; font-src 'self'; img-src 'self' data: https:; connect-src 'self'; object-src 'none'; base-uri 'self'; frame-ancestors 'none'
           /
             Cache-Control: no-store, no-cache, must-revalidate, max-age=0
           /index.html

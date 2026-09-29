@@ -61,8 +61,7 @@
     modal: null, modalVariant: 0, modalImage: 0, modalQty: 1, lastFocus: null, urlAntesDoProduto: null,
     zoomOpen: false, zoomScale: 1, zoomX: 0, zoomY: 0, zoomDragging: false, zoomMoved: false, zoomStartX: 0, zoomStartY: 0,
     swipe: null, swipeSuppressClickUntil: 0,
-    openGroups: { materials: true, colors: true, brands: false, finishes: false },
-    reviewStep: 2
+    openGroups: { materials: true, colors: true, brands: false, finishes: false }
   };
 
   const els = {
@@ -73,8 +72,10 @@
     mobileBottomCount: $("#mobileBottomCartCount"), mobileNavCatalog: $("#mobileNavCatalog"), mobileNavSearch: $("#mobileNavSearch"), mobileNavCart: $("#mobileNavCart"), swipeCartHint: $("#swipeCartHint"), swipeCatalogHint: $("#swipeCatalogHint"),
     modalBackdrop: $("#modalBackdrop"), modal: $("#productModal"), modalClose: $("#modalClose"), modalShare: $("#modalShare"), modalImage: $("#modalImage"), modalImageZoom: $("#modalImageZoom"), modalImageThumbs: $("#modalImageThumbs"), modalPrevImage: $("#modalPrevImage"), modalNextImage: $("#modalNextImage"), modalKicker: $("#modalKicker"), modalTitle: $("#modalTitle"), modalVariantName: $("#modalVariantName"), modalPrice: $("#modalPrice"), modalStock: $("#modalStock"), modalObs: $("#modalObs"), modalVariants: $("#modalVariants"), modalVariantLabel: $("#modalVariantLabel"), modalVariantCount: $("#modalVariantCount"), modalVariantPos: $("#modalVariantPos"), modalPrevVariant: $("#modalPrevVariant"), modalNextVariant: $("#modalNextVariant"), modalQty: $("#modalQty"), modalAdd: $("#modalAdd"), modalPageLink: $("#modalPageLink"), modalStoreLink: $("#modalStoreLink"),
     zoomBackdrop: $("#zoomBackdrop"), zoomModal: $("#zoomModal"), zoomImage: $("#zoomImage"), zoomImageWrap: $("#zoomImageWrap"), zoomStage: $("#zoomStage"), zoomClose: $("#zoomClose"), zoomPrev: $("#zoomPrev"), zoomNext: $("#zoomNext"), zoomIn: $("#zoomIn"), zoomOut: $("#zoomOut"), zoomReset: $("#zoomReset"), zoomPhotos: $("#zoomPhotos"), zoomKicker: $("#zoomKicker"), zoomTitle: $("#zoomTitle"), zoomVariantBadge: $("#zoomVariantBadge"), zoomSwatch: $("#zoomSwatch"), zoomVariantKind: $("#zoomVariantKind"), zoomVariantName: $("#zoomVariantName"), zoomStock: $("#zoomStock"), zoomPriceBlock: $("#zoomPriceBlock"), zoomVariantLabel: $("#zoomVariantLabel"), zoomVariantCount: $("#zoomVariantCount"), zoomVariantStrip: $("#zoomVariantStrip"), zoomQty: $("#zoomQty"), zoomQtyMinus: $("#zoomQtyMinus"), zoomQtyPlus: $("#zoomQtyPlus"), zoomAdd: $("#zoomAdd"),
-    review: $("#reviewBackdrop"), reviewModal: $("#reviewModal"), reviewEyebrow: $("#reviewEyebrow"), reviewTitle: $("#reviewTitle"), reviewItems: $("#reviewItems"), reviewData: $("#reviewData"), reviewLines: $("#reviewLines"), reviewTotal: $("#reviewTotal"), reviewTotalLabel: $("#reviewTotalLabel"), reviewCode: $("#reviewCode"), reviewBack: $("#reviewBack"), reviewNext: $("#reviewNext"), reviewCopy: $("#reviewCopy"),
-    orderForm: $("#orderForm"), orderNote: $("#orderNote"), orderNoteCount: $("#orderNoteCount"), orderPhone: $("#orderPhone"),
+    review: $("#reviewBackdrop"), reviewModal: $("#reviewModal"), reviewConfirmar: $("#reviewConfirmar"), reviewTitle: $("#reviewTitle"), reviewItems: $("#reviewItems"), reviewLines: $("#reviewLines"), reviewTotal: $("#reviewTotal"), reviewTotalLabel: $("#reviewTotalLabel"), reviewCode: $("#reviewCode"), reviewBack: $("#reviewBack"), reviewNext: $("#reviewNext"), reviewCopy: $("#reviewCopy"),
+    reviewSucesso: $("#reviewSucesso"), reviewSucessoTitulo: $("#reviewSucessoTitulo"), reviewReenviar: $("#reviewReenviar"), reviewNovo: $("#reviewNovo"),
+    orderForm: $("#orderForm"), orderNote: $("#orderNote"), orderNoteCount: $("#orderNoteCount"), orderPhone: $("#orderPhone"), orderMore: $("#orderMore"), orderDeliveryHint: $("#orderDeliveryHint"),
+    mobileNavCheckout: $("#mobileNavCheckout"), mobileNavCheckoutTotal: $("#mobileNavCheckoutTotal"),
     maintenance: $("#maintenanceBackdrop"), maintenanceModal: $("#manutencao"), maintenanceClose: $("#maintenanceClose"), contactMenu: $("#contactMenu"),
     seoDirectory: $("#seoDirectory"),
     toast: $("#toast"), toastMsg: $("#toastMsg"), toastAction: $("#toastAction")
@@ -84,17 +85,6 @@
      TEXTO, FORMATOS E SLUGS
      ============================================================ */
   const money = new Intl.NumberFormat("pt-BR", { style: "currency", currency: "BRL" });
-
-  // Formato usado na mensagem oficial do pedido (sem centavos em valores inteiros).
-  const formatarPreco = (valor) => {
-    const numero = Number(valor) || 0;
-    return numero.toLocaleString("pt-BR", {
-      style: "currency",
-      currency: "BRL",
-      minimumFractionDigits: Number.isInteger(numero) ? 0 : 2,
-      maximumFractionDigits: 2
-    });
-  };
 
   function normalizar(texto = "") {
     return String(texto).toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, "");
@@ -413,7 +403,12 @@
     };
   }
 
+  // Na publicação as pausas já saem aplicadas no produtos.json e o arquivo de controle não é
+  // publicado; por isso ele só é lido no servidor local (Live Server / Painel Local).
+  const SERVIDOR_LOCAL = location.protocol === "file:" || ["localhost", "127.0.0.1", "[::1]", ""].includes(location.hostname);
+
   async function carregarControleCatalogo() {
+    if (!SERVIDOR_LOCAL) return normalizarControleCatalogo({});
     try {
       const resposta = await fetch(obterUrlSemCache3ZK("dados/controle-catalogo.json"), { cache: "no-store" });
       if (resposta.status === 404) return normalizarControleCatalogo({});
@@ -635,6 +630,24 @@
   const getPrice = (p, c) => obterPrecoProdutoOuVariacao(p, c);
   const firstImage = (c) => c?._fotos?.[0] || "";
 
+  /*
+    Miniaturas WebP criadas na publicação (automacao/gerar_miniaturas.py): "p" até 200 px
+    (cores, pedido) e "c" até 560 px (cards). A página publicada avisa que elas existem
+    (<meta name="3zk-miniaturas">); sem o aviso (ex.: Live Server) usa a foto original.
+    Se uma miniatura faltar, a imagem volta sozinha para a original (ver o tratador de erro).
+  */
+  const TEM_MINIATURAS = Boolean(document.querySelector('meta[name="3zk-miniaturas"]'));
+  function miniatura(foto, tamanho) {
+    if (!TEM_MINIATURAS || !foto || !foto.startsWith("assets/fotos/")) return foto || "";
+    const resto = foto.slice("assets/fotos/".length);
+    return `assets/miniaturas/${tamanho}/${resto}${/\.webp$/i.test(resto) ? "" : ".webp"}`;
+  }
+  // Atributos src (+ data-original para a volta à foto original) de uma imagem reduzida.
+  function srcMiniatura(foto, tamanho) {
+    const reduzida = miniatura(foto, tamanho);
+    return `src="${esc(reduzida)}"${reduzida !== foto ? ` data-original="${esc(foto)}"` : ""}`;
+  }
+
   /* ============================================================
      PREÇO — Pix e parcelamento seguem o cálculo oficial
      ============================================================ */
@@ -666,7 +679,7 @@
   // Versão compacta do mesmo cálculo para os cards (mesmo markup em automacao/gerar_paginas_seo.py).
   function cardPriceBlock(p, c) {
     const r = obterResumoPrecoCatalogo(getPrice(p, c)), [stock, stockClass] = stockLabel(c);
-    return `<div class="card-price-row"><span class="card-reference-price">${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="card-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span><span class="stock ${stockClass}">${stock}</span></div>`;
+    return `<div class="card-price-row"><span class="card-reference-price">${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span><span class="txt-longo">à vista </span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros<span class="txt-longo"> no cartão</span></span><span class="stock ${stockClass}">${stock}</span></div>`;
   }
 
   // Variação mostrada por padrão: a primeira do cadastro, mesmo com as cores reordenadas por família.
@@ -837,6 +850,17 @@
     return p._acessorio ? "Ver opções" : "Ver cores";
   }
 
+  const ICONE_SACOLA_MAIS = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.8 7.5h10.4l1 12H5.8l1-12Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path><path d="M12 11v5.5M9.25 13.75h5.5"></path></svg>';
+  const ICONE_CHECK = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m5 12.5 4.2 4.2L19 7"></path></svg>';
+
+  // Produto com uma única variação disponível: "Adicionar" já no card (sem abrir o produto).
+  function cardBotao(p, c, title, href) {
+    if (p.cores.length === 1 && corEstaDisponivel(c)) {
+      return `<button type="button" class="primary-button card-cta card-cta--add" data-quick-add aria-label="Adicionar ao pedido: ${esc(title)}">${ICONE_SACOLA_MAIS}<span>Adicionar<span class="txt-longo"> ao pedido</span></span></button>`;
+    }
+    return `<a class="primary-button card-cta" href="${href}" data-open-product>${esc(cardCta(p))}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></a>`;
+  }
+
   function melhorIndiceParaBusca(p, variants) {
     const termo = state.query;
     if (!termo) return -1;
@@ -861,11 +885,11 @@
     const extra = variants.length - shown.length;
     const href = esc(productHref(p));
     return `<article class="product-card${corEstaDisponivel(c) ? "" : " is-out"}" data-product="${esc(p._key)}">
-      <div class="card-media"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : ""}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img src="${esc(firstImage(c))}" alt="${esc(`${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
+      <div class="card-media"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : ""}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img ${srcMiniatura(firstImage(c), "c")} alt="${esc(`${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
       <div class="card-body"><p class="product-kicker">${esc(getKicker(p))}</p><h3 class="product-title"><a href="${href}" data-open-product>${esc(title)}</a></h3><p class="variant-summary"><span title="${esc(c.nome)}">${esc(c.nome)}</span>${many && !p.ocultarContagemVariacoesNoCard ? `<small>${variants.length < p.cores.length ? `${variants.length} de ` : ""}${p.cores.length} ${variantNoun(p, true)}</small>` : ""}</p>
-      <div class="card-variants">${many ? shown.map((v) => { const vi = p.cores.indexOf(v); return `<button type="button" class="variant-mini ${vi === idx ? "is-active" : ""}" data-variant="${vi}" aria-label="Pré-visualizar ${esc(v.nome)}" aria-pressed="${vi === idx}" title="${esc(v.nome)}"><img src="${esc(firstImage(v))}" alt="" loading="lazy" decoding="async"></button>`; }).join("") + (extra > 0 ? `<a href="${href}" class="more-variants" data-open-product aria-label="Ver mais ${extra} ${variantNoun(p, extra > 1)}">+${extra}</a>` : "") : ""}</div>
+      <div class="card-variants">${many ? shown.map((v) => { const vi = p.cores.indexOf(v); return `<button type="button" class="variant-mini ${vi === idx ? "is-active" : ""}" data-variant="${vi}" aria-label="Pré-visualizar ${esc(v.nome)}" aria-pressed="${vi === idx}" title="${esc(v.nome)}"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async"></button>`; }).join("") + (extra > 0 ? `<a href="${href}" class="more-variants" data-open-product aria-label="Ver mais ${extra} ${variantNoun(p, extra > 1)}">+${extra}</a>` : "") : ""}</div>
       ${cardPriceBlock(p, c)}
-      <a class="primary-button card-cta" href="${href}" data-open-product>${esc(cardCta(p))}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></a></div></article>`;
+      ${cardBotao(p, c, title, href)}</div></article>`;
   }
 
   let ultimaLista = [];
@@ -911,16 +935,30 @@
     const p = cardProduct(e.target); if (!p) return;
     const variant = e.target.closest("[data-variant]");
     if (variant) { state.selected.set(p._key, Number(variant.dataset.variant)); refreshCard(p); return; }
+    const rapido = e.target.closest("[data-quick-add]");
+    if (rapido) { e.preventDefault(); adicionarDoCard(p, rapido); return; }
     if (e.target.closest("[data-open-product]")) {
       if (e.ctrlKey || e.metaKey || e.shiftKey || e.button === 1) return; // nova aba: segue o link real
       e.preventDefault(); openProduct(p);
     }
   });
 
+  function adicionarDoCard(p, botao) {
+    const c = p.cores[0];
+    if (!c || !corEstaDisponivel(c)) return;
+    adicionarAoCarrinho(p, c, 1);
+    const original = botao.innerHTML;
+    botao.classList.add("is-added"); botao.innerHTML = `${ICONE_CHECK}<span>Adicionado</span>`;
+    clearTimeout(botao._volta);
+    botao._volta = setTimeout(() => { if (!botao.isConnected) return; botao.classList.remove("is-added"); botao.innerHTML = original; }, 1800);
+  }
+
   // Foto ausente: mostra a amostra de cor no lugar, sem quebrar o layout.
   document.addEventListener("error", (e) => {
     const img = e.target;
-    if (!(img instanceof HTMLImageElement) || img.dataset.fallback) return;
+    if (!(img instanceof HTMLImageElement)) return;
+    if (img.dataset.original) { const original = img.dataset.original; delete img.dataset.original; img.src = original; return; }
+    if (img.dataset.fallback) return;
     img.dataset.fallback = "1";
     img.classList.add("img-missing");
     img.removeAttribute("src");
@@ -951,7 +989,7 @@
 
   function limparUrlProduto(href) {
     const url = new URL(href);
-    url.searchParams.delete("produto"); url.searchParams.delete("cor");
+    ["produto", "cor", "adicionar", "qtd"].forEach((chave) => url.searchParams.delete(chave));
     return url.pathname + url.search + url.hash;
   }
 
@@ -1009,7 +1047,7 @@
     const multiPhoto = imgs.length > 1;
     els.modalPrevImage.hidden = !multiPhoto; els.modalNextImage.hidden = !multiPhoto;
     els.modalImageThumbs.hidden = !multiPhoto;
-    els.modalImageThumbs.innerHTML = multiPhoto ? imgs.map((im, i) => `<button class="modal-thumb ${i === state.modalImage ? "is-active" : ""}" type="button" data-modal-img="${i}" aria-label="Ver foto ${i + 1} de ${imgs.length}" aria-pressed="${i === state.modalImage}"><img src="${esc(im)}" alt=""></button>`).join("") : "";
+    els.modalImageThumbs.innerHTML = multiPhoto ? imgs.map((im, i) => `<button class="modal-thumb ${i === state.modalImage ? "is-active" : ""}" type="button" data-modal-img="${i}" aria-label="Ver foto ${i + 1} de ${imgs.length}" aria-pressed="${i === state.modalImage}"><img ${srcMiniatura(im, "p")} alt=""></button>`).join("") : "";
     els.modalVariants.classList.toggle("is-long", p.cores.length > 16);
     els.modalVariants.hidden = p.cores.length <= 1; els.modalVariants.previousElementSibling.hidden = p.cores.length <= 1;
     els.modalVariants.innerHTML = p.cores.map((v, i) => variantChoice(v, i, "data-modal-variant")).join("");
@@ -1028,7 +1066,7 @@
 
   function variantChoice(v, i, attr) {
     const off = !corEstaDisponivel(v), on = i === state.modalVariant;
-    return `<button class="variant-choice ${on ? "is-active" : ""}" type="button" ${attr}="${i}" aria-pressed="${on}" title="${esc(v.nome)}${off ? " — sem estoque" : ""}" ${off ? "disabled" : ""}><span class="variant-choice-image"><img src="${esc(firstImage(v))}" alt="" loading="lazy" decoding="async"></span><span class="variant-choice-name">${esc(v.nome)}</span>${off ? "<small>Sem estoque</small>" : ""}</button>`;
+    return `<button class="variant-choice ${on ? "is-active" : ""}" type="button" ${attr}="${i}" aria-pressed="${on}" title="${esc(v.nome)}${off ? " — sem estoque" : ""}" ${off ? "disabled" : ""}><span class="variant-choice-image"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async"></span><span class="variant-choice-name">${esc(v.nome)}</span>${off ? "<small>Sem estoque</small>" : ""}</button>`;
   }
 
   function setQty(n) { state.modalQty = clamp(n, 1, LIMITE_QUANTIDADE_ITEM); els.modalQty.textContent = state.modalQty; els.zoomQty.textContent = state.modalQty; }
@@ -1117,7 +1155,7 @@
     els.zoomVariantStrip.querySelector(".is-active")?.scrollIntoView({ block: "nearest" });
     const multiVariant = p.cores.filter(corEstaDisponivel).length > 1; els.zoomPrev.hidden = !multiVariant; els.zoomNext.hidden = !multiVariant;
     els.zoomPhotos.hidden = imgs.length < 2;
-    els.zoomPhotos.innerHTML = imgs.length < 2 ? "" : imgs.map((im, i) => `<button class="modal-thumb ${i === state.modalImage ? "is-active" : ""}" type="button" data-zoom-img="${i}" aria-label="Ver foto ${i + 1} de ${imgs.length}" aria-pressed="${i === state.modalImage}"><img src="${esc(im)}" alt=""></button>`).join("");
+    els.zoomPhotos.innerHTML = imgs.length < 2 ? "" : imgs.map((im, i) => `<button class="modal-thumb ${i === state.modalImage ? "is-active" : ""}" type="button" data-zoom-img="${i}" aria-label="Ver foto ${i + 1} de ${imgs.length}" aria-pressed="${i === state.modalImage}"><img ${srcMiniatura(im, "p")} alt=""></button>`).join("");
     applyZoomTransform();
   }
   function closeZoom(restoreFocus = true) {
@@ -1266,7 +1304,7 @@
     };
   }
 
-  function adicionarAoCarrinho(produto, cor, quantidade = 1) {
+  function adicionarAoCarrinho(produto, cor, quantidade = 1, { aviso = true } = {}) {
     const id = obterIdItemCarrinho(produto, cor);
     const existente = carrinho.find((item) => item.id === id);
     const qtd = clamp(Number(quantidade) || 1, 1, LIMITE_QUANTIDADE_ITEM);
@@ -1280,7 +1318,7 @@
       carrinho.push({ ...criarItemCarrinho(produto, cor), quantidade: qtd });
     }
     salvarCarrinho(); sincronizarCodigoPedidoComCarrinho(); renderizarCarrinho(); bumpCount();
-    toast(`${qtd > 1 ? `${qtd}× ` : ""}${getName(produto)} ${cor.nome} adicionado`, { action: true, icon: true });
+    if (aviso) toast(`${qtd > 1 ? `${qtd}× ` : ""}${getName(produto)} ${cor.nome} adicionado`, { action: true, icon: true });
   }
 
   function alterarQuantidadeItem(id, diferenca) {
@@ -1317,7 +1355,7 @@
     return { p, i };
   }
 
-  /* ---------- dados do formulário (etapa 2) ---------- */
+  /* ---------- dados do formulário (finalização) ---------- */
   function obterDadosFormulario() {
     if (!els.orderForm) return { nome: "", telefone: "", entrega: "retirada", pagamento: "pix", observacao: "" };
     const dados = new FormData(els.orderForm);
@@ -1341,6 +1379,7 @@
     campo("nome").value = dados.nome || "";
     campo("telefone").value = dados.telefone || "";
     campo("observacao").value = dados.observacao || "";
+    if (dados.telefone || dados.observacao) els.orderMore.open = true;
     const entrega = els.orderForm.querySelector(`input[name="entrega"][value="${CSS.escape(dados.entrega || "retirada")}"]`);
     const pagamento = els.orderForm.querySelector(`input[name="pagamento"][value="${CSS.escape(dados.pagamento || "pix")}"]`);
     if (entrega) entrega.checked = true;
@@ -1348,63 +1387,50 @@
     salvarDadosFormulario();
   }
 
-  const obterRotuloEntrega = (valor) => (valor === "entrega" ? "Consultar entrega" : "Retirada");
+  const obterRotuloEntrega = (valor) => (valor === "entrega" ? "Entrega (consultar frete)" : "Retirada");
   function obterRotuloPagamento(valor) {
-    const rotulos = { pix: "Pix — 5% de desconto", dinheiro: "Dinheiro — 5% de desconto", combinar: "Combinar no WhatsApp" };
-    return rotulos[valor] || "Combinar no WhatsApp";
+    const rotulos = { pix: "Pix — 5% de desconto", dinheiro: "Dinheiro — 5% de desconto", combinar: "Cartão (até 3x sem juros) ou combinar no WhatsApp" };
+    return rotulos[valor] || rotulos.combinar;
   }
 
-  function obterPagamentoComDesconto() {
-    const pagamento = obterDadosFormulario().pagamento;
-    if (pagamento === "pix") return { aplica: true, nome: "Pix", nomeCurto: "Pix" };
-    if (pagamento === "dinheiro") return { aplica: true, nome: "Dinheiro", nomeCurto: "dinheiro" };
-    return { aplica: false, nome: "", nomeCurto: "" };
+  // Subtotal, desconto de 5% (Pix ou dinheiro) e total de uma lista de itens.
+  function calcularResumoFinanceiro(itens, pagamento) {
+    const subtotal = arredondarCentavos(itens.reduce((total, item) => total + item.preco * item.quantidade, 0));
+    const formaDesconto = pagamento === "pix" ? "Pix" : pagamento === "dinheiro" ? "Dinheiro" : "";
+    const desconto = formaDesconto ? calcularDescontoPagamento(subtotal) : 0;
+    return { subtotal, desconto, total: arredondarCentavos(subtotal - desconto), aplicaDesconto: Boolean(formaDesconto), formaDesconto };
   }
 
-  function obterResumoFinanceiroPedido() {
-    const subtotal = arredondarCentavos(obterValorTotalCarrinho());
-    const pagamentoComDesconto = obterPagamentoComDesconto();
-    const desconto = pagamentoComDesconto.aplica ? calcularDescontoPagamento(subtotal) : 0;
-    return {
-      subtotal, desconto, total: arredondarCentavos(subtotal - desconto),
-      aplicaDesconto: pagamentoComDesconto.aplica, formaDesconto: pagamentoComDesconto.nome, formaDescontoCurta: pagamentoComDesconto.nomeCurto
-    };
-  }
+  const obterResumoFinanceiroPedido = () => calcularResumoFinanceiro(carrinho, obterDadosFormulario().pagamento);
 
-  function criarMensagemPedidoWhatsApp(opcoes = {}) {
-    const rapido = opcoes.rapido === true;
+  // Mensagem oficial do pedido enviada ao WhatsApp da 3ZK.
+  function criarMensagemPedidoWhatsApp() {
     const dados = obterDadosFormulario();
     const financeiro = obterResumoFinanceiroPedido();
     const linhas = ["🛒 *NOVO PEDIDO — CATÁLOGO 3ZK*", `Pedido 3ZK ${obterCodigoPedido()}`];
-    if (!rapido) {
-      linhas.push("", `👤 *Cliente:* ${dados.nome}`);
-      if (dados.telefone) linhas.push(`📱 *Telefone:* ${dados.telefone}`);
-    }
+    if (dados.nome || dados.telefone) linhas.push("");
+    if (dados.nome) linhas.push(`👤 *Cliente:* ${dados.nome}`);
+    if (dados.telefone) linhas.push(`📱 *Telefone:* ${dados.telefone}`);
     linhas.push("", "📦 *PRODUTOS*");
     carrinho.forEach((item, indice) => {
-      linhas.push("", `*${indice + 1}. ${item.nomeProduto}*`, `Cor: ${item.corNome}`, `Quantidade: ${item.quantidade}`, `Valor unitário: ${formatarPreco(item.preco)}`, `Subtotal: ${formatarPreco(item.preco * item.quantidade)}`);
+      linhas.push("", `*${indice + 1}. ${item.nomeProduto}*`, `Cor: ${item.corNome}`, `Quantidade: ${item.quantidade}`, `Valor unitário: ${formatarPrecoPedido(item.preco)}`, `Subtotal: ${formatarPrecoPedido(item.preco * item.quantidade)}`);
     });
     linhas.push("", `💰 *Subtotal dos produtos:* ${formatarPrecoPedido(financeiro.subtotal)}`);
-    if (financeiro.aplicaDesconto) {
-      linhas.push(`🏷️ *Desconto ${financeiro.formaDesconto} (5%):* − ${formatarPrecoPedido(financeiro.desconto)}`, `✅ *Total no ${financeiro.formaDesconto}: ${formatarPrecoPedido(financeiro.total)}*`);
-    } else {
-      linhas.push(`✅ *Total: ${formatarPrecoPedido(financeiro.total)}*`);
-    }
-    if (rapido) linhas.push("", "📌 *Falta combinar:* entrega e forma de pagamento.");
-    else {
-      linhas.push("", `🚚 *Entrega:* ${obterRotuloEntrega(dados.entrega)}`, `💳 *Pagamento:* ${obterRotuloPagamento(dados.pagamento)}`);
-      if (dados.observacao) linhas.push("", "📝 *Observação:*", dados.observacao);
-    }
+    if (financeiro.aplicaDesconto) linhas.push(`🏷️ *Desconto ${financeiro.formaDesconto} (5%):* − ${formatarPrecoPedido(financeiro.desconto)}`, `✅ *Total no ${financeiro.formaDesconto}: ${formatarPrecoPedido(financeiro.total)}*`);
+    else linhas.push(`✅ *Total: ${formatarPrecoPedido(financeiro.total)}*`);
+    linhas.push("", `🚚 *Entrega:* ${obterRotuloEntrega(dados.entrega)}`, `💳 *Pagamento:* ${obterRotuloPagamento(dados.pagamento)}`);
+    if (dados.observacao) linhas.push("", "📝 *Observação:*", dados.observacao);
     linhas.push("", "Pedido sujeito à confirmação de estoque, entrega e valor final.");
     return linhas.join("\n");
   }
 
+  const abrirWhatsApp = (mensagem) => window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`, "_blank", "noopener");
+
   function enviarPedidoWhatsApp() {
     if (carrinho.length === 0) { closeReview(); return; }
-    if (!els.orderForm.reportValidity()) { showReviewStep(2); return; }
     salvarDadosFormulario();
-    const mensagem = criarMensagemPedidoWhatsApp();
-    window.open(`https://wa.me/${WHATSAPP_NUMERO}?text=${encodeURIComponent(mensagem)}`, "_blank", "noopener");
+    abrirWhatsApp(criarMensagemPedidoWhatsApp());
+    mostrarSucessoPedido();
   }
 
   async function copiarTexto(texto, rotuloPrompt = "Copie o pedido abaixo:") {
@@ -1426,7 +1452,7 @@
 
   async function copiarPedidoCarrinho() {
     if (carrinho.length === 0) return;
-    const copiou = await copiarTexto(criarMensagemPedidoWhatsApp({ rapido: state.reviewStep !== 3 }));
+    const copiou = await copiarTexto(criarMensagemPedidoWhatsApp());
     if (copiou) {
       els.reviewCopy.textContent = "Pedido copiado!"; els.reviewCopy.disabled = true;
       setTimeout(() => { els.reviewCopy.textContent = "Copiar pedido"; els.reviewCopy.disabled = false; }, 2200);
@@ -1448,6 +1474,8 @@
     els.mobileBottomCount.textContent = quantidade > 99 ? "99+" : String(quantidade); els.mobileBottomCount.hidden = !quantidade;
     const rotuloBotao = quantidade ? `Abrir pedido. ${obterTextoQuantidade(quantidade)}, subtotal ${formatarPrecoPedido(subtotal)}.` : "Abrir pedido. Nenhum produto selecionado.";
     els.cartOpen.setAttribute("aria-label", rotuloBotao); els.mobileNavCart.setAttribute("aria-label", rotuloBotao);
+    els.mobileNavCheckout.hidden = !possuiItens; els.mobileNavCheckoutTotal.textContent = formatarPrecoPedido(subtotal);
+    document.body.classList.toggle("tem-pedido", possuiItens);
     els.cartTotal.textContent = formatarPrecoPedido(subtotal);
     els.cartPix.textContent = possuiItens ? `${formatarPrecoPedido(subtotal - calcularDescontoPagamento(subtotal))} no Pix ou dinheiro` : "";
     els.cartSub.textContent = possuiItens ? obterTextoQuantidade(quantidade) : "Nenhum item";
@@ -1456,12 +1484,12 @@
     if (!possuiItens) {
       els.cartItems.innerHTML = '<div class="cart-empty"><div class="empty-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M6.8 7.5h10.4l1 12H5.8l1-12Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path></svg></div><strong>Seu pedido está vazio</strong><p>Escolha um produto e a cor para adicionar. Você pode continuar adicionando produtos antes de enviar.</p><button type="button" class="secondary-button" data-close-drawer>Ver catálogo</button></div>';
     } else {
-      els.cartItems.innerHTML = carrinho.map((x) => `<article class="cart-item" data-cart-id="${esc(x.id)}"><button type="button" class="cart-item-media" data-cart-edit aria-label="Ver produto ${esc(x.nomeProduto)} — ${esc(x.corNome)}">${x.imagem ? `<img src="${esc(x.imagem)}" alt="" loading="lazy" decoding="async">` : ""}</button><div class="cart-item-info"><h3>${esc(x.nomeProduto)}</h3><p class="cart-variant"><span class="cart-swatch" data-bg="${esc(x.visual || x.hex || "#CBD2DC")}" aria-hidden="true"></span><span>${esc(x.corNome)}</span></p><div class="cart-line-actions"><span class="mini-qty" role="group" aria-label="Quantidade de ${esc(x.corNome)}"><button type="button" data-cart-minus aria-label="${x.quantidade > 1 ? "Diminuir quantidade" : "Remover do pedido"}">${x.quantidade > 1 ? ICONE_MENOS : ICONE_LIXEIRA}</button><output>${x.quantidade}</output><button type="button" data-cart-plus aria-label="Aumentar quantidade" ${x.quantidade >= LIMITE_QUANTIDADE_ITEM ? "disabled" : ""}>${ICONE_MAIS}</button></span><button class="link-button" type="button" data-cart-edit>Ver produto</button><button class="link-button link-button--danger" type="button" data-cart-remove>Remover</button></div></div><div class="cart-item-price"><strong>${money.format(x.preco * x.quantidade)}</strong>${x.quantidade > 1 ? `<small>${money.format(x.preco)} un.</small>` : ""}</div></article>`).join("");
+      els.cartItems.innerHTML = carrinho.map((x) => `<article class="cart-item" data-cart-id="${esc(x.id)}"><button type="button" class="cart-item-media" data-cart-edit aria-label="Ver produto ${esc(x.nomeProduto)} — ${esc(x.corNome)}">${x.imagem ? `<img ${srcMiniatura(x.imagem, "p")} alt="" loading="lazy" decoding="async">` : ""}</button><div class="cart-item-info"><h3>${esc(x.nomeProduto)}</h3><p class="cart-variant"><span class="cart-swatch" data-bg="${esc(x.visual || x.hex || "#CBD2DC")}" aria-hidden="true"></span><span>${esc(x.corNome)}</span></p><div class="cart-line-actions"><span class="mini-qty" role="group" aria-label="Quantidade de ${esc(x.corNome)}"><button type="button" data-cart-minus aria-label="${x.quantidade > 1 ? "Diminuir quantidade" : "Remover do pedido"}">${x.quantidade > 1 ? ICONE_MENOS : ICONE_LIXEIRA}</button><output>${x.quantidade}</output><button type="button" data-cart-plus aria-label="Aumentar quantidade" ${x.quantidade >= LIMITE_QUANTIDADE_ITEM ? "disabled" : ""}>${ICONE_MAIS}</button></span><button class="link-button" type="button" data-cart-edit>Ver produto</button><button class="link-button link-button--danger" type="button" data-cart-remove>Remover</button></div></div><div class="cart-item-price"><strong>${money.format(x.preco * x.quantidade)}</strong>${x.quantidade > 1 ? `<small>${money.format(x.preco)} un.</small>` : ""}</div></article>`).join("");
       applyBg(els.cartItems);
     }
     if (!els.review.hidden) {
       if (!possuiItens) closeReview();
-      else if (state.reviewStep === 3) renderizarRevisaoPedido();
+      else if (!els.reviewConfirmar.hidden) { renderizarItensRevisao(); renderizarTotaisRevisao(); }
     }
   }
 
@@ -1484,44 +1512,47 @@
   });
   els.cartClear.addEventListener("click", limparCarrinho);
 
-  /* ---------- etapas 2 e 3: dados e revisão ---------- */
-  function renderizarRevisaoPedido() {
-    const dados = obterDadosFormulario();
-    const financeiro = obterResumoFinanceiroPedido();
-    els.reviewCode.textContent = obterCodigoPedido();
-    els.reviewItems.innerHTML = carrinho.map((x) => `<div class="review-item"><span class="cart-swatch" data-bg="${esc(x.visual || x.hex || "#CBD2DC")}" aria-hidden="true"></span><div><strong>${x.quantidade}× ${esc(x.nomeProduto)}</strong><span>${esc(x.corNome)} · ${formatarPreco(x.preco)} un.</span></div><b>${formatarPreco(x.preco * x.quantidade)}</b></div>`).join("");
-    applyBg(els.reviewItems);
-    const linhasDados = [["Cliente", dados.nome || "Não informado"], dados.telefone ? ["Telefone", dados.telefone] : null, ["Entrega", obterRotuloEntrega(dados.entrega)], ["Pagamento", obterRotuloPagamento(dados.pagamento)], dados.observacao ? ["Observação", dados.observacao] : null].filter(Boolean);
-    els.reviewData.innerHTML = linhasDados.map(([k, v]) => `<div><dt>${esc(k)}</dt><dd>${esc(v)}</dd></div>`).join("");
-    els.reviewLines.innerHTML = `<div><span>Subtotal dos produtos</span><b>${formatarPrecoPedido(financeiro.subtotal)}</b></div>${financeiro.aplicaDesconto ? `<div class="review-lines__discount"><span>Desconto ${esc(financeiro.formaDesconto)} (5%)</span><b>− ${formatarPrecoPedido(financeiro.desconto)}</b></div>` : ""}`;
-    els.reviewTotalLabel.textContent = financeiro.aplicaDesconto ? `Total no ${financeiro.formaDesconto}` : "Total dos produtos";
-    els.reviewTotal.textContent = formatarPrecoPedido(financeiro.total);
+  /* ---------- finalização: itens, preferências e envio na mesma tela ---------- */
+  function linhaItemRevisao(x) {
+    const media = x.imagem ? `<img ${srcMiniatura(x.imagem, "p")} alt="" loading="lazy" decoding="async">` : `<span class="cart-swatch" data-bg="${esc(x.visual || x.hex || "#CBD2DC")}" aria-hidden="true"></span>`;
+    return `<div class="review-item"><span class="review-item__media">${media}</span><div><strong>${x.quantidade}× ${esc(x.nomeProduto)}</strong><span>${esc(x.corNome)}${x.quantidade > 1 ? ` · ${formatarPrecoPedido(x.preco)} un.` : ""}</span></div><b>${formatarPrecoPedido(x.preco * x.quantidade)}</b></div>`;
   }
 
-  const ICONE_WHATSAPP = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M20 11.5a7.7 7.7 0 0 1-8 7.6 8.6 8.6 0 0 1-3.5-.75L4 19.5l1.2-3.9A7.6 7.6 0 1 1 20 11.5Z"></path><path d="M9.2 9.2c.3 2.4 2.2 4.4 4.6 4.8l1-1.1 1.6.8-.4 1.5c-3.6.2-7.2-3.3-7-7l1.5-.4.8 1.6Z"></path></svg>';
+  // Pedidos longos mostram 3 itens e recolhem o resto, para o envio continuar à vista.
+  function renderizarItensRevisao() {
+    els.reviewCode.textContent = obterCodigoPedido();
+    const visiveis = carrinho.length > 4 ? carrinho.slice(0, 3) : carrinho, resto = carrinho.slice(visiveis.length);
+    els.reviewItems.innerHTML = visiveis.map(linhaItemRevisao).join("") + (resto.length ? `<details class="review-mais"><summary>Ver mais ${resto.length} ${resto.length === 1 ? "item" : "itens"}</summary>${resto.map(linhaItemRevisao).join("")}</details>` : "");
+    applyBg(els.reviewItems);
+  }
 
-  function showReviewStep(step) {
-    state.reviewStep = step;
-    $$("[data-review-step]", els.reviewModal).forEach((el) => { el.hidden = Number(el.dataset.reviewStep) !== step; });
-    $$("[data-order-step]", els.reviewModal).forEach((el) => {
-      const n = Number(el.dataset.orderStep);
-      el.classList.toggle("is-active", n === step); el.classList.toggle("is-done", n < step);
-      if (n === step) el.setAttribute("aria-current", "step"); else el.removeAttribute("aria-current");
-    });
-    els.reviewEyebrow.textContent = `ETAPA ${step} DE 3`;
-    els.reviewTitle.textContent = step === 2 ? "Como podemos atender você?" : "Revise antes de enviar";
-    els.reviewBack.textContent = step === 2 ? "Voltar ao pedido" : "Voltar";
-    if (step === 3) { renderizarRevisaoPedido(); els.reviewNext.innerHTML = `${ICONE_WHATSAPP}Enviar pedido no WhatsApp`; els.reviewNext.classList.add("is-whatsapp"); }
-    else { els.reviewNext.textContent = "Revisar pedido"; els.reviewNext.classList.remove("is-whatsapp"); }
+  function renderizarTotaisRevisao() {
+    const financeiro = obterResumoFinanceiroPedido(), quantidade = obterQuantidadeTotalCarrinho();
+    els.reviewLines.innerHTML = `<div><span>Subtotal (${obterTextoQuantidade(quantidade)})</span><b>${formatarPrecoPedido(financeiro.subtotal)}</b></div>${financeiro.aplicaDesconto
+      ? `<div class="review-lines__discount"><span>Desconto ${esc(financeiro.formaDesconto)} (5%)</span><b>− ${formatarPrecoPedido(financeiro.desconto)}</b></div>`
+      : `<div><span>No cartão: até ${PARCELAS_SEM_JUROS}x de ${formatarPrecoPedido(financeiro.subtotal / PARCELAS_SEM_JUROS)} sem juros</span></div>`}`;
+    els.reviewTotalLabel.textContent = financeiro.aplicaDesconto ? `Total no ${financeiro.formaDesconto}` : "Total";
+    els.reviewTotal.textContent = formatarPrecoPedido(financeiro.total);
+    els.orderDeliveryHint.hidden = obterDadosFormulario().entrega !== "entrega";
+  }
+
+  function mostrarSucessoPedido() {
+    els.reviewConfirmar.hidden = true; els.reviewSucesso.hidden = false;
+    els.reviewSucessoTitulo.textContent = `Pedido ${obterCodigoPedido()} aberto no WhatsApp`;
     els.reviewModal.scrollTop = 0;
+    setTimeout(() => els.reviewSucessoTitulo.focus({ preventScroll: true }), 0);
   }
 
   function openReview() {
     if (!carrinho.length) { toast("Adicione ao menos um produto"); return; }
+    if (state.zoomOpen) closeZoom(false);
+    if (!els.modalBackdrop.hidden) closeModal();
     closeDrawers(false);
-    showReviewStep(2);
+    els.reviewConfirmar.hidden = false; els.reviewSucesso.hidden = true;
+    renderizarItensRevisao(); renderizarTotaisRevisao();
     els.review.hidden = false; document.body.classList.add("no-scroll");
-    setTimeout(() => $("#orderName").focus(), 0);
+    els.reviewModal.scrollTop = 0;
+    setTimeout(() => els.reviewTitle.focus({ preventScroll: true }), 0);
   }
 
   function closeReview(restore = true) {
@@ -1529,24 +1560,28 @@
     if (restore) els.cartOpen.focus({ preventScroll: true });
   }
 
+  function comecarNovoPedido() {
+    carrinho = [];
+    salvarCarrinho(); sincronizarCodigoPedidoComCarrinho(); renderizarCarrinho();
+    closeReview(false); setMobileNavActive("mobileNavCatalog");
+    toast("Pronto! Pode montar um novo pedido.", { icon: true });
+  }
+
   els.cartContinue.addEventListener("click", openReview);
+  els.mobileNavCheckout.addEventListener("click", openReview);
   $("#reviewClose").addEventListener("click", () => closeReview());
   els.review.addEventListener("click", (e) => { if (e.target === els.review) closeReview(); });
-  els.reviewBack.addEventListener("click", () => {
-    if (state.reviewStep === 3) { showReviewStep(2); return; }
-    closeReview(false); setMobileNavActive("mobileNavCart"); openDrawer(els.cartDrawer);
-  });
-  els.reviewNext.addEventListener("click", () => {
-    if (state.reviewStep === 2) {
-      if (!els.orderForm.reportValidity()) return;
-      salvarDadosFormulario(); showReviewStep(3); els.reviewNext.focus(); return;
-    }
-    enviarPedidoWhatsApp();
-  });
+  els.reviewBack.addEventListener("click", () => { closeReview(false); setMobileNavActive("mobileNavCart"); openDrawer(els.cartDrawer); });
+  els.reviewNext.addEventListener("click", enviarPedidoWhatsApp);
   els.reviewCopy.addEventListener("click", copiarPedidoCarrinho);
-  els.orderForm.addEventListener("submit", (e) => { e.preventDefault(); els.reviewNext.click(); });
-  els.orderForm.addEventListener("input", salvarDadosFormulario);
-  els.orderForm.addEventListener("change", salvarDadosFormulario);
+  els.reviewReenviar.addEventListener("click", () => { if (carrinho.length) abrirWhatsApp(criarMensagemPedidoWhatsApp()); });
+  els.reviewNovo.addEventListener("click", comecarNovoPedido);
+  els.orderForm.addEventListener("submit", (e) => e.preventDefault());
+  els.orderForm.addEventListener("input", () => { salvarDadosFormulario(); renderizarTotaisRevisao(); });
+  els.orderForm.addEventListener("change", (e) => {
+    salvarDadosFormulario(); renderizarTotaisRevisao();
+    if (e.target.name === "entrega" && e.target.value === "entrega") els.orderMore.open = true;
+  });
   els.orderPhone.addEventListener("input", () => {
     const numeros = els.orderPhone.value.replace(/\D/g, "").slice(0, 11);
     if (numeros.length <= 2) els.orderPhone.value = numeros;
@@ -1698,7 +1733,8 @@
     const trilho = $("[data-banners-trilho]", raiz);
     const slides = $$(".banner", trilho);
     const pontos = $$("[data-banners-ir]", raiz);
-    let atual = 0, timer = null, pausado = false, arraste = null, bloquearClique = false;
+    const botaoPausa = $("[data-banners-pausa]", raiz);
+    let atual = 0, timer = null, pausado = false, pausadoPeloUsuario = false, arraste = null, bloquearClique = false;
     const DURACAO = 20000; // mesmo tempo de --duracao-banner no style.css
     function ir(i) {
       atual = (i + slides.length) % slides.length;
@@ -1710,8 +1746,8 @@
     function iniciar() {
       clearInterval(timer);
       raiz.classList.remove("is-rodando");
-      raiz.classList.toggle("is-pausado", pausado);
-      if (slides.length < 2 || pausado || document.hidden || reducedMotion()) return;
+      raiz.classList.toggle("is-pausado", pausado || pausadoPeloUsuario);
+      if (slides.length < 2 || pausado || pausadoPeloUsuario || document.hidden || reducedMotion()) return;
       void raiz.offsetWidth;
       raiz.classList.add("is-rodando");
       timer = setInterval(() => { ir(atual + 1); iniciar(); }, DURACAO);
@@ -1719,6 +1755,17 @@
     $("[data-banners-anterior]", raiz).addEventListener("click", () => { ir(atual - 1); iniciar(); });
     $("[data-banners-proximo]", raiz).addEventListener("click", () => { ir(atual + 1); iniciar(); });
     pontos.forEach((ponto) => ponto.addEventListener("click", () => { ir(Number(ponto.dataset.bannersIr)); iniciar(); }));
+    // Pausa pedida pelo visitante: vale até ele retomar (a pausa por mouse/foco é só temporária).
+    const ICONE_PAUSA = '<svg viewBox="0 0 24 24" aria-hidden="true"><rect x="6" y="5" width="4" height="14" rx="1"></rect><rect x="14" y="5" width="4" height="14" rx="1"></rect></svg>';
+    const ICONE_PLAY = '<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l10.2-6.5a1 1 0 0 0 0-1.72L9.5 4.64A1 1 0 0 0 8 5.5Z"></path></svg>';
+    function desenharPausa() {
+      botaoPausa.innerHTML = pausadoPeloUsuario ? ICONE_PLAY : ICONE_PAUSA;
+      botaoPausa.setAttribute("aria-pressed", String(pausadoPeloUsuario));
+      botaoPausa.setAttribute("aria-label", pausadoPeloUsuario ? "Retomar troca automática dos banners" : "Pausar troca automática dos banners");
+      botaoPausa.hidden = slides.length < 2 || reducedMotion();
+    }
+    botaoPausa.addEventListener("click", () => { pausadoPeloUsuario = !pausadoPeloUsuario; desenharPausa(); iniciar(); });
+    desenharPausa();
     raiz.addEventListener("mouseenter", () => { pausado = true; iniciar(); });
     raiz.addEventListener("mouseleave", () => { pausado = false; iniciar(); });
     raiz.addEventListener("focusin", () => { pausado = true; iniciar(); });
@@ -1853,12 +1900,7 @@
     els.toast.hidden = false;
     clearTimeout(toast.t); toast.t = setTimeout(() => { els.toast.hidden = true; }, action ? 4000 : 2400);
   }
-  els.toastAction.addEventListener("click", () => {
-    els.toast.hidden = true;
-    if (state.zoomOpen) closeZoom(false);
-    if (!els.modalBackdrop.hidden) closeModal();
-    setMobileNavActive("mobileNavCart"); openDrawer(els.cartDrawer);
-  });
+  els.toastAction.addEventListener("click", () => { els.toast.hidden = true; openReview(); });
   els.toast.addEventListener("mouseenter", () => clearTimeout(toast.t));
   els.toast.addEventListener("mouseleave", () => { toast.t = setTimeout(() => { els.toast.hidden = true; }, 1600); });
 
@@ -1952,10 +1994,18 @@
       const p = produtos.find((x) => obterSlugProduto(x) === slug || x._slugSeo === slug);
       if (p) {
         const cor = parametros.get("cor");
-        const i = cor ? p.cores.findIndex((c) => c._slug === cor) : -1;
-        state.urlAntesDoProduto = location.href;
-        state.lastFocus = els.grid;
-        openProduct(p, i >= 0 ? i : undefined);
+        const i = cor ? p.cores.findIndex((c) => c._slug === cor) : (p.cores.length === 1 ? 0 : -1);
+        if (parametros.get("adicionar") === "1" && i >= 0 && corEstaDisponivel(p.cores[i])) {
+          // Vindo da página do produto: o item entra no pedido e a finalização abre direto.
+          // Os parâmetros saem da URL antes, para um recarregamento não somar o item de novo.
+          try { history.replaceState(history.state, "", limparUrlProduto(location.href)); } catch (erro) { /* sem histórico */ }
+          adicionarAoCarrinho(p, p.cores[i], clamp(Number(parametros.get("qtd")) || 1, 1, LIMITE_QUANTIDADE_ITEM), { aviso: false });
+          openReview();
+        } else {
+          state.urlAntesDoProduto = location.href;
+          state.lastFocus = els.grid;
+          openProduct(p, i >= 0 ? i : undefined);
+        }
       }
     }
     const categoria = parametros.get("categoria");

@@ -66,6 +66,7 @@ GUIA_MATERIAIS = {
 
 ICONE_BUSCA = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg>'
 ICONE_MAIS = '<span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span>'
+ICONE_SACOLA_MAIS = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.8 7.5h10.4l1 12H5.8l1-12Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path><path d="M12 11v5.5M9.25 13.75h5.5"></path></svg>'
 
 
 # ------------------------------------------------------------------
@@ -236,6 +237,19 @@ def fotos(p: dict, c: dict) -> list[str]:
     return [f"assets/fotos/{slugificar(nome_completo(p))}/{slugificar(c.get('nome'))}.webp"]
 
 
+# Miniaturas criadas por automacao/gerar_miniaturas.py (mesma regra de miniatura() no script.js).
+# Só são usadas quando o arquivo existe na pasta do site; senão fica a foto original.
+SITE = Path("_site")
+
+
+def miniatura(foto: str, tamanho: str) -> str:
+    if not foto.startswith("assets/fotos/"):
+        return foto
+    resto = foto[len("assets/fotos/"):]
+    caminho = f"assets/miniaturas/{tamanho}/{resto}" + ("" if resto.lower().endswith(".webp") else ".webp")
+    return caminho if (SITE / caminho).is_file() else foto
+
+
 def destaque(p: dict) -> str | None:
     marca = str(p.get("marca") or "").strip().lower()
     material = str(p.get("material") or "").strip().upper()
@@ -344,9 +358,7 @@ class Pagina:
   <link rel="icon" type="image/png" sizes="32x32" href="{raiz}assets/favicon/favicon-32x32.png">
   <link rel="apple-touch-icon" sizes="180x180" href="{raiz}assets/favicon/apple-touch-icon.png">
   <link rel="manifest" href="{raiz}assets/favicon/site.webmanifest">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Anuphan:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="preload" href="{raiz}assets/fontes/anuphan-latin.woff2" as="font" type="font/woff2" crossorigin>
   <link rel="stylesheet" href="{raiz}style.css{v}">
 {blocos}
 </head>
@@ -364,7 +376,7 @@ class Pagina:
       <a href="{raiz}acessorios/">Acessórios</a>
       <a href="{raiz}guia-de-materiais/">Guia</a>
     </nav>
-    <a class="seo-catalog-cta" href="{raiz}#catalogo">Abrir catálogo</a>
+    <div class="seo-head-acoes"><a class="seo-pedido" id="seoPedido" href="{raiz}?abrirPedido=1" hidden>Seu pedido <b id="seoPedidoQtd">0</b></a><a class="seo-catalog-cta" href="{raiz}#catalogo">Abrir catálogo</a></div>
   </div>
 </header>
 <main id="conteudo" class="seo-page-main"><div class="shell">
@@ -432,6 +444,12 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
     badge = "ACESSÓRIO" if acessorio else p.get("material")
     estoque, classe = rotulo_estoque(c)
     cta = "Ver produto" if not muitas else ("Ver opções" if acessorio else "Ver cores")
+    if muitas:
+        botao = f'<a class="primary-button card-cta" href="{href}" data-open-product>{cta}{ICONE_BUSCA}</a>'
+    else:
+        adicionar = f"{raiz}?produto={p['_slug_link']}&amp;cor={slugificar(c.get('nome'))}&amp;adicionar=1"
+        botao = (f'<a class="primary-button card-cta card-cta--add" href="{adicionar}" data-quick-add aria-label="Adicionar ao pedido: {e(titulo)}">'
+                 f'{ICONE_SACOLA_MAIS}<span>Adicionar<span class="txt-longo"> ao pedido</span></span></a>')
     minis = ""
     if muitas:
         mostradas = cores[:4]
@@ -439,8 +457,8 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
             mostradas = [c] + [v for v in cores if v is not c][:3]
         minis = "".join(
             f'<button type="button" class="variant-mini{" is-active" if v is c else ""}" data-variant="{cores.index(v)}" aria-label="Pré-visualizar {e(v.get("nome"))}" aria-pressed="{"true" if v is c else "false"}" title="{e(v.get("nome"))}" '
-            f'data-name="{e(v.get("nome"))}" data-image="{raiz}{e(fotos(p, v)[0])}" data-price="{preco(p, v):.2f}" data-stock="{e(rotulo_estoque(v)[0])}" data-stock-class="{rotulo_estoque(v)[1]}">'
-            f'<img src="{raiz}{e(fotos(p, v)[0])}" alt="" loading="lazy" decoding="async"></button>'
+            f'data-name="{e(v.get("nome"))}" data-image="{raiz}{e(miniatura(fotos(p, v)[0], "c"))}" data-price="{preco(p, v):.2f}" data-stock="{e(rotulo_estoque(v)[0])}" data-stock-class="{rotulo_estoque(v)[1]}">'
+            f'<img src="{raiz}{e(miniatura(fotos(p, v)[0], "p"))}" alt="" loading="lazy" decoding="async"></button>'
             for v in mostradas
         )
         extra = len(cores) - len(mostradas)
@@ -451,12 +469,12 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
     return (
         f'<article class="product-card" data-product="{e(p["_slug_link"])}">'
         f'<div class="card-media"><span class="product-badge">{e(badge)}</span>{flag}<a class="card-media-open" href="{href}" data-open-product aria-label="Abrir {e(titulo)}"></a>'
-        f'<img src="{raiz}{e(fotos(p, c)[0])}" alt="{e(titulo)} — {e(c.get("nome"))}" {'fetchpriority="high"' if posicao < 4 else 'loading="lazy"'} decoding="async">{ICONE_MAIS}</div>'
+        f'<img src="{raiz}{e(miniatura(fotos(p, c)[0], "c"))}" alt="{e(titulo)} — {e(c.get("nome"))}" {'fetchpriority="high"' if posicao < 4 else 'loading="lazy"'} decoding="async">{ICONE_MAIS}</div>'
         f'<div class="card-body"><p class="product-kicker">{e(kicker)}</p><h3 class="product-title"><a href="{href}" data-open-product>{e(titulo)}</a></h3>'
         f'<p class="variant-summary"><span title="{e(c.get("nome"))}">{e(c.get("nome"))}</span>{resumo}</p>'
         f'<div class="card-variants">{minis}</div>'
         f'{card_price_block(preco(p, c), estoque, classe)}'
-        f'<a class="primary-button card-cta" href="{href}" data-open-product>{cta}{ICONE_BUSCA}</a></div></article>'
+        f'{botao}</div></article>'
     )
 
 
@@ -478,8 +496,8 @@ def card_price_block(valor: float, estoque: str, classe: str) -> str:
     r = resumo_preco(valor)
     return (
         f'<div class="card-price-row"><span class="card-reference-price">{moeda(r["normal"])} no cartão</span>'
-        f'<span class="card-pix"><strong>{moeda(r["pix"])}</strong><span>à vista no Pix</span><em>5% OFF</em></span>'
-        f'<span class="card-installments">ou 3x de {moeda(r["parcela"])} sem juros no cartão</span>'
+        f'<span class="card-pix"><strong>{moeda(r["pix"])}</strong><span><span class="txt-longo">à vista </span>no Pix</span><em>5% OFF</em></span>'
+        f'<span class="card-installments"><span class="txt-longo">ou </span>3x de {moeda(r["parcela"])} sem juros<span class="txt-longo"> no cartão</span></span>'
         f'<span class="stock {classe}">{e(estoque)}</span></div>'
     )
 
@@ -558,7 +576,7 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
         f'<a class="seo-variant-button{" is-active" if c is c0 else ""}" href="?cor={slugificar(c.get("nome"))}" data-seo-variant '
         f'data-name="{e(c.get("nome"))}" data-price="{preco(p, c):.2f}" data-stock="{e(rotulo_estoque(c)[0])}" data-stock-class="{rotulo_estoque(c)[1]}" '
         f'data-image="{raiz}{e(fotos(p, c)[0])}" data-slug="{slugificar(c.get("nome"))}">'
-        f'<img src="{raiz}{e(fotos(p, c)[0])}" alt="{e(nome)} — {e(c.get("nome"))}" loading="lazy" decoding="async"><span>{e(c.get("nome"))}</span></a>'
+        f'<img src="{raiz}{e(miniatura(fotos(p, c)[0], "p"))}" alt="{e(nome)} — {e(c.get("nome"))}" loading="lazy" decoding="async"><span>{e(c.get("nome"))}</span></a>'
         for c in cores
     )
     nomes = [str(c.get("nome")) for c in cores]
@@ -566,7 +584,7 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
     precos = sorted({preco(p, c) for c in cores})
     faixa = moeda(precos[0]) if len(precos) == 1 else f"de {moeda(precos[0])} a {moeda(precos[-1])}"
     estoque0, classe0 = rotulo_estoque(c0)
-    link_catalogo = f"{raiz}?produto={p['_slug_link']}&cor={slugificar(c0.get('nome'))}"
+    link_catalogo = f"{raiz}?produto={p['_slug_link']}&cor={slugificar(c0.get('nome'))}&adicionar=1"
     categoria_href = f"{raiz}acessorios/" if acessorio else f"{raiz}filamentos/{slugificar(material)}/"
     fatos = [("Marca", marca)] if not acessorio else [("Categoria", categoria(p))]
     if not acessorio:
@@ -586,8 +604,10 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
     <p class="seo-current-variant" id="seoVariantName">{e(c0.get('nome'))}</p>
     <div class="price-block" id="seoProductPrice">{price_block(preco(p, c0))}</div>
     <p class="stock-line {classe0}" id="seoProductStock">{estoque0}</p>
-    <p>{e(descricao)}</p>
-    <div class="seo-product-actions"><a class="primary-button" id="seoCatalogLink" data-produto="{e(p['_slug_link'])}" href="{e(link_catalogo)}">Adicionar ao pedido no catálogo</a><a class="secondary-button" href="{categoria_href}">Ver {'acessórios' if acessorio else f'filamentos {e(material)}'}</a></div>
+    <div class="seo-product-actions">
+      <a class="primary-button" id="seoCatalogLink" data-produto="{e(p['_slug_link'])}" href="{e(link_catalogo)}">{ICONE_SACOLA_MAIS}Adicionar ao pedido</a>
+      <a class="secondary-button" href="{categoria_href}">Ver {'acessórios' if acessorio else f'filamentos {e(material)}'}</a>
+    </div>
   </section>
 </div>
 <section class="seo-section" aria-labelledby="variacoes"><h2 id="variacoes">{e(plural.capitalize())} disponíveis</h2><p>Selecione uma opção para ver a foto, o preço e a disponibilidade.</p><div class="seo-variant-list">{variantes}</div></section>
@@ -636,7 +656,7 @@ def pagina_lista(pg: Pagina, site: Path, *, url: str, titulo: str, h1: str, desc
     escrever(site / url / "index.html", pg.cabecalho(
         raiz=raiz, titulo=titulo, descricao=descricao, canonical=BASE_URL + url,
         imagem=BASE_URL + "assets/social/catalogo-3zk.jpg", jsonld=jsonld, indexavel=indexavel,
-    ) + corpo + pg.rodape(raiz=raiz))
+    ) + corpo + pg.rodape(raiz=raiz, scripts=["seo-produto.js"]))
     return indexavel
 
 
@@ -658,6 +678,8 @@ def pre_renderizar_home(site: Path) -> None:
     diretorio = "".join(f'<a href="produto/{p["_slug"]}/">{e(p["_nome"])}</a>' for p in PRODUTOS)
     texto = texto.replace(dir_vazio, f'<div class="seo-directory" id="seoDirectory" data-prerender="1"><details><summary>Explorar todos os produtos por nome</summary><div class="seo-directory-grid">{diretorio}</div></details></div>')
     texto = texto.replace('<span id="resultCount">…</span>', f'<span id="resultCount">{len(PRODUTOS)}</span>')
+    if (site / "assets" / "miniaturas").is_dir():
+        texto = texto.replace("</head>", '  <meta name="3zk-miniaturas" content="p,c">\n</head>', 1)
     index.write_text(texto, encoding="utf-8")
 
 
@@ -665,7 +687,7 @@ PRODUTOS: list[dict] = []
 
 
 def main() -> int:
-    global PRODUTOS
+    global PRODUTOS, SITE
     parser = argparse.ArgumentParser(description="Gera páginas estáticas de SEO a partir do catálogo público.")
     parser.add_argument("--catalogo", default="_site/dados/produtos.json")
     parser.add_argument("--controle", default="", help="Opcional: aplica pausas (uso local com o catálogo completo).")
@@ -673,7 +695,7 @@ def main() -> int:
     parser.add_argument("--versao", default="")
     args = parser.parse_args()
 
-    site = Path(args.site)
+    site = SITE = Path(args.site)
     PRODUTOS = carregar_catalogo(Path(args.catalogo), Path(args.controle) if args.controle else None)
     if not PRODUTOS:
         raise SystemExit("Catálogo sem produtos publicados; páginas de SEO não geradas.")

@@ -183,3 +183,45 @@ Observações e riscos:
 - publicar continua exigindo Commit e Push (GitHub Desktop); o navegador não faz push nem dispara workflows sem token;
 - configurações de ordem pública de materiais/marcas/categorias não foram implementadas (ainda fixas no site);
 - histórico e desfazer do histórico ficam no navegador de quem usou o painel.
+
+---
+
+## 2026-09-28 — Conversão (CRO), desempenho e acessibilidade
+
+Base:
+- branch: `main`
+- commit inicial: `d263cdc` (Add home banner and PLA storefront)
+
+Escopo:
+- menos cliques até o WhatsApp: finalização em uma tela (itens, entrega, pagamento, nome opcional, total e envio), aviso "adicionado" com "Finalizar pedido", barra "Finalizar pedido · total" no celular e tela de confirmação com "Começar um novo pedido";
+- produto com uma única variação ganha "Adicionar" direto no card;
+- link `?produto=&cor=&adicionar=1` coloca o item no pedido e abre a finalização (usado por "Adicionar ao pedido" das páginas de produto); os parâmetros saem da URL para um recarregamento não somar de novo;
+- páginas estáticas: "Seu pedido (n)" no cabeçalho quando há itens, botão "Adicionar ao pedido" abrindo a finalização, foto menor no celular, grade de cores maior e miniaturas também nas páginas de categoria;
+- cards mais compactos no celular (textos curtos, "Em estoque" só no drawer), letras de no mínimo 11–12 px, alvos de toque maiores em telas de toque, botão de pausar/retomar o carrossel e pontos com área de toque de 24 px;
+- valores do pedido sempre com centavos (R$ 88,00) na tela e no WhatsApp;
+- desempenho: fonte Anuphan hospedada no site (sem Google Fonts; CSP restringida a `'self'`), miniaturas WebP geradas na publicação, `controle-catalogo.json` não é mais pedido em produção, `/favicon.ico` na raiz;
+- seções de baixo da home: guia de materiais em cards que filtram o catálogo (PLA, PETG, ABS, ASA, TPU) e dúvidas frequentes com cartão de atendimento (textos reaproveitados do próprio site);
+- `style.css` com uma regra por linha (nenhuma declaração alterada nessa reformatação).
+
+Arquivos adicionados:
+- `automacao/gerar_miniaturas.py`
+- `assets/fontes/anuphan-latin.woff2`, `assets/fontes/anuphan-latin-ext.woff2`, `assets/fontes/OFL.txt`
+
+Arquivos modificados:
+- `index.html`, `style.css`, `script.js`, `seo-produto.js`
+- `automacao/gerar_paginas_seo.py` (botões das páginas de produto, miniaturas, atalho do pedido, fonte local)
+- `.github/workflows/publicar-site.yml` (Pillow + miniaturas com fallback, `favicon.ico` na raiz, CSP sem Google Fonts)
+- `docs/ARQUITETURA-3ZK.md`, `docs/MAPA-ARQUIVOS.md`
+
+Dados:
+- nenhum produto, foto original, ID, SKU, `chaveEstoque`, vínculo Olist, estoque ou preço alterado.
+
+Validações:
+- 34 verificações automáticas no Chrome (computador e celular) sobre o site montado como no workflow: adicionar pelo card, toast → finalização, totais Pix/cartão, dica de entrega, mensagem completa do WhatsApp, tela de sucesso, novo pedido, link `adicionar=1` sem soma no recarregamento, página de produto e de categoria, pausa do carrossel, fonte local, miniaturas, `favicon.ico`, sem rolagem lateral;
+- auditoria antes → depois: LCP no computador 3,0 s → 0,9 s; página inicial 2,5 MB → 0,85 MB; produto aberto 7,1 MB → 1,1 MB de imagens; textos < 12 px no celular 197 → 128 (restam etiquetas em maiúsculas de 11 px);
+- `validar_catalogo.py`, `node --check` (script.js, seo-produto.js, produto.js), `py_compile` e os três blocos Python do `publicar-site.yml` aprovados sobre a cópia montada.
+
+Observações e riscos:
+- a publicação ganha ~15–25 s para as miniaturas; se o Pillow não instalar ou alguma foto falhar, o site segue com as fotos originais;
+- um botão "Comprar agora" (só um item direto no WhatsApp) chegou a ser feito e foi retirado a pedido do dono antes da publicação;
+- pendências que dependem da 3ZK: fotos padronizadas, endereço/horário de retirada e avaliações reais de clientes; os banners continuam no `index.html` (edição pelo painel ainda não existe).
