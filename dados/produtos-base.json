@@ -4511,5 +4511,179 @@
       }
     ],
     "obs": ""
+  },
+  {
+    "marca": "Fitas Dupla Face",
+    "material": "Fixação",
+    "preco": 12.5,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Ferramentas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Fixa Tudo com espuma · 12 mm × 1,5 m",
+        "hex": "#E8E1D4",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fitas-dupla-face-fixacao/fixa-tudo-espuma-12mm-1-5m.webp"
+        ],
+        "preco": 12.5,
+        "gtin": "7898472262711",
+        "chaveEstoque": "fitas-dupla-face|fixacao||fixa-tudo-espuma-12mm-1-5m",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Dupla face · 3 m",
+        "hex": "#E8E1D4",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/fitas-dupla-face-fixacao/dupla-face-3m.webp"
+        ],
+        "preco": 8.0,
+        "gtin": "7908730713883",
+        "chaveEstoque": "fitas-dupla-face|fixacao||dupla-face-3m",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Alicates",
+    "material": "Ferramentas",
+    "preco": 16.9,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Ferramentas",
+    "rotuloVariacaoSingular": "modelo",
+    "rotuloVariacaoPlural": "modelos",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Alicate de corte · 5 polegadas",
+        "hex": "#444A52",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/alicates-ferramentas/alicate-de-corte-5-polegadas.webp"
+        ],
+        "gtin": "7908348205824",
+        "chaveEstoque": "alicates|ferramentas||alicate-de-corte-5-polegadas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Alicate bico de jacaré · 4,5 polegadas",
+        "hex": "#444A52",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/alicates-ferramentas/alicate-bico-de-jacare-4-5-polegadas.webp"
+        ],
+        "gtin": "7899958258891",
+        "chaveEstoque": "alicates|ferramentas||alicate-bico-de-jacare-4-5-polegadas",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Maçarico",
+    "material": "Ferramentas",
+    "preco": 16.9,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Ferramentas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "ABS, liga de zinco e aço inox",
+        "hex": "#68717A",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/macarico-culinario-ferramentas/abs-liga-de-zinco-aco-inox.webp"
+        ],
+        "gtin": "7899850364171",
+        "chaveEstoque": "macarico-culinario|ferramentas||abs-liga-de-zinco-aco-inox",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Gás para Maçarico",
+    "material": "Insumos",
+    "linha": "400 ml",
+    "preco": 16.9,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Ferramentas",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Frasco 400 ml",
+        "hex": "#D2D7DD",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/gas-para-macarico-insumos-400ml/frasco-400ml.webp"
+        ],
+        "gtin": "7898693155359",
+        "chaveEstoque": "gas-para-macarico|insumos|400ml|frasco-400ml",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
+    "marca": "Colas Instantâneas",
+    "material": "Colas",
+    "preco": 4.99,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Colas",
+    "rotuloVariacaoSingular": "tamanho",
+    "rotuloVariacaoPlural": "tamanhos",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "Cola instantânea · 2 g",
+        "hex": "#E3E6EA",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/colas-instantaneas-colas/cola-instantanea-2g.webp"
+        ],
+        "preco": 4.99,
+        "gtin": "7898472255898",
+        "chaveEstoque": "colas-instantaneas|colas||cola-instantanea-2g",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Almasuper Ultrarrápido · 20 g",
+        "hex": "#E3E6EA",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/colas-instantaneas-colas/almasuper-ultrarrapido-20g.webp"
+        ],
+        "preco": 12.5,
+        "gtin": "7898405964354",
+        "chaveEstoque": "colas-instantaneas|colas||almasuper-ultrarrapido-20g",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
   }
 ]

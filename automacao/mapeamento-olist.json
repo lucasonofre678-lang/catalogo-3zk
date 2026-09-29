@@ -1,7 +1,7 @@
 {
   "versao": 1,
-  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-09-23",
-  "total": 345,
+  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-09-29",
+  "total": 353,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -3796,6 +3796,94 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "FILAMENTO PLA SILK RAINBOW SWEET"
+    },
+    {
+      "chave": "fitas-dupla-face|fixacao||fixa-tudo-espuma-12mm-1-5m",
+      "marca": "Fitas Dupla Face",
+      "material": "Fixação",
+      "linha": "",
+      "cor": "Fixa Tudo com espuma · 12 mm × 1,5 m",
+      "olistId": 1056123034,
+      "sku": null,
+      "gtin": "7898472262711",
+      "descricaoOlist": "FITA FIXA TUDO ESPUMA 12X150MM DUPLA FACE REF 6271"
+    },
+    {
+      "chave": "alicates|ferramentas||alicate-de-corte-5-polegadas",
+      "marca": "Alicates",
+      "material": "Ferramentas",
+      "linha": "",
+      "cor": "Alicate de corte · 5 polegadas",
+      "olistId": 1056123038,
+      "sku": null,
+      "gtin": "7908348205824",
+      "descricaoOlist": "ALICATE DE CORTE 5 POLEG REF AR0100"
+    },
+    {
+      "chave": "fitas-dupla-face|fixacao||dupla-face-3m",
+      "marca": "Fitas Dupla Face",
+      "material": "Fixação",
+      "linha": "",
+      "cor": "Dupla face · 3 m",
+      "olistId": 1056123042,
+      "sku": null,
+      "gtin": "7908730713883",
+      "descricaoOlist": "FITA DUPLA FACE 300CM REF DDG1552"
+    },
+    {
+      "chave": "macarico-culinario|ferramentas||abs-liga-de-zinco-aco-inox",
+      "marca": "Maçarico",
+      "material": "Ferramentas",
+      "linha": "",
+      "cor": "ABS, liga de zinco e aço inox",
+      "olistId": 1056123046,
+      "sku": null,
+      "gtin": "7899850364171",
+      "descricaoOlist": "MACARICO CULINARIO ABS LIGA DE ZINCO ACO INOX REF CK7363"
+    },
+    {
+      "chave": "gas-para-macarico|insumos|400ml|frasco-400ml",
+      "marca": "Gás para Maçarico",
+      "material": "Insumos",
+      "linha": "400 ml",
+      "cor": "Frasco 400 ml",
+      "olistId": 1056123050,
+      "sku": null,
+      "gtin": "7898693155359",
+      "descricaoOlist": "GAS PARA MACARICO 400ML REF 5535"
+    },
+    {
+      "chave": "alicates|ferramentas||alicate-bico-de-jacare-4-5-polegadas",
+      "marca": "Alicates",
+      "material": "Ferramentas",
+      "linha": "",
+      "cor": "Alicate bico de jacaré · 4,5 polegadas",
+      "olistId": 1056123054,
+      "sku": null,
+      "gtin": "7899958258891",
+      "descricaoOlist": "ALICATE BICO DE JACARE 4.5 POL REF GT0152"
+    },
+    {
+      "chave": "colas-instantaneas|colas||cola-instantanea-2g",
+      "marca": "Colas Instantâneas",
+      "material": "Colas",
+      "linha": "",
+      "cor": "Cola instantânea · 2 g",
+      "olistId": 1056123058,
+      "sku": null,
+      "gtin": "7898472255898",
+      "descricaoOlist": "COLA INSTANTANEA 2G CART 12UN REF 5589"
+    },
+    {
+      "chave": "colas-instantaneas|colas||almasuper-ultrarrapido-20g",
+      "marca": "Colas Instantâneas",
+      "material": "Colas",
+      "linha": "",
+      "cor": "Almasuper Ultrarrápido · 20 g",
+      "olistId": 1056123062,
+      "sku": null,
+      "gtin": "7898405964354",
+      "descricaoOlist": "COLA ALMASUPER ULTRARAPIDO 20G UN"
     }
   ]
 }
