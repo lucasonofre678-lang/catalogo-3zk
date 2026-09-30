@@ -722,8 +722,8 @@
           "assets/fotos/closin-pla/branco-perola.webp"
         ],
         "idCatalogo": "closin|pla||branco-perola",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Ciano",
@@ -866,7 +866,7 @@
           "assets/fotos/closin-pla/violeta.webp"
         ],
         "idCatalogo": "closin|pla||violeta",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2644,8 +2644,8 @@
           "assets/fotos/masterprint-abs/preto.webp"
         ],
         "idCatalogo": "masterprint|abs||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "masterprint|abs|",
@@ -4213,8 +4213,8 @@
         ],
         "sku": "2338",
         "idCatalogo": "polyflow|pla||marrom-chocolate",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Roxo",
