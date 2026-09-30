@@ -1040,6 +1040,7 @@
     els.modalVariantCount.textContent = `${p.cores.length} ${variantNoun(p, p.cores.length > 1)}`;
     els.modalVariantPos.innerHTML = variantPosition(p);
     els.modalQty.textContent = state.modalQty;
+    els.modalAdd.classList.remove("is-added");
     els.modalAdd.disabled = !disponivel; els.modalAdd.textContent = disponivel ? "Adicionar ao pedido" : "Indisponível";
     // Setas do cabeçalho = variações (sempre visíveis quando há mais de uma). Setas sobre a foto = fotos da mesma variação.
     const multiVariant = p.cores.filter(corEstaDisponivel).length > 1;
@@ -1099,7 +1100,15 @@
   els.modalAdd.addEventListener("click", () => {
     const p = state.modal, c = p?.cores[state.modalVariant];
     if (!c || !corEstaDisponivel(c)) return;
-    adicionarAoCarrinho(p, c, state.modalQty); closeModal();
+    adicionarAoCarrinho(p, c, state.modalQty);
+    els.modalAdd.classList.add("is-added");
+    els.modalAdd.textContent = "Adicionado ao pedido ✓";
+    clearTimeout(els.modalAdd._volta);
+    els.modalAdd._volta = setTimeout(() => {
+      if (!state.modal || !els.modalAdd.isConnected) return;
+      els.modalAdd.classList.remove("is-added");
+      els.modalAdd.textContent = "Adicionar ao pedido";
+    }, 1600);
   });
 
   /* ============================================================

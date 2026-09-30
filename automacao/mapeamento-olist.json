@@ -1390,10 +1390,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA DRAGON FRUIT"
     },
     {
-      "chave": "masterprint|pla||marmore",
+      "chave": "masterprint|pla|especial|marmore",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Mármore",
       "olistId": 1046663473,
       "sku": "PLA MARMORE",
@@ -1511,11 +1511,11 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK COBRE"
     },
     {
-      "chave": "masterprint|pla||silk-laranja-preto",
+      "chave": "masterprint|pla|especial|silk-laranja-preto",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
-      "cor": "Silk Laranja/Preto",
+      "linha": "Especial",
+      "cor": "Silk Laranja/Preto · Duo Color",
       "olistId": 1047746235,
       "sku": "PLASILKLARANJA/PRETO",
       "gtin": "7908229110308",

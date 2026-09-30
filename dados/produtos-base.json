@@ -1750,20 +1750,6 @@
         "chaveEstoque": "masterprint|pla||dragon-fruit"
       },
       {
-        "nome": "Mármore",
-        "hex": "#D4D0C8",
-        "efeito": "fosco",
-        "hexFonte": "foto-ajustada",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-pla/marmore.webp"
-        ],
-        "chaveEstoque": "masterprint|pla||marmore",
-        "preco": 94,
-        "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true
-      },
-      {
         "nome": "Marrom",
         "hex": "#6B4A34",
         "hexFonte": "sem_foto",
@@ -1869,18 +1855,6 @@
           "assets/fotos/masterprint-pla/silk-cobre.webp"
         ],
         "chaveEstoque": "masterprint|pla||silk-cobre"
-      },
-      {
-        "nome": "Silk Laranja/Preto",
-        "hex": "#8A4A2D",
-        "efeito": "silk",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-pla/silk-laranja-preto-real.webp",
-          "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
-        ],
-        "chaveEstoque": "masterprint|pla||silk-laranja-preto"
       },
       {
         "nome": "Silk Lavanda",
@@ -2058,7 +2032,37 @@
         "imagens": [
           "assets/fotos/masterprint-pla-especial/ice-cream-real.webp"
         ],
-        "chaveEstoque": "masterprint|pla|especial|ice-cream"
+        "chaveEstoque": "masterprint|pla|especial|ice-cream",
+        "preco": 84
+      },
+      {
+        "nome": "Mármore",
+        "hex": "#D4D0C8",
+        "efeito": "marmorizado",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/marmore.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|especial|marmore",
+        "preco": 94,
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Laranja/Preto · Duo Color",
+        "hex": "#8A4A2D",
+        "efeito": "duo-color",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-laranja-preto-real.webp",
+          "assets/fotos/masterprint-pla/silk-laranja-preto.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|especial|silk-laranja-preto",
+        "preco": 94,
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
       }
     ],
     "linha": "Especial"

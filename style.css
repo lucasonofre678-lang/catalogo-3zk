@@ -441,6 +441,7 @@ ul{margin:0;padding:0;list-style:none}
 .card-cta--add svg{width:18px;height:18px}
 .card-cta--add:hover svg{transform:none}
 .card-cta--add.is-added,.card-cta--add.is-added:hover{border-color:var(--success);background:var(--success)}
+.modal-add.is-added,.modal-add.is-added:hover{border-color:var(--success);background:var(--success)}
 .product-card.is-out .card-media img{opacity:.55}
 
 /* contato direto, sempre visível no desktop sem competir com a navegação móvel */
