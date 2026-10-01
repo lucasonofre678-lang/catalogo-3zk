@@ -1,6 +1,6 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-10-01T14:19:33-03:00",
+  "ultimaVerificacao": "2026-10-01T19:13:49-03:00",
   "fusoHorario": "America/Sao_Paulo",
   "coresDisponiveis": 239,
   "coresOcultas": 114,
@@ -9,8 +9,8 @@
     "Loja presencial"
   ],
   "exibeQuantidadeExata": false,
-  "consultasRealizadas": 108,
-  "estoquesReutilizadosPorLimite": 235,
+  "consultasRealizadas": 1,
+  "estoquesReutilizadosPorLimite": 342,
   "estoquesReutilizadosPorErro": 1,
   "produtosPausadosSemConsulta": 10,
   "proximoIndiceConsulta": 96,
