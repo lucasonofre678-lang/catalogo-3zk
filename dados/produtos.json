@@ -429,7 +429,7 @@
           "assets/fotos/closin-petg/fluo-green.webp"
         ],
         "idCatalogo": "closin|petg||fluo-green",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1189,8 +1189,8 @@
           "assets/fotos/masterprint-petg/preto-sem-foto.webp"
         ],
         "idCatalogo": "masterprint|petg||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Rosa",
