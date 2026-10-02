@@ -1,7 +1,7 @@
 {
   "versao": 1,
-  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-09-29",
-  "total": 353,
+  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-02",
+  "total": 352,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -782,7 +782,7 @@
       "olistId": 1045660289,
       "sku": "PETGROXO",
       "gtin": "7908229110810",
-      "descricaoOlist": "Filamento 3D Pteg MasterPrint - PETG ROXO"
+      "descricaoOlist": "Filamento | Masterprint | PETG | 1kg - PETG ROXO"
     },
     {
       "chave": "masterprint|petg||skin",
@@ -1104,28 +1104,6 @@
       "descricaoOlist": "FILAMENTO PETG FUSION-X  - VERDE ESCURO"
     },
     {
-      "chave": "fusion-high-speed|petg||branco",
-      "marca": "Fusion High Speed",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Branco",
-      "olistId": 1049578981,
-      "sku": "FUSION_PETG_BRANCO_1.2",
-      "gtin": "7893095833812",
-      "descricaoOlist": "Filamento Fusionx Petg Branco 1,2kg"
-    },
-    {
-      "chave": "fusion-high-speed|petg||preto",
-      "marca": "Fusion High Speed",
-      "material": "PETG",
-      "linha": "",
-      "cor": "Preto",
-      "olistId": 1049578984,
-      "sku": "FUSION_PETG_PRETO_1.2",
-      "gtin": "7893095833751",
-      "descricaoOlist": "Filamento Fusionx Petg Preto 1,2kg"
-    },
-    {
       "chave": "masterprint|pla||branco",
       "marca": "Masterprint",
       "material": "PLA",
@@ -1203,10 +1181,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA PRATA MASTER"
     },
     {
-      "chave": "masterprint|pla||silk-roxo",
+      "chave": "masterprint|pla|especial|silk-roxo",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Roxo",
       "olistId": 1048791931,
       "sku": null,
@@ -1214,10 +1192,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK ROXO"
     },
     {
-      "chave": "masterprint|pla||silk-fuchsia",
+      "chave": "masterprint|pla|especial|silk-fuchsia",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Fuchsia",
       "olistId": 1048791934,
       "sku": null,
@@ -1225,10 +1203,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK FUCHSIA"
     },
     {
-      "chave": "masterprint|pla||peacock-blue",
+      "chave": "masterprint|pla|especial|peacock-blue",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Peacock Blue",
       "olistId": 1048791941,
       "sku": "PLA PEACOCK BLUE",
@@ -1236,10 +1214,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA PEACOCK BLUE"
     },
     {
-      "chave": "masterprint|pla||silk-vermelho-purpura",
+      "chave": "masterprint|pla|especial|silk-vermelho-purpura",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Vermelho Púrpura",
       "olistId": 1048791944,
       "sku": null,
@@ -1335,10 +1313,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA CAFÉ"
     },
     {
-      "chave": "masterprint|pla||cinza-metalico",
+      "chave": "masterprint|pla|especial|cinza-metalico",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Cinza Metálico",
       "olistId": 1047746221,
       "sku": " PLACINZAMETALICO",
@@ -1346,10 +1324,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA CINZA METALICO"
     },
     {
-      "chave": "masterprint|pla||cobre",
+      "chave": "masterprint|pla|especial|cobre",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Cobre",
       "olistId": 1047746229,
       "sku": " PLACOBRE",
@@ -1368,21 +1346,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA COR DESERTO"
     },
     {
-      "chave": "masterprint|pla||dourado",
+      "chave": "masterprint|pla|especial|dragon-fruit",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
-      "cor": "Dourado",
-      "olistId": 1044898239,
-      "sku": "PLA DOURADO",
-      "gtin": "7908229103799",
-      "descricaoOlist": "Filamento PLA Masterprint - PLA DOURADO"
-    },
-    {
-      "chave": "masterprint|pla||dragon-fruit",
-      "marca": "Masterprint",
-      "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Dragon Fruit",
       "olistId": 1046109720,
       "sku": "PLA DRAGON FRUIT",
@@ -1409,13 +1376,13 @@
       "olistId": 1046327250,
       "sku": "PLA MARROM",
       "gtin": "7908229109609",
-      "descricaoOlist": "Filamento PLA Masterprint - PLA MARROM"
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA MARROM"
     },
     {
-      "chave": "masterprint|pla||new-silk-prata",
+      "chave": "masterprint|pla|especial|new-silk-prata",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "New Silk Prata",
       "olistId": 1047030754,
       "sku": "PLA NEW SILK PRATA",
@@ -1423,10 +1390,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA NEW SILK PRATA"
     },
     {
-      "chave": "masterprint|pla||rainbow",
+      "chave": "masterprint|pla|especial|rainbow",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Rainbow",
       "olistId": 1044898232,
       "sku": "PLA RAINBOW",
@@ -1456,10 +1423,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA ROXO"
     },
     {
-      "chave": "masterprint|pla||silk-azul-dourado-roxo",
+      "chave": "masterprint|pla|especial|silk-azul-dourado-roxo",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Azul/Dourado/Roxo",
       "olistId": 1047030757,
       "sku": "PLA SILK AZUL/DOURADO/ROXO",
@@ -1467,32 +1434,32 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK AZUL/DOURADO/ROXO"
     },
     {
-      "chave": "masterprint|pla||silk-azul-preto-roxo",
+      "chave": "masterprint|pla|especial|silk-azul-preto-roxo",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Azul/Preto/Roxo",
-      "olistId": 1048627314,
-      "sku": "PLA SILK AZUL/PRETO/ROXO",
-      "gtin": "7908229110322",
-      "descricaoOlist": "Filamento PLA Masterprint - PLA SILK AZUL/PRETO/ROXO"
+      "olistId": 1056270045,
+      "sku": null,
+      "gtin": "7908229110490",
+      "descricaoOlist": "FILAMENTO 3D - PLA SILK AZUL/PRETO/ROXO ETIQUETA NEUTRA 1KG (1.75MM) DER 4"
     },
     {
-      "chave": "masterprint|pla||silk-azul-vermelho",
+      "chave": "masterprint|pla|especial|silk-azul-vermelho",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Azul/Vermelho",
       "olistId": 1047030764,
       "sku": "PLA SILK AZUL/VERMELHO",
       "gtin": "7908229110315",
-      "descricaoOlist": "Filamento PLA Masterprint - PLA SILK AZUL/VERMELHO"
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA SILK AZUL/VERMELHO"
     },
     {
-      "chave": "masterprint|pla||silk-branco",
+      "chave": "masterprint|pla|especial|silk-branco",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Branco",
       "olistId": 1046109730,
       "sku": "PLA SILK BRANCO",
@@ -1500,10 +1467,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK BRANCO"
     },
     {
-      "chave": "masterprint|pla||silk-cobre",
+      "chave": "masterprint|pla|especial|silk-cobre",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Cobre",
       "olistId": 1045660264,
       "sku": "PLA COBRE",
@@ -1522,32 +1489,32 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK LARANJA/PRETO"
     },
     {
-      "chave": "masterprint|pla||silk-lavanda",
+      "chave": "masterprint|pla|especial|silk-lavanda",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Lavanda",
       "olistId": 1048791937,
       "sku": "PLA SILK LAVANDA",
       "gtin": "7908229109791",
-      "descricaoOlist": "Filamento PLA Masterprint - PLA SILK LAVANDA"
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA SILK LAVANDA"
     },
     {
-      "chave": "masterprint|pla||silk-rainbow",
+      "chave": "masterprint|pla|especial|silk-rainbow",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Rainbow",
       "olistId": 1047030748,
       "sku": "PLA SILK RAINBOW",
       "gtin": "7908229108565",
-      "descricaoOlist": "Filamento PLA Masterprint - PLA SILK RAINBOW"
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA SILK RAINBOW"
     },
     {
-      "chave": "masterprint|pla||silk-roxo-preto",
+      "chave": "masterprint|pla|especial|silk-roxo-preto",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Roxo/Preto",
       "olistId": 1048627311,
       "sku": " PLA SILK ROXO/PRETO",
@@ -1555,10 +1522,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA SILK ROXO/PRETO"
     },
     {
-      "chave": "masterprint|pla||silk-verde",
+      "chave": "masterprint|pla|especial|silk-verde",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Verde",
       "olistId": 1047030751,
       "sku": "PLA SILK VERDE",
@@ -1588,10 +1555,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - PLA VERMELHO"
     },
     {
-      "chave": "masterprint|pla||silk-azul-azure",
+      "chave": "masterprint|pla|especial|silk-azul-azure",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Azul Azure",
       "olistId": 1046663360,
       "sku": "PLA SILK AZUL AZURE",
@@ -1599,10 +1566,10 @@
       "descricaoOlist": "Filamento PLA Masterprint - SILK AZUL AZURE"
     },
     {
-      "chave": "masterprint|pla||silk-vermelho-dourado",
+      "chave": "masterprint|pla|especial|silk-vermelho-dourado",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "",
+      "linha": "Especial",
       "cor": "Silk Vermelho/Dourado",
       "olistId": 1046109727,
       "sku": "PLA VERMELHO DOURADO",
@@ -1619,28 +1586,6 @@
       "sku": null,
       "gtin": "7908229110841",
       "descricaoOlist": "Filamento PLA Masterprint - SILK ROXO C/ GLITTER"
-    },
-    {
-      "chave": "masterprint|pla|etiqueta-neutra|silk-azul-roxo",
-      "marca": "Masterprint",
-      "material": "PLA",
-      "linha": "Etiqueta Neutra",
-      "cor": "Silk Azul/Roxo",
-      "olistId": 1049340986,
-      "sku": null,
-      "gtin": "7908229110483",
-      "descricaoOlist": "FILAMENTO 3D - PLA SILK AZUL/ROXO ETIQUETA NEUTRA 1KG (1.75MM) DER 4"
-    },
-    {
-      "chave": "masterprint|pla|etiqueta-neutra|silk-preto",
-      "marca": "Masterprint",
-      "material": "PLA",
-      "linha": "Etiqueta Neutra",
-      "cor": "Silk Preto",
-      "olistId": 1050530590,
-      "sku": null,
-      "gtin": "7908229111589",
-      "descricaoOlist": "FILAMENTO 3D - PLA SILK PRETO ETIQUETA NEUTRA 1KG (1.75MM) DER 4"
     },
     {
       "chave": "masterprint|pla|especial|transparente-preto-azul-com-glitter",
@@ -1665,15 +1610,15 @@
       "descricaoOlist": "Filamento PLA Masterprint - DREAMY CRYSTAL PRETO/VERMELHO"
     },
     {
-      "chave": "masterprint|pla|especial|ice-cream",
+      "chave": "masterprint|pla||ice-cream",
       "marca": "Masterprint",
       "material": "PLA",
-      "linha": "Especial",
+      "linha": "",
       "cor": "Ice Cream",
       "olistId": 1050722692,
-      "sku": null,
+      "sku": "ICE CREAM",
       "gtin": "7908229110186",
-      "descricaoOlist": "Filamento PLA Masterprint - ICE CREAM"
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - ICE CREAM"
     },
     {
       "chave": "masterprint|pla|fosforescente|fosforescente-natural-azul",
@@ -1704,9 +1649,9 @@
       "linha": "Fosforescente",
       "cor": "Fosforescente Natural/Rainbow",
       "olistId": 1050530600,
-      "sku": null,
+      "sku": "FOSFORESCENTE NATURAL/RAINBOW",
       "gtin": "7908229110346",
-      "descricaoOlist": "Filamento PLA Masterprint - FOSFORESCENTE NATURAL/RAINBOW"
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - FOSFORESCENTE NATURAL/RAINBOW"
     },
     {
       "chave": "masterprint|abs||rosa",
@@ -3884,6 +3829,50 @@
       "sku": null,
       "gtin": "7898405964354",
       "descricaoOlist": "COLA ALMASUPER ULTRARAPIDO 20G UN"
+    },
+    {
+      "chave": "masterprint|pla||marrom-escuro",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Marrom Escuro",
+      "olistId": 1056270033,
+      "sku": "MP-PLA-MARRON ESCURO",
+      "gtin": "7908229110230",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA MARROM ESCURO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla||fosco-verde-militar",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Fosco Verde Militar",
+      "olistId": 1056270049,
+      "sku": "Fosco Verde Militar",
+      "gtin": "7908229111459",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA FOSCO VERDE MILITAR 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-azul-tiffany",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Azul Tiffany",
+      "olistId": 1056270038,
+      "sku": null,
+      "gtin": "7908229110285",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA SILK AZUL TIFFANY 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla||dourado",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Dourado",
+      "olistId": 1044898239,
+      "sku": "PLA DOURADO",
+      "gtin": "7908229103799",
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA DOURADO"
     }
   ]
 }
