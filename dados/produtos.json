@@ -429,7 +429,7 @@
           "assets/fotos/closin-petg/fluo-green.webp"
         ],
         "idCatalogo": "closin|petg||fluo-green",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -722,8 +722,8 @@
           "assets/fotos/closin-pla/branco-perola.webp"
         ],
         "idCatalogo": "closin|pla||branco-perola",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Ciano",
@@ -734,7 +734,7 @@
           "assets/fotos/closin-pla/ciano.webp"
         ],
         "idCatalogo": "closin|pla||ciano",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -866,7 +866,7 @@
           "assets/fotos/closin-pla/violeta.webp"
         ],
         "idCatalogo": "closin|pla||violeta",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1191,8 +1191,8 @@
           "assets/fotos/masterprint-petg/preto-sem-foto.webp"
         ],
         "idCatalogo": "masterprint|petg||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Rosa",
@@ -2290,7 +2290,7 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-verde",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2641,8 +2641,8 @@
           "assets/fotos/masterprint-abs/preto.webp"
         ],
         "idCatalogo": "masterprint|abs||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "masterprint|abs|",
@@ -4210,8 +4210,8 @@
         ],
         "sku": "2338",
         "idCatalogo": "polyflow|pla||marrom-chocolate",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Roxo",
