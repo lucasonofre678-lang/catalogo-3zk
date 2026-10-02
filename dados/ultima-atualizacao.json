@@ -1,20 +1,20 @@
 {
   "status": "ok",
-  "ultimaVerificacao": "2026-10-01T19:13:49-03:00",
+  "ultimaVerificacao": "2026-10-02T13:38:01-03:00",
   "fusoHorario": "America/Sao_Paulo",
-  "coresDisponiveis": 239,
-  "coresOcultas": 114,
+  "coresDisponiveis": 243,
+  "coresOcultas": 110,
   "depositosConsiderados": [
     "Geral",
     "Loja presencial"
   ],
   "exibeQuantidadeExata": false,
-  "consultasRealizadas": 1,
-  "estoquesReutilizadosPorLimite": 342,
-  "estoquesReutilizadosPorErro": 1,
+  "consultasRealizadas": 190,
+  "estoquesReutilizadosPorLimite": 153,
+  "estoquesReutilizadosPorErro": 0,
   "produtosPausadosSemConsulta": 10,
-  "proximoIndiceConsulta": 96,
+  "proximoIndiceConsulta": 286,
   "modoConsulta": "completa",
   "idsConsultadosParcialmente": [],
-  "limiteApiAtingido": true
+  "limiteApiAtingido": false
 }

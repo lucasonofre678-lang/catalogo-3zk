@@ -734,7 +734,7 @@
           "assets/fotos/closin-pla/ciano.webp"
         ],
         "idCatalogo": "closin|pla||ciano",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2034,8 +2034,8 @@
           "assets/fotos/masterprint-pla/marrom.webp"
         ],
         "idCatalogo": "masterprint|pla||marrom",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "New Silk Prata",
@@ -2123,8 +2123,8 @@
           "assets/fotos/masterprint-pla/silk-azul-vermelho.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-azul-vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Branco",
@@ -2162,8 +2162,8 @@
           "assets/fotos/masterprint-pla/silk-lavanda.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-lavanda",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Rainbow",
@@ -2175,8 +2175,8 @@
           "assets/fotos/masterprint-pla/silk-rainbow.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-rainbow",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Roxo/Preto",
@@ -2201,7 +2201,7 @@
           "assets/fotos/masterprint-pla/silk-verde.webp"
         ],
         "idCatalogo": "masterprint|pla||silk-verde",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
