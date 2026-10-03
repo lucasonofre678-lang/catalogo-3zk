@@ -2496,8 +2496,8 @@
           "assets/fotos/masterprint-abs/rosa.webp"
         ],
         "idCatalogo": "masterprint|abs||rosa",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Laranja",
@@ -2676,7 +2676,7 @@
           "assets/fotos/masterprint-tpu/cinza.webp"
         ],
         "idCatalogo": "masterprint|tpu||cinza",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4543,7 +4543,7 @@
           "assets/fotos/kit-de-chaveiros-metal/25-un-gancho-duplo-com-argola-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
