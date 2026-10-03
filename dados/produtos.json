@@ -514,7 +514,7 @@
           "assets/fotos/closin-petg/rosa.webp"
         ],
         "idCatalogo": "closin|petg||rosa",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1698,8 +1698,8 @@
           "assets/fotos/masterprint-pla/branco.webp"
         ],
         "idCatalogo": "masterprint|pla||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -1851,8 +1851,8 @@
           "assets/fotos/masterprint-pla/cobre-esverdeado.webp"
         ],
         "idCatalogo": "masterprint|pla||cobre-esverdeado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul",
@@ -5136,7 +5136,7 @@
         ],
         "gtin": "7899850364171",
         "idCatalogo": "macarico-culinario|ferramentas||abs-liga-de-zinco-aco-inox",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -5165,7 +5165,7 @@
         ],
         "gtin": "7898693155359",
         "idCatalogo": "gas-para-macarico|insumos|400ml|frasco-400ml",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
