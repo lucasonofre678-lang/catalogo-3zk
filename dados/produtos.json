@@ -429,8 +429,8 @@
           "assets/fotos/closin-petg/fluo-green.webp"
         ],
         "idCatalogo": "closin|petg||fluo-green",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluo Red",
