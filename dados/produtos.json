@@ -38,7 +38,7 @@
           "assets/fotos/flashforge-pla/azul-esverdeado.webp"
         ],
         "idCatalogo": "flashforge|pla||azul-esverdeado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -660,8 +660,8 @@
           "assets/fotos/closin-pla/preto.webp"
         ],
         "idCatalogo": "closin|pla||preto",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Skin",
@@ -5136,12 +5136,12 @@
         ],
         "gtin": "7899850364171",
         "idCatalogo": "macarico-culinario|ferramentas||abs-liga-de-zinco-aco-inox",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "macarico-culinario|ferramentas|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Gás para Maçarico",
@@ -5165,12 +5165,12 @@
         ],
         "gtin": "7898693155359",
         "idCatalogo": "gas-para-macarico|insumos|400ml|frasco-400ml",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "gas-para-macarico|insumos|400ml",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Colas Instantâneas",
