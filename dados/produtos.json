@@ -866,8 +866,8 @@
           "assets/fotos/closin-pla/violeta.webp"
         ],
         "idCatalogo": "closin|pla||violeta",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Wood",
@@ -1813,8 +1813,8 @@
           "assets/fotos/masterprint-pla/fosco-cinza-fossil.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-cinza-fossil",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fosco Branco",
@@ -2580,8 +2580,8 @@
           "assets/fotos/masterprint-abs/azul.webp"
         ],
         "idCatalogo": "masterprint|abs||azul",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Branco",
@@ -3164,7 +3164,7 @@
         "sku": "multifila-marmorizado-pla",
         "gtin": "7898757181522",
         "idCatalogo": "multifila|pla|marmorizado|marmorizado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3645,8 +3645,8 @@
         "sku": "multifila-silk-vermelho-azul-pla",
         "gtin": "7898757181287",
         "idCatalogo": "multifila|pla|silk|silk-dual-color-vermelho-e-azul",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Ouro Envelhecido",
@@ -4129,7 +4129,7 @@
         "sku": "2301",
         "gtin": "0042882605874",
         "idCatalogo": "polyflow|pla||preto",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
