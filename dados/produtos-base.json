@@ -399,9 +399,10 @@
       {
         "nome": "Fluo Rose",
         "hex": "#FF4D8D",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/closin-petg/fluo-rose-real-20261006.webp",
           "assets/fotos/closin-petg/fluo-rose.webp"
         ],
         "chaveEstoque": "closin|petg||fluo-rose",
@@ -1527,7 +1528,9 @@
           "assets/fotos/masterprint-pla/roxo-claro-real.webp",
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
-        "chaveEstoque": "masterprint|pla||roxo-claro"
+        "chaveEstoque": "masterprint|pla||roxo-claro",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
       },
       {
         "nome": "Prata Master",
@@ -2158,6 +2161,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-rainbow-real-20261006.webp",
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-rainbow-real-20261002.webp"
         ],
         "chaveEstoque": "masterprint|pla|fosforescente|fosforescente-natural-rainbow",
