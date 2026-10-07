@@ -4131,8 +4131,8 @@
         "sku": "2301",
         "gtin": "0042882605874",
         "idCatalogo": "polyflow|pla||preto",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Branco Dental",
