@@ -1763,7 +1763,7 @@
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1901,7 +1901,7 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||marrom",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5097,7 +5097,7 @@
         ],
         "gtin": "7908348205824",
         "idCatalogo": "alicates|ferramentas||alicate-de-corte-5-polegadas",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
