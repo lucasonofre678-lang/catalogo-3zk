@@ -968,7 +968,7 @@
           "assets/fotos/closin-pla-silk/gold-dourado.webp"
         ],
         "idCatalogo": "closin|pla|silk|gold-dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4464,7 +4464,7 @@
         ],
         "preco": 69,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||24-unidades-coloridas",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
