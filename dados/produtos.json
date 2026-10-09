@@ -968,8 +968,8 @@
           "assets/fotos/closin-pla-silk/gold-dourado.webp"
         ],
         "idCatalogo": "closin|pla|silk|gold-dourado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul",
@@ -1335,7 +1335,7 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
