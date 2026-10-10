@@ -994,7 +994,7 @@
           "assets/fotos/closin-pla-silk/red-copper.webp"
         ],
         "idCatalogo": "closin|pla|silk|red-copper",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1335,8 +1335,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cool Grey",
@@ -2263,7 +2263,7 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-rainbow",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
