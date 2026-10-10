@@ -1976,7 +1976,7 @@
         ],
         "preco": 84.23,
         "idCatalogo": "masterprint|pla||marrom-escuro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
