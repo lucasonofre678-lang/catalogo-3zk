@@ -4478,7 +4478,7 @@
         ],
         "preco": 139,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||48-unidades-coloridas",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -4557,7 +4557,7 @@
           "assets/fotos/kit-de-chaveiros-metal/25-un-gancho-duplo-com-argola-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-prata",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4569,7 +4569,7 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4581,7 +4581,7 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-prata",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4689,7 +4689,7 @@
           "assets/fotos/multbond-colas/super-adesivo-instantaneo-100g.webp"
         ],
         "idCatalogo": "multbond|colas||super-adesivo-instantaneo-100g",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5097,8 +5097,8 @@
         ],
         "gtin": "7908348205824",
         "idCatalogo": "alicates|ferramentas||alicate-de-corte-5-polegadas",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Alicate bico de jacaré · 4,5 polegadas",
