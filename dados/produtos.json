@@ -1124,8 +1124,8 @@
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||fosco-branco",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Laranja",
@@ -1984,8 +1984,8 @@
         ],
         "preco": 84.23,
         "idCatalogo": "masterprint|pla||marrom-escuro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fosco Verde Militar",
@@ -1998,7 +1998,7 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||fosco-verde-militar",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4711,8 +4711,8 @@
           "assets/fotos/multbond-colas/super-adesivo-instantaneo-100g.webp"
         ],
         "idCatalogo": "multbond|colas||super-adesivo-instantaneo-100g",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cola + Acelerador de Secagem · 220g",
