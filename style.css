@@ -403,19 +403,31 @@ ul{margin:0;padding:0;list-style:none}
 /* área de imagem fixa: a foto inteira sempre cabe (contain) com margem de segurança */
 .card-media{--pad:var(--s-4);position:relative;aspect-ratio:5/6;background:var(--surface-sunken);border-bottom:1px solid var(--line);overflow:hidden}
 .card-media img{position:absolute;inset:var(--pad);margin:auto;width:auto;height:auto;max-width:calc(100% - var(--pad) * 2);max-height:calc(100% - var(--pad) * 2);object-fit:contain;border-radius:var(--radius-xs);box-shadow:0 1px 3px rgba(24,42,60,.12)}
+/* capa do produto: a arte quadrada ocupa a largura toda, apoiada na base; o espaço de cima
+   recebe o mesmo azul do topo da arte (#00279E), então a capa parece ir até a borda do card */
+.card-media--capa{background:#00279E}
+.card-media--capa img{inset:auto 0 0;width:100%;max-width:none;max-height:100%;margin:0;border-radius:0;box-shadow:none}
+.card-media--capa .card-open-plus{display:none}
 .card-media-open{position:absolute;inset:0;z-index:1;cursor:pointer}
 .product-badge{position:absolute;z-index:2;left:10px;top:10px;height:20px;display:inline-flex;align-items:center;padding:0 7px;border:1px solid var(--line);border-radius:var(--radius-xs);background:rgba(243,246,249,.94);color:var(--c-primary);font-size:11px;font-weight:600;letter-spacing:.06em;pointer-events:none}
 .card-open-plus{position:absolute;z-index:2;right:10px;bottom:10px;width:30px;height:30px;display:grid;place-items:center;border-radius:50%;background:var(--c-primary);color:#fff;box-shadow:0 4px 10px rgba(0,36,142,.25);pointer-events:none;transition:background var(--t-fast)}
 .card-open-plus svg{width:16px;height:16px;stroke-width:2}
 .card-body{display:flex;flex-direction:column;flex:1;padding:var(--s-3) 14px 14px}
 .product-kicker{margin:0 0 2px;color:var(--ink-3);font-size:11px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.product-title{font-size:15px;font-weight:600;line-height:1.3;color:var(--ink)}
+/* hierarquia do card: azul da marca = identidade (nome) · verde = vantagem (Pix, pronta entrega)
+   · âmbar = escassez · cinza = apoio (cartão, parcelas) */
+.product-title{font-size:17px;font-weight:800;line-height:1.22;letter-spacing:-.01em;color:var(--c-primary)}
 .product-title button{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;width:100%;padding:0;border:0;background:transparent;text-align:left;font-weight:inherit;color:inherit;line-height:inherit;border-radius:2px}
 .product-title button:hover{color:var(--c-primary)}
-.variant-summary{display:flex;align-items:baseline;gap:6px;min-width:0;margin-top:2px;font-size:13px;color:var(--ink-2)}
+.variant-summary{display:flex;align-items:baseline;gap:6px;min-width:0;margin-top:2px;font-size:12.5px;color:var(--ink-2)}
 .variant-summary>span{min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
 .variant-summary small{flex:none;font-size:12px;color:var(--ink-3)}
+.variant-summary b{font-weight:600;color:var(--ink)}
+.card-pronta{font-weight:600;color:var(--success)}
 .variant-summary small::before{content:"·";margin-right:6px}
+/* escassez real (estoque baixo na Olist): selo âmbar, a única cor quente no corpo do card */
+.card-scarcity{flex:none;margin-left:auto;display:inline-flex;align-items:center;gap:5px;padding:2px 7px;border:1px solid rgba(138,90,0,.28);border-radius:var(--radius-pill);background:rgba(255,183,0,.16);color:var(--warning);font-size:11.5px;font-style:normal;font-weight:700;line-height:1.35;white-space:nowrap}
+.card-scarcity::before{content:"";width:6px;height:6px;border-radius:1px;background:currentColor;transform:rotate(45deg)}
 /* miniaturas, preço e CTA ancorados na base: cards da mesma linha ficam alinhados */
 .card-variants{display:flex;align-items:center;gap:var(--s-1);height:30px;margin:auto 0 var(--s-3);padding-top:10px;box-sizing:content-box}
 .variant-mini{width:30px;height:30px;flex:none;padding:1px;border:1px solid var(--line);border-radius:var(--radius-xs);background:var(--surface-sunken);overflow:hidden;transition:border-color var(--t-fast),box-shadow var(--t-fast)}
@@ -424,13 +436,12 @@ ul{margin:0;padding:0;list-style:none}
 .variant-mini.is-active{border-color:var(--c-accent);box-shadow:0 0 0 1px var(--c-accent)}
 .more-variants{height:30px;min-width:30px;padding:0 6px;border:1px solid var(--line);border-radius:var(--radius-xs);background:transparent;color:var(--c-primary);font-size:12px;font-weight:600;font-variant-numeric:tabular-nums}
 .more-variants:hover{background:var(--c-primary-soft);border-color:var(--c-primary-line)}
-.card-price-row{display:grid;grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"reference stock" "pix pix" "inst inst";align-items:baseline;gap:2px var(--s-2)}
+.card-price-row{display:grid;grid-template-columns:minmax(0,1fr);grid-template-areas:"reference" "pix" "inst";align-items:baseline;gap:2px}
 .card-reference-price{grid-area:reference;font-size:12px;line-height:1.2;color:var(--ink-3);font-variant-numeric:tabular-nums}
-.card-price-row .stock{grid-area:stock;justify-self:end}
 .card-pix{grid-area:pix;display:flex;align-items:baseline;flex-wrap:wrap;gap:2px 6px;min-width:0;color:var(--success);font-variant-numeric:tabular-nums}
-.card-pix strong{font-size:21px;font-weight:700;line-height:1.12;letter-spacing:-.02em}
+.card-pix strong{font-size:23px;font-weight:700;line-height:1.12;letter-spacing:-.02em}
 .card-pix>span{font-size:12.5px;font-weight:600}
-.card-pix em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.03em;line-height:1;padding:3px 5px;border-radius:var(--radius-pill);background:rgba(20,108,62,.1);border:1px solid rgba(20,108,62,.2);white-space:nowrap}
+.card-pix em{font-style:normal;font-size:11px;font-weight:700;letter-spacing:.03em;line-height:1;padding:3px 6px;border-radius:var(--radius-pill);background:var(--success);border:1px solid var(--success);color:#fff;white-space:nowrap}
 .card-installments{grid-area:inst;font-size:12px;line-height:1.3;color:var(--ink-3);font-variant-numeric:tabular-nums}
 .price{font-size:19px;font-weight:700;letter-spacing:-.015em;color:var(--ink);font-variant-numeric:tabular-nums}
 .stock{font-size:12px}
@@ -818,20 +829,19 @@ ul{margin:0;padding:0;list-style:none}
   .card-open-plus svg{width:14px;height:14px}
   .card-body{padding:10px 10px 10px}
   .product-kicker{font-size:11px}
-  .product-title{font-size:13.5px}
+  .product-title{font-size:15px}
   .variant-summary{font-size:12px}
+  /* no celular o selo de escassez desce para a linha de baixo em vez de cortar o texto ao lado */
+  .variant-summary{flex-wrap:wrap;row-gap:4px}
+  .card-scarcity{margin-left:0}
   .variant-summary small{display:none}
   .card-variants{height:26px;gap:3px;margin-bottom:10px;padding-top:var(--s-2)}
   .variant-mini{width:26px;height:26px;border-radius:5px}
   .more-variants{height:26px;min-width:26px;padding:0 4px;font-size:11px;border-radius:5px}
-  .card-price-row{grid-template-columns:minmax(0,1fr);grid-template-areas:"reference" "pix" "inst" "stock";gap:2px}
-  .card-price-row .stock{justify-self:start;margin-top:2px}
   .card-pix{font-size:12.5px;gap:2px 5px}
   .card-installments{font-size:12px}
-  .card-pix strong{font-size:19px}
+  .card-pix strong{font-size:20px}
   .stock{font-size:12px}
-  /* "Em estoque" não precisa ocupar linha no celular: o catálogo só mostra o que tem estoque */
-  .card-price-row .stock--ok{display:none}
   .txt-longo{display:none}
   .card-cta{min-height:40px;margin-top:10px;font-size:14px;gap:6px;padding:0 var(--s-2)}
 
@@ -893,7 +903,7 @@ ul{margin:0;padding:0;list-style:none}
   :root{--gutter:10px}
   .product-grid{gap:var(--s-2)}
   .card-body{padding:var(--s-2) var(--s-2) 10px}
-  .product-title{font-size:13px}
+  .product-title{font-size:14px}
   .variant-mini{width:24px;height:24px}
   .more-variants{height:24px;min-width:24px}
   .card-variants{height:24px}
@@ -1122,7 +1132,7 @@ ul{margin:0;padding:0;list-style:none}
 /* Progressive enhancement: links continuam rastreáveis e mantêm o visual do catálogo */
 .category-chip{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}
 .product-title a{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;width:100%;text-align:left;font-weight:inherit;color:inherit;line-height:inherit;border-radius:2px;text-decoration:none}
-.product-title a:hover{color:var(--c-primary)}
+.product-title a:hover{color:var(--c-primary-hover);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
 .card-cta{text-decoration:none}
 .card-media-open{position:absolute;inset:0;z-index:2;border-radius:inherit}
 .more-variants{text-decoration:none;display:inline-flex;align-items:center;justify-content:center}

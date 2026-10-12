@@ -255,7 +255,7 @@ def destaque(p: dict) -> str | None:
     material = str(p.get("material") or "").strip().upper()
     linha = str(p.get("linha") or "").strip().lower()
     if (marca == "polyflow" and material == "PLA") or (marca == "masterprint" and material == "PETG" and linha == "5kg"):
-        return "Produto novo"
+        return "Novidade"
     if (marca, material) in {("masterprint", "PETG"), ("closin", "PLA"), ("multifila", "PLA")}:
         return "Novas cores"
     return None
@@ -440,10 +440,10 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
     href = f"{raiz}produto/{p['_slug']}/"
     muitas = len(cores) > 1
     acessorio = p["_secao"] == "acessorios"
-    kicker = categoria(p) if acessorio else p.get("marca")
+    # Capa do produto ("capa" na base): como no script.js, aparece até o cliente escolher uma cor.
+    capa = str(p.get("capa") or "").strip()
     badge = "ACESSÓRIO" if acessorio else p.get("material")
-    estoque, classe = rotulo_estoque(c)
-    cta = "Ver produto" if not muitas else ("Ver opções" if acessorio else "Ver cores")
+    cta = (f"Escolher {e(rotulo_variacao(p, False))}" if acessorio else '<span>Escolher<span class="txt-longo"> minha</span> cor</span>') if muitas else "Ver produto"
     if muitas:
         botao = f'<a class="primary-button card-cta" href="{href}" data-open-product>{cta}{ICONE_BUSCA}</a>'
     else:
@@ -456,7 +456,7 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
         if not any(v is c for v in mostradas):
             mostradas = [c] + [v for v in cores if v is not c][:3]
         minis = "".join(
-            f'<button type="button" class="variant-mini{" is-active" if v is c else ""}" data-variant="{cores.index(v)}" aria-label="Pré-visualizar {e(v.get("nome"))}" aria-pressed="{"true" if v is c else "false"}" title="{e(v.get("nome"))}" '
+            f'<button type="button" class="variant-mini{" is-active" if v is c and not capa else ""}" data-variant="{cores.index(v)}" aria-label="Pré-visualizar {e(v.get("nome"))}" aria-pressed="{"true" if v is c and not capa else "false"}" title="{e(v.get("nome"))}" '
             f'data-name="{e(v.get("nome"))}" data-image="{raiz}{e(miniatura(fotos(p, v)[0], "c"))}" data-price="{preco(p, v):.2f}" data-stock="{e(rotulo_estoque(v)[0])}" data-stock-class="{rotulo_estoque(v)[1]}">'
             f'<img src="{raiz}{e(miniatura(fotos(p, v)[0], "p"))}" alt="" loading="lazy" decoding="async"></button>'
             for v in mostradas
@@ -465,15 +465,29 @@ def card_html(p: dict, raiz: str, posicao: int = 99) -> str:
         if extra > 0:
             minis += f'<a href="{href}" class="more-variants" data-open-product aria-label="Ver mais {extra} {e(rotulo_variacao(p, extra > 1))}">+{extra}</a>'
     flag = f'<span class="product-flag">{e(p["_destaque"])}</span>' if p["_destaque"] else ""
-    resumo = f'<small>{len(cores)} {e(rotulo_variacao(p, True))}</small>' if muitas and not p.get("ocultarContagemVariacoesNoCard") else ""
+    contagem = muitas and not p.get("ocultarContagemVariacoesNoCard")
+    total = f'{len(cores)} {e(rotulo_variacao(p, True))}' if contagem else ""
+    # Escassez só quando é real; "Em estoque" não aparece (mesma regra do script.js).
+    acabando = sum(status_estoque(v) == "ultimas_unidades" for v in cores) if capa else int(status_estoque(c) == "ultimas_unidades")
+    escassez = "" if not acabando else (f'{acabando}<span class="txt-longo"> {e(rotulo_variacao(p, acabando > 1))}</span> acabando' if capa and muitas and acabando < len(cores) else "Últimas unidades")
+    if capa and contagem:
+        resumo = f'<span><b>{total}</b>{"" if escassez else '<span class="txt-longo card-pronta"> à pronta entrega</span>'}</span>'
+    else:
+        resumo = f'<span title="{e(c.get("nome"))}">{e(c.get("nome"))}</span>' + (f'<small>{total}</small>' if total and not escassez else "")
+    if escassez:
+        resumo += f'<em class="card-scarcity">{escassez}</em>'
+    # Com a capa nenhuma cor está escolhida: se as cores têm preços diferentes, vale o menor ("a partir de").
+    precos = [preco(p, v) for v in cores] if capa else [preco(p, c)]
+    foto_card = capa or fotos(p, c)[0]
+    alt_card = e(titulo) if capa else f'{e(titulo)} — {e(c.get("nome"))}'
     return (
         f'<article class="product-card" data-product="{e(p["_slug_link"])}">'
-        f'<div class="card-media"><span class="product-badge">{e(badge)}</span>{flag}<a class="card-media-open" href="{href}" data-open-product aria-label="Abrir {e(titulo)}"></a>'
-        f'<img src="{raiz}{e(miniatura(fotos(p, c)[0], "c"))}" alt="{e(titulo)} — {e(c.get("nome"))}" {'fetchpriority="high"' if posicao < 4 else 'loading="lazy"'} decoding="async">{ICONE_MAIS}</div>'
-        f'<div class="card-body"><p class="product-kicker">{e(kicker)}</p><h3 class="product-title"><a href="{href}" data-open-product>{e(titulo)}</a></h3>'
-        f'<p class="variant-summary"><span title="{e(c.get("nome"))}">{e(c.get("nome"))}</span>{resumo}</p>'
+        f'<div class="card-media{" card-media--capa" if capa else ""}"><span class="product-badge">{e(badge)}</span>{flag}<a class="card-media-open" href="{href}" data-open-product aria-label="Abrir {e(titulo)}"></a>'
+        f'<img src="{raiz}{e(miniatura(foto_card, "c"))}" alt="{alt_card}" {'fetchpriority="high"' if posicao < 4 else 'loading="lazy"'} decoding="async">{ICONE_MAIS}</div>'
+        f'<div class="card-body">{f'<p class="product-kicker">{e(categoria(p))}</p>' if acessorio else ""}<h3 class="product-title"><a href="{href}" data-open-product>{e(titulo)}</a></h3>'
+        f'<p class="variant-summary" data-total="{total}">{resumo}</p>'
         f'<div class="card-variants">{minis}</div>'
-        f'{card_price_block(preco(p, c), estoque, classe)}'
+        f'{card_price_block(min(precos), len(set(precos)) > 1)}'
         f'{botao}</div></article>'
     )
 
@@ -491,14 +505,13 @@ def price_block(valor: float) -> str:
     )
 
 
-def card_price_block(valor: float, estoque: str, classe: str) -> str:
+def card_price_block(valor: float, a_partir: bool = False) -> str:
     """Mesmo markup de cardPriceBlock no script.js."""
     r = resumo_preco(valor)
     return (
-        f'<div class="card-price-row"><span class="card-reference-price">{moeda(r["normal"])} no cartão</span>'
-        f'<span class="card-pix"><strong>{moeda(r["pix"])}</strong><span><span class="txt-longo">à vista </span>no Pix</span><em>5% OFF</em></span>'
-        f'<span class="card-installments"><span class="txt-longo">ou </span>3x de {moeda(r["parcela"])} sem juros<span class="txt-longo"> no cartão</span></span>'
-        f'<span class="stock {classe}">{e(estoque)}</span></div>'
+        f'<div class="card-price-row"><span class="card-reference-price">{"a partir de " if a_partir else ""}{moeda(r["normal"])} no cartão</span>'
+        f'<span class="card-pix"><strong>{moeda(r["pix"])}</strong><span>no Pix</span><em>5% OFF</em></span>'
+        f'<span class="card-installments"><span class="txt-longo">ou </span>3x de {moeda(r["parcela"])} sem juros<span class="txt-longo"> no cartão</span></span></div>'
     )
 
 
@@ -540,7 +553,8 @@ def pagina_produto(pg: Pagina, p: dict, site: Path) -> str:
     titulo = str(p.get("seoTitulo") or "").strip() or titulo
     descricao = str(p.get("seoDescricao") or "").strip() or descricao
 
-    imagens_abs = []
+    # A capa do produto vem primeiro: é a imagem do compartilhamento (og:image) e do Google.
+    imagens_abs = [str(p["capa"]).strip()] if str(p.get("capa") or "").strip() else []
     for c in cores:
         for f in fotos(p, c):
             if f not in imagens_abs:

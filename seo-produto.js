@@ -16,7 +16,9 @@
 
   // Mesmo markup de priceBlock e cardPriceBlock do script.js.
   const blocoPreco = (r) => `<span class="price-card-reference">${money.format(r.normal)} no cartão</span><span class="price-pix"><strong>${money.format(r.pix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="price-installments">ou 3x de ${money.format(r.parcela)} sem juros no cartão</span>`;
-  const blocoPrecoCard = (r, estoque, classe) => `<span class="card-reference-price">${money.format(r.normal)} no cartão</span><span class="card-pix"><strong>${money.format(r.pix)}</strong><span><span class="txt-longo">à vista </span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>3x de ${money.format(r.parcela)} sem juros<span class="txt-longo"> no cartão</span></span><span class="stock ${esc(classe)}">${esc(estoque)}</span>`;
+  const blocoPrecoCard = (r) => `<span class="card-reference-price">${money.format(r.normal)} no cartão</span><span class="card-pix"><strong>${money.format(r.pix)}</strong><span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>3x de ${money.format(r.parcela)} sem juros<span class="txt-longo"> no cartão</span></span>`;
+  // Linha da cor escolhida no card: nome + total de cores, ou o selo de escassez quando a cor está acabando.
+  const resumoCard = (nome, total, acabando) => `<span title="${esc(nome)}">${esc(nome)}</span>${acabando ? '<em class="card-scarcity">Últimas unidades</em>' : total ? `<small>${esc(total)}</small>` : ""}`;
 
   /* ---------- página de produto: troca de variação ---------- */
   const botoes = [...document.querySelectorAll("[data-seo-variant]")];
@@ -60,10 +62,11 @@
     const d = mini.dataset;
     const img = cardEl.querySelector(".card-media img");
     if (img) { img.src = d.image; img.alt = `${cardEl.querySelector(".product-title")?.textContent || ""} — ${d.name}`; }
-    const resumo = cardEl.querySelector(".variant-summary > span");
-    if (resumo) { resumo.textContent = d.name; resumo.title = d.name; }
+    cardEl.querySelector(".card-media--capa")?.classList.remove("card-media--capa"); // a foto da cor volta ao enquadramento normal
+    const resumo = cardEl.querySelector(".variant-summary");
+    if (resumo) resumo.innerHTML = resumoCard(d.name, resumo.dataset.total, d.stockClass === "stock--low");
     const linhaPreco = cardEl.querySelector(".card-price-row");
-    if (linhaPreco) linhaPreco.innerHTML = blocoPrecoCard(resumoPreco(Number(d.price)), d.stock, d.stockClass);
+    if (linhaPreco) linhaPreco.innerHTML = blocoPrecoCard(resumoPreco(Number(d.price)));
     cardEl.querySelectorAll("a[data-open-product]").forEach((a) => {
       const url = new URL(a.href, location.href);
       url.searchParams.set("cor", slug(d.name));

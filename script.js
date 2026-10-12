@@ -57,7 +57,7 @@
     carregado: false,
     category: "Todos", query: "",
     materials: new Set(), brands: new Set(), colors: new Set(), finishes: new Set(),
-    sort: "relevance", selected: new Map(),
+    sort: "relevance", selected: new Map(), escolhidas: new Set(),
     modal: null, modalVariant: 0, modalImage: 0, modalQty: 1, lastFocus: null, urlAntesDoProduto: null,
     zoomOpen: false, zoomScale: 1, zoomX: 0, zoomY: 0, zoomDragging: false, zoomMoved: false, zoomStartX: 0, zoomStartY: 0,
     swipe: null, swipeSuppressClickUntil: 0,
@@ -526,7 +526,7 @@
     const marca = String(produto?.marca || "").trim().toLowerCase();
     const material = String(produto?.material || "").trim().toUpperCase();
     const linha = String(produto?.linha || "").trim().toLowerCase();
-    if ((marca === "polyflow" && material === "PLA") || (marca === "masterprint" && material === "PETG" && linha === "5kg")) return { titulo: "Produto novo" };
+    if ((marca === "polyflow" && material === "PLA") || (marca === "masterprint" && material === "PETG" && linha === "5kg")) return { titulo: "Novidade" };
     if ((marca === "masterprint" && material === "PETG") || (marca === "closin" && material === "PLA") || (marca === "multifila" && material === "PLA")) return { titulo: "Novas cores" };
     return null;
   }
@@ -676,10 +676,11 @@
     return `<span class="price-card-reference">${money.format(r.precoNormal)} no cartão</span><span class="price-pix"><strong>${money.format(r.precoPix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="price-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span>`;
   }
 
-  // Versão compacta do mesmo cálculo para os cards (mesmo markup em automacao/gerar_paginas_seo.py).
-  function cardPriceBlock(p, c) {
-    const r = obterResumoPrecoCatalogo(getPrice(p, c)), [stock, stockClass] = stockLabel(c);
-    return `<div class="card-price-row"><span class="card-reference-price">${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span><span class="txt-longo">à vista </span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros<span class="txt-longo"> no cartão</span></span><span class="stock ${stockClass}">${stock}</span></div>`;
+  // Versão compacta do mesmo cálculo para os cards (mesmo markup em automacao/gerar_paginas_seo.py e seo-produto.js).
+  // Preço no cartão em cima (âncora) e o do Pix em destaque. "aPartir": capa à mostra e cores com preços diferentes.
+  function cardPriceBlock(valor, aPartir = false) {
+    const r = obterResumoPrecoCatalogo(valor);
+    return `<div class="card-price-row"><span class="card-reference-price">${aPartir ? "a partir de " : ""}${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros<span class="txt-longo"> no cartão</span></span></div>`;
   }
 
   // Variação mostrada por padrão: a primeira do cadastro, mesmo com as cores reordenadas por família.
@@ -845,9 +846,11 @@
   /* ============================================================
      CARDS
      ============================================================ */
+  // Verbo de escolha em vez de "Ver": o próximo passo já é montar o pedido. Nos filamentos, em primeira
+  // pessoa ("Escolher minha cor"), que aproxima o cliente do produto.
   function cardCta(p) {
     if (p.cores.length <= 1) return "Ver produto";
-    return p._acessorio ? "Ver opções" : "Ver cores";
+    return p._acessorio ? `Escolher ${esc(variantNoun(p, false))}` : '<span>Escolher<span class="txt-longo"> minha</span> cor</span>';
   }
 
   const ICONE_SACOLA_MAIS = '<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M6.8 7.5h10.4l1 12H5.8l1-12Z"></path><path d="M9 8V6a3 3 0 0 1 6 0v2"></path><path d="M12 11v5.5M9.25 13.75h5.5"></path></svg>';
@@ -858,7 +861,7 @@
     if (p.cores.length === 1 && corEstaDisponivel(c)) {
       return `<button type="button" class="primary-button card-cta card-cta--add" data-quick-add aria-label="Adicionar ao pedido: ${esc(title)}">${ICONE_SACOLA_MAIS}<span>Adicionar<span class="txt-longo"> ao pedido</span></span></button>`;
     }
-    return `<a class="primary-button card-cta" href="${href}" data-open-product>${esc(cardCta(p))}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></a>`;
+    return `<a class="primary-button card-cta" href="${href}" data-open-product>${cardCta(p)}<svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="m9.5 6 6 6-6 6"></path></svg></a>`;
   }
 
   function melhorIndiceParaBusca(p, variants) {
@@ -879,16 +882,33 @@
       state.selected.set(p._key, idx);
     }
     const c = p.cores[idx], title = getName(p), many = p.cores.length > 1;
+    // Capa do produto ("capa" na base): aparece até o cliente escolher uma cor no próprio card
+    // (escolher cor dentro do produto aberto não troca a capa) e some quando a busca ou um
+    // filtro de cor/acabamento restringe as variações.
+    const capa = p.capa && !state.escolhidas.has(p._key) && variants.length === p.cores.length ? p.capa : "";
+    const ativo = capa ? -1 : idx;
     // A variação selecionada sempre aparece entre as miniaturas.
     let shown = variants.slice(0, 4);
     if (!shown.includes(c)) shown = [c, ...variants.filter((v) => v !== c).slice(0, 3)];
     const extra = variants.length - shown.length;
     const href = esc(productHref(p));
+    const contagem = many && !p.ocultarContagemVariacoesNoCard;
+    // Escassez só quando é real (estoque baixo na Olist). "Em estoque" não aparece: tudo no catálogo tem estoque,
+    // então o selo âmbar se destaca justamente por ser a exceção.
+    const acabando = capa ? variants.filter((v) => obterStatusEstoque(v) === "ultimas_unidades").length : Number(obterStatusEstoque(c) === "ultimas_unidades");
+    const escassez = !acabando ? "" : capa && many && acabando < variants.length ? `${acabando}<span class="txt-longo"> ${variantNoun(p, acabando > 1)}</span> acabando` : "Últimas unidades";
+    const resumo = (capa && contagem
+      ? `<span><b>${p.cores.length} ${variantNoun(p, true)}</b>${escassez ? "" : '<span class="txt-longo card-pronta"> à pronta entrega</span>'}</span>`
+      : `<span title="${esc(c.nome)}">${esc(c.nome)}</span>${contagem && !escassez ? `<small>${variants.length < p.cores.length ? `${variants.length} de ` : ""}${p.cores.length} ${variantNoun(p, true)}</small>` : ""}`)
+      + (escassez ? `<em class="card-scarcity">${escassez}</em>` : "");
+    // Com a capa nenhuma cor está escolhida: se as cores têm preços diferentes, vale o menor ("a partir de").
+    const precos = capa ? variants.map((v) => getPrice(p, v)) : [getPrice(p, c)];
+    const precoCard = Math.min(...precos);
     return `<article class="product-card${corEstaDisponivel(c) ? "" : " is-out"}" data-product="${esc(p._key)}">
-      <div class="card-media"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : ""}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img ${srcMiniatura(firstImage(c), "c")} alt="${esc(`${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
-      <div class="card-body"><p class="product-kicker">${esc(getKicker(p))}</p><h3 class="product-title"><a href="${href}" data-open-product>${esc(title)}</a></h3><p class="variant-summary"><span title="${esc(c.nome)}">${esc(c.nome)}</span>${many && !p.ocultarContagemVariacoesNoCard ? `<small>${variants.length < p.cores.length ? `${variants.length} de ` : ""}${p.cores.length} ${variantNoun(p, true)}</small>` : ""}</p>
-      <div class="card-variants">${many ? shown.map((v) => { const vi = p.cores.indexOf(v); return `<button type="button" class="variant-mini ${vi === idx ? "is-active" : ""}" data-variant="${vi}" aria-label="Pré-visualizar ${esc(v.nome)}" aria-pressed="${vi === idx}" title="${esc(v.nome)}"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async"></button>`; }).join("") + (extra > 0 ? `<a href="${href}" class="more-variants" data-open-product aria-label="Ver mais ${extra} ${variantNoun(p, extra > 1)}">+${extra}</a>` : "") : ""}</div>
-      ${cardPriceBlock(p, c)}
+      <div class="card-media${capa ? " card-media--capa" : ""}"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : ""}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img ${srcMiniatura(capa || firstImage(c), "c")} alt="${esc(capa ? title : `${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
+      <div class="card-body">${p._acessorio ? `<p class="product-kicker">${esc(getKicker(p))}</p>` : ""}<h3 class="product-title"><a href="${href}" data-open-product>${esc(title)}</a></h3><p class="variant-summary">${resumo}</p>
+      <div class="card-variants">${many ? shown.map((v) => { const vi = p.cores.indexOf(v); return `<button type="button" class="variant-mini ${vi === ativo ? "is-active" : ""}" data-variant="${vi}" aria-label="Pré-visualizar ${esc(v.nome)}" aria-pressed="${vi === ativo}" title="${esc(v.nome)}"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async"></button>`; }).join("") + (extra > 0 ? `<a href="${href}" class="more-variants" data-open-product aria-label="Ver mais ${extra} ${variantNoun(p, extra > 1)}">+${extra}</a>` : "") : ""}</div>
+      ${cardPriceBlock(precoCard, precos.some((v) => v !== precoCard))}
       ${cardBotao(p, c, title, href)}</div></article>`;
   }
 
@@ -934,7 +954,7 @@
   els.grid.addEventListener("click", (e) => {
     const p = cardProduct(e.target); if (!p) return;
     const variant = e.target.closest("[data-variant]");
-    if (variant) { state.selected.set(p._key, Number(variant.dataset.variant)); refreshCard(p); return; }
+    if (variant) { state.selected.set(p._key, Number(variant.dataset.variant)); state.escolhidas.add(p._key); refreshCard(p); return; }
     const rapido = e.target.closest("[data-quick-add]");
     if (rapido) { e.preventDefault(); adicionarDoCard(p, rapido); return; }
     if (e.target.closest("[data-open-product]")) {

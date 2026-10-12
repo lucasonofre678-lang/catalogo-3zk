@@ -4,6 +4,7 @@
     "material": "PLA",
     "preco": 99,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
+    "capa": "assets/fotos/capas/flashforge-pla.webp",
     "cores": [
       {
         "nome": "Vermelho Coral",
@@ -307,6 +308,7 @@
     "linha": "Marble",
     "preco": 134.9,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-flashforge-pla/",
+    "capa": "assets/fotos/capas/flashforge-pla-marble.webp",
     "cores": [
       {
         "nome": "Marble Black / Mármore Preto",
@@ -359,6 +361,7 @@
     "material": "PETG",
     "preco": 72.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/closin-petg.webp",
     "cores": [
       {
         "nome": "Amarelo",
@@ -589,6 +592,7 @@
     "material": "PLA",
     "preco": 88,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/closin-pla.webp",
     "cores": [
       {
         "nome": "Gold",
@@ -892,6 +896,7 @@
     "linha": "Silk",
     "preco": 105,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/closin-pla-silk.webp",
     "cores": [
       {
         "nome": "Arco-Íris",
@@ -1019,6 +1024,7 @@
     "material": "PETG",
     "preco": 63,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-petg-masterprint/",
+    "capa": "assets/fotos/capas/masterprint-petg.webp",
     "cores": [
       {
         "nome": "Amarelo",
@@ -1374,6 +1380,7 @@
     "preco": 84,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/masterprint-petg-especial.webp",
     "cores": [
       {
         "nome": "Branco PVC Outdoor",
@@ -1689,6 +1696,7 @@
     "material": "PLA",
     "preco": 84,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "capa": "assets/fotos/capas/masterprint-pla.webp",
     "cores": [
       {
         "nome": "Branco",
@@ -2039,6 +2047,7 @@
     "material": "PLA",
     "preco": 94,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "capa": "assets/fotos/capas/masterprint-pla-especial.webp",
     "cores": [
       {
         "nome": "Silk Roxo",
@@ -2401,6 +2410,7 @@
     "material": "PLA",
     "preco": 94,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-pla-masterprint-premium/",
+    "capa": "assets/fotos/capas/masterprint-pla-fosforescente.webp",
     "cores": [
       {
         "nome": "Fosforescente Natural/Azul",
@@ -2453,6 +2463,7 @@
     "material": "ASA",
     "preco": 90,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/masterprint-asa.webp",
     "cores": [
       {
         "nome": "Branco",
@@ -2488,6 +2499,7 @@
     "material": "ABS",
     "preco": 70,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/mp-filamento-3d-abs/",
+    "capa": "assets/fotos/capas/masterprint-abs.webp",
     "cores": [
       {
         "nome": "Rosa",
@@ -2655,6 +2667,7 @@
     "material": "TPU",
     "preco": 110,
     "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-tpu-masterprint/",
+    "capa": "assets/fotos/capas/masterprint-tpu.webp",
     "cores": [
       {
         "nome": "Branco",
@@ -2764,6 +2777,7 @@
     "material": "TPR",
     "preco": 261.51,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/masterprint-tpr.webp",
     "cores": [
       {
         "nome": "Amarelo",
@@ -3123,6 +3137,7 @@
     "preco": 110,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/multifila-pla-branco.webp",
     "cores": [
       {
         "nome": "Branco",
@@ -3151,6 +3166,7 @@
     "preco": 170.0,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/multifila-pla-marmorizado.webp",
     "cores": [
       {
         "nome": "Marmorizado",
@@ -3180,6 +3196,7 @@
     "preco": 120.0,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/multifila-pla-matte.webp",
     "cores": [
       {
         "nome": "Branco",
@@ -3561,6 +3578,7 @@
     "preco": 120.0,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/multifila-pla-silk.webp",
     "cores": [
       {
         "nome": "Silk Azul Safira",
@@ -3889,6 +3907,7 @@
     "preco": 164.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/multifila-pla-rainbow.webp",
     "cores": [
       {
         "nome": "Rainbow Matte Coral Colors",
@@ -4034,6 +4053,7 @@
     "preco": 179.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/multifila-pla-termo.webp",
     "cores": [
       {
         "nome": "Termo Azul e Branco",
@@ -4096,6 +4116,7 @@
     "material": "ABS",
     "preco": 110,
     "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/multifila-abs.webp",
     "cores": [
       {
         "nome": "Preto",
@@ -4119,6 +4140,7 @@
     "preco": 95,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/polyflow-pla.webp",
     "cores": [
       {
         "nome": "Preto",

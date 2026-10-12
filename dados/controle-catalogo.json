@@ -1,12 +1,10 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-10-06T19:27:00-03:00",
+  "atualizadoEm": "2026-10-12T15:30:00-03:00",
   "produtosPausados": [
     "masterprint|petg|5kg"
   ],
   "coresPausadas": [
-    "masterprint|petg||fosco-branco",
-    "masterprint|pla||fosco-branco",
     "masterprint|pla|fosforescente|fosforescente-natural-verde",
     "masterprint|pla|especial|silk-vermelho-purpura"
   ]

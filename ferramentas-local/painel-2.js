@@ -217,7 +217,7 @@
       return {
         raw, id, indice, nome: P.nomeProduto(raw), nomeInterface: nomeInterface(raw), preco: precoBase, status, cores,
         acessorio: secaoRaw(raw) === "acessorios", material: raw.material || "", categoria: raw.categoria || "",
-        capa: cores.flatMap((cor) => cor.fotosReais)[0] || "", novo: !P.produtoRawPorId(estado.baseOriginalRaw, id)
+        capa: (raw.capa && !p2.fotosInexistentes.has(raw.capa) ? raw.capa : "") || cores.flatMap((cor) => cor.fotosReais)[0] || "", novo: !P.produtoRawPorId(estado.baseOriginalRaw, id)
       };
     });
   }

@@ -162,6 +162,12 @@ def validate_catalog(args: argparse.Namespace) -> Report:
             continue
         if not isinstance(product.get("preco"), (int, float)) or float(product["preco"]) <= 0:
             report.error(f"Preço principal inválido: {label}")
+        if "capa" in product:
+            cover = product["capa"]
+            if not isinstance(cover, str) or not cover.strip():
+                report.error(f"Campo capa inválido: {label}")
+            elif not (ROOT / cover).is_file():
+                report.error(f"Capa não encontrada: {label} — {cover}")
 
         ids_in_product: set[str] = set()
         for color_index, color in enumerate(colors, start=1):
