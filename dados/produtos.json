@@ -2200,7 +2200,7 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-azul-preto-roxo",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2272,8 +2272,8 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-rainbow",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Roxo/Preto",
@@ -2300,8 +2300,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-verde",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Azul Azure",
