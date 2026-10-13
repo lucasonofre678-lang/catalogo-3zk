@@ -1909,8 +1909,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||marrom",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Rosa",
@@ -2368,7 +2368,7 @@
         ],
         "preco": 94,
         "idCatalogo": "masterprint|pla|especial|marmore",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4486,8 +4486,8 @@
         ],
         "preco": 69,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||24-unidades-coloridas",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "48 unidades · Coloridas",
