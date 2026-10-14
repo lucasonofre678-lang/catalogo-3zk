@@ -1998,8 +1998,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||fosco-verde-militar",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Dourado",
@@ -4528,7 +4528,7 @@
           "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/cromado.webp"
         ],
         "idCatalogo": "parafusos-tipo-gancho|chaveiros|kit-100|cromado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4540,7 +4540,7 @@
           "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/dourado.webp"
         ],
         "idCatalogo": "parafusos-tipo-gancho|chaveiros|kit-100|dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
