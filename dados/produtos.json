@@ -4523,8 +4523,8 @@
         ],
         "preco": 139,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||48-unidades-coloridas",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "canetas-marcadoras-multifila|utilidades|",
@@ -4602,8 +4602,8 @@
           "assets/fotos/kit-de-chaveiros-metal/25-un-gancho-duplo-com-argola-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-prata",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "50 un · Gancho Argola Simples · Dourado",
