@@ -1,7 +1,7 @@
 {
   "versao": 1,
-  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-02",
-  "total": 352,
+  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-14",
+  "total": 353,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1971,6 +1971,17 @@
       "sku": "PLAVERDECLARO",
       "gtin": "6977905741366",
       "descricaoOlist": "FILAMENTO CREALITY SOLEYIN ULTRA PLA - PLA VERDE CLARO"
+    },
+    {
+      "chave": "creality-ender|pla||black-preto",
+      "marca": "Creality Ender",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Black / Preto",
+      "olistId": 1056878973,
+      "sku": null,
+      "gtin": "6971636403142",
+      "descricaoOlist": "Filamento 3D Creality Ender PLA 1,75mm Black"
     },
     {
       "chave": "elegoo|pla||dark-blue",

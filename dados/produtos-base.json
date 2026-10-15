@@ -2613,6 +2613,27 @@
     ]
   },
   {
+    "marca": "Creality Ender",
+    "material": "PLA",
+    "preco": 99,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "capa": "assets/fotos/capas/creality-ender-pla.webp",
+    "cores": [
+      {
+        "nome": "Black / Preto",
+        "hex": "#1B1D22",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/creality-ender-pla/black-preto.webp"
+        ],
+        "chaveEstoque": "creality-ender|pla||black-preto",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      }
+    ]
+  },
+  {
     "marca": "Elegoo",
     "material": "PLA",
     "preco": 96,
