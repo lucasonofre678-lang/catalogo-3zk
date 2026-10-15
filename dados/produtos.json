@@ -1124,8 +1124,8 @@
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||fosco-branco",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Laranja",
@@ -1771,8 +1771,8 @@
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Prata Master",
@@ -1909,8 +1909,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||marrom",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Rosa",
@@ -1984,8 +1984,8 @@
         ],
         "preco": 84.23,
         "idCatalogo": "masterprint|pla||marrom-escuro",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fosco Verde Militar",
@@ -1998,8 +1998,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||fosco-verde-militar",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Dourado",
@@ -2200,7 +2200,7 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-azul-preto-roxo",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2272,8 +2272,8 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-rainbow",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Roxo/Preto",
@@ -2300,8 +2300,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-verde",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Azul Azure",
@@ -2368,7 +2368,7 @@
         ],
         "preco": 94,
         "idCatalogo": "masterprint|pla|especial|marmore",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4509,8 +4509,8 @@
         ],
         "preco": 69,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||24-unidades-coloridas",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "48 unidades · Coloridas",
@@ -4551,7 +4551,7 @@
           "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/cromado.webp"
         ],
         "idCatalogo": "parafusos-tipo-gancho|chaveiros|kit-100|cromado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4563,7 +4563,7 @@
           "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/dourado.webp"
         ],
         "idCatalogo": "parafusos-tipo-gancho|chaveiros|kit-100|dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -4734,8 +4734,8 @@
           "assets/fotos/multbond-colas/super-adesivo-instantaneo-100g.webp"
         ],
         "idCatalogo": "multbond|colas||super-adesivo-instantaneo-100g",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cola + Acelerador de Secagem · 220g",
