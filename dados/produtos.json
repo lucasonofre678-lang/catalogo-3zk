@@ -1366,7 +1366,7 @@
           "assets/fotos/masterprint-petg/green-olive-2.webp"
         ],
         "idCatalogo": "masterprint|petg||green-olive",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3775,7 +3775,7 @@
         "sku": "multifila-silk-vermelho-pla",
         "gtin": "7898757180969",
         "idCatalogo": "multifila|pla|silk|silk-vermelho",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
