@@ -1210,7 +1210,7 @@
           "assets/fotos/masterprint-petg/rosa.webp"
         ],
         "idCatalogo": "masterprint|petg||rosa",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
