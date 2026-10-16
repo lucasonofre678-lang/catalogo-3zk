@@ -1340,8 +1340,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Cool Grey",
@@ -3376,7 +3376,7 @@
         "preco": 120.0,
         "efeito": "fosco",
         "idCatalogo": "multifila|pla|matte|verde-militar",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -3703,7 +3703,7 @@
         "sku": "multifila-silk-ouro-envelhecido-pla",
         "gtin": "7898757181249",
         "idCatalogo": "multifila|pla|silk|silk-ouro-envelhecido",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4243,7 +4243,7 @@
         ],
         "sku": "2354",
         "idCatalogo": "polyflow|pla||verde",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4625,8 +4625,8 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-prata",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "50 un · Simples 25mm + Elo 8mm · Dourado",
@@ -4746,7 +4746,7 @@
         ],
         "preco": 79,
         "idCatalogo": "multbond|colas||cola-acelerador-de-secagem-220g",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -5154,7 +5154,7 @@
         ],
         "gtin": "7899958258891",
         "idCatalogo": "alicates|ferramentas||alicate-bico-de-jacare-4-5-polegadas",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
