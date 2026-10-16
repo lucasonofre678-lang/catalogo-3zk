@@ -2398,6 +2398,48 @@
         "idCatalogo": "masterprint|pla|especial|silk-azul-tiffany",
         "statusEstoque": "em_estoque",
         "disponivel": true
+      },
+      {
+        "nome": "Silk Azul",
+        "hex": "#3D66B3",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-azul.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla|especial|silk-azul",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silk Bronze",
+        "hex": "#5A504B",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-bronze.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla|especial|silk-bronze",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silk Verde (Etiqueta Neutra)",
+        "hex": "#55847A",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-verde-etiqueta-neutra.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla|especial|silk-verde-etiqueta-neutra",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "linha": "Especial",

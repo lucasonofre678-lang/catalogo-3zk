@@ -1,7 +1,7 @@
 {
   "versao": 1,
-  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-14",
-  "total": 353,
+  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-16",
+  "total": 356,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -3873,6 +3873,39 @@
       "sku": null,
       "gtin": "7908229110285",
       "descricaoOlist": "MP-FILAMENTO 3D - PLA SILK AZUL TIFFANY 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-azul",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Azul",
+      "olistId": 1056985330,
+      "sku": null,
+      "gtin": "7908229111916",
+      "descricaoOlist": "FILAMENTO 3D - PLA SILK AZUL ETIQUETA NEUTRA 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-bronze",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Bronze",
+      "olistId": 1056985334,
+      "sku": null,
+      "gtin": "7908229111947",
+      "descricaoOlist": "FILAMENTO 3D - PLA SILK BRONZE ETIQUETA NEUTRA 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-verde-etiqueta-neutra",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Verde (Etiqueta Neutra)",
+      "olistId": 1056985326,
+      "sku": null,
+      "gtin": "7908229111909",
+      "descricaoOlist": "FILAMENTO 3D - PLA SILK VERDE ETIQUETA NEUTRA 1KG (1.75MM) DER 4"
     },
     {
       "chave": "masterprint|pla||dourado",
