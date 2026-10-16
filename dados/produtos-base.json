@@ -405,8 +405,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/fluo-rose-real-20261006.webp",
-          "assets/fotos/closin-petg/fluo-rose.webp"
+          "assets/fotos/closin-petg/fluo-rose-real-20261006.webp"
         ],
         "chaveEstoque": "closin|petg||fluo-rose",
         "statusEstoqueInicial": "em_estoque",

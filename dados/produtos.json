@@ -453,8 +453,7 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/closin-petg/fluo-rose-real-20261006.webp",
-          "assets/fotos/closin-petg/fluo-rose.webp"
+          "assets/fotos/closin-petg/fluo-rose-real-20261006.webp"
         ],
         "idCatalogo": "closin|petg||fluo-rose",
         "statusEstoque": "em_estoque",
