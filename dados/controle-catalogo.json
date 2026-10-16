@@ -1,10 +1,19 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-10-16T18:00:00-03:00",
+  "atualizadoEm": "2026-10-16T20:52:23.904Z",
   "produtosPausados": [
     "masterprint|petg|5kg"
   ],
   "coresPausadas": [
+    "masterprint|petg||green-olive",
     "masterprint|pla|fosforescente|fosforescente-natural-verde"
-  ]
+  ],
+  "rascunhos": [],
+  "motivos": {
+    "masterprint|petg||green-olive": {
+      "motivo": "Aguardando estoque",
+      "em": "2026-10-16T20:52:18.749Z",
+      "por": "lucas"
+    }
+  }
 }
