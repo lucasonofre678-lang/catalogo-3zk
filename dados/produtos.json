@@ -1770,8 +1770,8 @@
           "assets/fotos/masterprint-pla/roxo-claro.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Prata Master",
@@ -1782,8 +1782,8 @@
           "assets/fotos/masterprint-pla/prata-master.webp"
         ],
         "idCatalogo": "masterprint|pla||prata-master",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fosco Roxo",
@@ -1795,8 +1795,8 @@
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-roxo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Fosco Azul Ártico",
@@ -2073,8 +2073,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-fuchsia",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Peacock Blue",
@@ -2101,7 +2101,7 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-vermelho-purpura",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -2299,8 +2299,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Azul Azure",
@@ -2671,8 +2671,8 @@
           "assets/fotos/masterprint-abs/cinza.webp"
         ],
         "idCatalogo": "masterprint|abs||cinza",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Dourado",
