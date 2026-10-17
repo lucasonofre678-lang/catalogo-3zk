@@ -4653,8 +4653,8 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-dourado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "50 un · Gancho Argola Simples · Prata",
