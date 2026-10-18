@@ -2513,7 +2513,7 @@
           "assets/fotos/masterprint-asa/branco.webp"
         ],
         "idCatalogo": "masterprint|asa||branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
