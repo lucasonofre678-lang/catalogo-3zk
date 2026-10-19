@@ -2730,8 +2730,8 @@
           "assets/fotos/masterprint-tpu/cinza.webp"
         ],
         "idCatalogo": "masterprint|tpu||cinza",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Preto",
