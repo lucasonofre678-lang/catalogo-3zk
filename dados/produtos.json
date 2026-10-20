@@ -1238,73 +1238,6 @@
         "disponivel": true
       },
       {
-        "nome": "Translúcido Amarelo",
-        "hex": "#C1905E",
-        "efeito": "glass",
-        "hexFonte": "foto-ajustada",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/translucido-amarelo.webp"
-        ],
-        "idCatalogo": "masterprint|petg||translucido-amarelo",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Translúcido Azul",
-        "hex": "#5E92B8",
-        "efeito": "glass",
-        "hexFonte": "foto",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/translucido-azul-real.webp",
-          "assets/fotos/masterprint-petg/translucido-azul.webp"
-        ],
-        "idCatalogo": "masterprint|petg||translucido-azul",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Translúcido Branco",
-        "hex": "#DDE2E3",
-        "efeito": "glass",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
-        "imagens": [
-          "assets/fotos/masterprint-petg/translucido-branco.webp"
-        ],
-        "idCatalogo": "masterprint|petg||translucido-branco",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Translúcido Verde",
-        "hex": "#729998",
-        "efeito": "glass",
-        "hexFonte": "foto-ajustada",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/translucido-verde.webp"
-        ],
-        "idCatalogo": "masterprint|petg||translucido-verde",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
-        "nome": "Translúcido Vermelho",
-        "hex": "#AD474F",
-        "efeito": "glass",
-        "hexFonte": "foto-ajustada",
-        "fotoStatus": "confirmada",
-        "imagens": [
-          "assets/fotos/masterprint-petg/translucido-vermelho.webp",
-          "assets/fotos/masterprint-petg/translucido-vermelho-2.webp"
-        ],
-        "idCatalogo": "masterprint|petg||translucido-vermelho",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
-      },
-      {
         "nome": "Transparente",
         "hex": "#D7D9D7",
         "efeito": "glass",
@@ -1370,6 +1303,87 @@
       }
     ],
     "idCatalogo": "masterprint|petg|",
+    "disponivel": true
+  },
+  {
+    "marca": "Masterprint",
+    "material": "PETG",
+    "linha": "Translúcido",
+    "preco": 57.89,
+    "precoAnterior": 63,
+    "linkLoja": "https://3zkfilamentos.com.br/produtos/filamento-petg-masterprint/",
+    "obs": "",
+    "capa": "assets/fotos/capas/masterprint-petg-translucido.webp",
+    "cores": [
+      {
+        "nome": "Amarelo",
+        "hex": "#C1905E",
+        "efeito": "glass",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-amarelo.webp"
+        ],
+        "idCatalogo": "masterprint|petg|translucido|amarelo",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Azul",
+        "hex": "#5E92B8",
+        "efeito": "glass",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-azul-real.webp",
+          "assets/fotos/masterprint-petg/translucido-azul.webp"
+        ],
+        "idCatalogo": "masterprint|petg|translucido|azul",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Branco",
+        "hex": "#DDE2E3",
+        "efeito": "glass",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-branco.webp"
+        ],
+        "idCatalogo": "masterprint|petg|translucido|branco",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Verde",
+        "hex": "#729998",
+        "efeito": "glass",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-verde.webp"
+        ],
+        "idCatalogo": "masterprint|petg|translucido|verde",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#AD474F",
+        "efeito": "glass",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/translucido-vermelho.webp",
+          "assets/fotos/masterprint-petg/translucido-vermelho-2.webp"
+        ],
+        "idCatalogo": "masterprint|petg|translucido|vermelho",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "masterprint|petg|translucido",
     "disponivel": true
   },
   {

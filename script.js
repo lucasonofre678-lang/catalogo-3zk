@@ -630,6 +630,13 @@
   const getPrice = (p, c) => obterPrecoProdutoOuVariacao(p, c);
   const firstImage = (c) => c?._fotos?.[0] || "";
 
+  // Promoção: "precoAnterior" na cor (ou no produto) maior que o preço atual. Sem o campo, tudo volta ao normal.
+  function obterPrecoAnterior(p, c) {
+    const anterior = Number(c?.precoAnterior ?? p?.precoAnterior);
+    return Number.isFinite(anterior) && anterior > getPrice(p, c) ? anterior : 0;
+  }
+  const corEmPromocao = (p, c) => obterPrecoAnterior(p, c) > 0;
+
   /*
     Miniaturas WebP criadas na publicação (automacao/gerar_miniaturas.py): "p" até 200 px
     (cores, pedido) e "c" até 560 px (cards). A página publicada avisa que elas existem
@@ -672,15 +679,15 @@
   }
 
   function priceBlock(p, c) {
-    const r = obterResumoPrecoCatalogo(getPrice(p, c));
-    return `<span class="price-card-reference">${money.format(r.precoNormal)} no cartão</span><span class="price-pix"><strong>${money.format(r.precoPix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="price-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span>`;
+    const r = obterResumoPrecoCatalogo(getPrice(p, c)), anterior = obterPrecoAnterior(p, c);
+    return `${anterior ? `<span class="price-promo"><b>Promoção</b>de <s>${money.format(anterior)}</s> por</span>` : ""}<span class="price-card-reference">${money.format(r.precoNormal)} no cartão</span><span class="price-pix"><strong>${money.format(r.precoPix)}</strong><span>à vista no Pix</span><em>5% OFF</em></span><span class="price-installments">ou ${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros no cartão</span>`;
   }
 
   // Versão compacta do mesmo cálculo para os cards (mesmo markup em automacao/gerar_paginas_seo.py e seo-produto.js).
   // Preço no cartão em cima (âncora) e o do Pix em destaque. "aPartir": capa à mostra e cores com preços diferentes.
-  function cardPriceBlock(valor, aPartir = false) {
+  function cardPriceBlock(valor, aPartir = false, anterior = 0) {
     const r = obterResumoPrecoCatalogo(valor);
-    return `<div class="card-price-row"><span class="card-reference-price">${aPartir ? "a partir de " : ""}${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros<span class="txt-longo"> no cartão</span></span></div>`;
+    return `<div class="card-price-row"><span class="card-reference-price">${aPartir ? "a partir de " : ""}${anterior ? `<s class="card-old-price">${money.format(anterior)}</s> ` : ""}${money.format(r.precoNormal)} no cartão</span><span class="card-pix"><strong>${money.format(r.precoPix)}</strong><span>no Pix</span><em>5% OFF</em></span><span class="card-installments"><span class="txt-longo">ou </span>${PARCELAS_SEM_JUROS}x de ${money.format(r.valorParcela)} sem juros<span class="txt-longo"> no cartão</span></span></div>`;
   }
 
   // Variação mostrada por padrão: a primeira do cadastro, mesmo com as cores reordenadas por família.
@@ -762,7 +769,8 @@
     const list = produtos.filter(filterMatch).map(withVisible);
     const minPrice = (p) => Math.min(...p._visibleCores.map((c) => getPrice(p, c)));
     const maxPrice = (p) => Math.max(...p._visibleCores.map((c) => getPrice(p, c)));
-    const prioridade = (p) => (p._destaque ? 0 : 1);
+    // Produto com cor em promoção vem primeiro; depois os destaques ("Novidade"/"Novas cores").
+    const prioridade = (p) => (p._visibleCores.some((c) => corEmPromocao(p, c)) ? 0 : p._destaque ? 1 : 2);
     if (state.sort === "price-asc") list.sort((a, b) => minPrice(a) - minPrice(b) || a._indice - b._indice);
     else if (state.sort === "price-desc") list.sort((a, b) => maxPrice(b) - maxPrice(a) || a._indice - b._indice);
     else if (state.sort === "name") list.sort((a, b) => getName(a).localeCompare(getName(b), "pt-BR"));
@@ -904,11 +912,21 @@
     // Com a capa nenhuma cor está escolhida: se as cores têm preços diferentes, vale o menor ("a partir de").
     const precos = capa ? variants.map((v) => getPrice(p, v)) : [getPrice(p, c)];
     const precoCard = Math.min(...precos);
-    return `<article class="product-card${corEstaDisponivel(c) ? "" : " is-out"}" data-product="${esc(p._key)}">
-      <div class="card-media${capa ? " card-media--capa" : ""}"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : ""}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img ${srcMiniatura(capa || firstImage(c), "c")} alt="${esc(capa ? title : `${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
+    // Promoção: com a capa vale a cor mais barata (a promocional); com uma cor escolhida, a própria cor.
+    const anterior = obterPrecoAnterior(p, capa ? variants.find((v) => getPrice(p, v) === precoCard) : c);
+    const emPromocao = (capa ? variants : [c]).filter((v) => corEmPromocao(p, v)).length;
+    const flag = emPromocao
+      ? (() => {
+        const pix = obterResumoPrecoCatalogo(precoCard).precoPix;
+        const valor = Number.isInteger(pix) ? `R$ ${pix}` : money.format(pix);
+        return `<span class="product-flag product-flag--promo"><span class="promo-flag__fogo" aria-hidden="true">🔥</span><span class="promo-flag__texto">Promoção</span><span class="promo-flag__preco">${precos.some((v) => v !== precoCard) ? "a partir de " : ""}${valor} no Pix</span></span>`;
+      })()
+      : p._destaque ? `<span class="product-flag">${esc(p._destaque.titulo)}</span>` : "";
+    return `<article class="product-card${corEstaDisponivel(c) ? "" : " is-out"}${emPromocao ? " is-promo" : ""}" data-product="${esc(p._key)}">
+      <div class="card-media${capa ? " card-media--capa" : ""}"><span class="product-badge">${p._acessorio ? "ACESSÓRIO" : esc(p.material)}</span>${flag}<a class="card-media-open" href="${href}" data-open-product aria-label="Abrir ${esc(title)}"></a><img ${srcMiniatura(capa || firstImage(c), "c")} alt="${esc(capa ? title : `${title} — ${c.nome}`)}" ${posicao < 4 ? 'fetchpriority="high"' : 'loading="lazy"'} decoding="async"><span class="card-open-plus" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none"><path d="M12 6v12M6 12h12"></path></svg></span></div>
       <div class="card-body">${p._acessorio ? `<p class="product-kicker">${esc(getKicker(p))}</p>` : ""}<h3 class="product-title"><a href="${href}" data-open-product>${esc(title)}</a></h3><p class="variant-summary">${resumo}</p>
       <div class="card-variants">${many ? shown.map((v) => { const vi = p.cores.indexOf(v); return `<button type="button" class="variant-mini ${vi === ativo ? "is-active" : ""}" data-variant="${vi}" aria-label="Pré-visualizar ${esc(v.nome)}" aria-pressed="${vi === ativo}" title="${esc(v.nome)}"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async"></button>`; }).join("") + (extra > 0 ? `<a href="${href}" class="more-variants" data-open-product aria-label="Ver mais ${extra} ${variantNoun(p, extra > 1)}">+${extra}</a>` : "") : ""}</div>
-      ${cardPriceBlock(precoCard, precos.some((v) => v !== precoCard))}
+      ${cardPriceBlock(precoCard, precos.some((v) => v !== precoCard), anterior)}
       ${cardBotao(p, c, title, href)}</div></article>`;
   }
 
@@ -1087,7 +1105,9 @@
 
   function variantChoice(v, i, attr) {
     const off = !corEstaDisponivel(v), on = i === state.modalVariant;
-    return `<button class="variant-choice ${on ? "is-active" : ""}" type="button" ${attr}="${i}" aria-pressed="${on}" title="${esc(v.nome)}${off ? " — sem estoque" : ""}" ${off ? "disabled" : ""}><span class="variant-choice-image"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async"></span><span class="variant-choice-name">${esc(v.nome)}</span>${off ? "<small>Sem estoque</small>" : ""}</button>`;
+    // Etiqueta só quando o produto mistura cores em promoção e cores normais.
+    const promo = !off && state.modal && corEmPromocao(state.modal, v) && !state.modal.cores.every((x) => corEmPromocao(state.modal, x));
+    return `<button class="variant-choice ${on ? "is-active" : ""}" type="button" ${attr}="${i}" aria-pressed="${on}" title="${esc(v.nome)}${off ? " — sem estoque" : ""}" ${off ? "disabled" : ""}><span class="variant-choice-image"><img ${srcMiniatura(firstImage(v), "p")} alt="" loading="lazy" decoding="async">${promo ? '<span class="variant-choice-promo">Promoção</span>' : ""}</span><span class="variant-choice-name">${esc(v.nome)}</span>${off ? "<small>Sem estoque</small>" : ""}</button>`;
   }
 
   function setQty(n) { state.modalQty = clamp(n, 1, LIMITE_QUANTIDADE_ITEM); els.modalQty.textContent = state.modalQty; els.zoomQty.textContent = state.modalQty; }

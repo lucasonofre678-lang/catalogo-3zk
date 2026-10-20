@@ -1253,3 +1253,26 @@ img.img-missing{opacity:0}
 @media (max-width:380px){
   .header-actions .header-link{width:36px}
 }
+
+/* ============================================================
+   PROMOÇÃO — selo e preço riscado (só aparecem com "precoAnterior" nos dados)
+   ============================================================ */
+:root{--promo:#C7331A;--promo-hover:#A82912;--promo-soft:rgba(199,51,26,.09);--promo-line:rgba(199,51,26,.35)}
+.variant-choice-image{position:relative}
+.variant-choice-promo{position:absolute;left:4px;bottom:4px;padding:2px 5px;border-radius:4px;background:var(--promo);color:#fff;font-size:9.5px;font-weight:800;letter-spacing:.04em;text-transform:uppercase}
+.product-flag--promo{height:30px;gap:0;padding:0;overflow:hidden;isolation:isolate;border-radius:var(--radius-pill);background:linear-gradient(135deg,#EE5530,#B91F0B);color:#fff;font-size:12.5px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;box-shadow:0 6px 16px rgba(185,31,11,.45),inset 0 1px 0 rgba(255,255,255,.35)}
+.product-card.is-promo .product-badge{display:none}
+.product-card.is-promo .product-flag--promo{left:10px;right:auto;max-width:calc(100% - 20px)}
+.product-flag--promo>span{position:relative;z-index:2;display:inline-flex;align-items:center;height:100%}
+.promo-flag__fogo{padding-left:10px;font-size:14px}
+.promo-flag__texto{padding:0 10px 0 5px}
+.promo-flag__preco{min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;display:block!important;line-height:30px;padding:0 11px;border-radius:0 var(--radius-pill) var(--radius-pill) 0;background:#fff;color:#B91F0B;font-size:13px;letter-spacing:-.01em;text-transform:none;box-shadow:inset 0 0 0 2px #EE5530}
+.product-flag--promo::after{content:"";position:absolute;z-index:1;inset:0;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-130%);animation:promo-brilho 3.6s ease-in-out infinite}
+@keyframes promo-brilho{0%,55%{transform:translateX(-130%)}100%{transform:translateX(130%)}}
+@media (prefers-reduced-motion:reduce){.product-flag--promo::after{display:none}}
+@media (max-width:760px){.product-flag--promo{height:24px;font-size:11px}.promo-flag__fogo{padding-left:7px;font-size:12px}.promo-flag__texto{padding:0 8px 0 3px}.promo-flag__preco{display:none!important}}
+.product-card.is-promo{border-color:var(--promo-line)}
+.card-old-price{color:var(--promo);text-decoration-thickness:1.5px}
+.price-promo{display:flex;flex-wrap:wrap;align-items:center;gap:4px 8px;color:var(--ink-3);font-size:13px;font-variant-numeric:tabular-nums}
+.price-promo b{padding:2px 8px;border-radius:var(--radius-pill);background:var(--promo);color:#fff;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase}
+.price-promo s{color:var(--promo);font-size:14px;text-decoration-thickness:1.5px}
