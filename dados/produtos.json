@@ -517,8 +517,8 @@
           "assets/fotos/closin-petg/rosa.webp"
         ],
         "idCatalogo": "closin|petg||rosa",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silver Prateado",
@@ -702,8 +702,8 @@
           "assets/fotos/closin-pla/vermelho-2.webp"
         ],
         "idCatalogo": "closin|pla||vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Azul Céu / Sky Blue",
@@ -2538,7 +2538,7 @@
         ],
         "gtin": "7908229108435",
         "idCatalogo": "masterprint|asa||preto",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -3853,7 +3853,7 @@
         "preco": 120,
         "efeito": "silk",
         "idCatalogo": "multifila|pla|silk|silk-branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5506,8 +5506,8 @@
         ],
         "gtin": "7908348205824",
         "idCatalogo": "alicates|ferramentas||alicate-de-corte-5-polegadas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Alicate bico de jacaré · 4,5 polegadas",
@@ -5519,7 +5519,7 @@
         ],
         "gtin": "7899958258891",
         "idCatalogo": "alicates|ferramentas||alicate-bico-de-jacare-4-5-polegadas",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
