@@ -1,34 +1,31 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-10-19T20:56:28.350Z",
+  "atualizadoEm": "2026-10-20T20:33:22.997Z",
   "produtosPausados": [
-    "masterprint|petg|5kg",
-    "pro|petg|",
-    "pro|pla|"
+    "masterprint|petg|5kg"
   ],
   "coresPausadas": [
     "masterprint|petg||green-olive",
-    "masterprint|pla|fosforescente|fosforescente-natural-verde"
+    "masterprint|pla|fosforescente|fosforescente-natural-verde",
+    "qlb|pla||silk-cobre",
+    "qlb|pla||silk-prata"
   ],
-  "rascunhos": [
-    "pro|petg|",
-    "pro|pla|"
-  ],
+  "rascunhos": [],
   "motivos": {
     "masterprint|petg||green-olive": {
       "motivo": "Aguardando estoque",
       "em": "2026-10-16T20:52:18.749Z",
       "por": "lucas"
     },
-    "pro|petg|": {
-      "motivo": "Aguardando nome e fotos",
-      "observacao": "Produto novo do fornecedor Qualybless; nome PRO é provisório.",
-      "em": "2026-10-19T20:16:45.089Z"
+    "qlb|pla||silk-cobre": {
+      "motivo": "Aguardando vínculo Olist",
+      "observacao": "Cor recebida nas fotos; não estava na exportação da Olist.",
+      "em": "2026-10-20T19:14:26.930Z"
     },
-    "pro|pla|": {
-      "motivo": "Aguardando nome e fotos",
-      "observacao": "Produto novo do fornecedor Qualybless; nome PRO é provisório.",
-      "em": "2026-10-19T20:16:45.089Z"
+    "qlb|pla||silk-prata": {
+      "motivo": "Aguardando vínculo Olist",
+      "observacao": "Cor recebida nas fotos; não estava na exportação da Olist.",
+      "em": "2026-10-20T19:14:26.930Z"
     }
   }
 }

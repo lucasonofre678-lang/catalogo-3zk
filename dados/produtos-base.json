@@ -3996,7 +3996,7 @@
     ]
   },
   {
-    "marca": "PRO",
+    "marca": "QLB",
     "material": "PETG",
     "preco": 72.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
@@ -4004,73 +4004,73 @@
     "cores": [
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#EDEFEF",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/branco.webp"
+          "assets/fotos/qlb-petg/branco.webp"
         ],
-        "chaveEstoque": "pro|petg||branco",
+        "chaveEstoque": "qlb|petg||branco",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Preto",
-        "hex": "#1B1B1B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#1E2129",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/preto.webp"
+          "assets/fotos/qlb-petg/preto.webp"
         ],
-        "chaveEstoque": "pro|petg||preto",
+        "chaveEstoque": "qlb|petg||preto",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Amarelo",
-        "hex": "#E0B928",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#EDB021",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/amarelo.webp"
+          "assets/fotos/qlb-petg/amarelo.webp"
         ],
-        "chaveEstoque": "pro|petg||amarelo",
+        "chaveEstoque": "qlb|petg||amarelo",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Vermelho",
-        "hex": "#C94343",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#B81C30",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/vermelho.webp"
+          "assets/fotos/qlb-petg/vermelho.webp"
         ],
-        "chaveEstoque": "pro|petg||vermelho",
+        "chaveEstoque": "qlb|petg||vermelho",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Rosa",
-        "hex": "#E86FA0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E0307A",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/rosa.webp"
+          "assets/fotos/qlb-petg/rosa.webp"
         ],
-        "chaveEstoque": "pro|petg||rosa",
+        "chaveEstoque": "qlb|petg||rosa",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Rosa Sakura",
-        "hex": "#F2B8C6",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E59A94",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/rosa-sakura.webp"
+          "assets/fotos/qlb-petg/rosa-sakura.webp"
         ],
-        "chaveEstoque": "pro|petg||rosa-sakura",
+        "chaveEstoque": "qlb|petg||rosa-sakura",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
@@ -4080,57 +4080,57 @@
         "hexFonte": "sem_foto",
         "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/pro-petg/roxo.webp"
+          "assets/fotos/qlb-petg/roxo.webp"
         ],
-        "chaveEstoque": "pro|petg||roxo",
+        "chaveEstoque": "qlb|petg||roxo",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Roxo Lavanda",
-        "hex": "#B39DDB",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#A08ED8",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/roxo-lavanda.webp"
+          "assets/fotos/qlb-petg/roxo-lavanda.webp"
         ],
-        "chaveEstoque": "pro|petg||roxo-lavanda",
+        "chaveEstoque": "qlb|petg||roxo-lavanda",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Azul",
-        "hex": "#315FA8",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#2366C8",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/azul.webp"
+          "assets/fotos/qlb-petg/azul.webp"
         ],
-        "chaveEstoque": "pro|petg||azul",
+        "chaveEstoque": "qlb|petg||azul",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Azul Lago",
-        "hex": "#3B8FB5",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#79B4E0",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/azul-lago.webp"
+          "assets/fotos/qlb-petg/azul-lago.webp"
         ],
-        "chaveEstoque": "pro|petg||azul-lago",
+        "chaveEstoque": "qlb|petg||azul-lago",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Verde",
-        "hex": "#2E9E5B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#2A8A3A",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-petg/verde.webp"
+          "assets/fotos/qlb-petg/verde.webp"
         ],
-        "chaveEstoque": "pro|petg||verde",
+        "chaveEstoque": "qlb|petg||verde",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
@@ -4140,138 +4140,165 @@
         "hexFonte": "sem_foto",
         "fotoStatus": "ausente",
         "imagens": [
-          "assets/fotos/pro-petg/verde-menta.webp"
+          "assets/fotos/qlb-petg/verde-menta.webp"
         ],
-        "chaveEstoque": "pro|petg||verde-menta",
+        "chaveEstoque": "qlb|petg||verde-menta",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       }
     ]
   },
   {
-    "marca": "PRO",
+    "marca": "QLB",
     "material": "PLA",
     "preco": 84,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/qlb-pla.webp",
     "cores": [
       {
         "nome": "Branco",
-        "hex": "#F2F2F0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#EEEEEA",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/branco.webp"
+          "assets/fotos/qlb-pla/branco.webp"
         ],
-        "chaveEstoque": "pro|pla||branco",
+        "chaveEstoque": "qlb|pla||branco",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Preto",
-        "hex": "#1B1B1B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#1E2129",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/preto.webp"
+          "assets/fotos/qlb-pla/preto.webp"
         ],
-        "chaveEstoque": "pro|pla||preto",
+        "chaveEstoque": "qlb|pla||preto",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Cinza Ardósia",
-        "hex": "#5F6A72",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#5A6068",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/cinza-ardosia.webp"
+          "assets/fotos/qlb-pla/cinza-ardosia.webp"
         ],
-        "chaveEstoque": "pro|pla||cinza-ardosia",
+        "chaveEstoque": "qlb|pla||cinza-ardosia",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Amarelo",
-        "hex": "#E0B928",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#EFC724",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/amarelo.webp"
+          "assets/fotos/qlb-pla/amarelo.webp"
         ],
-        "chaveEstoque": "pro|pla||amarelo",
+        "chaveEstoque": "qlb|pla||amarelo",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Laranja",
-        "hex": "#E8752D",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E8622B",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/laranja.webp"
+          "assets/fotos/qlb-pla/laranja.webp"
         ],
-        "chaveEstoque": "pro|pla||laranja",
+        "chaveEstoque": "qlb|pla||laranja",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Marrom",
-        "hex": "#684630",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#3B2B2E",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/marrom.webp"
+          "assets/fotos/qlb-pla/marrom.webp"
         ],
-        "chaveEstoque": "pro|pla||marrom",
+        "chaveEstoque": "qlb|pla||marrom",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Roxo",
-        "hex": "#6E4C9C",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#9C2A86",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/roxo.webp"
+          "assets/fotos/qlb-pla/roxo.webp"
         ],
-        "chaveEstoque": "pro|pla||roxo",
+        "chaveEstoque": "qlb|pla||roxo",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Azul Céu",
-        "hex": "#7CC0E6",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#3A8FD9",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/azul-ceu.webp"
+          "assets/fotos/qlb-pla/azul-ceu.webp"
         ],
-        "chaveEstoque": "pro|pla||azul-ceu",
+        "chaveEstoque": "qlb|pla||azul-ceu",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Azul Escuro",
-        "hex": "#253E68",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#2228A0",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/azul-escuro.webp"
+          "assets/fotos/qlb-pla/azul-escuro.webp"
         ],
-        "chaveEstoque": "pro|pla||azul-escuro",
+        "chaveEstoque": "qlb|pla||azul-escuro",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       },
       {
         "nome": "Verde",
-        "hex": "#2E9E5B",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#2F8A3E",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/pro-pla/verde.webp"
+          "assets/fotos/qlb-pla/verde.webp"
         ],
-        "chaveEstoque": "pro|pla||verde",
+        "chaveEstoque": "qlb|pla||verde",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Cobre",
+        "hex": "#8E4A30",
+        "efeito": "silk",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/qlb-pla/silk-cobre.webp"
+        ],
+        "chaveEstoque": "qlb|pla||silk-cobre",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Prata",
+        "hex": "#6B7179",
+        "efeito": "silk",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/qlb-pla/silk-prata.webp"
+        ],
+        "chaveEstoque": "qlb|pla||silk-prata",
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
       }

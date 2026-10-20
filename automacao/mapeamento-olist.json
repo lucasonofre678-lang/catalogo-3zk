@@ -1,6 +1,6 @@
 {
   "versao": 1,
-  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-19",
+  "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
   "total": 379,
   "itens": [
     {
@@ -3919,246 +3919,246 @@
       "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA DOURADO"
     },
     {
-      "chave": "pro|petg||branco",
-      "marca": "PRO",
+      "chave": "qlb|petg||branco",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Branco",
       "olistId": 1057044183,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG BRANCO/ WHITE ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - BRANCO/ WHITE"
     },
     {
-      "chave": "pro|petg||preto",
-      "marca": "PRO",
+      "chave": "qlb|petg||preto",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Preto",
       "olistId": 1057044187,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG PRETO/ BLACK ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - PRETO/ BLACK"
     },
     {
-      "chave": "pro|petg||amarelo",
-      "marca": "PRO",
+      "chave": "qlb|petg||amarelo",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Amarelo",
       "olistId": 1057044198,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG AMARELO / YELLOW ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - AMARELO / YELLOW"
     },
     {
-      "chave": "pro|petg||vermelho",
-      "marca": "PRO",
+      "chave": "qlb|petg||vermelho",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Vermelho",
       "olistId": 1057044202,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG VERMELHO / RED ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - VERMELHO / RED"
     },
     {
-      "chave": "pro|petg||rosa",
-      "marca": "PRO",
+      "chave": "qlb|petg||rosa",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Rosa",
       "olistId": 1057044223,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG ROSA / PINK ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - ROSA / PINK"
     },
     {
-      "chave": "pro|petg||rosa-sakura",
-      "marca": "PRO",
+      "chave": "qlb|petg||rosa-sakura",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Rosa Sakura",
       "olistId": 1057044207,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG ROSA SAKURA / SAKURA PINK ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - ROSA SAKURA / SAKURA PINK"
     },
     {
-      "chave": "pro|petg||roxo",
-      "marca": "PRO",
+      "chave": "qlb|petg||roxo",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Roxo",
       "olistId": 1057044227,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG ROXO / PURPLE ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - ROXO / PURPLE"
     },
     {
-      "chave": "pro|petg||roxo-lavanda",
-      "marca": "PRO",
+      "chave": "qlb|petg||roxo-lavanda",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Roxo Lavanda",
       "olistId": 1057044211,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1K ROXO LAVANDA / LAVENDER PURPLE ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - ROXO LAVANDA / LAVENDER PURPLE"
     },
     {
-      "chave": "pro|petg||azul",
-      "marca": "PRO",
+      "chave": "qlb|petg||azul",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Azul",
       "olistId": 1057044195,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG AZUL / BLUE ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - AZUL / BLUE"
     },
     {
-      "chave": "pro|petg||azul-lago",
-      "marca": "PRO",
+      "chave": "qlb|petg||azul-lago",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Azul Lago",
       "olistId": 1057044219,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG AZUL LAGO / LAKE BLUE ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - AZUL LAGO / LAKE BLUE"
     },
     {
-      "chave": "pro|petg||verde",
-      "marca": "PRO",
+      "chave": "qlb|petg||verde",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Verde",
       "olistId": 1057044190,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG VERDE/ GREEN ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - VERDE/ GREEN"
     },
     {
-      "chave": "pro|petg||verde-menta",
-      "marca": "PRO",
+      "chave": "qlb|petg||verde-menta",
+      "marca": "QLB",
       "material": "PETG",
       "linha": "",
       "cor": "Verde Menta",
       "olistId": 1057044215,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PETG PRO FILAMENT 1.75MM 1KG VERDE MENTA / MINT GREEN ."
+      "descricaoOlist": "filamento | qlb | PETG | 1KG - VERDE MENTA / MINT GREEN"
     },
     {
-      "chave": "pro|pla||branco",
-      "marca": "PRO",
+      "chave": "qlb|pla||branco",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Branco",
       "olistId": 1057044135,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG BRANCO/WHITE ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - BRANCO/WHITE"
     },
     {
-      "chave": "pro|pla||preto",
-      "marca": "PRO",
+      "chave": "qlb|pla||preto",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Preto",
       "olistId": 1057044131,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG PRETO/BLACK ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - PRETO/BLACK"
     },
     {
-      "chave": "pro|pla||cinza-ardosia",
-      "marca": "PRO",
+      "chave": "qlb|pla||cinza-ardosia",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Cinza Ardósia",
       "olistId": 1057044138,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG CINZA ARDOSIAPSLATE GRAY ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - CINZA ARDOSIAPSLATE GRAY"
     },
     {
-      "chave": "pro|pla||amarelo",
-      "marca": "PRO",
+      "chave": "qlb|pla||amarelo",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Amarelo",
       "olistId": 1057044154,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG AMARELO / YELLOW ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - AMARELO / YELLOW"
     },
     {
-      "chave": "pro|pla||laranja",
-      "marca": "PRO",
+      "chave": "qlb|pla||laranja",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Laranja",
       "olistId": 1057044150,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG LARANJA / ORANGE ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - LARANJA / ORANGE"
     },
     {
-      "chave": "pro|pla||marrom",
-      "marca": "PRO",
+      "chave": "qlb|pla||marrom",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Marrom",
       "olistId": 1057044171,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG MARROM / BROWN ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - MARROM / BROWN"
     },
     {
-      "chave": "pro|pla||roxo",
-      "marca": "PRO",
+      "chave": "qlb|pla||roxo",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Roxo",
       "olistId": 1057044158,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG ROXO / PURPLE ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - ROXO / PURPLE"
     },
     {
-      "chave": "pro|pla||azul-ceu",
-      "marca": "PRO",
+      "chave": "qlb|pla||azul-ceu",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Azul Céu",
       "olistId": 1057044163,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG AZUL CEU / SKY BLUE ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - CEU / SKY BLUE"
     },
     {
-      "chave": "pro|pla||azul-escuro",
-      "marca": "PRO",
+      "chave": "qlb|pla||azul-escuro",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Azul Escuro",
       "olistId": 1057044167,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG AZUL ESCURO / DARK BLUE ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - ZUL ESCURO / DARK BLUE"
     },
     {
-      "chave": "pro|pla||verde",
-      "marca": "PRO",
+      "chave": "qlb|pla||verde",
+      "marca": "QLB",
       "material": "PLA",
       "linha": "",
       "cor": "Verde",
       "olistId": 1057044145,
       "sku": null,
       "gtin": null,
-      "descricaoOlist": "PLA PRO FILAMENT 1.75MM 1KG VERDE/ GREEN ."
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - VERDE/ GREEN"
     },
     {
       "chave": "masterprint|pla||preto",
