@@ -4001,6 +4001,7 @@
     "preco": 72.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/qlb-petg.webp",
     "cores": [
       {
         "nome": "Branco",
@@ -4076,9 +4077,9 @@
       },
       {
         "nome": "Roxo",
-        "hex": "#6E4C9C",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#5E2A96",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/qlb-petg/roxo.webp"
         ],
@@ -4136,9 +4137,9 @@
       },
       {
         "nome": "Verde Menta",
-        "hex": "#9FD8C2",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#93D8B7",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/qlb-petg/verde-menta.webp"
         ],
@@ -4286,8 +4287,8 @@
           "assets/fotos/qlb-pla/silk-cobre.webp"
         ],
         "chaveEstoque": "qlb|pla||silk-cobre",
-        "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true
+        "statusEstoqueInicial": "sem_estoque",
+        "disponivelInicial": false
       },
       {
         "nome": "Silk Prata",
@@ -4299,8 +4300,8 @@
           "assets/fotos/qlb-pla/silk-prata.webp"
         ],
         "chaveEstoque": "qlb|pla||silk-prata",
-        "statusEstoqueInicial": "em_estoque",
-        "disponivelInicial": true
+        "statusEstoqueInicial": "sem_estoque",
+        "disponivelInicial": false
       }
     ]
   },
