@@ -444,7 +444,7 @@
           "assets/fotos/closin-petg/fluo-red.webp"
         ],
         "idCatalogo": "closin|petg||fluo-red",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -652,7 +652,7 @@
           "assets/fotos/closin-pla/branco.webp"
         ],
         "idCatalogo": "closin|pla||branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
