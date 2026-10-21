@@ -920,7 +920,7 @@
           "assets/fotos/closin-pla-silk/silver-prateado.webp"
         ],
         "idCatalogo": "closin|pla|silk|silver-prateado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
