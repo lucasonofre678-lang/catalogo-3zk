@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 379,
+  "total": 381,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -4170,6 +4170,28 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "MP-FILAMENTO 3D - PLA PRETO - 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "qlb|pla||silk-cobre",
+      "marca": "QLB",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Cobre",
+      "olistId": 1057044179,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - SILK COBRE"
+    },
+    {
+      "chave": "qlb|pla||silk-prata",
+      "marca": "QLB",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Silk Prata",
+      "olistId": 1057044175,
+      "sku": null,
+      "gtin": null,
+      "descricaoOlist": "filamento | qlb | PLA | 1KG - SILK PRATA"
     }
   ]
 }

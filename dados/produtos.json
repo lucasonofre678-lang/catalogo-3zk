@@ -4730,9 +4730,10 @@
         "imagens": [
           "assets/fotos/qlb-pla/silk-cobre.webp"
         ],
+        "preco": 105,
         "idCatalogo": "qlb|pla||silk-cobre",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Prata",
@@ -4743,9 +4744,10 @@
         "imagens": [
           "assets/fotos/qlb-pla/silk-prata.webp"
         ],
+        "preco": 105,
         "idCatalogo": "qlb|pla||silk-prata",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       }
     ],
     "idCatalogo": "qlb|pla|",
