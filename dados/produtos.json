@@ -444,8 +444,8 @@
           "assets/fotos/closin-petg/fluo-red.webp"
         ],
         "idCatalogo": "closin|petg||fluo-red",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluo Rose",
@@ -492,8 +492,8 @@
           "assets/fotos/closin-petg/pink.webp"
         ],
         "idCatalogo": "closin|petg||pink",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Preto",
@@ -677,7 +677,7 @@
           "assets/fotos/closin-pla/skin-2.webp"
         ],
         "idCatalogo": "closin|pla||skin",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -3442,8 +3442,8 @@
         "preco": 120,
         "efeito": "fosco",
         "idCatalogo": "multifila|pla|matte|verde-militar",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Bordô",
@@ -5059,12 +5059,12 @@
           "assets/fotos/kit-35-em-1-ferramentas-com-bolsa-organizadora/kit-completo.webp"
         ],
         "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Pincéis de Silicone",
