@@ -750,8 +750,8 @@
           "assets/fotos/closin-pla/fluo-blue.webp"
         ],
         "idCatalogo": "closin|pla||fluo-blue",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluo Green",
@@ -822,8 +822,8 @@
           "assets/fotos/closin-pla/marrom-claro.webp"
         ],
         "idCatalogo": "closin|pla||marrom-claro",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural",
@@ -3840,8 +3840,8 @@
         "sku": "multifila-silk-vermelho-pla",
         "gtin": "7898757180969",
         "idCatalogo": "multifila|pla|silk|silk-vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Aço Escovado",
