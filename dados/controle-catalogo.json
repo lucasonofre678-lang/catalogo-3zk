@@ -1,11 +1,13 @@
 {
   "versao": 1,
-  "atualizadoEm": "2026-10-21T19:52:04.522Z",
+  "atualizadoEm": "2026-10-23T19:18:27.742Z",
   "produtosPausados": [
     "masterprint|petg|5kg"
   ],
   "coresPausadas": [
     "masterprint|petg||green-olive",
+    "masterprint|petg||marrom",
+    "masterprint|pla|especial|silk-branco",
     "masterprint|pla|fosforescente|fosforescente-natural-verde"
   ],
   "rascunhos": [],
@@ -13,6 +15,16 @@
     "masterprint|petg||green-olive": {
       "motivo": "Aguardando estoque",
       "em": "2026-10-16T20:52:18.749Z",
+      "por": "lucas"
+    },
+    "masterprint|petg||marrom": {
+      "motivo": "Aguardando estoque",
+      "em": "2026-10-23T19:18:25.245Z",
+      "por": "lucas"
+    },
+    "masterprint|pla|especial|silk-branco": {
+      "motivo": "Aguardando estoque",
+      "em": "2026-10-23T19:18:25.245Z",
       "por": "lucas"
     }
   }
