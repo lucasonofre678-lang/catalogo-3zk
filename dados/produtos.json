@@ -444,8 +444,8 @@
           "assets/fotos/closin-petg/fluo-red.webp"
         ],
         "idCatalogo": "closin|petg||fluo-red",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluo Rose",
@@ -492,8 +492,8 @@
           "assets/fotos/closin-petg/pink.webp"
         ],
         "idCatalogo": "closin|petg||pink",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Preto",
@@ -652,7 +652,7 @@
           "assets/fotos/closin-pla/branco.webp"
         ],
         "idCatalogo": "closin|pla||branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -677,7 +677,7 @@
           "assets/fotos/closin-pla/skin-2.webp"
         ],
         "idCatalogo": "closin|pla||skin",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -750,8 +750,8 @@
           "assets/fotos/closin-pla/fluo-blue.webp"
         ],
         "idCatalogo": "closin|pla||fluo-blue",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluo Green",
@@ -822,8 +822,8 @@
           "assets/fotos/closin-pla/marrom-claro.webp"
         ],
         "idCatalogo": "closin|pla||marrom-claro",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Natural",
@@ -920,8 +920,8 @@
           "assets/fotos/closin-pla-silk/silver-prateado.webp"
         ],
         "idCatalogo": "closin|pla|silk|silver-prateado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Vermelho",
@@ -1273,8 +1273,8 @@
           "assets/fotos/masterprint-petg/vermelho.webp"
         ],
         "idCatalogo": "masterprint|petg||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cool Grey",
@@ -1920,8 +1920,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||marrom",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Rosa",
@@ -1932,8 +1932,8 @@
           "assets/fotos/masterprint-pla/rosa.webp"
         ],
         "idCatalogo": "masterprint|pla||rosa",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Roxo",
@@ -2181,8 +2181,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|new-silk-prata",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Rainbow",
@@ -2195,8 +2195,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|rainbow",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Azul/Dourado/Roxo",
@@ -2209,8 +2209,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-azul-dourado-roxo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Azul/Preto/Roxo",
@@ -2252,8 +2252,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Cobre",
@@ -2266,8 +2266,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-cobre",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Lavanda",
@@ -2351,8 +2351,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-vermelho-dourado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Transparente Preto/Azul com Glitter",
@@ -2487,8 +2487,8 @@
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp"
         ],
         "idCatalogo": "masterprint|pla|fosforescente|fosforescente-natural-azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fosforescente Natural/Verde",
@@ -2720,8 +2720,8 @@
           "assets/fotos/masterprint-abs/preto.webp"
         ],
         "idCatalogo": "masterprint|abs||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|abs|",
@@ -2768,8 +2768,8 @@
           "assets/fotos/masterprint-tpu/preto.webp"
         ],
         "idCatalogo": "masterprint|tpu||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Natural Transparente",
@@ -3442,8 +3442,8 @@
         "preco": 120,
         "efeito": "fosco",
         "idCatalogo": "multifila|pla|matte|verde-militar",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Bordô",
@@ -3840,8 +3840,8 @@
         "sku": "multifila-silk-vermelho-pla",
         "gtin": "7898757180969",
         "idCatalogo": "multifila|pla|silk|silk-vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Aço Escovado",
@@ -4268,7 +4268,7 @@
         "sku": "2309",
         "gtin": "0042882745563",
         "idCatalogo": "polyflow|pla||vermelho",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4309,8 +4309,8 @@
         ],
         "sku": "2354",
         "idCatalogo": "polyflow|pla||verde",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Marrom Chocolate",
@@ -5059,12 +5059,12 @@
           "assets/fotos/kit-35-em-1-ferramentas-com-bolsa-organizadora/kit-completo.webp"
         ],
         "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Pincéis de Silicone",
