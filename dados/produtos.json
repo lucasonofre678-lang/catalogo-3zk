@@ -677,8 +677,8 @@
           "assets/fotos/closin-pla/skin-2.webp"
         ],
         "idCatalogo": "closin|pla||skin",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde",
@@ -1123,8 +1123,8 @@
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||fosco-branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Laranja",
@@ -5088,7 +5088,7 @@
         ],
         "gtin": "7898757183595",
         "idCatalogo": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -5250,7 +5250,7 @@
         ],
         "gtin": "7898757183403",
         "idCatalogo": "resina-uv-fotopolimerizavel|resinas|100g|100g",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
