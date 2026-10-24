@@ -4746,8 +4746,8 @@
         ],
         "preco": 105,
         "idCatalogo": "qlb|pla||silk-prata",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "qlb|pla|",
