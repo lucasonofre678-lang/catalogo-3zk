@@ -3769,8 +3769,8 @@
         "sku": "multifila-silk-ouro-envelhecido-pla",
         "gtin": "7898757181249",
         "idCatalogo": "multifila|pla|silk|silk-ouro-envelhecido",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Tricolor Cobre Azul Ouro",
@@ -4268,8 +4268,8 @@
         "sku": "2309",
         "gtin": "0042882745563",
         "idCatalogo": "polyflow|pla||vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Amarelo",
