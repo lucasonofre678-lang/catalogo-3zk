@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 381,
+  "total": 388,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -4192,6 +4192,83 @@
       "sku": null,
       "gtin": null,
       "descricaoOlist": "filamento | qlb | PLA | 1KG - SILK PRATA"
+    },
+    {
+      "chave": "masterprint|petg|especial|fibra-de-vidro-branco",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "Especial",
+      "cor": "Fibra de Vidro 10% Branco",
+      "olistId": 1057257758,
+      "sku": null,
+      "gtin": "7908229112579",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG FIBRA DE VIDRO 10% BRANCO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|petg|especial|fosforescente-rainbow",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "Especial",
+      "cor": "Fosforescente Rainbow",
+      "olistId": 1057257751,
+      "sku": null,
+      "gtin": "7908229108794",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG FOSFORESCENTE RAINBOW 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla||amarelo",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Amarelo",
+      "olistId": 1057257705,
+      "sku": null,
+      "gtin": "7908229104031",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA AMARELO - 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla||madeira",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "",
+      "cor": "Madeira",
+      "olistId": 1057257702,
+      "sku": null,
+      "gtin": "7908229103805",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA MADEIRA - 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-happy-rainbow",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Happy Rainbow",
+      "olistId": 1057257739,
+      "sku": null,
+      "gtin": "7908229109807",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA SILK HAPPY RAINBOW 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-vermelho",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Vermelho",
+      "olistId": 1057257715,
+      "sku": null,
+      "gtin": "7908229108954",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA SILK VERMELHO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-azul-roxo",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Azul/Roxo",
+      "olistId": 1057257727,
+      "sku": null,
+      "gtin": "7908229110537",
+      "descricaoOlist": "MP-FILAMENTO 3D PLA SILK AZUL/ROXO 1KG (1.75MM) DER 4"
     }
   ]
 }

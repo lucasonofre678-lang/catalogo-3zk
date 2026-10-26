@@ -1117,9 +1117,10 @@
         "nome": "Fosco Branco",
         "hex": "#E7E5DE",
         "efeito": "fosco",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-petg/fosco-branco-real-20261026.webp",
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
         "idCatalogo": "masterprint|petg||fosco-branco",
@@ -1322,6 +1323,7 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/masterprint-petg/translucido-amarelo-real-20261026.webp",
           "assets/fotos/masterprint-petg/translucido-amarelo.webp"
         ],
         "idCatalogo": "masterprint|petg|translucido|amarelo",
@@ -1422,6 +1424,33 @@
         "gtin": "7908229110797",
         "idCatalogo": "masterprint|petg|especial|fibra-de-carbono",
         "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      },
+      {
+        "nome": "Fibra de Vidro 10% Branco",
+        "hex": "#E8E5D8",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/fibra-de-vidro-branco.webp"
+        ],
+        "preco": 120,
+        "idCatalogo": "masterprint|petg|especial|fibra-de-vidro-branco",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Fosforescente Rainbow",
+        "hex": "#D98A9E",
+        "efeito": "glow",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-petg/fosforescente-rainbow.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|petg|especial|fosforescente-rainbow",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       }
     ],
@@ -1925,9 +1954,9 @@
       },
       {
         "nome": "Rosa",
-        "hex": "#E86FA0",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E8918C",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/rosa.webp"
         ],
@@ -2034,6 +2063,32 @@
           "assets/fotos/masterprint-pla/preto-real-20261019.webp"
         ],
         "idCatalogo": "masterprint|pla||preto",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Amarelo",
+        "hex": "#F0C51F",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/amarelo.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla||amarelo",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Madeira",
+        "hex": "#A99A7E",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/madeira.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla||madeira",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
@@ -2172,10 +2227,10 @@
       },
       {
         "nome": "New Silk Prata",
-        "hex": "#AEB4BA",
+        "hex": "#A9ADB2",
         "efeito": "silk",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/new-silk-prata.webp"
         ],
@@ -2186,10 +2241,10 @@
       },
       {
         "nome": "Rainbow",
-        "hex": "#A87586",
+        "hex": "#7DB8B3",
         "efeito": "silk",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/rainbow.webp"
         ],
@@ -2200,10 +2255,10 @@
       },
       {
         "nome": "Silk Azul/Dourado/Roxo",
-        "hex": "#80679A",
+        "hex": "#5D4FB0",
         "efeito": "silk",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/silk-azul-dourado-roxo.webp"
         ],
@@ -2243,10 +2298,10 @@
       },
       {
         "nome": "Silk Branco",
-        "hex": "#E8E4DD",
+        "hex": "#ECEAE5",
         "efeito": "silk",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/silk-branco.webp"
         ],
@@ -2347,7 +2402,8 @@
         "hexFonte": "foto",
         "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/masterprint-pla/silk-vermelho-dourado.webp"
+          "assets/fotos/masterprint-pla/silk-vermelho-dourado.webp",
+          "assets/fotos/masterprint-pla/silk-vermelho-dourado-real-20261026.webp"
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-vermelho-dourado",
@@ -2462,6 +2518,48 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-verde-etiqueta-neutra",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silk Happy Rainbow",
+        "hex": "#E9A58C",
+        "efeito": "silk",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-happy-rainbow.webp"
+        ],
+        "preco": 99,
+        "idCatalogo": "masterprint|pla|especial|silk-happy-rainbow",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silk Vermelho",
+        "hex": "#B3343F",
+        "efeito": "silk",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-vermelho.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla|especial|silk-vermelho",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silk Azul/Roxo",
+        "hex": "#5B3A9A",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-azul-roxo.webp"
+        ],
+        "preco": 94,
+        "idCatalogo": "masterprint|pla|especial|silk-azul-roxo",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }
@@ -4619,6 +4717,7 @@
         "hexFonte": "foto-ajustada",
         "fotoStatus": "confirmada",
         "imagens": [
+          "assets/fotos/qlb-pla/preto-real-20261026.webp",
           "assets/fotos/qlb-pla/preto.webp"
         ],
         "idCatalogo": "qlb|pla||preto",
