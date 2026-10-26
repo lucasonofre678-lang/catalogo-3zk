@@ -1421,7 +1421,7 @@
         "preco": 120,
         "gtin": "7908229110797",
         "idCatalogo": "masterprint|petg|especial|fibra-de-carbono",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -4971,8 +4971,8 @@
           "assets/fotos/kit-de-chaveiros-metal/25-un-gancho-duplo-com-argola-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||25-un-gancho-duplo-com-argola-dourado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "25 un · Gancho Duplo com Argola · Prata",
@@ -5128,12 +5128,12 @@
         ],
         "preco": 79,
         "idCatalogo": "multbond|colas||cola-acelerador-de-secagem-220g",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "multbond|colas|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Luminárias LED",
