@@ -882,7 +882,7 @@
           "assets/fotos/closin-pla/wood.webp"
         ],
         "idCatalogo": "closin|pla||wood",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       }
     ],
@@ -1888,7 +1888,7 @@
           "assets/fotos/masterprint-pla/fosco-laranja-nascer-do-sol.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-laranja-nascer-do-sol",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
