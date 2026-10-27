@@ -987,7 +987,8 @@
           "assets/fotos/masterprint-petg/fosco-branco-real-20261026.webp",
           "assets/fotos/masterprint-petg/fosco-branco.webp"
         ],
-        "chaveEstoque": "masterprint|petg||fosco-branco"
+        "chaveEstoque": "masterprint|petg||fosco-branco",
+        "preco": 67
       },
       {
         "nome": "Laranja",
@@ -1993,7 +1994,7 @@
           "assets/fotos/masterprint-pla/rainbow.webp"
         ],
         "chaveEstoque": "masterprint|pla|especial|rainbow",
-        "preco": 84,
+        "preco": 94,
         "statusEstoqueInicial": "sem_estoque",
         "disponivelInicial": false
       },
@@ -2007,7 +2008,7 @@
           "assets/fotos/masterprint-pla/silk-azul-dourado-roxo.webp"
         ],
         "chaveEstoque": "masterprint|pla|especial|silk-azul-dourado-roxo",
-        "preco": 84,
+        "preco": 99,
         "statusEstoqueInicial": "sem_estoque",
         "disponivelInicial": false
       },
@@ -2024,6 +2025,20 @@
         "preco": 99,
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Azul/Preto/Roxo",
+        "hex": "#423C62",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-azul-preto-roxo-real-20261002.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|especial|silk-azul-preto-roxo-etiqueta-neutra",
+        "preco": 99,
+        "statusEstoqueInicial": "sem_estoque",
+        "disponivelInicial": false
       },
       {
         "nome": "Silk Azul/Vermelho",
@@ -2150,7 +2165,7 @@
           "assets/fotos/masterprint-pla/silk-vermelho-dourado-real-20261026.webp"
         ],
         "chaveEstoque": "masterprint|pla|especial|silk-vermelho-dourado",
-        "preco": 84,
+        "preco": 94,
         "statusEstoqueInicial": "sem_estoque",
         "disponivelInicial": false
       },
@@ -2322,7 +2337,8 @@
         "imagens": [
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-azul.webp"
         ],
-        "chaveEstoque": "masterprint|pla|fosforescente|fosforescente-natural-azul"
+        "chaveEstoque": "masterprint|pla|fosforescente|fosforescente-natural-azul",
+        "preco": 99
       },
       {
         "nome": "Fosforescente Natural/Verde",
@@ -2333,7 +2349,8 @@
         "imagens": [
           "assets/fotos/masterprint-pla-fosforescente/fosforescente-natural-verde.webp"
         ],
-        "chaveEstoque": "masterprint|pla|fosforescente|fosforescente-natural-verde"
+        "chaveEstoque": "masterprint|pla|fosforescente|fosforescente-natural-verde",
+        "preco": 99
       },
       {
         "nome": "Fosforescente Natural/Rainbow",

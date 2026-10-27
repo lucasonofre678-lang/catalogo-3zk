@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 388,
+  "total": 389,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -1435,6 +1435,17 @@
     },
     {
       "chave": "masterprint|pla|especial|silk-azul-preto-roxo",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Azul/Preto/Roxo",
+      "olistId": 1048627314,
+      "sku": "PLA SILK AZUL/PRETO/ROXO",
+      "gtin": "7908229110322",
+      "descricaoOlist": "Filamento | Masterprint | PLA | 1kg - PLA SILK AZUL/PRETO/ROXO"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-azul-preto-roxo-etiqueta-neutra",
       "marca": "Masterprint",
       "material": "PLA",
       "linha": "Especial",
