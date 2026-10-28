@@ -223,8 +223,8 @@
           "assets/fotos/flashforge-pla/red-vermelho.webp"
         ],
         "idCatalogo": "flashforge|pla||red-vermelho",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Yellow / Amarelo",
@@ -4518,7 +4518,7 @@
         "sku": "2305",
         "gtin": "0042882745587",
         "idCatalogo": "polyflow|pla||bege",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
