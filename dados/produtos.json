@@ -1096,7 +1096,7 @@
           "assets/fotos/masterprint-petg/dourado.webp"
         ],
         "idCatalogo": "masterprint|petg||dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1163,7 +1163,7 @@
           "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -2279,8 +2279,8 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-azul-preto-roxo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Azul/Preto/Roxo",
@@ -2615,8 +2615,8 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|fosforescente|fosforescente-natural-verde",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fosforescente Natural/Rainbow",
@@ -2714,8 +2714,8 @@
           "assets/fotos/masterprint-abs/amarelo.webp"
         ],
         "idCatalogo": "masterprint|abs||amarelo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Roxo",
@@ -2774,8 +2774,8 @@
           "assets/fotos/masterprint-abs/azul.webp"
         ],
         "idCatalogo": "masterprint|abs||azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Branco",
@@ -4918,8 +4918,8 @@
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "500 Etiquetas",
