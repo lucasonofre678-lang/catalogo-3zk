@@ -714,7 +714,7 @@
           "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
         ],
         "idCatalogo": "closin|pla||azul-ceu-sky-blue",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1163,7 +1163,7 @@
           "assets/fotos/masterprint-petg/madeira-2.webp"
         ],
         "idCatalogo": "masterprint|petg||madeira",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -1199,8 +1199,8 @@
           "assets/fotos/masterprint-petg/preto-sem-foto.webp"
         ],
         "idCatalogo": "masterprint|petg||preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Rosa",
@@ -1998,8 +1998,8 @@
           "assets/fotos/masterprint-pla/vermelho.webp"
         ],
         "idCatalogo": "masterprint|pla||vermelho",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Ice Cream",
@@ -2365,8 +2365,8 @@
         ],
         "preco": 99,
         "idCatalogo": "masterprint|pla|especial|silk-rainbow",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Roxo/Preto",
@@ -2786,8 +2786,8 @@
           "assets/fotos/masterprint-abs/branco.webp"
         ],
         "idCatalogo": "masterprint|abs||branco",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Verde",
