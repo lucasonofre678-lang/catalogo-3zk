@@ -1302,6 +1302,20 @@
         "idCatalogo": "masterprint|petg||green-olive",
         "statusEstoque": "ultimas_unidades",
         "disponivel": true
+      },
+      {
+        "nome": "Fosco Preto",
+        "hex": "#1E1E1E",
+        "efeito": "fosco",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/masterprint-petg/fosco-preto.webp"
+        ],
+        "preco": 67,
+        "idCatalogo": "masterprint|petg||fosco-preto",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|petg|",
@@ -1991,9 +2005,9 @@
       },
       {
         "nome": "Vermelho",
-        "hex": "#C94343",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#E04E47",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-pla/vermelho.webp"
         ],
@@ -2575,6 +2589,20 @@
         ],
         "preco": 94,
         "idCatalogo": "masterprint|pla|especial|silk-azul-roxo",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "Silk Dourado",
+        "hex": "#B98A3E",
+        "efeito": "silk",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-dourado.webp"
+        ],
+        "preco": 84,
+        "idCatalogo": "masterprint|pla|especial|silk-dourado",
         "statusEstoque": "em_estoque",
         "disponivel": true
       }

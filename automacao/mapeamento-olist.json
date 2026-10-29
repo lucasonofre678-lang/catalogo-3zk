@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 389,
+  "total": 391,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -4280,6 +4280,28 @@
       "sku": null,
       "gtin": "7908229110537",
       "descricaoOlist": "MP-FILAMENTO 3D PLA SILK AZUL/ROXO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|petg||fosco-preto",
+      "marca": "Masterprint",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Fosco Preto",
+      "olistId": 1057491713,
+      "sku": "MP-PETG-FOSCO-PRETO",
+      "gtin": "7908229108657",
+      "descricaoOlist": "MP-FILAMENTO 3D - PETG FOSCO PRETO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-dourado",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Dourado",
+      "olistId": 1057491700,
+      "sku": "MP-PLA-SILK-DOURADO",
+      "gtin": "7908229109715",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA SILK DOURADO 1KG (1.75MM) DER 4"
     }
   ]
 }
