@@ -5171,8 +5171,8 @@
         ],
         "preco": 69,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||24-unidades-coloridas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "48 unidades · Coloridas",
@@ -5185,8 +5185,8 @@
         ],
         "preco": 139,
         "idCatalogo": "canetas-marcadoras-multifila|utilidades||48-unidades-coloridas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "canetas-marcadoras-multifila|utilidades|",
@@ -5276,8 +5276,8 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-dourado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "50 un · Gancho Argola Simples · Prata",
@@ -5288,8 +5288,8 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-prata",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "50 un · Simples 25mm + Elo 8mm · Dourado",
@@ -5493,8 +5493,8 @@
           "assets/fotos/multbond-colas/super-adesivo-instantaneo-100g.webp"
         ],
         "idCatalogo": "multbond|colas||super-adesivo-instantaneo-100g",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Cola + Acelerador de Secagem · 220g",
@@ -5511,7 +5511,7 @@
       }
     ],
     "idCatalogo": "multbond|colas|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Luminárias LED",
@@ -5557,7 +5557,7 @@
           "assets/fotos/luminarias-led-iluminacao/frio-quente-neutro-6w-branco.webp"
         ],
         "idCatalogo": "luminarias-led|iluminacao||frio-quente-neutro-6w-branco",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
