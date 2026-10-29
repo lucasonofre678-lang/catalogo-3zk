@@ -4315,6 +4315,111 @@
     ]
   },
   {
+    "marca": "XFull",
+    "material": "PETG",
+    "preco": 72.9,
+    "linkLoja": "https://3zkfilamentos.com.br/",
+    "obs": "",
+    "cores": [
+      {
+        "nome": "Preto",
+        "hex": "#1C1D22",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/preto.webp"
+        ],
+        "chaveEstoque": "xfull|petg||preto",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Branco",
+        "hex": "#ECEEEF",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/branco.webp"
+        ],
+        "chaveEstoque": "xfull|petg||branco",
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Cinza Claro",
+        "hex": "#8C8D8F",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/cinza-claro.webp"
+        ],
+        "chaveEstoque": "xfull|petg||cinza-claro",
+        "statusEstoqueInicial": "ultimas_unidades",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Amarelo",
+        "hex": "#F2C230",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/amarelo.webp"
+        ],
+        "chaveEstoque": "xfull|petg||amarelo",
+        "statusEstoqueInicial": "ultimas_unidades",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Laranja",
+        "hex": "#F2701E",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/laranja.webp"
+        ],
+        "chaveEstoque": "xfull|petg||laranja",
+        "statusEstoqueInicial": "ultimas_unidades",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Verde",
+        "hex": "#3FCB2E",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/verde.webp"
+        ],
+        "chaveEstoque": "xfull|petg||verde",
+        "statusEstoqueInicial": "ultimas_unidades",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Lilás",
+        "hex": "#A493D9",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/xfull-petg/lilas.webp"
+        ],
+        "chaveEstoque": "xfull|petg||lilas",
+        "statusEstoqueInicial": "ultimas_unidades",
+        "disponivelInicial": true
+      },
+      {
+        "nome": "Vermelho",
+        "hex": "#C8202B",
+        "hexFonte": "sem_foto",
+        "fotoStatus": "ausente",
+        "imagens": [
+          "assets/fotos/xfull-petg/vermelho.webp"
+        ],
+        "chaveEstoque": "xfull|petg||vermelho",
+        "statusEstoqueInicial": "sem_estoque",
+        "disponivelInicial": false
+      }
+    ]
+  },
+  {
     "marca": "QLB",
     "material": "PLA",
     "preco": 84,

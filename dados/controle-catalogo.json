@@ -4,7 +4,11 @@
   "produtosPausados": [
     "masterprint|petg|5kg"
   ],
-  "coresPausadas": [],
+  "coresPausadas": [
+    "xfull|petg||vermelho"
+  ],
   "rascunhos": [],
-  "motivos": {}
+  "motivos": {
+    "xfull|petg||vermelho": "Inativo por enquanto (2026-10-29)"
+  }
 }

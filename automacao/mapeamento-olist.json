@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 391,
+  "total": 399,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -4302,6 +4302,94 @@
       "sku": "MP-PLA-SILK-DOURADO",
       "gtin": "7908229109715",
       "descricaoOlist": "MP-FILAMENTO 3D - PLA SILK DOURADO 1KG (1.75MM) DER 4"
+    },
+    {
+      "chave": "xfull|petg||preto",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Preto",
+      "olistId": 1057555165,
+      "sku": "15010",
+      "gtin": "7908065760927",
+      "descricaoOlist": "FILAMENTO 3D PETG PRETO - GS001 XFULL"
+    },
+    {
+      "chave": "xfull|petg||branco",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Branco",
+      "olistId": 1057555149,
+      "sku": "15011",
+      "gtin": "7908065760934",
+      "descricaoOlist": "FILAMENTO 3D PETG BRANCO - GS002 XFULL"
+    },
+    {
+      "chave": "xfull|petg||cinza-claro",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Cinza Claro",
+      "olistId": 1057555153,
+      "sku": "15018",
+      "gtin": "7908065761009",
+      "descricaoOlist": "FILAMENTO 3D PETG CINZA CLARO - GS008 XFULL"
+    },
+    {
+      "chave": "xfull|petg||amarelo",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Amarelo",
+      "olistId": 1057555146,
+      "sku": "15019",
+      "gtin": "7908065761016",
+      "descricaoOlist": "FILAMENTO 3D PETG AMARELO - GS009 XFULL"
+    },
+    {
+      "chave": "xfull|petg||laranja",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Laranja",
+      "olistId": 1057555157,
+      "sku": "15021",
+      "gtin": "7908065761030",
+      "descricaoOlist": "FILAMENTO 3D PETG LARANJA - GS011 XFULL"
+    },
+    {
+      "chave": "xfull|petg||verde",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Verde",
+      "olistId": 1057555169,
+      "sku": "15014",
+      "gtin": "7908065760965",
+      "descricaoOlist": "FILAMENTO 3D PETG VERDE - GS005 XFULL"
+    },
+    {
+      "chave": "xfull|petg||lilas",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Lilás",
+      "olistId": 1057555161,
+      "sku": "15026",
+      "gtin": "7908065761085",
+      "descricaoOlist": "FILAMENTO 3D PETG LILAS - GS016 XFULL"
+    },
+    {
+      "chave": "xfull|petg||vermelho",
+      "marca": "XFull",
+      "material": "PETG",
+      "linha": "",
+      "cor": "Vermelho",
+      "olistId": 1057555173,
+      "sku": "15013",
+      "gtin": "7908065760958",
+      "descricaoOlist": "FILAMENTO 3D PETG VERMELHO - GS004 XFULL"
     }
   ]
 }
