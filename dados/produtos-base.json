@@ -1141,10 +1141,10 @@
       },
       {
         "nome": "Fosco Preto",
-        "hex": "#1E1E1E",
+        "hex": "#2A2A2C",
         "efeito": "fosco",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hexFonte": "foto-ajustada",
+        "fotoStatus": "confirmada",
         "imagens": [
           "assets/fotos/masterprint-petg/fosco-preto.webp"
         ],
