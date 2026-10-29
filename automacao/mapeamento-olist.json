@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 399,
+  "total": 404,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -3039,15 +3039,15 @@
       "descricaoOlist": "Kit de Chaveiros Metal — 50 un · Simples 25mm + Elo 8mm · Prata"
     },
     {
-      "chave": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
-      "marca": "Kit 35 em 1",
+      "chave": "kit-62-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
+      "marca": "Kit 62 em 1",
       "material": "Ferramentas",
       "linha": "com bolsa organizadora",
       "cor": "Kit completo",
       "olistId": 1054858360,
-      "sku": null,
+      "sku": "MTF-KIT-001",
       "gtin": null,
-      "descricaoOlist": "Kit 35 em 1 Ferramentas com bolsa organizadora — Kit completo"
+      "descricaoOlist": "KIT DE FERRAMENTAS 62 EM 1 PARA IMPRESSAO 3D C/ BOLSA ORGANIZADORA"
     },
     {
       "chave": "pinceis-de-silicone|ferramentas|kit-5|kit-com-5-pinceis",
@@ -4390,6 +4390,61 @@
       "sku": "15013",
       "gtin": "7908065760958",
       "descricaoOlist": "FILAMENTO 3D PETG VERMELHO - GS004 XFULL"
+    },
+    {
+      "chave": "multifila|mesa-cool-plate|a1|257x257-prensada-a-frio",
+      "marca": "Multifila",
+      "material": "Mesa Cool Plate",
+      "linha": "A1",
+      "cor": "257 × 257 mm · prensada a frio",
+      "olistId": 1057554148,
+      "sku": "MTF-CPL-001",
+      "gtin": null,
+      "descricaoOlist": "MESA COOL PLATE MTF A1 257*257 COR PRENSADA A FRIO"
+    },
+    {
+      "chave": "imas-de-neodimio|kit-100||6x3mm",
+      "marca": "Ímãs de Neodímio",
+      "material": "Kit 100",
+      "linha": "",
+      "cor": "6 × 3 mm",
+      "olistId": 1057554151,
+      "sku": "MTF-IMA-6X3",
+      "gtin": null,
+      "descricaoOlist": "KIT 100 IMA DE NEODIMIO 6X3MM"
+    },
+    {
+      "chave": "imas-de-neodimio|kit-100||8x3mm",
+      "marca": "Ímãs de Neodímio",
+      "material": "Kit 100",
+      "linha": "",
+      "cor": "8 × 3 mm",
+      "olistId": 1057554155,
+      "sku": "MTF-IMA-8X3",
+      "gtin": null,
+      "descricaoOlist": "KIT 100 IMA DE NEODIMIO 8X3MM"
+    },
+    {
+      "chave": "parafusos-allen-m3|kit-100||m3x10mm",
+      "marca": "Parafusos Allen M3",
+      "material": "Kit 100",
+      "linha": "",
+      "cor": "M3 × 10 mm · cabeça cilíndrica",
+      "olistId": 1057554161,
+      "sku": "MTF-PM3-001",
+      "gtin": null,
+      "descricaoOlist": "KIT 100 PARAFUSO M3"
+    },
+    {
+      "chave": "insertos-de-rosca-m3|kit-100||5-7x4x6mm",
+      "marca": "Insertos de Rosca M3",
+      "material": "Kit 100",
+      "linha": "",
+      "cor": "5,7 × 4 × 6 mm · latão",
+      "olistId": 1057554165,
+      "sku": "MTF-RM3-001",
+      "gtin": null,
+      "descricaoOlist": "KIT 100 ROSCA M3 5.7X4X6"
     }
   ]
 }

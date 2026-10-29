@@ -4742,6 +4742,7 @@
     "preco": 72.9,
     "linkLoja": "https://3zkfilamentos.com.br/",
     "obs": "",
+    "capa": "assets/fotos/capas/xfull-petg.webp",
     "cores": [
       {
         "nome": "Preto",
@@ -5108,6 +5109,35 @@
     "disponivel": true
   },
   {
+    "marca": "Multifila",
+    "material": "Mesa Cool Plate",
+    "linha": "A1",
+    "preco": 149,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Peças e acessórios",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "257 × 257 mm · prensada a frio",
+        "hex": "#1E1E1E",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/mesa-cool-plate-multifila-a1/257x257-prensada-a-frio.webp"
+        ],
+        "preco": 149,
+        "idCatalogo": "multifila|mesa-cool-plate|a1|257x257-prensada-a-frio",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "multifila|mesa-cool-plate|a1",
+    "disponivel": true
+  },
+  {
     "marca": "Canetas Marcadoras Multifila",
     "material": "Utilidades",
     "preco": 45,
@@ -5290,10 +5320,107 @@
     "disponivel": true
   },
   {
-    "marca": "Kit 35 em 1",
+    "marca": "Ímãs de Neodímio",
+    "material": "Kit 100",
+    "preco": 69,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Peças e acessórios",
+    "rotuloVariacaoSingular": "tamanho",
+    "rotuloVariacaoPlural": "tamanhos",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "6 × 3 mm",
+        "hex": "#A9A9AB",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/imas-de-neodimio-kit-100/6x3mm.webp"
+        ],
+        "preco": 69,
+        "idCatalogo": "imas-de-neodimio|kit-100||6x3mm",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      },
+      {
+        "nome": "8 × 3 mm",
+        "hex": "#A9A9AB",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/imas-de-neodimio-kit-100/8x3mm.webp"
+        ],
+        "preco": 79,
+        "idCatalogo": "imas-de-neodimio|kit-100||8x3mm",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "imas-de-neodimio|kit-100|",
+    "disponivel": true
+  },
+  {
+    "marca": "Parafusos Allen M3",
+    "material": "Kit 100",
+    "preco": 49,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Peças e acessórios",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "M3 × 10 mm · cabeça cilíndrica",
+        "hex": "#B9BBBE",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/parafusos-allen-m3-kit-100/m3x10mm.webp"
+        ],
+        "preco": 49,
+        "idCatalogo": "parafusos-allen-m3|kit-100||m3x10mm",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "parafusos-allen-m3|kit-100|",
+    "disponivel": true
+  },
+  {
+    "marca": "Insertos de Rosca M3",
+    "material": "Kit 100",
+    "preco": 59,
+    "linkLoja": "",
+    "secao": "acessorios",
+    "categoria": "Peças e acessórios",
+    "rotuloVariacaoSingular": "opção",
+    "rotuloVariacaoPlural": "opções",
+    "tipoProduto": "acessório",
+    "cores": [
+      {
+        "nome": "5,7 × 4 × 6 mm · latão",
+        "hex": "#C9A646",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/insertos-de-rosca-m3-kit-100/5-7x4x6mm.webp"
+        ],
+        "preco": 59,
+        "idCatalogo": "insertos-de-rosca-m3|kit-100||5-7x4x6mm",
+        "statusEstoque": "em_estoque",
+        "disponivel": true
+      }
+    ],
+    "idCatalogo": "insertos-de-rosca-m3|kit-100|",
+    "disponivel": true
+  },
+  {
+    "marca": "Kit 62 em 1",
     "material": "Ferramentas",
     "linha": "com bolsa organizadora",
-    "preco": 149,
+    "preco": 179,
     "linkLoja": "",
     "secao": "acessorios",
     "categoria": "Ferramentas",
@@ -5303,19 +5430,19 @@
     "cores": [
       {
         "nome": "Kit completo",
-        "hex": "#4A4F57",
-        "hexFonte": "sem_foto",
-        "fotoStatus": "ausente",
+        "hex": "#2B2D31",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
         "imagens": [
-          "assets/fotos/kit-35-em-1-ferramentas-com-bolsa-organizadora/kit-completo.webp"
+          "assets/fotos/kit-62-em-1-ferramentas-com-bolsa-organizadora/kit-completo.webp"
         ],
-        "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "idCatalogo": "kit-62-em-1|ferramentas|com-bolsa-organizadora|kit-completo",
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       }
     ],
-    "idCatalogo": "kit-35-em-1|ferramentas|com-bolsa-organizadora",
-    "disponivel": false
+    "idCatalogo": "kit-62-em-1|ferramentas|com-bolsa-organizadora",
+    "disponivel": true
   },
   {
     "marca": "Pincéis de Silicone",
