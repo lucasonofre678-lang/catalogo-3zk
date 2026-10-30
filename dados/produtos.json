@@ -444,8 +444,8 @@
           "assets/fotos/closin-petg/fluo-red.webp"
         ],
         "idCatalogo": "closin|petg||fluo-red",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Fluo Rose",
@@ -689,8 +689,8 @@
           "assets/fotos/closin-pla/verde.webp"
         ],
         "idCatalogo": "closin|pla||verde",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Vermelho",
