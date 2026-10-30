@@ -39,8 +39,8 @@
           "assets/fotos/flashforge-pla/azul-esverdeado.webp"
         ],
         "idCatalogo": "flashforge|pla||azul-esverdeado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cool Gray / Cinza Azulado",
@@ -5914,12 +5914,12 @@
         ],
         "gtin": "7899958258891",
         "idCatalogo": "alicates|ferramentas||alicate-bico-de-jacare-4-5-polegadas",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "alicates|ferramentas|",
-    "disponivel": true
+    "disponivel": false
   },
   {
     "marca": "Maçarico",
