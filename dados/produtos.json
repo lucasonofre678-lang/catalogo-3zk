@@ -998,8 +998,8 @@
           "assets/fotos/closin-pla-silk/red-copper.webp"
         ],
         "idCatalogo": "closin|pla|silk|red-copper",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Rose",
@@ -1300,7 +1300,7 @@
           "assets/fotos/masterprint-petg/green-olive-2.webp"
         ],
         "idCatalogo": "masterprint|petg||green-olive",
-        "statusEstoque": "ultimas_unidades",
+        "statusEstoque": "em_estoque",
         "disponivel": true
       },
       {
@@ -4546,8 +4546,8 @@
         "sku": "2305",
         "gtin": "0042882745587",
         "idCatalogo": "polyflow|pla||bege",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Verde Neon",
@@ -4559,7 +4559,7 @@
         ],
         "sku": "2348",
         "idCatalogo": "polyflow|pla||verde-neon",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5213,8 +5213,8 @@
           "assets/fotos/parafusos-tipo-gancho-chaveiros-kit-100/cromado.webp"
         ],
         "idCatalogo": "parafusos-tipo-gancho|chaveiros|kit-100|cromado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Dourado",
@@ -5901,8 +5901,8 @@
         ],
         "gtin": "7908348205824",
         "idCatalogo": "alicates|ferramentas||alicate-de-corte-5-polegadas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       },
       {
         "nome": "Alicate bico de jacaré · 4,5 polegadas",
@@ -5914,12 +5914,12 @@
         ],
         "gtin": "7899958258891",
         "idCatalogo": "alicates|ferramentas||alicate-bico-de-jacare-4-5-polegadas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       }
     ],
     "idCatalogo": "alicates|ferramentas|",
-    "disponivel": false
+    "disponivel": true
   },
   {
     "marca": "Maçarico",
