@@ -2802,8 +2802,8 @@
           "assets/fotos/masterprint-abs/azul.webp"
         ],
         "idCatalogo": "masterprint|abs||azul",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Branco",
@@ -4506,7 +4506,7 @@
         ],
         "sku": "2334",
         "idCatalogo": "polyflow|pla||cinza-claro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
