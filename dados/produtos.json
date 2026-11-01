@@ -3627,7 +3627,7 @@
         "preco": 120,
         "efeito": "fosco",
         "idCatalogo": "multifila|pla|matte|verde-matcha",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5901,8 +5901,8 @@
         ],
         "gtin": "7908348205824",
         "idCatalogo": "alicates|ferramentas||alicate-de-corte-5-polegadas",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Alicate bico de jacaré · 4,5 polegadas",
