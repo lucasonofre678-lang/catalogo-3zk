@@ -444,8 +444,8 @@
           "assets/fotos/closin-petg/fluo-red.webp"
         ],
         "idCatalogo": "closin|petg||fluo-red",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluo Rose",
@@ -578,8 +578,8 @@
           "assets/fotos/closin-petg/wood.webp"
         ],
         "idCatalogo": "closin|petg||wood",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "obs": "",
@@ -714,8 +714,8 @@
           "assets/fotos/closin-pla/azul-ceu-sky-blue.webp"
         ],
         "idCatalogo": "closin|pla||azul-ceu-sky-blue",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Branco Pérola",
@@ -1096,8 +1096,8 @@
           "assets/fotos/masterprint-petg/dourado.webp"
         ],
         "idCatalogo": "masterprint|petg||dourado",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fluorescente Roxo",
@@ -1851,8 +1851,8 @@
           "assets/fotos/masterprint-pla/fosco-roxo.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-roxo",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fosco Azul Ártico",
