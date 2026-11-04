@@ -1438,8 +1438,8 @@
         "preco": 120,
         "gtin": "7908229110797",
         "idCatalogo": "masterprint|petg|especial|fibra-de-carbono",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Fibra de Vidro 10% Branco",
@@ -2104,8 +2104,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||madeira",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "masterprint|pla|",
@@ -4559,8 +4559,8 @@
         ],
         "sku": "2348",
         "idCatalogo": "polyflow|pla||verde-neon",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Rosa Neon",
@@ -4633,7 +4633,7 @@
           "assets/fotos/qlb-petg/vermelho.webp"
         ],
         "idCatalogo": "qlb|petg||vermelho",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5054,8 +5054,8 @@
         "sku": "ROLO200",
         "gtin": "7908229105083",
         "idCatalogo": "rolo-etiqueta-termica|outras|10x15|200-etiquetas",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "500 Etiquetas",
@@ -5288,7 +5288,7 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-prata",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5300,7 +5300,7 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-simples-25mm-elo-8mm-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5312,8 +5312,8 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-simples-25mm-elo-8mm-prata.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-simples-25mm-elo-8mm-prata",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "kit-de-chaveiros|metal|",
