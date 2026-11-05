@@ -283,7 +283,7 @@
           "assets/fotos/flashforge-pla/sand-bege-claro.webp"
         ],
         "idCatalogo": "flashforge|pla||sand-bege-claro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
