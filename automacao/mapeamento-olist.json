@@ -1,7 +1,7 @@
 {
   "versao": 1,
   "descricao": "Mapeamento catálogo 3ZK ↔ IDs Olist/Tiny, atualizado em 2026-10-20",
-  "total": 404,
+  "total": 405,
   "itens": [
     {
       "chave": "flashforge|pla||vermelho-coral",
@@ -4445,6 +4445,17 @@
       "sku": "MTF-RM3-001",
       "gtin": null,
       "descricaoOlist": "KIT 100 ROSCA M3 5.7X4X6"
+    },
+    {
+      "chave": "masterprint|pla|especial|silk-amarelo-gold",
+      "marca": "Masterprint",
+      "material": "PLA",
+      "linha": "Especial",
+      "cor": "Silk Amarelo Gold",
+      "olistId": 1057945029,
+      "sku": "7908229111541",
+      "gtin": "7908229111541",
+      "descricaoOlist": "MP-FILAMENTO 3D - PLA AMARELO GOLD - 1KG (1.75MM) DER 4"
     }
   ]
 }

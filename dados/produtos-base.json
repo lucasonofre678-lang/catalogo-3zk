@@ -2345,6 +2345,21 @@
         "preco": 84,
         "statusEstoqueInicial": "em_estoque",
         "disponivelInicial": true
+      },
+      {
+        "nome": "Silk Amarelo Gold",
+        "hex": "#D7AC58",
+        "efeito": "silk",
+        "hexFonte": "foto",
+        "fotoStatus": "confirmada",
+        "imagens": [
+          "assets/fotos/masterprint-pla/silk-amarelo-gold.webp"
+        ],
+        "chaveEstoque": "masterprint|pla|especial|silk-amarelo-gold",
+        "preco": 84,
+        "statusEstoqueInicial": "em_estoque",
+        "disponivelInicial": true,
+        "gtin": "7908229111541"
       }
     ],
     "linha": "Especial"
