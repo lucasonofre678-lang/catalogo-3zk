@@ -762,7 +762,7 @@
           "assets/fotos/closin-pla/fluo-green.webp"
         ],
         "idCatalogo": "closin|pla||fluo-green",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -882,8 +882,8 @@
           "assets/fotos/closin-pla/wood.webp"
         ],
         "idCatalogo": "closin|pla||wood",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "closin|pla|",
@@ -2695,8 +2695,8 @@
         ],
         "gtin": "7908229108435",
         "idCatalogo": "masterprint|asa||preto",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       }
     ],
     "idCatalogo": "masterprint|asa|",
@@ -3440,7 +3440,7 @@
         "preco": 120,
         "efeito": "fosco",
         "idCatalogo": "multifila|pla|matte|branco",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -5276,7 +5276,7 @@
           "assets/fotos/kit-de-chaveiros-metal/50-un-gancho-argola-simples-dourado.webp"
         ],
         "idCatalogo": "kit-de-chaveiros|metal||50-un-gancho-argola-simples-dourado",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
