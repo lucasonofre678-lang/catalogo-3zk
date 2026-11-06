@@ -553,7 +553,7 @@
           "assets/fotos/closin-petg/verde.webp"
         ],
         "idCatalogo": "closin|petg||verde",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1096,8 +1096,8 @@
           "assets/fotos/masterprint-petg/dourado.webp"
         ],
         "idCatalogo": "masterprint|petg||dourado",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Fluorescente Roxo",
@@ -1211,8 +1211,8 @@
           "assets/fotos/masterprint-petg/rosa.webp"
         ],
         "idCatalogo": "masterprint|petg||rosa",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Roxo",
@@ -1826,7 +1826,7 @@
           "assets/fotos/masterprint-pla/roxo-claro-real.webp"
         ],
         "idCatalogo": "masterprint|pla||roxo-claro",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -1927,8 +1927,8 @@
           "assets/fotos/masterprint-pla/azul.webp"
         ],
         "idCatalogo": "masterprint|pla||azul",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Café",
@@ -2104,8 +2104,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla||madeira",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "ultimas_unidades",
+        "disponivel": true
       }
     ],
     "idCatalogo": "masterprint|pla|",
@@ -2393,8 +2393,8 @@
         ],
         "preco": 84,
         "idCatalogo": "masterprint|pla|especial|silk-roxo-preto",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Verde",
@@ -2476,8 +2476,8 @@
         ],
         "preco": 94,
         "idCatalogo": "masterprint|pla|especial|marmore",
-        "statusEstoque": "sem_estoque",
-        "disponivel": false
+        "statusEstoque": "em_estoque",
+        "disponivel": true
       },
       {
         "nome": "Silk Laranja/Preto · Duo Color",
@@ -2616,10 +2616,10 @@
           "assets/fotos/masterprint-pla/silk-amarelo-gold.webp"
         ],
         "preco": 84,
+        "gtin": "7908229111541",
         "idCatalogo": "masterprint|pla|especial|silk-amarelo-gold",
         "statusEstoque": "em_estoque",
-        "disponivel": true,
-        "gtin": "7908229111541"
+        "disponivel": true
       }
     ],
     "linha": "Especial",
@@ -4913,7 +4913,7 @@
           "assets/fotos/qlb-pla/amarelo.webp"
         ],
         "idCatalogo": "qlb|pla||amarelo",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4961,7 +4961,7 @@
           "assets/fotos/qlb-pla/azul-ceu.webp"
         ],
         "idCatalogo": "qlb|pla||azul-ceu",
-        "statusEstoque": "em_estoque",
+        "statusEstoque": "ultimas_unidades",
         "disponivel": true
       },
       {
@@ -4985,8 +4985,8 @@
           "assets/fotos/qlb-pla/verde.webp"
         ],
         "idCatalogo": "qlb|pla||verde",
-        "statusEstoque": "em_estoque",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Silk Cobre",
