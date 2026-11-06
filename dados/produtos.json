@@ -1903,8 +1903,8 @@
           "assets/fotos/masterprint-pla/fosco-laranja-nascer-do-sol.webp"
         ],
         "idCatalogo": "masterprint|pla||fosco-laranja-nascer-do-sol",
-        "statusEstoque": "ultimas_unidades",
-        "disponivel": true
+        "statusEstoque": "sem_estoque",
+        "disponivel": false
       },
       {
         "nome": "Cobre Esverdeado",
